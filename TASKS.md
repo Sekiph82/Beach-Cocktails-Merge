@@ -6,17 +6,17 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 - Current Milestone: M00
 - Current Sprint: M00-REPOSITORY-SYNC-AND-BASELINE
-- Current Task: BCM-M00-001 — Safely reconcile the owner local workspace with GitHub main and establish an evidence-backed repository baseline.
+- Current Task: BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `docs/prompts/BCM-M00-001_REPOSITORY_SYNC_AND_BASELINE_V01_PROMPT.md`, commit and push the reconciled repository, write the immutable Codex log, and stop for independent strict audit before any Godot v7 integration work begins.
+- Next Task/Action: Codex must execute `docs/prompts/BCM-M00-002_REPOSITORY_HYGIENE_AND_GODOT_BASELINE_V01_PROMPT.md`, commit and push the bounded implementation plus immutable evidence log, and stop for independent strict audit before BCM-M01-001 or any Godot v7 integration work begins.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
 ## Tasks
 
-- [~] BCM-M00-001 — Repository synchronization and evidence baseline.
-- [ ] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
+- [x] BCM-M00-001 — Repository synchronization and evidence baseline.
+- [~] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
 - [ ] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
 - [ ] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [ ] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
@@ -55,20 +55,20 @@ A task is not complete because Codex reports completion. Completion requires ind
 Goal: make GitHub `main` accurately represent the owner's current local Godot project without losing local or remote work, then establish a clean auditable baseline for all later development.
 
 ### M00.01 — Safe synchronization preflight
-- [~] BCM-M00-001 — Repository synchronization and evidence baseline.
-  - [ ] Prove the actual local Git root and expected workspace `C:\Users\sekip\Desktop\Beach Cocktails - Merge`.
-  - [ ] Record local branch, HEAD, remote URLs, status, tags, and worktrees.
-  - [ ] Fetch `origin/main` before reading implementation prompts.
-  - [ ] Compare local HEAD against `origin/main` without destructive reset/rebase/force operations.
-  - [ ] Inventory local tracked changes, untracked files, generated assets, and any local-only gameplay revisions.
-  - [ ] Inventory remote-only governance files and current GitHub project contents.
-  - [ ] Reconcile both sides while preserving owner-created work.
-  - [ ] Commit and push all intended current project files and assets.
-  - [ ] Verify local HEAD, `origin/main`, and remote `main` SHA match.
-  - [ ] Write immutable Codex evidence log and stop for strict audit.
+- [x] BCM-M00-001 — Repository synchronization and evidence baseline.
+  - [x] Prove the actual local Git root and expected workspace `C:\Users\sekip\Desktop\Beach Cocktails - Merge`.
+  - [x] Record local branch, HEAD, remote URLs, status, tags, and worktrees.
+  - [x] Fetch `origin/main` before reading implementation prompts.
+  - [x] Compare local HEAD against `origin/main` without destructive reset/rebase/force operations.
+  - [x] Inventory local tracked changes, untracked files, generated assets, and any local-only gameplay revisions.
+  - [x] Inventory remote-only governance files and current GitHub project contents.
+  - [x] Reconcile both sides while preserving owner-created work.
+  - [x] Commit and push all intended current project files and assets.
+  - [x] Verify local HEAD, `origin/main`, and remote `main` SHA match.
+  - [x] Write immutable Codex evidence log and stop for strict audit.
 
 ### M00.02 — Canonical project structure and hygiene
-- [ ] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
+- [~] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
   - [ ] Confirm `project.godot` opens cleanly in Godot 4.7.x.
   - [ ] Confirm canonical `scenes/`, `scripts/`, `data/`, and `assets/` trees.
   - [ ] Ensure `.godot/`, editor caches, temporary exports, user save files, and machine-specific files are ignored.
