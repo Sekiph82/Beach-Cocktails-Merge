@@ -1,12 +1,11 @@
 class_name ShotController
 extends Node
 
-## Desktop + mobile shot input.
-## Hold/drag horizontally to choose X, release to launch straight upward.
+## Desktop + mobile input for the tabletop shot.
+## Drag horizontally to choose the launch lane, release to slide upward.
 
-@export var launch_force: float = 2000.0
-@export var spawn_y_offset: float = 90.0
-@export var respawn_delay: float = 0.6
+@export var launch_speed: float = 700.0
+@export var spawn_y_offset: float = 92.0
 
 var _manager: GameManager
 var _dragging := false
@@ -61,7 +60,6 @@ func _unhandled_input(event: InputEvent) -> void:
     if not _can_shoot or not is_instance_valid(_current_drink):
         return
 
-    # Desktop mouse.
     if event is InputEventMouseButton:
         var mouse_button := event as InputEventMouseButton
         if mouse_button.button_index == MOUSE_BUTTON_LEFT:
@@ -77,7 +75,6 @@ func _unhandled_input(event: InputEvent) -> void:
         _move_current_to(mouse_motion.position.x)
         return
 
-    # Mobile touch. Track one finger only.
     if event is InputEventScreenTouch:
         var touch := event as InputEventScreenTouch
         if touch.pressed and _active_touch_index == -1:
@@ -104,31 +101,28 @@ func _move_current_to(x_pos: float) -> void:
     if not is_instance_valid(_current_drink):
         return
 
-    var board_size := _manager.get_board_size()
-    var margin := _current_drink.radius + 12.0
-    _current_drink.position.x = clampf(x_pos, margin, board_size.x - margin)
+    var bounds := _manager.get_horizontal_bounds_at_y(_current_drink.position.y, _current_drink.radius)
+    _current_drink.position.x = clampf(x_pos, bounds.x, bounds.y)
 
 
 func _end_drag_and_fire() -> void:
     _dragging = false
-    _launch(Vector2(0.0, -launch_force))
+    _launch()
 
 
-func _launch(velocity: Vector2) -> void:
+func _launch() -> void:
     if not is_instance_valid(_current_drink) or _manager.game_over:
         return
 
     var fired := _current_drink
-    fired.freeze = false
-    fired.sleeping = false
-    fired.linear_velocity = velocity
-    fired.angular_velocity = randf_range(-3.0, 3.0)
-
-    shot_fired.emit(fired, velocity)
     _current_drink = null
     _can_shoot = false
 
-    await get_tree().create_timer(respawn_delay).timeout
+    # Held preview has no collision. It enters the physics world only here.
+    # A fresh held glass is spawned immediately; the fired glass does NOT need
+    # to settle or merge first. Multiple glasses may be moving at the same time.
+    fired.launch_up(launch_speed)
+    shot_fired.emit(fired, Vector2(0.0, -launch_speed))
 
     if _manager == null or _manager.game_over:
         return

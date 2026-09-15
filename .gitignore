@@ -1,0 +1,10 @@
+# Godot-generated local/editor/import data
+.godot/
+*.import
+*.uid
+
+# Local runtime/editor artifacts
+*.log
+*.tmp
+*.save
+user://

@@ -1,82 +1,59 @@
-Cocktail Merge - Godot 4.7.x - Playable Prototype
-===================================================
+Beach Cocktails - Merge / Prototype v6.6
+========================================
 
-BU BUILD NE YAPIYOR?
---------------------
-Bu proje, verilen ilk dosyalar temel alinarak oynanabilir hale getirildi.
-Harici sprite/audio gerektirmez; icecekler simdilik renkli placeholder dairelerdir.
+Godot: 4.7.x
+Main scene: res://scenes/main.tscn
 
-KURULUM
--------
-1. Godot 4.7.x ac.
-2. Import > bu klasordeki project.godot dosyasini sec.
-3. Projeyi ac.
-4. F6 yerine F5 (Run Project) kullanabilirsin. Ana sahne zaten scenes/main.tscn.
-5. Desktop test penceresi 405x720 acilir; oyun mantigi sabit 720x1280 portre viewport kullanir ve pencereye olceklenir.
+PHYSICS BASELINE (unchanged from v6.4)
+--------------------------------------
+- Launch speed: 700 px/s.
+- Slide deceleration: 180 px/s^2.
+- No cruise/assist/minimum-speed support.
+- Existing collision, forward-only movement, merge momentum, danger line, game-over and restart behavior are unchanged.
+- To-Go Orders targets remain L6-L12; the first target is L8 and immediate repeats are avoided.
 
-KONTROLLER
-----------
-Windows/macOS/Linux:
-- Sol mouse tusuna bas.
-- Fareyi saga/sola surukleyerek icecegin X konumunu ayarla.
-- Mouse tusunu birakinca icecek yukari firlar.
+SCORING SYSTEM
+--------------
+Merge score is awarded when the resulting level is created:
+- L2: 20
+- L3: 50
+- L4: 100
+- L5: 200
+- L6: 350
+- L7: 600
+- L8: 1,000
+- L9: 1,600
+- L10: 2,500
+- L11: 4,000
+- L12: 6,500
 
-Mobil:
-- Dokun ve saga/sola surukle.
-- Parmagini kaldirinca icecek yukari firlar.
+Combo:
+- Combo window: 1.5 seconds. Every merge refreshes the timer.
+- x1: +0% of merge score
+- x2: +25%
+- x3: +50%
+- x4: +75%
+- x5: +100%
+- x6+: +125% (capped at x6)
 
-OYUN AKISI
-----------
-- Yeni atislar sadece level 1-3 arasindan gelir.
-- Ayni level iki icecek temas edince bir sonraki levele birlesir.
-- 12 level zinciri data/drinks.json dosyasindan okunur.
-- Level 12 + Level 12 artik yok olmaz; max level sabit kalir.
-- Birlesmeler zincir halinde 0.8 sn icinde olursa skor carpani artar.
-- Bir icecegin ust kenari kirmizi olum cizgisinin ustunde kesintisiz 1 sn kalirsa oyun biter.
-- Rekor user://save.cfg dosyasina kaydedilir.
-- Game Over ekraninda TEKRAR OYNA butonu vardir.
-
-DUZELTILEN KRITIK SORUNLAR
----------------------------
-1. Tum Drink nesneleri artik tek World node'u altinda; merge ve death-line taramasi ayni agaci gorur.
-2. Drink.merged sinyali her spawn/merge sonrasinda MergeQueue'ya baglanir.
-3. Merge islemleri physics contact callback'i icinde degil, deferred kuyrukta yapilir.
-4. Level 12 + Level 12 silinme bug'i kaldirildi.
-5. Mouse ve touch input birlikte desteklenir.
-6. Atis hizi, gravity_scale=2 ile tum oyun alanina erisecek sekilde 2000 px/s yapildi.
-7. Sabit oyun alani icin gereksiz Camera2D kaldirildi.
-8. Score, Best, Next, Chain, Game Over ve Restart UI eklendi.
-9. drinks.json okuma/level sinirlari icin hata kontrolleri eklendi.
-10. README'deki Jolt 2D ifadesi kaldirildi. Bu proje RigidBody2D/GodotPhysics2D kullanir.
-
-DOSYA YAPISI
+TO-GO ORDERS
 ------------
-project.godot
-scenes/
-  main.tscn
-scripts/
-  game_manager.gd
-  drink.gd
-  merge_queue.gd
-  shot_controller.gd
-data/
-  drinks.json
+- L8: 3,000
+- L9: 5,000
+- L10: 8,000
+- L11: 12,000
+- L12: 18,000
+- When a newly merged drink matches the active order, normal merge/combo points are paid first, then the separate order bonus.
+- The same stock rule applies to every order level L6-L12. If a matching drink already exists on the table when a later order appears, one matching drink is automatically delivered.
+- A stored drink does NOT earn its merge score or old combo again when delivered later; only the To-Go Orders bonus is awarded.
+- If multiple matching drinks exist, one drink fulfils one order and the others stay on the table.
 
-ILK TEST CHECKLIST
-------------------
-[ ] Proje import edilirken parse error yok.
-[ ] F5 ile pencere aciliyor.
-[ ] Mouse ile X konumu degisiyor ve birakinca firliyor.
-[ ] Mobil touch ayni davranisi veriyor.
-[ ] Ayni level icecekler birlesiyor.
-[ ] Yeni birlesmis icecek tekrar birlesebiliyor.
-[ ] Level 12'ler birbirine dokununca kaybolmuyor.
-[ ] Skor ve zincir ekranda guncelleniyor.
-[ ] Kirmizi cizginin ustunde 1 sn doluluk Game Over yapiyor.
-[ ] Rekor kapanip acinca korunuyor.
-[ ] Tekrar Oyna yeni oyun baslatiyor.
+VISUAL STATUS
+-------------
+Placeholder visuals are intentionally retained. The dedicated v7 art pass follows after the scoring/gameplay baseline is accepted.
 
-NOT
----
-Bu surum oynanabilir gameplay prototipidir. Gercek kokteyl sprite'lari, sesler,
-animasyonlar, ana menu ve mobil export ayarlari sonraki polish katmanidir.
+
+v6.7 INPUT RHYTHM:
+- A new held glass appears immediately after every shot.
+- The player can fire again while previous glasses are still sliding.
+- Multiple moving glasses are intentionally supported for richer collisions and combos.

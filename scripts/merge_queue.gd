@@ -2,7 +2,8 @@ class_name MergeQueue
 extends Node
 
 ## Merge requests can originate from a physics contact callback.
-## They are collected and flushed deferred, after the physics query is finished.
+## Nodes are replaced outside the collision callback. The resulting drink keeps
+## meaningful incoming momentum instead of freezing at the merge point.
 
 var _pending: Array[Dictionary] = []
 var _flush_scheduled := false
@@ -11,12 +12,48 @@ var _flush_scheduled := false
 func request_merge(a: Drink, b: Drink, new_level: int) -> void:
     if not is_instance_valid(a) or not is_instance_valid(b) or a == b:
         return
+    if a.is_queued_for_deletion() or b.is_queued_for_deletion():
+        return
+    if a.motion_state == Drink.MotionState.MERGING or b.motion_state == Drink.MotionState.MERGING:
+        return
+    if a.motion_state == Drink.MotionState.TARGET_CAPTURE or b.motion_state == Drink.MotionState.TARGET_CAPTURE:
+        return
 
     for item in _pending:
         if item["a"] == a or item["b"] == a or item["a"] == b or item["b"] == b:
             return
 
-    _pending.append({"a": a, "b": b, "level": new_level})
+    var va := a.get_merge_velocity()
+    var vb := b.get_merge_velocity()
+    var total_mass := maxf(a.mass + b.mass, 0.001)
+    var merge_pos := (a.position * a.mass + b.position * b.mass) / total_mass
+    var merge_velocity := (va * a.mass + vb * b.mass) / total_mass
+
+    # A physical merge loses some energy, but not so much that a moving shot
+    # suddenly dies at the merge point. Keep at least 62% of the fastest
+    # meaningful incoming speed, in that incoming direction.
+    var driver := va if va.length() >= vb.length() else vb
+    var minimum_speed := driver.length() * 0.62
+    merge_velocity *= 0.94
+
+    if driver.length() > a.settle_speed and merge_velocity.length() < minimum_speed:
+        merge_velocity = driver.normalized() * minimum_speed
+
+    # Never send a merged glass back toward the player.
+    if merge_velocity.y > 0.0:
+        merge_velocity.y = 0.0
+
+    a.begin_merge()
+    b.begin_merge()
+
+    _pending.append({
+        "a": a,
+        "b": b,
+        "level": new_level,
+        "position": merge_pos,
+        "velocity": merge_velocity,
+        "driver_speed": driver.length(),
+    })
 
     if not _flush_scheduled:
         _flush_scheduled = true
@@ -33,10 +70,17 @@ func _flush_pending() -> void:
 
     while not _pending.is_empty():
         var item: Dictionary = _pending.pop_front()
-        _do_merge(item["a"], item["b"], int(item["level"]))
+        _do_merge(
+            item["a"],
+            item["b"],
+            int(item["level"]),
+            item["position"],
+            item["velocity"],
+            float(item["driver_speed"])
+        )
 
 
-func _do_merge(a: Drink, b: Drink, new_level: int) -> void:
+func _do_merge(a: Drink, b: Drink, new_level: int, merge_pos: Vector2, merge_velocity: Vector2, driver_speed: float) -> void:
     if not is_instance_valid(a) or not is_instance_valid(b):
         return
     if a.is_queued_for_deletion() or b.is_queued_for_deletion():
@@ -44,33 +88,28 @@ func _do_merge(a: Drink, b: Drink, new_level: int) -> void:
     if a.get_parent() == null or b.get_parent() == null:
         return
 
-    # Defensive protection for the top level.
     if new_level < 1 or new_level > Drink.max_level():
-        a.already_merged = false
-        b.already_merged = false
+        a.set_settled()
+        b.set_settled()
         return
 
-    var total_mass := maxf(a.mass + b.mass, 0.001)
-    var pos := (a.position * a.mass + b.position * b.mass) / total_mass
-    var vel := (a.linear_velocity * a.mass + b.linear_velocity * b.mass) / total_mass
-
-    # Stop further contacts immediately, then remove both old bodies.
-    a.collision_layer = 0
-    a.collision_mask = 0
-    b.collision_layer = 0
-    b.collision_mask = 0
-    a.freeze = true
-    b.freeze = true
     a.queue_free()
     b.queue_free()
 
     if GameManager.instance == null or GameManager.instance.game_over:
         return
 
-    var new_drink := GameManager.instance.spawn_drink(new_level, pos, false)
+    var new_drink := GameManager.instance.spawn_drink(new_level, merge_pos, false)
     if new_drink == null:
         return
 
-    new_drink.linear_velocity = vel * 0.5
-    new_drink.angular_velocity = randf_range(-3.0, 3.0)
-    GameManager.instance.on_merged(new_level, pos)
+    # If either input was genuinely moving, the merged result must keep moving.
+    if driver_speed > new_drink.settle_speed:
+        if merge_velocity.length() <= new_drink.settle_speed:
+            merge_velocity = Vector2(0.0, -new_drink.settle_speed * 1.6)
+        new_drink.start_sliding(merge_velocity)
+    else:
+        new_drink.set_settled()
+        GameManager.instance.call_deferred("try_chain_merge", new_drink)
+
+    GameManager.instance.on_merged(new_level, new_drink)
