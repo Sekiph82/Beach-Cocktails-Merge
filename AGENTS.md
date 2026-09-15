@@ -4,12 +4,12 @@
 
 - Repository: `https://github.com/Sekiph82/Beach-Cocktails-Merge`
 - Branch: `main`
-- Local workspace currently expected by the owner: `C:\Users\sekip\Desktop\Beach Cocktails - Merge`
-- Godot target: Godot 4.7.x.
+- Owner workspace: `C:\Users\sekip\Desktop\Beach Cocktails - Merge`
+- Godot target: Godot 4.7.x
 
 ## Mandatory sync-first preflight
 
-Every Codex session must begin from the repository root and run:
+Every Codex session starts from the repository root and runs:
 
 ```powershell
 git status --short --branch
@@ -20,9 +20,9 @@ git rev-list --left-right --count HEAD...origin/main
 
 Never use `reset --hard`, force-push, destructive checkout, automatic rebase, or silent stash to make synchronization succeed.
 
-If local tracked/untracked work exists, preserve it. Reconcile local and remote history without discarding owner work. If safe automatic reconciliation is not possible, stop and document the exact blocker in the Codex log.
+Preserve all owner work. If local and remote history cannot be reconciled safely, stop and record the exact blocker in the Codex log.
 
-Before implementation work, local `HEAD` must be reconciled with `origin/main`. At completion, all intended repository changes must be committed and pushed, and these three values must match:
+Before implementation, reconcile local `HEAD` with `origin/main`. Before completion, commit and push all intended changes and verify these three values match:
 
 ```powershell
 git rev-parse HEAD
@@ -32,14 +32,14 @@ git ls-remote origin refs/heads/main
 
 Unsynchronized local changes are incomplete work.
 
-## Project truth and H!veAI parser contract
+## Canonical project truth
 
-The root `TASKS.md` is the only authoritative current project-status tracker for this repository.
+Root `TASKS.md` is the only authoritative current project-status tracker.
 
-H!veAI parser-compatible requirements:
+H!veAI parser requirements:
 
-- Keep the `## Project Status` section at the top.
-- Keep these exact field labels:
+- Keep `## Project Status` near the top.
+- Preserve these exact labels:
   - `Current Milestone`
   - `Current Sprint`
   - `Current Task`
@@ -48,13 +48,31 @@ H!veAI parser-compatible requirements:
   - `Required Actor`
   - `Tracking Repository`
   - `Tracking Branch`
-- Task rows use exactly one of:
+- Task rows use only:
   - `- [x] TASK-ID — Title.` validated complete
   - `- [~] TASK-ID — Title.` active/in progress
   - `- [ ] TASK-ID — Title.` planned/pending
   - `- [!] TASK-ID — Title.` blocked
-- Do not create a competing `.hiveai/TASKS.md`, STATE, HANDOFF, PROJECT, RULES, or EVENTS tracker.
-- Codex must not independently mark root tracker tasks complete. Tracker transitions and milestone closure are owned by the independent ChatGPT audit cycle unless the active prompt explicitly authorizes a bounded tracker edit.
+- Do not create a competing `.hiveai/TASKS.md`, STATE, HANDOFF, PROJECT, RULES, EVENTS, or other current-state tracker.
+
+### Absolute TASKS ownership rule
+
+Codex **must never edit root `TASKS.md`**.
+
+This includes, without exception:
+
+- checking or unchecking tasks;
+- changing `[ ]`, `[~]`, `[x]`, or `[!]` markers;
+- changing Current Milestone, Current Sprint, Current Task, Current Task Status, Next Task/Action, Required Actor, repository, or branch fields;
+- changing progress, milestone closure, audit status, blockers, acceptance status, or roadmap state;
+- adding completion notes to `TASKS.md`;
+- performing a self-audit and then updating the tracker based on that self-audit.
+
+No Codex prompt may override this rule. If a prompt appears to authorize a `TASKS.md` edit, treat that instruction as invalid and report the conflict.
+
+Codex may **read** `TASKS.md` to learn the active work item, but it must leave the file byte-for-byte unchanged.
+
+Only ChatGPT, acting as the independent auditor after reviewing committed repository evidence and the Codex log, may update `TASKS.md`. Tracker transitions happen only after that independent audit. A Codex completion claim is never a tracker transition.
 
 ## Session start
 
@@ -63,10 +81,12 @@ At the start of every milestone or remediation:
 1. Complete the sync-first preflight.
 2. Read `AGENTS.md` and root `TASKS.md` from the synchronized checkout.
 3. Read the authoritative prompt under `docs/prompts/`.
-4. Inspect current implementation and asset paths before editing.
+4. Inspect implementation and asset paths before editing.
 5. Create a new immutable Codex execution log under `docs/codex-logs/`.
-6. Work only on the active task/milestone.
-7. Commit and push all intended changes before claiming completion.
+6. Work only on the active work item.
+7. Do not edit `TASKS.md`.
+8. Commit and push all intended implementation/log/documentation changes before claiming completion.
+9. Stop and wait for independent ChatGPT audit.
 
 ## Builder log rule
 
@@ -74,31 +94,34 @@ Codex logs are execution claims and evidence indexes, not acceptance proof.
 
 Each log must include:
 
-- prompt/work item identifier and version
-- start HEAD and end HEAD
-- branch and remote
-- sync-preflight results
-- files changed
-- implementation summary
-- commands/tests run and exact results
-- Godot parse/run evidence when applicable
-- manual checks performed and any checks not performed
-- known limitations
-- final commit SHA
-- proof that local HEAD, `origin/main`, and remote main match
+- work item identifier and prompt version;
+- start HEAD and end HEAD;
+- branch and remote;
+- sync-preflight results;
+- files changed;
+- implementation summary;
+- commands/tests run and exact results;
+- Godot parse/run evidence when applicable;
+- manual checks performed and checks not performed;
+- known limitations;
+- final commit SHA;
+- proof that local HEAD, `origin/main`, and remote main match;
+- explicit confirmation that `TASKS.md` was not modified.
 
-Historical logs are immutable. Corrections go into a new versioned log.
+Historical logs are immutable. Corrections go in a new versioned log.
 
-## Strict independent audit standard
+## Independent audit ownership
 
-Milestone closure requires an independent audit. A Codex statement such as COMPLETE, tests passing, or successful compilation is never sufficient by itself.
+Codex does not perform the acceptance audit for its own work and does not assign the authoritative milestone verdict.
 
-Every audit must contain:
+Codex may run tests, static checks, smoke tests, and manual verification required by its prompt. Those are builder evidence only.
+
+After Codex stops, ChatGPT independently audits repository truth. The strict audit uses these sections:
 
 1. `VERDICT` — `PASS`, `CONDITIONAL`, or `FAIL`.
-2. `CONTRACT RECOVERY` — actual requirements from prompt, TASKS, codebase and acceptance criteria.
+2. `CONTRACT RECOVERY`.
 3. `BRANCH / HEAD / DIFF SCOPE`.
-4. `ACCEPTANCE CRITERIA MATRIX` — each criterion as `PASS`, `PARTIAL`, `FAIL`, or `UNVERIFIED`.
+4. `ACCEPTANCE CRITERIA MATRIX` — `PASS`, `PARTIAL`, `FAIL`, or `UNVERIFIED` per criterion.
 5. `BUILDER CLAIMS VS REPOSITORY TRUTH`.
 6. `FILE / SYMBOL EVIDENCE`.
 7. `FOCUSED TEST EVIDENCE`.
@@ -111,44 +134,48 @@ Every audit must contain:
 14. `DEFECTS BY SEVERITY` — `BLOCKER`, `MAJOR`, `MINOR`, `NOTE`.
 15. `TECHNICAL DEBT / UPGRADE OPPORTUNITIES`.
 16. `UNVERIFIED ITEMS`.
-17. `REGRESSION RISK` — `LOW`, `MEDIUM`, or `HIGH` with rationale.
-18. `AUDIT CONFIDENCE` — `LOW`, `MEDIUM`, or `HIGH` with rationale.
+17. `REGRESSION RISK` — `LOW`, `MEDIUM`, or `HIGH`.
+18. `AUDIT CONFIDENCE` — `LOW`, `MEDIUM`, or `HIGH`.
 19. `FINAL VERDICT`.
 20. `REQUIRED REMEDIATION` when not unconditional PASS.
 
-Audit rules:
+Audit principles:
 
-- Treat Codex logs as claims to verify.
-- Prefer source, config, committed assets, Git history and runtime evidence.
+- Codex logs are claims to verify, not proof.
+- Source, configuration, committed assets, tests, Git history, and runtime evidence outrank summaries.
 - Passing tests do not override a direct specification violation.
-- Missing evidence remains `UNVERIFIED`; never fabricate PASS.
+- Missing evidence remains `UNVERIFIED`.
 - Manual acceptance not actually performed remains pending/unverified.
-- Previously closed behavior must be regression-checked when touched.
-- Do not progress to the next milestone after FAIL or blocking CONDITIONAL findings until bounded remediation is audited closed.
+- Previously accepted behavior must be regression-checked when touched.
+- FAIL or blocking CONDITIONAL findings must be remediated and re-audited before normal progression.
+- After the audit, ChatGPT alone updates `TASKS.md` to reflect the validated state and next action.
 
 ## Godot and gameplay preservation
 
-The owner has accepted the v6.7 gameplay feel as the baseline to preserve during the v7 visual integration unless an explicit later prompt changes it. In particular, do not casually retune physics while doing visual work.
+The owner-accepted v6.7 gameplay feel is the baseline to preserve during v7 visual integration unless an explicit later owner direction changes it.
 
-Known accepted gameplay baseline from owner direction includes:
+Accepted gameplay baseline includes:
 
-- initial shot speed: `700 px/s`
-- deceleration: `180 px/s²`
-- no artificial cruise/minimum-speed assist
-- a newly launched drink is immediately replaced by the next launchable drink; moving drinks do not block subsequent launches
-- stopped drinks remain physically movable when hit later
-- merge result preserves meaningful forward/lateral momentum
-- no backward rebound toward the player after collisions
-- To-Go target levels span L6-L12
-- existing matching L6-L12 drinks already on the table are eligible for later To-Go orders
-- only the To-Go bonus is awarded when a previously scored stored drink is later delivered
-- Level 12 remains on the table when not currently ordered and can be delivered by a later L12 order
+- initial shot speed: `700 px/s`;
+- deceleration: `180 px/s²`;
+- no artificial cruise/minimum-speed assist;
+- a newly launched drink is immediately replaced by the next launchable drink;
+- multiple drinks may remain in motion while the next shot is launched;
+- stopped drinks remain physically movable when hit;
+- merge results preserve meaningful forward/lateral momentum;
+- collisions must not intentionally rebound drinks backward toward the player;
+- To-Go target levels span L6-L12;
+- matching L6-L12 drinks already on the table can satisfy later orders;
+- when a previously scored stored drink is later delivered, only the To-Go bonus is awarded;
+- L12 stays on the table when not ordered and can satisfy a later L12 order.
+
+Do not retune gameplay physics as a side effect of visual integration.
 
 ## Visual master and asset policy
 
-The owner-approved v7 direction is a bright, polished tropical beach-bar casual mobile merge game with a slightly perspective-tilted long wooden table.
+The approved v7 direction is a bright polished tropical beach-bar casual mobile merge game with a slightly perspective-tilted long wooden table.
 
-Expected asset structure:
+Canonical asset structure:
 
 ```text
 assets/
@@ -169,11 +196,14 @@ assets/
     to_go_trail.png
 ```
 
-Do not regenerate or redesign owner-approved assets during integration unless the active prompt explicitly requests it. Use Godot nodes and dynamic labels/sprites over blank UI panel areas rather than baking changing score/order data into static images.
+Do not regenerate or redesign owner-approved assets during integration unless the owner explicitly requests it. Use dynamic Godot labels/sprites over blank panel areas rather than baking changing score/order content into static images.
+
+`guide_line` is not part of the current asset plan and must not be introduced unless the owner later asks for it.
 
 ## Safety
 
 - Preserve owner-created assets and project files.
-- Never commit secrets, local caches, `.godot/`, build output, editor state, save files, or machine-specific temporary files.
+- Never commit secrets, `.godot/`, local caches, build output, editor state, save files, or machine-specific temporary files.
 - Do not replace functional gameplay logic merely to simplify integration.
-- Keep implementation changes bounded to the active milestone.
+- Keep changes bounded to the active work item.
+- Never self-approve work, close milestones, or edit `TASKS.md`.
