@@ -4,11 +4,11 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 ## Project Status
 
-- Current Milestone: M00
-- Current Sprint: M00-REPOSITORY-SYNC-AND-BASELINE
-- Current Task: BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
+- Current Milestone: M01
+- Current Sprint: M01-GAMEPLAY-CONTRACT-RECOVERY
+- Current Task: BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `docs/prompts/BCM-M00-002_REPOSITORY_HYGIENE_AND_GODOT_BASELINE_V01_PROMPT.md`, commit and push the bounded implementation plus immutable evidence log, and stop for independent strict audit before BCM-M01-001 or any Godot v7 integration work begins.
+- Next Task/Action: Codex must execute `docs/prompts/BCM-M01_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded verification work plus immutable evidence log, and stop for independent strict audit before BCM-M02-001 or any Godot v7 integration work begins.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -16,8 +16,8 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 ## Tasks
 
 - [x] BCM-M00-001 — Repository synchronization and evidence baseline.
-- [~] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
-- [ ] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
+- [x] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
+- [~] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
 - [ ] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [ ] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [ ] BCM-M04-001 — Import and validate the complete v7 visual asset library.
@@ -68,14 +68,14 @@ Goal: make GitHub `main` accurately represent the owner's current local Godot pr
   - [x] Write immutable Codex evidence log and stop for strict audit.
 
 ### M00.02 — Canonical project structure and hygiene
-- [~] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
-  - [ ] Confirm `project.godot` opens cleanly in Godot 4.7.x.
-  - [ ] Confirm canonical `scenes/`, `scripts/`, `data/`, and `assets/` trees.
-  - [ ] Ensure `.godot/`, editor caches, temporary exports, user save files, and machine-specific files are ignored.
-  - [ ] Confirm all approved visual assets are versioned at canonical paths.
-  - [ ] Confirm no duplicate/conflicting asset filenames or stale prototype copies are used by production scenes.
-  - [ ] Update README/documentation to identify the synchronized baseline and run instructions.
-  - [ ] Add or validate a deterministic headless parse/import check where technically practical.
+- [x] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
+  - [x] Confirm `project.godot` opens cleanly in Godot 4.7.x.
+  - [x] Confirm canonical `scenes/`, `scripts/`, `data/`, and `assets/` trees.
+  - [x] Ensure `.godot/`, editor caches, temporary exports, user save files, and machine-specific files are ignored.
+  - [x] Confirm all approved visual assets are versioned at canonical paths.
+  - [x] Confirm no duplicate/conflicting asset filenames or stale prototype copies are used by production scenes.
+  - [x] Update README/documentation to identify the synchronized baseline and run instructions.
+  - [x] Add or validate a deterministic headless parse/import check where technically practical.
 
 Acceptance gate: repository truth is synchronized and auditable; Godot opens without parse/import failures; no owner work was discarded.
 
@@ -86,7 +86,7 @@ Acceptance gate: repository truth is synchronized and auditable; Godot opens wit
 Goal: recover the actual accepted v6.7 gameplay behavior from synchronized source and prove the game still plays before visual replacement begins.
 
 ### M01.01 — Scene and runtime contract
-- [ ] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
+- [~] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
   - [ ] Inspect `project.godot`, main scene, world hierarchy, physics configuration, and viewport/stretch behavior.
   - [ ] Document launch-zone geometry, playfield geometry, walls, danger boundary, and table coordinate system.
   - [ ] Verify desktop mouse and mobile touch input routes.
