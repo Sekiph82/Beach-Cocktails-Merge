@@ -1,0 +1,16 @@
+{
+  "levels": [
+    {"id": 1,  "name": "Shot",       "radius": 14,  "mass": 1,    "score": 10},
+    {"id": 2,  "name": "Bira",       "radius": 21,  "mass": 2,    "score": 25},
+    {"id": 3,  "name": "Sarap",      "radius": 29,  "mass": 4,    "score": 60},
+    {"id": 4,  "name": "Kokteyl S",  "radius": 38,  "mass": 8,    "score": 140},
+    {"id": 5,  "name": "Kokteyl M",  "radius": 48,  "mass": 16,   "score": 320},
+    {"id": 6,  "name": "Kokteyl L",  "radius": 59,  "mass": 32,   "score": 700},
+    {"id": 7,  "name": "Kule S",     "radius": 71,  "mass": 64,   "score": 1500},
+    {"id": 8,  "name": "Kule M",     "radius": 84,  "mass": 128,  "score": 3200},
+    {"id": 9,  "name": "Sampanya",   "radius": 98,  "mass": 256,  "score": 7000},
+    {"id": 10, "name": "Kraliyet",   "radius": 113, "mass": 512,  "score": 15000},
+    {"id": 11, "name": "Gokdelen",   "radius": 129, "mass": 1024, "score": 32000},
+    {"id": 12, "name": "Efsanevi",   "radius": 146, "mass": 2048, "score": 70000}
+  ]
+}
