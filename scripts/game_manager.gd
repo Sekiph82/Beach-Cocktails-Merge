@@ -400,7 +400,7 @@ func _build_merge_target() -> void:
     _target_root = Node2D.new()
     _target_root.name = "MergeTarget"
     _target_root.position = Vector2(size.x * 0.5, 166.0)
-    _target_root.z_index = 9000
+    _target_root.z_index = 4000
     add_child(_target_root)
 
     _target_rim = Polygon2D.new()

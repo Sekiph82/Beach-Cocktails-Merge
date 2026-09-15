@@ -1,10 +1,24 @@
-Beach Cocktails - Merge / Prototype v6.6
+Beach Cocktails - Merge / Prototype v6.7
 ========================================
 
 Godot: 4.7.x
 Main scene: res://scenes/main.tscn
 
-PHYSICS BASELINE (unchanged from v6.4)
+SYNCHRONIZED BASELINE
+---------------------
+This repository contains the accepted BCM-M00-001 synchronization baseline and the
+BCM-M00-002 Godot 4.7.x hygiene/import baseline. Production sources are the root
+project.godot, scenes/, scripts/, data/, and assets/ trees. The original_reference/
+folder is retained as non-production reference material.
+
+OPEN / RUN
+----------
+- Open the repository root in Godot 4.7.x and press F6/F5 as appropriate.
+- The configured main scene is res://scenes/main.tscn.
+- Deterministic headless validation: godot --headless --path . --editor --import --quit
+- Headless main-scene startup validation: godot --headless --path . --quit-after 5
+
+PHYSICS BASELINE (accepted v6.7)
 --------------------------------------
 - Launch speed: 700 px/s.
 - Slide deceleration: 180 px/s^2.
