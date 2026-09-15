@@ -238,9 +238,10 @@ func _game_over() -> void:
             var drink := child as Drink
             drink.freeze = true
 
-    if score > best_score:
-        best_score = score
-        _save_best_score()
+    # best_score is updated live by _add_score(), so compare-and-save here
+    # would miss every new record. Persist the current best at the terminal
+    # state; restart then reloads the same record from user://.
+    _save_best_score()
 
     _refresh_hud()
     _final_score_label.text = "SKOR  %d\nREKOR  %d" % [score, best_score]
