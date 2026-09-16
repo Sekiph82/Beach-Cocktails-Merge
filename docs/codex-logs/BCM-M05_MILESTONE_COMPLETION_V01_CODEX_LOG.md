@@ -251,15 +251,15 @@ Not performed: final visual-aesthetic acceptance of the full game, environment/b
 
 ## Commit and final equality proof
 
-The intended files were staged explicitly, committed on `main`, and pushed to `origin main`. The final commands and exact outputs are recorded below after the push. The equality check uses the local commit, local `origin/main`, and the server-side `refs/heads/main`; divergence must be `0 0`.
+The intended files were staged explicitly, committed on `main`, and pushed to `origin main`. The exact post-push equality output for the implementation commit is recorded below. The equality check uses the local commit, local `origin/main`, and the server-side `refs/heads/main`; divergence was `0 0`.
 
 ```text
 git rev-parse HEAD
-<END_HEAD_SHA>
+39edae709baf35c368bed643744007c104984bef
 git rev-parse origin/main
-<END_HEAD_SHA>
+39edae709baf35c368bed643744007c104984bef
 git ls-remote origin refs/heads/main
-<END_HEAD_SHA> refs/heads/main
+39edae709baf35c368bed643744007c104984bef refs/heads/main
 git rev-list --left-right --count HEAD...origin/main
 0 0
 git status --short --branch
@@ -270,7 +270,7 @@ git diff -- TASKS.md
 FINAL_TASKS_DIFF_EXIT_CODE=0
 ```
 
-The placeholders in this pre-commit log section are replaced with the exact pushed SHA and final command output before commit. The log is an evidence index, not an independent acceptance verdict; M05 acceptance remains owned by the independent ChatGPT audit.
+The equality block above is the exact push verification for the implementation commit before this evidence-log correction. A Git commit cannot contain its own final SHA without changing that SHA; the final evidence-log commit is therefore verified separately by the terminal output and final response. The log is an evidence index, not an independent acceptance verdict; M05 acceptance remains owned by the independent ChatGPT audit.
 
 ## Final confirmations
 
