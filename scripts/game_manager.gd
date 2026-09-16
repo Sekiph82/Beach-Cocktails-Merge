@@ -16,7 +16,7 @@ const TABLE_FAR_LEFT_SOURCE := Vector2(292.0, 464.0)
 const TABLE_FAR_RIGHT_SOURCE := Vector2(732.0, 464.0)
 const TABLE_NEAR_LEFT_SOURCE := Vector2(104.0, 1208.0)
 const TABLE_NEAR_RIGHT_SOURCE := Vector2(920.0, 1208.0)
-const DANGER_SOURCE_Y := 1048.0
+const DANGER_SOURCE_Y := 1100.0
 const LAUNCH_SOURCE_Y := 1144.0
 
 @export var table_top_y := 0.0
@@ -138,7 +138,10 @@ func _configure_board_layout() -> void:
     table_top_y = far_left.y
     table_bottom_y = near_left.y
     table_top_inset = far_left.x
-    table_bottom_inset = size.x - near_right.x
+    # At taller portrait ratios the source-cover transform can place the
+    # source near rail outside the viewport. Keep the gameplay rail on the
+    # visible wood/frame edge rather than allowing an off-screen collider.
+    table_bottom_inset = clampf(maxf(size.x - near_right.x, 20.0), 20.0, size.x * 0.18)
     death_line_y = source_to_viewport(Vector2(0.0, DANGER_SOURCE_Y), size).y
     launch_y = source_to_viewport(Vector2(0.0, LAUNCH_SOURCE_Y), size).y
 
@@ -157,8 +160,8 @@ func _build_background() -> void:
 func get_table_rail_bounds_at_y(y_pos: float) -> Vector2:
     var size := get_board_size()
     var t := inverse_lerp(table_top_y, table_bottom_y, clampf(y_pos, table_top_y, table_bottom_y))
-    var left := lerpf(table_top_inset, source_to_viewport(TABLE_NEAR_LEFT_SOURCE, size).x, t)
-    var right := lerpf(size.x - table_top_inset, source_to_viewport(TABLE_NEAR_RIGHT_SOURCE, size).x, t)
+    var left := lerpf(table_top_inset, table_bottom_inset, t)
+    var right := lerpf(size.x - table_top_inset, size.x - table_bottom_inset, t)
     return Vector2(left, right)
 
 
@@ -361,10 +364,10 @@ func _refresh_hud() -> void:
 func _build_walls() -> void:
     var size := get_board_size()
 
-    var top_left := source_to_viewport(TABLE_FAR_LEFT_SOURCE, size)
-    var top_right := source_to_viewport(TABLE_FAR_RIGHT_SOURCE, size)
-    var bottom_left := source_to_viewport(TABLE_NEAR_LEFT_SOURCE, size)
-    var bottom_right := source_to_viewport(TABLE_NEAR_RIGHT_SOURCE, size)
+    var top_left := Vector2(table_top_inset, table_top_y)
+    var top_right := Vector2(size.x - table_top_inset, table_top_y)
+    var bottom_left := Vector2(table_bottom_inset, table_bottom_y)
+    var bottom_right := Vector2(size.x - table_bottom_inset, table_bottom_y)
 
     # Angled rails match the trapezoid table. A collision therefore changes
     # direction using the actual contact normal rather than an artificial rule.
