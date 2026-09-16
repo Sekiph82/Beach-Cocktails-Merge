@@ -35,7 +35,13 @@ func _init() -> void:
 
 
 func _run() -> void:
-    print("M04_GODOT_ASSET_COUNT expected=%d observed=%d" % [CANONICAL.size(), CANONICAL.size()])
+    var cocktail_count := _png_count("res://assets/cocktails")
+    var environment_count := _png_count("res://assets/environment")
+    var ui_count := _png_count("res://assets/ui")
+    var effects_canonical_count := 1 if FileAccess.file_exists("res://assets/effects/to_go_trail.png") else 0
+    var observed_required := cocktail_count + environment_count + ui_count + effects_canonical_count
+    print("M04_GODOT_ASSET_COUNT expected=22 observed=%d cocktails=%d environment=%d ui=%d effects_required=%d" % [observed_required, cocktail_count, environment_count, ui_count, effects_canonical_count])
+    _check("repository PNG directory counts match canonical scopes", cocktail_count == 12 and environment_count == 1 and ui_count == 8 and effects_canonical_count == 1)
     for path in CANONICAL:
         var texture := load(path) as Texture2D
         if texture == null or texture.get_width() <= 0 or texture.get_height() <= 0:
@@ -50,3 +56,27 @@ func _run() -> void:
     else:
         print("M04_GODOT_RESULT=FAIL failures=%s" % [", ".join(failures)])
         quit(1)
+
+
+func _png_count(path: String) -> int:
+    var directory := DirAccess.open(path)
+    if directory == null:
+        return 0
+    var count := 0
+    directory.list_dir_begin()
+    while true:
+        var entry := directory.get_next()
+        if entry.is_empty():
+            break
+        if not directory.current_is_dir() and entry.to_lower().ends_with(".png"):
+            count += 1
+    directory.list_dir_end()
+    return count
+
+
+func _check(label: String, condition: bool) -> void:
+    if condition:
+        print("M04_GODOT_PROBE PASS: %s" % label)
+    else:
+        failures.append(label)
+        print("M04_GODOT_PROBE FAIL: %s" % label)
