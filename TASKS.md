@@ -1,14 +1,14 @@
 # Beach Cocktails Merge — Canonical GitHub Task State
 
-This root `TASKS.md` is the only authoritative current project-status tracker. GitHub `main`, locked ChatGPT audit criteria, independent audits, and committed repository evidence define project truth.
+This root `TASKS.md` is the only authoritative current project-status tracker. GitHub `main`, locked ChatGPT audit criteria, independent audits, owner visual review, and committed repository evidence define project truth.
 
 ## Project Status
 
 - Current Milestone: M04-M07 STRICT REMEDIATION
-- Current Sprint: BCM-M04-M07-R01
-- Current Task: BCM-M04-M07-R01 — Execute strict remediation sequence for M04, M05, M06, and M07.
+- Current Sprint: BCM-M04-M07-R02
+- Current Task: BCM-M04-M07-R02 — Execute corrected strict remediation sequence for M04, M05, M06, and M07 using owner-reviewed M07 V02 requirements.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `coordination/sessions/BCM-M04-M07-R01/CHATGPT_EXECUTION_PROMPT_V01.md`, complete M04-R01 then M05-R01 then M06-R02 then M07-R01 with separate logs and commits, and STOP for independent ChatGPT audits before M08 opens.
+- Next Task/Action: Codex must execute `coordination/sessions/BCM-M04-M07-R02/CHATGPT_EXECUTION_PROMPT_V01.md`, complete M04-R01 then M05-R01 then M06-R02 then M07-R01 V02 with separate logs and commits, and STOP for independent ChatGPT audits before M08 opens.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -20,11 +20,11 @@ This root `TASKS.md` is the only authoritative current project-status tracker. G
 - [x] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
 - [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
-- [~] BCM-M04-M07-R01 — Coordinated strict remediation sequence for M04, M05, M06, and M07.
+- [~] BCM-M04-M07-R02 — Corrected coordinated strict remediation sequence for M04, M05, M06, and M07.
 - [!] BCM-M04-001 — Import and validate the complete v7 visual asset library; reopened by strict re-audit.
 - [!] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation; reopened by strict re-audit.
-- [!] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry; owner visual rejection / strict re-audit.
-- [!] BCM-M07-001 — Dynamic HUD integration; initial implementation completed but strict re-audit requires remediation on corrected M06 base.
+- [!] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry; strict evidence/geometry remediation pending.
+- [!] BCM-M07-001 — Dynamic HUD integration; current visual direction is owner-accepted as substantially closer to master, but owner-annotated layout remediation is required.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
@@ -41,10 +41,12 @@ Legend: `[x]` audited complete, `[~]` active, `[ ]` planned/pending, `[!]` reope
 - Prompt and locked audit criteria are created before implementation/remediation.
 - Codex logs are builder evidence, not acceptance proof.
 - ChatGPT independently audits actual diff/source/tests/evidence against locked criteria.
+- Owner visual annotations are authoritative when later than earlier audit interpretations.
 - Any material visual criterion that is not independently inspectable remains `UNVERIFIED` and blocks `AUDITED_PASS`.
 - Only ChatGPT updates this tracker after audit.
 - Owner visual truth for current visual integration is `/b75ee426-9568-4ed6-b35e-140600a7c995.png`, subject to later explicit owner directions.
 - The persistent dotted guide line in that historical master is intentionally excluded by later owner direction.
+- The owner explicitly reviewed the M07 canonical evidence and considers it substantially closer to the intended master than the old M06 evidence; remediation must preserve/refine this progress rather than revert it.
 
 ---
 
@@ -91,6 +93,8 @@ Locked criteria:
 
 Open findings include unsupported body-measurement provenance, circular collider/scale checks, missing L01-L12 collider/pivot/contact overlays, unverified apparent-contact quality, and the already-recorded historical radius-log correction.
 
+Owner refinement for remediation: gameplay cocktails should end somewhat larger than the current pre-remediation M07 baseline, but the final scale/collider mapping must be evidence-backed rather than arbitrarily enlarged.
+
 ---
 
 ## M06 — Environment/table/responsive integration — REOPENED
@@ -104,50 +108,66 @@ Remediation prompt:
 Locked criteria:
 `coordination/sessions/BCM-M06-R02/CHATGPT_AUDIT_CRITERIA_V01.md`
 
-Owner review explicitly rejected the previous M06 evidence composition. Open findings include missing independent screenshot inspection in the old audit, owner-master mismatch, destructive composition loss from current aspect adaptation, and weak/circular table-geometry validation.
+The original M06 evidence was rejected as visually unlike the intended master. However, subsequent M07 production evidence demonstrates that the current full-screen tropical background/table composition can render substantially closer to the master once the canonical HUD/art are integrated.
+
+Therefore M06-R02 must strengthen independent geometry/aspect/table-edge evidence and fix real measurable defects **without blindly reverting or redesigning the successful M07-visible table/background composition**.
+
+Owner geometry refinement: the danger line / actual `death_line_y` should move farther downward, closer to the launch region, while preserving launch room below and most usable table area above.
 
 ---
 
-## M07 — Dynamic HUD integration — REOPENED AFTER STRICT AUDIT
+## M07 — Dynamic HUD integration — OWNER-ANNOTATED REMEDIATION REQUIRED
 
-Strict re-audit:
-`coordination/sessions/BCM-M07-R01/CHATGPT_REAUDIT_V01.md`
+Corrected strict re-audit:
+`coordination/sessions/BCM-M07-R01/CHATGPT_REAUDIT_V02.md`
 
 Remediation prompt:
-`coordination/sessions/BCM-M07-R01/CHATGPT_REMEDIATION_PROMPT_V01.md`
+`coordination/sessions/BCM-M07-R01/CHATGPT_REMEDIATION_PROMPT_V02.md`
 
 Locked criteria:
-`coordination/sessions/BCM-M07-R01/CHATGPT_AUDIT_CRITERIA_V01.md`
+`coordination/sessions/BCM-M07-R01/CHATGPT_AUDIT_CRITERIA_V02.md`
 
-Initial M07 implementation usefully established live HUD architecture and reused the shared cocktail mapping, but cannot pass because:
+Owner review conclusion: the current M07 canonical production evidence is substantially closer to the master than the old M06 evidence and should be preserved as the visual starting point.
 
-- it intentionally preserves the visually rejected M06 base geometry/composition;
-- locked M07 criterion 37 makes wrong M06 composition a direct blocker;
-- required independent master-vs-runtime screenshot visual acceptance is not established;
-- focused M07 tests mostly prove node/state self-consistency rather than master-relative composition;
-- responsive/layout/slot-fit visual checks are incomplete.
+Required M07 refinements include:
 
-M07-R01 must run after M04-R01, M05-R01 and M06-R02 in the coordinated remediation sequence.
+- move Best Score and Score higher so they do not occupy table accumulation space;
+- keep logo → Best Score → Score order;
+- retain To-Go and NEXT upper anchoring but give both more usable vertical presentation downward;
+- define real inner content boxes and correctly place all live text/sprites inside UI frames;
+- make gameplay cocktails somewhat larger using the remediated M05 evidence-backed mapping;
+- move danger line and actual `death_line_y` lower together;
+- place gold launch halo beneath the held drink and center the drink inside the ring footprint;
+- replace the single-row progression with an intentional 2x6 presentation: top L07-L12, bottom L01-L06, with larger icons;
+- preserve dynamic Score/Best/To-Go/NEXT and shared texture mapping;
+- no guide line.
 
 ---
 
 ## Active coordinated remediation
 
 Master execution prompt:
-`coordination/sessions/BCM-M04-M07-R01/CHATGPT_EXECUTION_PROMPT_V01.md`
+`coordination/sessions/BCM-M04-M07-R02/CHATGPT_EXECUTION_PROMPT_V01.md`
 
 Orchestration criteria:
-`coordination/sessions/BCM-M04-M07-R01/CHATGPT_AUDIT_CRITERIA_V01.md`
+`coordination/sessions/BCM-M04-M07-R02/CHATGPT_AUDIT_CRITERIA_V01.md`
 
 Required order:
 
 1. M04-R01
 2. M05-R01
 3. M06-R02
-4. M07-R01
+4. M07-R01 V02
 5. STOP for independent ChatGPT audits
 
-Each milestone must have a separate bounded commit and separate `CODEX_LOG_V01.md`. M08 may not start until the required visual remediations receive independent acceptance.
+Required logs:
+
+- `coordination/sessions/BCM-M04-R01/CODEX_LOG_V01.md`
+- `coordination/sessions/BCM-M05-R01/CODEX_LOG_V01.md`
+- `coordination/sessions/BCM-M06-R02/CODEX_LOG_V01.md`
+- `coordination/sessions/BCM-M07-R01/CODEX_LOG_V02.md`
+
+Each phase must have a separate bounded commit. M08 may not start until required visual remediations receive independent acceptance.
 
 ---
 
