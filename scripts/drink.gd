@@ -392,7 +392,10 @@ func _on_body_entered(body: Node) -> void:
         other.call_deferred("_enforce_forward_only")
 
         if other.level == level and level < Drink.max_level():
-            merged.emit(self, other, level + 1)
+            # body_entered runs while Godot is flushing physics queries. Defer
+            # the signal dispatch so MergeQueue can safely change body state
+            # and schedule replacement outside that callback.
+            call_deferred("_emit_merge_request", other, level + 1)
 
 
 func _forward_only(velocity: Vector2) -> Vector2:
@@ -402,6 +405,18 @@ func _forward_only(velocity: Vector2) -> Vector2:
     if velocity.y > 0.0:
         velocity.y = 0.0
     return velocity
+
+
+func _emit_merge_request(other: Drink, new_level: int) -> void:
+    if not is_instance_valid(other) or other.is_queued_for_deletion():
+        return
+    if motion_state != MotionState.SLIDING or already_merged:
+        return
+    if other.motion_state == MotionState.HELD or other.motion_state == MotionState.MERGING or other.motion_state == MotionState.TARGET_CAPTURE:
+        return
+    if other.level != level or level >= Drink.max_level():
+        return
+    merged.emit(self, other, new_level)
 
 
 func _enforce_forward_only() -> void:

@@ -24,7 +24,7 @@ PHYSICS BASELINE (accepted v6.7)
 - Slide deceleration: 180 px/s^2.
 - No cruise/assist/minimum-speed support.
 - Existing collision, forward-only movement, merge momentum, danger line, game-over and restart behavior are unchanged.
-- To-Go Orders targets remain L6-L12; the first target is L8 and immediate repeats are avoided.
+- To-Go Orders targets remain L6-L12; the first target is L6 and immediate repeats are avoided.
 
 SCORING SYSTEM
 --------------

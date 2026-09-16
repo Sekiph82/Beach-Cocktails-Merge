@@ -106,7 +106,7 @@ func _run() -> void:
     await _physics_steps(1)
     var merged_result: Drink = null
     for child in manager.world.get_children():
-        if child is Drink and child.level == 2 and not child.is_queued_for_deletion():
+        if child is Drink and child.level == 2 and child.motion_state != Drink.MotionState.HELD and not child.is_queued_for_deletion():
             merged_result = child
             break
     _check("merge creates capped next level", merged_result != null)
