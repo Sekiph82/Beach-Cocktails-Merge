@@ -4,11 +4,11 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 ## Project Status
 
-- Current Milestone: M02
-- Current Sprint: M02-PHYSICS-COLLISION-MERGE-RAPID-LAUNCH
-- Current Task: BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
+- Current Milestone: M03
+- Current Sprint: M03-SCORING-COMBO-TOGO-PERSISTENCE-GAMEOVER
+- Current Task: BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `docs/prompts/BCM-M02_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M02 hardening/tests plus immutable evidence log, and stop for independent strict audit before BCM-M03-001 or any Godot v7 integration work begins.
+- Next Task/Action: Codex must execute `docs/prompts/BCM-M03_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M03 economy/persistence regression work plus immutable evidence log, and stop for independent strict audit before BCM-M04-001 or any Godot v7 integration work begins.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -18,8 +18,8 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 - [x] BCM-M00-001 — Repository synchronization and evidence baseline.
 - [x] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
 - [x] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
-- [~] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
-- [ ] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
+- [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
+- [~] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [ ] BCM-M04-001 — Import and validate the complete v7 visual asset library.
 - [ ] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
 - [ ] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
@@ -114,28 +114,28 @@ Acceptance gate: playable baseline is reproduced and documented before visual in
 Goal: convert the accepted feel into regression-protected production behavior.
 
 ### M02.01 — Drink body physics
-- [~] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
-  - [ ] Validate `RigidBody2D` mode, mass progression, sleeping/wake behavior, friction, damping, and zero/near-zero bounce.
-  - [ ] Ensure collider dimensions visually match sprite footprints after v7 sprites are introduced.
-  - [ ] Verify wall/top-boundary interactions do not produce unwanted backward return.
-  - [ ] Verify collisions transfer momentum to previously settled drinks.
-  - [ ] Verify collisions do not tunnel at accepted launch velocity.
+- [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
+  - [x] Validate `RigidBody2D` mode, mass progression, sleeping/wake behavior, friction, damping, and zero/near-zero bounce.
+  - [x] Record current collider/radius mapping and defer final V7 sprite-footprint alignment to M05.
+  - [x] Verify wall/top-boundary interactions do not produce unwanted backward return.
+  - [x] Verify collisions transfer momentum to previously settled drinks.
+  - [x] Verify collisions do not tunnel at accepted launch velocity.
 
 ### M02.02 — Merge resolution
-- [ ] Preserve deferred merge processing outside unsafe physics callbacks.
-- [ ] Ensure each pair can merge only once per contact event.
-- [ ] Ensure merged result level is correct and capped at L12.
-- [ ] Ensure L12 + L12 does not disappear or create L13.
-- [ ] Preserve resultant momentum after merge.
-- [ ] Prevent duplicate score/merge signals from one merge.
-- [ ] Stress test chain merges with several moving drinks.
+- [x] Preserve deferred merge processing outside unsafe physics callbacks.
+- [x] Ensure each pair can merge only once per contact event.
+- [x] Ensure merged result level is correct and capped at L12.
+- [x] Ensure L12 + L12 does not disappear or create L13.
+- [x] Preserve resultant momentum after merge.
+- [x] Prevent duplicate score/merge signals from one merge.
+- [x] Stress test chain merges with several moving drinks.
 
 ### M02.03 — Rapid-launch concurrency
-- [ ] Launch a new drink while prior drinks are moving.
-- [ ] Validate rapid consecutive launches do not corrupt held/current/next references.
-- [ ] Validate held launch drink is non-colliding until released.
-- [ ] Validate restart while several drinks move.
-- [ ] Validate Game Over while several drinks move.
+- [x] Launch a new drink while prior drinks are moving.
+- [x] Validate rapid consecutive launches do not corrupt held/current/next references.
+- [x] Validate held launch drink is non-colliding until released.
+- [x] Validate restart while several drinks move.
+- [x] Validate Game Over while several drinks move.
 
 Acceptance gate: no regression in accepted feel; focused tests or deterministic test harness covers critical rules.
 
@@ -146,7 +146,7 @@ Acceptance gate: no regression in accepted feel; focused tests or deterministic 
 Goal: formalize the complete rules economy agreed by the owner.
 
 ### M03.01 — Merge score table
-- [ ] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
+- [~] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [ ] L2 = 20 merge points.
 - [ ] L3 = 50 merge points.
 - [ ] L4 = 100 merge points.
