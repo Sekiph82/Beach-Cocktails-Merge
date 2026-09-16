@@ -42,6 +42,7 @@ var _target_rim: Polygon2D
 var _target_level_label: Label
 var _target_caption: Label
 var _target_transition := false
+var _target_drink: Drink
 
 
 func _ready() -> void:
@@ -176,6 +177,7 @@ func _process(delta: float) -> void:
         chain_timer -= delta
         if chain_timer <= 0.0:
             chain = 0
+            chain_timer = 0.0
             _refresh_hud()
 
     _update_death_line(delta)
@@ -513,6 +515,7 @@ func _collect_merge_target(drink: Drink) -> void:
         return
 
     _target_transition = true
+    _target_drink = drink
     drink.begin_target_capture()
 
     # The target drink physically leaves the table and flies into the objective.
@@ -526,10 +529,12 @@ func _collect_merge_target(drink: Drink) -> void:
     tween.tween_property(_target_root, "scale", Vector2(1.35, 1.35), 0.34)
     tween.tween_property(_target_root, "modulate:a", 0.0, 0.34)
     tween.tween_property(_target_caption, "modulate:a", 0.0, 0.28)
-    tween.finished.connect(_finish_target_collection.bind(drink), CONNECT_ONE_SHOT)
+    tween.finished.connect(_finish_target_collection, CONNECT_ONE_SHOT)
 
 
-func _finish_target_collection(drink: Drink) -> void:
+func _finish_target_collection() -> void:
+    var drink := _target_drink
+    _target_drink = null
     if is_instance_valid(drink):
         drink.queue_free()
 
