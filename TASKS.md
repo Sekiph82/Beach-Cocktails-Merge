@@ -4,11 +4,11 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 ## Project Status
 
-- Current Milestone: M01
-- Current Sprint: M01-GAMEPLAY-CONTRACT-RECOVERY
-- Current Task: BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
+- Current Milestone: M02
+- Current Sprint: M02-PHYSICS-COLLISION-MERGE-RAPID-LAUNCH
+- Current Task: BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `docs/prompts/BCM-M01_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded verification work plus immutable evidence log, and stop for independent strict audit before BCM-M02-001 or any Godot v7 integration work begins.
+- Next Task/Action: Codex must execute `docs/prompts/BCM-M02_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M02 hardening/tests plus immutable evidence log, and stop for independent strict audit before BCM-M03-001 or any Godot v7 integration work begins.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -17,8 +17,8 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 - [x] BCM-M00-001 — Repository synchronization and evidence baseline.
 - [x] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
-- [~] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
-- [ ] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
+- [x] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
+- [~] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [ ] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [ ] BCM-M04-001 — Import and validate the complete v7 visual asset library.
 - [ ] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
@@ -86,24 +86,24 @@ Acceptance gate: repository truth is synchronized and auditable; Godot opens wit
 Goal: recover the actual accepted v6.7 gameplay behavior from synchronized source and prove the game still plays before visual replacement begins.
 
 ### M01.01 — Scene and runtime contract
-- [~] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
-  - [ ] Inspect `project.godot`, main scene, world hierarchy, physics configuration, and viewport/stretch behavior.
-  - [ ] Document launch-zone geometry, playfield geometry, walls, danger boundary, and table coordinate system.
-  - [ ] Verify desktop mouse and mobile touch input routes.
-  - [ ] Verify immediate next-drink availability after every launch.
-  - [ ] Verify multiple simultaneously moving drinks are supported.
-  - [ ] Verify restart and Game Over paths.
-  - [ ] Verify saved best score survives restart when expected.
-  - [ ] Record any mismatch between owner-accepted behavior and synchronized implementation as findings, not assumptions.
+- [x] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
+  - [x] Inspect `project.godot`, main scene, world hierarchy, physics configuration, and viewport/stretch behavior.
+  - [x] Document launch-zone geometry, playfield geometry, walls, danger boundary, and table coordinate system.
+  - [x] Verify desktop mouse and mobile touch input routes.
+  - [x] Verify immediate next-drink availability after every launch.
+  - [x] Verify multiple simultaneously moving drinks are supported.
+  - [x] Verify restart and Game Over paths.
+  - [x] Verify saved best score survives restart when expected.
+  - [x] Record any mismatch between owner-accepted behavior and synchronized implementation as findings, not assumptions.
 
 ### M01.02 — Accepted gameplay constants
-- [ ] Confirm initial launch speed is `700 px/s` unless repository evidence proves an owner-approved later change.
-- [ ] Confirm deceleration is `180 px/s²` with no artificial cruise/minimum-speed assist.
-- [ ] Confirm a newly launched drink is replaced immediately by the next launchable drink.
-- [ ] Confirm stopped drinks remain physically movable when hit.
-- [ ] Confirm merge results preserve meaningful momentum.
-- [ ] Confirm post-collision motion never intentionally rebounds toward the player.
-- [ ] Confirm visual integration work does not silently retune these values.
+- [x] Confirm initial launch speed is `700 px/s` unless repository evidence proves an owner-approved later change.
+- [x] Confirm deceleration is `180 px/s²` with no artificial cruise/minimum-speed assist.
+- [x] Confirm a newly launched drink is replaced immediately by the next launchable drink.
+- [x] Confirm stopped drinks remain physically movable when hit.
+- [x] Confirm merge results preserve meaningful momentum.
+- [x] Confirm post-collision motion never intentionally rebounds toward the player.
+- [x] Confirm visual integration work does not silently retune these values.
 
 Acceptance gate: playable baseline is reproduced and documented before visual integration.
 
@@ -114,7 +114,7 @@ Acceptance gate: playable baseline is reproduced and documented before visual in
 Goal: convert the accepted feel into regression-protected production behavior.
 
 ### M02.01 — Drink body physics
-- [ ] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
+- [~] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
   - [ ] Validate `RigidBody2D` mode, mass progression, sleeping/wake behavior, friction, damping, and zero/near-zero bounce.
   - [ ] Ensure collider dimensions visually match sprite footprints after v7 sprites are introduced.
   - [ ] Verify wall/top-boundary interactions do not produce unwanted backward return.
