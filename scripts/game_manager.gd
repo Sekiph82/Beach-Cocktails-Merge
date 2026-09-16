@@ -401,7 +401,9 @@ func _add_wall_segment(a: Vector2, b: Vector2, thickness: float, wall_name: Stri
 
 func _build_ui() -> void:
     var board_size := get_board_size()
-    var ui_scale := clampf(board_size.x / 720.0, 0.94, 1.10)
+    # Keep the approved portrait HUD footprint stable on wider phones; the
+    # playfield itself remains aspect-preserving and responsive under M06.
+    var ui_scale := clampf(board_size.x / 720.0, 0.94, 1.0)
     var canvas := CanvasLayer.new()
     canvas.name = "UI"
     add_child(canvas)
@@ -413,46 +415,48 @@ func _build_ui() -> void:
     _hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
     canvas.add_child(_hud)
 
-    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", Rect2(16.0 * ui_scale, 164.0 * ui_scale, 230.0 * ui_scale, 130.0 * ui_scale))
+    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", Rect2(16.0 * ui_scale, 142.0 * ui_scale, 230.0 * ui_scale, 112.0 * ui_scale))
     _hud.add_child(_best_panel)
     _best_value = _make_panel_value(_best_panel, "%s" % best_score, 28, 0.54)
 
-    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(16.0 * ui_scale, 298.0 * ui_scale, 230.0 * ui_scale, 130.0 * ui_scale))
+    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(16.0 * ui_scale, 262.0 * ui_scale, 230.0 * ui_scale, 112.0 * ui_scale))
     _hud.add_child(_score_panel)
     _score_value = _make_panel_value(_score_panel, "%s" % score, 30, 0.54)
 
     var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", Rect2(12.0 * ui_scale, 6.0 * ui_scale, 220.0 * ui_scale, 148.0 * ui_scale))
     _hud.add_child(logo)
 
-    var to_go_width := 310.0 * ui_scale
-    var to_go_height := to_go_width * 1024.0 / 1536.0
-    var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 14.0 * ui_scale, to_go_width, to_go_height)
+    var to_go_width := 330.0 * ui_scale
+    var to_go_height := 220.0 * ui_scale
+    var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 18.0 * ui_scale, to_go_width, to_go_height)
     _to_go_panel = _make_panel("ToGoOrdersPanel", "res://assets/ui/panel_to_go_orders.png", to_go_rect)
     _hud.add_child(_to_go_panel)
 
     _to_go_target_sprite = Sprite2D.new()
     _to_go_target_sprite.name = "TargetCocktail"
-    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.61)
+    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.41)
     _to_go_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     _to_go_target_sprite.z_index = 2
     _to_go_panel.add_child(_to_go_target_sprite)
 
-    _to_go_level_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.20, to_go_rect.size.y * 0.60, to_go_rect.size.x * 0.60, 24.0 * ui_scale), 16, Color(0.34, 0.13, 0.05, 1.0))
-    _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.23, to_go_rect.size.y * 0.80, to_go_rect.size.x * 0.54, 28.0 * ui_scale), 24, Color(0.30, 0.10, 0.03, 1.0))
+    # These inner content boxes are intentionally below the panel's baked
+    # title/artwork. Dynamic values never get baked into canonical PNGs.
+    _to_go_level_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.21, to_go_rect.size.y * 0.62, to_go_rect.size.x * 0.58, 26.0 * ui_scale), 16, Color(0.34, 0.13, 0.05, 1.0))
+    _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.25, to_go_rect.size.y * 0.79, to_go_rect.size.x * 0.50, 32.0 * ui_scale), 24, Color(0.30, 0.10, 0.03, 1.0))
 
-    var next_size := 150.0 * ui_scale
+    var next_size := 176.0 * ui_scale
     var next_rect := Rect2(board_size.x - next_size - 12.0 * ui_scale, 10.0 * ui_scale, next_size, next_size)
     _next_panel = _make_panel("NextPanel", "res://assets/ui/panel_next.png", next_rect)
     _hud.add_child(_next_panel)
     _next_sprite = Sprite2D.new()
     _next_sprite.name = "NextCocktail"
-    _next_sprite.position = Vector2(next_size * 0.5, next_size * 0.64)
+    _next_sprite.position = Vector2(next_size * 0.5, next_size * 0.58)
     _next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     _next_panel.add_child(_next_sprite)
 
     var strip_margin := 12.0 * ui_scale
     var strip_width := board_size.x - strip_margin * 2.0
-    var strip_height := strip_width * 725.0 / 2170.0
+    var strip_height := 260.0 * ui_scale
     _progression_strip = _make_panel("ProgressionStrip", "res://assets/ui/progression_strip.png", Rect2(strip_margin, board_size.y - strip_height - 8.0 * ui_scale, strip_width, strip_height))
     _hud.add_child(_progression_strip)
     _build_progression_icons(_progression_strip)
@@ -463,7 +467,7 @@ func _build_ui() -> void:
     _launch_zone.name = "LaunchZone"
     _launch_zone.texture = load("res://assets/ui/launch_zone.png") as Texture2D
     _launch_zone.position = Vector2(board_size.x * 0.5, launch_y)
-    _launch_zone.scale = Vector2.ONE * clampf(112.0 / 1254.0, 0.07, 0.12)
+    _launch_zone.scale = Vector2.ONE * clampf(132.0 / 1254.0, 0.07, 0.12)
     _launch_zone.z_index = 1
     _launch_zone.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     add_child(_launch_zone)
@@ -549,18 +553,41 @@ func _make_panel_text(panel: Control, text_value: String, rect: Rect2, font_size
 
 func _build_progression_icons(strip: Control) -> void:
     _progression_icons.clear()
-    var slot_x_ratios := [0.112, 0.184, 0.255, 0.327, 0.399, 0.472, 0.543, 0.615, 0.687, 0.758, 0.830, 0.902]
-    for i in range(12):
-        var level := i + 1
-        var icon := Sprite2D.new()
-        icon.name = "ProgressionIconL%02d" % level
-        icon.texture = Drink.texture_for_level(level)
-        icon.position = Vector2(strip.size.x * slot_x_ratios[i], strip.size.y * 0.49)
-        icon.scale = Vector2.ONE * _hud_icon_scale(level, 54.0)
-        icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-        icon.z_index = 2
-        strip.add_child(icon)
-        _progression_icons.append(icon)
+    # The approved strip artwork remains a single shared frame. The runtime
+    # cells deliberately compose a readable 2x6 progression: upcoming L07-L12
+    # on top, and the earned L01-L06 row below.
+    var cell_width := strip.size.x / 6.0
+    var cell_height := strip.size.y * 0.34
+    for row in range(2):
+        for column in range(6):
+            var cell := Panel.new()
+            cell.name = "ProgressionCellR%dC%d" % [row + 1, column + 1]
+            cell.position = Vector2(column * cell_width + 3.0, strip.size.y * (0.08 + row * 0.46))
+            cell.size = Vector2(cell_width - 6.0, cell_height)
+            cell.mouse_filter = Control.MOUSE_FILTER_IGNORE
+            var cell_style := StyleBoxFlat.new()
+            cell_style.bg_color = Color(0.94, 0.84, 0.63, 0.42)
+            cell_style.border_color = Color(0.44, 0.22, 0.08, 0.72)
+            cell_style.set_border_width_all(2)
+            cell_style.corner_radius_top_left = 8
+            cell_style.corner_radius_top_right = 8
+            cell_style.corner_radius_bottom_left = 8
+            cell_style.corner_radius_bottom_right = 8
+            cell.add_theme_stylebox_override("panel", cell_style)
+            strip.add_child(cell)
+
+            var level := column + 1
+            if row == 0:
+                level = column + 7
+            var icon := Sprite2D.new()
+            icon.name = "ProgressionIconL%02d" % level
+            icon.texture = Drink.texture_for_level(level)
+            icon.position = Vector2((column + 0.5) * cell_width, strip.size.y * (0.25 + row * 0.46))
+            icon.scale = Vector2.ONE * _hud_icon_scale(level, 70.0)
+            icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+            icon.z_index = 2
+            strip.add_child(icon)
+            _progression_icons.append(icon)
 
 
 func _hud_icon_scale(level: int, max_dimension: float) -> float:
