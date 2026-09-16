@@ -4,6 +4,8 @@ extends SceneTree
 ## The production Drink class owns both the RigidBody2D and its Sprite2D.
 
 var failures: Array[String] = []
+const EVIDENCE_DIR := "res://docs/evidence/m05"
+const EVIDENCE_CANVAS_SCRIPT := "res://tests/m05_evidence_canvas.gd"
 
 
 func _init() -> void:
@@ -90,7 +92,8 @@ func _run() -> void:
         table_rows.append("L%d texture=%s scale=%.6f offset=%s collider_radius=%.1f" % [level, sprite.texture.resource_path if sprite != null and sprite.texture != null else "INVALID", Drink.visual_scale_for_level(level), Drink.visual_offset_for_level(level), radius])
     print("M05_PRESENTATION_TABLE %s" % "; ".join(table_rows))
     _check("all L01-L12 table drinks use the canonical Sprite2D mapping", table_ok and radii_ok)
-    _check("all L01-L12 visual/body scales stay bounded for the portrait playfield", table_ok and _max_visual_extent(manager) <= 320.0)
+    _check("all L01-L12 visual/body scales stay bounded for the portrait playfield", table_ok and _max_visual_extent(manager) <= 360.0)
+    await _save_presentation_evidence()
 
     var held := manager.shot_controller._current_drink
     var held_sprite := _sprite_for(held)
@@ -185,6 +188,60 @@ func _max_visual_extent(manager: GameManager) -> float:
             if sprite != null and sprite.texture != null:
                 maximum = maxf(maximum, float(maxi(sprite.texture.get_width(), sprite.texture.get_height())) * sprite.scale.x)
     return maximum
+
+
+func _save_presentation_evidence() -> void:
+    DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(EVIDENCE_DIR))
+    var levels := range(1, 13)
+    var grid_positions: Array[Vector2] = []
+    for y in [180.0, 390.0, 600.0]:
+        for x in [190.0, 590.0, 990.0, 1390.0]:
+            grid_positions.append(Vector2(x, y))
+    var clean := await _render_evidence(levels, grid_positions, false, "M05 L01-L12 clean presentation")
+    var overlay := await _render_evidence(levels, grid_positions, true, "M05 L01-L12 collider / pivot overlay")
+    var pairs := await _render_evidence([1, 2, 6, 7, 11, 12], [Vector2(100.0, 190.0), Vector2(143.0, 190.0), Vector2(430.0, 190.0), Vector2(521.0, 190.0), Vector2(780.0, 190.0), Vector2(950.0, 190.0)], true, "M05 touching pairs: small / mid / high")
+    var continuity := await _render_evidence([2, 2, 3], [Vector2(270.0, 250.0), Vector2(345.0, 250.0), Vector2(850.0, 250.0)], false, "M05 merge continuity: L02 + L02 -> L03")
+    var saves := [
+        [clean, "%s/all_levels_clean.png" % EVIDENCE_DIR],
+        [overlay, "%s/all_levels_collider_overlay.png" % EVIDENCE_DIR],
+        [pairs, "%s/touching_pairs.png" % EVIDENCE_DIR],
+        [continuity, "%s/merge_continuity.png" % EVIDENCE_DIR],
+    ]
+    var saved_ok := true
+    for item in saves:
+        var image: Image = item[0]
+        var path: String = item[1]
+        var error := image.save_png(path)
+        saved_ok = saved_ok and error == OK and FileAccess.file_exists(path)
+        print("M05_EVIDENCE_CAPTURE path=%s dimensions=%dx%d error=%s" % [path, image.get_width(), image.get_height(), error])
+    _check("runtime collider/pivot/contact evidence captures saved", saved_ok)
+
+
+func _render_evidence(levels: Array, positions: Array[Vector2], annotated: bool, title: String) -> Image:
+    var viewport := SubViewport.new()
+    viewport.size = Vector2i(1600, 760)
+    viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+    viewport.transparent_bg = false
+    root.add_child(viewport)
+    var canvas := Node2D.new()
+    canvas.set_script(load(EVIDENCE_CANVAS_SCRIPT))
+    var evidence_drinks: Array[Drink] = []
+    canvas.set("annotated", annotated)
+    canvas.set("title", title)
+    viewport.add_child(canvas)
+    for index in range(levels.size()):
+        var drink := Drink.create(int(levels[index]))
+        drink.position = positions[index]
+        drink.set_settled()
+        viewport.add_child(drink)
+        evidence_drinks.append(drink)
+    canvas.set("drinks", evidence_drinks)
+    await process_frame
+    await process_frame
+    var image := viewport.get_texture().get_image()
+    viewport.queue_free()
+    await process_frame
+    return image
 
 
 func _finish() -> void:

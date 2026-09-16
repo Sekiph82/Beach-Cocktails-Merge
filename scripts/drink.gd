@@ -53,23 +53,23 @@ const COCKTAIL_TEXTURE_PATHS := [
     "res://assets/cocktails/L12.png",
 ]
 
-# These are manual body-region measurements from the M04 transparent-bound
-# inspection. They cover the visible glass/container body only; straw, fruit,
-# leaves, flowers, and other garnish extremes are excluded.
-const VISIBLE_BODY_WIDTH_PX := [720.0, 760.0, 770.0, 880.0, 700.0, 800.0, 650.0, 780.0, 900.0, 760.0, 760.0, 900.0]
+# These are retained MANUAL_VISUAL_MEASUREMENT_GLASS_BODY measurements from
+# the M05 evidence pass. Each width is the selected glass/container body bbox;
+# straw, fruit, leaves, flowers, and other garnish extremes are excluded.
+const VISIBLE_BODY_WIDTH_PX := [690.0, 725.0, 627.0, 759.0, 545.0, 700.0, 575.0, 615.0, 650.0, 625.0, 610.0, 710.0]
 const VISIBLE_BODY_CENTER_OFFSET_PX := [
-    Vector2(0.0, 80.0),
-    Vector2(0.0, 70.0),
-    Vector2(-10.0, 45.0),
-    Vector2(0.0, 35.0),
-    Vector2(0.0, 100.0),
-    Vector2(-5.0, 90.0),
-    Vector2(0.0, 100.0),
-    Vector2(0.0, 70.0),
-    Vector2(0.0, 100.0),
-    Vector2(0.0, 25.0),
-    Vector2(0.0, 65.0),
-    Vector2(0.0, 100.0),
+    Vector2(-25.0, 131.0),
+    Vector2(-14.5, 133.0),
+    Vector2(4.5, 118.0),
+    Vector2(-1.5, 98.0),
+    Vector2(0.5, 155.5),
+    Vector2(3.0, 128.0),
+    Vector2(0.5, 123.0),
+    Vector2(5.5, 135.5),
+    Vector2(3.0, 145.5),
+    Vector2(10.5, 140.5),
+    Vector2(8.0, 138.0),
+    Vector2(-2.0, 143.0),
 ]
 
 # Runtime body diameters are deliberately bounded and monotonic. The sprite

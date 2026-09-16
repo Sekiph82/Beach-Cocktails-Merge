@@ -1,0 +1,450 @@
+{
+  "schema": "BCM-M05-R01 presentation evidence V01",
+  "provenance": "Manual visual body-region measurements recorded from the canonical PNGs; not inferred from M04 whole-image alpha bounds.",
+  "runtime_api": {
+    "texture": "Drink.texture_for_level(level)",
+    "scale": "Drink.visual_scale_for_level(level)",
+    "offset": "Drink.visual_offset_for_level(level)",
+    "collider": "Drink.collider_radius_for_level(level)"
+  },
+  "levels": [
+    {
+      "level": 1,
+      "texture_path": "res://assets/cocktails/L01.png",
+      "source_sha256": "5cc060adf501562c2920fcb04a251e7a679a069f8d865f898e13adb87ac1e425",
+      "source_dimensions": [
+        1230,
+        1278
+      ],
+      "source_alpha_bbox": [
+        0,
+        61,
+        1165,
+        1246
+      ],
+      "visible_body_bbox_px": [
+        245,
+        440,
+        935,
+        1100
+      ],
+      "visible_body_width_px": 690,
+      "visible_body_height_px": 660,
+      "visible_body_center_offset_px": [
+        -25.0,
+        131.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.057971014492753624,
+      "runtime_visual_offset_px": [
+        1.4492753623188406,
+        -7.594202898550725
+      ],
+      "runtime_collider_radius": 20.0,
+      "runtime_mass": 1.0
+    },
+    {
+      "level": 2,
+      "texture_path": "res://assets/cocktails/L02.png",
+      "source_sha256": "bf37da56cda0bfa7df9dfc6761225aa0edcf1d867ddb10dde6698c0f0193d5a5",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        61,
+        21,
+        1232,
+        1230
+      ],
+      "visible_body_bbox_px": [
+        250,
+        420,
+        975,
+        1100
+      ],
+      "visible_body_width_px": 725,
+      "visible_body_height_px": 680,
+      "visible_body_center_offset_px": [
+        -14.5,
+        133.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.06344827586206897,
+      "runtime_visual_offset_px": [
+        0.92,
+        -8.438620689655172
+      ],
+      "runtime_collider_radius": 23.0,
+      "runtime_mass": 1.3
+    },
+    {
+      "level": 3,
+      "texture_path": "res://assets/cocktails/L03.png",
+      "source_sha256": "467aa8e2eb2d77fcde3abf8e7b66bdd2e7e8e01e58326b2a9bf44c85d6bd12f6",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        0,
+        20,
+        1240,
+        1224
+      ],
+      "visible_body_bbox_px": [
+        318,
+        360,
+        945,
+        1130
+      ],
+      "visible_body_width_px": 627,
+      "visible_body_height_px": 770,
+      "visible_body_center_offset_px": [
+        4.5,
+        118.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.0861244019138756,
+      "runtime_visual_offset_px": [
+        -0.3875598086124402,
+        -10.162679425837322
+      ],
+      "runtime_collider_radius": 27.0,
+      "runtime_mass": 1.6
+    },
+    {
+      "level": 4,
+      "texture_path": "res://assets/cocktails/L04.png",
+      "source_sha256": "05c47c6b4beed3523ac44b9ec8f4c92247652f886c683f73cc937ca86feedcd2",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        0,
+        9,
+        1200,
+        1254
+      ],
+      "visible_body_bbox_px": [
+        246,
+        330,
+        1005,
+        1120
+      ],
+      "visible_body_width_px": 759,
+      "visible_body_height_px": 790,
+      "visible_body_center_offset_px": [
+        -1.5,
+        98.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.08168642951251646,
+      "runtime_visual_offset_px": [
+        0.12252964426877469,
+        -8.005270092226613
+      ],
+      "runtime_collider_radius": 31.0,
+      "runtime_mass": 1.9
+    },
+    {
+      "level": 5,
+      "texture_path": "res://assets/cocktails/L05.png",
+      "source_sha256": "b49a3f44f1fe8fae39ffd01d01d1ba7ad1796a6920604eb63dec3a3020316838",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        0,
+        19,
+        1232,
+        1254
+      ],
+      "visible_body_bbox_px": [
+        355,
+        420,
+        900,
+        1145
+      ],
+      "visible_body_width_px": 545,
+      "visible_body_height_px": 725,
+      "visible_body_center_offset_px": [
+        0.5,
+        155.5
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.13211009174311927,
+      "runtime_visual_offset_px": [
+        -0.06605504587155964,
+        -20.543119266055047
+      ],
+      "runtime_collider_radius": 36.0,
+      "runtime_mass": 2.2
+    },
+    {
+      "level": 6,
+      "texture_path": "res://assets/cocktails/L06.png",
+      "source_sha256": "dfb281ba11f97d752504a69b1926762710c4c13bb195410d336fb18e37f56656",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        65,
+        32,
+        1198,
+        1224
+      ],
+      "visible_body_bbox_px": [
+        280,
+        400,
+        980,
+        1110
+      ],
+      "visible_body_width_px": 700,
+      "visible_body_height_px": 710,
+      "visible_body_center_offset_px": [
+        3.0,
+        128.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.12,
+      "runtime_visual_offset_px": [
+        -0.36,
+        -15.36
+      ],
+      "runtime_collider_radius": 42.0,
+      "runtime_mass": 2.5
+    },
+    {
+      "level": 7,
+      "texture_path": "res://assets/cocktails/L07.png",
+      "source_sha256": "349e3c28cdd713f481bbae91a59588a8afd324cd0c5072a37c6c163852346588",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        0,
+        21,
+        1230,
+        1230
+      ],
+      "visible_body_bbox_px": [
+        340,
+        350,
+        915,
+        1150
+      ],
+      "visible_body_width_px": 575,
+      "visible_body_height_px": 800,
+      "visible_body_center_offset_px": [
+        0.5,
+        123.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.17043478260869566,
+      "runtime_visual_offset_px": [
+        -0.08521739130434783,
+        -20.963478260869564
+      ],
+      "runtime_collider_radius": 49.0,
+      "runtime_mass": 2.8
+    },
+    {
+      "level": 8,
+      "texture_path": "res://assets/cocktails/L08.png",
+      "source_sha256": "e2533cace67a326e28cf6998a145564a1e1df56c88281df30a5b63ad2a41daf6",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        41,
+        23,
+        1234,
+        1254
+      ],
+      "visible_body_bbox_px": [
+        325,
+        405,
+        940,
+        1120
+      ],
+      "visible_body_width_px": 615,
+      "visible_body_height_px": 715,
+      "visible_body_center_offset_px": [
+        5.5,
+        135.5
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.1821138211382114,
+      "runtime_visual_offset_px": [
+        -1.0016260162601627,
+        -24.676422764227645
+      ],
+      "runtime_collider_radius": 56.0,
+      "runtime_mass": 3.1
+    },
+    {
+      "level": 9,
+      "texture_path": "res://assets/cocktails/L09.png",
+      "source_sha256": "0d79fee8802d6b98c38cb072dd5fbbd559c261580c96e77fa061f8bbeaebe8d7",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        43,
+        3,
+        1230,
+        1254
+      ],
+      "visible_body_bbox_px": [
+        305,
+        420,
+        955,
+        1125
+      ],
+      "visible_body_width_px": 650,
+      "visible_body_height_px": 705,
+      "visible_body_center_offset_px": [
+        3.0,
+        145.5
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.19692307692307692,
+      "runtime_visual_offset_px": [
+        -0.5907692307692307,
+        -28.65230769230769
+      ],
+      "runtime_collider_radius": 64.0,
+      "runtime_mass": 3.4
+    },
+    {
+      "level": 10,
+      "texture_path": "res://assets/cocktails/L10.png",
+      "source_sha256": "04dd624beb28b3b8dfce36d402bfc394ce07a3c8a2c335645bd42f26602e673e",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        97,
+        19,
+        1223,
+        1208
+      ],
+      "visible_body_bbox_px": [
+        325,
+        390,
+        950,
+        1145
+      ],
+      "visible_body_width_px": 625,
+      "visible_body_height_px": 755,
+      "visible_body_center_offset_px": [
+        10.5,
+        140.5
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.2304,
+      "runtime_visual_offset_px": [
+        -2.4192,
+        -32.3712
+      ],
+      "runtime_collider_radius": 72.0,
+      "runtime_mass": 3.6999999999999997
+    },
+    {
+      "level": 11,
+      "texture_path": "res://assets/cocktails/L11.png",
+      "source_sha256": "e9bbc5e84bd6c065d8496d203136dc1d20dffcb24686b0cc0195bda70032dfd9",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        0,
+        19,
+        1236,
+        1254
+      ],
+      "visible_body_bbox_px": [
+        330,
+        385,
+        940,
+        1145
+      ],
+      "visible_body_width_px": 610,
+      "visible_body_height_px": 760,
+      "visible_body_center_offset_px": [
+        8.0,
+        138.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.26229508196721313,
+      "runtime_visual_offset_px": [
+        -2.098360655737705,
+        -36.196721311475414
+      ],
+      "runtime_collider_radius": 80.0,
+      "runtime_mass": 4.0
+    },
+    {
+      "level": 12,
+      "texture_path": "res://assets/cocktails/L12.png",
+      "source_sha256": "528022036a3c06f8782153d2ae22f644e533eeffbc1ac198e411d50692b3c788",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "source_alpha_bbox": [
+        63,
+        47,
+        1214,
+        1184
+      ],
+      "visible_body_bbox_px": [
+        270,
+        400,
+        980,
+        1140
+      ],
+      "visible_body_width_px": 710,
+      "visible_body_height_px": 740,
+      "visible_body_center_offset_px": [
+        -2.0,
+        143.0
+      ],
+      "measurement_method": "MANUAL_VISUAL_MEASUREMENT_GLASS_BODY",
+      "measurement_scope": "glass/container body only; straw, fruit, leaves, flowers and garnish extremes excluded",
+      "runtime_visual_scale": 0.2535211267605634,
+      "runtime_visual_offset_px": [
+        0.5070422535211268,
+        -36.25352112676056
+      ],
+      "runtime_collider_radius": 90.0,
+      "runtime_mass": 4.3
+    }
+  ],
+  "visual_evidence": [
+    "all_levels_collider_overlay.png",
+    "all_levels_clean.png",
+    "touching_pairs.png",
+    "merge_continuity.png"
+  ]
+}
