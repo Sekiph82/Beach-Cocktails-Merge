@@ -328,14 +328,14 @@ Godot .import sidecars are ignored and not staged. No TASKS.md, coordination pro
 
 Start HEAD after mandatory synchronization: a286525b2759c624005a1d1aad3073e85fe5b0fa.
 
-The implementation, probe, captures, and this log were committed and pushed to main. The initial implementation commit was 6d7b85e11520d985e1acb3c8eed83ed1686e8fb1. After the external remote update, the safe merge commit pushed to origin/main was e7061341919851f4379f2c61cea84799a2eaf2ce. A final evidence-log correction commit will replace the placeholder below with its own final pushed SHA.
+The implementation, probe, captures, and this log were committed and pushed to main. The initial implementation commit was 6d7b85e11520d985e1acb3c8eed83ed1686e8fb1. After the external remote update, the safe merge commit pushed to origin/main was e7061341919851f4379f2c61cea84799a2eaf2ce. The evidence-log commit pushed before this final correction was 7c91f8ebf0041361d349ad7a90b421e22d334e30.
 
     git rev-parse HEAD
-    <FINAL_COMMIT_SHA>
+    7c91f8ebf0041361d349ad7a90b421e22d334e30
     git rev-parse origin/main
-    <FINAL_COMMIT_SHA>
+    7c91f8ebf0041361d349ad7a90b421e22d334e30
     git ls-remote origin refs/heads/main
-    <FINAL_COMMIT_SHA> refs/heads/main
+    7c91f8ebf0041361d349ad7a90b421e22d334e30 refs/heads/main
     git rev-list --left-right --count HEAD...origin/main
     0 0
     git status --short --branch
@@ -345,7 +345,7 @@ The implementation, probe, captures, and this log were committed and pushed to m
     git diff -- TASKS.md
     FINAL_TASKS_DIFF_EXIT_CODE=0
 
-The placeholder must be replaced by the actual final pushed SHA before completion.
+The equality block above was captured immediately before this final evidence-log correction and proves the pushed pre-correction baseline. The final correction creates one new log-only commit; its post-push equality is checked in the terminal and returned with the completion handoff, because a commit cannot embed its own SHA before it exists.
 
 Explicit governance confirmations:
 
