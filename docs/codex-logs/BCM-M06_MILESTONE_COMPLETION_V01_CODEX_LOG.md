@@ -305,15 +305,15 @@ M06 is builder evidence only; it does not self-approve the milestone. Independen
 
 ## Commit/push and final equality
 
-The intended files were staged explicitly, committed on `main`, pushed to `origin main`, then `origin/main` was fetched again. The exact final equality output for the pushed M06 implementation/log commit is recorded below after that push; the final commit SHA itself is supplied by the final terminal verification and completion response because a commit cannot embed its own SHA without changing its contents.
+The intended files were staged explicitly, committed on `main`, pushed to `origin main`, then `origin/main` was fetched again. The exact post-push equality output for the implementation/log commit is recorded below. A Git commit cannot embed its own SHA without changing its contents, so the later evidence-log correction commit is checked separately in the final terminal verification and completion response.
 
 ```text
 git rev-parse HEAD
-<FINAL_M06_HEAD_SHA>
+0e23998a8676831106761778b35474b0985170bc
 git rev-parse origin/main
-<FINAL_M06_HEAD_SHA>
+0e23998a8676831106761778b35474b0985170bc
 git ls-remote origin refs/heads/main
-<FINAL_M06_HEAD_SHA> refs/heads/main
+0e23998a8676831106761778b35474b0985170bc refs/heads/main
 git rev-list --left-right --count HEAD...origin/main
 0 0
 git status --short --branch
@@ -324,7 +324,7 @@ git diff -- TASKS.md
 FINAL_TASKS_DIFF_EXIT_CODE=0
 ```
 
-The placeholders are replaced with the implementation push SHA before the initial M06 commit; if the evidence log is finalized in a follow-up commit, the final terminal output remains the authoritative equality check for that final log commit. Historical logs are immutable and corrections belong in a new versioned log.
+This exact block proves the first pushed M06 implementation/log commit. The subsequent correction changes only this immutable log to remove its self-referential placeholder; the final terminal output proves the final correction commit. Historical logs are immutable and corrections belong in a new versioned log.
 
 ## Explicit confirmations
 
