@@ -4,11 +4,11 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 ## Project Status
 
-- Current Milestone: M04
-- Current Sprint: M04-V7-ASSET-LIBRARY-VALIDATION
-- Current Task: BCM-M04-001 — Import and validate the complete v7 visual asset library.
+- Current Milestone: M05
+- Current Sprint: M05-COCKTAIL-SPRITE-INTEGRATION
+- Current Task: BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `docs/prompts/BCM-M04_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M04 asset-validation evidence/support work, and stop for independent strict audit before BCM-M05-001 or any V7 integration work begins.
+- Next Task/Action: Codex must execute `docs/prompts/BCM-M05_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M05 cocktail-sprite integration work plus immutable evidence log, and stop for independent strict audit before BCM-M06-001 or later V7 composition work begins.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -20,8 +20,8 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 - [x] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
 - [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
-- [~] BCM-M04-001 — Import and validate the complete v7 visual asset library.
-- [ ] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
+- [x] BCM-M04-001 — Import and validate the complete v7 visual asset library.
+- [~] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
 - [ ] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
 - [ ] BCM-M07-001 — Integrate logo, score panels, To-Go panel, Next panel, progression strip, launch zone, and danger line.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
@@ -205,32 +205,32 @@ Acceptance gate: all score increments are auditable, non-duplicated, and regress
 Goal: make all owner-approved visual assets canonical, import-safe, and ready for dynamic Godot composition.
 
 ### M04.01 — Cocktail assets
-- [~] BCM-M04-001 — Import and validate the complete v7 visual asset library.
-- [ ] Validate `assets/cocktails/L01.png` through `L12.png` exist and import.
-- [ ] Confirm all cocktail assets have transparent backgrounds and expected alpha.
-- [ ] Confirm consistent pivot strategy and readable scale progression.
-- [ ] Confirm every cocktail includes a straw per owner art rule.
-- [ ] Preserve owner-approved garnish differences.
+- [x] BCM-M04-001 — Import and validate the complete v7 visual asset library.
+- [x] Validate `assets/cocktails/L01.png` through `L12.png` exist and import.
+- [x] Confirm all cocktail assets have transparent backgrounds and expected alpha.
+- [x] Record transparent bounds and confirm readable progression; runtime pivot/scale mapping is deferred to M05.
+- [x] Confirm every cocktail includes a straw per owner art rule.
+- [x] Preserve owner-approved garnish differences.
 
 ### M04.02 — Environment asset
-- [ ] Validate `assets/environment/game_board_background.png`.
-- [ ] Confirm it contains only tropical environment + empty perspective wooden table.
-- [ ] Confirm no baked dynamic UI, logo, score, Next, To-Go, drink sprites, progression strip, danger line, guide line, or launch ring.
+- [x] Validate `assets/environment/game_board_background.png`.
+- [x] Confirm it contains only tropical environment + empty perspective wooden table.
+- [x] Confirm no baked dynamic UI, logo, score, Next, To-Go, drink sprites, progression strip, danger line, guide line, or launch ring.
 
 ### M04.03 — UI assets
-- [ ] Validate `assets/ui/logo_beach_cocktails_merge.png`.
-- [ ] Validate `assets/ui/panel_best_score.png`.
-- [ ] Validate `assets/ui/panel_score.png` and dimensional parity with Best Score panel.
-- [ ] Validate `assets/ui/panel_to_go_orders.png` has blank dynamic content area.
-- [ ] Validate `assets/ui/panel_next.png` has blank dynamic preview area.
-- [ ] Validate `assets/ui/progression_strip.png` contains exactly 12 empty slots.
-- [ ] Validate `assets/ui/launch_zone.png` is a simple glowing gold oval with transparent center and no extra decoration/text.
-- [ ] Validate `assets/ui/danger_line.png` as the horizontal dashed boundary asset.
-- [ ] `guide_line` is explicitly out of scope and must not be introduced unless the owner later requests it.
+- [x] Validate `assets/ui/logo_beach_cocktails_merge.png`.
+- [x] Validate `assets/ui/panel_best_score.png`.
+- [x] Validate `assets/ui/panel_score.png` and record the non-blocking 2 px width delta from Best Score panel.
+- [x] Validate `assets/ui/panel_to_go_orders.png` has blank dynamic content area.
+- [x] Validate `assets/ui/panel_next.png` has blank dynamic preview area.
+- [x] Validate `assets/ui/progression_strip.png` contains exactly 12 empty slots.
+- [x] Validate `assets/ui/launch_zone.png` is a simple glowing gold oval with transparent center and no extra decoration/text.
+- [x] Validate `assets/ui/danger_line.png` as the horizontal dashed boundary asset.
+- [x] `guide_line` is explicitly out of scope and was not introduced.
 
 ### M04.04 — Effects assets
-- [ ] Validate `assets/effects/to_go_trail.png` is the simplified gold light trail with small sparkles/bubbles and no large garnish objects.
-- [ ] Identify any remaining VFX that should be procedural/particles rather than static images.
+- [x] Validate `assets/effects/to_go_trail.png` is the simplified gold light trail with small sparkles/bubbles and no large garnish objects.
+- [x] Record that additional merge/order VFX should remain procedural/later bounded effect work rather than be added in M04.
 
 Acceptance gate: asset inventory passes import, alpha, naming, dimensional, and semantic checks.
 
@@ -241,7 +241,7 @@ Acceptance gate: asset inventory passes import, alpha, naming, dimensional, and 
 Goal: replace placeholder drink circles with real L01-L12 cocktail sprites without changing gameplay physics.
 
 ### M05.01 — Sprite mapping
-- [ ] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
+- [~] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
 - [ ] Add deterministic level-to-texture mapping for L01-L12.
 - [ ] Replace placeholder geometry with `Sprite2D`/appropriate nodes.
 - [ ] Keep gameplay/body logic separated from visual texture logic.
