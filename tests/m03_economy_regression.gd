@@ -42,6 +42,39 @@ func _count_level(manager: GameManager, level: int, include_held: bool = true) -
     return count
 
 
+func _verify_immediate_order(manager: GameManager, level: int) -> void:
+    manager._target_level = level
+    manager._refresh_merge_target_visual()
+    manager.score = 0
+    manager.chain = 0
+    manager.chain_timer = 0.0
+    var immediate_match := manager.spawn_drink(level, Vector2(360.0, 700.0), false)
+    manager.on_merged(level, immediate_match)
+    await _frames(120)
+    var expected_total := Drink.merge_score(level) + Drink.order_reward(level)
+    print("M03_IMMEDIATE_ORDER L%d merge=%d reward=%d expected_total=%d observed_total=%d" % [level, Drink.merge_score(level), Drink.order_reward(level), expected_total, manager.score])
+    _check("newly created L%d matching drink fulfills active order exactly once" % level, not is_instance_valid(immediate_match) and manager.score == expected_total)
+    await _cleanup(manager)
+
+
+func _verify_stored_order(manager: GameManager, level: int) -> void:
+    manager._target_level = level
+    manager._refresh_merge_target_visual()
+    manager.score = 0
+    manager.chain = 0
+    manager.chain_timer = 0.0
+    var stored_match := manager.spawn_drink(level, Vector2(220.0, 700.0), false)
+    manager._try_collect_stocked_target()
+    await _frames(120)
+    var stored_score := manager.score
+    manager._try_collect_stocked_target()
+    await _frames(3)
+    var expected_reward := Drink.order_reward(level)
+    print("M03_STORED_ORDER L%d reward=%d expected_total=%d observed_total=%d" % [level, expected_reward, expected_reward, manager.score])
+    _check("stored L%d matching drink receives only the current To-Go reward exactly once" % level, not is_instance_valid(stored_match) and stored_score == expected_reward and manager.score == stored_score)
+    await _cleanup(manager)
+
+
 func _run() -> void:
     print("M03_PROBE user_save_path=%s" % ProjectSettings.globalize_path("user://save.cfg"))
     var packed := load("res://scenes/main.tscn") as PackedScene
@@ -103,28 +136,22 @@ func _run() -> void:
     await _frames(2)
     _check("To-Go target stays in L6-L12 and avoids immediate repeat", manager._target_level >= 6 and manager._target_level <= 12 and manager._target_level != previous_target)
 
-    manager._target_level = 8
-    manager._refresh_merge_target_visual()
-    manager.score = 0
-    manager.chain = 0
-    var immediate_match := manager.spawn_drink(8, Vector2(360.0, 700.0), false)
-    manager.on_merged(8, immediate_match)
-    await _frames(120)
-    _check("newly created matching drink fulfills active order", not is_instance_valid(immediate_match) and manager.score == Drink.merge_score(8) + Drink.order_reward(8))
-    await _cleanup(manager)
+    var expected_rewards := [1000, 1800, 3000, 5000, 8000, 12000, 18000]
+    var reward_rows: Array[String] = []
+    var reward_table_ok := true
+    for level in range(6, 13):
+        var expected_reward: int = expected_rewards[level - 6]
+        var observed_reward := Drink.order_reward(level)
+        reward_rows.append("L%d expected=%d observed=%d" % [level, expected_reward, observed_reward])
+        reward_table_ok = reward_table_ok and observed_reward == expected_reward
+    print("M03_REWARD_TABLE %s" % "; ".join(reward_rows))
+    _check("owner-approved To-Go reward table L6-L12 is exact", reward_table_ok)
 
-    manager._target_level = 9
-    manager._refresh_merge_target_visual()
-    manager.score = 0
-    manager.chain = 0
-    var stored_match := manager.spawn_drink(9, Vector2(220.0, 700.0), false)
-    manager._try_collect_stocked_target()
-    await _frames(120)
-    var stored_score := manager.score
-    manager._try_collect_stocked_target()
-    await _frames(3)
-    _check("stored matching drink receives only the current To-Go reward", not is_instance_valid(stored_match) and stored_score == Drink.order_reward(9) and manager.score == stored_score)
-    await _cleanup(manager)
+    for level in range(6, 13):
+        await _verify_immediate_order(manager, level)
+
+    for level in range(6, 13):
+        await _verify_stored_order(manager, level)
 
     manager._target_level = 10
     manager._refresh_merge_target_visual()
@@ -210,7 +237,7 @@ func _run() -> void:
     _check("restart after moving Game Over preserves best and clears session", final_scene != null and not final_scene.game_over and final_scene.score == 0 and final_scene.best_score == 321 and is_instance_valid(final_scene.shot_controller._current_drink))
 
     print("M03_REWARD_STATUS L6=%d L7=%d L8=%d L9=%d L10=%d L11=%d L12=%d" % [Drink.order_reward(6), Drink.order_reward(7), Drink.order_reward(8), Drink.order_reward(9), Drink.order_reward(10), Drink.order_reward(11), Drink.order_reward(12)])
-    print("OWNER DECISION REQUIRED FOR FINAL L6/L7 REWARD VALUES")
+    print("OWNER-APPROVED REWARD TABLE APPLIED: L6=1000 L7=1800; L8-L12 unchanged")
     _finish()
 
 

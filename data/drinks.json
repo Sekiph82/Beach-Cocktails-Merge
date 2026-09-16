@@ -46,7 +46,7 @@
       "radius": 59,
       "mass": 32,
       "score": 350,
-      "order_reward": 0
+      "order_reward": 1000
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "radius": 71,
       "mass": 64,
       "score": 600,
-      "order_reward": 0
+      "order_reward": 1800
     },
     {
       "id": 8,
