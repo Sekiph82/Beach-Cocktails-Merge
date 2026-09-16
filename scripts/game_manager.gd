@@ -41,23 +41,31 @@ var merge_queue: MergeQueue
 var shot_controller: ShotController
 
 var _line_timer := 0.0
-var _score_label: Label
-var _best_label: Label
-var _next_label: Label
+var _hud: Control
+var _best_panel: Control
+var _score_panel: Control
+var _to_go_panel: Control
+var _next_panel: Control
+var _progression_strip: Control
+var _best_value: Label
+var _score_value: Label
+var _to_go_target_sprite: Sprite2D
+var _to_go_level_label: Label
+var _to_go_reward_label: Label
+var _next_sprite: Sprite2D
+var _progression_icons: Array[Sprite2D] = []
 var _chain_label: Label
 var _game_over_layer: Control
 var _final_score_label: Label
 var _background: Sprite2D
 var _background_scale := 1.0
 var _background_offset := Vector2.ZERO
+var _launch_zone: Sprite2D
+var _danger_line: Sprite2D
 
 # Active merge objective shown above the table.
 var _target_level := 6
 var _target_root: Node2D
-var _target_body: Polygon2D
-var _target_rim: Polygon2D
-var _target_level_label: Label
-var _target_caption: Label
 var _target_transition := false
 var _target_drink: Drink
 
@@ -194,9 +202,7 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
 
 
 func set_next_level(p_level: int) -> void:
-    if _next_label == null:
-        return
-    _next_label.text = "NEXT  L%d  %s" % [p_level, Drink.level_name(p_level)]
+    _refresh_next_visual(p_level)
 
 
 func _add_score(points: int) -> void:
@@ -237,6 +243,7 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
 
 func _process(delta: float) -> void:
     if game_over:
+        _update_launch_zone(false)
         return
 
     if chain > 0:
@@ -247,6 +254,7 @@ func _process(delta: float) -> void:
             _refresh_hud()
 
     _update_death_line(delta)
+    _update_launch_zone(true)
 
 
 func _update_death_line(delta: float) -> void:
@@ -341,10 +349,10 @@ func _save_best_score() -> void:
 
 
 func _refresh_hud() -> void:
-    if _score_label != null:
-        _score_label.text = "SKOR  %d" % score
-    if _best_label != null:
-        _best_label.text = "REKOR  %d" % best_score
+    if _score_value != null:
+        _score_value.text = "%s" % score
+    if _best_value != null:
+        _best_value.text = "%s" % best_score
     if _chain_label != null:
         _chain_label.visible = chain > 1
         _chain_label.text = "COMBO x%d" % chain
@@ -390,35 +398,80 @@ func _add_wall_segment(a: Vector2, b: Vector2, thickness: float, wall_name: Stri
 
 func _build_ui() -> void:
     var board_size := get_board_size()
+    var ui_scale := clampf(board_size.x / 720.0, 0.94, 1.10)
     var canvas := CanvasLayer.new()
     canvas.name = "UI"
     add_child(canvas)
 
-    var hud := Control.new()
-    hud.name = "HUD"
-    hud.position = Vector2.ZERO
-    hud.size = board_size
-    hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    canvas.add_child(hud)
+    _hud = Control.new()
+    _hud.name = "HUD"
+    _hud.position = Vector2.ZERO
+    _hud.size = board_size
+    _hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    canvas.add_child(_hud)
 
-    _score_label = _make_label(Vector2(28, 24), Vector2(300, 54), 30, HORIZONTAL_ALIGNMENT_LEFT)
-    hud.add_child(_score_label)
+    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", Rect2(16.0 * ui_scale, 164.0 * ui_scale, 230.0 * ui_scale, 130.0 * ui_scale))
+    _hud.add_child(_best_panel)
+    _best_value = _make_panel_value(_best_panel, "%s" % best_score, 28, 0.54)
 
-    _best_label = _make_label(Vector2(board_size.x - 328, 24), Vector2(300, 54), 24, HORIZONTAL_ALIGNMENT_RIGHT)
-    hud.add_child(_best_label)
+    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(16.0 * ui_scale, 298.0 * ui_scale, 230.0 * ui_scale, 130.0 * ui_scale))
+    _hud.add_child(_score_panel)
+    _score_value = _make_panel_value(_score_panel, "%s" % score, 30, 0.54)
 
-    _next_label = _make_label(Vector2(28, 82), Vector2(board_size.x - 56, 46), 22, HORIZONTAL_ALIGNMENT_CENTER)
-    hud.add_child(_next_label)
+    var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", Rect2(12.0 * ui_scale, 6.0 * ui_scale, 220.0 * ui_scale, 148.0 * ui_scale))
+    _hud.add_child(logo)
 
-    _chain_label = _make_label(Vector2(28, 202), Vector2(board_size.x - 56, 44), 25, HORIZONTAL_ALIGNMENT_CENTER)
-    _chain_label.add_theme_color_override("font_color", Color(1.0, 0.83, 0.28, 1.0))
-    _chain_label.visible = false
-    hud.add_child(_chain_label)
+    var to_go_width := 310.0 * ui_scale
+    var to_go_height := to_go_width * 1024.0 / 1536.0
+    var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 14.0 * ui_scale, to_go_width, to_go_height)
+    _to_go_panel = _make_panel("ToGoOrdersPanel", "res://assets/ui/panel_to_go_orders.png", to_go_rect)
+    _hud.add_child(_to_go_panel)
 
-    var hint := _make_label(Vector2(30, board_size.y - 62), Vector2(board_size.x - 60, 34), 17, HORIZONTAL_ALIGNMENT_CENTER)
-    hint.text = "Surukle: X konumu   •   Birak: masada kaydir"
-    hint.add_theme_color_override("font_color", Color(0.78, 0.82, 0.9, 0.82))
-    hud.add_child(hint)
+    _to_go_target_sprite = Sprite2D.new()
+    _to_go_target_sprite.name = "TargetCocktail"
+    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.61)
+    _to_go_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    _to_go_target_sprite.z_index = 2
+    _to_go_panel.add_child(_to_go_target_sprite)
+
+    _to_go_level_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.20, to_go_rect.size.y * 0.60, to_go_rect.size.x * 0.60, 24.0 * ui_scale), 16, Color(0.34, 0.13, 0.05, 1.0))
+    _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.23, to_go_rect.size.y * 0.80, to_go_rect.size.x * 0.54, 28.0 * ui_scale), 24, Color(0.30, 0.10, 0.03, 1.0))
+
+    var next_size := 150.0 * ui_scale
+    var next_rect := Rect2(board_size.x - next_size - 12.0 * ui_scale, 10.0 * ui_scale, next_size, next_size)
+    _next_panel = _make_panel("NextPanel", "res://assets/ui/panel_next.png", next_rect)
+    _hud.add_child(_next_panel)
+    _next_sprite = Sprite2D.new()
+    _next_sprite.name = "NextCocktail"
+    _next_sprite.position = Vector2(next_size * 0.5, next_size * 0.64)
+    _next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    _next_panel.add_child(_next_sprite)
+
+    var strip_margin := 12.0 * ui_scale
+    var strip_width := board_size.x - strip_margin * 2.0
+    var strip_height := strip_width * 725.0 / 2170.0
+    _progression_strip = _make_panel("ProgressionStrip", "res://assets/ui/progression_strip.png", Rect2(strip_margin, board_size.y - strip_height - 8.0 * ui_scale, strip_width, strip_height))
+    _hud.add_child(_progression_strip)
+    _build_progression_icons(_progression_strip)
+
+    # World-space overlays stay independent from HUD layout but follow the
+    # accepted M06 launch/death coordinates. They have no collision/input.
+    _launch_zone = Sprite2D.new()
+    _launch_zone.name = "LaunchZone"
+    _launch_zone.texture = load("res://assets/ui/launch_zone.png") as Texture2D
+    _launch_zone.position = Vector2(board_size.x * 0.5, launch_y)
+    _launch_zone.scale = Vector2.ONE * clampf(112.0 / 1254.0, 0.07, 0.12)
+    _launch_zone.z_index = 1
+    _launch_zone.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    add_child(_launch_zone)
+
+    _danger_line = Sprite2D.new()
+    _danger_line.name = "DangerLine"
+    _danger_line.texture = load("res://assets/ui/danger_line.png") as Texture2D
+    _danger_line.z_index = 1
+    _danger_line.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    add_child(_danger_line)
+    _layout_danger_line()
 
     _game_over_layer = Control.new()
     _game_over_layer.name = "GameOver"
@@ -452,47 +505,101 @@ func _build_ui() -> void:
     _game_over_layer.add_child(restart)
 
 
+func _make_panel(panel_name: String, texture_path: String, rect: Rect2) -> Control:
+    var panel := Control.new()
+    panel.name = panel_name
+    panel.position = rect.position
+    panel.size = rect.size
+    panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    var artwork := Sprite2D.new()
+    artwork.name = "Artwork"
+    artwork.texture = load(texture_path) as Texture2D
+    artwork.position = rect.size * 0.5
+    if artwork.texture != null:
+        artwork.scale = Vector2.ONE * minf(rect.size.x / float(artwork.texture.get_width()), rect.size.y / float(artwork.texture.get_height()))
+    artwork.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    panel.add_child(artwork)
+    return panel
+
+
+func _make_panel_value(panel: Control, value: String, font_size: int, y_ratio: float) -> Label:
+    var label := _make_panel_text(panel, value, Rect2(panel.size.x * 0.23, panel.size.y * y_ratio - 18.0, panel.size.x * 0.54, 44.0), font_size, Color(1.0, 0.93, 0.76, 1.0))
+    label.add_theme_color_override("font_shadow_color", Color(0.18, 0.06, 0.02, 0.8))
+    label.add_theme_constant_override("shadow_offset_x", 2)
+    label.add_theme_constant_override("shadow_offset_y", 2)
+    return label
+
+
+func _make_panel_text(panel: Control, text_value: String, rect: Rect2, font_size: int, color: Color) -> Label:
+    var label := Label.new()
+    label.text = text_value
+    label.position = rect.position
+    label.size = rect.size
+    label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+    label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    label.add_theme_font_size_override("font_size", font_size)
+    label.add_theme_color_override("font_color", color)
+    panel.add_child(label)
+    return label
+
+
+func _build_progression_icons(strip: Control) -> void:
+    _progression_icons.clear()
+    var slot_x_ratios := [0.112, 0.184, 0.255, 0.327, 0.399, 0.472, 0.543, 0.615, 0.687, 0.758, 0.830, 0.902]
+    for i in range(12):
+        var level := i + 1
+        var icon := Sprite2D.new()
+        icon.name = "ProgressionIconL%02d" % level
+        icon.texture = Drink.texture_for_level(level)
+        icon.position = Vector2(strip.size.x * slot_x_ratios[i], strip.size.y * 0.49)
+        icon.scale = Vector2.ONE * _hud_icon_scale(level, 54.0)
+        icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+        icon.z_index = 2
+        strip.add_child(icon)
+        _progression_icons.append(icon)
+
+
+func _hud_icon_scale(level: int, max_dimension: float) -> float:
+    var texture := Drink.texture_for_level(level)
+    if texture == null:
+        return 0.0
+    var source_dimension := float(maxi(texture.get_width(), texture.get_height()))
+    return minf(Drink.visual_scale_for_level(level), max_dimension / source_dimension)
+
+
+func _refresh_next_visual(level: int) -> void:
+    if _next_sprite == null:
+        return
+    _next_sprite.texture = Drink.texture_for_level(level)
+    _next_sprite.scale = Vector2.ONE * _hud_icon_scale(level, 92.0)
+
+
+func _layout_danger_line() -> void:
+    if _danger_line == null:
+        return
+    var bounds := get_table_rail_bounds_at_y(death_line_y)
+    var width := maxf(bounds.y - bounds.x - wall_thickness * 2.0, 120.0)
+    var texture := _danger_line.texture
+    _danger_line.position = Vector2((bounds.x + bounds.y) * 0.5, death_line_y)
+    _danger_line.scale = Vector2.ONE * (width / float(texture.get_width()) if texture != null else 0.25)
+
+
+func _update_launch_zone(visible: bool) -> void:
+    if _launch_zone == null:
+        return
+    var held := shot_controller._current_drink if shot_controller != null else null
+    _launch_zone.visible = visible and is_instance_valid(held)
+    if _launch_zone.visible:
+        _launch_zone.position = held.position
+
+
 func _build_merge_target() -> void:
-    var size := get_board_size()
-
-    _target_caption = Label.new()
-    _target_caption.text = "TO-GO ORDERS"
-    _target_caption.position = Vector2(size.x * 0.5 - 120.0, 116.0)
-    _target_caption.size = Vector2(240.0, 28.0)
-    _target_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    _target_caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-    _target_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    _target_caption.add_theme_font_size_override("font_size", 16)
-    _target_caption.add_theme_color_override("font_color", Color(1.0, 0.84, 0.45, 0.95))
-    add_child(_target_caption)
-
     _target_root = Node2D.new()
-    _target_root.name = "MergeTarget"
-    _target_root.position = Vector2(size.x * 0.5, 166.0)
-    _target_root.z_index = 4000
+    _target_root.name = "ToGoTargetDestination"
+    _target_root.position = _to_go_target_sprite.global_position
+    _target_root.visible = false
     add_child(_target_root)
-
-    _target_rim = Polygon2D.new()
-    _target_rim.polygon = Drink._circle_points(44.0, 48)
-    _target_rim.color = Color(1.0, 0.82, 0.35, 0.95)
-    _target_root.add_child(_target_rim)
-
-    _target_body = Polygon2D.new()
-    _target_body.polygon = Drink._circle_points(37.0, 48)
-    _target_root.add_child(_target_body)
-
-    _target_level_label = Label.new()
-    _target_level_label.position = Vector2(-58.0, -20.0)
-    _target_level_label.size = Vector2(116.0, 40.0)
-    _target_level_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    _target_level_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-    _target_level_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    _target_level_label.add_theme_font_size_override("font_size", 23)
-    _target_level_label.add_theme_color_override("font_color", Color.WHITE)
-    _target_level_label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.75))
-    _target_level_label.add_theme_constant_override("shadow_offset_x", 1)
-    _target_level_label.add_theme_constant_override("shadow_offset_y", 1)
-    _target_root.add_child(_target_level_label)
 
 
 func _choose_next_target(initial: bool = false) -> void:
@@ -553,23 +660,23 @@ func _try_collect_stocked_target() -> void:
 
 
 func _refresh_merge_target_visual() -> void:
-    if _target_root == null:
+    if _to_go_panel == null or _to_go_target_sprite == null:
         return
 
-    _target_root.visible = true
-    _target_root.scale = Vector2.ONE
-    _target_root.modulate = Color.WHITE
-    _target_caption.visible = true
-    _target_caption.modulate = Color.WHITE
-
-    var hue := float(_target_level - 1) / maxf(float(Drink.max_level()), 1.0) * 0.82
-    _target_body.color = Color.from_hsv(hue, 0.72, 0.95)
-    _target_level_label.text = "L%d" % _target_level
-    _target_caption.text = "TO-GO ORDERS  •  %s  •  +%d" % [Drink.level_name(_target_level), Drink.order_reward(_target_level)]
+    _to_go_panel.visible = true
+    _to_go_panel.modulate = Color.WHITE
+    _to_go_target_sprite.visible = true
+    _to_go_target_sprite.modulate = Color.WHITE
+    _to_go_target_sprite.texture = Drink.texture_for_level(_target_level)
+    _to_go_target_sprite.scale = Vector2.ONE * _hud_icon_scale(_target_level, 104.0)
+    _to_go_level_label.text = "L%d  %s" % [_target_level, Drink.level_name(_target_level)]
+    _to_go_reward_label.text = "+%d" % Drink.order_reward(_target_level)
+    if _target_root != null:
+        _target_root.position = _to_go_target_sprite.global_position
 
     var pulse := create_tween()
-    pulse.tween_property(_target_root, "scale", Vector2(1.12, 1.12), 0.12)
-    pulse.tween_property(_target_root, "scale", Vector2.ONE, 0.18)
+    pulse.tween_property(_to_go_target_sprite, "modulate", Color(1.18, 1.18, 1.18, 1.0), 0.12)
+    pulse.tween_property(_to_go_target_sprite, "modulate", Color.WHITE, 0.18)
 
 
 func _collect_merge_target(drink: Drink) -> void:
@@ -592,9 +699,8 @@ func _collect_merge_target(drink: Drink) -> void:
     tween.tween_property(drink, "position", _target_root.position, 0.34)
     tween.tween_property(drink, "scale", Vector2(0.42, 0.42), 0.34)
     tween.tween_property(drink, "modulate:a", 0.0, 0.34)
-    tween.tween_property(_target_root, "scale", Vector2(1.35, 1.35), 0.34)
-    tween.tween_property(_target_root, "modulate:a", 0.0, 0.34)
-    tween.tween_property(_target_caption, "modulate:a", 0.0, 0.28)
+    tween.tween_property(_to_go_target_sprite, "scale", _to_go_target_sprite.scale * 1.18, 0.34)
+    tween.tween_property(_to_go_target_sprite, "modulate:a", 0.0, 0.34)
     tween.finished.connect(_finish_target_collection, CONNECT_ONE_SHOT)
 
 
@@ -604,8 +710,7 @@ func _finish_target_collection() -> void:
     if is_instance_valid(drink):
         drink.queue_free()
 
-    _target_root.visible = false
-    _target_caption.visible = false
+    _to_go_panel.visible = false
 
     # A delivered stock drink never receives merge/combo points a second time.
     # Only the currently requested To-Go reward is paid here.
@@ -648,13 +753,5 @@ func _juice_effect(pos: Vector2) -> void:
 
 
 func _draw() -> void:
-    # The approved PNG supplies the table artwork. Keep only the existing
-    # procedural danger boundary as a gameplay/debug aid until M07 owns the
-    # final danger-line asset composition.
-    var danger_bounds := get_table_rail_bounds_at_y(death_line_y)
-    draw_line(
-        Vector2(danger_bounds.x + wall_thickness, death_line_y),
-        Vector2(danger_bounds.y - wall_thickness, death_line_y),
-        Color(1.0, 0.30, 0.30, 0.82),
-        4.0
-    )
+    # All table/HUD-facing artwork is supplied by canonical V7 assets.
+    pass
