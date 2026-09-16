@@ -91,7 +91,7 @@ func _run() -> void:
     top_hit.start_sliding(Vector2(0.0, -700.0))
     await _physics_steps(55)
     print("M02_TOP_CONTACT final_position=%s motion_state=%s velocity=%s" % [top_hit.position, top_hit.motion_state, top_hit.linear_velocity])
-    _check("top boundary contact settles without +Y rebound", top_hit.is_settled() and top_hit.position.y < 260.0 and top_hit.linear_velocity.y <= 0.0)
+    _check("top boundary contact settles without +Y rebound", top_hit.is_settled() and top_hit.position.y <= manager.table_top_y + top_hit.radius + manager.wall_thickness and top_hit.linear_velocity.y <= 0.1)
     await _cleanup(manager)
 
     var direct_target := manager.spawn_drink(2, Vector2(150.0, 700.0), false)

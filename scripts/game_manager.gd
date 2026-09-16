@@ -7,11 +7,25 @@ extends Node2D
 
 static var instance: GameManager
 
-@export var table_top_y := 205.0
-@export var table_top_inset := 76.0
-@export var table_bottom_inset := 24.0
+const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
+const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
+
+# Manual design-space landmarks from the owner-approved 1024x1536 background.
+# Points follow the inside edge of the wooden rails, not the image canvas.
+const TABLE_FAR_LEFT_SOURCE := Vector2(292.0, 464.0)
+const TABLE_FAR_RIGHT_SOURCE := Vector2(732.0, 464.0)
+const TABLE_NEAR_LEFT_SOURCE := Vector2(104.0, 1208.0)
+const TABLE_NEAR_RIGHT_SOURCE := Vector2(920.0, 1208.0)
+const DANGER_SOURCE_Y := 1048.0
+const LAUNCH_SOURCE_Y := 1144.0
+
+@export var table_top_y := 0.0
+@export var table_bottom_y := 0.0
+@export var table_top_inset := 0.0
+@export var table_bottom_inset := 0.0
 @export var wall_thickness := 24.0
-@export var death_line_y := 1040.0
+@export var death_line_y := 0.0
+@export var launch_y := 0.0
 @export var death_tolerance := 1.0
 
 var score := 0
@@ -33,6 +47,9 @@ var _next_label: Label
 var _chain_label: Label
 var _game_over_layer: Control
 var _final_score_label: Label
+var _background: Sprite2D
+var _background_scale := 1.0
+var _background_offset := Vector2.ZERO
 
 # Active merge objective shown above the table.
 var _target_level := 6
@@ -52,6 +69,9 @@ func _ready() -> void:
     if not Drink.load_data():
         push_error("Drink verisi yuklenemedi. Oyun baslatilamiyor.")
         return
+
+    _configure_board_layout()
+    _build_background()
 
     world = Node2D.new()
     world.name = "World"
@@ -85,25 +105,71 @@ func get_board_size() -> Vector2:
     return get_viewport_rect().size
 
 
-func _table_inset_at_y(y_pos: float) -> float:
+static func background_scale_for_viewport(viewport_size: Vector2) -> float:
+    return maxf(viewport_size.x / BACKGROUND_SOURCE_SIZE.x, viewport_size.y / BACKGROUND_SOURCE_SIZE.y)
+
+
+static func background_offset_for_viewport(viewport_size: Vector2) -> Vector2:
+    var scale := background_scale_for_viewport(viewport_size)
+    return (viewport_size - BACKGROUND_SOURCE_SIZE * scale) * 0.5
+
+
+static func source_to_viewport(source_point: Vector2, viewport_size: Vector2) -> Vector2:
+    return background_offset_for_viewport(viewport_size) + source_point * background_scale_for_viewport(viewport_size)
+
+
+func _configure_board_layout() -> void:
     var size := get_board_size()
-    var t := inverse_lerp(table_top_y, size.y, clampf(y_pos, table_top_y, size.y))
-    return lerpf(table_top_inset, table_bottom_inset, t)
+    _background_scale = background_scale_for_viewport(size)
+    _background_offset = background_offset_for_viewport(size)
+
+    var far_left := source_to_viewport(TABLE_FAR_LEFT_SOURCE, size)
+    var far_right := source_to_viewport(TABLE_FAR_RIGHT_SOURCE, size)
+    var near_left := source_to_viewport(TABLE_NEAR_LEFT_SOURCE, size)
+    var near_right := source_to_viewport(TABLE_NEAR_RIGHT_SOURCE, size)
+    table_top_y = far_left.y
+    table_bottom_y = near_left.y
+    table_top_inset = far_left.x
+    table_bottom_inset = size.x - near_right.x
+    death_line_y = source_to_viewport(Vector2(0.0, DANGER_SOURCE_Y), size).y
+    launch_y = source_to_viewport(Vector2(0.0, LAUNCH_SOURCE_Y), size).y
+
+
+func _build_background() -> void:
+    _background = Sprite2D.new()
+    _background.name = "GameBoardBackground"
+    _background.texture = load(BACKGROUND_PATH) as Texture2D
+    _background.position = get_board_size() * 0.5
+    _background.scale = Vector2.ONE * _background_scale
+    _background.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    _background.z_index = -100
+    add_child(_background)
+
+
+func get_table_rail_bounds_at_y(y_pos: float) -> Vector2:
+    var size := get_board_size()
+    var t := inverse_lerp(table_top_y, table_bottom_y, clampf(y_pos, table_top_y, table_bottom_y))
+    var left := lerpf(table_top_inset, source_to_viewport(TABLE_NEAR_LEFT_SOURCE, size).x, t)
+    var right := lerpf(size.x - table_top_inset, source_to_viewport(TABLE_NEAR_RIGHT_SOURCE, size).x, t)
+    return Vector2(left, right)
 
 
 func get_horizontal_bounds_at_y(y_pos: float, radius: float = 0.0) -> Vector2:
-    var size := get_board_size()
-    var inset := _table_inset_at_y(y_pos)
     var clearance := wall_thickness * 0.5 + radius + 3.0
-    return Vector2(inset + clearance, size.x - inset - clearance)
+    var rails := get_table_rail_bounds_at_y(y_pos)
+    return Vector2(rails.x + clearance, rails.y - clearance)
 
 
 func clamp_position_to_board(pos: Vector2, radius: float) -> Vector2:
-    var size := get_board_size()
-    pos.y = clampf(pos.y, table_top_y + radius + wall_thickness * 0.5, size.y - radius - wall_thickness * 0.5)
+    pos.y = clampf(pos.y, table_top_y + radius + wall_thickness * 0.5, table_bottom_y - radius - wall_thickness * 0.5)
     var bounds := get_horizontal_bounds_at_y(pos.y, radius)
     pos.x = clampf(pos.x, bounds.x, bounds.y)
     return pos
+
+
+func get_launch_position(x_pos: float, radius: float = 20.0) -> Vector2:
+    var bounds := get_horizontal_bounds_at_y(launch_y, radius)
+    return Vector2(clampf(x_pos, bounds.x, bounds.y), launch_y)
 
 
 func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
@@ -287,10 +353,10 @@ func _refresh_hud() -> void:
 func _build_walls() -> void:
     var size := get_board_size()
 
-    var top_left := Vector2(table_top_inset, table_top_y)
-    var top_right := Vector2(size.x - table_top_inset, table_top_y)
-    var bottom_left := Vector2(table_bottom_inset, size.y + wall_thickness * 0.45)
-    var bottom_right := Vector2(size.x - table_bottom_inset, size.y + wall_thickness * 0.45)
+    var top_left := source_to_viewport(TABLE_FAR_LEFT_SOURCE, size)
+    var top_right := source_to_viewport(TABLE_FAR_RIGHT_SOURCE, size)
+    var bottom_left := source_to_viewport(TABLE_NEAR_LEFT_SOURCE, size)
+    var bottom_right := source_to_viewport(TABLE_NEAR_RIGHT_SOURCE, size)
 
     # Angled rails match the trapezoid table. A collision therefore changes
     # direction using the actual contact normal rather than an artificial rule.
@@ -582,36 +648,13 @@ func _juice_effect(pos: Vector2) -> void:
 
 
 func _draw() -> void:
-    var size := get_board_size()
-    draw_rect(Rect2(Vector2.ZERO, size), Color(0.018, 0.024, 0.040, 1.0), true)
-
-    var top_left := Vector2(table_top_inset, table_top_y)
-    var top_right := Vector2(size.x - table_top_inset, table_top_y)
-    var bottom_right := Vector2(size.x - table_bottom_inset, size.y)
-    var bottom_left := Vector2(table_bottom_inset, size.y)
-    var table_points := PackedVector2Array([top_left, top_right, bottom_right, bottom_left])
-
-    # Perspective tabletop: narrower at the far edge, wider near the player.
-    draw_colored_polygon(table_points, Color(0.040, 0.058, 0.084, 1.0))
-
-    # Perspective bands emphasize the camera tilt without altering physics.
-    var y := table_top_y + 70.0
-    var band_index := 0
-    while y < size.y:
-        var inset := _table_inset_at_y(y)
-        var alpha := 0.06 if band_index % 2 == 0 else 0.025
-        draw_line(Vector2(inset, y), Vector2(size.x - inset, y), Color(0.70, 0.84, 1.0, alpha), 2.0)
-        y += 86.0
-        band_index += 1
-
-    draw_line(top_left, bottom_left, Color(0.46, 0.67, 0.86, 0.66), 4.0)
-    draw_line(top_right, bottom_right, Color(0.46, 0.67, 0.86, 0.66), 4.0)
-    draw_line(top_left, top_right, Color(0.55, 0.82, 1.0, 0.90), 4.0)
-
-    var danger_inset := _table_inset_at_y(death_line_y)
+    # The approved PNG supplies the table artwork. Keep only the existing
+    # procedural danger boundary as a gameplay/debug aid until M07 owns the
+    # final danger-line asset composition.
+    var danger_bounds := get_table_rail_bounds_at_y(death_line_y)
     draw_line(
-        Vector2(danger_inset + wall_thickness, death_line_y),
-        Vector2(size.x - danger_inset - wall_thickness, death_line_y),
+        Vector2(danger_bounds.x + wall_thickness, death_line_y),
+        Vector2(danger_bounds.y - wall_thickness, death_line_y),
         Color(1.0, 0.30, 0.30, 0.82),
         4.0
     )

@@ -200,7 +200,7 @@ func _run() -> void:
     manager._load_best_score()
     _check("corrupt save loads safe best-score default without crash", manager.best_score == 0)
 
-    var danger_drink := manager.spawn_drink(1, Vector2(360.0, 1050.0), false)
+    var danger_drink := manager.spawn_drink(1, Vector2(360.0, manager.death_line_y + 10.0), false)
     manager._line_timer = 0.0
     manager._process(0.50)
     var before_tolerance := not manager.game_over
