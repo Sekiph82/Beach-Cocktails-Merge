@@ -4,11 +4,11 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 ## Project Status
 
-- Current Milestone: M03
-- Current Sprint: M03-SCORING-COMBO-TOGO-PERSISTENCE-GAMEOVER
-- Current Task: BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
+- Current Milestone: M04
+- Current Sprint: M04-V7-ASSET-LIBRARY-VALIDATION
+- Current Task: BCM-M04-001 — Import and validate the complete v7 visual asset library.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `docs/prompts/BCM-M03_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M03 economy/persistence regression work plus immutable evidence log, and stop for independent strict audit before BCM-M04-001 or any Godot v7 integration work begins.
+- Next Task/Action: Codex must execute `docs/prompts/BCM-M04_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M04 asset-validation evidence/support work, and stop for independent strict audit before BCM-M05-001 or any V7 integration work begins.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -19,8 +19,8 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 - [x] BCM-M00-002 — Repository hygiene, canonical structure, and Godot import baseline.
 - [x] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
 - [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
-- [~] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
-- [ ] BCM-M04-001 — Import and validate the complete v7 visual asset library.
+- [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
+- [~] BCM-M04-001 — Import and validate the complete v7 visual asset library.
 - [ ] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
 - [ ] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
 - [ ] BCM-M07-001 — Integrate logo, score panels, To-Go panel, Next panel, progression strip, launch zone, and danger line.
@@ -146,55 +146,55 @@ Acceptance gate: no regression in accepted feel; focused tests or deterministic 
 Goal: formalize the complete rules economy agreed by the owner.
 
 ### M03.01 — Merge score table
-- [~] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
-- [ ] L2 = 20 merge points.
-- [ ] L3 = 50 merge points.
-- [ ] L4 = 100 merge points.
-- [ ] L5 = 200 merge points.
-- [ ] L6 = 350 merge points.
-- [ ] L7 = 600 merge points.
-- [ ] L8 = 1,000 merge points.
-- [ ] L9 = 1,600 merge points.
-- [ ] L10 = 2,500 merge points.
-- [ ] L11 = 4,000 merge points.
-- [ ] L12 = 6,500 merge points.
+- [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
+- [x] L2 = 20 merge points.
+- [x] L3 = 50 merge points.
+- [x] L4 = 100 merge points.
+- [x] L5 = 200 merge points.
+- [x] L6 = 350 merge points.
+- [x] L7 = 600 merge points.
+- [x] L8 = 1,000 merge points.
+- [x] L9 = 1,600 merge points.
+- [x] L10 = 2,500 merge points.
+- [x] L11 = 4,000 merge points.
+- [x] L12 = 6,500 merge points.
 
 ### M03.02 — Combo rules
-- [ ] Combo window = 1.5 seconds unless later owner-approved evidence supersedes it.
-- [ ] x1 = +0% merge bonus.
-- [ ] x2 = +25%.
-- [ ] x3 = +50%.
-- [ ] x4 = +75%.
-- [ ] x5 = +100%.
-- [ ] x6+ capped at +125%.
-- [ ] Combo extension/reset behavior is deterministic and testable.
-- [ ] Stored later To-Go delivery does not retroactively earn combo bonus.
+- [x] Combo window = 1.5 seconds unless later owner-approved evidence supersedes it.
+- [x] x1 = +0% merge bonus.
+- [x] x2 = +25%.
+- [x] x3 = +50%.
+- [x] x4 = +75%.
+- [x] x5 = +100%.
+- [x] x6+ capped at +125%.
+- [x] Combo extension/reset behavior is deterministic and testable.
+- [x] Stored later To-Go delivery does not retroactively earn combo bonus.
 
 ### M03.03 — To-Go Orders rules
-- [ ] Target levels span L6-L12.
-- [ ] Each active order requests exactly one target drink level unless later design expands the contract.
-- [ ] Existing matching L6-L12 drink already on the table can satisfy a newly appearing order.
-- [ ] Only one stored matching drink is consumed per order.
-- [ ] A drink earns its merge score only when originally created.
-- [ ] Later stored-drink delivery awards only the To-Go bonus, not merge score again and not historical combo again.
-- [ ] L12 remains on the table when not ordered and can satisfy a future L12 order.
-- [ ] Prevent immediately repeating the same target where the accepted implementation intends variety.
+- [x] Target levels span L6-L12.
+- [x] Each active order requests exactly one target drink level unless later design expands the contract.
+- [x] Existing matching L6-L12 drink already on the table can satisfy a newly appearing order.
+- [x] Only one stored matching drink is consumed per order.
+- [x] A drink earns its merge score only when originally created.
+- [x] Later stored-drink delivery awards only the To-Go bonus, not merge score again and not historical combo again.
+- [x] L12 remains on the table when not ordered and can satisfy a future L12 order.
+- [x] Prevent immediately repeating the same target where the accepted implementation intends variety.
 
 ### M03.04 — To-Go bonus table
-- [ ] L6 bonus to be explicitly defined and owner-approved before implementation if absent from accepted source.
-- [ ] L7 bonus to be explicitly defined and owner-approved before implementation if absent from accepted source.
-- [ ] L8 = 3,000.
-- [ ] L9 = 5,000.
-- [ ] L10 = 8,000.
-- [ ] L11 = 12,000.
-- [ ] L12 = 18,000.
+- [x] L6 = 1,000 owner-approved To-Go bonus.
+- [x] L7 = 1,800 owner-approved To-Go bonus.
+- [x] L8 = 3,000.
+- [x] L9 = 5,000.
+- [x] L10 = 8,000.
+- [x] L11 = 12,000.
+- [x] L12 = 18,000.
 
 ### M03.05 — Score persistence and game over
-- [ ] Best score persists through `user://` save data.
-- [ ] Save corruption/missing save has safe defaults.
-- [ ] Danger-line failure timing is explicit and deterministic.
-- [ ] Game Over freezes/ends the session without corrupting persistent score.
-- [ ] Restart clears session state but preserves best score.
+- [x] Best score persists through `user://` save data.
+- [x] Save corruption/missing save has safe defaults.
+- [x] Danger-line failure timing is explicit and deterministic.
+- [x] Game Over freezes/ends the session without corrupting persistent score.
+- [x] Restart clears session state but preserves best score.
 
 Acceptance gate: all score increments are auditable, non-duplicated, and regression tested.
 
@@ -205,7 +205,7 @@ Acceptance gate: all score increments are auditable, non-duplicated, and regress
 Goal: make all owner-approved visual assets canonical, import-safe, and ready for dynamic Godot composition.
 
 ### M04.01 — Cocktail assets
-- [ ] BCM-M04-001 — Import and validate the complete v7 visual asset library.
+- [~] BCM-M04-001 — Import and validate the complete v7 visual asset library.
 - [ ] Validate `assets/cocktails/L01.png` through `L12.png` exist and import.
 - [ ] Confirm all cocktail assets have transparent backgrounds and expected alpha.
 - [ ] Confirm consistent pivot strategy and readable scale progression.
