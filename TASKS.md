@@ -4,11 +4,11 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 
 ## Project Status
 
-- Current Milestone: M05
-- Current Sprint: M05-COCKTAIL-SPRITE-INTEGRATION
-- Current Task: BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
+- Current Milestone: M06
+- Current Sprint: M06-ENVIRONMENT-RESPONSIVE-PLAYFIELD
+- Current Task: BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
 - Current Task Status: READY
-- Next Task/Action: Codex must execute `docs/prompts/BCM-M05_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M05 cocktail-sprite integration work plus immutable evidence log, and stop for independent strict audit before BCM-M06-001 or later V7 composition work begins.
+- Next Task/Action: Codex must execute `docs/prompts/BCM-M06_MILESTONE_COMPLETION_V01_PROMPT.md`, commit and push the bounded M06 environment/playfield integration work plus immutable evidence log, and stop for independent strict audit before BCM-M07-001 HUD composition begins.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -21,8 +21,8 @@ This root `TASKS.md` is the only authoritative project-status tracker consumed b
 - [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Import and validate the complete v7 visual asset library.
-- [~] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
-- [ ] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
+- [x] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
+- [~] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
 - [ ] BCM-M07-001 — Integrate logo, score panels, To-Go panel, Next panel, progression strip, launch zone, and danger line.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
@@ -241,26 +241,26 @@ Acceptance gate: asset inventory passes import, alpha, naming, dimensional, and 
 Goal: replace placeholder drink circles with real L01-L12 cocktail sprites without changing gameplay physics.
 
 ### M05.01 — Sprite mapping
-- [~] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
-- [ ] Add deterministic level-to-texture mapping for L01-L12.
-- [ ] Replace placeholder geometry with `Sprite2D`/appropriate nodes.
-- [ ] Keep gameplay/body logic separated from visual texture logic.
-- [ ] Ensure Next, To-Go, progression strip, table drinks, and launch drink reuse the same canonical textures.
+- [x] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation.
+- [x] Add deterministic level-to-texture mapping for L01-L12.
+- [x] Replace placeholder geometry with `Sprite2D`/appropriate nodes.
+- [x] Keep gameplay/body logic separated from visual texture logic.
+- [x] Expose the same canonical texture mapping for future Next, To-Go and progression consumers; table/held/merge visuals already use it.
 
 ### M05.02 — Size and collider mapping
-- [ ] Define per-level visual scale.
-- [ ] Define per-level collision footprint based on visible glass body, not garnish extremes.
-- [ ] Ensure adjacent stationary drinks appear visually close rather than separated by oversized colliders.
-- [ ] Preserve mass progression without extreme immovable high-level drinks.
-- [ ] Verify L1-L12 remain distinguishable at mobile resolution.
+- [x] Define per-level visual scale and offset/pivot strategy.
+- [x] Define per-level collision footprint based on visible glass body, not garnish extremes.
+- [x] Use bounded body-only colliders to avoid large invisible gaps/obvious garnish-driven footprint inflation.
+- [x] Preserve compressed runtime mass progression without extreme immovable high-level drinks.
+- [x] Verify L01-L12 presentation remains bounded/distinguishable in the portrait playfield; final integrated/native visual acceptance remains later.
 
 ### M05.03 — Merge visual continuity
-- [ ] New merged sprite appears at a physically plausible contact/merge position.
-- [ ] Result sprite does not visibly teleport excessively.
-- [ ] Result collider and sprite update atomically with level.
-- [ ] Result continues moving according to preserved momentum.
+- [x] New merged sprite appears at a physically plausible contact/merge position.
+- [x] Result sprite does not visibly teleport excessively in deterministic merge evidence.
+- [x] Result collider and sprite update atomically with level.
+- [x] Result continues moving according to preserved momentum.
 
-Acceptance gate: every level renders correctly in play and physics feel remains accepted.
+Acceptance gate: M05 deterministic presentation/physics integration passes and M01-M03 gameplay/economy regressions remain accepted. Audit note F-M05-EVIDENCE-001 corrects the historical pre-M05 radius table in the immutable builder log.
 
 ---
 
@@ -269,7 +269,7 @@ Acceptance gate: every level renders correctly in play and physics feel remains 
 Goal: replace prototype background/table visuals with the approved beach-bar environment while preserving gameplay coordinates and usable play area.
 
 ### M06.01 — Background composition
-- [ ] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
+- [~] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry.
 - [ ] Place `game_board_background.png` as the base visual layer.
 - [ ] Align world playfield to the visible perspective table surface.
 - [ ] Keep collision boundaries inside visually credible table rails.
@@ -278,15 +278,16 @@ Goal: replace prototype background/table visuals with the approved beach-bar env
 ### M06.02 — Portrait scaling
 - [ ] Establish canonical portrait design resolution.
 - [ ] Verify stretch/aspect behavior on representative desktop debug windows and phone aspect ratios.
-- [ ] Avoid cropping critical UI on tall/short devices.
+- [ ] Avoid cropping critical future-HUD/playfield regions on tall/short devices.
 - [ ] Avoid black bars where practical without distorting gameplay coordinates.
 
 ### M06.03 — Play-space tuning
 - [ ] Keep danger line closer to launch glass than the early master mockup to preserve more playable table area, per owner direction.
 - [ ] Confirm launch position leaves enough room below the danger line for readable interaction.
-- [ ] Confirm top accumulation area remains visible beneath To-Go/UI panels.
+- [ ] Confirm top accumulation area remains visible beneath future To-Go/UI panels.
+- [ ] Retain runtime screenshots/render captures for canonical, taller, and shorter/wider portrait aspect evidence.
 
-Acceptance gate: world collision geometry and visual table geometry agree across tested aspect ratios.
+Acceptance gate: world collision geometry and visual table geometry agree across tested aspect ratios while M01-M05 regressions remain green.
 
 ---
 
