@@ -4,11 +4,11 @@ This root `TASKS.md` is the only authoritative current project-status tracker. G
 
 ## Project Status
 
-- Current Milestone: M04-M06 STRICT REMEDIATION
-- Current Sprint: BCM-M04-M06-R01
-- Current Task: BCM-M04-M06-R01 — Execute strict remediation sequence for M04, M05, and M06.
-- Current Task Status: READY
-- Next Task/Action: Codex must execute `coordination/sessions/BCM-M04-M06-R01/CHATGPT_EXECUTION_PROMPT_V01.md`, complete M04-R01 then M05-R01 then M06-R02 with separate logs and commits, and STOP for independent ChatGPT audits. M07 must not resume before all three receive AUDITED_PASS.
+- Current Milestone: M07
+- Current Sprint: M07-DYNAMIC-HUD-INTEGRATION
+- Current Task: BCM-M07-001 — Integrate logo, score panels, To-Go panel, Next panel, progression strip, launch zone, and danger line.
+- Current Task Status: ACTIVE
+- Next Task/Action: Codex may complete the already-issued M07 session and push its immutable log. After the M07 log arrives, ChatGPT will strictly audit M07 together with the reopened M04, M05, and M06 findings and then issue the coordinated remediation sequence for all required fixes.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -20,11 +20,11 @@ This root `TASKS.md` is the only authoritative current project-status tracker. G
 - [x] BCM-M01-001 — Recover and verify playable gameplay contract from synchronized v6.7 state.
 - [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
-- [~] BCM-M04-M06-R01 — Strict remediation sequence for M04, M05, and M06.
-- [!] BCM-M04-001 — Import and validate the complete v7 visual asset library; reopened by strict re-audit.
-- [!] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation; reopened by strict re-audit.
-- [!] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry; owner visual rejection / strict re-audit.
-- [ ] BCM-M07-001 — Dynamic HUD integration; blocked until M04-R01, M05-R01 and M06-R02 all receive AUDITED_PASS.
+- [!] BCM-M04-001 — Import and validate the complete v7 visual asset library; reopened by strict re-audit, remediation pending.
+- [!] BCM-M05-001 — Integrate L01-L12 cocktail sprites and level presentation; reopened by strict re-audit, remediation pending.
+- [!] BCM-M06-001 — Integrate environment background, table composition, and responsive playfield geometry; owner visual rejection / strict re-audit, remediation pending.
+- [~] BCM-M07-001 — Dynamic HUD integration; current Codex implementation may complete before coordinated M04-M07 remediation.
+- [ ] BCM-M04-M07-R01 — Coordinated remediation sequence to be issued after M07 strict audit.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
@@ -44,6 +44,7 @@ Legend: `[x]` audited complete, `[~]` active, `[ ]` planned/pending, `[!]` reope
 - Any material visual criterion that is not independently inspectable remains `UNVERIFIED` and blocks `AUDITED_PASS`.
 - Only ChatGPT updates this tracker after audit.
 - Owner visual truth for the current visual integration is `/b75ee426-9568-4ed6-b35e-140600a7c995.png`, subject to later explicit owner directions. The persistent dotted guide line in that old master is intentionally excluded by later owner direction.
+- M07 is intentionally allowed to finish its already-issued implementation pass before the coordinated M04-M07 remediation. Its completion claim does not supersede the reopened M04-M06 findings.
 
 ---
 
@@ -80,7 +81,7 @@ Open findings include:
 - exactly-12 progression slots and semantic straw/garnish/UI/background claims rely on builder visual assertions;
 - owner-master-to-separated-asset relationship was not retained as explicit audit evidence.
 
-M04-R01 must produce truthful validation, manifest/contact-sheet evidence, preserve source PNG bytes, and then await independent audit.
+M04-R01 remains pending and will be included in the coordinated remediation after the M07 audit.
 
 ---
 
@@ -103,7 +104,7 @@ Open findings include:
 - no strong evidence that touching drinks avoid invisible gaps or extreme overlap;
 - historical pre-M05 JSON radii in the immutable old log were incorrect; repository truth was `14,21,29,38,48,59,71,84,98,113,129,146`.
 
-M05-R01 must produce inspectable per-level collider/pivot/contact evidence, change values only where evidence requires, preserve gameplay, and await independent audit.
+M05-R01 remains pending and will be included in the coordinated remediation after the M07 audit.
 
 ---
 
@@ -128,18 +129,30 @@ Open findings include:
 - taller case maps a near table landmark outside the viewport;
 - responsive and collider-inside-table probes are too weak/circular to prove pixel-level visual alignment.
 
-M06-R02 must repair environment/table composition, use independent landmark/reference evidence, retain clean + overlay runtime captures, preserve M01-M05 contracts, and await independent audit.
+M06-R02 remains pending and will be included in the coordinated remediation after the M07 audit.
 
 ---
 
-## M07 — Dynamic HUD integration — PAUSED
+## M07 — Dynamic HUD integration — ACTIVE
 
-Do not resume M07 until M04-R01, M05-R01 and M06-R02 all receive independent `AUDITED_PASS`.
-
-The locked M07 session remains available for later continuation under:
+Locked M07 session:
 `coordination/sessions/BCM-M07-001/`
 
-M07 will integrate logo, Best Score, Score, To-Go, exactly one Next, 12-slot progression, launch zone and canonical danger-line visual against the corrected M06 composition.
+Codex may complete the already-issued M07 implementation and write its M07 log.
+
+M07 will integrate:
+
+- top-left Beach Cocktails Merge logo;
+- Best Score directly below logo;
+- Score directly below Best Score;
+- upper-middle To-Go Orders with live target/reward;
+- exactly one upper-right NEXT panel with the true next drink;
+- 12-slot L01-L12 progression strip;
+- launch-zone gold oval under held cocktail;
+- canonical danger-line visual at the gameplay threshold;
+- no persistent guide line.
+
+When the M07 log arrives, ChatGPT will perform a strict M07 audit using the locked criteria and direct comparison to the owner master. The resulting M07 findings will then be combined with the already-open M04, M05, and M06 findings into one coordinated M04-M07 remediation execution prompt, while keeping separate milestone remediation logs and commits.
 
 ---
 
