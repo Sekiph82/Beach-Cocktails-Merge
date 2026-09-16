@@ -33,8 +33,49 @@ var _pre_collision_velocity := Vector2.ZERO
 var _last_meaningful_velocity := Vector2.ZERO
 var _visual_root: Node2D
 var _shadow: Polygon2D
+var _cocktail_sprite: Sprite2D
 
 static var drinks_data: Array = []
+static var _texture_cache: Dictionary = {}
+
+const COCKTAIL_TEXTURE_PATHS := [
+    "res://assets/cocktails/L01.png",
+    "res://assets/cocktails/L02.png",
+    "res://assets/cocktails/L03.png",
+    "res://assets/cocktails/L04.png",
+    "res://assets/cocktails/L05.png",
+    "res://assets/cocktails/L06.png",
+    "res://assets/cocktails/L07.png",
+    "res://assets/cocktails/L08.png",
+    "res://assets/cocktails/L09.png",
+    "res://assets/cocktails/L10.png",
+    "res://assets/cocktails/L11.png",
+    "res://assets/cocktails/L12.png",
+]
+
+# These are manual body-region measurements from the M04 transparent-bound
+# inspection. They cover the visible glass/container body only; straw, fruit,
+# leaves, flowers, and other garnish extremes are excluded.
+const VISIBLE_BODY_WIDTH_PX := [720.0, 760.0, 770.0, 880.0, 700.0, 800.0, 650.0, 780.0, 900.0, 760.0, 760.0, 900.0]
+const VISIBLE_BODY_CENTER_OFFSET_PX := [
+    Vector2(0.0, 80.0),
+    Vector2(0.0, 70.0),
+    Vector2(-10.0, 45.0),
+    Vector2(0.0, 35.0),
+    Vector2(0.0, 100.0),
+    Vector2(-5.0, 90.0),
+    Vector2(0.0, 100.0),
+    Vector2(0.0, 70.0),
+    Vector2(0.0, 100.0),
+    Vector2(0.0, 25.0),
+    Vector2(0.0, 65.0),
+    Vector2(0.0, 100.0),
+]
+
+# Runtime body diameters are deliberately bounded and monotonic. The sprite
+# scale is derived from the measured body width, not from the full garnish
+# bounds, so the physical footprint follows the visible glass body.
+const COLLIDER_RADII := [20.0, 23.0, 27.0, 31.0, 36.0, 42.0, 49.0, 56.0, 64.0, 72.0, 80.0, 90.0]
 
 
 static func load_data() -> bool:
@@ -93,6 +134,44 @@ static func order_reward(p_level: int) -> int:
     return int(drinks_data[p_level - 1].get("order_reward", 0))
 
 
+static func texture_path_for_level(p_level: int) -> String:
+    if p_level < 1 or p_level > COCKTAIL_TEXTURE_PATHS.size():
+        return ""
+    return COCKTAIL_TEXTURE_PATHS[p_level - 1]
+
+
+static func texture_for_level(p_level: int) -> Texture2D:
+    var path := texture_path_for_level(p_level)
+    if path.is_empty():
+        return null
+    if _texture_cache.has(path):
+        return _texture_cache[path] as Texture2D
+    var texture := load(path) as Texture2D
+    if texture == null:
+        push_error("Cocktail texture bulunamadi: %s" % path)
+        return null
+    _texture_cache[path] = texture
+    return texture
+
+
+static func collider_radius_for_level(p_level: int) -> float:
+    if p_level < 1 or p_level > COLLIDER_RADII.size():
+        return 0.0
+    return COLLIDER_RADII[p_level - 1]
+
+
+static func visual_scale_for_level(p_level: int) -> float:
+    if p_level < 1 or p_level > VISIBLE_BODY_WIDTH_PX.size():
+        return 0.0
+    return (collider_radius_for_level(p_level) * 2.0) / VISIBLE_BODY_WIDTH_PX[p_level - 1]
+
+
+static func visual_offset_for_level(p_level: int) -> Vector2:
+    if p_level < 1 or p_level > VISIBLE_BODY_CENTER_OFFSET_PX.size():
+        return Vector2.ZERO
+    return -VISIBLE_BODY_CENTER_OFFSET_PX[p_level - 1] * visual_scale_for_level(p_level)
+
+
 static func create(p_level: int) -> Drink:
     if not load_data():
         return null
@@ -104,7 +183,7 @@ static func create(p_level: int) -> Drink:
     var d := Drink.new()
     d.name = "Drink_L%02d" % p_level
     d.level = p_level
-    d.radius = float(info.get("radius", 14.0))
+    d.radius = collider_radius_for_level(p_level)
     d.base_score = int(info.get("score", 0))
 
     var shape := CollisionShape2D.new()
@@ -113,7 +192,8 @@ static func create(p_level: int) -> Drink:
     shape.shape = circle
     d.add_child(shape)
 
-    # Temporary 2.5D placeholder presentation. v7 replaces this with real art.
+    # Keep a small procedural shadow under the physical body. The drink itself
+    # is rendered by the canonical V7 Sprite2D below.
     d._shadow = Polygon2D.new()
     d._shadow.polygon = _circle_points(d.radius * 1.03)
     d._shadow.color = Color(0.0, 0.0, 0.0, 0.25)
@@ -125,35 +205,13 @@ static func create(p_level: int) -> Drink:
     d._visual_root.name = "Visual"
     d.add_child(d._visual_root)
 
-    var rim := Polygon2D.new()
-    rim.polygon = _circle_points(d.radius + 3.0)
-    rim.color = Color(0.055, 0.06, 0.075, 1.0)
-    d._visual_root.add_child(rim)
-
-    var body_visual := Polygon2D.new()
-    body_visual.polygon = _circle_points(d.radius)
-    body_visual.color = Color.from_hsv(float(p_level - 1) / maxf(float(drinks_data.size()), 1.0) * 0.82, 0.72, 0.95)
-    d._visual_root.add_child(body_visual)
-
-    var shine := Polygon2D.new()
-    shine.polygon = _circle_points(maxf(d.radius * 0.22, 3.0), 16)
-    shine.position = Vector2(-d.radius * 0.28, -d.radius * 0.30)
-    shine.color = Color(1.0, 1.0, 1.0, 0.40)
-    d._visual_root.add_child(shine)
-
-    var level_label := Label.new()
-    level_label.text = str(p_level)
-    level_label.position = Vector2(-d.radius, -12.0)
-    level_label.size = Vector2(d.radius * 2.0, 24.0)
-    level_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    level_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-    level_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    level_label.add_theme_font_size_override("font_size", int(clampf(d.radius * 0.58, 12.0, 28.0)))
-    level_label.add_theme_color_override("font_color", Color.WHITE)
-    level_label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.72))
-    level_label.add_theme_constant_override("shadow_offset_x", 1)
-    level_label.add_theme_constant_override("shadow_offset_y", 1)
-    d._visual_root.add_child(level_label)
+    d._cocktail_sprite = Sprite2D.new()
+    d._cocktail_sprite.name = "CocktailSprite"
+    d._cocktail_sprite.texture = texture_for_level(p_level)
+    d._cocktail_sprite.position = visual_offset_for_level(p_level)
+    d._cocktail_sprite.scale = Vector2.ONE * visual_scale_for_level(p_level)
+    d._cocktail_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    d._visual_root.add_child(d._cocktail_sprite)
 
     # The JSON progression mass doubles every level and is useful as design data,
     # but using it literally in the 2D solver makes high-level drinks behave like

@@ -61,9 +61,10 @@ func _run() -> void:
     mouse_up.pressed = false
     mouse_up.position = Vector2(260.0, first.position.y)
     manager.shot_controller._unhandled_input(mouse_up)
+    var launch_velocity_y := first.linear_velocity.y
     await process_frame
     _check("mouse release launches current drink", first.motion_state == Drink.MotionState.SLIDING)
-    _check("launched drink uses 700 px/s initial velocity", is_equal_approx(first.linear_velocity.y, -700.0))
+    _check("launched drink uses 700 px/s initial velocity", is_equal_approx(launch_velocity_y, -700.0))
     _check("launched drink is collidable", first.collision_layer == 1 and first.collision_mask == 1)
     _check("next held drink appears immediately after mouse launch", is_instance_valid(manager.shot_controller._current_drink) and manager.shot_controller._current_drink != first)
     var second := manager.shot_controller._current_drink
