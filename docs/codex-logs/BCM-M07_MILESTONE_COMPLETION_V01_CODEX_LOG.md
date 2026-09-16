@@ -43,6 +43,8 @@ The session started from the requested repository root.
 
 The checkout synchronized by fast-forward to a286525b2759c624005a1d1aad3073e85fe5b0fa. No reset, force-push, automatic rebase, or stash was used. origin already pointed to the canonical repository.
 
+Before the first push, origin/main advanced externally to 102999f031260fef770fc97dc636fa6ab2b548fa. Read-only comparison showed that this remote update changed the tracker/ChatGPT coordination history and did not overlap the M07 implementation. The incoming remote commit was preserved with a normal ort merge; TASKS.md was not authored or edited by this session.
+
 ## Implementation summary
 
 Production changes are bounded to scripts/game_manager.gd and the deterministic non-production probe tests/m07_hud_composition_probe.gd.
@@ -326,7 +328,7 @@ Godot .import sidecars are ignored and not staged. No TASKS.md, coordination pro
 
 Start HEAD after mandatory synchronization: a286525b2759c624005a1d1aad3073e85fe5b0fa.
 
-The implementation, probe, captures, and this log will be committed to main, pushed to origin/main, and final equality commands will be recorded below before completion.
+The implementation, probe, captures, and this log were committed and pushed to main. The initial implementation commit was 6d7b85e11520d985e1acb3c8eed83ed1686e8fb1. After the external remote update, the safe merge commit pushed to origin/main was e7061341919851f4379f2c61cea84799a2eaf2ce. A final evidence-log correction commit will replace the placeholder below with its own final pushed SHA.
 
     git rev-parse HEAD
     <FINAL_COMMIT_SHA>
