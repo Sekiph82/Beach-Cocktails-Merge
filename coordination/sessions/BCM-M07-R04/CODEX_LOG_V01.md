@@ -197,19 +197,19 @@ Selected regression facts retained in the command output:
 
 ## Publication and final equality
 
-The bounded M07-R04 commit and final equality markers are recorded after commit/push in the final section below.
+The implementation commit is `c9ae038d02bc673725e20c883b6e41730a5126d7`. A remote-safe synchronization merge incorporated the newly published M06-R05/M07-R05 prompt and criteria files without overwriting M07-R04 work; the final pushed repository HEAD is `355b89dff79da70fffc33511dcefaa83f7b76c5f`.
 
-Final commit SHA: `PENDING_COMMIT_SHA`
+Final pushed HEAD SHA: `355b89dff79da70fffc33511dcefaa83f7b76c5f`
 
 ```text
 git rev-parse HEAD
-PENDING_HEAD_SHA
+355b89dff79da70fffc33511dcefaa83f7b76c5f
 git rev-parse origin/main
-PENDING_ORIGIN_MAIN_SHA
+355b89dff79da70fffc33511dcefaa83f7b76c5f
 git ls-remote origin refs/heads/main
-PENDING_REMOTE_MAIN_SHA	refs/heads/main
+355b89dff79da70fffc33511dcefaa83f7b76c5f	refs/heads/main
 git status --short --branch
-PENDING_STATUS
+## main...origin/main
 ```
 
 This phase stops at `AWAITING_AUDIT` for independent ChatGPT review.
