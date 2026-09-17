@@ -145,4 +145,20 @@ git status --short --branch
  M project.godot
 ```
 
+Final publication equality after the log/evidence commit:
+
+```text
+git rev-parse HEAD
+5f80760627b1e19a9aa6f1ebb318b8d10c266e4d
+git rev-parse origin/main
+5f80760627b1e19a9aa6f1ebb318b8d10c266e4d
+git ls-remote origin refs/heads/main
+5f80760627b1e19a9aa6f1ebb318b8d10c266e4d	refs/heads/main
+git status --short --branch
+## main...origin/main
+ M project.godot
+```
+
+Final log/evidence commit: `5f80760627b1e19a9aa6f1ebb318b8d10c266e4d`.
+
 This phase stops at `AWAITING_AUDIT` for independent ChatGPT review.
