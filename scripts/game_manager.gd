@@ -435,15 +435,20 @@ func _build_ui() -> void:
 
     var best_width := 205.0 * ui_scale
     var best_height := best_width * 941.0 / 1671.0
-    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", Rect2(16.0 * ui_scale, 145.0 * ui_scale, best_width, best_height))
+    # Keep the left stack compact and above the tabletop accumulation area.
+    # The logo is reduced only as a HUD-layout adaptation so the fixed score
+    # panels can move upward without overlap; gameplay geometry is independent.
+    var logo_width := 190.0 * ui_scale
+    var logo_height := logo_width * 1024.0 / 1536.0
+    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", Rect2(16.0 * ui_scale, 140.0 * ui_scale, best_width, best_height))
     _hud.add_child(_best_panel)
     _best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
 
-    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(16.0 * ui_scale, 265.0 * ui_scale, best_width, best_height))
+    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(16.0 * ui_scale, 256.0 * ui_scale, best_width, best_height))
     _hud.add_child(_score_panel)
     _score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
 
-    var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", Rect2(12.0 * ui_scale, 6.0 * ui_scale, 220.0 * ui_scale, 148.0 * ui_scale))
+    var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", Rect2(12.0 * ui_scale, 6.0 * ui_scale, logo_width, logo_height))
     _hud.add_child(logo)
 
     var to_go_width := 210.0 * ui_scale
