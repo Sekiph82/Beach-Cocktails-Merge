@@ -10,13 +10,24 @@ static var instance: GameManager
 const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
 
-# Independent M06-R04 measurements from the corrected owner-approved 1024x1536
-# background. Points follow the visible inner tabletop rail and the transition
-# into the front apron, not the image canvas.
-const TABLE_FAR_LEFT_SOURCE := Vector2(154.0, 472.0)
-const TABLE_FAR_RIGHT_SOURCE := Vector2(870.0, 472.0)
-const TABLE_NEAR_LEFT_SOURCE := Vector2(16.0, 1186.0)
-const TABLE_NEAR_RIGHT_SOURCE := Vector2(1008.0, 1186.0)
+# Independent M06-R06 measurements from the active runtime/background render.
+# These are the visible outer playable tabletop edges at five depths. A single
+# old far-to-near interpolation cut off the rear side wood, so production uses
+# this piecewise boundary instead of the retired two-endpoint model.
+const TABLE_LEFT_EDGE_SOURCE_POINTS := [
+    Vector2(104.0, 472.0),
+    Vector2(72.0, 620.0),
+    Vector2(43.0, 800.0),
+    Vector2(22.0, 1000.0),
+    Vector2(8.0, 1186.0),
+]
+const TABLE_RIGHT_EDGE_SOURCE_POINTS := [
+    Vector2(920.0, 472.0),
+    Vector2(952.0, 620.0),
+    Vector2(981.0, 800.0),
+    Vector2(1002.0, 1000.0),
+    Vector2(1016.0, 1186.0),
+]
 const DANGER_SOURCE_Y := 1080.0
 const LAUNCH_SOURCE_Y := 1136.0
 const SCORE_DISPLAY_MAX_DIGITS := 7
@@ -138,17 +149,14 @@ func _configure_board_layout() -> void:
     _background_scale = background_scale_for_viewport(size)
     _background_offset = background_offset_for_viewport(size)
 
-    var far_left := source_to_viewport(TABLE_FAR_LEFT_SOURCE, size)
-    var far_right := source_to_viewport(TABLE_FAR_RIGHT_SOURCE, size)
-    var near_left := source_to_viewport(TABLE_NEAR_LEFT_SOURCE, size)
-    var near_right := source_to_viewport(TABLE_NEAR_RIGHT_SOURCE, size)
+    var far_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS[0], size)
+    var near_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS.back(), size)
     table_top_y = far_left.y
     table_bottom_y = near_left.y
+    # These exported values remain legacy diagnostics. Boundary queries and
+    # wall construction use the complete source-space polylines below.
     table_top_inset = far_left.x
-    # At taller portrait ratios the source-cover transform can place the
-    # source near rail outside the viewport. Keep the gameplay rail on the
-    # visible wood/frame edge rather than allowing an off-screen collider.
-    table_bottom_inset = clampf(maxf(size.x - near_right.x, 20.0), 20.0, size.x * 0.18)
+    table_bottom_inset = near_left.x
     death_line_y = source_to_viewport(Vector2(0.0, DANGER_SOURCE_Y), size).y
     launch_y = source_to_viewport(Vector2(0.0, LAUNCH_SOURCE_Y), size).y
 
@@ -166,10 +174,27 @@ func _build_background() -> void:
 
 func get_table_rail_bounds_at_y(y_pos: float) -> Vector2:
     var size := get_board_size()
-    var t := inverse_lerp(table_top_y, table_bottom_y, clampf(y_pos, table_top_y, table_bottom_y))
-    var left := lerpf(table_top_inset, table_bottom_inset, t)
-    var right := lerpf(size.x - table_top_inset, size.x - table_bottom_inset, t)
-    return Vector2(left, right)
+    var clamped_y := clampf(y_pos, table_top_y, table_bottom_y)
+    var source_y := (clamped_y - _background_offset.y) / _background_scale
+    var left_source_x := _piecewise_source_x(TABLE_LEFT_EDGE_SOURCE_POINTS, source_y)
+    var right_source_x := _piecewise_source_x(TABLE_RIGHT_EDGE_SOURCE_POINTS, source_y)
+    return Vector2(
+        clampf(source_to_viewport(Vector2(left_source_x, source_y), size).x, 0.0, size.x),
+        clampf(source_to_viewport(Vector2(right_source_x, source_y), size).x, 0.0, size.x)
+    )
+
+
+func _piecewise_source_x(points: Array, source_y: float) -> float:
+    if points.is_empty():
+        return 0.0
+    if source_y <= float(points[0].y):
+        return float(points[0].x)
+    for index in range(points.size() - 1):
+        var a: Vector2 = points[index]
+        var b: Vector2 = points[index + 1]
+        if source_y <= b.y:
+            return lerpf(a.x, b.x, inverse_lerp(a.y, b.y, source_y))
+    return float(points.back().x)
 
 
 func get_horizontal_bounds_at_y(y_pos: float, radius: float = 0.0) -> Vector2:
@@ -377,20 +402,33 @@ func _refresh_hud() -> void:
 
 func _build_walls() -> void:
     var size := get_board_size()
+    var left_points := PackedVector2Array()
+    var right_points := PackedVector2Array()
+    for point in TABLE_LEFT_EDGE_SOURCE_POINTS:
+        left_points.append(source_to_viewport(point, size))
+    for point in TABLE_RIGHT_EDGE_SOURCE_POINTS:
+        right_points.append(source_to_viewport(point, size))
 
-    var top_left := Vector2(table_top_inset, table_top_y)
-    var top_right := Vector2(size.x - table_top_inset, table_top_y)
-    var bottom_left := Vector2(table_bottom_inset, table_bottom_y)
-    var bottom_right := Vector2(size.x - table_bottom_inset, table_bottom_y)
+    # Each segment follows the measured visible edge. The physical wall is
+    # offset outward by half its thickness, leaving its inward face on the
+    # visible boundary and avoiding a second wall-width clamp inset.
+    for index in range(left_points.size() - 1):
+        var a := left_points[index]
+        var b := left_points[index + 1]
+        var direction := b - a
+        var outward := Vector2(-direction.y, direction.x).normalized() * wall_thickness * 0.5
+        _add_wall_segment(a + outward, b + outward, wall_thickness, "LeftRail" if index == 0 else "LeftRail_%d" % index, 0.0)
+    for index in range(right_points.size() - 1):
+        var a := right_points[index]
+        var b := right_points[index + 1]
+        var direction := b - a
+        var outward := Vector2(direction.y, -direction.x).normalized() * wall_thickness * 0.5
+        _add_wall_segment(a + outward, b + outward, wall_thickness, "RightRail" if index == 0 else "RightRail_%d" % index, 0.0)
 
-    # Angled rails match the trapezoid table. A collision therefore changes
-    # direction using the actual contact normal rather than an artificial rule.
-    var left_direction := bottom_left - top_left
-    var right_direction := bottom_right - top_right
-    var left_outward := Vector2(-left_direction.y, left_direction.x).normalized() * wall_thickness * 0.5
-    var right_outward := Vector2(right_direction.y, -right_direction.x).normalized() * wall_thickness * 0.5
-    _add_wall_segment(top_left + left_outward, bottom_left + left_outward, wall_thickness, "LeftRail", 0.0)
-    _add_wall_segment(top_right + right_outward, bottom_right + right_outward, wall_thickness, "RightRail", 0.0)
+    var top_left := left_points[0]
+    var top_right := right_points[0]
+    var bottom_left: Vector2 = left_points[left_points.size() - 1]
+    var bottom_right: Vector2 = right_points[right_points.size() - 1]
     _add_wall_segment(top_left + Vector2(0.0, -wall_thickness * 0.5), top_right + Vector2(0.0, -wall_thickness * 0.5), wall_thickness, "TopRail", 0.0)
     _add_wall_segment(bottom_left + Vector2(0.0, wall_thickness * 0.5), bottom_right + Vector2(0.0, wall_thickness * 0.5), wall_thickness, "BottomRail", 0.0)
 
