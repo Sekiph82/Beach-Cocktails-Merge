@@ -1,0 +1,24 @@
+{
+  "asset": "assets/environment/game_board_background.png",
+  "sha256": "BF9EF25BFE27B78805C487410601A9FEF16B36F83C97B9BC6F3BF70670DFD17A",
+  "source_dimensions": [1024, 1536],
+  "measurement_method": "Read-only pixel scan of the owner-approved background. Across the central playable span x=288..800 sampled every 16 px, row 456 is mixed beach/frame and row 457 is the first stable wood tabletop row; row 458 is fully wood. The boundary is the transition into the visible tabletop at source y=457.0.",
+  "central_span_samples": {
+    "x_start": 288,
+    "x_end": 800,
+    "x_step": 16,
+    "row_456_average_rgb": [178.5, 155.0, 106.7],
+    "row_456_woodish_fraction": 0.21,
+    "row_457_average_rgb": [217.9, 158.4, 97.3],
+    "row_457_woodish_fraction": 0.97,
+    "row_458_average_rgb": [215.0, 137.9, 72.0],
+    "row_458_woodish_fraction": 1.0
+  },
+  "actual_visible_rear_table_source_y": 457.0,
+  "independent_of_production_geometry": true,
+  "production_values_not_used_to_measure": [
+    "GameManager.rear_table_y",
+    "TABLE_LEFT_EDGE_SOURCE_POINTS",
+    "GameManager.get_rear_target_center_y"
+  ]
+}

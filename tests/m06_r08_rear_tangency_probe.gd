@@ -4,7 +4,7 @@ extends SceneTree
 ## measured background dataset; each body half-extent comes from that drink's
 ## active CircleShape2D, never from garnish or transparent texture margins.
 
-const DATASET_PATH := "res://docs/evidence/m06_r07/independent_table_edges.json"
+const DATASET_PATH := "res://docs/evidence/r09/independent_rear_table_measurement.json"
 const CAPTURE_DIR := "res://docs/evidence/m06_r08"
 const OVERLAY_SCRIPT := "res://tests/m06_r08_tangency_overlay.gd"
 const CASES := [
@@ -62,8 +62,7 @@ func _run() -> void:
 
 
 func _check_all_levels(manager: GameManager, label: String) -> Array[Dictionary]:
-    var source_samples: Array = dataset.get("samples_source_px", [])
-    var source_rear_y := float(source_samples[0].get("y", 472.0)) if not source_samples.is_empty() else 472.0
+    var source_rear_y := float(dataset.get("actual_visible_rear_table_source_y", 457.0))
     var independent_rear_y := GameManager.source_to_viewport(Vector2(0.0, source_rear_y), manager.get_board_size()).y
     _check("%s uses one common rear_table_y" % label, absf(manager.rear_table_y - independent_rear_y) <= 0.01 and is_equal_approx(manager.rear_table_y, manager.table_top_y))
     print("M06_R08_REAR_STATE label=%s rear_table_y=%.3f source_y=%.1f" % [label, manager.rear_table_y, source_rear_y])

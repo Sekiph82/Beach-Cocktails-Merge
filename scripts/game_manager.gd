@@ -10,6 +10,11 @@ static var instance: GameManager
 const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
 
+# Independent R09 measurement of the first stable visible tabletop row in the
+# active owner-approved background. This is one common rear boundary for all
+# cocktail levels; only the body half-extent changes the rear center target.
+const ACTUAL_REAR_TABLE_SOURCE_Y := 457.0
+
 # Independent M06-R07 measurements from the active runtime/background render.
 # These are the visible INNER tabletop-surface edges at five depths. R06 used
 # the outer frame edge, which let large glass bodies visibly leave the wood;
@@ -157,8 +162,9 @@ func _configure_board_layout() -> void:
 
     var far_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS[0], size)
     var near_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS.back(), size)
-    table_top_y = far_left.y
-    rear_table_y = far_left.y
+    var actual_rear_table := source_to_viewport(Vector2(0.0, ACTUAL_REAR_TABLE_SOURCE_Y), size)
+    table_top_y = actual_rear_table.y
+    rear_table_y = actual_rear_table.y
     table_bottom_y = near_left.y
     # These exported values remain legacy diagnostics. Boundary queries and
     # wall construction use the complete source-space polylines below.

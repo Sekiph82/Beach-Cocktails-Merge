@@ -7,6 +7,7 @@ const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const CAPTURE_DIR := "res://docs/evidence/m06_r07"
 const EXPECTED_LANDMARKS_PATH := "res://docs/evidence/m06_r07/expected_landmarks.json"
 const RENDER_LANDMARKS_PATH := "res://docs/evidence/m06_r07/render_space_landmarks.json"
+const R09_REAR_MEASUREMENT_PATH := "res://docs/evidence/r09/independent_rear_table_measurement.json"
 const OVERLAY_SCRIPT := "res://tests/m06_geometry_overlay.gd"
 const VIEWPORT_CASES := [
     {"name": "canonical_720x1280", "size": Vector2(720, 1280)},
@@ -17,6 +18,7 @@ const VIEWPORT_CASES := [
 var failures: Array[String] = []
 var expected_landmarks: Dictionary = {}
 var render_landmarks: Dictionary = {}
+var r09_rear_measurement: Dictionary = {}
 
 
 func _init() -> void:
@@ -32,6 +34,10 @@ func _run() -> void:
     _check("independent screenshot-space landmark dataset loads", render_variant is Dictionary)
     if render_variant is Dictionary:
         render_landmarks = render_variant
+    var r09_variant: Variant = JSON.parse_string(FileAccess.get_file_as_string(R09_REAR_MEASUREMENT_PATH))
+    _check("R09 independent visible rear measurement loads", r09_variant is Dictionary)
+    if r09_variant is Dictionary:
+        r09_rear_measurement = r09_variant
     var packed := load("res://scenes/main.tscn") as PackedScene
     _check("main scene loads as PackedScene", packed != null)
     if packed == null:
@@ -190,7 +196,9 @@ func _check_reference_geometry(manager: GameManager, label: String) -> void:
     var viewport_size := manager.get_board_size()
     var expected_size: Array = expected.get("size", [])
     _check("%s independent viewport size" % label, expected_size.size() == 2 and is_equal_approx(viewport_size.x, expected_size[0]) and is_equal_approx(viewport_size.y, expected_size[1]))
-    _check("%s independent table Y landmarks" % label, absf(manager.table_top_y - float(expected.get("table_top_y", -1.0))) <= 3.0 and absf(manager.table_bottom_y - float(expected.get("table_bottom_y", -1.0))) <= 3.0 and absf(manager.death_line_y - float(expected.get("danger_y", -1.0))) <= 3.0 and absf(manager.launch_y - float(expected.get("launch_y", -1.0))) <= 3.0)
+    var rear_source_y := float(r09_rear_measurement.get("actual_visible_rear_table_source_y", -1.0))
+    var independently_measured_top_y := GameManager.source_to_viewport(Vector2(0.0, rear_source_y), viewport_size).y
+    _check("%s independent table Y landmarks" % label, rear_source_y > 0.0 and absf(manager.table_top_y - independently_measured_top_y) <= 3.0 and absf(manager.rear_table_y - independently_measured_top_y) <= 3.0 and absf(manager.table_bottom_y - float(expected.get("table_bottom_y", -1.0))) <= 3.0 and absf(manager.death_line_y - float(expected.get("danger_y", -1.0))) <= 3.0 and absf(manager.launch_y - float(expected.get("launch_y", -1.0))) <= 3.0)
     var depths := [0.0, 0.5, 1.0]
     var rails_ok := true
     var previous_width := INF
