@@ -112,10 +112,44 @@ Files changed in this bounded phase:
 - `docs/evidence/m07_r05/` three clean runtime screenshots
 - `coordination/sessions/BCM-M07-R05/CODEX_LOG_V01.md`
 
-The complete M01-M07 candidate regression, Godot import/startup, M07-R04 focused probe, M06-R05 full-tabletop probe, and final equality proof run after this commit as required by the master prompt.
+The complete M01-M07 candidate regression, Godot import/startup, M07-R04 focused probe, M06-R05 full-tabletop probe, and final equality proof ran after this commit as required by the master prompt. A first combined harness was interrupted after a transient M02 previously-freed diagnostic; an isolated clean M02 rerun then passed, and the final M01/M02 rerun below passed.
+
+## Final candidate regression evidence
+
+Commands used the Godot 4.7.2 stable console executable with Windows display driver and OpenGL compatibility renderer.
+
+```text
+FINAL_M01_EXIT_CODE=0
+FINAL_M02_EXIT_CODE=0
+FINAL_M03_EXIT_CODE=0
+FINAL_TEST_EXIT test=m04_asset_import_probe.gd code=0
+FINAL_TEST_EXIT test=m05_sprite_integration_probe.gd code=0
+FINAL_TEST_EXIT test=m06_environment_geometry_probe.gd code=0
+FINAL_TEST_EXIT test=m06_r05_full_tabletop_probe.gd code=0
+FINAL_TEST_EXIT test=m07_r04_focused_probe.gd code=0
+FINAL_TEST_EXIT test=m07_r05_hud_adaptation_probe.gd code=0
+FINAL_REMAINING_M04_M07_REGRESSION_EXIT_CODE=0
+FINAL_GODOT_IMPORT_STARTUP_EXIT_CODE=0
+FINAL_GIT_DIFF_CHECK_EXIT_CODE=0
+```
+
+The final probes retained all required M06-R05 contact/geometry evidence and M07-R05 clean screenshots. M07-R04 focused output remained `M07_R04_PROBE_RESULT=PASS`; M07-R05 output remained `M07_R05_PROBE_RESULT=PASS`.
 
 ## Publication
 
-The separate M07-R05 commit SHA and final local/origin/remote equality are recorded after push in the final section below.
+M07-R05 phase commit: `cb01db1a7f3395f6b08d17b39de2dd7b7c5c9b7e`.
+
+Phase push equality:
+
+```text
+git rev-parse HEAD
+cb01db1a7f3395f6b08d17b39de2dd7b7c5c9b7e
+git rev-parse origin/main
+cb01db1a7f3395f6b08d17b39de2dd7b7c5c9b7e
+git ls-remote origin refs/heads/main
+cb01db1a7f3395f6b08d17b39de2dd7b7c5c9b7e\trefs/heads/main
+git status --short --branch
+## main...origin/main
+```
 
 This phase does not self-audit and stops at the master prompt's independent-audit boundary.

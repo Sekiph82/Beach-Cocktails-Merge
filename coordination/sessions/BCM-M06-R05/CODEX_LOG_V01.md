@@ -131,6 +131,19 @@ The existing M01-M05 probes and M07-R04 probe are rerun in the final candidate r
 
 ## Publication
 
-Final commit SHA and local/origin/remote equality are recorded after this phase's push in the final section below.
+M06-R05 phase commit: `e476cb7e6cc3757d979524fccc5802ed7dfb86b0`.
+
+Phase push equality:
+
+```text
+git rev-parse HEAD
+e476cb7e6cc3757d979524fccc5802ed7dfb86b0
+git rev-parse origin/main
+e476cb7e6cc3757d979524fccc5802ed7dfb86b0
+git ls-remote origin refs/heads/main
+e476cb7e6cc3757d979524fccc5802ed7dfb86b0\trefs/heads/main
+git status --short --branch
+## main...origin/main
+```
 
 This phase stops at `AWAITING_AUDIT` only after the separate M07-R05 phase and final regression are complete, per the sequential master prompt.
