@@ -87,6 +87,14 @@ func _run() -> void:
     _check("held-to-sliding transition enables dynamic collision", held.motion_state == Drink.MotionState.SLIDING and not held.freeze and held.collision_layer == 1 and held.collision_mask == 1)
     await _cleanup(manager)
 
+    # Isolate the next top-rail case from the deliberately launched preview
+    # used above. Keeping that moving reference alive would let it collide
+    # with top_hit before the top-rail assertion and invalidate the fixture.
+    manager.shot_controller.stop_shooting()
+    manager.shot_controller._can_shoot = true
+    manager.shot_controller._spawn_next()
+    await process_frame
+
     var top_hit := manager.spawn_drink(1, Vector2(360.0, 520.0), false)
     top_hit.start_sliding(Vector2(0.0, -700.0))
     await _physics_steps(55)

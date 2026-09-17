@@ -422,6 +422,28 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
         return
 
     var velocity := _forward_only(state.linear_velocity)
+    # Keep normal RigidBody2D motion inside the measured tabletop. The rear
+    # center target is one exact common line for L01-L12; it is deliberately
+    # not offset by this drink's collider radius or visual dimensions. The
+    # side clamp continues to follow the measured perspective rails.
+    if GameManager.instance != null:
+        var safe_position := GameManager.instance.clamp_position_to_board(state.transform.origin, radius)
+        if safe_position.y != state.transform.origin.y:
+            var transform := state.transform
+            transform.origin = safe_position
+            state.transform = transform
+            if safe_position.y == GameManager.instance.rear_table_y:
+                velocity.y = 0.0
+                if absf(velocity.x) <= settle_speed * 1.35:
+                    # Rear contact with no meaningful lateral travel is a
+                    # terminal normal-motion condition, so do not leave a
+                    # zero-velocity body in SLIDING indefinitely.
+                    _low_speed_time = settle_delay
+        elif safe_position.x != state.transform.origin.x:
+            var transform := state.transform
+            transform.origin.x = safe_position.x
+            state.transform = transform
+
     var speed := velocity.length()
 
     if speed > 0.0:

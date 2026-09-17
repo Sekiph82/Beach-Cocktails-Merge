@@ -41,6 +41,7 @@ const SCORE_DISPLAY_MAX_VALUE := 9999999
 const BEST_SCORE_FIXED_FONT_SIZE := 20
 const SCORE_FIXED_FONT_SIZE := 20
 const TABLE_SOLVER_EPSILON := 0.5
+const TOP_RAIL_CLEARANCE := 4.0
 # Native-asset measurements of the actual dark value recess centers. The
 # panels have slightly different artwork heights, so these are panel-local
 # display pixels at the normalized 205 x 115.45 presentation size; they are
@@ -220,14 +221,16 @@ func get_horizontal_bounds_at_y(y_pos: float, radius: float = 0.0) -> Vector2:
 
 
 func get_rear_target_center_y(body_half_extent_y: float) -> float:
-    # One common visible rear tabletop boundary is shared by every level.
-    # Only the current glass/container body half-extent moves the center away
-    # from that edge; garnish and transparent texture margins are excluded.
-    return rear_table_y + maxf(body_half_extent_y, 0.0)
+    # The owner-defined rear target is the same center Y for every level.
+    # The parameter remains for callers that already pass the active collider
+    # extent, but no cocktail dimension participates in this target.
+    return rear_table_y
 
 
 func clamp_position_to_board(pos: Vector2, radius: float) -> Vector2:
-    pos.y = clampf(pos.y, get_rear_target_center_y(radius) + TABLE_SOLVER_EPSILON, table_bottom_y - radius - TABLE_SOLVER_EPSILON)
+    # Rear contact is an exact common center line. Lateral clearance remains
+    # radius-aware; rear Y must not acquire a size-based offset.
+    pos.y = clampf(pos.y, rear_table_y, table_bottom_y - radius - TABLE_SOLVER_EPSILON)
     var bounds := get_horizontal_bounds_at_y(pos.y, radius)
     pos.x = clampf(pos.x, bounds.x, bounds.y)
     return pos
@@ -447,8 +450,19 @@ func _build_walls() -> void:
         var outward := Vector2(direction.y, -direction.x).normalized() * wall_thickness * 0.5
         _add_wall_segment(a + outward, b + outward, wall_thickness, "RightRail" if index == 0 else "RightRail_%d" % index, 0.0)
 
-    var top_left := left_points[0]
-    var top_right := right_points[0]
+    # The retired first source samples were y=472 and left a hidden blocker
+    # below the independently measured visible rear boundary y=457. TopRail
+    # now derives its span from the actual common rear line. Its inward face
+    # is placed one largest active collider radius plus a small clearance
+    # above that line. This prevents the physical rectangle from nudging L12
+    # off the exact target; the normal-motion rear solver is authoritative for
+    # the common center target for every level.
+    var rear_bounds := get_table_rail_bounds_at_y(rear_table_y)
+    var max_body_radius := 0.0
+    for level in range(1, Drink.max_level() + 1):
+        max_body_radius = maxf(max_body_radius, Drink.collider_radius_for_level(level))
+    var top_left := Vector2(rear_bounds.x, rear_table_y - max_body_radius - TOP_RAIL_CLEARANCE)
+    var top_right := Vector2(rear_bounds.y, rear_table_y - max_body_radius - TOP_RAIL_CLEARANCE)
     var bottom_left: Vector2 = left_points[left_points.size() - 1]
     var bottom_right: Vector2 = right_points[right_points.size() - 1]
     _add_wall_segment(top_left + Vector2(0.0, -wall_thickness * 0.5), top_right + Vector2(0.0, -wall_thickness * 0.5), wall_thickness, "TopRail", 0.0)
@@ -496,21 +510,28 @@ func _build_ui() -> void:
     var best_width := 205.0 * ui_scale
     var best_height := best_width * 941.0 / 1671.0
     # Keep the left stack compact and above the tabletop accumulation area.
-    # The logo is reduced only as a HUD-layout adaptation so the fixed score
-    # panels can move upward without overlap; gameplay geometry is independent.
-    var logo_width := 190.0 * ui_scale
+    # R10 modestly increases the logo while preserving the source aspect ratio.
+    var logo_width := 210.0 * ui_scale
     var logo_height := logo_width * 1024.0 / 1536.0
-    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", Rect2(16.0 * ui_scale, 140.0 * ui_scale, best_width, best_height))
+    var score_rect := Rect2(board_size.x - best_width - 12.0 * ui_scale, 205.0 * ui_scale, best_width, best_height)
+    var score_visual_bounds := _visible_artwork_bounds("res://assets/ui/panel_score.png", score_rect)
+    var best_rect := Rect2(16.0 * ui_scale, 140.0 * ui_scale, best_width, best_height)
+    var best_measurement := _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect)
+    best_rect.position.y += score_visual_bounds.end.y - best_measurement.end.y
+    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", best_rect)
     _hud.add_child(_best_panel)
     _best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
 
     # SCORE follows the owner-approved right-side composition, below/near the
     # NEXT panel. It remains a HUD-only node and never enters board geometry.
-    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(board_size.x - best_width - 12.0 * ui_scale, 205.0 * ui_scale, best_width, best_height))
+    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", score_rect)
     _hud.add_child(_score_panel)
     _score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
 
-    var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", Rect2(12.0 * ui_scale, 6.0 * ui_scale, logo_width, logo_height))
+    var logo_rect := Rect2(12.0 * ui_scale, 6.0 * ui_scale, logo_width, logo_height)
+    var logo_measurement := _visible_artwork_bounds("res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
+    logo_rect.position.x += _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect).get_center().x - logo_measurement.get_center().x
+    var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
     _hud.add_child(logo)
 
     var to_go_width := 210.0 * ui_scale
@@ -539,6 +560,8 @@ func _build_ui() -> void:
     var next_width := 145.0 * ui_scale
     var next_height := next_width * 1426.0 / 1103.0
     var next_rect := Rect2(board_size.x - next_width - 12.0 * ui_scale, 10.0 * ui_scale, next_width, next_height)
+    var next_measurement := _visible_artwork_bounds("res://assets/ui/panel_next.png", next_rect)
+    next_rect.position.x += score_visual_bounds.get_center().x - next_measurement.get_center().x
     _next_panel = _make_panel("NextPanel", "res://assets/ui/panel_next.png", next_rect)
     _hud.add_child(_next_panel)
     _next_sprite = Sprite2D.new()
@@ -650,6 +673,20 @@ func _center_panel_value(label: Label) -> void:
     var visible_size := measured + Vector2(maxf(shadow.x, 0.0), maxf(shadow.y, 0.0))
     label.position = window.position + (window.size - visible_size) * 0.5
     label.size = measured
+
+
+func _visible_artwork_bounds(texture_path: String, rect: Rect2) -> Rect2:
+    # Alignment is based on the displayed non-transparent pixels of the
+    # canonical PNG, not the Control origin or the dynamic label bounds.
+    var texture := load(texture_path) as Texture2D
+    if texture == null:
+        return Rect2(rect.position, rect.size)
+    var image := texture.get_image()
+    var used := image.get_used_rect()
+    var source_size := Vector2(texture.get_width(), texture.get_height())
+    var artwork_scale := minf(rect.size.x / source_size.x, rect.size.y / source_size.y)
+    var artwork_origin := rect.position + rect.size * 0.5 - source_size * artwork_scale * 0.5
+    return Rect2(artwork_origin + Vector2(used.position) * artwork_scale, Vector2(used.size) * artwork_scale)
 
 
 func _score_display_text(value: int) -> String:
