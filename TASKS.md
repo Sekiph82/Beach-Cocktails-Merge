@@ -6,9 +6,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
-- Current Task: Close the two R09 blockers with the owner-corrected direct rear-target rule: physical TopRail must use the actual rear boundary, and desktop/F5 uncommanded firing/score behavior must be eliminated.
+- Current Task: Close only the remaining rear tabletop contact defect. Auto-fire, BEST/SCORE centering, To-Go top placement and held-drink alignment are owner-approved and frozen.
 - Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V02.md`, writes the R10 log/commit, runs full active regression, then STOPS for independent ChatGPT audit.
+- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V03.md`, writes the R10 V02 log, runs full active regression, then STOPS for independent ChatGPT audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -22,8 +22,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
 - [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
-- [~] BCM-M06-001 — R09 identified source y=457 as the current rear-boundary candidate, but physical TopRail still uses stale y=472 geometry and the owner has superseded the old radius/half-extent rear-target formula with direct `rear_target_y = rear_table_y`.
-- [~] BCM-M07-001 — R08 HUD/held changes remain preserved; desktop runtime still has unresolved uncommanded-fire/score behavior that must be closed before acceptance.
+- [~] BCM-M06-001 — Active: rear contact only. Mandatory owner formula is `rear_target_y = rear_table_y`; moving cocktails must physically reach the real rear table line with no stale hidden wall/dead strip.
+- [~] BCM-M07-001 — Owner-approved/frozen: auto-fire fixed, BEST/SCORE centered, To-Go top placement correct, held-drink/gold-oval alignment correct; preserve only.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
@@ -59,39 +59,40 @@ Verdict: **CHANGES_REQUIRED**.
 
 Open concerns remain around independently evidenced body/collider measurements, shape classification, and contact-fit proof.
 
-## BCM-R09-RUNTIME-RECOVERY — Strict audit
+## Latest owner runtime state — accepted/frozen
 
-Audit:
-`coordination/sessions/BCM-R09-RUNTIME-RECOVERY/CHATGPT_AUDIT_V01.md`
+Latest owner runtime screenshot and written confirmation establish:
+- auto-fire / uncommanded drink creation is resolved;
+- BEST SCORE digits are correctly centered;
+- SCORE digits are correctly centered;
+- To-Go Orders top placement / rope-to-ceiling result is correct;
+- held drink is correctly positioned on the gold launch oval;
+- NEXT and baked 2x6 progression show no visible regression.
 
-Verdict: **CHANGES_REQUIRED**.
+These areas are preservation targets only and must not be redesigned during the current closure.
 
-Accepted:
-- dirty `project.godot` inspected and found not to launch probes;
-- deterministic headless 30.5 s no-input run stayed idle;
-- candidate real rear boundary independently measured at source y=457.
-
-Blocking issues:
-1. `_build_walls()` still constructs the physical `TopRail` from the old side-polyline first points at source y=472, so the RigidBody can collide before reaching the intended rear target.
-2. R09's own Windows-display exploration generated non-held drinks from input-like events. Headless no-input PASS does not close the owner's actual desktop/F5 symptom.
-3. The previous rear-target formula using `+ radius` / `+ body_half_extent_y` has been superseded by the owner's direct rule `rear_target_y = rear_table_y`.
-
-## Active R10 closure
+## Active R10 V03 — rear-contact-only closure
 
 Locked criteria:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V02.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V03.md`
 
 Execution prompt:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V02.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V03.md`
+
+Mandatory owner rule for all L01-L12:
+
+`rear_target_y = rear_table_y`
+
+Forbidden rear-target adjustments include collider radius, body half extent, sprite/drink height, width, per-level Y offsets or per-level rear-target tables.
 
 Required closure:
-1. Physical TopRail inward face and `rear_table_y` use the same independently established rear boundary.
-2. Mandatory owner formula for every L01-L12: `rear_target_y = rear_table_y`.
-3. Do not add collider radius, body half-extent, sprite height, drink height or per-level Y offsets to the rear target.
-4. Real moving-body evidence proves L01/L06/L12 can physically reach the shared rear target without an earlier hidden wall.
-5. Reproduce the Windows/display-backed idle path and identify any unintended input event sequence reaching `ShotController`.
-6. Prevent held-to-fired transitions without intentional owner input while preserving real mouse/touch shooting and rapid launch.
-7. Preserve legitimate stored To-Go auto-fulfillment and all accepted HUD/held behavior.
+1. Moving RigidBody2D cocktails physically reach the owner-defined `rear_table_y` contact line.
+2. No stale hidden TopRail or other rear wall stops them earlier.
+3. Physical rear collision, clamp/target and `rear_table_y` are coherent.
+4. Current visible unused rear-table strip is removed.
+5. Validate actual moving L01/L06/L12 rear contacts, not direct-spawn coordinate agreement only.
+6. Re-run desktop idle smoke only to confirm the already-fixed auto-fire behavior does not regress.
+7. Preserve all owner-approved HUD/held/input behavior and full gameplay contracts.
 8. Full active regression then STOP for independent audit.
 
 M08 may not start until M06/M07 are independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
