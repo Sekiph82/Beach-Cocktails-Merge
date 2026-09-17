@@ -1,0 +1,33 @@
+{
+  "schema": "BCM-M07-R02-independent-visible-content-layout-V01",
+  "method": "Manually authored blank-inset rectangles, independent of production layout assertions; rectangles are in each panel's local pixel space at ui_scale 1.0. The progression cells use explicit relative x/y dimensions because the shared strip width is responsive.",
+  "overflow_tolerance_px": 4.0,
+  "no_material_overlap_tolerance_px": 2.0,
+  "panels": {
+    "BestScorePanel": {"value": [44.0, 34.0, 142.0, 70.0]},
+    "ScorePanel": {"value": [44.0, 34.0, 142.0, 70.0]},
+    "ToGoOrdersPanel": {
+      "target": [82.0, 18.0, 166.0, 126.0],
+      "level": [60.0, 126.0, 210.0, 42.0],
+      "reward": [70.0, 165.0, 190.0, 48.0]
+    },
+    "NextPanel": {"inset": [22.0, 22.0, 132.0, 132.0]},
+    "ProgressionStrip": {
+      "cell_inset_px": 4.0,
+      "cells": [
+        [0, 0, 0.166667, 0.080000, 0.166667, 0.340000],
+        [1, 0, 0.333333, 0.080000, 0.166667, 0.340000],
+        [2, 0, 0.500000, 0.080000, 0.166667, 0.340000],
+        [3, 0, 0.666667, 0.080000, 0.166667, 0.340000],
+        [4, 0, 0.833333, 0.080000, 0.166667, 0.340000],
+        [5, 0, 1.000000, 0.080000, 0.166667, 0.340000],
+        [0, 1, 0.166667, 0.540000, 0.166667, 0.340000],
+        [1, 1, 0.333333, 0.540000, 0.166667, 0.340000],
+        [2, 1, 0.500000, 0.540000, 0.166667, 0.340000],
+        [3, 1, 0.666667, 0.540000, 0.166667, 0.340000],
+        [4, 1, 0.833333, 0.540000, 0.166667, 0.340000],
+        [5, 1, 1.000000, 0.540000, 0.166667, 0.340000]
+      ]
+    }
+  }
+}

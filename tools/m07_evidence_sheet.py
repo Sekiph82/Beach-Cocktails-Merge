@@ -14,11 +14,13 @@ def main() -> int:
     for case in CASES:
         runtime_path = EVIDENCE / f"{case}.png"
         overlay_path = EVIDENCE / f"{case}_hud_inner_boxes.png"
-        if not runtime_path.is_file() or not overlay_path.is_file():
+        visible_path = EVIDENCE / f"{case}_visible_bounds.png"
+        if not runtime_path.is_file() or not overlay_path.is_file() or not visible_path.is_file():
             print(f"M07_SHEET_FAIL missing evidence case={case}")
             return 1
         runtime = Image.open(runtime_path).convert("RGB")
         overlay = Image.open(overlay_path).convert("RGB")
+        visible = Image.open(visible_path).convert("RGB")
         width = 720
         half_height = 480
         master_thumb = master.copy()
@@ -36,10 +38,10 @@ def main() -> int:
         crop = runtime.crop((0, crop_top, runtime.width, runtime.height))
         crop.save(EVIDENCE / f"{case}_progression_closeup.png")
         overlay.crop((0, max(0, overlay.height - min(400, overlay.height)), overlay.width, overlay.height)).save(EVIDENCE / f"{case}_layout_closeup.png")
-        print(f"M07_SHEET case={case} side_by_side=PASS progression_closeup=PASS layout_closeup=PASS")
+        visible.crop((0, max(0, visible.height - min(420, visible.height)), visible.width, visible.height)).save(EVIDENCE / f"{case}_visible_bounds_closeup.png")
+        print(f"M07_SHEET case={case} side_by_side=PASS progression_closeup=PASS layout_closeup=PASS visible_bounds_closeup=PASS")
     print("M07_SHEET_RESULT=PASS")
     return 0
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

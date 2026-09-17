@@ -434,7 +434,9 @@ func _build_ui() -> void:
 
     _to_go_target_sprite = Sprite2D.new()
     _to_go_target_sprite.name = "TargetCocktail"
-    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.41)
+    # Keep the cocktail's full alpha silhouette clear of the live level label
+    # while preserving the centered, downward To-Go composition.
+    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.39)
     _to_go_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     _to_go_target_sprite.z_index = 2
     _to_go_panel.add_child(_to_go_target_sprite)

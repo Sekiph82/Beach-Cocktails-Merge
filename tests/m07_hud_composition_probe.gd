@@ -11,8 +11,11 @@ const CASES := [
 const CAPTURE_DIR := "res://docs/evidence/m07"
 const ASSET_ROOT := "res://assets/ui/"
 const OVERLAY_SCRIPT := "res://tests/m07_hud_inner_boxes.gd"
+const VISIBLE_BOUNDS_OVERLAY_SCRIPT := "res://tests/m07_hud_visible_bounds.gd"
+const INNER_LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout.json"
 
 var failures: Array[String] = []
+var inner_layout: Dictionary = {}
 
 
 func _init() -> void:
@@ -20,6 +23,8 @@ func _init() -> void:
 
 
 func _run() -> void:
+    inner_layout = _load_inner_layout()
+    _check("independent visible-content layout dataset loads", not inner_layout.is_empty())
     var packed := load("res://scenes/main.tscn") as PackedScene
     _check("main scene loads as PackedScene", packed != null)
     if packed == null:
@@ -138,6 +143,7 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     _check("%s no legacy duplicate labels" % label, hud.get_node_or_null("ScoreLabel") == null and hud.get_node_or_null("BestLabel") == null and hud.get_node_or_null("NextLabel") == null and hud.get_node_or_null("TargetCaption") == null)
     var shared_mapping_ok := not _source_contains("assets/cocktails/L01.png") and not _source_contains("assets/cocktails/L12.png")
     _check("%s cocktail HUD consumers use shared M05 level mapping" % label, shared_mapping_ok)
+    _check_visible_bounds(manager, label)
 
     # Verify dynamic consumers change through production APIs, then restore the
     # representative state used by the capture.
@@ -190,6 +196,150 @@ func _source_contains(value: String) -> bool:
     return file != null and value in file.get_as_text()
 
 
+func _load_inner_layout() -> Dictionary:
+    var file := FileAccess.open(INNER_LAYOUT_PATH, FileAccess.READ)
+    if file == null:
+        print("M07_LAYOUT_DATASET FAIL path=%s" % INNER_LAYOUT_PATH)
+        return {}
+    var parsed = JSON.parse_string(file.get_as_text())
+    if not (parsed is Dictionary):
+        print("M07_LAYOUT_DATASET FAIL invalid_json")
+        return {}
+    var data: Dictionary = parsed
+    var panels: Dictionary = data.get("panels", {})
+    var required := ["BestScorePanel", "ScorePanel", "ToGoOrdersPanel", "NextPanel", "ProgressionStrip"]
+    for panel_name in required:
+        if not panels.has(panel_name):
+            print("M07_LAYOUT_DATASET FAIL missing_panel=%s" % panel_name)
+            return {}
+    var progression: Dictionary = panels.get("ProgressionStrip", {})
+    if (progression.get("cells", []) as Array).size() != 12:
+        print("M07_LAYOUT_DATASET FAIL progression_cell_count")
+        return {}
+    print("M07_LAYOUT_DATASET PASS schema=%s overflow_tolerance=%.1f overlap_tolerance=%.1f" % [data.get("schema", ""), float(data.get("overflow_tolerance_px", -1.0)), float(data.get("no_material_overlap_tolerance_px", -1.0))])
+    return data
+
+
+func _check_visible_bounds(manager: GameManager, label: String) -> void:
+    var hud := manager.get_node_or_null("UI/HUD") as Control
+    if hud == null or inner_layout.is_empty():
+        _check("%s visible bounds have a HUD and dataset" % label, false)
+        return
+    var tolerance := float(inner_layout.get("overflow_tolerance_px", 0.0))
+    var overlap_tolerance := float(inner_layout.get("no_material_overlap_tolerance_px", 0.0))
+    var best := hud.get_node_or_null("BestScorePanel") as Control
+    var score := hud.get_node_or_null("ScorePanel") as Control
+    var to_go := hud.get_node_or_null("ToGoOrdersPanel") as Control
+    var next := hud.get_node_or_null("NextPanel") as Control
+    var strip := hud.get_node_or_null("ProgressionStrip") as Control
+    var best_bounds := _label_visible_rect(manager._best_value)
+    var score_bounds := _label_visible_rect(manager._score_value)
+    var best_box := _dataset_rect("BestScorePanel", "value")
+    var score_box := _dataset_rect("ScorePanel", "value")
+    _print_bounds("%s BestScore value" % label, best_bounds, best_box)
+    _print_bounds("%s Score value" % label, score_bounds, score_box)
+    _check("%s Best Score rendered text stays in independent blank inset" % label, _inside_with_tolerance(best_bounds, best_box, tolerance))
+    _check("%s Score rendered text stays in independent blank inset" % label, _inside_with_tolerance(score_bounds, score_box, tolerance))
+    _check("%s score/best visible text stays separated across panels" % label, not _rects_overlap(_translated_rect(best_bounds, best), _translated_rect(score_bounds, score), overlap_tolerance))
+
+    var target_bounds := _sprite_visible_rect(manager._to_go_target_sprite)
+    var level_bounds := _label_visible_rect(manager._to_go_level_label)
+    var reward_bounds := _label_visible_rect(manager._to_go_reward_label)
+    var target_box := _dataset_rect("ToGoOrdersPanel", "target")
+    var level_box := _dataset_rect("ToGoOrdersPanel", "level")
+    var reward_box := _dataset_rect("ToGoOrdersPanel", "reward")
+    _print_bounds("%s To-Go target alpha" % label, target_bounds, target_box)
+    _print_bounds("%s To-Go level text" % label, level_bounds, level_box)
+    _print_bounds("%s To-Go reward text" % label, reward_bounds, reward_box)
+    _check("%s To-Go target alpha stays in independent target box" % label, _inside_with_tolerance(target_bounds, target_box, tolerance))
+    _check("%s To-Go level/name rendered text stays in independent level box" % label, _inside_with_tolerance(level_bounds, level_box, tolerance))
+    _check("%s To-Go reward rendered text stays in independent reward box" % label, _inside_with_tolerance(reward_bounds, reward_box, tolerance))
+    _check("%s To-Go target does not overlap level/name or reward" % label, not _rects_overlap(target_bounds, level_bounds, overlap_tolerance) and not _rects_overlap(target_bounds, reward_bounds, overlap_tolerance))
+    _check("%s To-Go level/name and reward do not materially overlap" % label, not _rects_overlap(level_bounds, reward_bounds, overlap_tolerance))
+
+    var next_bounds := _sprite_visible_rect(manager._next_sprite)
+    var next_box := _dataset_rect("NextPanel", "inset")
+    _print_bounds("%s NEXT cocktail alpha" % label, next_bounds, next_box)
+    _check("%s NEXT cocktail alpha stays in independent inset without garnish clipping" % label, _inside_with_tolerance(next_bounds, next_box, tolerance))
+
+    var progression_ok := strip != null and manager._progression_icons.size() == 12
+    var cells: Array = inner_layout.get("panels", {}).get("ProgressionStrip", {}).get("cells", [])
+    var progression_records: Array[String] = []
+    for i in range(mini(manager._progression_icons.size(), cells.size())):
+        var icon: Sprite2D = manager._progression_icons[i]
+        var icon_bounds := _sprite_visible_rect(icon)
+        var cell_box := _relative_cell_rect(strip, cells[i])
+        _print_bounds("%s progression %s" % [label, icon.name], icon_bounds, cell_box)
+        progression_ok = progression_ok and _inside_with_tolerance(icon_bounds, cell_box, tolerance)
+        progression_records.append("%s=%s" % [icon.name, _rect_string(icon_bounds)])
+        if i > 0:
+            var previous_bounds := _sprite_visible_rect(manager._progression_icons[i - 1])
+            progression_ok = progression_ok and not _rects_overlap(previous_bounds, icon_bounds, overlap_tolerance)
+    _check("%s all 12 progression alpha bounds stay inside independent cells without neighbor overlap" % label, progression_ok and progression_records.size() == 12)
+    print("M07_VISIBLE_BOUNDS label=%s best=%s score=%s target=%s level=%s reward=%s next=%s" % [label, _rect_string(best_bounds), _rect_string(score_bounds), _rect_string(target_bounds), _rect_string(level_bounds), _rect_string(reward_bounds), _rect_string(next_bounds)])
+
+
+func _dataset_rect(panel_name: String, key: String) -> Rect2:
+    var values: Array = inner_layout.get("panels", {}).get(panel_name, {}).get(key, [])
+    if values.size() != 4:
+        return Rect2()
+    return Rect2(float(values[0]), float(values[1]), float(values[2]), float(values[3]))
+
+
+func _relative_cell_rect(strip: Control, cell_data: Array) -> Rect2:
+    if strip == null or cell_data.size() != 6:
+        return Rect2()
+    var x_ratio := float(cell_data[2]) - float(cell_data[4])
+    return Rect2(strip.size.x * x_ratio, strip.size.y * float(cell_data[3]), strip.size.x * float(cell_data[4]), strip.size.y * float(cell_data[5]))
+
+
+func _label_visible_rect(label: Label) -> Rect2:
+    if label == null:
+        return Rect2()
+    var font := label.get_theme_font("font")
+    var font_size := label.get_theme_font_size("font_size")
+    var measured := font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1.0, font_size)
+    var origin := label.position + Vector2((label.size.x - measured.x) * 0.5, (label.size.y - measured.y) * 0.5)
+    var shadow_x := float(label.get_theme_constant("shadow_offset_x"))
+    var shadow_y := float(label.get_theme_constant("shadow_offset_y"))
+    var left := minf(origin.x, origin.x + shadow_x)
+    var top := minf(origin.y, origin.y + shadow_y)
+    var right := maxf(origin.x + measured.x, origin.x + measured.x + shadow_x)
+    var bottom := maxf(origin.y + measured.y, origin.y + measured.y + shadow_y)
+    return Rect2(left, top, right - left, bottom - top)
+
+
+func _sprite_visible_rect(sprite: Sprite2D) -> Rect2:
+    if sprite == null or sprite.texture == null:
+        return Rect2()
+    var image := sprite.texture.get_image()
+    var used := image.get_used_rect()
+    var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
+    var position := sprite.position + (Vector2(used.position) - texture_size * 0.5) * sprite.scale
+    return Rect2(position, Vector2(used.size) * sprite.scale)
+
+
+func _inside_with_tolerance(actual: Rect2, expected: Rect2, tolerance: float) -> bool:
+    return actual.position.x >= expected.position.x - tolerance and actual.position.y >= expected.position.y - tolerance and actual.end.x <= expected.end.x + tolerance and actual.end.y <= expected.end.y + tolerance
+
+
+func _rects_overlap(a: Rect2, b: Rect2, tolerance: float) -> bool:
+    var expanded := Rect2(b.position - Vector2(tolerance, tolerance), b.size + Vector2(tolerance * 2.0, tolerance * 2.0))
+    return a.intersects(expanded)
+
+
+func _rect_string(rect: Rect2) -> String:
+    return "[%.2f,%.2f,%.2f,%.2f]" % [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
+
+
+func _translated_rect(rect: Rect2, parent: Control) -> Rect2:
+    return Rect2(rect.position + (parent.position if parent != null else Vector2.ZERO), rect.size)
+
+
+func _print_bounds(label: String, actual: Rect2, expected: Rect2) -> void:
+    print("M07_VISIBLE_BOUND label=%s actual=%s expected_box=%s" % [label, _rect_string(actual), _rect_string(expected)])
+
+
 func _save_capture(viewport: Viewport, manager: GameManager, label: String) -> void:
     var texture := viewport.get_texture()
     var path := "%s/%s.png" % [CAPTURE_DIR, label]
@@ -216,6 +366,23 @@ func _save_capture(viewport: Viewport, manager: GameManager, label: String) -> v
     print("M07_CAPTURE name=%s_hud_inner_boxes dimensions=%dx%d path=%s error=%s" % [label, annotated_image.get_width(), annotated_image.get_height(), annotated_path, annotated_err])
     _check("render HUD inner-box evidence saved for %s" % label, annotated_err == OK and FileAccess.file_exists(annotated_path))
     overlay.queue_free()
+    await process_frame
+
+    var visible_overlay := Node2D.new()
+    visible_overlay.name = "M07HudVisibleBoundsOverlay"
+    visible_overlay.set_script(load(VISIBLE_BOUNDS_OVERLAY_SCRIPT))
+    visible_overlay.set("manager", manager)
+    visible_overlay.set("layout", inner_layout)
+    visible_overlay.set("title", "M07 visible-content bounds — %s" % label)
+    manager.add_child(visible_overlay)
+    await process_frame
+    await process_frame
+    var visible_path := "%s/%s_visible_bounds.png" % [CAPTURE_DIR, label]
+    var visible_image := viewport.get_texture().get_image()
+    var visible_err := visible_image.save_png(visible_path)
+    print("M07_CAPTURE name=%s_visible_bounds dimensions=%dx%d path=%s error=%s" % [label, visible_image.get_width(), visible_image.get_height(), visible_path, visible_err])
+    _check("render visible-bounds evidence saved for %s" % label, visible_err == OK and FileAccess.file_exists(visible_path))
+    visible_overlay.queue_free()
     await process_frame
 
 
