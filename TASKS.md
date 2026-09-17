@@ -5,10 +5,10 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 ## Project Status
 
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
-- Current Sprint: BCM-M06-R08 + BCM-M07-R08 OWNER RUNTIME REFINEMENT
-- Current Task: Apply the consolidated post-R07 owner refinements: common rear-edge tangency for all cocktail levels, natural rear-corner behavior, To-Go asset top alignment, and BEST/SCORE vertical centering while preserving the accepted held-drink alignment.
+- Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
+- Current Task: Close the two R09 blockers: stale physical TopRail still using the old rear boundary, and unresolved desktop/F5 uncommanded firing/score behavior.
 - Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M06-R08-M07-R08/CHATGPT_EXECUTION_PROMPT_V04.md`, writes separate M06-R08 and M07-R08 logs/commits, runs the full active M01-M07 suite, then STOPS for independent ChatGPT audit.
+- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V01.md`, writes the R10 log/commit, runs full active regression, then STOPS for independent ChatGPT audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -22,8 +22,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
 - [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
-- [~] BCM-M06-001 — Active: all L01-L12 glass/container bodies must reach one common rear tabletop boundary by size-derived center positioning, with no artificial rear dead zone.
-- [~] BCM-M07-001 — Active: move existing To-Go asset itself to viewport top and vertically center BEST/SCORE digits; held-drink alignment is accepted/frozen.
+- [~] BCM-M06-001 — R09 rear formula/boundary improved, but physical TopRail still uses stale y=472 geometry and blocks full rear contact.
+- [~] BCM-M07-001 — R08 HUD/held changes remain preserved; desktop runtime still has unresolved uncommanded-fire/score behavior that must be closed before acceptance.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
@@ -59,47 +59,38 @@ Verdict: **CHANGES_REQUIRED**.
 
 Open concerns remain around independently evidenced body/collider measurements, shape classification, and contact-fit proof.
 
-## M06-R07 — Superseded by latest owner runtime evidence
+## BCM-R09-RUNTIME-RECOVERY — Strict audit
 
-R07 improved the rear boundary but the latest owner runtime evidence still showed cocktails stopping too far from the visible rear tabletop edge.
+Audit:
+`coordination/sessions/BCM-R09-RUNTIME-RECOVERY/CHATGPT_AUDIT_V01.md`
 
-Current authoritative M06 rule:
-- there is one common visible rear tabletop boundary for all L01-L12;
-- every cocktail's visible glass/container body must touch that same rear boundary;
-- per-level body size changes only the center position at which tangency occurs;
-- no hardcoded per-level rear target Y values;
-- mandatory formula in the consolidated V04 prompt:
-  `rear_target_center_y = rear_table_y + body_half_extent_y`;
-- invariant:
-  `visible_body_top_y = rear_table_y` at rear contact;
-- rear corners should feel organic rather than like abrupt square invisible walls, without changing the common rear-edge rule.
+Verdict: **CHANGES_REQUIRED**.
 
-Active criteria:
-`coordination/sessions/BCM-M06-R08/CHATGPT_AUDIT_CRITERIA_V03.md`
+Accepted:
+- dirty `project.godot` inspected and found not to launch probes;
+- deterministic headless 30.5 s no-input run stayed idle;
+- candidate real rear boundary independently measured at source y=457;
+- `rear_table_y` / clamp now use the size-derived formula against y=457.
 
-## M07-R07 — Superseded by latest owner runtime evidence
+Blocking issues:
+1. `_build_walls()` still constructs the physical `TopRail` from the old side-polyline first points at source y=472, so the RigidBody can collide before reaching the new rear clamp target.
+2. R09's own Windows-display exploration generated non-held drinks from input-like events. Headless no-input PASS does not close the owner's actual desktop/F5 symptom.
 
-Latest owner requirements:
-- held-drink launch placement is accepted and frozen;
-- To-Go must not use runtime rope extensions; move the supplied To-Go asset itself upward until its own topmost visible artwork touches the viewport top;
-- BEST SCORE and SCORE are horizontally centered but require true vertical centering in their actual dark/gold-framed value recesses;
-- fixed font size and seven-digit maximum remain unchanged.
+## Active R10 closure
 
-Active criteria:
-`coordination/sessions/BCM-M07-R08/CHATGPT_AUDIT_CRITERIA_V01.md`
+Locked criteria:
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V01.md`
 
-## Active consolidated remediation sequence
+Execution prompt:
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V01.md`
 
-Master prompt:
-`coordination/sessions/BCM-M06-R08-M07-R08/CHATGPT_EXECUTION_PROMPT_V04.md`
-
-V04 is the only R08 execution prompt that should be given to Codex. The owner did not execute R08 V01, V02, or V03. V04 consolidates every post-R07 owner refinement into one sequence.
-
-Required order:
-1. BCM-M06-R08 — implement common rear-edge body tangency using the mandatory size-derived formula and preserve natural rear-corner behavior/gameplay contracts.
-2. BCM-M07-R08 — move the unchanged To-Go asset to the viewport top; vertically center BEST/SCORE; preserve the owner-approved held drink.
-3. Run the complete active M01-M07 regression.
-4. STOP for independent ChatGPT audit.
+Required closure:
+1. Physical TopRail inward face, clamp and rear solver all use the same independently measured y=457 rear boundary.
+2. Real moving-body collision evidence proves L01/L06/L12 can physically reach rear tangency.
+3. Reproduce the Windows/display-backed idle path and identify any unintended input event sequence reaching `ShotController`.
+4. Prevent held-to-fired transitions without intentional owner input while preserving real mouse/touch shooting and rapid launch.
+5. Preserve legitimate stored To-Go auto-fulfillment and all accepted HUD/held behavior.
+6. Full active regression then STOP for independent audit.
 
 M08 may not start until M06/M07 are independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
 
