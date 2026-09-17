@@ -1,0 +1,44 @@
+{
+  "schema": "BCM-M06-R07 independent inner tabletop landmark dataset V01",
+  "source_background": {
+    "path": "assets/environment/game_board_background.png",
+    "dimensions": [1024, 1536],
+    "sha256": "bf9ef25bfe27b78805c487410601a9fef16b36f83c97b9bc6f3bf70670dfd17a",
+    "landmarks_source_px": {
+      "far_left": [154, 472],
+      "far_right": [870, 472],
+      "near_left": [8, 1186],
+      "near_right": [1016, 1186],
+      "danger_y": 1080,
+      "launch_y": 1136
+    },
+    "method": "Independent pixel inspection of the active background and clean runtime render; inner visible tabletop surface edges exclude the outer frame/apron.",
+    "tolerance_px": 3.0
+  },
+  "viewports": {
+    "canonical_720x1280": {
+      "size": [720, 1280],
+      "table_top_y": 393.333,
+      "table_bottom_y": 988.333,
+      "danger_y": 900.0,
+      "launch_y": 946.667,
+      "rail_bounds_at_depth": {"far": [61.667, 658.333], "middle": [0.0, 720.0], "near": [0.0, 720.0]}
+    },
+    "taller_720x1440": {
+      "size": [720, 1440],
+      "table_top_y": 442.5,
+      "table_bottom_y": 1111.875,
+      "danger_y": 1012.5,
+      "launch_y": 1065.0,
+      "rail_bounds_at_depth": {"far": [24.375, 695.625], "middle": [0.0, 720.0], "near": [0.0, 720.0]}
+    },
+    "shorter_wider_800x1280": {
+      "size": [800, 1280],
+      "table_top_y": 393.333,
+      "table_bottom_y": 988.333,
+      "danger_y": 900.0,
+      "launch_y": 946.667,
+      "rail_bounds_at_depth": {"far": [101.667, 698.333], "middle": [9.950, 789.808], "near": [0.0, 800.0]}
+    }
+  }
+}

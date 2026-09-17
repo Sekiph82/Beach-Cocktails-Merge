@@ -1,0 +1,49 @@
+{
+  "schema": "BCM-M06-R07 independent visible inner tabletop boundary dataset V01",
+  "source_background": {
+    "path": "assets/environment/game_board_background.png",
+    "dimensions": [1024, 1536],
+    "sha256": "bf9ef25bfe27b78805c487410601a9fef16b36f83c97b9bc6f3bf70670dfd17a",
+    "measurement_method": "Independent pixel inspection of the active canonical background and clean runtime render. Each sample records the inner edge of the visible tabletop surface, excluding the outer frame/apron and HUD.",
+    "tolerance_px": 3.0
+  },
+  "samples_source_px": [
+    {"name": "far_rear", "y": 472, "left": 154, "right": 870},
+    {"name": "rear_upper_third", "y": 620, "left": 96, "right": 928},
+    {"name": "middle", "y": 800, "left": 48, "right": 976},
+    {"name": "lower_middle", "y": 1000, "left": 20, "right": 1002},
+    {"name": "near_front", "y": 1186, "left": 8, "right": 1016}
+  ],
+  "viewports": {
+    "canonical_720x1280": {
+      "size": [720, 1280],
+      "samples_viewport_px": [
+        {"name": "far_rear", "y": 393.333, "left": 61.667, "right": 658.333},
+        {"name": "rear_upper_third", "y": 516.667, "left": 13.333, "right": 706.667},
+        {"name": "middle", "y": 666.667, "left": 0.000, "right": 720.000},
+        {"name": "lower_middle", "y": 833.333, "left": 0.000, "right": 720.000},
+        {"name": "near_front", "y": 988.333, "left": 0.000, "right": 720.000}
+      ]
+    },
+    "taller_720x1440": {
+      "size": [720, 1440],
+      "samples_viewport_px": [
+        {"name": "far_rear", "y": 442.500, "left": 24.375, "right": 695.625},
+        {"name": "rear_upper_third", "y": 581.250, "left": 0.000, "right": 720.000},
+        {"name": "middle", "y": 750.000, "left": 0.000, "right": 720.000},
+        {"name": "lower_middle", "y": 937.500, "left": 0.000, "right": 720.000},
+        {"name": "near_front", "y": 1111.875, "left": 0.000, "right": 720.000}
+      ]
+    },
+    "shorter_wider_800x1280": {
+      "size": [800, 1280],
+      "samples_viewport_px": [
+        {"name": "far_rear", "y": 393.333, "left": 101.667, "right": 698.333},
+        {"name": "rear_upper_third", "y": 516.667, "left": 53.333, "right": 746.667},
+        {"name": "middle", "y": 666.667, "left": 13.333, "right": 786.667},
+        {"name": "lower_middle", "y": 833.333, "left": 0.000, "right": 800.000},
+        {"name": "near_front", "y": 988.333, "left": 0.000, "right": 800.000}
+      ]
+    }
+  }
+}

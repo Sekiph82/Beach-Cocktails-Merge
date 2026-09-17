@@ -10,21 +10,22 @@ static var instance: GameManager
 const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
 
-# Independent M06-R06 measurements from the active runtime/background render.
-# These are the visible outer playable tabletop edges at five depths. A single
-# old far-to-near interpolation cut off the rear side wood, so production uses
-# this piecewise boundary instead of the retired two-endpoint model.
+# Independent M06-R07 measurements from the active runtime/background render.
+# These are the visible INNER tabletop-surface edges at five depths. R06 used
+# the outer frame edge, which let large glass bodies visibly leave the wood;
+# this piecewise boundary follows the actual playable wood surface while still
+# opening the curved rear/side area that the retired straight line clipped.
 const TABLE_LEFT_EDGE_SOURCE_POINTS := [
-    Vector2(104.0, 472.0),
-    Vector2(72.0, 620.0),
-    Vector2(43.0, 800.0),
-    Vector2(22.0, 1000.0),
+    Vector2(154.0, 472.0),
+    Vector2(96.0, 620.0),
+    Vector2(48.0, 800.0),
+    Vector2(20.0, 1000.0),
     Vector2(8.0, 1186.0),
 ]
 const TABLE_RIGHT_EDGE_SOURCE_POINTS := [
-    Vector2(920.0, 472.0),
-    Vector2(952.0, 620.0),
-    Vector2(981.0, 800.0),
+    Vector2(870.0, 472.0),
+    Vector2(928.0, 620.0),
+    Vector2(976.0, 800.0),
     Vector2(1002.0, 1000.0),
     Vector2(1016.0, 1186.0),
 ]

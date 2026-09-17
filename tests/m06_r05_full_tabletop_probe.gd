@@ -135,7 +135,7 @@ func _wall_source_has_outward_offset() -> bool:
     if file == null:
         return false
     var source := file.get_as_text()
-    return "left_outward" in source and "right_outward" in source and "top_left + left_outward" in source and "top_right + right_outward" in source
+    return "var outward := Vector2(-direction.y, direction.x).normalized()" in source and "var outward := Vector2(direction.y, -direction.x).normalized()" in source and "a + outward" in source and "b + outward" in source
 
 
 func _check(label: String, condition: bool) -> void:

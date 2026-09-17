@@ -1,10 +1,10 @@
 extends SceneTree
 
-## Deterministic M06-R06 probe. It compares production geometry with a static
+## Deterministic active M06 tabletop probe. It compares production geometry with a static
 ## independent five-sample visible-edge dataset and captures real contact nodes.
 
-const DATASET_PATH := "res://docs/evidence/m06_r06/independent_table_edges.json"
-const CAPTURE_DIR := "res://docs/evidence/m06_r06"
+const DATASET_PATH := "res://docs/evidence/m06_r07/independent_table_edges.json"
+const CAPTURE_DIR := "res://docs/evidence/m06_r07"
 const OVERLAY_SCRIPT := "res://tests/m06_r06_geometry_overlay.gd"
 const CASES := [
     {"name": "canonical_720x1280", "size": Vector2(720, 1280)},
@@ -24,9 +24,9 @@ func _init() -> void:
 
 func _run() -> void:
     dataset = _load_dataset()
-    _check("M06-R06 independent five-sample dataset loads", not dataset.is_empty())
+    _check("M06-R07 independent five-sample dataset loads", not dataset.is_empty())
     var packed := load("res://scenes/main.tscn") as PackedScene
-    _check("M06-R06 main scene loads", packed != null)
+    _check("M06-R07 main scene loads", packed != null)
     if packed == null:
         _finish()
         return
@@ -78,12 +78,12 @@ func _check_case(manager: GameManager, label: String) -> void:
         var expected_bounds := Vector2(float(expected.left), float(expected.right))
         var delta := actual.distance_to(expected_bounds)
         all_edges_ok = all_edges_ok and delta <= tolerance and actual.x >= -0.01 and actual.y <= manager.get_board_size().x + 0.01
-        print("M06_R06_EDGE label=%s sample=%s source_y=%.1f viewport_y=%.3f measured=(%.3f,%.3f) production=(%.3f,%.3f) delta=%.3f tolerance=%.1f" % [label, sample.name, float(sample.y), y_pos, expected_bounds.x, expected_bounds.y, actual.x, actual.y, delta, tolerance])
+        print("M06_R07_EDGE label=%s sample=%s source_y=%.1f viewport_y=%.3f measured=(%.3f,%.3f) production=(%.3f,%.3f) delta=%.3f tolerance=%.1f" % [label, sample.name, float(sample.y), y_pos, expected_bounds.x, expected_bounds.y, actual.x, actual.y, delta, tolerance])
     _check("%s production follows independent visible edges at five depths" % label, all_edges_ok)
     _check("%s corrected geometry is piecewise and HUD-independent" % label, _source_has_polyline_model() and not _bounds_source_has_hud_dependency())
     _check("%s danger and launch Y remain accepted" % label, is_equal_approx(manager.death_line_y, GameManager.source_to_viewport(Vector2(0.0, 1080.0), manager.get_board_size()).y) and is_equal_approx(manager.launch_y, GameManager.source_to_viewport(Vector2(0.0, 1136.0), manager.get_board_size()).y))
     _check("%s no extra wall-width inset" % label, absf(manager.get_horizontal_bounds_at_y(manager.table_bottom_y * 0.75, 42.0).x - (manager.get_table_rail_bounds_at_y(manager.table_bottom_y * 0.75).x + 42.0 + GameManager.TABLE_SOLVER_EPSILON)) < 0.01)
-    print("M06_R06_STATE label=%s viewport=%s table_top_y=%.3f table_bottom_y=%.3f danger_y=%.3f launch_y=%.3f" % [label, manager.get_board_size(), manager.table_top_y, manager.table_bottom_y, manager.death_line_y, manager.launch_y])
+    print("M06_R07_STATE label=%s viewport=%s table_top_y=%.3f table_bottom_y=%.3f danger_y=%.3f launch_y=%.3f" % [label, manager.get_board_size(), manager.table_top_y, manager.table_bottom_y, manager.death_line_y, manager.launch_y])
 
 
 func _spawn_contact_cases(manager: GameManager) -> Array[Dictionary]:
@@ -107,7 +107,7 @@ func _spawn_contact_cases(manager: GameManager) -> Array[Dictionary]:
             records.append(record)
             var expected_x := x_pos
             _check("rendered %s contact remains at visible edge" % record.label, is_instance_valid(drink) and absf(actual.x - expected_x) <= 0.01 and absf(actual.y - y_pos) <= 0.01)
-            print("M06_R06_CONTACT label=%s source_y=%.1f center=(%.3f,%.3f) radius=%.3f body_edges=(%.3f,%.3f) rails=%s" % [record.label, float(sample.y), actual.x, actual.y, radius, actual.x - radius, actual.x + radius, manager.get_table_rail_bounds_at_y(y_pos)])
+            print("M06_R07_CONTACT label=%s source_y=%.1f center=(%.3f,%.3f) radius=%.3f body_edges=(%.3f,%.3f) rails=%s" % [record.label, float(sample.y), actual.x, actual.y, radius, actual.x - radius, actual.x + radius, manager.get_table_rail_bounds_at_y(y_pos)])
     return records
 
 
@@ -122,7 +122,7 @@ func _save_capture(viewport: Viewport, manager: GameManager, label: String, over
         node.set("manager", manager)
         node.set("dataset", dataset)
         node.set("records", records)
-        node.set("title", "M06-R06 independent full-table edge — %s" % label)
+        node.set("title", "M06-R07 independent inner tabletop edge — %s" % label)
         manager.add_child(node)
         await process_frame
         await process_frame
@@ -131,7 +131,7 @@ func _save_capture(viewport: Viewport, manager: GameManager, label: String, over
     var path := "%s/%s%s.png" % [CAPTURE_DIR, label, suffix]
     var error := image.save_png(path)
     _check("%s capture saved" % path, error == OK and FileAccess.file_exists(path))
-    print("M06_R06_CAPTURE label=%s overlay=%s dimensions=%dx%d path=%s error=%s" % [label, overlay, image.get_width(), image.get_height(), path, error])
+    print("M06_R07_CAPTURE label=%s overlay=%s dimensions=%dx%d path=%s error=%s" % [label, overlay, image.get_width(), image.get_height(), path, error])
 
 
 func _load_dataset() -> Dictionary:
@@ -165,16 +165,16 @@ func _bounds_source_has_hud_dependency() -> bool:
 
 func _check(label: String, condition: bool) -> void:
     if condition:
-        print("M06_R06_PROBE PASS: %s" % label)
+        print("M06_R07_PROBE PASS: %s" % label)
     else:
         failures.append(label)
-        print("M06_R06_PROBE FAIL: %s" % label)
+        print("M06_R07_PROBE FAIL: %s" % label)
 
 
 func _finish() -> void:
     if failures.is_empty():
-        print("M06_R06_PROBE_RESULT=PASS")
+        print("M06_R07_PROBE_RESULT=PASS")
         quit(0)
     else:
-        print("M06_R06_PROBE_RESULT=FAIL failures=%s" % ", ".join(failures))
+        print("M06_R07_PROBE_RESULT=FAIL failures=%s" % ", ".join(failures))
         quit(1)
