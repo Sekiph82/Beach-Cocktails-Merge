@@ -393,8 +393,10 @@ func _save_best_score() -> void:
 func _refresh_hud() -> void:
     if _score_value != null:
         _score_value.text = _score_display_text(score)
+        _center_panel_value(_score_value)
     if _best_value != null:
         _best_value.text = _score_display_text(best_score)
+        _center_panel_value(_best_value)
     if _chain_label != null:
         _chain_label.visible = chain > 1
         _chain_label.text = "COMBO x%d" % chain
@@ -482,7 +484,9 @@ func _build_ui() -> void:
     _hud.add_child(_best_panel)
     _best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
 
-    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(16.0 * ui_scale, 256.0 * ui_scale, best_width, best_height))
+    # SCORE follows the owner-approved right-side composition, below/near the
+    # NEXT panel. It remains a HUD-only node and never enters board geometry.
+    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(board_size.x - best_width - 12.0 * ui_scale, 205.0 * ui_scale, best_width, best_height))
     _hud.add_child(_score_panel)
     _score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
 
@@ -507,7 +511,8 @@ func _build_ui() -> void:
 
     # These inner content boxes are intentionally below the panel's baked
     # title/artwork. Dynamic values never get baked into canonical PNGs.
-    _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.19, to_go_rect.size.y * 0.84, to_go_rect.size.x * 0.62, 30.0 * ui_scale), 21, Color(0.30, 0.10, 0.03, 1.0))
+    # The reward belongs inside the cream board's lower-middle content area.
+    _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.19, to_go_rect.size.y * 0.73, to_go_rect.size.x * 0.62, 30.0 * ui_scale), 21, Color(0.30, 0.10, 0.03, 1.0))
 
     var next_width := 145.0 * ui_scale
     var next_height := next_width * 1426.0 / 1103.0
@@ -596,11 +601,30 @@ func _make_panel(panel_name: String, texture_path: String, rect: Rect2) -> Contr
 
 
 func _make_panel_value(panel: Control, value: String, font_size: int, y_ratio: float) -> Label:
-    var label := _make_panel_text(panel, value, Rect2(panel.size.x * 0.23, panel.size.y * y_ratio - 18.0, panel.size.x * 0.54, 44.0), font_size, Color(1.0, 0.93, 0.76, 1.0))
+    var label := _make_panel_text(panel, value, Rect2(), font_size, Color(1.0, 0.93, 0.76, 1.0))
     label.add_theme_color_override("font_shadow_color", Color(0.18, 0.06, 0.02, 0.8))
     label.add_theme_constant_override("shadow_offset_x", 2)
     label.add_theme_constant_override("shadow_offset_y", 2)
+    _center_panel_value(label)
     return label
+
+
+func _center_panel_value(label: Label) -> void:
+    if label == null or label.get_parent() == null:
+        return
+    var panel := label.get_parent() as Control
+    var font := label.get_theme_font("font")
+    var font_size := label.get_theme_font_size("font_size")
+    var measured := font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1.0, font_size)
+    # These are the independently measured dark recessed value windows at the
+    # normalized production panel size (205 x 115.45). The rendered glyph
+    # bounds, including the fixed shadow, are centered in this window every
+    # time the number changes; font size itself never changes.
+    var window := Rect2(panel.size.x * 45.0 / 205.0, panel.size.y * 55.0 / 115.45, panel.size.x * 116.0 / 205.0, panel.size.y * 52.0 / 115.45)
+    var shadow := Vector2(float(label.get_theme_constant("shadow_offset_x")), float(label.get_theme_constant("shadow_offset_y")))
+    var visible_size := measured + Vector2(maxf(shadow.x, 0.0), maxf(shadow.y, 0.0))
+    label.position = window.position + (window.size - visible_size) * 0.5
+    label.size = measured
 
 
 func _score_display_text(value: int) -> String:

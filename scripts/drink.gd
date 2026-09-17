@@ -292,6 +292,9 @@ func _apply_held_body_anchor() -> void:
     if _cocktail_sprite == null or level < 1 or level > HELD_BODY_FOOT_SOURCE_PX.size():
         return
     var root_scale: float = _visual_root.scale.y if _visual_root != null else 1.0
+    # The M05 visible-body measurement, not the full garnish silhouette, also
+    # defines the held glass center. Keep that center on the launch halo.
+    _cocktail_sprite.position.x = -VISIBLE_BODY_CENTER_OFFSET_PX[level - 1].x * visual_scale_for_level(level)
     var body_foot_source: float = float(HELD_BODY_FOOT_SOURCE_PX[level - 1])
     _cocktail_sprite.position.y = HELD_BODY_BASELINE_OFFSET_PX / root_scale - body_foot_source * visual_scale_for_level(level)
 

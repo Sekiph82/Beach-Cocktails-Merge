@@ -14,7 +14,7 @@ const LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout_v
 const BEST_VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
 const SCORE_VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
 const TO_GO_TARGET_BOX := Rect2(30.0, 78.0, 150.0, 100.0)
-const TO_GO_REWARD_BOX := Rect2(35.0, 215.0, 140.0, 35.0)
+const TO_GO_REWARD_BOX := Rect2(35.0, 185.0, 140.0, 35.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
 
 var failures: Array[String] = []
