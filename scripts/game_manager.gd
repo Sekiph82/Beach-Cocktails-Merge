@@ -36,6 +36,7 @@ const SCORE_DISPLAY_MAX_VALUE := 9999999
 const BEST_SCORE_FIXED_FONT_SIZE := 20
 const SCORE_FIXED_FONT_SIZE := 20
 const TABLE_SOLVER_EPSILON := 0.5
+const SCORE_OPTICAL_Y_BIAS_PX := -2.0
 
 @export var table_top_y := 0.0
 @export var table_bottom_y := 0.0
@@ -624,7 +625,8 @@ func _center_panel_value(label: Label) -> void:
     var window := Rect2(panel.size.x * 45.0 / 205.0, panel.size.y * 55.0 / 115.45, panel.size.x * 116.0 / 205.0, panel.size.y * 52.0 / 115.45)
     var shadow := Vector2(float(label.get_theme_constant("shadow_offset_x")), float(label.get_theme_constant("shadow_offset_y")))
     var visible_size := measured + Vector2(maxf(shadow.x, 0.0), maxf(shadow.y, 0.0))
-    label.position = window.position + (window.size - visible_size) * 0.5
+    var optical_bias := SCORE_OPTICAL_Y_BIAS_PX if label == _score_value else 0.0
+    label.position = window.position + (window.size - visible_size) * 0.5 + Vector2(0.0, optical_bias)
     label.size = measured
 
 
@@ -644,8 +646,11 @@ func _build_to_go_rope_continuations(rect: Rect2) -> void:
 func _make_rope_continuation(rope_name: String, anchor_x: float, anchor_y: float) -> Line2D:
     var rope := Line2D.new()
     rope.name = rope_name
-    rope.points = PackedVector2Array([Vector2(anchor_x, 0.0), Vector2(anchor_x, anchor_y + 1.0)])
-    rope.width = 9.0
+    # Start at the visible viewport ceiling and continue behind the baked
+    # hanging knot into the panel artwork. The overlap removes the apparent
+    # one-pixel break caused by antialiasing at the artwork join.
+    rope.points = PackedVector2Array([Vector2(anchor_x, 0.0), Vector2(anchor_x, anchor_y + 8.0)])
+    rope.width = 12.0
     rope.default_color = Color(0.76, 0.43, 0.16, 1.0)
     rope.antialiased = true
     rope.z_index = -2

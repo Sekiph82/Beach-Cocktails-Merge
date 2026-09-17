@@ -76,7 +76,10 @@ const VISIBLE_BODY_CENTER_OFFSET_PX := [
 # M07-R04 visual-only body-foot measurements, in source-texture pixels from
 # each texture center. Garnish extremes are excluded.
 const HELD_BODY_FOOT_SOURCE_PX := [476.0, 495.5, 431.5, 477.5, 428.0, 478.0, 410.5, 443.0, 470.5, 453.0, 443.0, 498.0]
-const HELD_BODY_BASELINE_OFFSET_PX := 42.0
+# The launch PNG's visible gold oval is vertically offset inside its square
+# texture. Put the measured glass/container foot on that rendered oval center,
+# rather than on the old node center, so every held level sits on the artwork.
+const HELD_BODY_BASELINE_OFFSET_PX := 3.0
 
 # Runtime body diameters are deliberately bounded and monotonic. The sprite
 # scale is derived from the measured body width, not from the full garnish

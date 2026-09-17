@@ -9,7 +9,8 @@ const CASES := [
     {"name": "shorter_wider_800x1280", "size": Vector2(800, 1280)},
 ]
 const CAPTURE_DIR := "res://docs/evidence/m07_r06"
-const VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
+const BEST_VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
+const SCORE_VALUE_BOX := Rect2(45.0, 53.0, 116.0, 52.0)
 const TO_GO_TARGET_BOX := Rect2(30.0, 78.0, 150.0, 100.0)
 const TO_GO_REWARD_BOX := Rect2(35.0, 185.0, 140.0, 35.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
@@ -90,9 +91,9 @@ func _check_layout(manager: GameManager, label: String) -> void:
         manager._refresh_hud()
         var best_bounds := _label_visible_rect(manager._best_value)
         var score_bounds := _label_visible_rect(manager._score_value)
-        var best_center_delta := best_bounds.get_center().distance_to(VALUE_BOX.get_center())
-        var score_center_delta := score_bounds.get_center().distance_to(VALUE_BOX.get_center())
-        score_values_ok = score_values_ok and manager._best_value.text == "%d" % value and manager._score_value.text == "%d" % value and manager._best_value.get_theme_font_size("font_size") == GameManager.BEST_SCORE_FIXED_FONT_SIZE and manager._score_value.get_theme_font_size("font_size") == GameManager.SCORE_FIXED_FONT_SIZE and _inside(best_bounds, VALUE_BOX, 4.0) and _inside(score_bounds, VALUE_BOX, 4.0) and best_center_delta <= 1.5 and score_center_delta <= 1.5
+        var best_center_delta := best_bounds.get_center().distance_to(BEST_VALUE_BOX.get_center())
+        var score_center_delta := score_bounds.get_center().distance_to(SCORE_VALUE_BOX.get_center())
+        score_values_ok = score_values_ok and manager._best_value.text == "%d" % value and manager._score_value.text == "%d" % value and manager._best_value.get_theme_font_size("font_size") == GameManager.BEST_SCORE_FIXED_FONT_SIZE and manager._score_value.get_theme_font_size("font_size") == GameManager.SCORE_FIXED_FONT_SIZE and _inside(best_bounds, BEST_VALUE_BOX, 4.0) and _inside(score_bounds, SCORE_VALUE_BOX, 4.0) and best_center_delta <= 1.5 and score_center_delta <= 1.5
         print("M07_R06_SCORE label=%s value=%d best_bounds=%s score_bounds=%s best_center_delta=%.3f score_center_delta=%.3f" % [label, value, _rect_string(best_bounds), _rect_string(score_bounds), best_center_delta, score_center_delta])
     _check("%s fixed-size score glyphs center inside both recessed windows" % label, score_values_ok and manager._score_display_text(10000000) == "9999999")
 

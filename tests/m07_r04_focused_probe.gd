@@ -9,10 +9,10 @@ const CASES := [
     {"name": "taller_720x1440", "size": Vector2(720, 1440)},
     {"name": "shorter_wider_800x1280", "size": Vector2(800, 1280)},
 ]
-const CAPTURE_DIR := "res://docs/evidence/m07_r04"
+const CAPTURE_DIR := "res://docs/evidence/m07_r07"
 const LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout_v02.json"
 const BEST_VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
-const SCORE_VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
+const SCORE_VALUE_BOX := Rect2(45.0, 53.0, 116.0, 52.0)
 const TO_GO_TARGET_BOX := Rect2(30.0, 78.0, 150.0, 100.0)
 const TO_GO_REWARD_BOX := Rect2(35.0, 185.0, 140.0, 35.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
@@ -117,9 +117,9 @@ func _check_ropes(manager: GameManager, label: String) -> void:
     var panel := manager._to_go_panel
     var expected_left := panel.position.x + panel.size.x * 0.226
     var expected_right := panel.position.x + panel.size.x * 0.778
-    var ok := left != null and right != null and left.points.size() == 2 and right.points.size() == 2 and is_equal_approx(left.points[0].y, 0.0) and is_equal_approx(right.points[0].y, 0.0) and is_equal_approx(left.points[1].y, panel.position.y + 1.0) and is_equal_approx(right.points[1].y, panel.position.y + 1.0) and is_equal_approx(left.points[0].x, expected_left) and is_equal_approx(right.points[0].x, expected_right) and left.z_index < 0 and right.z_index < 0
+    var ok := left != null and right != null and left.points.size() == 2 and right.points.size() == 2 and is_equal_approx(left.points[0].y, 0.0) and is_equal_approx(right.points[0].y, 0.0) and is_equal_approx(left.points[1].y, panel.position.y + 8.0) and is_equal_approx(right.points[1].y, panel.position.y + 8.0) and is_equal_approx(left.points[0].x, expected_left) and is_equal_approx(right.points[0].x, expected_right) and left.width >= 12.0 and right.width >= 12.0 and left.z_index < 0 and right.z_index < 0
     _check("%s To-Go ropes attach viewport top to baked anchors" % label, ok)
-    print("M07_R04_ROPES label=%s left_x=%.3f right_x=%.3f top_y=%.3f baked_join_y=(%.3f,%.3f)" % [label, left.points[0].x if left != null else -1.0, right.points[0].x if right != null else -1.0, left.points[0].y if left != null else -1.0, left.points[1].y if left != null else -1.0, right.points[1].y if right != null else -1.0])
+    print("M07_R07_ROPES label=%s left_x=%.3f right_x=%.3f top_y=%.3f baked_join_y=(%.3f,%.3f) width=%.1f" % [label, left.points[0].x if left != null else -1.0, right.points[0].x if right != null else -1.0, left.points[0].y if left != null else -1.0, left.points[1].y if left != null else -1.0, right.points[1].y if right != null else -1.0, left.width if left != null else -1.0])
 
 
 func _check_next_all_levels(manager: GameManager, label: String) -> void:
@@ -135,19 +135,22 @@ func _check_next_all_levels(manager: GameManager, label: String) -> void:
 
 func _check_held_body_anchor(manager: GameManager, label: String) -> void:
     var baselines: Array[float] = []
+    var x_errors: Array[float] = []
     for level in range(1, 13):
         var drink := manager.spawn_drink(level, Vector2(manager.get_board_size().x * 0.5, manager.launch_y), true)
         await process_frame
         var sprite := drink.get_node("Visual/CocktailSprite") as Sprite2D
         var visual := drink.get_node("Visual") as Node2D
         var baseline: float = float(drink.position.y + visual.scale.y * (sprite.position.y + float(Drink.HELD_BODY_FOOT_SOURCE_PX[level - 1]) * sprite.scale.x))
+        var body_center_x: float = float(drink.position.x + visual.scale.x * (sprite.position.x + Drink.VISIBLE_BODY_CENTER_OFFSET_PX[level - 1].x * sprite.scale.x))
         baselines.append(baseline)
-        print("M07_R04_HELD label=%s level=L%d pos_y=%.3f root_scale=%.4f sprite_scale=%.5f baseline=%.3f offset=%.3f" % [label, level, drink.position.y, visual.scale.y, sprite.scale.x, baseline, sprite.position.y - Drink.visual_offset_for_level(level).y])
+        x_errors.append(absf(body_center_x - manager._launch_zone.position.x))
+        print("M07_R07_HELD label=%s level=L%d pos_y=%.3f root_scale=%.4f sprite_scale=%.5f body_center_x=%.3f halo_x=%.3f baseline=%.3f halo_y=%.3f" % [label, level, drink.position.y, visual.scale.y, sprite.scale.x, body_center_x, manager._launch_zone.position.x, baseline, manager._launch_zone.position.y + Drink.HELD_BODY_BASELINE_OFFSET_PX])
         drink.queue_free()
     var min_baseline: float = baselines.min()
     var max_baseline: float = baselines.max()
-    _check("%s held L01-L12 body bottoms share launch baseline" % label, max_baseline - min_baseline <= 2.0 and absf(min_baseline - (manager.launch_y + Drink.HELD_BODY_BASELINE_OFFSET_PX)) <= 2.0)
-    print("M07_R04_HELD_SUMMARY label=%s baseline_min=%.3f baseline_max=%.3f spread=%.3f target=%.3f" % [label, min_baseline, max_baseline, max_baseline - min_baseline, manager.launch_y + Drink.HELD_BODY_BASELINE_OFFSET_PX])
+    _check("%s held L01-L12 body bottoms share measured launch-oval center" % label, max_baseline - min_baseline <= 2.0 and absf(min_baseline - (manager.launch_y + Drink.HELD_BODY_BASELINE_OFFSET_PX)) <= 2.0 and x_errors.max() <= 0.75)
+    print("M07_R07_HELD_SUMMARY label=%s baseline_min=%.3f baseline_max=%.3f spread=%.3f target=%.3f max_x_error=%.3f" % [label, min_baseline, max_baseline, max_baseline - min_baseline, manager.launch_y + Drink.HELD_BODY_BASELINE_OFFSET_PX, x_errors.max()])
 
 
 func _save_capture(viewport: Viewport, manager: GameManager, label: String) -> void:
