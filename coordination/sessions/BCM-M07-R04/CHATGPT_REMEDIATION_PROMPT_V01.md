@@ -1,9 +1,9 @@
 # BCM-M07-R04 — Owner Screenshot Focused HUD Remediation Prompt V01
 
-Status: **ISSUED**
+Status: **ISSUED — UPDATED WITH OWNER CEILING-ROPE REQUIREMENT**
 
 ## Goal
-Remediate ONLY the dynamic-content placement defects marked by the owner on the running Godot DEBUG screenshot dated 2026-09-17.
+Remediate ONLY the dynamic-content placement defects marked by the owner on the running Godot DEBUG screenshot dated 2026-09-17, plus the later owner instruction that the To-Go Orders hanging ropes must visually attach to the top edge of the game viewport.
 
 Do not replace or redesign the refreshed background/HUD/progression artwork. The owner explicitly confirmed the intended visuals are already being used.
 
@@ -55,7 +55,7 @@ Best and Score may use separate measured rectangles if the two PNG windows diffe
 
 ---
 
-## 2. To-Go Orders content fit
+## 2. To-Go Orders content fit + ceiling-attached ropes
 
 The baked To-Go title remains untouched.
 
@@ -75,7 +75,24 @@ Requirements:
 - reward must never hang below/outside the board;
 - use actual rendered text bounds and alpha-used rect bounds, not only centers.
 
+### Owner ceiling-rope requirement
+
+The two hanging ropes above the To-Go Orders board must visually connect all the way to the **top edge of the gameplay viewport**, so the panel reads as physically suspended from the screen ceiling/top frame.
+
+Implement this without modifying the canonical To-Go PNG bytes:
+- preserve the existing baked rope segments in the To-Go artwork;
+- add only the minimum runtime rope continuation needed above the panel so each baked rope visually continues upward to viewport `y = 0` (or the visible top safe edge if the render viewport itself begins below a platform chrome area);
+- the left continuation must align with the baked left rope anchor; the right continuation must align with the baked right rope anchor;
+- continuation width, color, shading and visual thickness should match the baked rope as closely as practical;
+- there must be no visible gap between runtime rope continuation and baked rope;
+- the ropes must remain behind the To-Go board/decorative artwork and must not cover the `To-Go Orders` heading, cocktail, labels, reward, logo, NEXT panel or other HUD content;
+- the rope continuation is decorative only: no input, physics or collision;
+- it must adapt responsively for 720x1280, 720x1440 and 800x1280 so both ropes remain visually attached to the viewport top at every required size;
+- do not move the To-Go board all the way to the top merely to hide the problem. The board may remain suspended lower while the ropes visibly bridge the space to the top edge.
+
 Validate all eligible To-Go target levels L06-L12, because different garnish silhouettes can have very different alpha bounds.
+
+Retain a focused screenshot/overlay that clearly proves both To-Go ropes touch the viewport top and join the baked rope anchors without gaps.
 
 ---
 
@@ -151,6 +168,7 @@ For each retain:
 Additionally retain:
 - BEST/SCORE numeric fit close-up with test values;
 - To-Go L06-L12 fit sheet;
+- To-Go rope-to-viewport-top close-up/overlay proving both ropes reach the top edge without gaps;
 - NEXT L01-L12 fit sheet;
 - held L01-L12 body-bottom baseline sheet;
 - progression close-up proving unchanged 2x6 presentation.
@@ -183,6 +201,6 @@ Do not weaken earlier tests.
 Write:
 `coordination/sessions/BCM-M07-R04/CODEX_LOG_V01.md`
 
-The log must include exact measured content rectangles, fit algorithms, per-level NEXT results, per-level To-Go target results, score/best font-fit cases, per-level held body-foot offsets, evidence hashes, exact commands/exit codes and changed files.
+The log must include exact measured content rectangles, fit algorithms, per-level NEXT results, per-level To-Go target results, score/best font-fit cases, per-level held body-foot offsets, exact To-Go rope anchor X positions, runtime top-edge endpoints, rope-continuation dimensions/implementation method, responsive rope evidence hashes, exact commands/exit codes and changed files.
 
 Commit/push the bounded M07-R04 work, verify local/origin/remote equality, return the log URL + commit SHA + `AWAITING_AUDIT`, then STOP.
