@@ -98,3 +98,26 @@ M01-M06 source behavior was not retuned. The full M01-M07 regression suite, Godo
 ## Handoff
 
 Historical logs were not rewritten. ChatGPT-owned tracker/prompt/audit/criteria/policy files remain untouched. This log does not self-audit, assign `AUDITED_PASS`, or update `TASKS.md`.
+
+## Final M01-M07 regression on candidate main
+
+The final suite was run after the bounded M07-R03 commit (`8fddd0b`) against the candidate `main` checkout. All commands returned exit code `0`:
+
+```text
+res://tests/m01_contract_probe.gd                 M01_PROBE_RESULT=PASS        M01_FINAL_EXIT_CODE=0
+res://tests/m02_physics_regression.gd             M02_PROBE_RESULT=PASS        M02_FINAL_EXIT_CODE=0
+res://tests/m03_economy_regression.gd             M03_PROBE_RESULT=PASS        M03_FINAL_EXIT_CODE=0
+res://tests/m04_asset_import_probe.gd             M04_GODOT_RESULT=PASS        M04_FINAL_EXIT_CODE=0
+res://tests/m05_sprite_integration_probe.gd       M05_PROBE_RESULT=PASS        M05_FINAL_EXIT_CODE=0
+res://tests/m06_environment_geometry_probe.gd     M06_PROBE_RESULT=PASS        M06_FINAL_EXIT_CODE=0
+res://tests/m07_hud_composition_probe.gd          M07_PROBE_RESULT=PASS        M07_FINAL_EXIT_CODE=0
+python tools/m04_asset_validation.py              M04_PYTHON_RESULT=PASS       M04_PYTHON_FINAL_EXIT_CODE=0
+python tools/m05_independent_body_dataset.py     M05_INDEPENDENT_RESULT=PASS  M05_DATASET_FINAL_EXIT_CODE=0
+godot --headless --editor --path . --quit       GODOT_IMPORT_FINAL_EXIT_CODE=0
+godot --headless --path . --quit                 GODOT_STARTUP_FINAL_EXIT_CODE=0
+git diff --check                                FINAL_DIFF_CHECK_EXIT_CODE=0
+```
+
+Final suite-specific markers included M01 700 px/s and 180 px/s² behavior, simultaneous motion/restart/Game Over persistence; M02 direct/glancing no-tunneling, single/chain merge, L12 cap, rapid launch and moving-body restart/Game Over; M03 exact score/economy and rewards `L6=1000`, `L7=1800`, `L8=3000`, `L9=5000`, `L10=8000`, `L11=12000`, `L12=18000`; M04 corrected owner hashes and 25-PNG inventory; M05 canonical mapped sprites and visible-body collider envelopes; M06 corrected-background rail/danger/launch geometry for all three viewports; and M07 baked-slot-only HUD, dynamic content, shared mapping, visible bounds, and rapid-launch synchronization.
+
+The final suite regenerated only evidence captures; no source PNG or tracker file changed. The final local HEAD, `origin/main`, and remote `main` equality proof is recorded after the final evidence commit/push.
