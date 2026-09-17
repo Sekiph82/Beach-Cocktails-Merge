@@ -23,6 +23,7 @@ const SCORE_DISPLAY_MAX_DIGITS := 7
 const SCORE_DISPLAY_MAX_VALUE := 9999999
 const BEST_SCORE_FIXED_FONT_SIZE := 20
 const SCORE_FIXED_FONT_SIZE := 20
+const TABLE_SOLVER_EPSILON := 0.5
 
 @export var table_top_y := 0.0
 @export var table_bottom_y := 0.0
@@ -172,13 +173,16 @@ func get_table_rail_bounds_at_y(y_pos: float) -> Vector2:
 
 
 func get_horizontal_bounds_at_y(y_pos: float, radius: float = 0.0) -> Vector2:
-    var clearance := wall_thickness * 0.5 + radius + 3.0
     var rails := get_table_rail_bounds_at_y(y_pos)
-    return Vector2(rails.x + clearance, rails.y - clearance)
+    # `rails` is the visible tabletop edge. Side-wall bodies are offset
+    # outward in _build_walls(), so their inward collision faces coincide with
+    # this edge. Only the physical body radius and a tiny solver epsilon are
+    # removed from the lateral playable width; HUD rectangles never enter it.
+    return Vector2(rails.x + radius + TABLE_SOLVER_EPSILON, rails.y - radius - TABLE_SOLVER_EPSILON)
 
 
 func clamp_position_to_board(pos: Vector2, radius: float) -> Vector2:
-    pos.y = clampf(pos.y, table_top_y + radius + wall_thickness * 0.5, table_bottom_y - radius - wall_thickness * 0.5)
+    pos.y = clampf(pos.y, table_top_y + radius + TABLE_SOLVER_EPSILON, table_bottom_y - radius - TABLE_SOLVER_EPSILON)
     var bounds := get_horizontal_bounds_at_y(pos.y, radius)
     pos.x = clampf(pos.x, bounds.x, bounds.y)
     return pos
@@ -381,10 +385,14 @@ func _build_walls() -> void:
 
     # Angled rails match the trapezoid table. A collision therefore changes
     # direction using the actual contact normal rather than an artificial rule.
-    _add_wall_segment(top_left, bottom_left, wall_thickness, "LeftRail", 0.0)
-    _add_wall_segment(top_right, bottom_right, wall_thickness, "RightRail", 0.0)
-    _add_wall_segment(top_left, top_right, wall_thickness, "TopRail", 0.0)
-    _add_wall_segment(bottom_left, bottom_right, wall_thickness, "BottomRail", 0.0)
+    var left_direction := bottom_left - top_left
+    var right_direction := bottom_right - top_right
+    var left_outward := Vector2(-left_direction.y, left_direction.x).normalized() * wall_thickness * 0.5
+    var right_outward := Vector2(right_direction.y, -right_direction.x).normalized() * wall_thickness * 0.5
+    _add_wall_segment(top_left + left_outward, bottom_left + left_outward, wall_thickness, "LeftRail", 0.0)
+    _add_wall_segment(top_right + right_outward, bottom_right + right_outward, wall_thickness, "RightRail", 0.0)
+    _add_wall_segment(top_left + Vector2(0.0, -wall_thickness * 0.5), top_right + Vector2(0.0, -wall_thickness * 0.5), wall_thickness, "TopRail", 0.0)
+    _add_wall_segment(bottom_left + Vector2(0.0, wall_thickness * 0.5), bottom_right + Vector2(0.0, wall_thickness * 0.5), wall_thickness, "BottomRail", 0.0)
 
 
 func _add_wall_segment(a: Vector2, b: Vector2, thickness: float, wall_name: String, bounce: float) -> void:
