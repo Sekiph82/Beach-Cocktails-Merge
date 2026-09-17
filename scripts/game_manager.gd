@@ -10,14 +10,15 @@ static var instance: GameManager
 const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
 
-# Manual design-space landmarks from the owner-approved 1024x1536 background.
-# Points follow the inside edge of the wooden rails, not the image canvas.
-const TABLE_FAR_LEFT_SOURCE := Vector2(292.0, 464.0)
-const TABLE_FAR_RIGHT_SOURCE := Vector2(732.0, 464.0)
-const TABLE_NEAR_LEFT_SOURCE := Vector2(104.0, 1208.0)
-const TABLE_NEAR_RIGHT_SOURCE := Vector2(920.0, 1208.0)
-const DANGER_SOURCE_Y := 1100.0
-const LAUNCH_SOURCE_Y := 1144.0
+# Independent M06-R04 measurements from the corrected owner-approved 1024x1536
+# background. Points follow the visible inner tabletop rail and the transition
+# into the front apron, not the image canvas.
+const TABLE_FAR_LEFT_SOURCE := Vector2(154.0, 472.0)
+const TABLE_FAR_RIGHT_SOURCE := Vector2(870.0, 472.0)
+const TABLE_NEAR_LEFT_SOURCE := Vector2(16.0, 1186.0)
+const TABLE_NEAR_RIGHT_SOURCE := Vector2(1008.0, 1186.0)
+const DANGER_SOURCE_Y := 1080.0
+const LAUNCH_SOURCE_Y := 1136.0
 
 @export var table_top_y := 0.0
 @export var table_bottom_y := 0.0

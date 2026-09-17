@@ -1,54 +1,55 @@
 {
-  "schema": "BCM-M06-R02 independent visual landmark dataset V01",
+  "schema": "BCM-M06-R04 independent visual landmark dataset V01",
   "source_background": {
     "path": "assets/environment/game_board_background.png",
     "dimensions": [1024, 1536],
+    "sha256": "bf9ef25bfe27b78805c487410601a9fef16b36f83c97b9bc6f3bf70670dfd17a",
     "landmarks_source_px": {
-      "far_left": [292, 464],
-      "far_right": [732, 464],
-      "near_left": [104, 1208],
-      "near_right": [920, 1208],
-      "danger_y": 1100,
-      "launch_y": 1144
+      "far_left": [154, 472],
+      "far_right": [870, 472],
+      "near_left": [16, 1186],
+      "near_right": [1008, 1186],
+      "danger_y": 1080,
+      "launch_y": 1136
     },
-    "method": "MANUAL_VISUAL_MEASUREMENT_VISIBLE_WOOD_RAIL_INSIDE_EDGE",
+    "method": "INDEPENDENT_MANUAL_MEASUREMENT_CORRECTED_OWNER_BACKGROUND_VISIBLE_INNER_WOOD_EDGES",
     "tolerance_px": 3.0
   },
   "viewports": {
     "canonical_720x1280": {
       "size": [720, 1280],
-      "table_top_y": 386.667,
-      "table_bottom_y": 1006.667,
-      "danger_y": 916.667,
-      "launch_y": 953.333,
+      "table_top_y": 393.333,
+      "table_bottom_y": 988.333,
+      "danger_y": 900.0,
+      "launch_y": 946.667,
       "rail_bounds_at_depth": {
-        "far": [176.667, 543.333],
-        "middle": [98.333, 621.667],
+        "far": [61.667, 658.333],
+        "middle": [40.833, 679.167],
         "near": [20.0, 700.0]
       }
     },
     "taller_720x1440": {
       "size": [720, 1440],
-      "table_top_y": 435.0,
-      "table_bottom_y": 1132.5,
-      "danger_y": 1031.25,
-      "launch_y": 1072.5,
+      "table_top_y": 442.5,
+      "table_bottom_y": 1111.875,
+      "danger_y": 1012.5,
+      "launch_y": 1065.0,
       "rail_bounds_at_depth": {
-        "far": [153.75, 566.25],
-        "middle": [86.875, 633.125],
+        "far": [24.375, 695.625],
+        "middle": [22.188, 697.813],
         "near": [20.0, 700.0]
       }
     },
     "shorter_wider_800x1280": {
       "size": [800, 1280],
-      "table_top_y": 386.667,
-      "table_bottom_y": 1006.667,
-      "danger_y": 916.667,
-      "launch_y": 953.333,
+      "table_top_y": 393.333,
+      "table_bottom_y": 988.333,
+      "danger_y": 900.0,
+      "launch_y": 946.667,
       "rail_bounds_at_depth": {
-        "far": [216.667, 583.333],
-        "middle": [138.333, 661.667],
-        "near": [60.0, 740.0]
+        "far": [101.667, 698.333],
+        "middle": [60.833, 739.167],
+        "near": [20.0, 780.0]
       }
     }
   }
