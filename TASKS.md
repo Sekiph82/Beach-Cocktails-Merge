@@ -4,11 +4,11 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M05 + M07 STRICT REMEDIATION
-- Current Sprint: BCM-M07-R04
-- Current Task: Focused owner-annotated M07 HUD/content-placement remediation.
+- Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
+- Current Sprint: BCM-M06-R06 + BCM-M07-R06
+- Current Task: Fix rear-table playable geometry, then apply latest owner HUD annotations.
 - Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M07-R04/CHATGPT_REMEDIATION_PROMPT_V01.md`, writes `coordination/sessions/BCM-M07-R04/CODEX_LOG_V01.md`, commits/pushes, then STOPS for independent ChatGPT audit.
+- Next Task/Action: Codex executes `coordination/sessions/BCM-M06-R06-M07-R06/CHATGPT_EXECUTION_PROMPT_V01.md`, writes separate M06-R06 and M07-R06 logs/commits, runs final regression, then STOPS for independent ChatGPT audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -22,8 +22,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
 - [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
-- [x] BCM-M06-001 — Refreshed tropical background/table/responsive geometry accepted from owner runtime evidence plus M06-R04 tests.
-- [~] BCM-M07-001 — Dynamic HUD integration active; refreshed asset family accepted, owner-annotated content-fit/launch-anchor remediation required.
+- [~] BCM-M06-001 — Reopened: latest owner runtime evidence shows rear-left/rear-right tabletop is still artificially restricted.
+- [~] BCM-M07-001 — Reopened: latest owner annotations require score relocation/centering, To-Go reward repositioning, and held-body centering on launch halo.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
@@ -53,14 +53,12 @@ Legend: `[x]` audited complete, `[~]` active, `[!]` reopened/changes required, `
 - [x] Merge score/combo/To-Go reward contracts accepted.
 - [x] Persistence, Game Over and restart accepted.
 
-## M04-R03 — Corrected audit result
+## M04-R03 — Accepted visual asset family
 
 Latest audit:
 `coordination/sessions/BCM-M04-R03/CHATGPT_AUDIT_V03.md`
 
 Verdict: **AUDITED_PASS**.
-
-Owner supplied a direct runtime screenshot and explicitly confirmed the intended refreshed asset family is active in the Godot build. The prior attachment-vs-local SHA identity inference is superseded.
 
 ## M05-R02 — Still open
 
@@ -69,50 +67,49 @@ Audit:
 
 Verdict: **CHANGES_REQUIRED**.
 
-Open concerns remain around independently evidenced body/collider measurements, shape classification, and contact-fit proof. M07-R04 must not retune M05 physics/collider behavior.
+Open concerns remain around independently evidenced body/collider measurements, shape classification, and contact-fit proof.
 
-## M06-R04 — Corrected audit result
+## M06-R05 — Latest audit
 
-Latest audit:
-`coordination/sessions/BCM-M06-R04/CHATGPT_AUDIT_V02.md`
-
-Verdict: **AUDITED_PASS**.
-
-Owner runtime screenshot confirms the intended refreshed tropical background/table composition is active. No owner annotation rejects table geometry. M06-R04 tests support current danger/launch/table baseline.
-
-## M07-R03 — Corrected audit result
-
-Latest audit:
-`coordination/sessions/BCM-M07-R03/CHATGPT_AUDIT_V02.md`
+Audit:
+`coordination/sessions/BCM-M06-R05/CHATGPT_AUDIT_V01.md`
 
 Verdict: **CHANGES_REQUIRED**.
 
-Accepted:
-- refreshed BEST SCORE, SCORE, To-Go, NEXT and 2x6 progression artwork;
-- current tropical/table composition;
-- baked 2x6 progression, top L07-L12 / bottom L01-L06;
-- current M06 danger/launch world geometry.
+Latest owner runtime screenshot shows substantial visible rear-left and rear-right tabletop remains unreachable. The R05 probe proved only tangency to production rails, not that those rails match the visible table edge.
 
-Owner-annotated fixes required:
-- auto-fit BEST SCORE number inside its dark value rectangle;
-- auto-fit SCORE number inside its dark value rectangle;
-- fit To-Go cocktail/name/reward fully inside the baked board without overlap;
-- fit each L01-L12 NEXT cocktail inside the cream safe window with no garnish overflow;
-- align all held cocktail visible body bottoms to one common launch baseline/halo reference using visual-only per-level body-foot anchoring;
-- preserve current progression strip and background/table geometry.
+Active replacement criteria:
+`coordination/sessions/BCM-M06-R06/CHATGPT_AUDIT_CRITERIA_V01.md`
 
-## Active M07-R04
+## M07-R05 — Latest audit
 
-Locked criteria:
-`coordination/sessions/BCM-M07-R04/CHATGPT_AUDIT_CRITERIA_V01.md`
+Audit:
+`coordination/sessions/BCM-M07-R05/CHATGPT_AUDIT_V01.md`
 
-Remediation prompt:
-`coordination/sessions/BCM-M07-R04/CHATGPT_REMEDIATION_PROMPT_V01.md`
+Verdict: **CHANGES_REQUIRED**.
 
-Required log:
-`coordination/sessions/BCM-M07-R04/CODEX_LOG_V01.md`
+Latest owner annotations require:
+- BEST SCORE digits visually centered in the dark value window;
+- SCORE moved to the right beneath/near NEXT and digits centered in its value window;
+- To-Go reward moved inside the cream board to the owner-marked lower-middle area;
+- held cocktail visible glass/container body centered horizontally on the gold launch oval while keeping the accepted body-bottom baseline;
+- all accepted M07-R04 rules preserved.
 
-M08 may not start until M07-R04 is independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
+Active replacement criteria:
+`coordination/sessions/BCM-M07-R06/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+## Active remediation sequence
+
+Master prompt:
+`coordination/sessions/BCM-M06-R06-M07-R06/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Required order:
+1. BCM-M06-R06 — independently remeasure/fix rear/full tabletop boundaries.
+2. BCM-M07-R06 — apply latest owner HUD annotations without shrinking the corrected playfield.
+3. Final M01-M07 regression.
+4. STOP for independent ChatGPT audit.
+
+M08 may not start until M06-R06 and M07-R06 are independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
 
 ## M08-M12 — Planned
 
