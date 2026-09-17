@@ -36,7 +36,12 @@ const SCORE_DISPLAY_MAX_VALUE := 9999999
 const BEST_SCORE_FIXED_FONT_SIZE := 20
 const SCORE_FIXED_FONT_SIZE := 20
 const TABLE_SOLVER_EPSILON := 0.5
-const SCORE_OPTICAL_Y_BIAS_PX := -2.0
+# Native-asset measurements of the actual dark value recess centers. The
+# panels have slightly different artwork heights, so these are panel-local
+# display pixels at the normalized 205 x 115.45 presentation size; they are
+# not digit-count-dependent and do not alter horizontal placement.
+const BEST_VALUE_RECESS_CENTER_Y_PX := 75.5
+const SCORE_VALUE_RECESS_CENTER_Y_PX := 73.0
 
 @export var table_top_y := 0.0
 @export var rear_table_y := 0.0
@@ -81,8 +86,6 @@ var _background_scale := 1.0
 var _background_offset := Vector2.ZERO
 var _launch_zone: Sprite2D
 var _danger_line: Sprite2D
-var _to_go_rope_left: Line2D
-var _to_go_rope_right: Line2D
 
 # Active merge objective shown above the table.
 var _target_level := 6
@@ -506,8 +509,10 @@ func _build_ui() -> void:
 
     var to_go_width := 210.0 * ui_scale
     var to_go_height := to_go_width * 1389.0 / 1132.0
-    var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 18.0 * ui_scale, to_go_width, to_go_height)
-    _build_to_go_rope_continuations(to_go_rect)
+    # The supplied asset already contains its hanging artwork. Its alpha
+    # bounds reach the source-image top, so placing the unchanged panel at y=0
+    # makes that artwork touch the viewport ceiling without runtime additions.
+    var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 0.0, to_go_width, to_go_height)
     _to_go_panel = _make_panel("ToGoOrdersPanel", "res://assets/ui/panel_to_go_orders.png", to_go_rect)
     _hud.add_child(_to_go_panel)
 
@@ -627,15 +632,17 @@ func _center_panel_value(label: Label) -> void:
     var font := label.get_theme_font("font")
     var font_size := label.get_theme_font_size("font_size")
     var measured := font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1.0, font_size)
-    # These are the independently measured dark recessed value windows at the
-    # normalized production panel size (205 x 115.45). The rendered glyph
-    # bounds, including the fixed shadow, are centered in this window every
-    # time the number changes; font size itself never changes.
-    var window := Rect2(panel.size.x * 45.0 / 205.0, panel.size.y * 55.0 / 115.45, panel.size.x * 116.0 / 205.0, panel.size.y * 52.0 / 115.45)
+    # These are the independently measured dark/gold-framed value recesses at
+    # the normalized production panel size (205 x 115.45). The rendered glyph
+    # bounds, including the fixed shadow, are centered in the appropriate
+    # actual recess every time the number changes; font size never changes.
+    var window_size := Vector2(panel.size.x * 116.0 / 205.0, panel.size.y * 52.0 / 115.45)
+    var center_y := SCORE_VALUE_RECESS_CENTER_Y_PX if label == _score_value else BEST_VALUE_RECESS_CENTER_Y_PX
+    var window_center := Vector2(panel.size.x * 103.0 / 205.0, panel.size.y * center_y / 115.45)
+    var window := Rect2(Vector2(panel.size.x * 45.0 / 205.0, window_center.y - window_size.y * 0.5), window_size)
     var shadow := Vector2(float(label.get_theme_constant("shadow_offset_x")), float(label.get_theme_constant("shadow_offset_y")))
     var visible_size := measured + Vector2(maxf(shadow.x, 0.0), maxf(shadow.y, 0.0))
-    var optical_bias := SCORE_OPTICAL_Y_BIAS_PX if label == _score_value else 0.0
-    label.position = window.position + (window.size - visible_size) * 0.5 + Vector2(0.0, optical_bias)
+    label.position = window.position + (window.size - visible_size) * 0.5
     label.size = measured
 
 
@@ -643,28 +650,6 @@ func _score_display_text(value: int) -> String:
     # The score contract is seven digits maximum. Values beyond that contract
     # are visibly clamped; the fixed font is never shrunk per digit count.
     return "%d" % clampi(value, 0, SCORE_DISPLAY_MAX_VALUE)
-
-
-func _build_to_go_rope_continuations(rect: Rect2) -> void:
-    var left_x := rect.position.x + rect.size.x * 0.226
-    var right_x := rect.position.x + rect.size.x * 0.778
-    _to_go_rope_left = _make_rope_continuation("ToGoRopeLeft", left_x, rect.position.y)
-    _to_go_rope_right = _make_rope_continuation("ToGoRopeRight", right_x, rect.position.y)
-
-
-func _make_rope_continuation(rope_name: String, anchor_x: float, anchor_y: float) -> Line2D:
-    var rope := Line2D.new()
-    rope.name = rope_name
-    # Start at the visible viewport ceiling and continue behind the baked
-    # hanging knot into the panel artwork. The overlap removes the apparent
-    # one-pixel break caused by antialiasing at the artwork join.
-    rope.points = PackedVector2Array([Vector2(anchor_x, 0.0), Vector2(anchor_x, anchor_y + 8.0)])
-    rope.width = 12.0
-    rope.default_color = Color(0.76, 0.43, 0.16, 1.0)
-    rope.antialiased = true
-    rope.z_index = -2
-    _hud.add_child(rope)
-    return rope
 
 
 func _make_panel_text(panel: Control, text_value: String, rect: Rect2, font_size: int, color: Color) -> Label:

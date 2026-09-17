@@ -82,8 +82,10 @@ func _check_case(manager: GameManager, label: String) -> void:
 
     var target_text_free := manager.get_node_or_null("UI/HUD/ToGoOrdersPanel/ToGoLevelLabel") == null and manager.get_node_or_null("UI/HUD/ToGoOrdersPanel/Label") == null
     var reward_digits := manager._to_go_reward_label.text == "1000" and not manager._to_go_reward_label.text.begins_with("+")
-    var ropes := manager._to_go_rope_left != null and manager._to_go_rope_right != null and is_equal_approx(manager._to_go_rope_left.points[0].y, 0.0) and is_equal_approx(manager._to_go_rope_right.points[0].y, 0.0)
-    _check("%s preserves target+reward-only To-Go and top ropes" % label, target_text_free and reward_digits and ropes)
+    var to_go_artwork := to_go.get_node_or_null("Artwork") as Sprite2D
+    var to_go_top := _sprite_visible_top(to_go, to_go_artwork)
+    var no_runtime_rope := hud.get_node_or_null("ToGoRopeLeft") == null and hud.get_node_or_null("ToGoRopeRight") == null
+    _check("%s preserves target+reward-only To-Go and unchanged asset at viewport top" % label, target_text_free and reward_digits and to_go_artwork != null and no_runtime_rope and absf(to_go_top) <= 0.5)
 
     manager.set_next_level(12)
     var next_ok := manager._next_sprite.texture == Drink.texture_for_level(12)
@@ -105,6 +107,14 @@ func _save_capture(viewport: Viewport, label: String) -> void:
 
 func _intersects(a: Control, b: Control) -> bool:
     return Rect2(a.position, a.size).intersects(Rect2(b.position, b.size))
+
+
+func _sprite_visible_top(panel: Control, sprite: Sprite2D) -> float:
+    if panel == null or sprite == null or sprite.texture == null:
+        return INF
+    var used := sprite.texture.get_image().get_used_rect()
+    var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
+    return panel.position.y + sprite.position.y + (float(used.position.y) - texture_size.y * 0.5) * sprite.scale.y
 
 
 func _check(label: String, condition: bool) -> void:

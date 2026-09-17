@@ -1,18 +1,19 @@
 extends SceneTree
 
 ## Deterministic focused M07-R04 probe. It verifies fixed score typography,
-## target/reward-only To-Go content, ceiling ropes, NEXT containment and held
-## visible-body foot alignment without changing gameplay state or PNG bytes.
+## target/reward-only To-Go content, unchanged ceiling artwork placement, NEXT
+## containment and held visible-body foot alignment without changing gameplay
+## state or PNG bytes.
 
 const CASES := [
     {"name": "canonical_720x1280", "size": Vector2(720, 1280)},
     {"name": "taller_720x1440", "size": Vector2(720, 1440)},
     {"name": "shorter_wider_800x1280", "size": Vector2(800, 1280)},
 ]
-const CAPTURE_DIR := "res://docs/evidence/m07_r07"
+const CAPTURE_DIR := "res://docs/evidence/m07_r08"
 const LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout_v02.json"
-const BEST_VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
-const SCORE_VALUE_BOX := Rect2(45.0, 53.0, 116.0, 52.0)
+const BEST_VALUE_BOX := Rect2(45.0, 49.5, 116.0, 52.0)
+const SCORE_VALUE_BOX := Rect2(45.0, 47.0, 116.0, 52.0)
 const TO_GO_TARGET_BOX := Rect2(30.0, 78.0, 150.0, 100.0)
 const TO_GO_REWARD_BOX := Rect2(35.0, 185.0, 140.0, 35.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
@@ -55,7 +56,7 @@ func _run() -> void:
         _prepare(manager)
         _check_fixed_scores(manager, case.name)
         _check_to_go(manager, case.name)
-        _check_ropes(manager, case.name)
+        _check_to_go_asset_top(manager, case.name)
         _check_next_all_levels(manager, case.name)
         await _check_held_body_anchor(manager, case.name)
         _check("%s preserves M06 danger/launch coordinates" % case.name, is_equal_approx(manager.death_line_y, GameManager.source_to_viewport(Vector2(0.0, 1080.0), manager.get_board_size()).y) and is_equal_approx(manager.launch_y, GameManager.source_to_viewport(Vector2(0.0, 1136.0), manager.get_board_size()).y))
@@ -111,15 +112,14 @@ func _check_to_go(manager: GameManager, label: String) -> void:
     _check("%s To-Go contains target and digits-only reward for L06-L12" % label, ok and no_level_name_node and panel != null)
 
 
-func _check_ropes(manager: GameManager, label: String) -> void:
-    var left := manager._to_go_rope_left
-    var right := manager._to_go_rope_right
+func _check_to_go_asset_top(manager: GameManager, label: String) -> void:
     var panel := manager._to_go_panel
-    var expected_left := panel.position.x + panel.size.x * 0.226
-    var expected_right := panel.position.x + panel.size.x * 0.778
-    var ok := left != null and right != null and left.points.size() == 2 and right.points.size() == 2 and is_equal_approx(left.points[0].y, 0.0) and is_equal_approx(right.points[0].y, 0.0) and is_equal_approx(left.points[1].y, panel.position.y + 8.0) and is_equal_approx(right.points[1].y, panel.position.y + 8.0) and is_equal_approx(left.points[0].x, expected_left) and is_equal_approx(right.points[0].x, expected_right) and left.width >= 12.0 and right.width >= 12.0 and left.z_index < 0 and right.z_index < 0
-    _check("%s To-Go ropes attach viewport top to baked anchors" % label, ok)
-    print("M07_R07_ROPES label=%s left_x=%.3f right_x=%.3f top_y=%.3f baked_join_y=(%.3f,%.3f) width=%.1f" % [label, left.points[0].x if left != null else -1.0, right.points[0].x if right != null else -1.0, left.points[0].y if left != null else -1.0, left.points[1].y if left != null else -1.0, right.points[1].y if right != null else -1.0, left.width if left != null else -1.0])
+    var artwork := panel.get_node_or_null("Artwork") as Sprite2D if panel != null else null
+    var top_y := _sprite_visible_top(panel, artwork)
+    var no_runtime_rope := manager.get_node_or_null("UI/HUD/ToGoRopeLeft") == null and manager.get_node_or_null("UI/HUD/ToGoRopeRight") == null
+    var ok := panel != null and artwork != null and no_runtime_rope and absf(top_y) <= 0.5
+    _check("%s unchanged To-Go asset topmost visible artwork touches viewport top with no runtime rope" % label, ok)
+    print("M07_R08_TO_GO_TOP label=%s panel_y=%.3f asset_top_y=%.3f no_runtime_rope=%s" % [label, panel.position.y if panel != null else -1.0, top_y, no_runtime_rope])
 
 
 func _check_next_all_levels(manager: GameManager, label: String) -> void:
@@ -161,7 +161,7 @@ func _save_capture(viewport: Viewport, manager: GameManager, label: String) -> v
     overlay.set_script(load("res://tests/m07_hud_visible_bounds.gd"))
     overlay.set("manager", manager)
     overlay.set("layout", layout)
-    overlay.set("title", "M07-R04 visible content and rope evidence — %s" % label)
+    overlay.set("title", "M07-R08 visible content and To-Go top-edge evidence — %s" % label)
     manager.add_child(overlay)
     await process_frame
     await process_frame
@@ -184,6 +184,14 @@ func _sprite_visible_rect(sprite: Sprite2D) -> Rect2:
     var used := image.get_used_rect()
     var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
     return Rect2(sprite.position + (Vector2(used.position) - texture_size * 0.5) * sprite.scale, Vector2(used.size) * sprite.scale)
+
+
+func _sprite_visible_top(panel: Control, sprite: Sprite2D) -> float:
+    if panel == null or sprite == null or sprite.texture == null:
+        return INF
+    var used := sprite.texture.get_image().get_used_rect()
+    var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
+    return panel.position.y + sprite.position.y + (float(used.position.y) - texture_size.y * 0.5) * sprite.scale.y
 
 
 func _inside(actual: Rect2, expected: Rect2, tolerance: float) -> bool:

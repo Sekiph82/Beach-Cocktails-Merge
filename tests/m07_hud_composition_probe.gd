@@ -116,6 +116,9 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     _check("%s score stack stays above the perspective table" % label, score != null and score.position.y + score.size.y < manager.table_top_y - 4.0)
     _check("%s upper-center To-Go panel and upper-right Next panel do not overlap" % label, to_go != null and next != null and to_go.position.x + to_go.size.x <= next.position.x + 2.0)
     _check("%s outer HUD panels remain on-screen" % label, _on_screen(logo, hud.size) and _on_screen(best, hud.size) and _on_screen(score, hud.size) and _on_screen(to_go, hud.size) and _on_screen(next, hud.size) and _on_screen(strip, hud.size))
+    var to_go_artwork := to_go.get_node_or_null("Artwork") as Sprite2D if to_go != null else null
+    var to_go_top := _sprite_visible_top(to_go, to_go_artwork)
+    _check("%s unchanged To-Go artwork touches viewport top without runtime ropes" % label, to_go_artwork != null and hud.get_node_or_null("ToGoRopeLeft") == null and hud.get_node_or_null("ToGoRopeRight") == null and absf(to_go_top) <= 0.5)
 
     _check("%s live score values are dynamic" % label, manager._best_value != null and manager._score_value != null and manager._best_value.text == "24380" and manager._score_value.text == "12650")
     _check("%s exactly one active To-Go panel/target/reward" % label, _count_named(hud, "ToGoOrdersPanel") == 1 and manager._to_go_target_sprite != null and manager._to_go_target_sprite.texture == Drink.texture_for_level(6) and manager._to_go_reward_label.text == "1000")
@@ -318,6 +321,15 @@ func _sprite_visible_rect(sprite: Sprite2D) -> Rect2:
     var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
     var position := sprite.position + (Vector2(used.position) - texture_size * 0.5) * sprite.scale
     return Rect2(position, Vector2(used.size) * sprite.scale)
+
+
+func _sprite_visible_top(panel: Control, sprite: Sprite2D) -> float:
+    if panel == null or sprite == null or sprite.texture == null:
+        return INF
+    var image := sprite.texture.get_image()
+    var used := image.get_used_rect()
+    var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
+    return panel.position.y + sprite.position.y + (float(used.position.y) - texture_size.y * 0.5) * sprite.scale.y
 
 
 func _inside_with_tolerance(actual: Rect2, expected: Rect2, tolerance: float) -> bool:

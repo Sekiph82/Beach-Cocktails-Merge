@@ -8,9 +8,9 @@ const CASES := [
     {"name": "taller_720x1440", "size": Vector2(720, 1440)},
     {"name": "shorter_wider_800x1280", "size": Vector2(800, 1280)},
 ]
-const CAPTURE_DIR := "res://docs/evidence/m07_r06"
-const BEST_VALUE_BOX := Rect2(45.0, 55.0, 116.0, 52.0)
-const SCORE_VALUE_BOX := Rect2(45.0, 53.0, 116.0, 52.0)
+const CAPTURE_DIR := "res://docs/evidence/m07_r08"
+const BEST_VALUE_BOX := Rect2(45.0, 49.5, 116.0, 52.0)
+const SCORE_VALUE_BOX := Rect2(45.0, 47.0, 116.0, 52.0)
 const TO_GO_TARGET_BOX := Rect2(30.0, 78.0, 150.0, 100.0)
 const TO_GO_REWARD_BOX := Rect2(35.0, 185.0, 140.0, 35.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
@@ -108,7 +108,11 @@ func _check_layout(manager: GameManager, label: String) -> void:
         var reward_ok := manager._to_go_reward_label.text == "%d" % Drink.order_reward(level) and not manager._to_go_reward_label.text.begins_with("+") and _inside(target_bounds, TO_GO_TARGET_BOX, 4.0) and _inside(reward_bounds, TO_GO_REWARD_BOX, 4.0) and not target_bounds.intersects(reward_bounds)
         _check("%s To-Go L%d target+reward fit inside cream board" % [label, level], reward_ok)
         print("M07_R06_TO_GO label=%s level=L%d target=%s reward=%s reward_bounds=%s" % [label, level, _rect_string(target_bounds), manager._to_go_reward_label.text, _rect_string(reward_bounds)])
-    _check("%s To-Go ropes remain attached to viewport top" % label, manager._to_go_rope_left != null and manager._to_go_rope_right != null and is_equal_approx(manager._to_go_rope_left.points[0].y, 0.0) and is_equal_approx(manager._to_go_rope_right.points[0].y, 0.0) and manager._to_go_rope_left.z_index < 0 and manager._to_go_rope_right.z_index < 0)
+    var to_go_artwork := to_go.get_node_or_null("Artwork") as Sprite2D
+    var to_go_top := _sprite_visible_top(to_go, to_go_artwork)
+    var no_runtime_rope := hud.get_node_or_null("ToGoRopeLeft") == null and hud.get_node_or_null("ToGoRopeRight") == null
+    _check("%s unchanged To-Go asset touches viewport top without runtime rope" % label, to_go_artwork != null and no_runtime_rope and absf(to_go_top) <= 0.5)
+    print("M07_R08_TO_GO_TOP label=%s panel_y=%.3f asset_top_y=%.3f no_runtime_rope=%s" % [label, to_go.position.y, to_go_top, no_runtime_rope])
 
     var next_ok := true
     for level in range(1, 13):
@@ -166,6 +170,14 @@ func _sprite_visible_rect(sprite: Sprite2D) -> Rect2:
     var used := sprite.texture.get_image().get_used_rect()
     var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
     return Rect2(sprite.position + (Vector2(used.position) - texture_size * 0.5) * sprite.scale, Vector2(used.size) * sprite.scale)
+
+
+func _sprite_visible_top(panel: Control, sprite: Sprite2D) -> float:
+    if panel == null or sprite == null or sprite.texture == null:
+        return INF
+    var used := sprite.texture.get_image().get_used_rect()
+    var texture_size := Vector2(sprite.texture.get_width(), sprite.texture.get_height())
+    return panel.position.y + sprite.position.y + (float(used.position.y) - texture_size.y * 0.5) * sprite.scale.y
 
 
 func _inside(actual: Rect2, expected: Rect2, tolerance: float) -> bool:

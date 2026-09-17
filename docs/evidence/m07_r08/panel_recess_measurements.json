@@ -1,0 +1,20 @@
+{
+  "schema": "BCM-M07-R08-independent-panel-recess-measurements-V01",
+  "method": "Native canonical PNG center-column inspection; dark wood value recess was measured between the gold-frame transitions, excluding heading, frame and transparent margins. Runtime panel presentation is normalized to 205 x 115.45 display pixels.",
+  "panels": {
+    "BestScorePanel": {
+      "asset": "assets/ui/panel_best_score.png",
+      "native_recess_y": [465.0, 766.0],
+      "native_center_y": 615.5,
+      "normalized_center_y": 75.5
+    },
+    "ScorePanel": {
+      "asset": "assets/ui/panel_score.png",
+      "native_recess_y": [445.0, 745.0],
+      "native_center_y": 595.0,
+      "normalized_center_y": 73.0
+    }
+  },
+  "fixed_font_size": 20,
+  "maximum_digits": 7
+}
