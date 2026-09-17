@@ -1,0 +1,43 @@
+{
+  "schema": "BCM-M06-R03 screenshot-space visible wood landmarks V01",
+  "method": "Manual pixel inspection of actual clean runtime captures; values are recorded in viewport pixels and are not produced by GameManager helpers or production constants.",
+  "tolerance_px": 8.0,
+  "viewports": {
+    "canonical_720x1280": {
+      "capture": "canonical_720x1280.png",
+      "rails": {
+        "far": [176.0, 544.0],
+        "middle": [99.0, 621.0],
+        "near": [20.0, 700.0]
+      },
+      "table_top_y": 387.0,
+      "table_bottom_y": 1007.0,
+      "danger_y": 917.0,
+      "launch_y": 953.0
+    },
+    "taller_720x1440": {
+      "capture": "taller_720x1440.png",
+      "rails": {
+        "far": [154.0, 566.0],
+        "middle": [87.0, 633.0],
+        "near": [20.0, 700.0]
+      },
+      "table_top_y": 435.0,
+      "table_bottom_y": 1133.0,
+      "danger_y": 1031.0,
+      "launch_y": 1073.0
+    },
+    "shorter_wider_800x1280": {
+      "capture": "shorter_wider_800x1280.png",
+      "rails": {
+        "far": [217.0, 583.0],
+        "middle": [138.0, 662.0],
+        "near": [60.0, 740.0]
+      },
+      "table_top_y": 387.0,
+      "table_bottom_y": 1007.0,
+      "danger_y": 917.0,
+      "launch_y": 953.0
+    }
+  }
+}

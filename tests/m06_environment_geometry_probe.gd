@@ -6,6 +6,7 @@ extends SceneTree
 const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const CAPTURE_DIR := "res://docs/evidence/m06"
 const EXPECTED_LANDMARKS_PATH := "res://docs/evidence/m06/expected_landmarks.json"
+const RENDER_LANDMARKS_PATH := "res://docs/evidence/m06/render_space_landmarks.json"
 const OVERLAY_SCRIPT := "res://tests/m06_geometry_overlay.gd"
 const VIEWPORT_CASES := [
     {"name": "canonical_720x1280", "size": Vector2(720, 1280)},
@@ -15,6 +16,7 @@ const VIEWPORT_CASES := [
 
 var failures: Array[String] = []
 var expected_landmarks: Dictionary = {}
+var render_landmarks: Dictionary = {}
 
 
 func _init() -> void:
@@ -26,6 +28,10 @@ func _run() -> void:
     _check("independent expected landmark dataset loads", expected_variant is Dictionary)
     if expected_variant is Dictionary:
         expected_landmarks = expected_variant
+    var render_variant: Variant = JSON.parse_string(FileAccess.get_file_as_string(RENDER_LANDMARKS_PATH))
+    _check("independent screenshot-space landmark dataset loads", render_variant is Dictionary)
+    if render_variant is Dictionary:
+        render_landmarks = render_variant
     var packed := load("res://scenes/main.tscn") as PackedScene
     _check("main scene loads as PackedScene", packed != null)
     if packed == null:
@@ -96,6 +102,7 @@ func _run() -> void:
     _check("canonical source-to-viewport mapping preserves aspect without distortion", GameManager.background_scale_for_viewport(viewport_size) >= viewport_size.x / 1024.0 and GameManager.background_scale_for_viewport(viewport_size) >= viewport_size.y / 1536.0)
 
     await _save_capture_pair(root, manager, "canonical_720x1280")
+    _check_render_space_geometry(manager, "canonical_720x1280")
     manager.queue_free()
     await process_frame
 
@@ -108,6 +115,7 @@ func _run() -> void:
         print("M06_RESPONSIVE name=%s viewport=%s scale=%.6f offset=%s no_distortion=true" % [case.name, case_size, scale, offset])
         var responsive_viewport := responsive_manager.get_viewport()
         await _save_capture_pair(responsive_viewport, responsive_manager, case.name)
+        _check_render_space_geometry(responsive_manager, case.name)
         responsive_manager.queue_free()
         responsive_viewport.queue_free()
         await process_frame
@@ -197,6 +205,23 @@ func _check_reference_geometry(manager: GameManager, label: String) -> void:
         print("M06_REFERENCE_RAILS label=%s t=%.2f actual=(%.3f,%.3f) expected=(%.3f,%.3f)" % [label, t, actual.x, actual.y, expected_bounds.x, expected_bounds.y])
     _check("%s rails match independent far/mid/near reference" % label, rails_ok)
     _check("%s launch/danger occupy lower visible wood" % label, manager.death_line_y > manager.table_top_y + 450.0 and manager.launch_y > manager.death_line_y and manager.launch_y < manager.table_bottom_y)
+
+
+func _check_render_space_geometry(manager: GameManager, label: String) -> void:
+    var case_data: Dictionary = render_landmarks.get("viewports", {}).get(label, {})
+    var tolerance := float(render_landmarks.get("tolerance_px", 8.0))
+    var actual_depths := [0.0, 0.5, 1.0]
+    var names := ["far", "middle", "near"]
+    var rails_ok := case_data.size() > 0
+    for index in range(actual_depths.size()):
+        var measured: Array = case_data.get("rails", {}).get(names[index], [])
+        var measured_bounds := Vector2(measured[0], measured[1]) if measured.size() == 2 else Vector2.INF
+        var y_pos := lerpf(manager.table_top_y, manager.table_bottom_y, actual_depths[index])
+        var production_bounds := manager.get_table_rail_bounds_at_y(y_pos)
+        var error := production_bounds.distance_to(measured_bounds)
+        rails_ok = rails_ok and measured.size() == 2 and error <= tolerance and production_bounds.x >= 0.0 and production_bounds.y <= manager.get_board_size().x
+        print("M06_RENDER_RAILS label=%s depth=%s measured=(%.2f,%.2f) production=(%.2f,%.2f) error=%.2f tolerance=%.2f" % [label, names[index], measured_bounds.x, measured_bounds.y, production_bounds.x, production_bounds.y, error, tolerance])
+    _check("%s production rails match screenshot-space visible-wood landmarks" % label, rails_ok)
 
 
 func _check(label: String, condition: bool) -> void:
