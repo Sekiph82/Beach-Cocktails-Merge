@@ -34,6 +34,7 @@ var _last_meaningful_velocity := Vector2.ZERO
 var _visual_root: Node2D
 var _shadow: Polygon2D
 var _cocktail_sprite: Sprite2D
+var _held_body_anchor_active := false
 
 static var drinks_data: Array = []
 static var _texture_cache: Dictionary = {}
@@ -71,6 +72,11 @@ const VISIBLE_BODY_CENTER_OFFSET_PX := [
     Vector2(8.0, 138.0),
     Vector2(-2.0, 143.0),
 ]
+
+# M07-R04 visual-only body-foot measurements, in source-texture pixels from
+# each texture center. Garnish extremes are excluded.
+const HELD_BODY_FOOT_SOURCE_PX := [476.0, 495.5, 431.5, 477.5, 428.0, 478.0, 410.5, 443.0, 470.5, 453.0, 443.0, 498.0]
+const HELD_BODY_BASELINE_OFFSET_PX := 42.0
 
 # Runtime body diameters are deliberately bounded and monotonic. The sprite
 # scale is derived from the measured body width, not from the full garnish
@@ -259,6 +265,8 @@ func _process(_delta: float) -> void:
         # an ugly apparent gap between pieces that were actually touching.
         var scale_xy := lerpf(0.96, 1.0, depth)
         _visual_root.scale = Vector2(scale_xy, scale_xy)
+        if _held_body_anchor_active:
+            _apply_held_body_anchor()
     if _shadow != null:
         var shadow_depth := clampf(position.y / 1280.0, 0.0, 1.0)
         _shadow.modulate.a = lerpf(0.60, 1.0, shadow_depth)
@@ -276,6 +284,16 @@ func set_held() -> void:
     freeze = true
     collision_layer = 0
     collision_mask = 0
+    _held_body_anchor_active = true
+    _apply_held_body_anchor()
+
+
+func _apply_held_body_anchor() -> void:
+    if _cocktail_sprite == null or level < 1 or level > HELD_BODY_FOOT_SOURCE_PX.size():
+        return
+    var root_scale: float = _visual_root.scale.y if _visual_root != null else 1.0
+    var body_foot_source: float = float(HELD_BODY_FOOT_SOURCE_PX[level - 1])
+    _cocktail_sprite.position.y = HELD_BODY_BASELINE_OFFSET_PX / root_scale - body_foot_source * visual_scale_for_level(level)
 
 
 func launch_up(speed: float) -> void:
@@ -283,6 +301,9 @@ func launch_up(speed: float) -> void:
 
 
 func start_sliding(velocity: Vector2) -> void:
+    _held_body_anchor_active = false
+    if _cocktail_sprite != null:
+        _cocktail_sprite.position = visual_offset_for_level(level)
     velocity = _forward_only(velocity)
     if velocity.length() <= settle_speed:
         set_settled()
@@ -303,6 +324,9 @@ func start_sliding(velocity: Vector2) -> void:
 
 
 func set_settled() -> void:
+    _held_body_anchor_active = false
+    if _cocktail_sprite != null:
+        _cocktail_sprite.position = visual_offset_for_level(level)
     var was_sliding := motion_state == MotionState.SLIDING
     motion_state = MotionState.SETTLED
     already_merged = false

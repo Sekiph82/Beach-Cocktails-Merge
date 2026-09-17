@@ -19,6 +19,10 @@ const TABLE_NEAR_LEFT_SOURCE := Vector2(16.0, 1186.0)
 const TABLE_NEAR_RIGHT_SOURCE := Vector2(1008.0, 1186.0)
 const DANGER_SOURCE_Y := 1080.0
 const LAUNCH_SOURCE_Y := 1136.0
+const SCORE_DISPLAY_MAX_DIGITS := 7
+const SCORE_DISPLAY_MAX_VALUE := 9999999
+const BEST_SCORE_FIXED_FONT_SIZE := 20
+const SCORE_FIXED_FONT_SIZE := 20
 
 @export var table_top_y := 0.0
 @export var table_bottom_y := 0.0
@@ -51,7 +55,6 @@ var _progression_strip: Control
 var _best_value: Label
 var _score_value: Label
 var _to_go_target_sprite: Sprite2D
-var _to_go_level_label: Label
 var _to_go_reward_label: Label
 var _next_sprite: Sprite2D
 var _progression_icons: Array[Sprite2D] = []
@@ -63,6 +66,8 @@ var _background_scale := 1.0
 var _background_offset := Vector2.ZERO
 var _launch_zone: Sprite2D
 var _danger_line: Sprite2D
+var _to_go_rope_left: Line2D
+var _to_go_rope_right: Line2D
 
 # Active merge objective shown above the table.
 var _target_level := 6
@@ -192,7 +197,11 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
     if drink == null:
         return null
 
-    pos = clamp_position_to_board(pos, drink.radius)
+    # A held preview is collision-free and must stay on the accepted launch
+    # coordinate even when a high-level visual/collider footprint would extend
+    # beyond the near-rail clearance. Settled/physics drinks retain the normal
+    # board clamp and collider behavior.
+    pos = get_launch_position(pos.x, drink.radius) if held else clamp_position_to_board(pos, drink.radius)
     drink.position = pos
     drink.merged.connect(merge_queue.request_merge)
     world.add_child(drink)
@@ -354,9 +363,9 @@ func _save_best_score() -> void:
 
 func _refresh_hud() -> void:
     if _score_value != null:
-        _score_value.text = "%s" % score
+        _score_value.text = _score_display_text(score)
     if _best_value != null:
-        _best_value.text = "%s" % best_score
+        _best_value.text = _score_display_text(best_score)
     if _chain_label != null:
         _chain_label.visible = chain > 1
         _chain_label.text = "COMBO x%d" % chain
@@ -420,11 +429,11 @@ func _build_ui() -> void:
     var best_height := best_width * 941.0 / 1671.0
     _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", Rect2(16.0 * ui_scale, 145.0 * ui_scale, best_width, best_height))
     _hud.add_child(_best_panel)
-    _best_value = _make_panel_value(_best_panel, "%s" % best_score, 28, 0.68)
+    _best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
 
     _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", Rect2(16.0 * ui_scale, 265.0 * ui_scale, best_width, best_height))
     _hud.add_child(_score_panel)
-    _score_value = _make_panel_value(_score_panel, "%s" % score, 30, 0.68)
+    _score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
 
     var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", Rect2(12.0 * ui_scale, 6.0 * ui_scale, 220.0 * ui_scale, 148.0 * ui_scale))
     _hud.add_child(logo)
@@ -432,21 +441,21 @@ func _build_ui() -> void:
     var to_go_width := 210.0 * ui_scale
     var to_go_height := to_go_width * 1389.0 / 1132.0
     var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 18.0 * ui_scale, to_go_width, to_go_height)
+    _build_to_go_rope_continuations(to_go_rect)
     _to_go_panel = _make_panel("ToGoOrdersPanel", "res://assets/ui/panel_to_go_orders.png", to_go_rect)
     _hud.add_child(_to_go_panel)
 
     _to_go_target_sprite = Sprite2D.new()
     _to_go_target_sprite.name = "TargetCocktail"
-    # Keep the cocktail's full alpha silhouette clear of the live level label
-    # while preserving the centered, downward To-Go composition.
-    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.48)
+    # Keep the full alpha silhouette inside the measured baked cream target
+    # window; To-Go carries only target art and reward digits at runtime.
+    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.497)
     _to_go_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     _to_go_target_sprite.z_index = 2
     _to_go_panel.add_child(_to_go_target_sprite)
 
     # These inner content boxes are intentionally below the panel's baked
     # title/artwork. Dynamic values never get baked into canonical PNGs.
-    _to_go_level_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.14, to_go_rect.size.y * 0.70, to_go_rect.size.x * 0.72, 24.0 * ui_scale), 15, Color(0.34, 0.13, 0.05, 1.0))
     _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.19, to_go_rect.size.y * 0.84, to_go_rect.size.x * 0.62, 30.0 * ui_scale), 21, Color(0.30, 0.10, 0.03, 1.0))
 
     var next_width := 145.0 * ui_scale
@@ -541,6 +550,31 @@ func _make_panel_value(panel: Control, value: String, font_size: int, y_ratio: f
     label.add_theme_constant_override("shadow_offset_x", 2)
     label.add_theme_constant_override("shadow_offset_y", 2)
     return label
+
+
+func _score_display_text(value: int) -> String:
+    # The score contract is seven digits maximum. Values beyond that contract
+    # are visibly clamped; the fixed font is never shrunk per digit count.
+    return "%d" % clampi(value, 0, SCORE_DISPLAY_MAX_VALUE)
+
+
+func _build_to_go_rope_continuations(rect: Rect2) -> void:
+    var left_x := rect.position.x + rect.size.x * 0.226
+    var right_x := rect.position.x + rect.size.x * 0.778
+    _to_go_rope_left = _make_rope_continuation("ToGoRopeLeft", left_x, rect.position.y)
+    _to_go_rope_right = _make_rope_continuation("ToGoRopeRight", right_x, rect.position.y)
+
+
+func _make_rope_continuation(rope_name: String, anchor_x: float, anchor_y: float) -> Line2D:
+    var rope := Line2D.new()
+    rope.name = rope_name
+    rope.points = PackedVector2Array([Vector2(anchor_x, 0.0), Vector2(anchor_x, anchor_y + 1.0)])
+    rope.width = 9.0
+    rope.default_color = Color(0.76, 0.43, 0.16, 1.0)
+    rope.antialiased = true
+    rope.z_index = -2
+    _hud.add_child(rope)
+    return rope
 
 
 func _make_panel_text(panel: Control, text_value: String, rect: Rect2, font_size: int, color: Color) -> Label:
@@ -687,8 +721,7 @@ func _refresh_merge_target_visual() -> void:
     _to_go_target_sprite.modulate = Color.WHITE
     _to_go_target_sprite.texture = Drink.texture_for_level(_target_level)
     _to_go_target_sprite.scale = Vector2.ONE * _hud_icon_scale(_target_level, 104.0)
-    _to_go_level_label.text = "L%d  %s" % [_target_level, Drink.level_name(_target_level)]
-    _to_go_reward_label.text = "+%d" % Drink.order_reward(_target_level)
+    _to_go_reward_label.text = "%d" % Drink.order_reward(_target_level)
     if _target_root != null:
         _target_root.position = _to_go_target_sprite.global_position
 

@@ -27,7 +27,6 @@ func _draw() -> void:
     _draw_label_bounds(best, manager._best_value, visible_color)
     _draw_label_bounds(score, manager._score_value, visible_color)
     _draw_sprite_bounds(to_go, manager._to_go_target_sprite, visible_color)
-    _draw_label_bounds(to_go, manager._to_go_level_label, visible_color)
     _draw_label_bounds(to_go, manager._to_go_reward_label, visible_color)
     _draw_sprite_bounds(next, manager._next_sprite, visible_color)
     if strip != null:
@@ -40,7 +39,6 @@ func _draw_dataset_boxes(hud: Control, best: Control, score: Control, to_go: Con
     _draw_panel_box(best, "BestScorePanel", "value", hud, color)
     _draw_panel_box(score, "ScorePanel", "value", hud, color)
     _draw_panel_box(to_go, "ToGoOrdersPanel", "target", hud, color)
-    _draw_panel_box(to_go, "ToGoOrdersPanel", "level", hud, color)
     _draw_panel_box(to_go, "ToGoOrdersPanel", "reward", hud, color)
     _draw_panel_box(next, "NextPanel", "inset", hud, color)
     if strip == null:

@@ -118,11 +118,11 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     _check("%s outer HUD panels remain on-screen" % label, _on_screen(logo, hud.size) and _on_screen(best, hud.size) and _on_screen(score, hud.size) and _on_screen(to_go, hud.size) and _on_screen(next, hud.size) and _on_screen(strip, hud.size))
 
     _check("%s live score values are dynamic" % label, manager._best_value != null and manager._score_value != null and manager._best_value.text == "24380" and manager._score_value.text == "12650")
-    _check("%s exactly one active To-Go panel/target/reward" % label, _count_named(hud, "ToGoOrdersPanel") == 1 and manager._to_go_target_sprite != null and manager._to_go_target_sprite.texture == Drink.texture_for_level(6) and manager._to_go_level_label.text.begins_with("L6") and manager._to_go_reward_label.text == "+1000")
+    _check("%s exactly one active To-Go panel/target/reward" % label, _count_named(hud, "ToGoOrdersPanel") == 1 and manager._to_go_target_sprite != null and manager._to_go_target_sprite.texture == Drink.texture_for_level(6) and manager._to_go_reward_label.text == "1000")
     _check("%s exactly one Next panel shows true next texture" % label, _count_named(hud, "NextPanel") == 1 and manager._next_sprite != null and manager._next_sprite.texture == Drink.texture_for_level(2))
 
-    var to_go_inner_ok := to_go != null and manager._to_go_target_sprite.position.y > to_go.size.y * 0.30 and manager._to_go_level_label.position.y > to_go.size.y * 0.55 and manager._to_go_reward_label.position.y > manager._to_go_level_label.position.y + manager._to_go_level_label.size.y * 0.5 and manager._to_go_reward_label.position.y + manager._to_go_reward_label.size.y <= to_go.size.y
-    _check("%s To-Go target, level and reward fit independent downward inner boxes" % label, to_go_inner_ok)
+    var to_go_inner_ok := to_go != null and manager._to_go_target_sprite.position.y > to_go.size.y * 0.30 and manager._to_go_reward_label.position.y > manager._to_go_target_sprite.position.y and manager._to_go_reward_label.position.y + manager._to_go_reward_label.size.y <= to_go.size.y
+    _check("%s To-Go target and reward fit independent downward inner boxes" % label, to_go_inner_ok)
     var next_inner_ok := next != null and manager._next_sprite.position.x > next.size.x * 0.30 and manager._next_sprite.position.x < next.size.x * 0.70 and manager._next_sprite.position.y > next.size.y * 0.30 and manager._next_sprite.position.y < next.size.y * 0.78
     _check("%s Next cocktail fits the dedicated inner content box" % label, next_inner_ok)
 
@@ -159,7 +159,7 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     manager.set_next_level(3)
     manager._target_level = 7
     manager._refresh_merge_target_visual()
-    var dynamic_ok := manager._score_value.text == "777" and manager._best_value.text == "888" and manager._next_sprite.texture == Drink.texture_for_level(3) and manager._to_go_target_sprite.texture == Drink.texture_for_level(7) and manager._to_go_reward_label.text == "+1800"
+    var dynamic_ok := manager._score_value.text == "777" and manager._best_value.text == "888" and manager._next_sprite.texture == Drink.texture_for_level(3) and manager._to_go_target_sprite.texture == Drink.texture_for_level(7) and manager._to_go_reward_label.text == "1800"
     _check("%s live score/To-Go/Next state updates without duplicate mapping" % label, dynamic_ok)
     manager.score = 12650
     manager.best_score = 24380
@@ -249,19 +249,14 @@ func _check_visible_bounds(manager: GameManager, label: String) -> void:
     _check("%s score/best visible text stays separated across panels" % label, not _rects_overlap(_translated_rect(best_bounds, best), _translated_rect(score_bounds, score), overlap_tolerance))
 
     var target_bounds := _sprite_visible_rect(manager._to_go_target_sprite)
-    var level_bounds := _label_visible_rect(manager._to_go_level_label)
     var reward_bounds := _label_visible_rect(manager._to_go_reward_label)
     var target_box := _dataset_rect("ToGoOrdersPanel", "target")
-    var level_box := _dataset_rect("ToGoOrdersPanel", "level")
     var reward_box := _dataset_rect("ToGoOrdersPanel", "reward")
     _print_bounds("%s To-Go target alpha" % label, target_bounds, target_box)
-    _print_bounds("%s To-Go level text" % label, level_bounds, level_box)
     _print_bounds("%s To-Go reward text" % label, reward_bounds, reward_box)
     _check("%s To-Go target alpha stays in independent target box" % label, _inside_with_tolerance(target_bounds, target_box, tolerance))
-    _check("%s To-Go level/name rendered text stays in independent level box" % label, _inside_with_tolerance(level_bounds, level_box, tolerance))
     _check("%s To-Go reward rendered text stays in independent reward box" % label, _inside_with_tolerance(reward_bounds, reward_box, tolerance))
-    _check("%s To-Go target does not overlap level/name or reward" % label, not _rects_overlap(target_bounds, level_bounds, overlap_tolerance) and not _rects_overlap(target_bounds, reward_bounds, overlap_tolerance))
-    _check("%s To-Go level/name and reward do not materially overlap" % label, not _rects_overlap(level_bounds, reward_bounds, overlap_tolerance))
+    _check("%s To-Go target does not overlap reward" % label, not _rects_overlap(target_bounds, reward_bounds, overlap_tolerance))
 
     var next_bounds := _sprite_visible_rect(manager._next_sprite)
     var next_box := _dataset_rect("NextPanel", "inset")
@@ -282,7 +277,7 @@ func _check_visible_bounds(manager: GameManager, label: String) -> void:
             var previous_bounds := _sprite_visible_rect(manager._progression_icons[i - 1])
             progression_ok = progression_ok and not _rects_overlap(previous_bounds, icon_bounds, overlap_tolerance)
     _check("%s all 12 progression alpha bounds stay inside independent cells without neighbor overlap" % label, progression_ok and progression_records.size() == 12)
-    print("M07_VISIBLE_BOUNDS label=%s best=%s score=%s target=%s level=%s reward=%s next=%s" % [label, _rect_string(best_bounds), _rect_string(score_bounds), _rect_string(target_bounds), _rect_string(level_bounds), _rect_string(reward_bounds), _rect_string(next_bounds)])
+    print("M07_VISIBLE_BOUNDS label=%s best=%s score=%s target=%s reward=%s next=%s" % [label, _rect_string(best_bounds), _rect_string(score_bounds), _rect_string(target_bounds), _rect_string(reward_bounds), _rect_string(next_bounds)])
 
 
 func _dataset_rect(panel_name: String, key: String) -> Rect2:
