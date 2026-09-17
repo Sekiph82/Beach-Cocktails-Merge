@@ -6,6 +6,9 @@ extends SceneTree
 var failures: Array[String] = []
 const EVIDENCE_DIR := "res://docs/evidence/m05"
 const EVIDENCE_CANVAS_SCRIPT := "res://tests/m05_evidence_canvas.gd"
+const INDEPENDENT_DATASET := "res://docs/evidence/m05/independent_body_measurements.json"
+
+var independent_levels: Dictionary = {}
 
 
 func _init() -> void:
@@ -71,6 +74,13 @@ func _run() -> void:
     await _physics_steps(2)
     _check("runtime world and shot controller are ready", manager.world != null and manager.shot_controller != null)
 
+    var dataset_variant: Variant = JSON.parse_string(FileAccess.get_file_as_string(INDEPENDENT_DATASET))
+    _check("independent body/collider dataset loads outside production scripts", dataset_variant is Dictionary and (dataset_variant as Dictionary).get("levels", []).size() == 12)
+    if dataset_variant is Dictionary:
+        var dataset: Dictionary = dataset_variant
+        for item in dataset.get("levels", []):
+            independent_levels[int(item.get("level", 0))] = item
+
     var map_ok := Drink.texture_path_for_level(0).is_empty() and Drink.texture_path_for_level(13).is_empty() and Drink.texture_for_level(0) == null and Drink.texture_for_level(13) == null
     print("M05_TEXTURE_MAP L01=%s L12=%s invalid13=%s" % [Drink.texture_path_for_level(1), Drink.texture_path_for_level(12), Drink.texture_path_for_level(13)])
     _check("invalid levels fail safely without an L13 texture", map_ok)
@@ -78,6 +88,7 @@ func _run() -> void:
     var table_rows: Array[String] = []
     var table_ok := true
     var radii_ok := true
+    var independent_ok := true
     var previous_radius := 0.0
     for level in range(1, 13):
         var drink := manager.spawn_drink(level, Vector2(60.0 + float(level) * 50.0, 520.0), false)
@@ -85,15 +96,28 @@ func _run() -> void:
         var texture_ok := sprite != null and sprite.texture == Drink.texture_for_level(level) and sprite.texture.resource_path == Drink.texture_path_for_level(level)
         var presentation_ok := texture_ok and is_equal_approx(sprite.scale.x, Drink.visual_scale_for_level(level)) and is_equal_approx(sprite.position.x, Drink.visual_offset_for_level(level).x) and is_equal_approx(sprite.position.y, Drink.visual_offset_for_level(level).y)
         var radius := _body_radius_for(drink)
-        var collider_ok := is_equal_approx(radius, Drink.collider_radius_for_level(level)) and radius > 0.0
+        var independent: Dictionary = independent_levels.get(level, {})
+        var body_width := float(independent.get("independent_visible_body_width_px", 0.0))
+        var body_center_values: Array = independent.get("independent_visible_body_center_offset_px", [0.0, 0.0])
+        var target_radius := float(independent.get("independent_target_collider_radius", 0.0))
+        var radius_tolerance := float(independent.get("radius_tolerance_px", 0.0))
+        var diameter_tolerance := float(independent.get("body_diameter_tolerance_px", 0.0))
+        var center_tolerance := float(independent.get("body_center_tolerance_px", 0.0))
+        var measured_body_diameter := body_width * sprite.scale.x
+        var measured_body_center := sprite.position + Vector2(body_center_values[0], body_center_values[1]) * sprite.scale.x
+        var collider_ok := radius > 0.0 and absf(radius - target_radius) <= radius_tolerance
+        var independent_body_ok := body_width > 0.0 and absf(measured_body_diameter - target_radius * 2.0) <= diameter_tolerance and measured_body_center.length() <= center_tolerance
+        independent_ok = independent_ok and collider_ok and independent_body_ok
         radii_ok = radii_ok and radius > previous_radius
         previous_radius = radius
-        table_ok = table_ok and presentation_ok and collider_ok and drink.get_node_or_null("Visual") != null
-        table_rows.append("L%d texture=%s scale=%.6f offset=%s collider_radius=%.1f" % [level, sprite.texture.resource_path if sprite != null and sprite.texture != null else "INVALID", Drink.visual_scale_for_level(level), Drink.visual_offset_for_level(level), radius])
+        table_ok = table_ok and presentation_ok and drink.get_node_or_null("Visual") != null
+        table_rows.append("L%d texture=%s scale=%.6f observed_body_diameter=%.2f target_diameter=%.2f center_error=%.2f observed_radius=%.1f target_radius=%.1f" % [level, sprite.texture.resource_path if sprite != null and sprite.texture != null else "INVALID", sprite.scale.x if sprite != null else 0.0, measured_body_diameter, target_radius * 2.0, measured_body_center.length(), radius, target_radius])
     print("M05_PRESENTATION_TABLE %s" % "; ".join(table_rows))
     _check("all L01-L12 table drinks use the canonical Sprite2D mapping", table_ok and radii_ok)
+    _check("independent body diameter/center/radius envelopes match runtime observations", independent_ok)
     _check("all L01-L12 visual/body scales stay bounded for the portrait playfield", table_ok and _max_visual_extent(manager) <= 360.0)
     await _save_presentation_evidence()
+    _check_independent_contact_pairs(manager)
 
     var held := manager.shot_controller._current_drink
     var held_sprite := _sprite_for(held)
@@ -188,6 +212,31 @@ func _max_visual_extent(manager: GameManager) -> float:
             if sprite != null and sprite.texture != null:
                 maximum = maxf(maximum, float(maxi(sprite.texture.get_width(), sprite.texture.get_height())) * sprite.scale.x)
     return maximum
+
+
+func _check_independent_contact_pairs(manager: GameManager) -> void:
+    var pairs := [["low", 1, 2], ["mid", 6, 7], ["high", 11, 12]]
+    var all_ok := true
+    for pair in pairs:
+        var label: String = pair[0]
+        var level_a: int = pair[1]
+        var level_b: int = pair[2]
+        var data_a: Dictionary = independent_levels.get(level_a, {})
+        var data_b: Dictionary = independent_levels.get(level_b, {})
+        var a := manager.spawn_drink(level_a, Vector2(260.0, 520.0), false)
+        var target_distance := float(data_a.get("independent_target_collider_radius", 0.0)) + float(data_b.get("independent_target_collider_radius", 0.0))
+        var b := manager.spawn_drink(level_b, Vector2(260.0 + target_distance, 520.0), false)
+        var sprite_a := _sprite_for(a)
+        var sprite_b := _sprite_for(b)
+        var body_radius_a := float(data_a.get("independent_visible_body_width_px", 0.0)) * sprite_a.scale.x * 0.5
+        var body_radius_b := float(data_b.get("independent_visible_body_width_px", 0.0)) * sprite_b.scale.x * 0.5
+        var observed_distance := a.position.distance_to(b.position)
+        var visible_gap := observed_distance - body_radius_a - body_radius_b
+        var tolerance := maxf(float(data_a.get("manual_contact_tolerance_px", 5.0)), float(data_b.get("manual_contact_tolerance_px", 5.0)))
+        var pair_ok := absf(visible_gap) <= tolerance
+        all_ok = all_ok and pair_ok
+        print("M05_INDEPENDENT_CONTACT_PAIR label=%s levels=L%02d/L%02d center_distance=%.3f visible_gap=%.3f visible_overlap=%.3f tolerance=%.3f" % [label, level_a, level_b, observed_distance, visible_gap, maxf(-visible_gap, 0.0), tolerance])
+    _check("independent visible-body contact gap/overlap is bounded for low/mid/high pairs", all_ok)
 
 
 func _save_presentation_evidence() -> void:
