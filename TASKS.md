@@ -6,9 +6,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
-- Current Task: Close only the remaining rear tabletop contact defect. Auto-fire, BEST/SCORE centering, To-Go top placement and held-drink alignment are owner-approved and frozen.
+- Current Task: Close the remaining rear tabletop contact defect and apply four owner-requested HUD alignment refinements while preserving all already-fixed runtime behavior.
 - Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V03.md`, writes the R10 V02 log, runs full active regression, then STOPS for independent ChatGPT audit.
+- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V04.md`, writes the R10 V02 log, runs full active regression, then STOPS for independent ChatGPT audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -23,7 +23,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
 - [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
 - [~] BCM-M06-001 — Active: rear contact only. Mandatory owner formula is `rear_target_y = rear_table_y`; moving cocktails must physically reach the real rear table line with no stale hidden wall/dead strip.
-- [~] BCM-M07-001 — Owner-approved/frozen: auto-fire fixed, BEST/SCORE centered, To-Go top placement correct, held-drink/gold-oval alignment correct; preserve only.
+- [~] BCM-M07-001 — Active visual refinement: preserve accepted number centering/To-Go/held behavior while aligning HUD columns/baseline and modestly enlarging the logo.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
@@ -59,25 +59,27 @@ Verdict: **CHANGES_REQUIRED**.
 
 Open concerns remain around independently evidenced body/collider measurements, shape classification, and contact-fit proof.
 
-## Latest owner runtime state — accepted/frozen
+## Owner-approved behavior to preserve
 
-Latest owner runtime screenshot and written confirmation establish:
+Latest owner runtime evidence establishes:
 - auto-fire / uncommanded drink creation is resolved;
-- BEST SCORE digits are correctly centered;
-- SCORE digits are correctly centered;
+- BEST SCORE digits are correctly centered inside their value recess;
+- SCORE digits are correctly centered inside their value recess;
 - To-Go Orders top placement / rope-to-ceiling result is correct;
 - held drink is correctly positioned on the gold launch oval;
-- NEXT and baked 2x6 progression show no visible regression.
+- NEXT content behavior and baked 2x6 progression are functionally accepted.
 
-These areas are preservation targets only and must not be redesigned during the current closure.
+R10 V04 may reposition BEST SCORE, NEXT and the logo only as required by the new alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V03 — rear-contact-only closure
+## Active R10 V04 — rear contact + HUD alignment closure
 
 Locked criteria:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V03.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V04.md`
 
 Execution prompt:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V03.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V04.md`
+
+### Rear-contact rule
 
 Mandatory owner rule for all L01-L12:
 
@@ -85,15 +87,30 @@ Mandatory owner rule for all L01-L12:
 
 Forbidden rear-target adjustments include collider radius, body half extent, sprite/drink height, width, per-level Y offsets or per-level rear-target tables.
 
-Required closure:
+Required rear closure:
 1. Moving RigidBody2D cocktails physically reach the owner-defined `rear_table_y` contact line.
 2. No stale hidden TopRail or other rear wall stops them earlier.
 3. Physical rear collision, clamp/target and `rear_table_y` are coherent.
 4. Current visible unused rear-table strip is removed.
 5. Validate actual moving L01/L06/L12 rear contacts, not direct-spawn coordinate agreement only.
-6. Re-run desktop idle smoke only to confirm the already-fixed auto-fire behavior does not regress.
-7. Preserve all owner-approved HUD/held/input behavior and full gameplay contracts.
-8. Full active regression then STOP for independent audit.
+
+### HUD alignment rules
+
+Alignment definitions:
+- vertical alignment = equal visual center X;
+- horizontal alignment = equal visual bottom Y.
+
+Required layout:
+1. SCORE stays at its current accepted position.
+2. BEST SCORE moves so its visible bottom Y equals SCORE visible bottom Y.
+3. NEXT moves so its visual center X equals SCORE visual center X.
+4. Beach Cocktails Merge logo becomes modestly larger with preserved aspect ratio.
+5. Logo moves as needed so its visual center X equals BEST SCORE visual center X.
+6. BEST/SCORE number centering remains correct after panel movement.
+7. To-Go top placement and held-drink/gold-oval alignment remain unchanged.
+8. HUD layout never affects gameplay/table bounds.
+
+Run full active M01-M07 regression, current R09/R10 focused tests, desktop idle smoke, Godot import/startup, parse/check-only and `git diff --check`, then STOP for independent audit.
 
 M08 may not start until M06/M07 are independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
 
