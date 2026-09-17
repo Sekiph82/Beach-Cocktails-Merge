@@ -149,16 +149,16 @@ Final publication equality after the log/evidence commit:
 
 ```text
 git rev-parse HEAD
-5f80760627b1e19a9aa6f1ebb318b8d10c266e4d
+17f129cc42ed2c8379652ed29b3e217f7df19f15
 git rev-parse origin/main
-5f80760627b1e19a9aa6f1ebb318b8d10c266e4d
+17f129cc42ed2c8379652ed29b3e217f7df19f15
 git ls-remote origin refs/heads/main
-5f80760627b1e19a9aa6f1ebb318b8d10c266e4d	refs/heads/main
+17f129cc42ed2c8379652ed29b3e217f7df19f15	refs/heads/main
 git status --short --branch
 ## main...origin/main
  M project.godot
 ```
 
-Final log/evidence commit: `5f80760627b1e19a9aa6f1ebb318b8d10c266e4d`.
+Final log/evidence commit before this equality-record correction: `5f80760627b1e19a9aa6f1ebb318b8d10c266e4d`.
 
 This phase stops at `AWAITING_AUDIT` for independent ChatGPT review.
