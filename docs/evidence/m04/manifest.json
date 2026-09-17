@@ -1,5 +1,5 @@
 {
-  "schema": "BCM-M04-R01 evidence manifest V01",
+  "schema": "BCM-M04-R02 evidence manifest V01",
   "owner_master": "b75ee426-9568-4ed6-b35e-140600a7c995.png",
   "source_assets": {
     "assets/cocktails/L01.png": {
@@ -569,6 +569,90 @@
       "alpha_policy": "transparent-required",
       "alpha_result": "PASS"
     },
+    "assets/effects/merge_glow.png": {
+      "bytes": 1470795,
+      "sha256": "ff3d4fc8d537ee9a02833fa714e3fdad7ff36c39949322f47c41ebbaa788691c",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "png_color_type": 6,
+      "alpha": "present",
+      "transparent_pixels": 651160,
+      "transparent_percent": 41.4088,
+      "nontransparent_pixels": 921356,
+      "nontransparent_percent": 58.5912,
+      "opaque_pixels": 0,
+      "semi_transparent_pixels": 921356,
+      "alpha_bbox": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "fully_opaque": false,
+      "path": "assets/effects/merge_glow.png",
+      "effect_classification": "APPROVED_DEFERRED_EFFECT_ASSET_M08",
+      "alpha_policy": "transparent-required",
+      "alpha_result": "PASS"
+    },
+    "assets/effects/sparkle.png": {
+      "bytes": 1120997,
+      "sha256": "1e58a922da64cfee5dbe023b3a5e296e8e924e53e819a931d054f751fad9b756",
+      "dimensions": [
+        1261,
+        1247
+      ],
+      "mode": "RGBA",
+      "png_color_type": 6,
+      "alpha": "present",
+      "transparent_pixels": 860057,
+      "transparent_percent": 54.6948,
+      "nontransparent_pixels": 712410,
+      "nontransparent_percent": 45.3052,
+      "opaque_pixels": 0,
+      "semi_transparent_pixels": 712410,
+      "alpha_bbox": [
+        0,
+        17,
+        1251,
+        1247
+      ],
+      "fully_opaque": false,
+      "path": "assets/effects/sparkle.png",
+      "effect_classification": "APPROVED_DEFERRED_EFFECT_ASSET_M08",
+      "alpha_policy": "transparent-required",
+      "alpha_result": "PASS"
+    },
+    "assets/effects/splash.png": {
+      "bytes": 1212595,
+      "sha256": "ecffe47776d0c2aa5bd190ab422aca76eeb7b35f3d7539e18638780e192b81c0",
+      "dimensions": [
+        1312,
+        1199
+      ],
+      "mode": "RGBA",
+      "png_color_type": 6,
+      "alpha": "present",
+      "transparent_pixels": 923246,
+      "transparent_percent": 58.69,
+      "nontransparent_pixels": 649842,
+      "nontransparent_percent": 41.31,
+      "opaque_pixels": 660,
+      "semi_transparent_pixels": 649182,
+      "alpha_bbox": [
+        0,
+        0,
+        1302,
+        1199
+      ],
+      "fully_opaque": false,
+      "path": "assets/effects/splash.png",
+      "effect_classification": "APPROVED_DEFERRED_EFFECT_ASSET_M08",
+      "alpha_policy": "transparent-required",
+      "alpha_result": "PASS"
+    },
     "assets/effects/to_go_trail.png": {
       "bytes": 717668,
       "sha256": "34ac3c6e3d356c62f0e3866456ffd48681f715c636471cae4e9b6060a136c0bd",
@@ -593,6 +677,7 @@
       ],
       "fully_opaque": false,
       "path": "assets/effects/to_go_trail.png",
+      "effect_classification": "APPROVED_M04_EFFECT_ASSET",
       "alpha_policy": "transparent-required",
       "alpha_result": "PASS"
     }
@@ -636,6 +721,9 @@
     },
     "effects_contact_sheet.png": {
       "source_paths": [
+        "assets/effects/merge_glow.png",
+        "assets/effects/sparkle.png",
+        "assets/effects/splash.png",
         "assets/effects/to_go_trail.png"
       ],
       "classification": "MANUAL_VISUAL_EVIDENCE"

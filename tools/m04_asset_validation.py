@@ -26,9 +26,20 @@ UI = [
     Path("assets/ui/launch_zone.png"),
     Path("assets/ui/danger_line.png"),
 ]
-EFFECTS = [Path("assets/effects/to_go_trail.png")]
+EFFECTS = [
+    Path("assets/effects/merge_glow.png"),
+    Path("assets/effects/sparkle.png"),
+    Path("assets/effects/splash.png"),
+    Path("assets/effects/to_go_trail.png"),
+]
 CANONICAL = COCKTAILS + ENVIRONMENT + UI + EFFECTS
 TRANSPARENT_REQUIRED = set(COCKTAILS + UI + EFFECTS)
+EFFECT_CLASSIFICATION = {
+    Path("assets/effects/merge_glow.png"): "APPROVED_DEFERRED_EFFECT_ASSET_M08",
+    Path("assets/effects/sparkle.png"): "APPROVED_DEFERRED_EFFECT_ASSET_M08",
+    Path("assets/effects/splash.png"): "APPROVED_DEFERRED_EFFECT_ASSET_M08",
+    Path("assets/effects/to_go_trail.png"): "APPROVED_M04_EFFECT_ASSET",
+}
 EVIDENCE_SHEETS = {
     "cocktails": "cocktails_contact_sheet.png",
     "ui": "ui_contact_sheet.png",
@@ -164,7 +175,7 @@ def make_references() -> None:
     EVIDENCE.mkdir(parents=True, exist_ok=True)
     contact_sheet(COCKTAILS, EVIDENCE / "cocktails_contact_sheet.png", 4, (320, 330))
     contact_sheet(UI, EVIDENCE / "ui_contact_sheet.png", 2, (640, 390))
-    contact_sheet(EFFECTS, EVIDENCE / "effects_contact_sheet.png", 1, (700, 390))
+    contact_sheet(EFFECTS, EVIDENCE / "effects_contact_sheet.png", 2, (700, 390))
     shutil.copyfile(ROOT / ENVIRONMENT[0], EVIDENCE / "environment_reference.png")
     shutil.copyfile(ROOT / "b75ee426-9568-4ed6-b35e-140600a7c995.png", EVIDENCE / "master_reference.png")
     slots = make_progression_evidence(
@@ -176,19 +187,22 @@ def make_references() -> None:
 
 def main() -> int:
     failures: list[str] = []
-    print(f"M04_PATH_SET required=22 cocktails={len(COCKTAILS)} environment={len(ENVIRONMENT)} ui={len(UI)} effects={len(EFFECTS)}")
+    print(f"M04_PATH_SET required=25 cocktails={len(COCKTAILS)} environment={len(ENVIRONMENT)} ui={len(UI)} effects={len(EFFECTS)}")
 
     expected_cocktails = {path.as_posix() for path in COCKTAILS}
     expected_environment = {path.as_posix() for path in ENVIRONMENT}
     expected_ui = {path.as_posix() for path in UI}
+    expected_effects = {path.as_posix() for path in EFFECTS}
     observed_cocktails = actual_pngs(ROOT / "assets" / "cocktails")
     observed_environment = actual_pngs(ROOT / "assets" / "environment")
     observed_ui = actual_pngs(ROOT / "assets" / "ui")
-    print(f"M04_REPO_PATH_SET cocktails={len(observed_cocktails)}/{len(expected_cocktails)} environment={len(observed_environment)}/{len(expected_environment)} ui={len(observed_ui)}/{len(expected_ui)}")
+    observed_effects = actual_pngs(ROOT / "assets" / "effects")
+    print(f"M04_REPO_PATH_SET cocktails={len(observed_cocktails)}/{len(expected_cocktails)} environment={len(observed_environment)}/{len(expected_environment)} ui={len(observed_ui)}/{len(expected_ui)} effects={len(observed_effects)}/{len(expected_effects)}")
     for scope, observed, expected in [
         ("cocktails", observed_cocktails, expected_cocktails),
         ("environment", observed_environment, expected_environment),
         ("ui", observed_ui, expected_ui),
+        ("effects", observed_effects, expected_effects),
     ]:
         unexpected = sorted(observed - expected)
         missing = sorted(expected - observed)
@@ -221,6 +235,8 @@ def main() -> int:
             print(f"M04_ASSET FAIL path={path.as_posix()} error={error}")
             continue
         result["path"] = path.as_posix()
+        if path in EFFECT_CLASSIFICATION:
+            result["effect_classification"] = EFFECT_CLASSIFICATION[path]
         if result["bytes"] <= 0 or result["dimensions"][0] <= 0 or result["dimensions"][1] <= 0:
             failures.append(f"empty {path.as_posix()}")
         if path in TRANSPARENT_REQUIRED:
@@ -240,6 +256,8 @@ def main() -> int:
             f"bbox={result['alpha_bbox']} alpha_policy={result['alpha_policy']} alpha_result={result['alpha_result']} "
             f"sha256={result['sha256']}"
         )
+        if path in EFFECT_CLASSIFICATION:
+            print(f"M04_EFFECT_CLASSIFICATION path={path.as_posix()} class={EFFECT_CLASSIFICATION[path]}")
         records[path.as_posix()] = result
 
     best = records.get("assets/ui/panel_best_score.png")
@@ -253,7 +271,7 @@ def main() -> int:
     for path, sheet in EVIDENCE_SHEETS.items():
         pass
     manifest = {
-        "schema": "BCM-M04-R01 evidence manifest V01",
+        "schema": "BCM-M04-R02 evidence manifest V01",
         "owner_master": "b75ee426-9568-4ed6-b35e-140600a7c995.png",
         "source_assets": records,
         "evidence": {
