@@ -1,0 +1,39 @@
+{
+  "schema": "BCM-M07-R03-independent-visible-content-layout-V01",
+  "method": "Independent measurement of corrected owner PNG alpha/content interiors; panel rectangles are local pixels at ui_scale 1.0 and progression slots are source-derived ratios from the 2170x725 baked 2x6 artwork.",
+  "overflow_tolerance_px": 4.0,
+  "no_material_overlap_tolerance_px": 2.0,
+  "panels": {
+    "BestScorePanel": {"native_size": [1671, 941], "value": [45.0, 55.0, 116.0, 52.0]},
+    "ScorePanel": {"native_size": [1672, 941], "value": [45.0, 55.0, 116.0, 52.0]},
+    "ToGoOrdersPanel": {
+      "native_size": [1132, 1389],
+      "target": [30.0, 78.0, 150.0, 100.0],
+      "level": [25.0, 180.0, 160.0, 25.0],
+      "reward": [35.0, 215.0, 140.0, 35.0]
+    },
+    "NextPanel": {"native_size": [1103, 1426], "inset": [28.0, 62.0, 90.0, 100.0]},
+    "ProgressionStrip": {
+      "native_size": [2170, 725],
+      "slot_measurements_source_px": {
+        "top_y": [187, 342],
+        "bottom_y": [380, 536],
+        "x_ranges": [[499, 658], [701, 860], [902, 1060], [1102, 1261], [1303, 1462], [1506, 1666]]
+      },
+      "cells": [
+        [0, 0, 0.303226, 0.257931, 0.073272, 0.213793],
+        [1, 0, 0.396313, 0.257931, 0.073272, 0.213793],
+        [2, 0, 0.488479, 0.257931, 0.072811, 0.213793],
+        [3, 0, 0.580645, 0.257931, 0.073272, 0.213793],
+        [4, 0, 0.673733, 0.257931, 0.073272, 0.213793],
+        [5, 0, 0.768664, 0.257931, 0.073733, 0.213793],
+        [0, 1, 0.303226, 0.524138, 0.073272, 0.215172],
+        [1, 1, 0.396313, 0.524138, 0.073272, 0.215172],
+        [2, 1, 0.488479, 0.524138, 0.072811, 0.215172],
+        [3, 1, 0.580645, 0.524138, 0.073272, 0.215172],
+        [4, 1, 0.673733, 0.524138, 0.073272, 0.215172],
+        [5, 1, 0.768664, 0.524138, 0.073733, 0.215172]
+      ]
+    }
+  }
+}

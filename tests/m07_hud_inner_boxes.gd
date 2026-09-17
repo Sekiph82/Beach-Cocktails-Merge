@@ -25,17 +25,20 @@ func _draw() -> void:
     _box(next, outer_color)
     _box(strip, outer_color)
     if to_go != null:
-        _rect(Rect2(to_go.position + Vector2(to_go.size.x * 0.29, to_go.size.y * 0.12), Vector2(to_go.size.x * 0.42, to_go.size.y * 0.52)), inner_color)
-        _rect(Rect2(to_go.position + Vector2(to_go.size.x * 0.20, to_go.size.y * 0.58), Vector2(to_go.size.x * 0.60, to_go.size.y * 0.20)), inner_color)
-        _rect(Rect2(to_go.position + Vector2(to_go.size.x * 0.24, to_go.size.y * 0.77), Vector2(to_go.size.x * 0.52, to_go.size.y * 0.19)), inner_color)
+        _rect(Rect2(to_go.position + Vector2(30.0, 78.0) * to_go.size.x / 210.0, Vector2(150.0, 100.0) * to_go.size.x / 210.0), inner_color)
+        _rect(Rect2(to_go.position + Vector2(25.0, 180.0) * to_go.size.x / 210.0, Vector2(160.0, 25.0) * to_go.size.x / 210.0), inner_color)
+        _rect(Rect2(to_go.position + Vector2(35.0, 215.0) * to_go.size.x / 210.0, Vector2(140.0, 35.0) * to_go.size.x / 210.0), inner_color)
     if next != null:
-        _rect(Rect2(next.position + Vector2(next.size.x * 0.16, next.size.y * 0.16), Vector2(next.size.x * 0.68, next.size.y * 0.70)), inner_color)
+        _rect(Rect2(next.position + Vector2(28.0, 62.0) * next.size.x / 145.0, Vector2(90.0, 100.0) * next.size.x / 145.0), inner_color)
     if strip != null:
-        var cell_width := strip.size.x / 6.0
-        var cell_height := strip.size.y * 0.34
+        var source_scale := strip.size.x / 2170.0
+        var x_ranges := [[499.0, 658.0], [701.0, 860.0], [902.0, 1060.0], [1102.0, 1261.0], [1303.0, 1462.0], [1506.0, 1666.0]]
         for row in range(2):
             for column in range(6):
-                _rect(Rect2(strip.position + Vector2(column * cell_width + 3.0, strip.size.y * (0.08 + row * 0.46)), Vector2(cell_width - 6.0, cell_height)), inner_color)
+                var x_range: Array = x_ranges[column]
+                var y_pos := 187.0 if row == 0 else 380.0
+                var height := 155.0 if row == 0 else 156.0
+                _rect(Rect2(strip.position + Vector2(x_range[0], y_pos) * source_scale, Vector2(x_range[1] - x_range[0], height) * source_scale), inner_color)
     var rail := Color(0.25, 0.95, 0.95, 0.9)
     draw_line(Vector2(0.0, manager.table_top_y), Vector2(manager.get_board_size().x, manager.table_top_y), rail, 2.0)
     draw_line(Vector2(0.0, manager.table_bottom_y), Vector2(manager.get_board_size().x, manager.table_bottom_y), rail, 2.0)
@@ -50,4 +53,3 @@ func _box(node: Control, color: Color) -> void:
 
 func _rect(rect: Rect2, color: Color) -> void:
     draw_rect(rect, color, false, 2.0)
-

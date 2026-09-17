@@ -12,7 +12,7 @@ const CAPTURE_DIR := "res://docs/evidence/m07"
 const ASSET_ROOT := "res://assets/ui/"
 const OVERLAY_SCRIPT := "res://tests/m07_hud_inner_boxes.gd"
 const VISIBLE_BOUNDS_OVERLAY_SCRIPT := "res://tests/m07_hud_visible_bounds.gd"
-const INNER_LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout.json"
+const INNER_LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout_v02.json"
 
 var failures: Array[String] = []
 var inner_layout: Dictionary = {}
@@ -105,6 +105,12 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     var strip := hud.get_node_or_null("ProgressionStrip") as Control
     print("M07_PANEL_SIZES label=%s logo=%s best=%s score=%s to_go=%s next=%s strip=%s" % [label, logo.size if logo != null else Vector2.INF, best.size if best != null else Vector2.INF, score.size if score != null else Vector2.INF, to_go.size if to_go != null else Vector2.INF, next.size if next != null else Vector2.INF, strip.size if strip != null else Vector2.INF])
     _check("%s canonical logo/panels exist" % label, _asset(logo, "logo_beach_cocktails_merge.png") and _asset(best, "panel_best_score.png") and _asset(score, "panel_score.png") and _asset(to_go, "panel_to_go_orders.png") and _asset(next, "panel_next.png") and _asset(strip, "progression_strip.png"))
+    var frame_count := 0
+    if strip != null:
+        for child in strip.get_children():
+            if child is Panel:
+                frame_count += 1
+    _check("%s progression has no runtime Panel/StyleBox cell frames" % label, frame_count == 0)
     _check("%s score panels share normalized display size" % label, best != null and score != null and best.size.distance_to(score.size) < 0.01)
     _check("%s top-left logo then Best Score then Score hierarchy" % label, logo != null and best != null and score != null and logo.position.x < best.position.x + 1.0 and logo.position.y < best.position.y and best.position.y < score.position.y)
     _check("%s score stack stays above the perspective table" % label, score != null and score.position.y + score.size.y < manager.table_top_y - 4.0)
@@ -129,15 +135,15 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     var progression_scale_ok := true
     for level in range(1, 13):
         progression_scale_ok = progression_scale_ok and _hud_icon_scale_for_level(manager, level, 70.0) > _hud_icon_scale_for_level(manager, level, 54.0)
-    _check("%s progression icons use larger M05-mapped visual bounds" % label, progression_scale_ok)
+    _check("%s progression icons use bounded M05-mapped visual bounds" % label, progression_scale_ok)
 
     var held := manager.shot_controller._current_drink if manager.shot_controller != null else null
     _check("%s held cocktail is above canonical launch zone" % label, is_instance_valid(held) and manager._launch_zone.texture.resource_path == "res://assets/ui/launch_zone.png" and manager._launch_zone.visible and manager._launch_zone.position.distance_to(held.position) < 0.01 and manager._launch_zone.z_index < held.z_index)
     var halo_diameter := manager._launch_zone.texture.get_width() * manager._launch_zone.scale.x if manager._launch_zone.texture != null else 0.0
     _check("%s launch halo is centered below the held cocktail and visibly larger" % label, is_instance_valid(held) and halo_diameter >= 128.0 and manager._launch_zone.z_index < held.z_index)
     _check("%s canonical danger PNG tracks accepted M06 threshold" % label, manager._danger_line.texture.resource_path == "res://assets/ui/danger_line.png" and is_equal_approx(manager._danger_line.position.y, manager.death_line_y))
-    var expected_danger := GameManager.source_to_viewport(Vector2(0.0, 1100.0), manager.get_board_size()).y
-    var expected_launch := GameManager.source_to_viewport(Vector2(0.0, 1144.0), manager.get_board_size()).y
+    var expected_danger := GameManager.source_to_viewport(Vector2(0.0, 1080.0), manager.get_board_size()).y
+    var expected_launch := GameManager.source_to_viewport(Vector2(0.0, 1136.0), manager.get_board_size()).y
     _check("%s danger/launch remain at independent M06 coordinates" % label, absf(manager.death_line_y - expected_danger) < 0.01 and absf(manager.launch_y - expected_launch) < 0.01)
     _check("%s no guide-line or permanent prototype hint" % label, manager.get_node_or_null("guide_line") == null and not _source_contains("Surukle: X konumu") and manager._chain_label == null)
     _check("%s no legacy duplicate labels" % label, hud.get_node_or_null("ScoreLabel") == null and hud.get_node_or_null("BestLabel") == null and hud.get_node_or_null("NextLabel") == null and hud.get_node_or_null("TargetCaption") == null)
