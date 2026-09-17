@@ -39,6 +39,7 @@ const TABLE_SOLVER_EPSILON := 0.5
 const SCORE_OPTICAL_Y_BIAS_PX := -2.0
 
 @export var table_top_y := 0.0
+@export var rear_table_y := 0.0
 @export var table_bottom_y := 0.0
 @export var table_top_inset := 0.0
 @export var table_bottom_inset := 0.0
@@ -154,6 +155,7 @@ func _configure_board_layout() -> void:
     var far_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS[0], size)
     var near_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS.back(), size)
     table_top_y = far_left.y
+    rear_table_y = far_left.y
     table_bottom_y = near_left.y
     # These exported values remain legacy diagnostics. Boundary queries and
     # wall construction use the complete source-space polylines below.
@@ -208,8 +210,15 @@ func get_horizontal_bounds_at_y(y_pos: float, radius: float = 0.0) -> Vector2:
     return Vector2(rails.x + radius + TABLE_SOLVER_EPSILON, rails.y - radius - TABLE_SOLVER_EPSILON)
 
 
+func get_rear_target_center_y(body_half_extent_y: float) -> float:
+    # One common visible rear tabletop boundary is shared by every level.
+    # Only the current glass/container body half-extent moves the center away
+    # from that edge; garnish and transparent texture margins are excluded.
+    return rear_table_y + maxf(body_half_extent_y, 0.0)
+
+
 func clamp_position_to_board(pos: Vector2, radius: float) -> Vector2:
-    pos.y = clampf(pos.y, table_top_y + radius + TABLE_SOLVER_EPSILON, table_bottom_y - radius - TABLE_SOLVER_EPSILON)
+    pos.y = clampf(pos.y, get_rear_target_center_y(radius) + TABLE_SOLVER_EPSILON, table_bottom_y - radius - TABLE_SOLVER_EPSILON)
     var bounds := get_horizontal_bounds_at_y(pos.y, radius)
     pos.x = clampf(pos.x, bounds.x, bounds.y)
     return pos
