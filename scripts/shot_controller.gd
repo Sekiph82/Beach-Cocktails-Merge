@@ -101,9 +101,9 @@ func _move_current_to(x_pos: float) -> void:
     if not is_instance_valid(_current_drink):
         return
 
-    var projected := _manager.project_visual_hull_inside_table(
+    var projected := _manager.project_footprint_inside_table(
         Transform2D(0.0, Vector2(x_pos, _current_drink.position.y)),
-        _current_drink.get_boundary_contact_hull_local(),
+        _current_drink.get_table_footprint_local(),
         Vector2.ZERO
     )
     _current_drink.position = projected["transform"].origin

@@ -46,6 +46,13 @@ const SCORE_DISPLAY_MAX_VALUE := 9999999
 const BEST_SCORE_FIXED_FONT_SIZE := 20
 const SCORE_FIXED_FONT_SIZE := 20
 const TABLE_SOLVER_EPSILON := 0.5
+# R11 art-tuning knob. Side rails read correctly at zero clearance, but the
+# REAR rail is the far lip of the table: a glass whose lowest pixel sits exactly
+# on it has its whole body drawn beyond the table, so it reads as standing ON
+# the edge rather than on the surface. This inset keeps visible wood behind the
+# glass base. It is a constant in PIXELS, not a function of the collider radius,
+# so it stays identical at L1 and at L12.
+const REAR_EDGE_MARGIN := 12.0
 const TOP_RAIL_CLEARANCE := 4.0
 # Native-asset measurements of the actual dark value recess centers. The
 # panels have slightly different artwork heights, so these are panel-local
@@ -289,6 +296,70 @@ func _project_hull_against_convex_envelope(
         "velocity": corrected_velocity,
         "corrected": corrected,
     }
+func project_footprint_inside_table(
+    body_transform: Transform2D,
+    footprint: PackedVector2Array,
+    velocity: Vector2
+) -> Dictionary:
+    ## Authoritative table-boundary response.
+    ## The rails are lines on the table plane, so only the glass FOOTPRINT --
+    ## the zero-height segment along the bottom of the glass -- is constrained
+    ## by them. The silhouette above the plane is free to overhang the drawn
+    ## edge, which is what correct perspective looks like and what makes the
+    ## visible clearance exactly zero and identical at every level.
+    var origin := body_transform.origin
+    var corrected_velocity := velocity
+    var contacts: Array[String] = []
+    if footprint.is_empty():
+        return {
+            "transform": body_transform,
+            "velocity": corrected_velocity,
+            "corrected": false,
+            "contacts": contacts,
+        }
+
+    var edges := get_playable_boundary_edges()
+
+    # The frozen rear/left/right vertices form a convex perspective envelope, so
+    # every edge half-plane is a genuine polygon constraint. The footprint is
+    # two points, so this converges in one or two passes instead of eight.
+    for _iteration in range(4):
+        var moved := false
+        for edge in edges:
+            var normal: Vector2 = edge["inward_normal"]
+            var distance := INF
+            for local_point in footprint:
+                distance = minf(distance, normal.dot(origin + local_point - edge["a"]))
+            if String(edge["name"]) == "RearRail":
+                distance -= REAR_EDGE_MARGIN
+            if distance >= 0.0:
+                continue
+            # Exact tangency, no per-edge epsilon: the retired hull solver added
+            # TABLE_SOLVER_EPSILON once per violated edge per iteration, which
+            # accumulated inward drift in the rear corners.
+            origin += normal * -distance
+            var normal_velocity: float = corrected_velocity.dot(normal)
+            if normal_velocity < 0.0:
+                corrected_velocity -= normal * normal_velocity
+            var edge_name := String(edge["name"])
+            if not contacts.has(edge_name):
+                contacts.append(edge_name)
+            moved = true
+        if not moved:
+            break
+
+    body_transform.origin = origin
+    return {
+        "transform": body_transform,
+        "velocity": corrected_velocity,
+        "corrected": not contacts.is_empty(),
+        "contacts": contacts,
+    }
+
+
+## Retired as the live boundary response in R11; the visible silhouette is now
+## cosmetic only. Kept because the M06/R08/R09 geometry overlays and tangency
+## probes still render and assert against the measured hull.
 func project_visual_hull_inside_table(
     body_transform: Transform2D,
     local_hull: PackedVector2Array,
@@ -363,9 +434,9 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
     # Held previews first use the accepted launch Y, then receive the same
     # boundary treatment after their level-specific hull exists.
     pos = get_launch_position(pos.x, drink.radius, drink.level) if held else pos
-    var projected := project_visual_hull_inside_table(
+    var projected := project_footprint_inside_table(
         Transform2D(0.0, pos),
-        drink.get_boundary_contact_hull_local(),
+        drink.get_table_footprint_local(),
         Vector2.ZERO
     )
     pos = projected["transform"].origin

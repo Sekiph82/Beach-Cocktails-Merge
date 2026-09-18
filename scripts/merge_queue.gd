@@ -106,9 +106,9 @@ func _do_merge(a: Drink, b: Drink, new_level: int, merge_pos: Vector2, merge_vel
     # Use the same directional visual-hull projection as normal physics. The
     # merge Y and inherited tangential momentum are preserved unless the new
     # hull genuinely penetrates an accepted rail.
-    var projected := GameManager.instance.project_visual_hull_inside_table(
+    var projected := GameManager.instance.project_footprint_inside_table(
         Transform2D(0.0, new_drink.position),
-        new_drink.get_boundary_contact_hull_local(),
+        new_drink.get_table_footprint_local(),
         merge_velocity
     )
     new_drink.position = projected["transform"].origin
