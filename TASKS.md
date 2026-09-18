@@ -4,12 +4,12 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M05 STRICT REMEDIATION
-- Current Sprint: BCM-M05-STRICT-CLOSURE
-- Current Task: Resolve the remaining M05-R02 independent sprite/collider evidence blocker without changing the owner-accepted R11 table-edge behavior.
+- Current Milestone: M08
+- Current Sprint: BCM-M08-TO-GO-DELIVERY-POLISH
+- Current Task: Integrate To-Go delivery animation and restrained merge/order visual feedback without changing accepted physics, scoring, table-edge behavior, HUD layout, or canonical assets.
 - Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M05-STRICT-CLOSURE/CHATGPT_EXECUTION_PROMPT_V01.md` to independently re-establish sprite/collider evidence and correct shape classifications without modifying the owner-accepted R11 gameplay.
-- Required Actor: CODEX
+- Next Task/Action: ChatGPT issues the locked M08 criteria/prompt; Codex implements bounded To-Go delivery/merge feedback and stops for independent audit.
+- Required Actor: CHATGPT → CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -21,10 +21,10 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M02-001 — Formalize physics, collision, merge, and rapid-launch regression suite.
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
-- [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
+- [x] BCM-M05-001 — Independent sprite/body/collider evidence closure completed and audited.
 - [x] BCM-M06-001 — Three-sided playable-envelope and cocktail-to-edge behavior closed by owner-accepted BCM-R11 table-footprint solution.
 - [x] BCM-M07-001 — HUD alignment/refinement closed; owner-accepted BEST/SCORE/NEXT/logo/To-Go/held behavior preserved through R11 regression.
-- [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
+- [~] BCM-M08-001 — Integrate To-Go delivery animation and restrained visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
 - [ ] BCM-M11-001 — Mobile layout, performance, export, device QA, and release readiness.
@@ -52,7 +52,7 @@ Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopen
 
 
 
-## Active M05 strict closure
+## M05 strict closure — audited pass
 
 Locked criteria:
 `coordination/sessions/BCM-M05-STRICT-CLOSURE/CHATGPT_AUDIT_CRITERIA_V01.md`
@@ -60,7 +60,10 @@ Locked criteria:
 Execution prompt:
 `coordination/sessions/BCM-M05-STRICT-CLOSURE/CHATGPT_EXECUTION_PROMPT_V01.md`
 
-This is evidence-only remediation. Production gameplay, R11 table-edge behavior, collider radii, canonical PNGs and HUD are frozen.
+Independent audit:
+`coordination/sessions/BCM-M05-STRICT-CLOSURE/CHATGPT_AUDIT_V01.md` — AUDITED_PASS.
+
+Production gameplay, R11 table-edge behavior, collider radii, canonical PNGs and HUD remained frozen.
 
 ## M05-R02 — Still open
 
@@ -192,7 +195,7 @@ Required layout:
 
 Independent audit: `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V03.md` — CHANGES_REQUIRED / OWNER_RUNTIME_VERIFICATION_REQUIRED. Source-level geometry, rear-target formula, Solution 1 merge X clamp and HUD alignment code are present, but final GUI visual proof is missing and the physical TopRail does not literally coincide with `rear_table_y` under the locked criterion.
 
-M08 may not start until the remaining M05 strict-audit state is resolved or explicitly superseded. M06 and M07 are closed.
+M05, M06 and M07 are closed. M08 may start.
 
 ## M08-M12 — Planned
 
