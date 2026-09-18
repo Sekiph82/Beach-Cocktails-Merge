@@ -6,7 +6,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
-- Current Task: Close the remaining rear/side tabletop physics defects, add explicit post-merge wall-boundary correction, and apply the owner-requested HUD alignment refinements while preserving all already-fixed runtime behavior.
+- Current Task: Close the remaining three-sided tabletop playable-boundary defects, add explicit post-merge wall-boundary correction, and apply the owner-requested HUD alignment refinements while preserving all already-fixed runtime behavior.
 - Current Task Status: READY
 - Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V05.md`, writes the R10 V03 log, runs full active regression including left/right wall-merge tests, then STOPS for independent ChatGPT audit.
 - Required Actor: CODEX
@@ -22,7 +22,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
 - [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
-- [~] BCM-M06-001 — Active: rear/side contact closure. Rear target remains `rear_target_y = rear_table_y`; side playable rails move slightly inward; merge-created larger drinks must be immediately clamped to valid board bounds so solver overlap does not create an artificial wall gap.
+- [~] BCM-M06-001 — Active: three-sided playable-envelope closure. Left, right, and opposite/rear playable boundaries all move inward to the owner-annotated perspective envelope. Rear target remains `rear_target_y = rear_table_y`, where `rear_table_y` is the new inward owner-defined rear playable boundary. Merge-created larger drinks must be immediately clamped to valid board bounds so solver overlap does not create an artificial wall gap.
 - [~] BCM-M07-001 — Active visual refinement: preserve accepted number centering/To-Go/held behavior while aligning HUD columns/baseline and modestly enlarging the logo.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
@@ -79,7 +79,7 @@ Locked criteria:
 Execution prompt:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V05.md`
 
-### Rear-contact rule
+### Three-sided playable-boundary rule
 
 Mandatory owner rule for all L01-L12:
 
@@ -87,12 +87,13 @@ Mandatory owner rule for all L01-L12:
 
 Forbidden rear-target adjustments include collider radius, body half extent, sprite/drink height, width, per-level Y offsets or per-level rear-target tables.
 
-Required rear closure:
-1. Moving RigidBody2D cocktails physically reach the owner-defined `rear_table_y` contact line.
-2. No stale hidden TopRail or other rear wall stops them earlier.
-3. Physical rear collision, clamp/target and `rear_table_y` are coherent.
-4. Current visible unused rear-table strip is removed.
-5. Validate actual moving L01/L06/L12 rear contacts, not direct-spawn coordinate agreement only.
+Required boundary closure:
+1. Move left and right playable rails modestly inward to the owner's annotated white-line intent.
+2. Move the opposite/rear playable boundary inward to the owner's annotated white-line position as well.
+3. Moving RigidBody2D cocktails physically reach the owner-defined `rear_table_y` line.
+4. Physical rear collision, clamp/target and `rear_table_y` are coherent.
+5. Preserve the perspective/trapezoidal playable envelope.
+6. Validate actual moving contacts at left, right, and opposite/rear boundaries, not direct-spawn coordinate agreement only.
 
 ### Side-boundary and merge-wall rules
 
