@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
 - Current Task: Preserve the owner-approved V05 playable envelope and Solution 1, replace the failed V06 radius-derived footprint with an independent per-level 2D table-edge contact dataset, and close the remaining cocktail-to-edge visual gap.
-- Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V07.md`, replaces the V06 radius-derived footprint with an independent L01-L12 table-edge contact dataset, preserves V05 envelope/Solution 1, writes CODEX_LOG_V05, runs full regression, then STOPS for independent audit and owner GUI verification.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Prepare a new remediation that calibrates table-edge contact in runtime screen-space without using collider-derived visual scale directly or indirectly. V07 audit found the hardcoded dataset reproduces collider-derived scaling within rounding tolerance.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -71,10 +71,13 @@ Latest owner runtime evidence establishes:
 
 R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V07 — independent per-level edge-contact dataset
+## Active R10 V07 — audited CHANGES_REQUIRED
 
 Locked criteria:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V07.md`
+
+Independent audit:
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V05.md` — CHANGES_REQUIRED.
 
 Execution prompt:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V07.md`
@@ -85,7 +88,7 @@ The owner visually accepted the current three-sided playable envelope. Do not mo
 
 The V05 explicit post-merge boundary clamp also improved gameplay feel and must be preserved.
 
-### V06 2D edge-contact experiment
+### V07 independent edge-contact dataset audit result
 
 Mandatory owner rule for all L01-L12:
 
@@ -100,6 +103,18 @@ Required boundary closure:
 4. Physical rear collision, clamp/target and `rear_table_y` are coherent.
 5. Preserve the perspective/trapezoidal playable envelope.
 6. Validate actual moving contacts at left, right, and opposite/rear boundaries, not direct-spawn coordinate agreement only.
+
+### Critical V07 finding
+
+The explicit `TABLE_EDGE_CONTACT_HALF_WIDTHS` array exists, but the values numerically reproduce:
+
+`source_contact_width * visual_scale_for_level / 2`
+
+where `visual_scale_for_level` is collider-radius-derived.
+
+Therefore the dataset is structurally hardcoded but not independent from collider radius as required.
+
+A next remediation must obtain/calibrate runtime contact distances independently from collider-defined sprite scaling.
 
 ### Edge-contact / merge-wall rules
 
