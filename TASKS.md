@@ -4,12 +4,12 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
-- Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
-- Current Task: Preserve the owner-approved V05 playable envelope and Solution 1, replace the failed V06 radius-derived footprint with an independent per-level 2D table-edge contact dataset, and close the remaining cocktail-to-edge visual gap.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: R10 V10 audit found two blockers: the solver incorrectly assumes the frozen piecewise rail chain is globally convex and applies all segment lines as global half-planes; and the post-fix side regression switched from the owner-visible rendered footprint metric to glass-body-only containment. Remediate both before owner GUI verification.
-- Required Actor: CODEX
+- Current Milestone: M05 STRICT REMEDIATION
+- Current Sprint: BCM-M05-STRICT-CLOSURE
+- Current Task: Resolve the remaining M05-R02 independent sprite/collider evidence blocker without changing the owner-accepted R11 table-edge behavior.
+- Current Task Status: READY
+- Next Task/Action: Create a bounded M05 strict-evidence remediation that independently re-establishes body/collider measurements and correct shape classifications without retuning gameplay physics or changing the accepted R11 table-edge solution.
+- Required Actor: CHATGPT → CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -22,8 +22,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
 - [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
-- [~] BCM-M06-001 — Active: three-sided playable-envelope closure. Left, right, and opposite/rear playable boundaries all move inward to the owner-annotated perspective envelope. Rear target remains `rear_target_y = rear_table_y`, where `rear_table_y` is the new inward owner-defined rear playable boundary. Merge-created larger drinks must be immediately clamped to valid board bounds so solver overlap does not create an artificial wall gap.
-- [~] BCM-M07-001 — Active visual refinement: preserve accepted number centering/To-Go/held behavior while aligning HUD columns/baseline and modestly enlarging the logo.
+- [x] BCM-M06-001 — Three-sided playable-envelope and cocktail-to-edge behavior closed by owner-accepted BCM-R11 table-footprint solution.
+- [x] BCM-M07-001 — HUD alignment/refinement closed; owner-accepted BEST/SCORE/NEXT/logo/To-Go/held behavior preserved through R11 regression.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
@@ -71,7 +71,23 @@ Latest owner runtime evidence establishes:
 
 R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V10 — audited CHANGES_REQUIRED
+## R11 table-edge closure — audited pass
+
+Independent audit:
+`coordination/sessions/BCM-R11-TABLE-EDGE-CLOSURE/CHATGPT_AUDIT_V01.md` — AUDITED_PASS for M06 closure.
+
+Owner-accepted R11 implementation:
+`9d6d8950da5f62f6c22d495f58414d70d034d893`
+
+R11 supersedes the failed R10 V09/V10 full-silhouette boundary model. The authoritative table contact representation is now the glass table-plane footprint, not the full cocktail silhouette. Boundary enforcement runs at all relevant speeds and is shared by live motion, merge correction, drag positioning, and settling.
+
+Historical R10 V09/V10 full-hull containment probes are superseded acceptance artifacts and must not block current R11 behavior.
+
+M06 is closed. M07 is closed based on preserved owner-accepted visual behavior and passing regression evidence.
+
+M05-R02 remains the only pre-M08 blocker.
+
+## Historical R10 V10 — superseded by R11
 
 Locked criteria:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V09.md`
@@ -164,7 +180,7 @@ Required layout:
 
 Independent audit: `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V03.md` — CHANGES_REQUIRED / OWNER_RUNTIME_VERIFICATION_REQUIRED. Source-level geometry, rear-target formula, Solution 1 merge X clamp and HUD alignment code are present, but final GUI visual proof is missing and the physical TopRail does not literally coincide with `rear_table_y` under the locked criterion.
 
-M08 may not start until M06/M07 are independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
+M08 may not start until the remaining M05 strict-audit state is resolved or explicitly superseded. M06 and M07 are closed.
 
 ## M08-M12 — Planned
 
