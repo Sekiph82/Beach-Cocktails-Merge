@@ -250,6 +250,45 @@ func get_playable_boundary_edges() -> Array[Dictionary]:
     return edges
 
 
+func _edge_signed_distance(point: Vector2, edge: Dictionary) -> float:
+    return edge["inward_normal"].dot(point - edge["a"])
+
+
+func _project_hull_against_convex_envelope(
+    corrected_transform: Transform2D,
+    local_hull: PackedVector2Array,
+    velocity: Vector2,
+    edges: Array[Dictionary],
+    contacts: Array[String]
+) -> Dictionary:
+    var corrected := false
+    var corrected_velocity := velocity
+    # The frozen rear/left/right vertices form a convex perspective envelope.
+    # In that mathematically justified case, every edge half-plane is part of
+    # the polygon and its infinite supporting line is not an unrelated
+    # segment extension. Applying all active polygon constraints lets a drink
+    # slide into a rear corner instead of being pushed down by one side only.
+    for edge in edges:
+        var minimum_distance := INF
+        for local_point in local_hull:
+            var world_point: Vector2 = corrected_transform * local_point
+            minimum_distance = minf(minimum_distance, _edge_signed_distance(world_point, edge))
+        if minimum_distance >= 0.0:
+            continue
+        var normal: Vector2 = edge["inward_normal"]
+        corrected_transform.origin += normal * (-minimum_distance + TABLE_SOLVER_EPSILON)
+        var normal_velocity: float = corrected_velocity.dot(normal)
+        if normal_velocity < 0.0:
+            corrected_velocity -= normal * normal_velocity
+        var edge_name := String(edge["name"])
+        if not contacts.has(edge_name):
+            contacts.append(edge_name)
+        corrected = true
+    return {
+        "transform": corrected_transform,
+        "velocity": corrected_velocity,
+        "corrected": corrected,
+    }
 func project_visual_hull_inside_table(
     body_transform: Transform2D,
     local_hull: PackedVector2Array,
@@ -267,32 +306,29 @@ func project_visual_hull_inside_table(
         }
 
     var edges := get_playable_boundary_edges()
-    for _iteration in range(3):
-        var corrected := false
-        for edge in edges:
-            var min_distance := INF
-            for local_point in local_hull:
-                var world_point: Vector2 = corrected_transform * local_point
-                var distance: float = edge["inward_normal"].dot(world_point - edge["a"])
-                min_distance = minf(min_distance, distance)
-
-            if min_distance < 0.0:
-                var penetration := -min_distance
-                corrected_transform.origin += edge["inward_normal"] * (penetration + TABLE_SOLVER_EPSILON)
-                var normal_velocity: float = corrected_velocity.dot(edge["inward_normal"])
-                if normal_velocity < 0.0:
-                    corrected_velocity -= edge["inward_normal"] * normal_velocity
-                var edge_name := String(edge["name"])
-                if not contacts.has(edge_name):
-                    contacts.append(edge_name)
-                corrected = true
-
+    var corrected_any := false
+    # First settle the authoritative glass/container body against the convex
+    # frozen envelope. This phase must converge before garnish-only lateral
+    # safety is considered, otherwise a rear-corner side correction can keep
+    # reintroducing a false rear gap.
+    for _iteration in range(8):
+        var body_projection := _project_hull_against_convex_envelope(
+            corrected_transform,
+            local_hull,
+            corrected_velocity,
+            edges,
+            contacts
+        )
+        corrected_transform = body_projection["transform"]
+        corrected_velocity = body_projection["velocity"]
+        var corrected := bool(body_projection["corrected"])
+        corrected_any = corrected_any or corrected
         if not corrected:
             break
 
-    # A later corner projection can introduce a small outward component against
-    # an earlier rail. Re-apply only the outward normal removal for every rail
-    # whose final hull is on/through its half-plane; tangential motion remains.
+    # A later finite-segment/corner projection can introduce a small outward
+    # component against an earlier rail. Remove only that outward component;
+    # tangent velocity and merge momentum remain untouched.
     for edge in edges:
         var final_min_distance := INF
         for local_point in local_hull:
@@ -303,11 +339,10 @@ func project_visual_hull_inside_table(
             var final_normal_velocity: float = corrected_velocity.dot(edge["inward_normal"])
             if final_normal_velocity < 0.0:
                 corrected_velocity -= edge["inward_normal"] * final_normal_velocity
-
     return {
         "transform": corrected_transform,
         "velocity": corrected_velocity,
-        "corrected": not contacts.is_empty(),
+            "corrected": corrected_any or not contacts.is_empty(),
         "contacts": contacts,
     }
 

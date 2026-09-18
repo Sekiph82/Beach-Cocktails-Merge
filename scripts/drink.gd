@@ -276,19 +276,24 @@ static func create(p_level: int) -> Drink:
 
 
 func get_boundary_contact_hull_local() -> PackedVector2Array:
-    var source_hull := boundary_contact_hull_source_for_level(level)
+    return _source_points_to_visual_local(boundary_contact_hull_source_for_level(level))
+
+
+func _source_points_to_visual_local(source_points: PackedVector2Array) -> PackedVector2Array:
     var local_hull := PackedVector2Array()
-    if source_hull.is_empty():
+    if source_points.is_empty():
         return local_hull
 
-    var presentation_scale := 1.0
-    if _cocktail_sprite != null:
-        presentation_scale *= _cocktail_sprite.scale.x
+    # The rendered hierarchy is RigidBody2D -> Visual -> CocktailSprite.
+    # Compose the actual child transforms instead of applying root scale only
+    # to source points while leaving the Sprite2D origin unscaled.
+    var visual_to_body := Transform2D.IDENTITY
     if _visual_root != null:
-        presentation_scale *= _visual_root.scale.x
-    var sprite_origin := _cocktail_sprite.position if _cocktail_sprite != null else Vector2.ZERO
-    for source_point in source_hull:
-        local_hull.append(sprite_origin + source_point * presentation_scale)
+        visual_to_body = _visual_root.transform
+    if _cocktail_sprite != null:
+        visual_to_body = visual_to_body * _cocktail_sprite.transform
+    for source_point in source_points:
+        local_hull.append(visual_to_body * source_point)
     return local_hull
 
 
