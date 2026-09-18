@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
 - Current Task: Close the remaining three-sided tabletop playable-boundary defects, add explicit post-merge wall-boundary correction, and apply the owner-requested HUD alignment refinements while preserving all already-fixed runtime behavior.
-- Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V05.md`, writes the R10 V03 log, runs full active regression including left/right wall-merge tests, then STOPS for independent ChatGPT audit.
+- Current Task Status: OWNER_RUNTIME_VERIFICATION_REQUIRED
+- Next Task/Action: Owner runs the current R10 V05 implementation in normal Godot GUI/F5 and supplies runtime evidence for the three-sided playable envelope, side-wall merge behavior and final HUD. Do not issue another Codex remediation until that owner runtime evidence is reviewed.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -71,7 +71,7 @@ Latest owner runtime evidence establishes:
 
 R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V05 — rear/side contact + merge-wall correction + HUD alignment closure
+## Active R10 V05 — source implemented, owner runtime verification pending
 
 Locked criteria:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V05.md`
@@ -118,7 +118,7 @@ Required layout:
 7. To-Go top placement and held-drink/gold-oval alignment remain unchanged.
 8. HUD layout never affects gameplay/table bounds.
 
-Run full active M01-M07 regression, current R09/R10 focused tests, focused left/right wall-merge regression, desktop idle smoke, Godot import/startup, parse/check-only and `git diff --check`, then STOP for independent audit.
+Independent audit: `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V03.md` — CHANGES_REQUIRED / OWNER_RUNTIME_VERIFICATION_REQUIRED. Source-level geometry, rear-target formula, Solution 1 merge X clamp and HUD alignment code are present, but final GUI visual proof is missing and the physical TopRail does not literally coincide with `rear_table_y` under the locked criterion.
 
 M08 may not start until M06/M07 are independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
 
