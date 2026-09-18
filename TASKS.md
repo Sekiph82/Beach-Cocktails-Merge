@@ -8,8 +8,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Sprint: BCM-M05-STRICT-CLOSURE
 - Current Task: Resolve the remaining M05-R02 independent sprite/collider evidence blocker without changing the owner-accepted R11 table-edge behavior.
 - Current Task Status: READY
-- Next Task/Action: Create a bounded M05 strict-evidence remediation that independently re-establishes body/collider measurements and correct shape classifications without retuning gameplay physics or changing the accepted R11 table-edge solution.
-- Required Actor: CHATGPT → CODEX
+- Next Task/Action: Codex executes `coordination/sessions/BCM-M05-STRICT-CLOSURE/CHATGPT_EXECUTION_PROMPT_V01.md` to independently re-establish sprite/collider evidence and correct shape classifications without modifying the owner-accepted R11 gameplay.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -49,6 +49,18 @@ Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopen
 - [x] M02 collision/merge/rapid-launch physics.
 - [x] M03 scoring/combo/To-Go/persistence/Game Over.
 - [x] M04 refreshed canonical visual asset family.
+
+
+
+## Active M05 strict closure
+
+Locked criteria:
+`coordination/sessions/BCM-M05-STRICT-CLOSURE/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Execution prompt:
+`coordination/sessions/BCM-M05-STRICT-CLOSURE/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+This is evidence-only remediation. Production gameplay, R11 table-edge behavior, collider radii, canonical PNGs and HUD are frozen.
 
 ## M05-R02 — Still open
 
