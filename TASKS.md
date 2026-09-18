@@ -8,8 +8,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Sprint: BCM-M08-TO-GO-DELIVERY-POLISH
 - Current Task: Integrate To-Go delivery animation and restrained merge/order visual feedback without changing accepted physics, scoring, table-edge behavior, HUD layout, or canonical assets.
 - Current Task Status: READY
-- Next Task/Action: ChatGPT issues the locked M08 criteria/prompt; Codex implements bounded To-Go delivery/merge feedback and stops for independent audit.
-- Required Actor: CHATGPT → CODEX
+- Next Task/Action: Codex executes `coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`, implements bounded To-Go delivery/merge feedback, runs focused/full regressions, pushes evidence/log, then stops for independent audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -196,6 +196,16 @@ Required layout:
 Independent audit: `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V03.md` — CHANGES_REQUIRED / OWNER_RUNTIME_VERIFICATION_REQUIRED. Source-level geometry, rear-target formula, Solution 1 merge X clamp and HUD alignment code are present, but final GUI visual proof is missing and the physical TopRail does not literally coincide with `rear_table_y` under the locked criterion.
 
 M05, M06 and M07 are closed. M08 may start.
+
+## Active M08 delivery polish
+
+Locked criteria:
+`coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Execution prompt:
+`coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Scope is visual polish only. Accepted physics, scoring, R11 table-edge behavior, rails, HUD layout, canonical assets and gameplay contracts are frozen.
 
 ## M08-M12 — Planned
 
