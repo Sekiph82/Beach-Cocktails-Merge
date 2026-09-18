@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
 - Current Task: Preserve the owner-approved V05 playable envelope and Solution 1, replace the failed V06 radius-derived footprint with an independent per-level 2D table-edge contact dataset, and close the remaining cocktail-to-edge visual gap.
-- Current Task Status: READY
-- Next Task/Action: Codex executes R10 V10 remediation from `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V10.md`: reproduce the owner-observed V09 runtime failure, fix hull transform composition, repair segment-aware containment so side escape is impossible and rear contact is visually correct, rerun stress/full regression, then stop for audit.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: R10 V10 audit found two blockers: the solver incorrectly assumes the frozen piecewise rail chain is globally convex and applies all segment lines as global half-planes; and the post-fix side regression switched from the owner-visible rendered footprint metric to glass-body-only containment. Remediate both before owner GUI verification.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -71,7 +71,7 @@ Latest owner runtime evidence establishes:
 
 R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V10 — owner-runtime remediation
+## Active R10 V10 — audited CHANGES_REQUIRED
 
 Locked criteria:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V09.md`
