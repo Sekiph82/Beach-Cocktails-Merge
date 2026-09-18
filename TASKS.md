@@ -8,7 +8,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
 - Current Task: Preserve the owner-approved V05 playable envelope and Solution 1, replace the failed V06 radius-derived footprint with an independent per-level 2D table-edge contact dataset, and close the remaining cocktail-to-edge visual gap.
 - Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Remediate R10 V09 hull-transform composition. The current visual contact hull does not exactly match the rendered Sprite2D because `_visual_root.scale` is applied to source-point scale but not to the sprite position/offset. Fix transform composition, add focused equivalence coverage, rerun regressions, then stop for audit.
+- Next Task/Action: V09 owner runtime FAILED. Rear gap remains and cocktails visibly escape the accepted left/right playable envelope. Do not treat the transform-composition fix alone as sufficient. First reproduce and explain the owner-observed runtime failure, strengthen tests to cover actual side escape + rear clearance, then design the next remediation.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
