@@ -25,29 +25,47 @@ Preserve:
 - deceleration 180 px/s²;
 - collision/momentum/merge/combo/scoring/To-Go economy/persistence/Game Over/restart/rapid launch.
 
-## Part A — rear target
+## Part A — rear/opposite playable boundary
+
+The owner does NOT want only the left/right playable rails moved inward.
+
+The **opposite/rear playable boundary must also be moved inward** to the owner-annotated white-line position shown in the latest screenshot.
+
+This means the playable table envelope is three-sided:
+- left playable rail: slightly inward;
+- right playable rail: slightly inward;
+- opposite/rear playable rail: also inward to the owner-marked boundary.
+
 For every cocktail level L01-L12:
 
 `rear_target_y = rear_table_y`
 
+Here, `rear_table_y` means the **new inward owner-defined opposite/rear playable boundary**, not the previous farther-back visual/table edge.
+
 Do not add collider radius, body extent, sprite size, width, height or per-level Y offsets to this rear target.
 
-The moving RigidBody2D must be able to reach the intended rear target without a stale hidden TopRail stopping it earlier.
+The moving RigidBody2D must be able to reach this new inward rear target, and the physical rear wall/TopRail must coincide with it.
 
-## Part B — move side playable rails slightly inward
-The latest owner screenshot shows the side playable boundary should sit slightly inside the current extreme edge.
+## Part B — move the complete three-sided playable envelope inward
 
-Implement a **modest inward inset** for the left and right playable rails while preserving the current perspective shape.
+The latest owner screenshot shows the intended playable boundary explicitly with white annotations.
+
+Implement a **modest inward inset for all three far/table-edge limits**:
+- left side rail;
+- right side rail;
+- opposite/rear rail.
 
 Owner intent:
-- the usable boundary should visually follow the white annotated side lines;
-- the playable edge stays on visible tabletop wood;
-- it should not ride directly on the extreme decorative/frame edge;
-- do not materially shrink the table.
+- the usable boundary should visually follow the white annotated lines as one coherent perspective envelope;
+- the left/right edges stay on visible tabletop wood rather than the extreme decorative/frame edge;
+- the opposite/rear playable edge moves inward to the white owner-marked line, rather than remaining at the previously used farther-back boundary;
+- preserve the trapezoidal/perspective table shape;
+- do not turn the table into a rectangle;
+- do not materially shrink the table beyond the owner's marked boundary.
 
 Do not use HUD geometry to define this.
 
-Retain moving-body evidence at both left and right boundaries.
+Retain moving-body evidence at the left, right, and new opposite/rear playable boundaries.
 
 ## Part C — merge-at-wall correction: use Solution 1 only
 The owner wants to test the explicit post-merge boundary correction first.
