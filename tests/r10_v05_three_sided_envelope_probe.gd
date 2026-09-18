@@ -56,7 +56,7 @@ func _run() -> void:
 func _check_wall_merge(manager: GameManager, side: String) -> void:
     var y_pos := lerpf(manager.rear_table_y, manager.table_bottom_y, 0.22)
     var small_radius := Drink.collider_radius_for_level(1)
-    var input_bounds := manager.get_horizontal_bounds_at_y(y_pos, small_radius)
+    var input_bounds := manager.get_horizontal_edge_contact_bounds_at_y(y_pos, 1)
     var input_x := input_bounds.x if side == "left" else input_bounds.y
     var first := manager.spawn_drink(1, Vector2(input_x, y_pos), false)
     var second := manager.spawn_drink(1, Vector2(input_x, y_pos), false)
@@ -77,7 +77,7 @@ func _check_wall_merge(manager: GameManager, side: String) -> void:
     if not is_instance_valid(result):
         return
 
-    var result_bounds := manager.get_horizontal_bounds_at_y(result.position.y, result.radius)
+    var result_bounds := manager.get_horizontal_edge_contact_bounds_at_y(result.position.y, result.level)
     var expected_x := result_bounds.x if side == "left" else result_bounds.y
     var contained := result.position.x >= result_bounds.x - 0.01 and result.position.x <= result_bounds.y + 0.01
     var tangent := absf(result.position.x - expected_x) <= 0.01

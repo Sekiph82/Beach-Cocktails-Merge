@@ -1,0 +1,26 @@
+{
+  "schema": "BCM-R10-V06-2d-edge-contact-footprint-V01",
+  "measurement_basis": "Visible glass/container body width from the committed M05 body measurements, converted through the runtime sprite scale and the existing 2D screen-space presentation scale; garnish, straw, fruit, flowers, leaves, umbrellas and transparent margins excluded.",
+  "sample_y": 620.0,
+  "rear_rule": "rear_target_y = rear_table_y",
+  "ccd_mode": "RigidBody2D.CCD_MODE_CAST_SHAPE",
+  "v05_envelope_source": {
+    "rear_y": 478.0,
+    "left": [[199.0,478.0],[149.0,587.0],[124.0,644.0],[85.0,734.0],[60.0,800.0],[20.0,1000.0],[8.0,1186.0]],
+    "right": [[833.0,478.0],[880.0,587.0],[905.0,644.0],[942.0,734.0],[964.0,800.0],[1002.0,1000.0],[1016.0,1186.0]]
+  },
+  "levels": [
+    {"level":1,"visible_body_width_px":690.0,"collider_radius":20.0,"edge_contact_half_width_at_y620":19.5875,"ccd":"CAST_SHAPE"},
+    {"level":2,"visible_body_width_px":725.0,"collider_radius":23.0,"edge_contact_half_width_at_y620":22.5256,"ccd":"CAST_SHAPE"},
+    {"level":3,"visible_body_width_px":627.0,"collider_radius":27.0,"edge_contact_half_width_at_y620":26.4431,"ccd":"CAST_SHAPE"},
+    {"level":4,"visible_body_width_px":759.0,"collider_radius":31.0,"edge_contact_half_width_at_y620":30.3606,"ccd":"CAST_SHAPE"},
+    {"level":5,"visible_body_width_px":545.0,"collider_radius":36.0,"edge_contact_half_width_at_y620":35.2575,"ccd":"CAST_SHAPE"},
+    {"level":6,"visible_body_width_px":700.0,"collider_radius":42.0,"edge_contact_half_width_at_y620":41.1338,"ccd":"CAST_SHAPE"},
+    {"level":7,"visible_body_width_px":575.0,"collider_radius":49.0,"edge_contact_half_width_at_y620":47.9894,"ccd":"CAST_SHAPE"},
+    {"level":8,"visible_body_width_px":615.0,"collider_radius":56.0,"edge_contact_half_width_at_y620":54.8450,"ccd":"CAST_SHAPE"},
+    {"level":9,"visible_body_width_px":650.0,"collider_radius":64.0,"edge_contact_half_width_at_y620":62.6800,"ccd":"CAST_SHAPE"},
+    {"level":10,"visible_body_width_px":625.0,"collider_radius":72.0,"edge_contact_half_width_at_y620":70.5150,"ccd":"CAST_SHAPE"},
+    {"level":11,"visible_body_width_px":610.0,"collider_radius":80.0,"edge_contact_half_width_at_y620":78.3500,"ccd":"CAST_SHAPE"},
+    {"level":12,"visible_body_width_px":710.0,"collider_radius":90.0,"edge_contact_half_width_at_y620":88.1438,"ccd":"CAST_SHAPE"}
+  ]
+}

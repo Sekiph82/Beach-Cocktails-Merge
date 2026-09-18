@@ -98,7 +98,7 @@ func _spawn_contact_cases(manager: GameManager) -> Array[Dictionary]:
         # far contact case therefore uses the first radius-safe Y at that
         # measured rear depth, while retaining the same visible side edge.
         var y_pos := maxf(requested_y, manager.table_top_y + radius + GameManager.TABLE_SOLVER_EPSILON)
-        var bounds := manager.get_horizontal_bounds_at_y(y_pos, radius)
+        var bounds := manager.get_horizontal_edge_contact_bounds_at_y(y_pos, level)
         for side in ["left", "right"]:
             var x_pos := bounds.x if side == "left" else bounds.y
             var drink := manager.spawn_drink(level, Vector2(x_pos, y_pos), false)
@@ -127,6 +127,9 @@ func _save_capture(viewport: Viewport, manager: GameManager, label: String, over
         await process_frame
         await process_frame
     var image := texture.get_image()
+    if image == null:
+        print("M06_R07_CAPTURE_SKIPPED label=%s reason=headless_renderer_no_image" % label)
+        return
     var suffix := "_geometry_overlay" if overlay else ""
     var path := "%s/%s%s.png" % [CAPTURE_DIR, label, suffix]
     var error := image.save_png(path)

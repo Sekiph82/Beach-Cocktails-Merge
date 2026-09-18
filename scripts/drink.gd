@@ -175,6 +175,23 @@ static func visual_scale_for_level(p_level: int) -> float:
     return (collider_radius_for_level(p_level) * 2.0) / VISIBLE_BODY_WIDTH_PX[p_level - 1]
 
 
+static func visual_body_depth_scale_for_y(y_pos: float) -> float:
+    # This is the existing mild 2D presentation scale applied to the visible
+    # cocktail body. It is not a third dimension and does not alter physics.
+    return lerpf(0.96, 1.0, clampf(y_pos / 1280.0, 0.0, 1.0))
+
+
+static func table_edge_contact_half_width_for_level(p_level: int, y_pos: float) -> float:
+    # Table-edge contact follows the measured visible glass/container body,
+    # not the full garnish silhouette or the drink-to-drink collider. The
+    # visible body width is converted with the same runtime sprite scale and
+    # the existing 2D presentation scale at this screen-space Y.
+    if p_level < 1 or p_level > VISIBLE_BODY_WIDTH_PX.size():
+        return 0.0
+    var visible_body_width_px: float = float(VISIBLE_BODY_WIDTH_PX[p_level - 1]) * visual_scale_for_level(p_level)
+    return visible_body_width_px * 0.5 * visual_body_depth_scale_for_y(y_pos)
+
+
 static func visual_offset_for_level(p_level: int) -> Vector2:
     if p_level < 1 or p_level > VISIBLE_BODY_CENTER_OFFSET_PX.size():
         return Vector2.ZERO
@@ -427,7 +444,7 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
     # not offset by this drink's collider radius or visual dimensions. The
     # side clamp continues to follow the measured perspective rails.
     if GameManager.instance != null:
-        var safe_position := GameManager.instance.clamp_position_to_board(state.transform.origin, radius)
+        var safe_position := GameManager.instance.clamp_position_to_board(state.transform.origin, radius, level)
         if safe_position.y != state.transform.origin.y:
             var transform := state.transform
             transform.origin = safe_position

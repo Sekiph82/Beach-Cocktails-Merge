@@ -216,13 +216,21 @@ func _piecewise_source_x(points: Array, source_y: float) -> float:
     return float(points.back().x)
 
 
-func get_horizontal_bounds_at_y(y_pos: float, radius: float = 0.0) -> Vector2:
+func get_horizontal_bounds_at_y(y_pos: float, radius: float = 0.0, edge_contact_half_width: float = -1.0) -> Vector2:
     var rails := get_table_rail_bounds_at_y(y_pos)
-    # `rails` is the visible tabletop edge. Side-wall bodies are offset
-    # outward in _build_walls(), so their inward collision faces coincide with
-    # this edge. Only the physical body radius and a tiny solver epsilon are
-    # removed from the lateral playable width; HUD rectangles never enter it.
-    return Vector2(rails.x + radius + TABLE_SOLVER_EPSILON, rails.y - radius - TABLE_SOLVER_EPSILON)
+    # `rails` is the accepted visible tabletop edge. Drink-to-drink callers
+    # retain the collider-radius form; table-edge callers pass the separate
+    # visible-body footprint. HUD rectangles never enter this calculation.
+    var side_clearance := radius if edge_contact_half_width < 0.0 else edge_contact_half_width
+    return Vector2(rails.x + side_clearance + TABLE_SOLVER_EPSILON, rails.y - side_clearance - TABLE_SOLVER_EPSILON)
+
+
+func get_table_edge_contact_half_width(level: int, y_pos: float) -> float:
+    return Drink.table_edge_contact_half_width_for_level(level, y_pos)
+
+
+func get_horizontal_edge_contact_bounds_at_y(y_pos: float, level: int) -> Vector2:
+    return get_horizontal_bounds_at_y(y_pos, 0.0, get_table_edge_contact_half_width(level, y_pos))
 
 
 func get_rear_target_center_y(body_half_extent_y: float) -> float:
@@ -232,17 +240,19 @@ func get_rear_target_center_y(body_half_extent_y: float) -> float:
     return rear_table_y
 
 
-func clamp_position_to_board(pos: Vector2, radius: float) -> Vector2:
-    # Rear contact is an exact common center line. Lateral clearance remains
-    # radius-aware; rear Y must not acquire a size-based offset.
+func clamp_position_to_board(pos: Vector2, radius: float, level: int = 0) -> Vector2:
+    # Rear contact is an exact common center line. Only lateral side contact
+    # uses the separate visible-body footprint when a level is available.
     pos.y = clampf(pos.y, rear_table_y, table_bottom_y - radius - TABLE_SOLVER_EPSILON)
-    var bounds := get_horizontal_bounds_at_y(pos.y, radius)
+    var edge_contact_half_width := get_table_edge_contact_half_width(level, pos.y) if level > 0 else radius
+    var bounds := get_horizontal_bounds_at_y(pos.y, radius, edge_contact_half_width)
     pos.x = clampf(pos.x, bounds.x, bounds.y)
     return pos
 
 
-func get_launch_position(x_pos: float, radius: float = 20.0) -> Vector2:
-    var bounds := get_horizontal_bounds_at_y(launch_y, radius)
+func get_launch_position(x_pos: float, radius: float = 20.0, level: int = 0) -> Vector2:
+    var edge_contact_half_width := get_table_edge_contact_half_width(level, launch_y) if level > 0 else radius
+    var bounds := get_horizontal_bounds_at_y(launch_y, radius, edge_contact_half_width)
     return Vector2(clampf(x_pos, bounds.x, bounds.y), launch_y)
 
 
@@ -258,7 +268,7 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
     # coordinate even when a high-level visual/collider footprint would extend
     # beyond the near-rail clearance. Settled/physics drinks retain the normal
     # board clamp and collider behavior.
-    pos = get_launch_position(pos.x, drink.radius) if held else clamp_position_to_board(pos, drink.radius)
+    pos = get_launch_position(pos.x, drink.radius, drink.level) if held else clamp_position_to_board(pos, drink.radius, drink.level)
     drink.position = pos
     drink.merged.connect(merge_queue.request_merge)
     world.add_child(drink)
@@ -440,20 +450,24 @@ func _build_walls() -> void:
         right_points.append(source_to_viewport(point, size))
 
     # Each segment follows the measured visible edge. The physical wall is
-    # offset outward by half its thickness, leaving its inward face on the
-    # visible boundary and avoiding a second wall-width clamp inset.
+    # offset outward by half its thickness plus the largest collider-vs-body
+    # clearance difference. The logical center limits still use the exact
+    # per-level visible-body footprint; this extra physical offset prevents a
+    # full-radius drink collider from being solver-ejected past that limit.
     for index in range(left_points.size() - 1):
         var a := left_points[index]
         var b := left_points[index + 1]
         var direction := b - a
-        var outward := Vector2(-direction.y, direction.x).normalized() * wall_thickness * 0.5
-        _add_wall_segment(a + outward, b + outward, wall_thickness, "LeftRail" if index == 0 else "LeftRail_%d" % index, 0.0)
+        var outward := Vector2(-direction.y, direction.x).normalized()
+        var outward_distance := wall_thickness * 0.5 + _max_side_wall_clearance(a, b)
+        _add_wall_segment(a + outward * outward_distance, b + outward * outward_distance, wall_thickness, "LeftRail" if index == 0 else "LeftRail_%d" % index, 0.0)
     for index in range(right_points.size() - 1):
         var a := right_points[index]
         var b := right_points[index + 1]
         var direction := b - a
-        var outward := Vector2(direction.y, -direction.x).normalized() * wall_thickness * 0.5
-        _add_wall_segment(a + outward, b + outward, wall_thickness, "RightRail" if index == 0 else "RightRail_%d" % index, 0.0)
+        var outward := Vector2(direction.y, -direction.x).normalized()
+        var outward_distance := wall_thickness * 0.5 + _max_side_wall_clearance(a, b)
+        _add_wall_segment(a + outward * outward_distance, b + outward * outward_distance, wall_thickness, "RightRail" if index == 0 else "RightRail_%d" % index, 0.0)
 
     # TopRail derives its span from the owner-defined common rear line. Its inward face
     # is placed one largest active collider radius plus a small clearance
@@ -470,6 +484,16 @@ func _build_walls() -> void:
     var bottom_right: Vector2 = right_points[right_points.size() - 1]
     _add_wall_segment(top_left + Vector2(0.0, -wall_thickness * 0.5), top_right + Vector2(0.0, -wall_thickness * 0.5), wall_thickness, "TopRail", 0.0)
     _add_wall_segment(bottom_left + Vector2(0.0, wall_thickness * 0.5), bottom_right + Vector2(0.0, wall_thickness * 0.5), wall_thickness, "BottomRail", 0.0)
+
+
+func _max_side_wall_clearance(a: Vector2, b: Vector2) -> float:
+    var clearance := 0.0
+    for sample in [a, b]:
+        for level in range(1, Drink.max_level() + 1):
+            var collider_radius := Drink.collider_radius_for_level(level)
+            var edge_contact_half_width := get_table_edge_contact_half_width(level, sample.y)
+            clearance = maxf(clearance, collider_radius - edge_contact_half_width)
+    return maxf(clearance, 0.0) + TABLE_SOLVER_EPSILON
 
 
 func _add_wall_segment(a: Vector2, b: Vector2, thickness: float, wall_name: String, bounce: float) -> void:
