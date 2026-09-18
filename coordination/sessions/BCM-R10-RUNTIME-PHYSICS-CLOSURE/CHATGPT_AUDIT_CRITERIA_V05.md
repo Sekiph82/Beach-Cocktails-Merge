@@ -17,7 +17,15 @@ The following remain accepted and must not regress:
 9. Collision/momentum/merge/combo/scoring/To-Go economy/persistence/Game Over/restart/rapid-launch behavior remains intact.
 10. Canonical PNGs are not modified.
 
-## Active problem A — rear tabletop contact
+## Active problem A — opposite/rear playable boundary must also move inward
+
+The latest owner screenshot clarifies that the requested playable inset is not side-only.
+
+The complete owner-defined playable envelope has **three active far boundaries**:
+- left rail moved slightly inward;
+- right rail moved slightly inward;
+- opposite/rear rail moved inward to the owner-annotated white-line position.
+
 The owner rear-target rule remains:
 
 `rear_target_y = rear_table_y`
@@ -28,21 +36,25 @@ Equivalent:
 
 for the rear target.
 
+In this V05, `rear_table_y` is the **new inward playable rear boundary shown by the owner annotation**, not the previously farther-back rear edge.
+
 Do not add collider radius, body half extent, sprite size, drink size, width/height-based clearance, per-level Y offsets or per-level rear targets.
 
-The physical rear collision must not stop the moving RigidBody2D before this target.
+The physical rear collision/TopRail must coincide with this new inward `rear_table_y` and must not define a different farther-back or earlier boundary.
 
-## Active problem B — side playable rails should be slightly more inward
-The latest owner screenshot shows that the side playable boundary should sit slightly farther inside the visible tabletop than the current side collision path.
+## Active problem B — three-sided playable envelope should move inward
 
 Requirements:
 1. Move the effective left/right playable side rails inward by a small, visually conservative amount.
-2. The final side boundary should follow the owner's annotated white-line intent: remain on visible tabletop wood and not ride directly on the extreme decorative/frame edge.
-3. The inset must be modest. Do not materially shrink the playable table.
-4. Preserve the current perspective shape and rear geometry. Do not turn the table into a rectangle.
-5. Left/right playable limits must remain symmetric in intent and responsive across supported portrait layouts.
-6. The HUD must not define or influence these side physics bounds.
-7. Validate with moving drinks at left and right sides, not only coordinate math.
+2. Move the effective opposite/rear playable rail inward to the owner-annotated white-line position.
+3. The three boundaries together must follow the owner's annotated perspective envelope.
+4. The final left/right boundaries remain on visible tabletop wood and do not ride the extreme decorative/frame edge.
+5. The rear boundary must no longer use the farther-back playable line that the owner rejected.
+6. Preserve the perspective/trapezoidal shape. Do not turn the table into a rectangle.
+7. The inset must be modest and follow the owner's visual mark rather than an arbitrary large reduction.
+8. Left/right playable limits remain symmetric in intent and responsive across supported portrait layouts.
+9. The HUD must not define or influence these physics bounds.
+10. Validate with moving drinks against left, right, and opposite/rear boundaries, not only coordinate math.
 
 ## Active problem C — merge-created larger drink must be boundary-corrected immediately
 The owner observed a repeatable physics defect:
