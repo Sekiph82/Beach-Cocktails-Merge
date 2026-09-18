@@ -19,7 +19,7 @@
   - `git remote -v` — canonical repository confirmed.
   - `git fetch origin main` — completed successfully.
   - `git rev-list --left-right --count HEAD...origin/main` — `0 5` before reconciliation.
-  - `git merge --ff-only origin/main` — completed successfully to synchronized start HEAD `92df408f0b4e6a0992ef40db13a3fe0b4e88886c`.
+  - `git merge --ff-only origin/main` — completed successfully to synchronized start HEAD `92df408dcab57aaf97a0be22a2eac835596725c1`.
 - The fast-forward changed only the remote-issued `TASKS.md`, V08 prompt, V08 criteria, and V07 audit artifacts. `TASKS.md` was not edited by Codex.
 - Owner-dirty files were preserved and never staged:
   - `project.godot`
