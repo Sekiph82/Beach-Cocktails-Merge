@@ -6,9 +6,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
-- Current Task: Close the remaining three-sided tabletop playable-boundary defects, add explicit post-merge wall-boundary correction, and apply the owner-requested HUD alignment refinements while preserving all already-fixed runtime behavior.
-- Current Task Status: OWNER_RUNTIME_VERIFICATION_REQUIRED
-- Next Task/Action: Owner runs the current R10 V05 implementation in normal Godot GUI/F5 and supplies runtime evidence for the three-sided playable envelope, side-wall merge behavior and final HUD. Do not issue another Codex remediation until that owner runtime evidence is reviewed.
+- Current Task: Preserve the owner-approved V05 playable envelope and Solution 1, then test a 2D-specific table-edge contact footprint plus CAST_SHAPE CCD to close the remaining cocktail-to-edge visual gap.
+- Current Task Status: READY
+- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V06.md`, preserves V05 envelope/Solution 1, adds the separate 2D table-edge footprint + CAST_SHAPE CCD experiment, writes CODEX_LOG_V04, runs full regression, then STOPS for independent audit and owner GUI verification.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -71,15 +71,21 @@ Latest owner runtime evidence establishes:
 
 R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V05 — source implemented, owner runtime verification pending
+## Active R10 V06 — 2D table-edge footprint + CCD experiment
 
 Locked criteria:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V05.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V06.md`
 
 Execution prompt:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V05.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V06.md`
 
-### Three-sided playable-boundary rule
+### V05 owner-approved baseline
+
+The owner visually accepted the current three-sided playable envelope. Do not move it in V06.
+
+The V05 explicit post-merge boundary clamp also improved gameplay feel and must be preserved.
+
+### V06 2D edge-contact experiment
 
 Mandatory owner rule for all L01-L12:
 
@@ -95,7 +101,18 @@ Required boundary closure:
 5. Preserve the perspective/trapezoidal playable envelope.
 6. Validate actual moving contacts at left, right, and opposite/rear boundaries, not direct-spawn coordinate agreement only.
 
-### Side-boundary and merge-wall rules
+### Edge-contact / merge-wall rules
+
+1. Keep drink-to-drink collider radii unchanged.
+2. Introduce a separate 2D table-edge contact footprint/clearance derived from the visible glass/container body, excluding garnish and transparent margins.
+3. Side center limits use the table-edge footprint instead of automatically using the full drink collider radius.
+4. The preserved V05 merge clamp must use the new table-edge footprint for X containment.
+5. Enable/test RigidBody2D CAST_SHAPE continuous collision detection as an auxiliary stabilizer.
+6. Do not implement a fake unsupported CollisionShape2D margin API or CharacterBody2D safe-margin behavior.
+7. Rear target remains exactly `rear_target_y = rear_table_y`.
+8. Playable envelope coordinates must remain unchanged.
+
+### Preserved HUD / runtime rules
 
 1. Move the left/right playable rails modestly inward while preserving perspective and usable table area.
 2. When a merge creates a larger drink near a side wall, immediately clamp the new result to the authoritative valid X range using the new drink's current half-width before physics overlap resolution can eject it inward.
