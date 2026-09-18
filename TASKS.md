@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
 - Current Task: Preserve the owner-approved V05 playable envelope and Solution 1, replace the failed V06 radius-derived footprint with an independent per-level 2D table-edge contact dataset, and close the remaining cocktail-to-edge visual gap.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Prepare a new remediation that calibrates table-edge contact in runtime screen-space without using collider-derived visual scale directly or indirectly. V07 audit found the hardcoded dataset reproduces collider-derived scaling within rounding tolerance.
+- Current Task Status: READY
+- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V08.md`, applies the exact prescribed V08 runtime-pixel edge-contact dataset and helper code, preserves V05 envelope/Solution 1, writes CODEX_LOG_V06, runs full regression, then STOPS for independent audit and owner GUI verification.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -71,16 +71,16 @@ Latest owner runtime evidence establishes:
 
 R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V07 — audited CHANGES_REQUIRED
+## Active R10 V08 — exact prescribed runtime-pixel edge-contact calibration
 
 Locked criteria:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V07.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V08.md`
 
 Independent audit:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V05.md` — CHANGES_REQUIRED.
 
 Execution prompt:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V07.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V08.md`
 
 ### V05 owner-approved baseline
 
