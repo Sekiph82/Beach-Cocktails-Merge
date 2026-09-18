@@ -10,27 +10,32 @@ static var instance: GameManager
 const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
 
-# Independent R09 measurement of the first stable visible tabletop row in the
-# active owner-approved background. This is one common rear boundary for all
-# cocktail levels; only the body half-extent changes the rear center target.
-const ACTUAL_REAR_TABLE_SOURCE_Y := 457.0
+# R10-V05 owner annotation measurement from the attached runtime screenshot.
+# The white three-sided envelope is the playable boundary: its rear line is
+# intentionally farther toward the player than the retired R09 y=457 sample,
+# and its left/right far edges are inset from the old tabletop rails.  This is
+# one common rear boundary for all cocktail levels; only the body half-extent
+# changes any caller-side tangency calculation.
+const ACTUAL_REAR_TABLE_SOURCE_Y := 478.0
 
-# Independent M06-R07 measurements from the active runtime/background render.
-# These are the visible INNER tabletop-surface edges at five depths. R06 used
-# the outer frame edge, which let large glass bodies visibly leave the wood;
-# this piecewise boundary follows the actual playable wood surface while still
-# opening the curved rear/side area that the retired straight line clipped.
+# Source-space samples measured from the owner white annotation.  The final
+# two samples blend back into the already accepted near-table perspective so
+# the rear/side inset does not shrink the launch or danger area.
 const TABLE_LEFT_EDGE_SOURCE_POINTS := [
-    Vector2(154.0, 472.0),
-    Vector2(96.0, 620.0),
-    Vector2(48.0, 800.0),
+    Vector2(199.0, 478.0),
+    Vector2(149.0, 587.0),
+    Vector2(124.0, 644.0),
+    Vector2(85.0, 734.0),
+    Vector2(60.0, 800.0),
     Vector2(20.0, 1000.0),
     Vector2(8.0, 1186.0),
 ]
 const TABLE_RIGHT_EDGE_SOURCE_POINTS := [
-    Vector2(870.0, 472.0),
-    Vector2(928.0, 620.0),
-    Vector2(976.0, 800.0),
+    Vector2(833.0, 478.0),
+    Vector2(880.0, 587.0),
+    Vector2(905.0, 644.0),
+    Vector2(942.0, 734.0),
+    Vector2(964.0, 800.0),
     Vector2(1002.0, 1000.0),
     Vector2(1016.0, 1186.0),
 ]
@@ -450,9 +455,7 @@ func _build_walls() -> void:
         var outward := Vector2(direction.y, -direction.x).normalized() * wall_thickness * 0.5
         _add_wall_segment(a + outward, b + outward, wall_thickness, "RightRail" if index == 0 else "RightRail_%d" % index, 0.0)
 
-    # The retired first source samples were y=472 and left a hidden blocker
-    # below the independently measured visible rear boundary y=457. TopRail
-    # now derives its span from the actual common rear line. Its inward face
+    # TopRail derives its span from the owner-defined common rear line. Its inward face
     # is placed one largest active collider radius plus a small clearance
     # above that line. This prevents the physical rectangle from nudging L12
     # off the exact target; the normal-motion rear solver is authoritative for

@@ -103,6 +103,14 @@ func _do_merge(a: Drink, b: Drink, new_level: int, merge_pos: Vector2, merge_vel
     if new_drink == null:
         return
 
+    # A merge can create a larger collider at a wall-side midpoint that was
+    # valid for the two smaller inputs.  Re-apply the authoritative current
+    # playable envelope immediately after the new collider exists.  This is an
+    # X-only correction: it preserves the merge Y and incoming momentum while
+    # keeping the full merged body inside the owner-defined rail.
+    var merge_bounds := GameManager.instance.get_horizontal_bounds_at_y(new_drink.position.y, new_drink.radius)
+    new_drink.position.x = clampf(new_drink.position.x, merge_bounds.x, merge_bounds.y)
+
     # If either input was genuinely moving, the merged result must keep moving.
     if driver_speed > new_drink.settle_speed:
         if merge_velocity.length() <= new_drink.settle_speed:

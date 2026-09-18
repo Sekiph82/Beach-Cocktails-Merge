@@ -1,0 +1,63 @@
+{
+  "measurement_id": "R10-V05-owner-annotated-three-sided-envelope",
+  "source_screenshot": "C:/Users/sekip/OneDrive/Resimler/Screenshots/Screenshot 2026-09-18 070858.png",
+  "source_screenshot_sha256": "417AACC6A3B0916799D41F77BBD985C2300E20F7E6E9DCE6C3DBE0CD6D711A41",
+  "measurement_method": "Original 2560x1600 screenshot; gameplay viewport bounds x=896..1663 and y=128..1493; white annotation rails isolated by neutral-bright connected-component tracing, then mapped through the canonical 1024x1536 background transform.",
+  "viewport_bounds_screenshot_px": {"left": 896, "top": 128, "width": 768, "height": 1366},
+  "screenshot_to_runtime_scale": 1.066667,
+  "owner_white_annotation_samples_source_px": [
+    {"name": "rear_white_line", "y": 478.0, "left": 199.0, "right": 833.0},
+    {"name": "rear_depth_1", "y": 587.0, "left": 149.0, "right": 880.0},
+    {"name": "rear_depth_2", "y": 644.0, "left": 124.0, "right": 905.0},
+    {"name": "rear_depth_3", "y": 734.0, "left": 85.0, "right": 942.0}
+  ],
+  "actual_visible_rear_table_source_y": 478.0,
+  "source_background": {"width": 1024, "height": 1536, "tolerance_px": 3.0},
+  "samples_source_px": [
+    {"name": "rear_white_line", "y": 478.0, "left": 199.0, "right": 833.0},
+    {"name": "rear_depth_1", "y": 587.0, "left": 149.0, "right": 880.0},
+    {"name": "rear_depth_2", "y": 644.0, "left": 124.0, "right": 905.0},
+    {"name": "rear_depth_3", "y": 734.0, "left": 85.0, "right": 942.0},
+    {"name": "perspective_blend", "y": 800.0, "left": 60.0, "right": 964.0},
+    {"name": "lower_middle", "y": 1000.0, "left": 20.0, "right": 1002.0},
+    {"name": "near_front", "y": 1186.0, "left": 8.0, "right": 1016.0}
+  ],
+  "viewports": {
+    "canonical_720x1280": {
+      "size": [720, 1280],
+      "samples_viewport_px": [
+        {"name": "rear_white_line", "left": 99.167, "right": 627.500},
+        {"name": "rear_depth_1", "left": 57.500, "right": 666.667},
+        {"name": "rear_depth_2", "left": 36.667, "right": 687.500},
+        {"name": "rear_depth_3", "left": 4.167, "right": 718.333},
+        {"name": "perspective_blend", "left": 0.000, "right": 720.000},
+        {"name": "lower_middle", "left": 0.000, "right": 720.000},
+        {"name": "near_front", "left": 0.000, "right": 720.000}
+      ]
+    },
+    "taller_720x1440": {
+      "size": [720, 1440],
+      "samples_viewport_px": [
+        {"name": "rear_white_line", "left": 66.563, "right": 661.875},
+        {"name": "rear_depth_1", "left": 19.688, "right": 705.000},
+        {"name": "rear_depth_2", "left": 0.000, "right": 720.000},
+        {"name": "rear_depth_3", "left": 0.000, "right": 720.000},
+        {"name": "perspective_blend", "left": 0.000, "right": 720.000},
+        {"name": "lower_middle", "left": 0.000, "right": 720.000},
+        {"name": "near_front", "left": 0.000, "right": 720.000}
+      ]
+    },
+    "shorter_wider_800x1280": {
+      "size": [800, 1280],
+      "samples_viewport_px": [
+        {"name": "rear_white_line", "left": 139.167, "right": 667.500},
+        {"name": "rear_depth_1", "left": 97.500, "right": 706.667},
+        {"name": "rear_depth_2", "left": 76.667, "right": 727.500},
+        {"name": "rear_depth_3", "left": 44.167, "right": 758.333},
+        {"name": "perspective_blend", "left": 23.333, "right": 776.667},
+        {"name": "lower_middle", "left": 0.000, "right": 800.000},
+        {"name": "near_front", "left": 0.000, "right": 800.000}
+      ]
+    }
+  }
+}

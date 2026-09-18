@@ -3,8 +3,8 @@ extends SceneTree
 ## Deterministic active M06 tabletop probe. It compares production geometry with a static
 ## independent five-sample visible-edge dataset and captures real contact nodes.
 
-const DATASET_PATH := "res://docs/evidence/m06_r07/independent_table_edges.json"
-const CAPTURE_DIR := "res://docs/evidence/m06_r07"
+const DATASET_PATH := "res://docs/evidence/r10/v05_owner_envelope_measurement.json"
+const CAPTURE_DIR := "res://docs/evidence/r10/v05_tabletop"
 const OVERLAY_SCRIPT := "res://tests/m06_r06_geometry_overlay.gd"
 const CASES := [
     {"name": "canonical_720x1280", "size": Vector2(720, 1280)},
