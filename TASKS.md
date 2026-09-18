@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
 - Current Task: Preserve the owner-approved V05 playable envelope and Solution 1, replace the failed V06 radius-derived footprint with an independent per-level 2D table-edge contact dataset, and close the remaining cocktail-to-edge visual gap.
-- Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V09.md`, replacing the failed scalar boundary model with per-level visual contact hulls, true rail-segment normals, and a custom `_integrate_forces()` containment solver, then writes CODEX_LOG_V07 and stops for independent audit + owner GUI verification.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Remediate R10 V09 hull-transform composition. The current visual contact hull does not exactly match the rendered Sprite2D because `_visual_root.scale` is applied to source-point scale but not to the sprite position/offset. Fix transform composition, add focused equivalence coverage, rerun regressions, then stop for audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -71,10 +71,13 @@ Latest owner runtime evidence establishes:
 
 R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V09 — directional visual contact hull containment
+## Active R10 V09 — audited CHANGES_REQUIRED
 
 Locked criteria:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V09.md`
+
+Independent audit:
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V07.md` — CHANGES_REQUIRED.
 
 Independent audit:
 `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_V06.md` — SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED.
