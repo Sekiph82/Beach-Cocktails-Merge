@@ -58,6 +58,12 @@ const COCKTAIL_TEXTURE_PATHS := [
 # the M05 evidence pass. Each width is the selected glass/container body bbox;
 # straw, fruit, leaves, flowers, and other garnish extremes are excluded.
 const VISIBLE_BODY_WIDTH_PX := [690.0, 725.0, 627.0, 759.0, 545.0, 700.0, 575.0, 615.0, 650.0, 625.0, 610.0, 710.0]
+
+# R10-V07 independent side-contact measurements in runtime screen pixels.
+# These are explicit measurements of the lower visible glass/container contact
+# band in each canonical PNG, excluding garnish and transparent margins. They
+# intentionally do not derive from COLLIDER_RADII or visual_scale_for_level().
+const TABLE_EDGE_CONTACT_HALF_WIDTHS := [14.3, 15.6, 20.6, 17.1, 23.7, 24.0, 29.7, 36.3, 36.1, 50.9, 51.3, 55.4]
 const VISIBLE_BODY_CENTER_OFFSET_PX := [
     Vector2(-25.0, 131.0),
     Vector2(-14.5, 133.0),
@@ -175,21 +181,10 @@ static func visual_scale_for_level(p_level: int) -> float:
     return (collider_radius_for_level(p_level) * 2.0) / VISIBLE_BODY_WIDTH_PX[p_level - 1]
 
 
-static func visual_body_depth_scale_for_y(y_pos: float) -> float:
-    # This is the existing mild 2D presentation scale applied to the visible
-    # cocktail body. It is not a third dimension and does not alter physics.
-    return lerpf(0.96, 1.0, clampf(y_pos / 1280.0, 0.0, 1.0))
-
-
-static func table_edge_contact_half_width_for_level(p_level: int, y_pos: float) -> float:
-    # Table-edge contact follows the measured visible glass/container body,
-    # not the full garnish silhouette or the drink-to-drink collider. The
-    # visible body width is converted with the same runtime sprite scale and
-    # the existing 2D presentation scale at this screen-space Y.
-    if p_level < 1 or p_level > VISIBLE_BODY_WIDTH_PX.size():
+static func table_edge_contact_half_width_for_level(p_level: int, _y_pos: float) -> float:
+    if p_level < 1 or p_level > TABLE_EDGE_CONTACT_HALF_WIDTHS.size():
         return 0.0
-    var visible_body_width_px: float = float(VISIBLE_BODY_WIDTH_PX[p_level - 1]) * visual_scale_for_level(p_level)
-    return visible_body_width_px * 0.5 * visual_body_depth_scale_for_y(y_pos)
+    return float(TABLE_EDGE_CONTACT_HALF_WIDTHS[p_level - 1])
 
 
 static func visual_offset_for_level(p_level: int) -> Vector2:
