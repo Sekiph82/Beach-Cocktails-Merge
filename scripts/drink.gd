@@ -59,22 +59,23 @@ const COCKTAIL_TEXTURE_PATHS := [
 # straw, fruit, leaves, flowers, and other garnish extremes are excluded.
 const VISIBLE_BODY_WIDTH_PX := [690.0, 725.0, 627.0, 759.0, 545.0, 700.0, 575.0, 615.0, 650.0, 625.0, 610.0, 710.0]
 
-# R10-V08 owner-calibration trial in runtime screen pixels. These values are
-# intentionally literal: they are not calculated from collider radius, visual
-# scale, visible body width, texture dimensions, or source-pixel measurements.
-const TABLE_EDGE_CONTACT_HALF_WIDTHS := [
-    9.0,   # L01
-    10.5,  # L02
-    13.0,  # L03
-    10.0,  # L04
-    14.5,  # L05
-    16.0,  # L06
-    18.0,  # L07
-    22.5,  # L08
-    22.0,  # L09
-    31.0,  # L10
-    32.0,  # L11
-    34.0,  # L12
+# R10-V09 source-space convex hulls of the visible glass/container body.
+# Points are relative to each canonical texture center, measured from alpha
+# pixels inside the independent M05 body boxes. Garnish/straw extremes and
+# transparent margins are excluded; these hulls are not collider geometry.
+static var BOUNDARY_CONTACT_HULL_SOURCE_PX := [
+    PackedVector2Array([Vector2(-342.0, -199.0), Vector2(279.0, 322.0), Vector2(270.0, 372.0), Vector2(256.0, 405.0), Vector2(244.0, 422.0), Vector2(209.0, 450.0), Vector2(184.0, 461.0), Vector2(-216.0, 451.0), Vector2(-235.0, 439.0), Vector2(-261.0, 411.0), Vector2(-280.0, 365.0), Vector2(-288.0, 311.0)]),
+    PackedVector2Array([Vector2(-324.0, -170.0), Vector2(-316.0, -188.0), Vector2(304.0, -207.0), Vector2(326.0, -177.0), Vector2(273.0, 355.0), Vector2(268.0, 388.0), Vector2(255.0, 423.0), Vector2(232.0, 449.0), Vector2(194.0, 472.0), Vector2(-218.0, 459.0), Vector2(-249.0, 431.0), Vector2(-267.0, 390.0)]),
+    PackedVector2Array([Vector2(-306.0, -267.0), Vector2(318.0, -90.0), Vector2(216.0, 493.0), Vector2(213.0, 502.0), Vector2(-252.0, 503.0), Vector2(-256.0, 490.0), Vector2(-258.0, 474.0)]),
+    PackedVector2Array([Vector2(-381.0, -257.0), Vector2(-354.0, -290.0), Vector2(-347.0, -297.0), Vector2(378.0, -297.0), Vector2(378.0, -35.0), Vector2(218.0, 493.0), Vector2(-253.0, 493.0), Vector2(-381.0, -169.0)]),
+    PackedVector2Array([Vector2(-272.0, -207.0), Vector2(273.0, -18.0), Vector2(172.0, 507.0), Vector2(166.0, 518.0), Vector2(-184.0, 511.0), Vector2(-186.0, 504.0), Vector2(-272.0, -186.0)]),
+    PackedVector2Array([Vector2(-347.0, -227.0), Vector2(353.0, -227.0), Vector2(353.0, -204.0), Vector2(234.0, 483.0), Vector2(-201.0, 483.0), Vector2(-347.0, -225.0)]),
+    PackedVector2Array([Vector2(-287.0, -277.0), Vector2(181.0, 473.0), Vector2(173.0, 494.0), Vector2(158.0, 507.0), Vector2(138.0, 517.0), Vector2(-111.0, 523.0), Vector2(-149.0, 505.0), Vector2(-160.0, 496.0), Vector2(-169.0, 479.0)]),
+    PackedVector2Array([Vector2(-250.0, 86.0), Vector2(209.0, -222.0), Vector2(256.0, 52.0), Vector2(259.0, 85.0), Vector2(258.0, 112.0), Vector2(208.0, 493.0), Vector2(-249.0, 122.0)]),
+    PackedVector2Array([Vector2(-322.0, -207.0), Vector2(318.0, -176.0), Vector2(317.0, 374.0), Vector2(185.0, 464.0), Vector2(102.0, 490.0), Vector2(69.0, 497.0), Vector2(-53.0, 497.0), Vector2(-73.0, 493.0), Vector2(-116.0, 481.0), Vector2(-219.0, 432.0)]),
+    PackedVector2Array([Vector2(-302.0, -17.0), Vector2(-282.0, -236.0), Vector2(323.0, -237.0), Vector2(198.0, 493.0), Vector2(195.0, 501.0), Vector2(189.0, 511.0), Vector2(-227.0, 518.0), Vector2(-234.0, 510.0), Vector2(-240.0, 499.0), Vector2(-242.0, 491.0)]),
+    PackedVector2Array([Vector2(-251.0, -242.0), Vector2(190.0, 465.0), Vector2(183.0, 481.0), Vector2(166.0, 498.0), Vector2(141.0, 512.0), Vector2(-158.0, 513.0), Vector2(-187.0, 497.0), Vector2(-203.0, 481.0), Vector2(-208.0, 471.0), Vector2(-211.0, 448.0)]),
+    PackedVector2Array([Vector2(-357.0, -227.0), Vector2(332.0, -206.0), Vector2(353.0, 315.0), Vector2(320.0, 406.0), Vector2(239.0, 477.0), Vector2(188.0, 504.0), Vector2(173.0, 511.0), Vector2(-111.0, 513.0), Vector2(-122.0, 509.0), Vector2(-266.0, 403.0), Vector2(-332.0, 163.0)]),
 ]
 const VISIBLE_BODY_CENTER_OFFSET_PX := [
     Vector2(-25.0, 131.0),
@@ -193,10 +194,10 @@ static func visual_scale_for_level(p_level: int) -> float:
     return (collider_radius_for_level(p_level) * 2.0) / VISIBLE_BODY_WIDTH_PX[p_level - 1]
 
 
-static func table_edge_contact_half_width_for_level(p_level: int, _y_pos: float) -> float:
-    if p_level < 1 or p_level > TABLE_EDGE_CONTACT_HALF_WIDTHS.size():
-        return 0.0
-    return TABLE_EDGE_CONTACT_HALF_WIDTHS[p_level - 1]
+static func boundary_contact_hull_source_for_level(p_level: int) -> PackedVector2Array:
+    if p_level < 1 or p_level > BOUNDARY_CONTACT_HULL_SOURCE_PX.size():
+        return PackedVector2Array()
+    return BOUNDARY_CONTACT_HULL_SOURCE_PX[p_level - 1]
 
 
 static func visual_offset_for_level(p_level: int) -> Vector2:
@@ -272,6 +273,23 @@ static func create(p_level: int) -> Drink:
 
     d.set_settled()
     return d
+
+
+func get_boundary_contact_hull_local() -> PackedVector2Array:
+    var source_hull := boundary_contact_hull_source_for_level(level)
+    var local_hull := PackedVector2Array()
+    if source_hull.is_empty():
+        return local_hull
+
+    var presentation_scale := 1.0
+    if _cocktail_sprite != null:
+        presentation_scale *= _cocktail_sprite.scale.x
+    if _visual_root != null:
+        presentation_scale *= _visual_root.scale.x
+    var sprite_origin := _cocktail_sprite.position if _cocktail_sprite != null else Vector2.ZERO
+    for source_point in source_hull:
+        local_hull.append(sprite_origin + source_point * presentation_scale)
+    return local_hull
 
 
 static func _circle_points(p_radius: float, segments: int = 32) -> PackedVector2Array:
@@ -446,27 +464,14 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
         return
 
     var velocity := _forward_only(state.linear_velocity)
-    # Keep normal RigidBody2D motion inside the measured tabletop. The rear
-    # center target is one exact common line for L01-L12; it is deliberately
-    # not offset by this drink's collider radius or visual dimensions. The
-    # side clamp continues to follow the measured perspective rails.
     if GameManager.instance != null:
-        var safe_position := GameManager.instance.clamp_position_to_board(state.transform.origin, radius, level)
-        if safe_position.y != state.transform.origin.y:
-            var transform := state.transform
-            transform.origin = safe_position
-            state.transform = transform
-            if safe_position.y == GameManager.instance.rear_table_y:
-                velocity.y = 0.0
-                if absf(velocity.x) <= settle_speed * 1.35:
-                    # Rear contact with no meaningful lateral travel is a
-                    # terminal normal-motion condition, so do not leave a
-                    # zero-velocity body in SLIDING indefinitely.
-                    _low_speed_time = settle_delay
-        elif safe_position.x != state.transform.origin.x:
-            var transform := state.transform
-            transform.origin.x = safe_position.x
-            state.transform = transform
+        var projection := GameManager.instance.project_visual_hull_inside_table(
+            state.transform,
+            get_boundary_contact_hull_local(),
+            velocity
+        )
+        state.transform = projection["transform"]
+        velocity = _forward_only(projection["velocity"])
 
     var speed := velocity.length()
 

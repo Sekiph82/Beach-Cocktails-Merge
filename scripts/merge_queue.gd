@@ -103,15 +103,16 @@ func _do_merge(a: Drink, b: Drink, new_level: int, merge_pos: Vector2, merge_vel
     if new_drink == null:
         return
 
-    # A merge can create a larger collider at a wall-side midpoint that was
-    # valid for the two smaller inputs.  Re-apply the authoritative current
-    # playable envelope immediately after the new collider exists.  This is an
-    # X-only correction: it preserves the merge Y and incoming momentum while
-    # keeping the visible body inside the owner-defined rail. Drink-to-drink
-    # physics still uses new_drink.radius; this side limit is the separate
-    # 2D table-edge footprint experiment.
-    var merge_bounds := GameManager.instance.get_horizontal_edge_contact_bounds_at_y(new_drink.position.y, new_drink.level)
-    new_drink.position.x = clampf(new_drink.position.x, merge_bounds.x, merge_bounds.y)
+    # Use the same directional visual-hull projection as normal physics. The
+    # merge Y and inherited tangential momentum are preserved unless the new
+    # hull genuinely penetrates an accepted rail.
+    var projected := GameManager.instance.project_visual_hull_inside_table(
+        Transform2D(0.0, new_drink.position),
+        new_drink.get_boundary_contact_hull_local(),
+        merge_velocity
+    )
+    new_drink.position = projected["transform"].origin
+    merge_velocity = projected["velocity"]
 
     # If either input was genuinely moving, the merged result must keep moving.
     if driver_speed > new_drink.settle_speed:
