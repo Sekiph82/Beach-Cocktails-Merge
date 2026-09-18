@@ -131,3 +131,25 @@ One old M06 scalar-boundary probe parses with exit code 1 because it references 
 Final verdict: **CHANGES_REQUIRED**
 
 Fix the hull-transform composition first, rerun focused/full regression, then proceed to owner GUI verification.
+
+
+## Owner runtime evidence — 2026-09-18
+
+Owner tested the actual V09 runtime in normal Godot GUI and supplied a screenshot.
+
+Owner verdict: **VISUAL FAIL / NOT ACCEPTABLE**.
+
+Observed failures:
+1. The rear/opposite-edge empty-gap problem is still visibly present.
+2. Multiple cocktails are now visibly crossing outside the accepted left/right playable table envelope.
+3. Therefore the V09 custom visual-hull containment architecture, as currently implemented, is not merely awaiting transform cleanup; its runtime result is materially worse in boundary safety.
+
+This owner evidence supersedes builder GUI evidence and blocks acceptance regardless of green focused tests.
+
+### Revised audit consequence
+
+The earlier source finding about incorrect Visual→Sprite transform composition remains valid, but it is no longer sufficient to describe the acceptance state.
+
+Final V09 owner-runtime verdict: **FAILED / CHANGES_REQUIRED**.
+
+Do not proceed to owner acceptance after only fixing the transform composition. The next remediation must first explain and reproduce why the current custom solver permits visible side-boundary escape while still leaving excessive rear clearance. The focused tests are therefore insufficient as currently designed and must be strengthened against the actual owner-observed failure mode.
