@@ -230,7 +230,12 @@ func get_table_edge_contact_half_width(level: int, y_pos: float) -> float:
 
 
 func get_horizontal_edge_contact_bounds_at_y(y_pos: float, level: int) -> Vector2:
-    return get_horizontal_bounds_at_y(y_pos, 0.0, get_table_edge_contact_half_width(level, y_pos))
+    var rails := get_table_rail_bounds_at_y(y_pos)
+    var edge_half_width := Drink.table_edge_contact_half_width_for_level(level, y_pos)
+    return Vector2(
+        rails.x + edge_half_width + TABLE_SOLVER_EPSILON,
+        rails.y - edge_half_width - TABLE_SOLVER_EPSILON
+    )
 
 
 func get_rear_target_center_y(body_half_extent_y: float) -> float:
@@ -241,11 +246,18 @@ func get_rear_target_center_y(body_half_extent_y: float) -> float:
 
 
 func clamp_position_to_board(pos: Vector2, radius: float, level: int = 0) -> Vector2:
-    # Rear contact is an exact common center line. Only lateral side contact
-    # uses the separate visible-body footprint when a level is available.
-    pos.y = clampf(pos.y, rear_table_y, table_bottom_y - radius - TABLE_SOLVER_EPSILON)
-    var edge_contact_half_width := get_table_edge_contact_half_width(level, pos.y) if level > 0 else radius
-    var bounds := get_horizontal_bounds_at_y(pos.y, radius, edge_contact_half_width)
+    pos.y = clampf(
+        pos.y,
+        rear_table_y,
+        table_bottom_y - radius - TABLE_SOLVER_EPSILON
+    )
+
+    var bounds: Vector2
+    if level > 0:
+        bounds = get_horizontal_edge_contact_bounds_at_y(pos.y, level)
+    else:
+        bounds = get_horizontal_bounds_at_y(pos.y, radius)
+
     pos.x = clampf(pos.x, bounds.x, bounds.y)
     return pos
 
@@ -488,11 +500,19 @@ func _build_walls() -> void:
 
 func _max_side_wall_clearance(a: Vector2, b: Vector2) -> float:
     var clearance := 0.0
+
     for sample in [a, b]:
         for level in range(1, Drink.max_level() + 1):
             var collider_radius := Drink.collider_radius_for_level(level)
-            var edge_contact_half_width := get_table_edge_contact_half_width(level, sample.y)
-            clearance = maxf(clearance, collider_radius - edge_contact_half_width)
+            var edge_half_width := Drink.table_edge_contact_half_width_for_level(
+                level,
+                sample.y
+            )
+            clearance = maxf(
+                clearance,
+                collider_radius - edge_half_width
+            )
+
     return maxf(clearance, 0.0) + TABLE_SOLVER_EPSILON
 
 

@@ -59,11 +59,23 @@ const COCKTAIL_TEXTURE_PATHS := [
 # straw, fruit, leaves, flowers, and other garnish extremes are excluded.
 const VISIBLE_BODY_WIDTH_PX := [690.0, 725.0, 627.0, 759.0, 545.0, 700.0, 575.0, 615.0, 650.0, 625.0, 610.0, 710.0]
 
-# R10-V07 independent side-contact measurements in runtime screen pixels.
-# These are explicit measurements of the lower visible glass/container contact
-# band in each canonical PNG, excluding garnish and transparent margins. They
-# intentionally do not derive from COLLIDER_RADII or visual_scale_for_level().
-const TABLE_EDGE_CONTACT_HALF_WIDTHS := [14.3, 15.6, 20.6, 17.1, 23.7, 24.0, 29.7, 36.3, 36.1, 50.9, 51.3, 55.4]
+# R10-V08 owner-calibration trial in runtime screen pixels. These values are
+# intentionally literal: they are not calculated from collider radius, visual
+# scale, visible body width, texture dimensions, or source-pixel measurements.
+const TABLE_EDGE_CONTACT_HALF_WIDTHS := [
+    9.0,   # L01
+    10.5,  # L02
+    13.0,  # L03
+    10.0,  # L04
+    14.5,  # L05
+    16.0,  # L06
+    18.0,  # L07
+    22.5,  # L08
+    22.0,  # L09
+    31.0,  # L10
+    32.0,  # L11
+    34.0,  # L12
+]
 const VISIBLE_BODY_CENTER_OFFSET_PX := [
     Vector2(-25.0, 131.0),
     Vector2(-14.5, 133.0),
@@ -184,7 +196,7 @@ static func visual_scale_for_level(p_level: int) -> float:
 static func table_edge_contact_half_width_for_level(p_level: int, _y_pos: float) -> float:
     if p_level < 1 or p_level > TABLE_EDGE_CONTACT_HALF_WIDTHS.size():
         return 0.0
-    return float(TABLE_EDGE_CONTACT_HALF_WIDTHS[p_level - 1])
+    return TABLE_EDGE_CONTACT_HALF_WIDTHS[p_level - 1]
 
 
 static func visual_offset_for_level(p_level: int) -> Vector2:
