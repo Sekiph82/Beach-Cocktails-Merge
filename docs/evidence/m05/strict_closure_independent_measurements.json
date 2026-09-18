@@ -1,0 +1,461 @@
+{
+  "schema": "BCM-M05-STRICT-CLOSURE independent body measurements V01",
+  "measurement_phase": "INDEPENDENT_PIXEL_MEASUREMENT_BEFORE_PRODUCTION_COMPARISON",
+  "independence": {
+    "source": "canonical PNG pixels only",
+    "production_constants_read_before_output": false,
+    "production_helpers_imported": false,
+    "production_files_read": [],
+    "method": "independent visual-review window followed by deterministic alpha-pixel bounding-box extraction",
+    "alpha_threshold": 32,
+    "coordinate_convention": "inclusive source-pixel bounds; center offsets are relative to ((width-1)/2, (height-1)/2)"
+  },
+  "shape_review": {
+    "1": {
+      "category": "tumbler / rocks glass",
+      "rationale": "Short straight-sided vessel with a broad cylindrical rim and thick bottom; the lemon and straw are outside the container body."
+    },
+    "2": {
+      "category": "tumbler / rocks glass",
+      "rationale": "Short straight-sided red vessel with a broad rim and thick base; the cherry/straw decoration is excluded."
+    },
+    "3": {
+      "category": "highball / tall glass",
+      "rationale": "Tall rectangular cylindrical glass with long parallel sides and a narrow base; mint and lime garnish are excluded."
+    },
+    "4": {
+      "category": "martini / coupe",
+      "rationale": "Conical bowl on a narrow stem and foot; flowers and fruit around the rim are not part of the container body."
+    },
+    "5": {
+      "category": "goblet / rounded tropical glass",
+      "rationale": "Rounded bowl tapering into a short stem and foot; pineapple, citrus, flower and straw decorations are excluded."
+    },
+    "6": {
+      "category": "martini / coupe",
+      "rationale": "Wide conical bowl, narrow stem and foot; the cherry, flower and straw are decorative extremes."
+    },
+    "7": {
+      "category": "highball / tall glass",
+      "rationale": "Very tall straight-sided cylindrical glass with a thick lower base; orange slice, leaves and straw are excluded."
+    },
+    "8": {
+      "category": "goblet / rounded glass",
+      "rationale": "Rounded blue bowl narrowing into a stem and foot; flower, leaves, citrus and straw are excluded."
+    },
+    "9": {
+      "category": "coconut / special container",
+      "rationale": "Rounded coconut shell container with a broad curved body and flat lower contact region; leaves, flower and straw are excluded."
+    },
+    "10": {
+      "category": "goblet / rounded glass",
+      "rationale": "Rounded pink bowl with a narrow stem and wide foot; hibiscus, fruit and straw are excluded."
+    },
+    "11": {
+      "category": "highball / tall glass",
+      "rationale": "Tall straight-sided red highball with a thick transparent base; cherry, citrus and straw are excluded."
+    },
+    "12": {
+      "category": "pineapple / special container",
+      "rationale": "Pineapple-shaped vessel with a broad textured body and tapered top; leaves and straw are excluded."
+    }
+  },
+  "levels": [
+    {
+      "level": 1,
+      "source_path": "assets/cocktails/L01.png",
+      "source_sha256": "5cc060adf501562c2920fcb04a251e7a679a069f8d865f898e13adb87ac1e425",
+      "source_dimensions": [
+        1230,
+        1278
+      ],
+      "independent_review_window_px": [
+        260,
+        300,
+        950,
+        1135
+      ],
+      "independent_visible_body_bbox_px": [
+        269,
+        300,
+        950,
+        1128
+      ],
+      "independent_visible_body_width_px": 682,
+      "independent_visible_body_height_px": 829,
+      "independent_visible_body_center_offset_px": [
+        -5.0,
+        75.5
+      ],
+      "independent_visible_alpha_pixels": 485838,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "tumbler / rocks glass",
+      "shape_rationale": "Short straight-sided vessel with a broad cylindrical rim and thick bottom; the lemon and straw are outside the container body."
+    },
+    {
+      "level": 2,
+      "source_path": "assets/cocktails/L02.png",
+      "source_sha256": "bf37da56cda0bfa7df9dfc6761225aa0edcf1d867ddb10dde6698c0f0193d5a5",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        300,
+        380,
+        955,
+        1138
+      ],
+      "independent_visible_body_bbox_px": [
+        303,
+        380,
+        955,
+        1131
+      ],
+      "independent_visible_body_width_px": 653,
+      "independent_visible_body_height_px": 752,
+      "independent_visible_body_center_offset_px": [
+        2.5,
+        129.0
+      ],
+      "independent_visible_alpha_pixels": 424210,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "tumbler / rocks glass",
+      "shape_rationale": "Short straight-sided red vessel with a broad rim and thick base; the cherry/straw decoration is excluded."
+    },
+    {
+      "level": 3,
+      "source_path": "assets/cocktails/L03.png",
+      "source_sha256": "467aa8e2eb2d77fcde3abf8e7b66bdd2e7e8e01e58326b2a9bf44c85d6bd12f6",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        315,
+        275,
+        905,
+        1215
+      ],
+      "independent_visible_body_bbox_px": [
+        318,
+        275,
+        905,
+        1213
+      ],
+      "independent_visible_body_width_px": 588,
+      "independent_visible_body_height_px": 939,
+      "independent_visible_body_center_offset_px": [
+        -15.0,
+        117.5
+      ],
+      "independent_visible_alpha_pixels": 482527,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "highball / tall glass",
+      "shape_rationale": "Tall rectangular cylindrical glass with long parallel sides and a narrow base; mint and lime garnish are excluded."
+    },
+    {
+      "level": 4,
+      "source_path": "assets/cocktails/L04.png",
+      "source_sha256": "05c47c6b4beed3523ac44b9ec8f4c92247652f886c683f73cc937ca86feedcd2",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        270,
+        390,
+        1000,
+        1235
+      ],
+      "independent_visible_body_bbox_px": [
+        270,
+        390,
+        1000,
+        1233
+      ],
+      "independent_visible_body_width_px": 731,
+      "independent_visible_body_height_px": 844,
+      "independent_visible_body_center_offset_px": [
+        8.5,
+        185.0
+      ],
+      "independent_visible_alpha_pixels": 323056,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "martini / coupe",
+      "shape_rationale": "Conical bowl on a narrow stem and foot; flowers and fruit around the rim are not part of the container body."
+    },
+    {
+      "level": 5,
+      "source_path": "assets/cocktails/L05.png",
+      "source_sha256": "b49a3f44f1fe8fae39ffd01d01d1ba7ad1796a6920604eb63dec3a3020316838",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        370,
+        465,
+        925,
+        1202
+      ],
+      "independent_visible_body_bbox_px": [
+        384,
+        465,
+        925,
+        1200
+      ],
+      "independent_visible_body_width_px": 542,
+      "independent_visible_body_height_px": 736,
+      "independent_visible_body_center_offset_px": [
+        28.0,
+        206.0
+      ],
+      "independent_visible_alpha_pixels": 248852,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "goblet / rounded tropical glass",
+      "shape_rationale": "Rounded bowl tapering into a short stem and foot; pineapple, citrus, flower and straw decorations are excluded."
+    },
+    {
+      "level": 6,
+      "source_path": "assets/cocktails/L06.png",
+      "source_sha256": "dfb281ba11f97d752504a69b1926762710c4c13bb195410d336fb18e37f56656",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        300,
+        380,
+        935,
+        1210
+      ],
+      "independent_visible_body_bbox_px": [
+        300,
+        380,
+        935,
+        1207
+      ],
+      "independent_visible_body_width_px": 636,
+      "independent_visible_body_height_px": 828,
+      "independent_visible_body_center_offset_px": [
+        -9.0,
+        167.0
+      ],
+      "independent_visible_alpha_pixels": 232561,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "martini / coupe",
+      "shape_rationale": "Wide conical bowl, narrow stem and foot; the cherry, flower and straw are decorative extremes."
+    },
+    {
+      "level": 7,
+      "source_path": "assets/cocktails/L07.png",
+      "source_sha256": "349e3c28cdd713f481bbae91a59588a8afd324cd0c5072a37c6c163852346588",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        420,
+        315,
+        850,
+        1168
+      ],
+      "independent_visible_body_bbox_px": [
+        420,
+        315,
+        838,
+        1166
+      ],
+      "independent_visible_body_width_px": 419,
+      "independent_visible_body_height_px": 852,
+      "independent_visible_body_center_offset_px": [
+        2.5,
+        114.0
+      ],
+      "independent_visible_alpha_pixels": 317549,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "highball / tall glass",
+      "shape_rationale": "Very tall straight-sided cylindrical glass with a thick lower base; orange slice, leaves and straw are excluded."
+    },
+    {
+      "level": 8,
+      "source_path": "assets/cocktails/L08.png",
+      "source_sha256": "e2533cace67a326e28cf6998a145564a1e1df56c88281df30a5b63ad2a41daf6",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        375,
+        420,
+        925,
+        1205
+      ],
+      "independent_visible_body_bbox_px": [
+        377,
+        420,
+        886,
+        1204
+      ],
+      "independent_visible_body_width_px": 510,
+      "independent_visible_body_height_px": 785,
+      "independent_visible_body_center_offset_px": [
+        5.0,
+        185.5
+      ],
+      "independent_visible_alpha_pixels": 287575,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "goblet / rounded glass",
+      "shape_rationale": "Rounded blue bowl narrowing into a stem and foot; flower, leaves, citrus and straw are excluded."
+    },
+    {
+      "level": 9,
+      "source_path": "assets/cocktails/L09.png",
+      "source_sha256": "0d79fee8802d6b98c38cb072dd5fbbd559c261580c96e77fa061f8bbeaebe8d7",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        275,
+        430,
+        1005,
+        1130
+      ],
+      "independent_visible_body_bbox_px": [
+        275,
+        430,
+        1005,
+        1128
+      ],
+      "independent_visible_body_width_px": 731,
+      "independent_visible_body_height_px": 699,
+      "independent_visible_body_center_offset_px": [
+        13.5,
+        152.5
+      ],
+      "independent_visible_alpha_pixels": 458740,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "coconut / special container",
+      "shape_rationale": "Rounded coconut shell container with a broad curved body and flat lower contact region; leaves, flower and straw are excluded."
+    },
+    {
+      "level": 10,
+      "source_path": "assets/cocktails/L10.png",
+      "source_sha256": "04dd624beb28b3b8dfce36d402bfc394ce07a3c8a2c335645bd42f26602e673e",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        370,
+        435,
+        965,
+        1205
+      ],
+      "independent_visible_body_bbox_px": [
+        370,
+        435,
+        965,
+        1198
+      ],
+      "independent_visible_body_width_px": 596,
+      "independent_visible_body_height_px": 764,
+      "independent_visible_body_center_offset_px": [
+        41.0,
+        190.0
+      ],
+      "independent_visible_alpha_pixels": 325698,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "goblet / rounded glass",
+      "shape_rationale": "Rounded pink bowl with a narrow stem and wide foot; hibiscus, fruit and straw are excluded."
+    },
+    {
+      "level": 11,
+      "source_path": "assets/cocktails/L11.png",
+      "source_sha256": "e9bbc5e84bd6c065d8496d203136dc1d20dffcb24686b0cc0195bda70032dfd9",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        390,
+        420,
+        975,
+        1165
+      ],
+      "independent_visible_body_bbox_px": [
+        390,
+        420,
+        975,
+        1162
+      ],
+      "independent_visible_body_width_px": 586,
+      "independent_visible_body_height_px": 743,
+      "independent_visible_body_center_offset_px": [
+        56.0,
+        164.5
+      ],
+      "independent_visible_alpha_pixels": 325245,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "highball / tall glass",
+      "shape_rationale": "Tall straight-sided red highball with a thick transparent base; cherry, citrus and straw are excluded."
+    },
+    {
+      "level": 12,
+      "source_path": "assets/cocktails/L12.png",
+      "source_sha256": "528022036a3c06f8782153d2ae22f644e533eeffbc1ac198e411d50692b3c788",
+      "source_dimensions": [
+        1254,
+        1254
+      ],
+      "independent_review_window_px": [
+        245,
+        430,
+        975,
+        1165
+      ],
+      "independent_visible_body_bbox_px": [
+        245,
+        430,
+        975,
+        1160
+      ],
+      "independent_visible_body_width_px": 731,
+      "independent_visible_body_height_px": 731,
+      "independent_visible_body_center_offset_px": [
+        -16.5,
+        168.5
+      ],
+      "independent_visible_alpha_pixels": 454268,
+      "alpha_threshold": 32,
+      "transparent_garnish_exclusion": "The review window excludes visible garnish/straw regions; final bounds are the alpha-positive pixels within that independently selected body window.",
+      "ambiguity_notes": "Semi-transparent glass highlights and rim pixels are retained when alpha >= 32; decorative pixels outside the review window are excluded.",
+      "shape_category": "pineapple / special container",
+      "shape_rationale": "Pineapple-shaped vessel with a broad textured body and tapered top; leaves and straw are excluded."
+    }
+  ]
+}
