@@ -6,9 +6,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M05 + M06 + M07 STRICT REMEDIATION
 - Current Sprint: BCM-R10-RUNTIME-PHYSICS-CLOSURE
-- Current Task: Close the remaining rear tabletop contact defect and apply four owner-requested HUD alignment refinements while preserving all already-fixed runtime behavior.
+- Current Task: Close the remaining rear/side tabletop physics defects, add explicit post-merge wall-boundary correction, and apply the owner-requested HUD alignment refinements while preserving all already-fixed runtime behavior.
 - Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V04.md`, writes the R10 V02 log, runs full active regression, then STOPS for independent ChatGPT audit.
+- Next Task/Action: Codex executes `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V05.md`, writes the R10 V03 log, runs full active regression including left/right wall-merge tests, then STOPS for independent ChatGPT audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -22,7 +22,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M03-001 — Formalize scoring, combo, To-Go Orders, persistence, and game-over systems.
 - [x] BCM-M04-001 — Canonical refreshed visual asset family accepted from owner runtime evidence.
 - [!] BCM-M05-001 — Cocktail sprite/collider evidence still has unresolved strict-audit concerns from M05-R02.
-- [~] BCM-M06-001 — Active: rear contact only. Mandatory owner formula is `rear_target_y = rear_table_y`; moving cocktails must physically reach the real rear table line with no stale hidden wall/dead strip.
+- [~] BCM-M06-001 — Active: rear/side contact closure. Rear target remains `rear_target_y = rear_table_y`; side playable rails move slightly inward; merge-created larger drinks must be immediately clamped to valid board bounds so solver overlap does not create an artificial wall gap.
 - [~] BCM-M07-001 — Active visual refinement: preserve accepted number centering/To-Go/held behavior while aligning HUD columns/baseline and modestly enlarging the logo.
 - [ ] BCM-M08-001 — Integrate To-Go delivery animation and visual effects.
 - [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
@@ -69,15 +69,15 @@ Latest owner runtime evidence establishes:
 - held drink is correctly positioned on the gold launch oval;
 - NEXT content behavior and baked 2x6 progression are functionally accepted.
 
-R10 V04 may reposition BEST SCORE, NEXT and the logo only as required by the new alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
+R10 V05 may reposition BEST SCORE, NEXT and the logo only as required by the alignment instructions; it must preserve the accepted internal content/number fit and all gameplay behavior.
 
-## Active R10 V04 — rear contact + HUD alignment closure
+## Active R10 V05 — rear/side contact + merge-wall correction + HUD alignment closure
 
 Locked criteria:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V04.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_AUDIT_CRITERIA_V05.md`
 
 Execution prompt:
-`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V04.md`
+`coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGPT_EXECUTION_PROMPT_V05.md`
 
 ### Rear-contact rule
 
@@ -93,6 +93,13 @@ Required rear closure:
 3. Physical rear collision, clamp/target and `rear_table_y` are coherent.
 4. Current visible unused rear-table strip is removed.
 5. Validate actual moving L01/L06/L12 rear contacts, not direct-spawn coordinate agreement only.
+
+### Side-boundary and merge-wall rules
+
+1. Move the left/right playable rails modestly inward while preserving perspective and usable table area.
+2. When a merge creates a larger drink near a side wall, immediately clamp the new result to the authoritative valid X range using the new drink's current half-width before physics overlap resolution can eject it inward.
+3. Test Solution 1 only in this round. Do not use Continuous CD tuning, collision-margin tuning, or one-frame freeze as the primary remedy.
+4. Preserve meaningful inherited momentum after merge.
 
 ### HUD alignment rules
 
@@ -110,7 +117,7 @@ Required layout:
 7. To-Go top placement and held-drink/gold-oval alignment remain unchanged.
 8. HUD layout never affects gameplay/table bounds.
 
-Run full active M01-M07 regression, current R09/R10 focused tests, desktop idle smoke, Godot import/startup, parse/check-only and `git diff --check`, then STOP for independent audit.
+Run full active M01-M07 regression, current R09/R10 focused tests, focused left/right wall-merge regression, desktop idle smoke, Godot import/startup, parse/check-only and `git diff --check`, then STOP for independent audit.
 
 M08 may not start until M06/M07 are independently accepted and the separate M05 strict-audit state is resolved or explicitly superseded.
 
