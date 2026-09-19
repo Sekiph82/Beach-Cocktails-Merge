@@ -207,12 +207,144 @@ Execution prompt:
 
 Scope is visual polish only. Accepted physics, scoring, R11 table-edge behavior, rails, HUD layout, canonical assets and gameplay contracts are frozen.
 
-## M08-M12 — Planned
+## M08-M21 — Roadmap
 
-- [ ] M08 — To-Go delivery and restrained merge/order effects.
-- [ ] M09 — Audio, optional haptics and micro-polish.
-- [ ] M10 — Menus, onboarding, settings, accessibility and save migration.
-- [ ] M11 — Mobile performance/export/device QA.
-- [ ] M12 — Full final regression, owner visual acceptance, packaging and release closure.
+### M08 — To-Go delivery polish
 
-M12 completion = Beach Cocktails Merge v1 release-ready closure.
+- [~] BCM-M08-001 — Integrate To-Go delivery animation and restrained visual effects.
+- [ ] BCM-M08-002 — Preserve accepted physics, scoring, table-edge footprint, HUD placement, and canonical assets during delivery polish.
+- [ ] BCM-M08-003 — Run focused and full regression evidence and close only after independent audit.
+
+### M09 — Audio, haptics, and micro-polish
+
+- [ ] BCM-M09-001 — Add bounded merge, order-complete, VIP, level-win, level-fail, and UI audio hooks.
+- [ ] BCM-M09-002 — Add optional mobile haptics with settings toggle and safe no-op fallback on unsupported platforms.
+- [ ] BCM-M09-003 — Add restrained timer urgency feedback that does not alter gameplay physics or obscure the board.
+- [ ] BCM-M09-004 — Add regression coverage for audio/haptic toggles and pause/resume behavior.
+
+### M10 — Campaign architecture and canonical data model
+
+- [ ] BCM-M10-001 — Introduce Campaign Module boundaries: CampaignManager, LevelDatabase, SaveManager, GameEconomy, and GameplaySessionBridge.
+- [ ] BCM-M10-002 — Define canonical island schema with island id, display name, level count, unlock rule, next-island relation, map/background references, and reward-track metadata.
+- [ ] BCM-M10-003 — Define canonical level schema with island id, level id, timer, normal To-Go objectives, optional VIP objective, rewards, score/star thresholds, and feature flags.
+- [ ] BCM-M10-004 — Define player progression/save schema for unlocked islands, unlocked levels, completion state, stars, best score, claimed milestone rewards, boosters, coins, and schema version.
+- [ ] BCM-M10-005 — Implement schema validation and deterministic loading failures for malformed/duplicate/missing campaign data.
+- [ ] BCM-M10-006 — Document campaign data ownership and extension rules so future islands require data/content changes rather than gameplay rewrites.
+
+### M11 — Save, migration, and campaign progression core
+
+- [ ] BCM-M11-001 — Implement SaveManager persistence under user:// with atomic-write/backup strategy and explicit schema version.
+- [ ] BCM-M11-002 — Preserve existing best-score and gameplay persistence while migrating into campaign-aware save state.
+- [ ] BCM-M11-003 — Implement CampaignManager APIs for island unlock, level unlock, completion, replay, star update, reward claim, and next-level resolution.
+- [ ] BCM-M11-004 — Make completion idempotent so replaying a level cannot duplicate one-time unlock or milestone rewards.
+- [ ] BCM-M11-005 — Define recovery behavior for absent, older, malformed, and partially written saves without silently erasing valid owner progress.
+- [ ] BCM-M11-006 — Add automated tests for first boot, progression, replay, migration, corrupted-save fallback, and persistence reload.
+
+### M12 — World Map
+
+- [ ] BCM-M12-001 — Create reusable WorldMapScene that reads island definitions from LevelDatabase/CampaignManager rather than hardcoded progression logic.
+- [ ] BCM-M12-002 — Add island nodes/cards for Sunny Cove and future islands with OPEN, LOCKED, COMPLETE, and CURRENT presentation states.
+- [ ] BCM-M12-003 — Implement sequential island unlock rules with Sunny Cove open by default and Tiki Island locked until Sunny Cove completion.
+- [ ] BCM-M12-004 — Implement navigation from main flow to world map and from world map to selected island map.
+- [ ] BCM-M12-005 — Add clear locked-island reason/progress text without requiring character animation or additional gameplay scenes.
+- [ ] BCM-M12-006 — Make layout mobile-safe and data-driven for at least 10 planned islands without scene-code duplication.
+- [ ] BCM-M12-007 — Add tests for island state rendering, selection, lock enforcement, and save reload.
+
+### M13 — Reusable Island Map and 100-level path
+
+- [ ] BCM-M13-001 — Create generic IslandMapScene receiving island_id and rendering its configured level count.
+- [ ] BCM-M13-002 — Create reusable LevelButton component with level number, locked/unlocked/current/completed state, 0-3 stars, and milestone marker.
+- [ ] BCM-M13-003 — Implement a vertically scrollable mobile path capable of showing 100 level nodes without creating 100 unique scenes.
+- [ ] BCM-M13-004 — Implement deterministic path/layout generation or reusable authored anchor pattern so every island can use one map engine with different skin/data.
+- [ ] BCM-M13-005 — Auto-scroll/focus to the highest currently unlocked unfinished level when entering an island.
+- [ ] BCM-M13-006 — Add milestone presentation for levels 10/20/30/40/50/60/70/80/90/100 without requiring bespoke gameplay art.
+- [ ] BCM-M13-007 — Add island summary UI for stars earned, levels completed, next milestone, and island completion.
+- [ ] BCM-M13-008 — Add navigation back to World Map and safe restoration of selected/scroll state.
+
+### M14 — Level launch and timed gameplay session bridge
+
+- [ ] BCM-M14-001 — Implement GameplaySessionBridge to launch the existing gameplay scene from selected campaign level data.
+- [ ] BCM-M14-002 — Feed level timer, normal To-Go objectives, optional VIP objective, rewards, and scoring rules into gameplay without retuning accepted launch/merge/table physics.
+- [ ] BCM-M14-003 — Add authoritative countdown timer with start, pause, resume, app-background, success-stop, and timeout behavior.
+- [ ] BCM-M14-004 — Define win condition as completion of all normal level orders before timer expiry.
+- [ ] BCM-M14-005 — Define VIP objective as optional; VIP failure must never block normal level completion.
+- [ ] BCM-M14-006 — Add win/lose result model and return flow to Retry, Next Level, and Island Map.
+- [ ] BCM-M14-007 — Prevent campaign objectives from breaking the existing To-Go rule that qualifying stored L6-L12 drinks may satisfy later matching orders.
+- [ ] BCM-M14-008 — Add regression tests proving campaign mode preserves accepted core merge/scoring/edge behavior.
+
+### M15 — VIP orders, boosters, rewards, and economy hooks
+
+- [ ] BCM-M15-001 — Add a compact VIP badge/state to the existing To-Go Orders UI without customer characters or new animated scenes.
+- [ ] BCM-M15-002 — Implement optional VIP completion reward dispatch for booster rewards.
+- [ ] BCM-M15-003 — Define initial booster inventory model and campaign reward integration.
+- [ ] BCM-M15-004 — Implement +Time booster contract for timed levels without altering base timer definitions.
+- [ ] BCM-M15-005 — Implement one-time milestone reward claim state and duplicate-claim protection.
+- [ ] BCM-M15-006 — Add coin/reward ledger hooks while keeping campaign completion independent from purchases or ads.
+- [ ] BCM-M15-007 — Add tests for VIP optionality, reward grant, inventory persistence, replay, and duplicate prevention.
+
+### M16 — Sunny Cove canonical Level 1-100 content
+
+- [ ] BCM-M16-001 — Add Sunny Cove island definition with exactly 100 sequential levels.
+- [ ] BCM-M16-002 — Encode the approved minimum normal target rule: no normal campaign target below L5.
+- [ ] BCM-M16-003 — Encode spawn assumption baseline L1-L3 and merge cost model L(n)=2^(n-1) L1-equivalent units.
+- [ ] BCM-M16-004 — Encode timer baseline from calculated production time multiplied by exactly 2; do not add a fixed minimum-time padding.
+- [ ] BCM-M16-005 — Set Level 1 baseline to 1×L5 with approximately 20 seconds.
+- [ ] BCM-M16-006 — Keep Sunny Cove normal targets within L5-L8 and reserve L9 as future-island progression content.
+- [ ] BCM-M16-007 — Set Sunny Cove Level 100 target to 1×L8 + 1×L7 + 1×L6 + 1×L5 with a 300-second / 5:00 timer.
+- [ ] BCM-M16-008 — Populate all 100 Sunny Cove level records from the approved progression table, including intentional difficulty-wave relief levels.
+- [ ] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
+- [ ] BCM-M16-010 — Validate unique ids, sequential unlock chain, objective legality, timers, and Level 1/100 anchor values in automated tests.
+
+### M17 — Difficulty model and level validation
+
+- [ ] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
+- [ ] BCM-M17-002 — Implement timer-calculation tooling that exposes theoretical cost, expected L1-L3 spawn production, raw calculated time, and ×2 final target time.
+- [ ] BCM-M17-003 — Treat theoretical merge cost as a lower-level planning metric only; do not assume spatially separated same-level cocktails merge for free.
+- [ ] BCM-M17-004 — Define spatial-complexity telemetry for board occupancy, large-piece coexistence, travel/contact time, congestion, and failed merge approaches.
+- [ ] BCM-M17-005 — Build a level validation/simulation harness or replayable bot test interface that can run repeated seeded trials against campaign data.
+- [ ] BCM-M17-006 — Report completion rate, median completion time, percentile completion times, timeout causes, and board-congestion metrics per tested level.
+- [ ] BCM-M17-007 — Flag mathematically impossible, effectively impossible, or outlier levels before they are accepted into canonical campaign data.
+- [ ] BCM-M17-008 — Tune data only after evidence; never hide impossible level design behind arbitrary timer extensions.
+
+### M18 — Stars, score mastery, milestones, and replay
+
+- [ ] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
+- [ ] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
+- [ ] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
+- [ ] BCM-M18-004 — Keep next-level progression based on level completion, not mandatory perfect-star replay.
+- [ ] BCM-M18-005 — Add replay flow from Island Map with previously earned state visible.
+- [ ] BCM-M18-006 — Add tests for star upgrades, worse replay preservation, milestone claims, and 100% island completion.
+
+### M19 — Multi-island scalability and Tiki Island handoff
+
+- [ ] BCM-M19-001 — Prove the campaign engine can load a second island without duplicating CampaignManager, IslandMap, LevelButton, timer, or save logic.
+- [ ] BCM-M19-002 — Add Tiki Island locked placeholder and unlock it only when Sunny Cove Level 100 is completed.
+- [ ] BCM-M19-003 — Reserve L9 introduction for Tiki Island data and document higher-level progression policy for later islands.
+- [ ] BCM-M19-004 — Define planned island sequence: Sunny Cove, Tiki Island, Azure Bay, Coconut Beach, Sunset Island, Party Beach, Frozen Paradise, Volcano Bay, Billionaire Island, and final island slot/name TBD.
+- [ ] BCM-M19-005 — Define per-island skin/background hooks while keeping the same core table/gameplay engine.
+- [ ] BCM-M19-006 — Add regression proving a new island can be added primarily through data plus map/background assets.
+
+### M20 — Menus, onboarding, settings, accessibility, and campaign UX polish
+
+- [ ] BCM-M20-001 — Integrate campaign entry into main menu/start flow.
+- [ ] BCM-M20-002 — Add minimal first-run onboarding for World Map, Island Map, timed order objective, VIP optionality, and level completion.
+- [ ] BCM-M20-003 — Add settings for audio, haptics, accessibility-relevant feedback, and other release-required toggles.
+- [ ] BCM-M20-004 — Add pause/resume and app-lifecycle behavior that cannot consume campaign time while legitimately paused/backgrounded.
+- [ ] BCM-M20-005 — Add concise locked/unlocked/milestone/result UX without adding character systems or animation-heavy meta gameplay.
+- [ ] BCM-M20-006 — Complete save migration and backward-compatibility verification for existing players.
+
+### M21 — Mobile QA, final regression, packaging, and v1 campaign release closure
+
+- [ ] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [ ] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
+- [ ] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
+- [ ] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
+- [ ] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
+- [ ] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+
+## Campaign design references
+
+- Technical architecture: `docs/CAMPAIGN_MODULE_TECHNICAL_DESIGN.md`.
+- Sunny Cove content/timer contract: `docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md`.
+
+M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
