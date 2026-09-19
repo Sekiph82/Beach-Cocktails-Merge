@@ -71,3 +71,10 @@ v6.7 INPUT RHYTHM:
 - A new held glass appears immediately after every shot.
 - The player can fire again while previous glasses are still sliding.
 - Multiple moving glasses are intentionally supported for richer collisions and combos.
+
+
+Campaign planning
+-----------------
+The structured campaign/world-map roadmap is tracked in TASKS.md.
+Technical design: docs/CAMPAIGN_MODULE_TECHNICAL_DESIGN.md
+Sunny Cove 100-level content/timer specification: docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md
