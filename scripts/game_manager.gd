@@ -60,6 +60,9 @@ const TOP_RAIL_CLEARANCE := 4.0
 # not digit-count-dependent and do not alter horizontal placement.
 const BEST_VALUE_RECESS_CENTER_Y_PX := 75.5
 const SCORE_VALUE_RECESS_CENTER_Y_PX := 73.0
+const TO_GO_DELIVERY_DURATION := 0.34
+const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
+const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
 
 @export var table_top_y := 0.0
 @export var rear_table_y := 0.0
@@ -1031,17 +1034,18 @@ func _collect_merge_target(drink: Drink) -> void:
     _target_transition = true
     _target_drink = drink
     drink.begin_target_capture()
+    _spawn_to_go_trail(drink.global_position, _target_root.global_position, TO_GO_DELIVERY_DURATION)
 
     # The target drink physically leaves the table and flies into the objective.
     var tween := create_tween()
     tween.set_parallel(true)
     tween.set_trans(Tween.TRANS_QUAD)
     tween.set_ease(Tween.EASE_IN)
-    tween.tween_property(drink, "position", _target_root.position, 0.34)
-    tween.tween_property(drink, "scale", Vector2(0.42, 0.42), 0.34)
-    tween.tween_property(drink, "modulate:a", 0.0, 0.34)
-    tween.tween_property(_to_go_target_sprite, "scale", _to_go_target_sprite.scale * 1.18, 0.34)
-    tween.tween_property(_to_go_target_sprite, "modulate:a", 0.0, 0.34)
+    tween.tween_property(drink, "position", _target_root.position, TO_GO_DELIVERY_DURATION)
+    tween.tween_property(drink, "scale", Vector2(0.42, 0.42), TO_GO_DELIVERY_DURATION)
+    tween.tween_property(drink, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
+    tween.tween_property(_to_go_target_sprite, "scale", _to_go_target_sprite.scale * 1.18, TO_GO_DELIVERY_DURATION)
+    tween.tween_property(_to_go_target_sprite, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
     tween.finished.connect(_finish_target_collection, CONNECT_ONE_SHOT)
 
 
@@ -1051,7 +1055,8 @@ func _finish_target_collection() -> void:
     if is_instance_valid(drink):
         drink.queue_free()
 
-    _to_go_panel.visible = false
+    _to_go_panel.visible = true
+    _order_completion_feedback()
 
     # A delivered stock drink never receives merge/combo points a second time.
     # Only the currently requested To-Go reward is paid here.
@@ -1079,18 +1084,84 @@ func _make_label(pos: Vector2, size: Vector2, font_size: int, alignment: Horizon
     return label
 
 
+func _spawn_to_go_trail(start: Vector2, target: Vector2, duration: float) -> void:
+    if world == null:
+        return
+    var direction := target - start
+    var distance := direction.length()
+    if distance <= 1.0:
+        return
+
+    var trail := Sprite2D.new()
+    trail.name = "ToGoDeliveryTrail"
+    trail.texture = load(TO_GO_TRAIL_TEXTURE_PATH)
+    if trail.texture == null:
+        return
+    trail.position = (start + target) * 0.5
+    trail.rotation = direction.angle()
+    trail.scale = Vector2(distance / float(trail.texture.get_width()), 0.055)
+    trail.modulate = Color(1.0, 0.88, 0.35, 0.0)
+    trail.z_index = 12
+    world.add_child(trail)
+
+    var fade_time := maxf(0.08, duration - 0.08)
+    var tween := create_tween()
+    tween.set_parallel(true)
+    tween.tween_property(trail, "modulate:a", 0.55, 0.08)
+    tween.tween_property(trail, "modulate:a", 0.0, fade_time).set_delay(0.08)
+    tween.tween_property(trail, "scale:y", 0.0, fade_time).set_delay(0.08)
+    tween.chain().tween_callback(trail.queue_free)
+
+
+func _order_completion_feedback() -> void:
+    if _to_go_panel == null:
+        return
+    var previous := _to_go_panel.get_node_or_null("OrderCompleteFlash")
+    if previous != null:
+        previous.queue_free()
+
+    var flash := ColorRect.new()
+    flash.name = "OrderCompleteFlash"
+    flash.position = Vector2.ZERO
+    flash.size = _to_go_panel.size
+    flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    flash.color = Color(1.0, 0.78, 0.28, 0.0)
+    # Keep the flash above the panel artwork but below unrelated HUD siblings.
+    flash.z_index = 1
+    _to_go_panel.add_child(flash)
+
+    var tween := create_tween()
+    tween.tween_property(flash, "color:a", 0.42, 0.08)
+    tween.tween_property(flash, "color:a", 0.0, 0.24)
+    tween.tween_callback(flash.queue_free)
+
+
 func _juice_effect(pos: Vector2) -> void:
+    var effect_root := Node2D.new()
+    effect_root.name = "MergeFeedback"
+    effect_root.position = pos
+    effect_root.z_index = 12
+    world.add_child(effect_root)
+
+    var glow := Sprite2D.new()
+    glow.name = "MergeGlow"
+    glow.texture = load(MERGE_GLOW_TEXTURE_PATH)
+    glow.scale = Vector2.ONE * 0.055
+    glow.modulate = Color(1.0, 0.82, 0.35, 0.58)
+    effect_root.add_child(glow)
+
     var flash := Polygon2D.new()
-    flash.position = pos
     flash.polygon = Drink._circle_points(28.0, 20)
     flash.color = Color(1.0, 0.92, 0.45, 0.8)
-    world.add_child(flash)
+    effect_root.add_child(flash)
 
     var tween := create_tween()
     tween.set_parallel(true)
+    tween.tween_property(glow, "scale", Vector2.ONE * 0.13, 0.22)
+    tween.tween_property(glow, "modulate:a", 0.0, 0.22)
     tween.tween_property(flash, "scale", Vector2(2.4, 1.8), 0.22)
     tween.tween_property(flash, "modulate:a", 0.0, 0.22)
-    tween.chain().tween_callback(flash.queue_free)
+    tween.chain().tween_callback(effect_root.queue_free)
 
 
 func _draw() -> void:
