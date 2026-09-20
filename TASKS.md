@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M08
 - Current Sprint: BCM-M08-TO-GO-DELIVERY-POLISH
 - Current Task: Integrate To-Go delivery animation and restrained merge/order visual feedback without changing accepted physics, scoring, table-edge behavior, HUD layout, or canonical assets.
-- Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`, implements bounded To-Go delivery/merge feedback, runs focused/full regressions, pushes evidence/log, then stops for independent audit.
+- Current Task Status: OWNER_RUNTIME_VERIFICATION_REQUIRED
+- Next Task/Action: Owner runs the normal Godot GUI/F5 build and visually verifies M08 merge feedback, To-Go delivery trail, order-completion flash, unchanged HUD/table composition, and absence of distracting effect stacking. Source/state audit passed; M08 closes only after owner runtime acceptance.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -197,13 +197,16 @@ Independent audit: `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGP
 
 M05, M06 and M07 are closed. M08 may start.
 
-## Active M08 delivery polish
+## Active M08 delivery polish — source audited, owner runtime verification required
 
 Locked criteria:
 `coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_AUDIT_CRITERIA_V01.md`
 
 Execution prompt:
 `coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Independent audit:
+`coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_AUDIT_V01.md` — SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED.
 
 Scope is visual polish only. Accepted physics, scoring, R11 table-edge behavior, rails, HUD layout, canonical assets and gameplay contracts are frozen.
 
