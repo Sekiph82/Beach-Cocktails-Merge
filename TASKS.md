@@ -4,11 +4,11 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M09
-- Current Sprint: BCM-M09-AUDIO-HAPTICS-MICRO-POLISH
-- Current Task: Add bounded audio, optional haptics and micro-polish, and set the first three live To-Go targets to L5 -> L6 -> L7 for quick trail verification, without changing accepted gameplay physics or R11/M08 behavior.
-- Current Task Status: OWNER_RUNTIME_VERIFICATION_REQUIRED
-- Next Task/Action: Owner runs the normal Godot F5 game and verifies first three To-Go targets L5 -> L6 -> L7, observes the carried-forward yellow delivery trail, confirms accepted merge/completion visuals and unchanged HUD/table layout. Source audit passed.
+- Current Milestone: M10
+- Current Sprint: BCM-M10-CAMPAIGN-ARCHITECTURE
+- Current Task: Introduce campaign architecture and canonical data model boundaries without changing accepted core gameplay, physics, R11 table-edge behavior, M08/M09 feedback, HUD layout, or canonical assets.
+- Current Task Status: READY
+- Next Task/Action: Codex executes `coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_EXECUTION_PROMPT_V01.md`, builds only the campaign architecture/data foundation, runs focused/full regressions, pushes log/evidence, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -25,8 +25,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M06-001 — Three-sided playable-envelope and cocktail-to-edge behavior closed by owner-accepted BCM-R11 table-footprint solution.
 - [x] BCM-M07-001 — HUD alignment/refinement closed; owner-accepted BEST/SCORE/NEXT/logo/To-Go/held behavior preserved through R11 regression.
 - [x] BCM-M08-001 — To-Go delivery animation and restrained visual effects implemented; merge/completion visuals owner-accepted, trail verification carried into M09.
-- [~] BCM-M09-001 — Add gameplay feedback polish, audio, optional haptics, and owner-requested first-three To-Go target sequence L5/L6/L7.
-- [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
+- [x] BCM-M09-001 — Feedback hooks, optional haptics architecture, and L5/L6/L7 startup To-Go sequence implemented, audited and owner-accepted; yellow trail accepted as-is.
+- [~] BCM-M10-001 — Introduce CampaignManager, LevelDatabase, SaveManager, GameEconomy, GameplaySessionBridge, canonical campaign schemas and seed data.
 - [ ] BCM-M11-001 — Mobile layout, performance, export, device QA, and release readiness.
 - [ ] BCM-M12-001 — Final regression, acceptance, packaging, documentation, and v1 release closure.
 
@@ -216,7 +216,7 @@ V02 execution prompt:
 
 Scope is visual polish only. Accepted physics, scoring, R11 table-edge behavior, rails, HUD layout, canonical assets and gameplay contracts are frozen.
 
-## Active M09 audio haptics micro-polish — source audited, owner runtime verification required
+## M09 audio haptics micro-polish — audited and owner accepted
 
 Locked criteria:
 `coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_AUDIT_CRITERIA_V01.md`
@@ -233,6 +233,16 @@ L5 -> L6 -> L7, then existing normal target selection resumes.
 The existing reward table is frozen. L5 reward remains 0 unless the owner later changes the economy contract.
 
 M08 yellow delivery-trail visibility is a carry-forward runtime verification item in this milestone.
+
+## Active M10 campaign architecture
+
+Locked criteria:
+`coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Execution prompt:
+`coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Scope is architecture/data foundation only. World Map, Island Map, live save migration, timer gameplay, VIP runtime, boosters and the full 100-level Sunny Cove dataset remain deferred.
 
 ## M08-M21 — Roadmap
 
