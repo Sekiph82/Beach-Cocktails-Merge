@@ -199,7 +199,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "bca38704ca2d91f08e04256b777f7543d228b49b4cb13754b5c7bbf6c99f7fa0"
+      "sha256": "a39f97522f7714a5c2ff0cf5447a6bcda520514f5b0dbadbf6a23b7c3feb9b3b"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_node_milestone.png",
@@ -227,7 +227,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "bca38704ca2d91f08e04256b777f7543d228b49b4cb13754b5c7bbf6c99f7fa0"
+      "sha256": "5644ded99ae83ba4dce11ce188b876d1f6085aab7b5ae15deece513cc73db8d8"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/map_scroll_bottom_decor.png",
@@ -2285,7 +2285,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "3621c09b876290c067bcbbd375e734e61e6b3d1847e0bc4c0ccb3457804577a0"
+      "sha256": "a6c6b635712fe23283ba01944e869abcf2c8cba738ee4fb31d60b23238ed4a7e"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/route_marker_complete.png",
@@ -2299,7 +2299,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "e9bd8d54443491384cd704798aa370674cb29fe12a22b1710de37d1edb4483a8"
+      "sha256": "9ecceb7a6caab17c5047e5f598d70bb2505dd8c306a1c0597bf923a5b161dcba"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/route_marker_current.png",
@@ -2313,7 +2313,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "027edf0448254b647eccbececedf57e1bee2ce22ff225bf7127075c01049029f"
+      "sha256": "6ab3c533d7c48669005c2a00800d9cd8a39e84234798eb343e6e318ca903af47"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/sunny_cove.png",
@@ -2467,7 +2467,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "66c63709c4c807e1e898558f55a6296ed8ffee475df1864712173f36eadf5466"
+      "sha256": "ad119bb97b75f30b32ac2befe7a3c21e5c62e4f369989be9a2fec164b4f2092c"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_ISLANDS.png",
@@ -2524,6 +2524,20 @@
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
       "sha256": "304d1a7257f256762947ed4cac2d835084e942c492370b822998d52f215c36b4"
+    },
+    {
+      "path": "assets/ui_assets/CONTACT_SHEET_STATEFUL_UI.png",
+      "category": "evidence",
+      "intended_screen_use": "audit contact sheet",
+      "dimensions": {
+        "width": 850,
+        "height": 1906
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "deterministic original Pillow procedural generation",
+      "sha256": "36ddf673d2af042228a9043e840e1f9d2778072a9760c85f9e85cf8a67098b4c"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_TABLES.png",
@@ -2803,7 +2817,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "a3b9574aedf45b107a4df52dc45e7266e624a0d338a173143086d24387211c9a"
+      "sha256": "90e11878bb4953174cf3dc4ef88d9f9aad9a0496c557cfd2236d7c864648ffbf"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_day_slot.png",
@@ -3111,7 +3125,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "2bca1857e66aace2c29c9ad3319b6d2d1d756b23a9ab12db3eff22f272f04f7e"
+      "sha256": "ba33eb231ff8dc552ba1b36d98b7aeda78c160dfa2b324b026b0d17188315888"
     },
     {
       "path": "assets/ui_assets/screens/milestones/milestone_chest_open.png",
@@ -3125,7 +3139,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "2bca1857e66aace2c29c9ad3319b6d2d1d756b23a9ab12db3eff22f272f04f7e"
+      "sha256": "9105893dcd1c7c586502fd9a355057a15d134451314c69c66d1945ba64ec82c6"
     },
     {
       "path": "assets/ui_assets/screens/milestones/milestone_glow.png",
@@ -3881,7 +3895,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "bf30c4b2f3c9e2966abf0730588c0d603f5cbd62332fd057279820ade7dded57"
+      "sha256": "d92e03f96eb5ea5a492eceaec47b1d263dae6a89518e0c225198270b660c2424"
     },
     {
       "path": "assets/ui_assets/screens/settings/toggle_on.png",
@@ -3895,7 +3909,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "bf30c4b2f3c9e2966abf0730588c0d603f5cbd62332fd057279820ade7dded57"
+      "sha256": "79049c3ccf765c8b072a4cbde0c230790e4c2bb7862c7a735bae1ea10533d8f6"
     },
     {
       "path": "assets/ui_assets/screens/shop/best_value_badge.png",
@@ -4539,7 +4553,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "a3b9574aedf45b107a4df52dc45e7266e624a0d338a173143086d24387211c9a"
+      "sha256": "c261e1b6486a8b490dc5857cde3f6fa596a756b352c8af427be9a1de87a185e0"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_selected.png",
@@ -4553,7 +4567,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "cbd087f4d25ff58dc7e430c6dc739bf63534172711a72ac68adab02a8505080b"
+      "sha256": "453b9ab612d8f1e6fb92c536a70899525911736cabebeb8e6991031fbdc0f76f"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_shuffle.png",
@@ -5225,7 +5239,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "f3f845d4abed1d102166930e6081786c9dee64ce3f16dd80189400b99442c3b8"
+      "sha256": "ee7e273165babc82aeee3d026e7242acb2a11c8edc8cd10ea856b9d372d6d895"
     },
     {
       "path": "assets/ui_assets/ui/global/tab_inactive.png",
@@ -5239,7 +5253,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "f3f845d4abed1d102166930e6081786c9dee64ce3f16dd80189400b99442c3b8"
+      "sha256": "ffab0cacfa6ce0a83d249e80c0d9472d1a0dd168f9992c34700b2c764fd57f0f"
     },
     {
       "path": "assets/ui_assets/ui/global/tooltip_frame.png",
@@ -5281,7 +5295,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "69548e4d960e82625dea2ceded1fb4c34b6ff469dfdeae94a206fa3232a6cd43"
+      "sha256": "fce14f1fabc8d7c5cb69566ed0d099348a36ea8b0bf54b218ce36d495f5fe276"
     },
     {
       "path": "assets/ui_assets/ui/rewards/coin_icon.png",
@@ -5337,7 +5351,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "47562c7c315e23ecc495c11fc0c8190507563c85ca99f4f00e55f195b4284ca8"
+      "sha256": "987338d4a963217d53b01cafce36c85d3a523dd79a9d9e03b1596633f2c0efac"
     },
     {
       "path": "assets/ui_assets/ui/rewards/reward_frame_large.png",
@@ -5407,7 +5421,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "deterministic original Pillow procedural generation",
-      "sha256": "65f54c81a27d0dd644bb07c06055a2502178c1881d9dfc76b4d5ad108177671c"
+      "sha256": "adff30a920074a1d115f376cb13df558e429496372cbfb01a581692334f1e3f1"
     },
     {
       "path": "assets/ui_assets/ui/rewards/star_empty.png",

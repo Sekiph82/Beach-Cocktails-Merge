@@ -28,6 +28,22 @@ ISLAND_PATHS = [f"campaign/islands/{island}/world_icon.png" for island in [
     "sunny_cove", "tiki_island", "azure_bay", "coconut_beach", "sunset_island",
     "party_beach", "frozen_paradise", "volcano_bay", "billionaire_island", "final_island"
 ]]
+STATEFUL_GROUPS = [
+    ("stars", [
+        "campaign/island_map/star_small_empty.png", "campaign/island_map/star_small_filled.png",
+        "ui/rewards/star_empty.png", "ui/rewards/star_filled.png", "ui/rewards/star_large_empty.png", "ui/rewards/star_large_filled.png",
+    ], 0.02),
+    ("chests", [
+        "ui/rewards/small_chest_closed.png", "ui/rewards/small_chest_open.png", "ui/rewards/big_chest_closed.png", "ui/rewards/big_chest_open.png",
+        "ui/rewards/premium_chest_closed.png", "ui/rewards/premium_chest_open.png", "screens/milestones/milestone_chest_closed.png", "screens/milestones/milestone_chest_open.png",
+    ], 0.02),
+    ("toggle", ["screens/settings/toggle_off.png", "screens/settings/toggle_on.png"], 0.02),
+    ("level_nodes", ["campaign/island_map/level_node_locked.png", "campaign/island_map/level_node_unlocked.png", "campaign/island_map/level_node_current.png", "campaign/island_map/level_node_completed.png"], 0.02),
+    ("tabs", ["ui/global/tab_inactive.png", "ui/global/tab_active.png"], 0.02),
+    ("daily_reward_states", ["screens/daily_reward/daily_day_locked.png", "screens/daily_reward/daily_day_current.png", "screens/daily_reward/daily_day_claimed.png"], 0.015),
+    ("booster_states", ["ui/boosters/booster_locked.png", "ui/boosters/booster_selected.png", "ui/boosters/booster_time.png"], 0.015),
+    ("route_markers", ["campaign/world_map/route_marker.png", "campaign/world_map/route_marker_current.png", "campaign/world_map/route_marker_complete.png"], 0.015),
+]
 
 
 def git(*args):
@@ -64,6 +80,29 @@ def write_uniqueness_report(name, paths):
     (OUT / f"{name.upper()}_UNIQUENESS_REPORT.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     assert not report["near_duplicate_pairs"], f"near-duplicate {name} assets: {report['near_duplicate_pairs'][:3]}"
     return report
+
+
+def validate_stateful_report():
+    report_path = OUT / "STATEFUL_PAIR_REPORT.json"
+    contact_path = OUT / "CONTACT_SHEET_STATEFUL_UI.png"
+    assert report_path.exists(), "stateful pair report missing"
+    assert contact_path.exists(), "stateful contact sheet missing"
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    by_name = {group["name"]: group for group in report["groups"]}
+    results = {}
+    for name, paths, threshold in STATEFUL_GROUPS:
+        assert name in by_name, f"stateful group missing: {name}"
+        entry = by_name[name]
+        assert entry["minimum_required_distance"] == threshold, f"threshold drift: {name}"
+        hashes = [hashlib.sha256((OUT / path).read_bytes()).hexdigest() for path in paths]
+        signatures = {path: signature(OUT / path) for path in paths}
+        distances = [distance(signatures[left], signatures[right]) for index, left in enumerate(paths) for right in paths[index + 1:]]
+        assert min(distances) >= threshold, f"insufficient state differentiation: {name} min={min(distances):.4f} threshold={threshold:.4f}"
+        report_hashes = [asset["sha256"] for asset in entry["assets"]]
+        assert report_hashes == hashes, f"stateful report checksum drift: {name}"
+        assert entry["status"] == "PASS", f"stateful report failed: {name}"
+        results[name] = min(distances)
+    return results
 
 
 def worktree_blob(path):
@@ -146,6 +185,7 @@ def main():
     assert worktree_blob("assets/ui_assets/tables/table_geometry_v1.json") == head_blob("assets/ui_assets/tables/table_geometry_v1.json"), "table geometry contract changed from start"
     semantic_report = write_uniqueness_report("semantic", SEMANTIC_PATHS)
     island_report = write_uniqueness_report("island", ISLAND_PATHS)
+    stateful_results = validate_stateful_report()
 
     protected_diffs = git("diff", "--name-only", START_HEAD, "--", *PROTECTED).stdout.strip().splitlines()
     assert not any(path.startswith(tuple(PROTECTED[:4])) or path in PROTECTED[4:] for path in protected_diffs), f"protected path changed: {protected_diffs}"
@@ -158,6 +198,12 @@ def main():
     print("PASS preserved-logo-mask-geometry: start-commit blobs unchanged")
     print(f"PASS semantic-uniqueness: {semantic_report['asset_count']} assets; minimum distance {semantic_report['minimum_pair_distance']:.4f}")
     print(f"PASS island-uniqueness: {island_report['asset_count']} assets; minimum distance {island_report['minimum_pair_distance']:.4f}")
+    print(f"PASS stateful-stars: minimum distance {stateful_results['stars']:.4f}")
+    print(f"PASS stateful-chests: minimum distance {stateful_results['chests']:.4f}")
+    print(f"PASS stateful-toggle: minimum distance {stateful_results['toggle']:.4f}")
+    print(f"PASS stateful-level-nodes: minimum distance {stateful_results['level_nodes']:.4f}")
+    print(f"PASS stateful-tabs: minimum distance {stateful_results['tabs']:.4f}")
+    print(f"PASS stateful-daily-route-booster: daily={stateful_results['daily_reward_states']:.4f}, route={stateful_results['route_markers']:.4f}, booster={stateful_results['booster_states']:.4f}")
     print("PASS final-renderer-guard: explicit renderers only; no filename/stem fallback")
     print("PASS protected-scope: no changes under runtime asset folders, game manager, or TASKS.md")
 

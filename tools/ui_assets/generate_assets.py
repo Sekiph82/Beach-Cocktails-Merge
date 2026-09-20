@@ -490,6 +490,65 @@ def make_contact_sheet(name: str, items: list[tuple[str, Image.Image]], columns:
     save(sheet.convert("RGBA"), OUT / name)
 
 
+STATEFUL_GROUPS = [
+    {"name": "stars", "paths": [
+        "campaign/island_map/star_small_empty.png", "campaign/island_map/star_small_filled.png",
+        "ui/rewards/star_empty.png", "ui/rewards/star_filled.png",
+        "ui/rewards/star_large_empty.png", "ui/rewards/star_large_filled.png",
+    ], "min_distance": 0.02, "expected": "empty is hollow/desaturated; filled is bright/earned"},
+    {"name": "chests", "paths": [
+        "ui/rewards/small_chest_closed.png", "ui/rewards/small_chest_open.png",
+        "ui/rewards/big_chest_closed.png", "ui/rewards/big_chest_open.png",
+        "ui/rewards/premium_chest_closed.png", "ui/rewards/premium_chest_open.png",
+        "screens/milestones/milestone_chest_closed.png", "screens/milestones/milestone_chest_open.png",
+    ], "min_distance": 0.02, "expected": "closed lid versus open lid/interior reward glow"},
+    {"name": "toggle", "paths": ["screens/settings/toggle_off.png", "screens/settings/toggle_on.png"], "min_distance": 0.02, "expected": "muted left OFF knob versus illuminated right ON knob"},
+    {"name": "level_nodes", "paths": [
+        "campaign/island_map/level_node_locked.png", "campaign/island_map/level_node_unlocked.png",
+        "campaign/island_map/level_node_current.png", "campaign/island_map/level_node_completed.png",
+    ], "min_distance": 0.02, "expected": "lock/inaccessible versus selectable/progress states"},
+    {"name": "tabs", "paths": ["ui/global/tab_inactive.png", "ui/global/tab_active.png"], "min_distance": 0.02, "expected": "receded inactive versus raised/highlighted active"},
+    {"name": "daily_reward_states", "paths": [
+        "screens/daily_reward/daily_day_locked.png", "screens/daily_reward/daily_day_current.png", "screens/daily_reward/daily_day_claimed.png",
+    ], "min_distance": 0.015, "expected": "locked, current, and claimed calendar states"},
+    {"name": "booster_states", "paths": [
+        "ui/boosters/booster_locked.png", "ui/boosters/booster_selected.png", "ui/boosters/booster_time.png",
+    ], "min_distance": 0.015, "expected": "locked, selected, and usable/default booster states"},
+    {"name": "route_markers", "paths": [
+        "campaign/world_map/route_marker.png", "campaign/world_map/route_marker_current.png", "campaign/world_map/route_marker_complete.png",
+    ], "min_distance": 0.015, "expected": "normal, current, and complete route progress states"},
+]
+
+
+def image_signature(path: Path):
+    image = Image.open(path).convert("RGBA").resize((24, 24), Image.Resampling.BILINEAR)
+    return [channel for pixel in image.getdata() for channel in pixel]
+
+
+def perceptual_distance(left, right):
+    return sum(abs(a - b) for a, b in zip(left, right)) / (len(left) * 255)
+
+
+def write_stateful_report():
+    report = {"report_version": 1, "groups": []}
+    for group in STATEFUL_GROUPS:
+        signatures = {rel: image_signature(OUT / rel) for rel in group["paths"]}
+        distances = []
+        for index, left in enumerate(group["paths"]):
+            for right in group["paths"][index + 1:]:
+                distances.append({"left": left, "right": right, "distance": perceptual_distance(signatures[left], signatures[right])})
+        distances.sort(key=lambda item: item["distance"])
+        report["groups"].append({
+            "name": group["name"],
+            "expected_relationship": group["expected"],
+            "minimum_required_distance": group["min_distance"],
+            "assets": [{"path": rel, "sha256": hashlib.sha256((OUT / rel).read_bytes()).hexdigest()} for rel in group["paths"]],
+            "pair_distances": distances,
+            "status": "PASS" if distances and distances[0]["distance"] >= group["min_distance"] else "FAIL",
+        })
+    (OUT / "STATEFUL_PAIR_REPORT.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+
+
 def generate():
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "source").mkdir(parents=True, exist_ok=True)
@@ -552,6 +611,13 @@ def generate():
     ]:
         major_screen_items.append((Path(rel).stem.replace("_", " ").title(), Image.open(OUT / rel)))
     make_contact_sheet("CONTACT_SHEET_MAJOR_SCREENS.png", major_screen_items, 4, (220, 270))
+
+    stateful_items = []
+    for group in STATEFUL_GROUPS:
+        for rel in group["paths"]:
+            stateful_items.append((Path(rel).stem.replace("_", " ").title(), Image.open(OUT / rel)))
+    make_contact_sheet("CONTACT_SHEET_STATEFUL_UI.png", stateful_items, 4, (190, 170))
+    write_stateful_report()
 
     manifest = []
     pngs = sorted(OUT.rglob("*.png"))
@@ -642,6 +708,7 @@ REWARD_STEMS = {
     "coin_icon", "gem_icon", "star_empty", "star_filled", "star_large_empty", "star_large_filled",
     "star_small_empty", "star_small_filled", "small_chest_closed", "small_chest_open", "big_chest_closed",
     "big_chest_open", "premium_chest_closed", "premium_chest_open", "daily_chest",
+    "milestone_chest_closed", "milestone_chest_open",
     "coin_pack_icon_small", "coin_pack_icon_medium", "coin_pack_icon_large",
     "gem_pack_icon_small", "gem_pack_icon_medium", "gem_pack_icon_large",
 }
@@ -855,17 +922,97 @@ def reward_art(theme, stem: str, size) -> Image.Image:
         chest = _rgba("#7b432d" if not premium else "#172f4a")
         metal = _rgba("#efbd54" if not premium else "#bceee4")
         x0, y0, x1, y1 = w * .14, h * .38, w * .86, h * .86
-        d.ellipse((x0, h * .15, x1, h * .63), fill=_rgba("#bd7441" if not premium else "#2d6480"), outline=metal, width=max(3, w // 24))
-        d.rounded_rectangle((x0, y0, x1, y1), radius=max(8, w // 16), fill=chest, outline=metal, width=max(3, w // 24))
-        d.line((x0 + 8, h * .51, x1 - 8, h * .51), fill=metal, width=max(3, w // 22))
-        d.rectangle((w * .45, h * .48, w * .55, h * .69), fill=metal)
-        d.ellipse((w * .46, h * .58, w * .54, h * .66), fill=dark)
-        if big:
-            d.arc((x0 + 4, h * .10, x1 - 4, h * .67), 180, 360, fill=_rgba("#fff0aa", 180), width=max(2, w // 30))
+        if "open" in stem:
+            for angle in range(210, 331, 20):
+                ex = cx + math.cos(math.radians(angle)) * w * .40
+                ey = h * .37 + math.sin(math.radians(angle)) * h * .24
+                d.line((cx, h*.38, ex, ey), fill=_rgba("#fff0a0", 100), width=max(2, w // 32))
+            d.polygon([(x0 + 8, h*.40), (w*.28, h*.18), (w*.72, h*.18), (x1 - 8, h*.40)], fill=_rgba("#bd7441" if not premium else "#2d6480"), outline=metal)
+            d.rounded_rectangle((x0, h*.43, x1, y1), radius=max(8, w // 16), fill=chest, outline=metal, width=max(3, w // 24))
+            d.ellipse((w*.33, h*.50, w*.67, h*.84), fill=_rgba("#f8d568", 175), outline=_rgba("#fff4b1"), width=max(2, w // 28))
+            d.polygon(star_points(cx, h*.67, w*.13, w*.055), fill=_rgba("#fff8cf"))
+        else:
+            d.ellipse((x0, h * .15, x1, h * .63), fill=_rgba("#bd7441" if not premium else "#2d6480"), outline=metal, width=max(3, w // 24))
+            d.rounded_rectangle((x0, y0, x1, y1), radius=max(8, w // 16), fill=chest, outline=metal, width=max(3, w // 24))
+            d.line((x0 + 8, h * .51, x1 - 8, h * .51), fill=metal, width=max(3, w // 22))
+            d.rectangle((w * .45, h * .48, w * .55, h * .69), fill=metal)
+            d.ellipse((w * .46, h * .58, w * .54, h * .66), fill=dark)
+            if big:
+                d.arc((x0 + 4, h * .10, x1 - 4, h * .67), 180, 360, fill=_rgba("#fff0aa", 180), width=max(2, w // 30))
     else:
         d.ellipse((8, 8, w - 8, h - 8), fill=dark, outline=accent, width=max(3, w // 18))
         d.polygon(star_points(cx, cy, w * .30, w * .13), fill=light)
     return finish_icon(image, theme, sum(ord(char) for char in stem) + 413)
+
+
+STATEFUL_STEMS = {
+    "toggle_on", "toggle_off", "level_node_locked", "level_node_unlocked", "tab_active", "tab_inactive",
+    "daily_day_locked", "booster_locked", "booster_selected", "route_marker", "route_marker_current", "route_marker_complete",
+}
+
+
+def stateful_art(theme, stem: str, size) -> Image.Image:
+    image = Image.new("RGBA", size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(image, "RGBA")
+    w, h = size
+    light, accent, dark = _rgba(theme["light"]), _rgba(theme["accent"]), _rgba(theme["dark"])
+    if stem in {"toggle_on", "toggle_off"}:
+        on = stem == "toggle_on"
+        track = _rgba("#287d78" if on else "#536875", 245)
+        knob = _rgba("#ffd466" if on else "#a5b0ad")
+        d.rounded_rectangle((6, h*.22, w-6, h*.78), radius=int(h*.28), fill=track, outline=light, width=max(2, h//22))
+        x = w*.70 if on else w*.30
+        d.ellipse((x-h*.18, h*.32, x+h*.18, h*.68), fill=knob, outline=_rgba("#fff7cf" if on else "#71828a"), width=max(2, h//28))
+        if on:
+            d.arc((w*.12,h*.28,w*.48,h*.72), 210, 330, fill=_rgba("#6ce2c3", 170), width=max(2, h//24))
+        return finish_icon(image, theme, 700 + len(stem))
+    if stem in {"tab_active", "tab_inactive"}:
+        active = stem == "tab_active"
+        fill = _rgba(theme["light"], 245) if active else _rgba(theme["dark"], 220)
+        outline = _rgba(theme["accent"], 255) if active else _rgba(theme["light"], 95)
+        d.rounded_rectangle((6, h*.15, w-6, h*.82), radius=max(8, h//5), fill=fill, outline=outline, width=max(3, h//20))
+        d.line((w*.18,h*.70,w*.82,h*.70), fill=_rgba(theme["accent"] if active else theme["light"], 255 if active else 80), width=max(4, h//12))
+        if active:
+            d.line((w*.25,h*.23,w*.75,h*.23), fill=_rgba("#fff8d7", 190), width=max(2, h//25))
+        return finish_icon(image, theme, 710 + len(stem))
+    if stem in {"level_node_locked", "level_node_unlocked"}:
+        unlocked = stem == "level_node_unlocked"
+        cx, cy = w*.50, h*.50
+        radius = min(w,h)*.34
+        d.ellipse((cx-radius,cy-radius,cx+radius,cy+radius), fill=_rgba(theme["mid"] if unlocked else "#4d5a63", 245), outline=_rgba(theme["accent"] if unlocked else "#82909a"), width=max(5, int(radius*.10)))
+        if unlocked:
+            d.polygon(star_points(cx,cy,radius*.56,radius*.24), fill=accent, outline=light)
+            d.ellipse((cx-radius*.20,cy-radius*.20,cx+radius*.20,cy+radius*.20), fill=_rgba("#fff6c9", 130))
+        else:
+            d.rounded_rectangle((cx-radius*.36,cy-radius*.02,cx+radius*.36,cy+radius*.46), radius=8, fill=_rgba("#303d49"), outline=_rgba("#aab5b0"), width=max(3, int(radius*.08)))
+            d.arc((cx-radius*.25,cy-radius*.40,cx+radius*.25,cy+radius*.14), 180, 360, fill=_rgba("#aab5b0"), width=max(4, int(radius*.09)))
+        return finish_icon(image, theme, 720 + len(stem))
+    if stem in {"daily_day_locked", "booster_locked"}:
+        d.rounded_rectangle((6, 6, w-6, h-6), radius=max(10, min(w,h)//7), fill=_rgba("#4f6572", 230), outline=_rgba("#9aa9a8"), width=max(3, min(w,h)//22))
+        cx, cy = w/2, h/2
+        d.rounded_rectangle((cx-w*.16,cy-h*.02,cx+w*.16,cy+h*.24), radius=6, fill=_rgba("#273945"), outline=light, width=max(2, min(w,h)//30))
+        d.arc((cx-w*.11,cy-h*.20,cx+w*.11,cy+h*.10),180,360,fill=light,width=max(3,min(w,h)//25))
+        return finish_icon(image, theme, 730 + len(stem))
+    if stem in {"route_marker", "route_marker_current", "route_marker_complete"}:
+        cx, cy = w / 2, h / 2
+        radius = min(w, h) * .34
+        if stem == "route_marker":
+            d.ellipse((cx-radius, cy-radius, cx+radius, cy+radius), fill=_rgba("#f5e7bd"), outline=_rgba("#5d493e"), width=max(5, int(radius*.10)))
+            d.ellipse((cx-radius*.30, cy-radius*.30, cx+radius*.30, cy+radius*.30), fill=_rgba(theme["accent"]), outline=dark, width=max(3, int(radius*.07)))
+        elif stem == "route_marker_current":
+            d.ellipse((cx-radius, cy-radius, cx+radius, cy+radius), fill=_rgba("#fff2c0"), outline=_rgba(theme["accent"]), width=max(5, int(radius*.10)))
+            d.ellipse((cx-radius*.76, cy-radius*.76, cx+radius*.76, cy+radius*.76), outline=_rgba("#fff6bf", 220), width=max(4, int(radius*.08)))
+            d.polygon(star_points(cx, cy, radius*.48, radius*.20), fill=accent, outline=dark)
+        else:
+            d.ellipse((cx-radius, cy-radius, cx+radius, cy+radius), fill=_rgba("#8bd2a7"), outline=_rgba("#e7f7d7"), width=max(5, int(radius*.10)))
+            d.line((cx-radius*.48, cy, cx-radius*.10, cy+radius*.34, cx+radius*.55, cy-radius*.38), fill=_rgba("#174858"), width=max(7, int(radius*.12)), joint="curve")
+        return finish_icon(image, theme, 750 + len(stem))
+    if stem == "booster_selected":
+        d.rounded_rectangle((5,5,w-5,h-5), radius=18, fill=_rgba(theme["accent"], 95), outline=light, width=7)
+        d.polygon([(w*.50,h*.17),(w*.82,h*.50),(w*.50,h*.83),(w*.18,h*.50)], outline=accent, width=4)
+        d.arc((w*.16,h*.16,w*.84,h*.84), 205, 330, fill=_rgba("#fff8cf", 190), width=max(2,w//25))
+        return finish_icon(image, theme, 740)
+    raise ValueError(f"No stateful renderer for {stem}")
 
 
 SCREEN_COMPONENT_STEMS = {
@@ -1294,6 +1441,7 @@ def render(rel: str, group: str, stem: str, island_id: str | None):
         if stem == "table_edge_overlay": return edge_overlay(theme)
         return launch_zone(theme)
     if island_id and stem.startswith("decor_"): return decor(theme, stem.split("_")[-1], island_id)
+    if stem in STATEFUL_STEMS: return stateful_art(theme, stem, size)
     if stem in SCREEN_COMPONENT_STEMS: return screen_component(theme, stem, size)
     if stem in SEMANTIC_STEMS: return semantic_icon(theme, stem, size)
     if stem in REWARD_STEMS: return reward_art(theme, stem, size)
