@@ -4,11 +4,11 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M08
-- Current Sprint: BCM-M08-TO-GO-DELIVERY-POLISH
-- Current Task: Integrate To-Go delivery animation and restrained merge/order visual feedback without changing accepted physics, scoring, table-edge behavior, HUD layout, or canonical assets.
+- Current Milestone: M09
+- Current Sprint: BCM-M09-AUDIO-HAPTICS-MICRO-POLISH
+- Current Task: Add bounded audio, optional haptics and micro-polish, and set the first three live To-Go targets to L5 -> L6 -> L7 for quick trail verification, without changing accepted gameplay physics or R11/M08 behavior.
 - Current Task Status: READY
-- Next Task/Action: Codex executes M08 V02 visual-only remediation so merge feedback and To-Go delivery trail are perceptible at normal game speed without slowing gameplay; preserve the accepted completion flash and all gameplay/layout contracts.
+- Next Task/Action: Codex executes `coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`, including deterministic first three To-Go targets L5/L6/L7, bounded audio/haptics hooks, tests and regressions, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -24,8 +24,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M05-001 — Independent sprite/body/collider evidence closure completed and audited.
 - [x] BCM-M06-001 — Three-sided playable-envelope and cocktail-to-edge behavior closed by owner-accepted BCM-R11 table-footprint solution.
 - [x] BCM-M07-001 — HUD alignment/refinement closed; owner-accepted BEST/SCORE/NEXT/logo/To-Go/held behavior preserved through R11 regression.
-- [~] BCM-M08-001 — Integrate To-Go delivery animation and restrained visual effects.
-- [ ] BCM-M09-001 — Add gameplay feedback polish, audio, and optional haptics.
+- [x] BCM-M08-001 — To-Go delivery animation and restrained visual effects implemented; merge/completion visuals owner-accepted, trail verification carried into M09.
+- [~] BCM-M09-001 — Add gameplay feedback polish, audio, optional haptics, and owner-requested first-three To-Go target sequence L5/L6/L7.
 - [ ] BCM-M10-001 — Add menus, settings, onboarding, accessibility, save migration, and UX polish.
 - [ ] BCM-M11-001 — Mobile layout, performance, export, device QA, and release readiness.
 - [ ] BCM-M12-001 — Final regression, acceptance, packaging, documentation, and v1 release closure.
@@ -197,7 +197,7 @@ Independent audit: `coordination/sessions/BCM-R10-RUNTIME-PHYSICS-CLOSURE/CHATGP
 
 M05, M06 and M07 are closed. M08 may start.
 
-## Active M08 delivery polish — V02 visual visibility remediation
+## M08 delivery polish — closed with trail verification carried forward
 
 Locked criteria:
 `coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_AUDIT_CRITERIA_V01.md`
@@ -215,6 +215,21 @@ V02 execution prompt:
 `coordination/sessions/BCM-M08-TO-GO-DELIVERY-POLISH/CHATGPT_EXECUTION_PROMPT_V02.md`
 
 Scope is visual polish only. Accepted physics, scoring, R11 table-edge behavior, rails, HUD layout, canonical assets and gameplay contracts are frozen.
+
+## Active M09 audio haptics micro-polish
+
+Locked criteria:
+`coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Execution prompt:
+`coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Owner-requested startup sequence for the normal main gameplay flow:
+L5 -> L6 -> L7, then existing normal target selection resumes.
+
+The existing reward table is frozen. L5 reward remains 0 unless the owner later changes the economy contract.
+
+M08 yellow delivery-trail visibility is a carry-forward runtime verification item in this milestone.
 
 ## M08-M21 — Roadmap
 
