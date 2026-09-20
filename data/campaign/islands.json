@@ -1,0 +1,28 @@
+{
+    "schema_version": 1,
+    "islands": [
+        {
+            "id": "sunny_cove",
+            "display_name": "Sunny Cove",
+            "order_index": 1,
+            "level_count": 100,
+            "unlock_rule": {"type": "default_open"},
+            "next_island_id": "tiki_island",
+            "map_background": "res://assets/environment/game_board_background.png",
+            "reward_track": {
+                "milestones": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                "metadata": {"source": "sunny_cove_progression_v1"}
+            }
+        },
+        {
+            "id": "tiki_island",
+            "display_name": "Tiki Island",
+            "order_index": 2,
+            "level_count": 0,
+            "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": 100},
+            "next_island_id": "",
+            "map_background": "",
+            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "schema_version": 1,
+    "island_id": "sunny_cove",
+    "levels": [
+        {
+            "island_id": "sunny_cove",
+            "level_id": 1,
+            "time_limit_sec": 20,
+            "orders": [{"cocktail_level": 5, "quantity": 1}],
+            "vip": null,
+            "rewards": {"coins": 0},
+            "score_star_thresholds": {"one_star": 0, "two_stars": null, "three_stars": null},
+            "feature_flags": {"timed": true, "vip": false, "boosters": false}
+        },
+        {
+            "island_id": "sunny_cove",
+            "level_id": 2,
+            "time_limit_sec": 20,
+            "orders": [{"cocktail_level": 5, "quantity": 1}],
+            "vip": null,
+            "rewards": {"coins": 0},
+            "score_star_thresholds": {"one_star": 0, "two_stars": null, "three_stars": null},
+            "feature_flags": {"timed": true, "vip": false, "boosters": false}
+        }
+    ]
+}
