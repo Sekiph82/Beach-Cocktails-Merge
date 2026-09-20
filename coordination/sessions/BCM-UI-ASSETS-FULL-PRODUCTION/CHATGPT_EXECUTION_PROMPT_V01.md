@@ -70,6 +70,34 @@ The complete required inventory is defined in:
 
 Do not silently omit categories.
 
+## 3A. Owner-supplied canonical logo — mandatory
+
+The owner has supplied the final Beach Cocktails Merge logo at this local path:
+
+`C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\beach cocktails merge logo.png`
+
+This is not a reference to inspire a new logo. It is the **canonical final logo artwork**.
+
+You must:
+1. read/use that local file;
+2. copy/export it into:
+   `assets/ui_assets/brand/logo_beach_cocktails_merge.png`;
+3. preserve the exact BEACH COCKTAILS MERGE typography, cocktail illustration, leaves, flowers, palm tree, waves, colors, framing, and overall composition;
+4. use this logo in every new screen mockup/contact sheet where the Beach Cocktails Merge logo appears;
+5. build the rest of the visual system around this logo's bright tropical color language.
+
+You must **not** redraw, regenerate, reinterpret, restyle, recolor, or replace this logo.
+
+Permitted processing is technical only:
+- convert/ensure true PNG alpha;
+- if the supplied file contains a baked grey checkerboard rather than actual transparency, remove only that checkerboard/background;
+- trim accidental transparent padding;
+- create proportional resolution variants from the same artwork when needed.
+
+Do not distort the aspect ratio.
+
+The current runtime gameplay screen still shows the old logo. Because V01 is deliberately isolated from live gameplay code/scenes, do not modify live runtime integration yet. Instead, record in the handoff that **UIA-M14 must replace the current on-screen logo with this exact canonical owner-supplied asset**. No alternate logo may survive the final integration.
+
 ## 4. Quality requirement
 
 These must be final-quality usable mobile-game assets, not placeholder rectangles, flat programmer art, renamed duplicates, empty canvases, or filename-only mocks.
