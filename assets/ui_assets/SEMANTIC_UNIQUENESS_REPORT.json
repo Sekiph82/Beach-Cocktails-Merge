@@ -1,0 +1,7 @@
+{
+  "asset_family": "semantic",
+  "asset_count": 27,
+  "minimum_pair_distance": 0.011665985838779957,
+  "near_duplicate_threshold": 0.01,
+  "near_duplicate_pairs": []
+}

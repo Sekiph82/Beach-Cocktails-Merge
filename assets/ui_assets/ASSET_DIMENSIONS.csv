@@ -176,7 +176,9 @@ assets/ui_assets/campaign/world_map/world_map_compass.png,320,180,RGBA,True
 assets/ui_assets/campaign/world_map/world_map_title_panel.png,500,120,RGBA,True
 assets/ui_assets/CONTACT_SHEET_GLOBAL.png,970,590,RGBA,True
 assets/ui_assets/CONTACT_SHEET_ISLANDS.png,1208,630,RGBA,True
+assets/ui_assets/CONTACT_SHEET_MAJOR_SCREENS.png,970,690,RGBA,True
 assets/ui_assets/CONTACT_SHEET_SCREENS.png,970,1026,RGBA,True
+assets/ui_assets/CONTACT_SHEET_SEMANTIC_ICONS.png,1026,1098,RGBA,True
 assets/ui_assets/CONTACT_SHEET_TABLES.png,1208,1296,RGBA,True
 assets/ui_assets/effects/combo_badge.png,128,128,RGBA,True
 assets/ui_assets/effects/combo_glow.png,220,160,RGBA,True
@@ -314,6 +316,7 @@ assets/ui_assets/screens/tutorial/tutorial_panel.png,440,190,RGBA,True
 assets/ui_assets/screens/tutorial/tutorial_skip_button.png,360,104,RGBA,True
 assets/ui_assets/screens/tutorial/tutorial_timer_icon.png,128,128,RGBA,True
 assets/ui_assets/screens/tutorial/tutorial_vip_badge.png,128,128,RGBA,True
+assets/ui_assets/source/style_reference_board.png,1774,887,RGB,False
 assets/ui_assets/tables/table_edge_overlay_master.png,720,1280,RGBA,True
 assets/ui_assets/tables/table_silhouette_mask.png,720,1280,RGBA,True
 assets/ui_assets/ui/boosters/booster_count_badge.png,128,128,RGBA,True
