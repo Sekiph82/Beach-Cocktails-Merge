@@ -4,11 +4,11 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M11
-- Current Sprint: BCM-M11-SAVE-MIGRATION-PROGRESSION
-- Current Task: Implement campaign persistence, backup/recovery, legacy best-score migration, and idempotent campaign progression on top of the audited M10 architecture.
+- Current Milestone: M12
+- Current Sprint: BCM-M12-WORLD-MAP
+- Current Task: Build the reusable data-driven World Map UI from LevelDatabase/CampaignManager state without changing accepted core gameplay.
 - Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M11-SAVE-MIGRATION-PROGRESSION/CHATGPT_EXECUTION_PROMPT_V01.md`, implements persistence/migration/progression core with isolated save tests, reruns regressions, then stops for independent audit.
+- Next Task/Action: Codex executes `coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`, builds the reusable World Map with campaign-derived island states, tests and 720x1280 evidence, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -27,8 +27,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M08-001 — To-Go delivery animation and restrained visual effects implemented; merge/completion visuals owner-accepted, trail verification carried into M09.
 - [x] BCM-M09-001 — Feedback hooks, optional haptics architecture, and L5/L6/L7 startup To-Go sequence implemented, audited and owner-accepted; yellow trail accepted as-is.
 - [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
-- [~] BCM-M11-001 — Implement campaign save persistence, migration/recovery, legacy best-score preservation, and progression core.
-- [ ] BCM-M12-001 — Final regression, acceptance, packaging, documentation, and v1 release closure.
+- [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
+- [~] BCM-M12-001 — Create reusable data-driven World Map with island state rendering, selection, lock enforcement and mobile-safe layout.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -256,7 +256,7 @@ V02 independent audit:
 
 Scope is architecture/data foundation only. World Map, Island Map, live save migration, timer gameplay, VIP runtime, boosters and the full 100-level Sunny Cove dataset remain deferred.
 
-## Active M11 save migration progression
+## M11 save migration progression — audited pass
 
 Locked criteria:
 `coordination/sessions/BCM-M11-SAVE-MIGRATION-PROGRESSION/CHATGPT_AUDIT_CRITERIA_V01.md`
@@ -265,6 +265,16 @@ Execution prompt:
 `coordination/sessions/BCM-M11-SAVE-MIGRATION-PROGRESSION/CHATGPT_EXECUTION_PROMPT_V01.md`
 
 Scope: campaign persistence, backup/recovery, legacy best-score migration, idempotent progression, and isolated save tests only. Campaign UI and timed gameplay remain deferred.
+
+## Active M12 World Map
+
+Locked criteria:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Execution prompt:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Scope: World Map UI only. Island Map, level path, gameplay timer, VIP runtime and full Sunny Cove content remain deferred.
 
 ## M08-M21 — Roadmap
 
