@@ -1,0 +1,509 @@
+{
+  "report_version": 1,
+  "groups": [
+    {
+      "name": "stars",
+      "expected_relationship": "empty is hollow/desaturated; filled is bright/earned",
+      "minimum_required_distance": 0.02,
+      "assets": [
+        {
+          "path": "campaign/island_map/star_small_empty.png",
+          "sha256": "638eae8ddc9f62dbb92a261f67a4c5251662625bbe39af7b87add8225498c159"
+        },
+        {
+          "path": "campaign/island_map/star_small_filled.png",
+          "sha256": "e8ba422d4d487bd6192df7760fd14748972246896146fb58048fddc64b2bf475"
+        },
+        {
+          "path": "ui/rewards/star_empty.png",
+          "sha256": "b3ae53847ec75a66791685c119d83098a7000589f9a69459bb209ee710ef138e"
+        },
+        {
+          "path": "ui/rewards/star_filled.png",
+          "sha256": "7da5109a00505c101f9acac3bfd83adb185e80329f539a48e1bb2ece6a9921c4"
+        },
+        {
+          "path": "ui/rewards/star_large_empty.png",
+          "sha256": "18a7ee7ae5598ba5aa8eb10c486a3a5f09d341b76a4bc36feaabafc6825e0fa1"
+        },
+        {
+          "path": "ui/rewards/star_large_filled.png",
+          "sha256": "d4037f835066ee38e4f7a58ff790c899029f4332acecc66ef2a05992d8ebab57"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "campaign/island_map/star_small_filled.png",
+          "right": "ui/rewards/star_filled.png",
+          "distance": 0.21236383442265797
+        },
+        {
+          "left": "campaign/island_map/star_small_empty.png",
+          "right": "ui/rewards/star_empty.png",
+          "distance": 0.21903254357298474
+        },
+        {
+          "left": "ui/rewards/star_filled.png",
+          "right": "ui/rewards/star_large_filled.png",
+          "distance": 0.2292143246187364
+        },
+        {
+          "left": "campaign/island_map/star_small_empty.png",
+          "right": "ui/rewards/star_large_empty.png",
+          "distance": 0.23292143246187363
+        },
+        {
+          "left": "ui/rewards/star_empty.png",
+          "right": "ui/rewards/star_large_empty.png",
+          "distance": 0.24427764161220045
+        },
+        {
+          "left": "campaign/island_map/star_small_filled.png",
+          "right": "ui/rewards/star_empty.png",
+          "distance": 0.2535896650326797
+        },
+        {
+          "left": "ui/rewards/star_empty.png",
+          "right": "ui/rewards/star_filled.png",
+          "distance": 0.25411390250544663
+        },
+        {
+          "left": "campaign/island_map/star_small_filled.png",
+          "right": "ui/rewards/star_large_filled.png",
+          "distance": 0.2592933006535948
+        },
+        {
+          "left": "campaign/island_map/star_small_empty.png",
+          "right": "campaign/island_map/star_small_filled.png",
+          "distance": 0.26571520969498913
+        },
+        {
+          "left": "ui/rewards/star_large_empty.png",
+          "right": "ui/rewards/star_large_filled.png",
+          "distance": 0.2731804874727669
+        },
+        {
+          "left": "campaign/island_map/star_small_empty.png",
+          "right": "ui/rewards/star_filled.png",
+          "distance": 0.2763701661220044
+        },
+        {
+          "left": "ui/rewards/star_filled.png",
+          "right": "ui/rewards/star_large_empty.png",
+          "distance": 0.2817044526143791
+        },
+        {
+          "left": "campaign/island_map/star_small_empty.png",
+          "right": "ui/rewards/star_large_filled.png",
+          "distance": 0.2820584831154684
+        },
+        {
+          "left": "ui/rewards/star_empty.png",
+          "right": "ui/rewards/star_large_filled.png",
+          "distance": 0.284291598583878
+        },
+        {
+          "left": "campaign/island_map/star_small_filled.png",
+          "right": "ui/rewards/star_large_empty.png",
+          "distance": 0.29757795479302834
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "chests",
+      "expected_relationship": "closed lid versus open lid/interior reward glow",
+      "minimum_required_distance": 0.02,
+      "assets": [
+        {
+          "path": "ui/rewards/small_chest_closed.png",
+          "sha256": "38bdacb323524b5e8fd2f9c9d6c29c4488d18282c04b1d96a7f1db1562c33b1f"
+        },
+        {
+          "path": "ui/rewards/small_chest_open.png",
+          "sha256": "adff30a920074a1d115f376cb13df558e429496372cbfb01a581692334f1e3f1"
+        },
+        {
+          "path": "ui/rewards/big_chest_closed.png",
+          "sha256": "6c36e82fad41596d9eb73345e6ef8adb4c2ab865905cc3ea701b200bc0428829"
+        },
+        {
+          "path": "ui/rewards/big_chest_open.png",
+          "sha256": "fce14f1fabc8d7c5cb69566ed0d099348a36ea8b0bf54b218ce36d495f5fe276"
+        },
+        {
+          "path": "ui/rewards/premium_chest_closed.png",
+          "sha256": "a37c49ec3a72a56783d5dfa970ba6a5eaa6b88729081bb3caebc2ee1bba6f0e6"
+        },
+        {
+          "path": "ui/rewards/premium_chest_open.png",
+          "sha256": "987338d4a963217d53b01cafce36c85d3a523dd79a9d9e03b1596633f2c0efac"
+        },
+        {
+          "path": "screens/milestones/milestone_chest_closed.png",
+          "sha256": "ba33eb231ff8dc552ba1b36d98b7aeda78c160dfa2b324b026b0d17188315888"
+        },
+        {
+          "path": "screens/milestones/milestone_chest_open.png",
+          "sha256": "9105893dcd1c7c586502fd9a355057a15d134451314c69c66d1945ba64ec82c6"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "ui/rewards/small_chest_open.png",
+          "right": "ui/rewards/big_chest_open.png",
+          "distance": 0.1345639297385621
+        },
+        {
+          "left": "ui/rewards/small_chest_closed.png",
+          "right": "screens/milestones/milestone_chest_closed.png",
+          "distance": 0.13518007897603485
+        },
+        {
+          "left": "ui/rewards/small_chest_open.png",
+          "right": "screens/milestones/milestone_chest_open.png",
+          "distance": 0.13549325980392157
+        },
+        {
+          "left": "ui/rewards/small_chest_closed.png",
+          "right": "ui/rewards/big_chest_closed.png",
+          "distance": 0.13992885348583878
+        },
+        {
+          "left": "ui/rewards/big_chest_open.png",
+          "right": "screens/milestones/milestone_chest_open.png",
+          "distance": 0.14064882897603487
+        },
+        {
+          "left": "ui/rewards/big_chest_closed.png",
+          "right": "screens/milestones/milestone_chest_closed.png",
+          "distance": 0.14750136165577343
+        },
+        {
+          "left": "ui/rewards/small_chest_open.png",
+          "right": "screens/milestones/milestone_chest_closed.png",
+          "distance": 0.1813759531590414
+        },
+        {
+          "left": "ui/rewards/small_chest_closed.png",
+          "right": "ui/rewards/small_chest_open.png",
+          "distance": 0.1837401279956427
+        },
+        {
+          "left": "ui/rewards/big_chest_closed.png",
+          "right": "screens/milestones/milestone_chest_open.png",
+          "distance": 0.18443797657952068
+        },
+        {
+          "left": "screens/milestones/milestone_chest_closed.png",
+          "right": "screens/milestones/milestone_chest_open.png",
+          "distance": 0.18507114651416123
+        },
+        {
+          "left": "ui/rewards/small_chest_open.png",
+          "right": "ui/rewards/big_chest_closed.png",
+          "distance": 0.19643927015250545
+        },
+        {
+          "left": "ui/rewards/small_chest_closed.png",
+          "right": "ui/rewards/big_chest_open.png",
+          "distance": 0.1975456154684096
+        },
+        {
+          "left": "ui/rewards/big_chest_open.png",
+          "right": "screens/milestones/milestone_chest_closed.png",
+          "distance": 0.19874557461873638
+        },
+        {
+          "left": "ui/rewards/small_chest_closed.png",
+          "right": "screens/milestones/milestone_chest_open.png",
+          "distance": 0.2009123093681917
+        },
+        {
+          "left": "ui/rewards/premium_chest_open.png",
+          "right": "screens/milestones/milestone_chest_open.png",
+          "distance": 0.20951116557734203
+        },
+        {
+          "left": "ui/rewards/premium_chest_closed.png",
+          "right": "ui/rewards/premium_chest_open.png",
+          "distance": 0.21163194444444444
+        },
+        {
+          "left": "ui/rewards/small_chest_open.png",
+          "right": "ui/rewards/premium_chest_open.png",
+          "distance": 0.21452376089324618
+        },
+        {
+          "left": "ui/rewards/big_chest_open.png",
+          "right": "ui/rewards/premium_chest_open.png",
+          "distance": 0.21866830065359477
+        },
+        {
+          "left": "ui/rewards/big_chest_closed.png",
+          "right": "ui/rewards/big_chest_open.png",
+          "distance": 0.2198512391067538
+        },
+        {
+          "left": "ui/rewards/premium_chest_closed.png",
+          "right": "screens/milestones/milestone_chest_closed.png",
+          "distance": 0.22227158224400873
+        },
+        {
+          "left": "ui/rewards/big_chest_closed.png",
+          "right": "ui/rewards/premium_chest_closed.png",
+          "distance": 0.22884497549019608
+        },
+        {
+          "left": "ui/rewards/small_chest_closed.png",
+          "right": "ui/rewards/premium_chest_closed.png",
+          "distance": 0.23727873093681917
+        },
+        {
+          "left": "ui/rewards/big_chest_open.png",
+          "right": "ui/rewards/premium_chest_closed.png",
+          "distance": 0.2590720315904139
+        },
+        {
+          "left": "ui/rewards/big_chest_closed.png",
+          "right": "ui/rewards/premium_chest_open.png",
+          "distance": 0.26215788398692813
+        },
+        {
+          "left": "ui/rewards/small_chest_open.png",
+          "right": "ui/rewards/premium_chest_closed.png",
+          "distance": 0.2646837554466231
+        },
+        {
+          "left": "ui/rewards/premium_chest_open.png",
+          "right": "screens/milestones/milestone_chest_closed.png",
+          "distance": 0.26970826525054464
+        },
+        {
+          "left": "ui/rewards/premium_chest_closed.png",
+          "right": "screens/milestones/milestone_chest_open.png",
+          "distance": 0.27032952069716776
+        },
+        {
+          "left": "ui/rewards/small_chest_closed.png",
+          "right": "ui/rewards/premium_chest_open.png",
+          "distance": 0.281151279956427
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "toggle",
+      "expected_relationship": "muted left OFF knob versus illuminated right ON knob",
+      "minimum_required_distance": 0.02,
+      "assets": [
+        {
+          "path": "screens/settings/toggle_off.png",
+          "sha256": "d92e03f96eb5ea5a492eceaec47b1d263dae6a89518e0c225198270b660c2424"
+        },
+        {
+          "path": "screens/settings/toggle_on.png",
+          "sha256": "79049c3ccf765c8b072a4cbde0c230790e4c2bb7862c7a735bae1ea10533d8f6"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "screens/settings/toggle_off.png",
+          "right": "screens/settings/toggle_on.png",
+          "distance": 0.19121561819172114
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "level_nodes",
+      "expected_relationship": "lock/inaccessible versus selectable/progress states",
+      "minimum_required_distance": 0.02,
+      "assets": [
+        {
+          "path": "campaign/island_map/level_node_locked.png",
+          "sha256": "a39f97522f7714a5c2ff0cf5447a6bcda520514f5b0dbadbf6a23b7c3feb9b3b"
+        },
+        {
+          "path": "campaign/island_map/level_node_unlocked.png",
+          "sha256": "5644ded99ae83ba4dce11ce188b876d1f6085aab7b5ae15deece513cc73db8d8"
+        },
+        {
+          "path": "campaign/island_map/level_node_current.png",
+          "sha256": "e135580ead89782e2f6964315fa37b1c756726cc544716d5d0f21b707f78ad7b"
+        },
+        {
+          "path": "campaign/island_map/level_node_completed.png",
+          "sha256": "ca1e93c0247369a8152634160d1f70b25cdcc7e2fe6e931f5c1460e2d91ca951"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "campaign/island_map/level_node_current.png",
+          "right": "campaign/island_map/level_node_completed.png",
+          "distance": 0.04813282952069717
+        },
+        {
+          "left": "campaign/island_map/level_node_locked.png",
+          "right": "campaign/island_map/level_node_unlocked.png",
+          "distance": 0.258745234204793
+        },
+        {
+          "left": "campaign/island_map/level_node_locked.png",
+          "right": "campaign/island_map/level_node_current.png",
+          "distance": 0.3637680419389978
+        },
+        {
+          "left": "campaign/island_map/level_node_locked.png",
+          "right": "campaign/island_map/level_node_completed.png",
+          "distance": 0.3695363562091503
+        },
+        {
+          "left": "campaign/island_map/level_node_unlocked.png",
+          "right": "campaign/island_map/level_node_current.png",
+          "distance": 0.37664930555555554
+        },
+        {
+          "left": "campaign/island_map/level_node_unlocked.png",
+          "right": "campaign/island_map/level_node_completed.png",
+          "distance": 0.38126021241830066
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "tabs",
+      "expected_relationship": "receded inactive versus raised/highlighted active",
+      "minimum_required_distance": 0.02,
+      "assets": [
+        {
+          "path": "ui/global/tab_inactive.png",
+          "sha256": "ffab0cacfa6ce0a83d249e80c0d9472d1a0dd168f9992c34700b2c764fd57f0f"
+        },
+        {
+          "path": "ui/global/tab_active.png",
+          "sha256": "ee7e273165babc82aeee3d026e7242acb2a11c8edc8cd10ea856b9d372d6d895"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "ui/global/tab_inactive.png",
+          "right": "ui/global/tab_active.png",
+          "distance": 0.3426589733115468
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "daily_reward_states",
+      "expected_relationship": "locked, current, and claimed calendar states",
+      "minimum_required_distance": 0.015,
+      "assets": [
+        {
+          "path": "screens/daily_reward/daily_day_locked.png",
+          "sha256": "90e11878bb4953174cf3dc4ef88d9f9aad9a0496c557cfd2236d7c864648ffbf"
+        },
+        {
+          "path": "screens/daily_reward/daily_day_current.png",
+          "sha256": "9db8c418b26b8daeb8c79e5543cb1cea40427afb0bb7dd7e263a64096a2dba28"
+        },
+        {
+          "path": "screens/daily_reward/daily_day_claimed.png",
+          "sha256": "fbcc6ff1d4bf6df4bd73c3ab0835b04faaccf1d226235549e63b80368221f4a5"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "screens/daily_reward/daily_day_current.png",
+          "right": "screens/daily_reward/daily_day_claimed.png",
+          "distance": 0.03589494825708061
+        },
+        {
+          "left": "screens/daily_reward/daily_day_locked.png",
+          "right": "screens/daily_reward/daily_day_current.png",
+          "distance": 0.1756910403050109
+        },
+        {
+          "left": "screens/daily_reward/daily_day_locked.png",
+          "right": "screens/daily_reward/daily_day_claimed.png",
+          "distance": 0.18345758442265794
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "booster_states",
+      "expected_relationship": "locked, selected, and usable/default booster states",
+      "minimum_required_distance": 0.015,
+      "assets": [
+        {
+          "path": "ui/boosters/booster_locked.png",
+          "sha256": "c261e1b6486a8b490dc5857cde3f6fa596a756b352c8af427be9a1de87a185e0"
+        },
+        {
+          "path": "ui/boosters/booster_selected.png",
+          "sha256": "453b9ab612d8f1e6fb92c536a70899525911736cabebeb8e6991031fbdc0f76f"
+        },
+        {
+          "path": "ui/boosters/booster_time.png",
+          "sha256": "c44a11b20d8128bf668c7462b648c3166344419467fbe83531891d372ce3f4fa"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "ui/boosters/booster_locked.png",
+          "right": "ui/boosters/booster_time.png",
+          "distance": 0.2570925245098039
+        },
+        {
+          "left": "ui/boosters/booster_selected.png",
+          "right": "ui/boosters/booster_time.png",
+          "distance": 0.32466128812636164
+        },
+        {
+          "left": "ui/boosters/booster_locked.png",
+          "right": "ui/boosters/booster_selected.png",
+          "distance": 0.34324618736383444
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "route_markers",
+      "expected_relationship": "normal, current, and complete route progress states",
+      "minimum_required_distance": 0.015,
+      "assets": [
+        {
+          "path": "campaign/world_map/route_marker.png",
+          "sha256": "a6c6b635712fe23283ba01944e869abcf2c8cba738ee4fb31d60b23238ed4a7e"
+        },
+        {
+          "path": "campaign/world_map/route_marker_current.png",
+          "sha256": "6ab3c533d7c48669005c2a00800d9cd8a39e84234798eb343e6e318ca903af47"
+        },
+        {
+          "path": "campaign/world_map/route_marker_complete.png",
+          "sha256": "9ecceb7a6caab17c5047e5f598d70bb2505dd8c306a1c0597bf923a5b161dcba"
+        }
+      ],
+      "pair_distances": [
+        {
+          "left": "campaign/world_map/route_marker_current.png",
+          "right": "campaign/world_map/route_marker_complete.png",
+          "distance": 0.2109732434640523
+        },
+        {
+          "left": "campaign/world_map/route_marker.png",
+          "right": "campaign/world_map/route_marker_current.png",
+          "distance": 0.22876497821350764
+        },
+        {
+          "left": "campaign/world_map/route_marker.png",
+          "right": "campaign/world_map/route_marker_complete.png",
+          "distance": 0.2395986519607843
+        }
+      ],
+      "status": "PASS"
+    }
+  ]
+}

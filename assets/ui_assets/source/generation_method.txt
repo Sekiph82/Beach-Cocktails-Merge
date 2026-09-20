@@ -1,0 +1,1 @@
+Deterministic Pillow generation with explicit semantic pictograms, island landmarks, major-screen compositions, differentiated effects, and clipped island material skins. Canonical logo is owner-supplied with technical checkerboard alpha cleanup only. style_reference_board*.png are imagegen visual-direction references and are not runtime assets.
