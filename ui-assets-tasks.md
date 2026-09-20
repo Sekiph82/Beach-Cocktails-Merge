@@ -64,7 +64,9 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 
 ### UIA-M03 — Brand, splash, global UI, currency, rewards, boosters
 
-- [ ] UIA-M03-001 — Produce all Brand and Splash assets in manifest sections A.
+- [ ] UIA-M03-001 — Import the owner-supplied canonical Beach Cocktails Merge logo from `C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\beach cocktails merge logo.png` into `assets/ui_assets/brand/logo_beach_cocktails_merge.png` without redesigning it.
+- [ ] UIA-M03-001A — Use the canonical owner logo in every new screen/mockup/contact sheet that shows the game logo; only alpha/padding/size cleanup is allowed.
+- [ ] UIA-M03-001B — Produce the remaining Brand and Splash assets in manifest section A around the canonical owner logo.
 - [ ] UIA-M03-002 — Produce all Global UI assets in section B.
 - [ ] UIA-M03-003 — Produce all Currency/Reward/Chest assets in section C.
 - [ ] UIA-M03-004 — Produce all Booster assets in section D.
@@ -162,7 +164,8 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 - [ ] UIA-M14-003 — Preserve one and only one playable area across all levels, maps, and islands.
 - [ ] UIA-M14-004 — Preserve accepted drink collision/merge semantics while changing table bounds.
 - [ ] UIA-M14-005 — Add island table-skin switching with zero geometry changes.
-- [ ] UIA-M14-006 — Run strict physics/table-edge regression and owner runtime acceptance before any merge toward main.
+- [ ] UIA-M14-006 — Replace the current runtime on-screen Beach Cocktails Merge logo with the canonical owner-supplied logo asset; no alternate/redrawn logo is allowed.
+- [ ] UIA-M14-007 — Run strict physics/table-edge/HUD/logo regression and owner runtime acceptance before any merge toward main.
 
 ## Completion rule
 
