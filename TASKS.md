@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M10
 - Current Sprint: BCM-M10-CAMPAIGN-ARCHITECTURE
 - Current Task: Introduce campaign architecture and canonical data model boundaries without changing accepted core gameplay, physics, R11 table-edge behavior, M08/M09 feedback, HUD layout, or canonical assets.
-- Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_EXECUTION_PROMPT_V01.md`, builds only the campaign architecture/data foundation, runs focused/full regressions, pushes log/evidence, then stops for independent audit.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes M10 V02 remediation: validate unlock_rule references/types, make FULL level-count validation cover all declared islands, and make GameplaySessionBridge level definitions deeply immutable; then rerun focused/full regressions and stop for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -241,6 +241,15 @@ Locked criteria:
 
 Execution prompt:
 `coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Independent audit:
+`coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_AUDIT_V01.md` — CHANGES_REQUIRED.
+
+V02 locked criteria:
+`coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_AUDIT_CRITERIA_V02.md`
+
+V02 execution prompt:
+`coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_EXECUTION_PROMPT_V02.md`
 
 Scope is architecture/data foundation only. World Map, Island Map, live save migration, timer gameplay, VIP runtime, boosters and the full 100-level Sunny Cove dataset remain deferred.
 
