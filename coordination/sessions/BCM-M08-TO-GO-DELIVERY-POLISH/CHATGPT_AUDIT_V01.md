@@ -193,3 +193,31 @@ Run the normal Godot game and visually verify:
 5. no distracting effect stacking during normal play.
 
 If owner accepts the runtime result, M08 can close without another code change.
+
+
+## Owner runtime visual verification — 2026-09-20
+
+Owner tested M08 in the normal fast-paced game runtime.
+
+Observed:
+- To-Go order-completion panel flash is clearly visible and accepted.
+- Merge feedback is not perceptible during normal gameplay.
+- To-Go yellow delivery trail is not perceptible during normal gameplay.
+- No HUD, table, desktop/layout shift or other visual displacement was observed.
+
+### Consequence
+
+M08 is **not yet visually complete**.
+
+The two core transient effects technically exist and self-clean, but their current presentation does not survive the actual gameplay tempo. A visual effect that is effectively invisible during normal play does not satisfy the communication goal of the locked criteria.
+
+The completion flash may be preserved as-is.
+
+Required remediation:
+- make merge feedback perceptible without becoming large, noisy, or screen-blocking;
+- make To-Go delivery trail perceptible without slowing or changing gameplay;
+- preserve all accepted gameplay timing and physics;
+- do not lengthen the actual merge/delivery mechanics solely to expose the effects;
+- prefer effect persistence, alpha/scale/easing, layering, or brief afterglow over changing gameplay speed.
+
+Revised final state: **CHANGES_REQUIRED — VISUAL REMEDIATION ONLY**.
