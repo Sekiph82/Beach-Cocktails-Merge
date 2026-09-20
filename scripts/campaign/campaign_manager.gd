@@ -33,6 +33,70 @@ func select_level(island_id: String, level_id: int) -> bool:
     return true
 
 
+func select_island(island_id: String) -> bool:
+    if not is_island_unlocked(island_id):
+        return false
+    current_island_id = island_id
+    selected_level_id = _highest_unlocked_level(island_id)
+    selection_changed.emit(island_id, selected_level_id)
+    return true
+
+
+func get_island_unlock_feedback(island_id: String) -> Dictionary:
+    if level_database == null:
+        return {
+            "unlocked": false,
+            "reason": "Campaign data is not loaded.",
+            "progress": "Campaign unavailable",
+        }
+    var island: Dictionary = level_database.get_island(island_id)
+    if island.is_empty():
+        return {
+            "unlocked": false,
+            "reason": "This island is not in the campaign data.",
+            "progress": "Unknown island",
+        }
+    if is_island_unlocked(island_id):
+        return {
+            "unlocked": true,
+            "reason": "Island available",
+            "progress": _island_progress_text(island_id),
+        }
+
+    var rule: Dictionary = island.get("unlock_rule", {})
+    var rule_type := str(rule.get("type", ""))
+    if rule_type == "requires_island_completion":
+        var required_island_id := str(rule.get("island_id", ""))
+        var required_level_id := int(rule.get("level_id", 0))
+        var required_island: Dictionary = level_database.get_island(required_island_id)
+        var required_name := str(required_island.get("display_name", required_island_id))
+        return {
+            "unlocked": false,
+            "reason": "Complete %s to unlock" % required_name,
+            "progress": "%s • Level %d required" % [_island_progress_text(required_island_id), required_level_id],
+        }
+    return {
+        "unlocked": false,
+        "reason": "This island is not available yet.",
+        "progress": "Progress required",
+    }
+
+
+func get_island_progress(island_id: String) -> Dictionary:
+    var island: Dictionary = level_database.get_island(island_id) if level_database != null else {}
+    var level_count := int(island.get("level_count", 0))
+    var completed_count := 0
+    var completed: Dictionary = _get_island_state(island_id).get("completed_levels", {})
+    for level_id in completed:
+        if bool(completed[level_id].get("completed", false)):
+            completed_count += 1
+    return {
+        "completed": completed_count,
+        "total": level_count,
+        "island_complete": is_island_complete(island_id),
+    }
+
+
 func is_island_unlocked(island_id: String) -> bool:
     if level_database == null:
         return false
@@ -242,3 +306,11 @@ func _first_unlocked_island() -> String:
 
 func _highest_unlocked_level(island_id: String) -> int:
     return maxi(1, int(_state.get("islands", {}).get(island_id, {}).get("highest_unlocked_level", 1)))
+
+
+func _island_progress_text(island_id: String) -> String:
+    var progress := get_island_progress(island_id)
+    var total := int(progress["total"])
+    if total <= 0:
+        return "Campaign island"
+    return "%d / %d levels complete" % [int(progress["completed"]), total]
