@@ -4,11 +4,11 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M10
-- Current Sprint: BCM-M10-CAMPAIGN-ARCHITECTURE
-- Current Task: Introduce campaign architecture and canonical data model boundaries without changing accepted core gameplay, physics, R11 table-edge behavior, M08/M09 feedback, HUD layout, or canonical assets.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes M10 V02 remediation: validate unlock_rule references/types, make FULL level-count validation cover all declared islands, and make GameplaySessionBridge level definitions deeply immutable; then rerun focused/full regressions and stop for independent audit.
+- Current Milestone: M11
+- Current Sprint: BCM-M11-SAVE-MIGRATION-PROGRESSION
+- Current Task: Implement campaign persistence, backup/recovery, legacy best-score migration, and idempotent campaign progression on top of the audited M10 architecture.
+- Current Task Status: READY
+- Next Task/Action: Codex executes `coordination/sessions/BCM-M11-SAVE-MIGRATION-PROGRESSION/CHATGPT_EXECUTION_PROMPT_V01.md`, implements persistence/migration/progression core with isolated save tests, reruns regressions, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -26,8 +26,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M07-001 — HUD alignment/refinement closed; owner-accepted BEST/SCORE/NEXT/logo/To-Go/held behavior preserved through R11 regression.
 - [x] BCM-M08-001 — To-Go delivery animation and restrained visual effects implemented; merge/completion visuals owner-accepted, trail verification carried into M09.
 - [x] BCM-M09-001 — Feedback hooks, optional haptics architecture, and L5/L6/L7 startup To-Go sequence implemented, audited and owner-accepted; yellow trail accepted as-is.
-- [~] BCM-M10-001 — Introduce CampaignManager, LevelDatabase, SaveManager, GameEconomy, GameplaySessionBridge, canonical campaign schemas and seed data.
-- [ ] BCM-M11-001 — Mobile layout, performance, export, device QA, and release readiness.
+- [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
+- [~] BCM-M11-001 — Implement campaign save persistence, migration/recovery, legacy best-score preservation, and progression core.
 - [ ] BCM-M12-001 — Final regression, acceptance, packaging, documentation, and v1 release closure.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
@@ -234,7 +234,7 @@ The existing reward table is frozen. L5 reward remains 0 unless the owner later 
 
 M08 yellow delivery-trail visibility is a carry-forward runtime verification item in this milestone.
 
-## Active M10 campaign architecture
+## M10 campaign architecture — audited pass
 
 Locked criteria:
 `coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_AUDIT_CRITERIA_V01.md`
@@ -251,7 +251,20 @@ V02 locked criteria:
 V02 execution prompt:
 `coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_EXECUTION_PROMPT_V02.md`
 
+V02 independent audit:
+`coordination/sessions/BCM-M10-CAMPAIGN-ARCHITECTURE/CHATGPT_AUDIT_V02.md` — AUDITED_PASS.
+
 Scope is architecture/data foundation only. World Map, Island Map, live save migration, timer gameplay, VIP runtime, boosters and the full 100-level Sunny Cove dataset remain deferred.
+
+## Active M11 save migration progression
+
+Locked criteria:
+`coordination/sessions/BCM-M11-SAVE-MIGRATION-PROGRESSION/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Execution prompt:
+`coordination/sessions/BCM-M11-SAVE-MIGRATION-PROGRESSION/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Scope: campaign persistence, backup/recovery, legacy best-score migration, idempotent progression, and isolated save tests only. Campaign UI and timed gameplay remain deferred.
 
 ## M08-M21 — Roadmap
 
