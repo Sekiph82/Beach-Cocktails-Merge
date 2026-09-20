@@ -172,3 +172,28 @@ Desktop haptics are intentionally a safe no-op.
 **SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED**
 
 If the owner confirms the seven runtime checks above, M09 can close and the project can proceed to M10 campaign architecture.
+
+
+## Owner runtime acceptance — 2026-09-20
+
+Owner tested the normal game runtime and reported:
+
+- first live To-Go target = L5;
+- second live To-Go target = L6;
+- yellow To-Go trail still not perceptible;
+- merge feedback remains accepted;
+- To-Go completion-panel flash remains accepted;
+- table/HUD/layout remain accepted.
+
+The owner explicitly accepts the yellow trail **as-is** and does not want further remediation.
+
+The third L7 startup target was not separately owner-observed in this runtime note, but it is source-audited and covered by the focused M09 probe.
+
+Accordingly:
+- yellow trail non-visibility is no longer a blocker;
+- no further visual retuning is required;
+- M09 owner runtime acceptance is granted.
+
+Revised final verdict: **AUDITED_PASS**.
+
+M09 is closed and the project may proceed to M10 campaign architecture.
