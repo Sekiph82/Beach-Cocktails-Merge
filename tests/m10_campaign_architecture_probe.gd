@@ -27,7 +27,7 @@ func _valid_islands() -> Dictionary:
         "schema_version": 1,
         "islands": [
             {"id": "sunny_cove", "display_name": "Sunny Cove", "order_index": 1, "level_count": 2, "unlock_rule": {"type": "default_open"}, "next_island_id": "tiki_island", "map_background": "res://assets/environment/game_board_background.png", "reward_track": {"milestones": []}},
-            {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion"}, "next_island_id": "", "map_background": "", "reward_track": {"milestones": []}},
+            {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": 2}, "next_island_id": "", "map_background": "", "reward_track": {"milestones": []}},
         ],
     }
 
@@ -37,7 +37,7 @@ func _valid_levels() -> Dictionary:
         "schema_version": 1,
         "island_id": "sunny_cove",
         "levels": [
-            {"island_id": "sunny_cove", "level_id": 1, "time_limit_sec": 20, "orders": [{"cocktail_level": 5, "quantity": 1}], "vip": null, "rewards": {"coins": 0}, "score_star_thresholds": {}, "feature_flags": {}},
+            {"island_id": "sunny_cove", "level_id": 1, "time_limit_sec": 20, "orders": [{"cocktail_level": 5, "quantity": 1}], "vip": {"enabled": true, "cocktail_level": 5, "quantity": 1, "reward": {"type": "booster", "id": "upgrade", "quantity": 1}}, "rewards": {"coins": 0}, "score_star_thresholds": {}, "feature_flags": {}},
             {"island_id": "sunny_cove", "level_id": 2, "time_limit_sec": 20, "orders": [{"cocktail_level": 5, "quantity": 1}], "vip": null, "rewards": {"coins": 0}, "score_star_thresholds": {}, "feature_flags": {}},
         ],
     }
@@ -55,7 +55,8 @@ func _new_database(islands: Dictionary = {}, levels: Dictionary = {}):
 
 func _run() -> void:
     var database = database_script.new()
-    _check("canonical seed loads deterministically", database.load_canonical())
+    var canonical_loaded := database.load_canonical()
+    _check("canonical seed loads deterministically", canonical_loaded)
     _check("Sunny Cove is default-open", database.get_island("sunny_cove").get("unlock_rule", {}).get("type") == "default_open")
     _check("get_island works", database.get_island("sunny_cove").get("display_name") == "Sunny Cove")
     _check("get_level works", database.get_level("sunny_cove", 1).get("level_id") == 1)
@@ -98,6 +99,32 @@ func _run() -> void:
     var invalid_target_database = database_script.new()
     _check("out-of-range cocktail target is rejected", not invalid_target_database.load_from_data(_valid_islands(), invalid_target))
 
+    var unresolved_unlock := _valid_islands()
+    unresolved_unlock["islands"][1]["unlock_rule"]["island_id"] = "missing_island"
+    var unresolved_unlock_database = database_script.new()
+    _check("unresolved unlock_rule island reference is rejected", not unresolved_unlock_database.load_from_data(unresolved_unlock, _valid_levels()))
+
+    var unsupported_unlock := _valid_islands()
+    unsupported_unlock["islands"][1]["unlock_rule"] = {"type": "requires_purchase"}
+    var unsupported_unlock_database = database_script.new()
+    _check("unsupported unlock_rule type is rejected", not unsupported_unlock_database.load_from_data(unsupported_unlock, _valid_levels()))
+
+    var invalid_completion_level := _valid_islands()
+    invalid_completion_level["islands"][1]["unlock_rule"]["level_id"] = 0
+    var invalid_completion_level_database = database_script.new()
+    _check("invalid required completion level is rejected", not invalid_completion_level_database.load_from_data(invalid_completion_level, _valid_levels()))
+
+    var out_of_range_completion_level := _valid_islands()
+    out_of_range_completion_level["islands"][1]["unlock_rule"]["level_id"] = 3
+    var out_of_range_completion_level_database = database_script.new()
+    _check("required completion level beyond source range is rejected", not out_of_range_completion_level_database.load_from_data(out_of_range_completion_level, _valid_levels()))
+
+    var empty_rows_islands := _valid_islands()
+    empty_rows_islands["islands"][1]["level_count"] = 1
+    var empty_rows_levels := _valid_levels()
+    var empty_rows_database = database_script.new()
+    _check("FULL validation rejects positive-count island with zero loaded rows", not empty_rows_database.load_from_data(empty_rows_islands, empty_rows_levels, LevelDatabase.ValidationMode.FULL))
+
     var strict_database = database_script.new()
     _check("full validation rejects partial declared level count", not strict_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVELS_PATH, LevelDatabase.ValidationMode.FULL))
 
@@ -114,6 +141,27 @@ func _run() -> void:
     _check("GameplaySessionBridge resolves immutable level definition", not session.is_empty() and session["level_definition"]["level_id"] == 1 and session["level_definition"].is_read_only() and session["timer_configured"] == false)
     var definition: Dictionary = session["level_definition"]
     _check("bridge configuration is a detached snapshot", definition == campaign.level_database.get_level("sunny_cove", 1))
+    var session_orders: Array = definition["orders"]
+    var session_order: Dictionary = session_orders[0]
+    var session_vip: Dictionary = definition["vip"]
+    var session_vip_reward: Dictionary = session_vip["reward"]
+    var nested_mutation_resisted := true
+    if not session_orders.is_read_only():
+        var original_order_count := session_orders.size()
+        session_orders.append({})
+        nested_mutation_resisted = session_orders.size() == original_order_count
+    if not session_order.is_read_only():
+        session_order["quantity"] = 999
+        nested_mutation_resisted = nested_mutation_resisted and session_order["quantity"] != 999
+    if not session_vip.is_read_only():
+        session_vip["enabled"] = false
+        nested_mutation_resisted = nested_mutation_resisted and session_vip["enabled"] == true
+    if not session_vip_reward.is_read_only():
+        session_vip_reward["quantity"] = 999
+        nested_mutation_resisted = nested_mutation_resisted and session_vip_reward["quantity"] != 999
+    _check("session nested arrays and dictionaries are deeply immutable", session_orders.is_read_only() and session_order.is_read_only() and session_vip.is_read_only() and session_vip_reward.is_read_only() and definition["rewards"].is_read_only() and definition["score_star_thresholds"].is_read_only() and definition["feature_flags"].is_read_only() and nested_mutation_resisted)
+    var canonical_after_access: Dictionary = campaign.level_database.get_level("sunny_cove", 1)
+    _check("consumer access leaves canonical level data unchanged", canonical_after_access["orders"][0]["quantity"] == 1 and canonical_after_access["vip"]["reward"]["quantity"] == 1)
 
     var economy = economy_script.new()
     economy.configure()

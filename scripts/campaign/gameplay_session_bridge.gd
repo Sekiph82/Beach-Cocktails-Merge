@@ -30,8 +30,7 @@ func start_session(island_id: String, level_id: int) -> Dictionary:
 func get_session_configuration() -> Dictionary:
     if _active_level.is_empty():
         return {}
-    var snapshot := _active_level.duplicate(true)
-    snapshot.make_read_only()
+    var snapshot: Dictionary = _deep_read_only(_active_level)
     return {
         "island_id": active_island_id,
         "level_id": active_level_id,
@@ -39,6 +38,22 @@ func get_session_configuration() -> Dictionary:
         "timer_configured": false,
         "vip_runtime_configured": false,
     }
+
+
+func _deep_read_only(value: Variant):
+    if value is Dictionary:
+        var frozen_dictionary: Dictionary = {}
+        for key in value:
+            frozen_dictionary[key] = _deep_read_only(value[key])
+        frozen_dictionary.make_read_only()
+        return frozen_dictionary
+    if value is Array:
+        var frozen_array: Array = []
+        for item in value:
+            frozen_array.append(_deep_read_only(item))
+        frozen_array.make_read_only()
+        return frozen_array
+    return value
 
 
 func submit_result(result: Dictionary) -> Dictionary:

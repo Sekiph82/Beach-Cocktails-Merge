@@ -148,6 +148,8 @@ func _validate_island_root(root: Variant) -> bool:
         _islands_by_id[island_id] = raw_island.duplicate(true)
 
     for island_id in _islands_by_id:
+        if not _validate_unlock_rule(island_id, _islands_by_id[island_id]["unlock_rule"]):
+            return false
         var next_id := str(_islands_by_id[island_id]["next_island_id"])
         if not next_id.is_empty() and not _islands_by_id.has(next_id):
             return _fail("unresolved next_island_id %s from %s" % [next_id, island_id])
@@ -199,10 +201,36 @@ func _validate_level_root(root: Variant) -> bool:
             _levels_by_island[island_id] = []
         _levels_by_island[island_id].append(copy)
 
-    for island_id in _levels_by_island:
-        _levels_by_island[island_id].sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return int(a["level_id"]) < int(b["level_id"]))
-        if validation_mode == ValidationMode.FULL and _levels_by_island[island_id].size() != int(_islands_by_id[island_id]["level_count"]):
+    for island_id in _islands_by_id:
+        var loaded_levels: Array = _levels_by_island.get(island_id, [])
+        loaded_levels.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return int(a["level_id"]) < int(b["level_id"]))
+        if validation_mode == ValidationMode.FULL and loaded_levels.size() != int(_islands_by_id[island_id]["level_count"]):
             return _fail("declared island level_count mismatch: %s" % island_id)
+    return true
+
+
+func _validate_unlock_rule(island_id: String, rule: Variant) -> bool:
+    if not rule is Dictionary or not rule.has("type") or typeof(rule["type"]) != TYPE_STRING:
+        return _fail("island unlock_rule must contain a string type: %s" % island_id)
+    var rule_type := str(rule["type"])
+    if rule_type == "default_open":
+        return true
+    if rule_type != "requires_island_completion":
+        return _fail("unsupported island unlock_rule type %s: %s" % [rule_type, island_id])
+    if not rule.has("island_id") or typeof(rule["island_id"]) != TYPE_STRING or str(rule["island_id"]).is_empty():
+        return _fail("completion unlock_rule requires a non-empty island_id: %s" % island_id)
+    var required_island_id := str(rule["island_id"])
+    if not _islands_by_id.has(required_island_id):
+        return _fail("unresolved unlock_rule island_id %s from %s" % [required_island_id, island_id])
+    if not rule.has("level_id") or (typeof(rule["level_id"]) != TYPE_INT and typeof(rule["level_id"]) != TYPE_FLOAT):
+        return _fail("completion unlock_rule level_id must be a positive integer: %s" % island_id)
+    var required_level_value := float(rule["level_id"])
+    if required_level_value <= 0.0 or not is_equal_approx(required_level_value, float(int(required_level_value))):
+        return _fail("completion unlock_rule level_id must be a positive integer: %s" % island_id)
+    var required_level_id := int(rule["level_id"])
+    var required_level_count := int(_islands_by_id[required_island_id]["level_count"])
+    if required_level_count > 0 and required_level_id > required_level_count:
+        return _fail("unlock_rule level_id exceeds declared source island range: %s" % island_id)
     return true
 
 
