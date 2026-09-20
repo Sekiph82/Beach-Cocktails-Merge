@@ -31,6 +31,15 @@ B01. Builder must read and follow:
 
 B02. Builder may not silently reinterpret a mandatory deliverable. If a required generation capability is unavailable, the builder must mark the item blocked in its log and stop rather than substituting placeholders and claiming completion.
 
+## C0. Canonical owner logo — blocking
+
+C0.01. The owner-supplied logo source is `C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\beach cocktails merge logo.png`.
+C0.02. The final branch asset must exist at `assets/ui_assets/brand/logo_beach_cocktails_merge.png`.
+C0.03. The logo must preserve the supplied artwork and composition. Redrawing, generative reinterpretation, recoloring, relabeling, changing words, or replacing it with a newly designed logo is a blocking failure.
+C0.04. Allowed edits are limited to technical cleanup needed for production: true transparency/alpha cleanup, removal of an accidentally baked checkerboard/background, padding trim, and proportional size variants.
+C0.05. Every produced screen mockup/contact sheet containing the game logo must use this canonical owner-supplied logo.
+C0.06. V01 does not modify live gameplay scenes, but the handoff must explicitly require this canonical logo to replace the current runtime on-screen logo during UIA-M14 integration.
+
 ## C. Full-manifest completeness — blocking
 
 C01. Every required runtime asset in `FULL_VISUAL_ASSET_MANIFEST_V1.md` must either:
