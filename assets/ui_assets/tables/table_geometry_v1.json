@@ -1,0 +1,76 @@
+{
+  "geometry_version": 1,
+  "viewport_width": 720,
+  "viewport_height": 1280,
+  "normalized": {
+    "front_left": [
+      0.0,
+      1.0
+    ],
+    "front_right": [
+      1.0,
+      1.0
+    ],
+    "rear_left": [
+      0.18,
+      0.311
+    ],
+    "rear_right": [
+      0.82,
+      0.311
+    ],
+    "rear_center_x": 0.5,
+    "rear_width": 0.64
+  },
+  "raster_edge_coordinates": {
+    "front_left": [
+      0,
+      1280
+    ],
+    "front_right": [
+      720,
+      1280
+    ],
+    "rear_left": [
+      130,
+      398
+    ],
+    "rear_right": [
+      590,
+      398
+    ],
+    "rear_width_px": 460,
+    "rear_width_target_px": 460.8
+  },
+  "canonical_rear_y": 398,
+  "canonical_launch_y": 947,
+  "canonical_danger_y": 900,
+  "canonical_playable_boundary_points": [
+    [
+      130,
+      398
+    ],
+    [
+      590,
+      398
+    ],
+    [
+      720,
+      1280
+    ],
+    [
+      0,
+      1280
+    ]
+  ],
+  "perspective_centerline_x": 360,
+  "launch_alignment_x": 360,
+  "table_depth_px": 882,
+  "source_reference": {
+    "runtime_file": "scripts/game_manager.gd",
+    "observed_rear_source_y": 478.0,
+    "observed_danger_source_y": 1080.0,
+    "observed_launch_source_y": 1136.0,
+    "note": "Frozen art-only geometry for UIA-M14; live runtime boundary remains untouched in V01."
+  }
+}
