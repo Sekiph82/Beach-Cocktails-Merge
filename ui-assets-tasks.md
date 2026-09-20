@@ -18,7 +18,7 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 
 - Current Milestone: UIA-M00
 - Current Sprint: BCM-UI-ASSETS-FULL-PRODUCTION
-- Current Task: Remediate V01 visual-quality defects: replace generic/programmer-art final assets with production-quality semantic assets while preserving the accepted logo, branch isolation, and canonical table geometry.
+- Current Task: Remediate remaining stateful-UI duplication defects found in the V01 remediation re-audit; preserve accepted logo, table geometry, semantic icons, island icons, and branch isolation.
 - Current Task Status: CHANGES_REQUIRED
 - Required Actor: CODEX
 - Audit Owner: ChatGPT
@@ -32,6 +32,15 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 - Remediation prompt: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_REMEDIATION_PROMPT_V01.md`
 - Remediation criteria: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_REMEDIATION_AUDIT_CRITERIA_V01.md`
 - Main finding: technical completeness/geometry passed, but generic/fallback programmer-art assets do not satisfy final-quality visual acceptance.
+- Merge status remains: **DO NOT MERGE TO MAIN**.
+
+## Latest remediation re-audit
+
+- Re-audit: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_REMEDIATION_REAUDIT_V01.md`
+- Verdict: **CHANGES_REQUIRED**
+- Remaining blocker: opposite UI states are still byte-identical in several families (stars, chests, toggle, locked/unlocked nodes, active/inactive tabs).
+- Remediation V02 prompt: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_REMEDIATION_PROMPT_V02.md`
+- Remediation V02 criteria: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_REMEDIATION_AUDIT_CRITERIA_V02.md`
 - Merge status remains: **DO NOT MERGE TO MAIN**.
 
 ## Locked design documents
