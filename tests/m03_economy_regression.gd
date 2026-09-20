@@ -130,7 +130,7 @@ func _run() -> void:
 
     manager._choose_next_target(true)
     await _frames(2)
-    _check("initial active To-Go target starts at L6", manager._target_level == 6)
+    _check("initial active To-Go target starts at owner-directed L5", manager._target_level == 5)
     var previous_target := manager._target_level
     manager._choose_next_target(false)
     await _frames(2)

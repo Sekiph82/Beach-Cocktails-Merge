@@ -63,6 +63,8 @@ const SCORE_VALUE_RECESS_CENTER_Y_PX := 73.0
 const TO_GO_DELIVERY_DURATION := 0.34
 const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
 const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
+const STARTUP_TO_GO_TARGETS := [5, 6, 7]
+const FEEDBACK_SERVICE_SCRIPT := preload("res://scripts/feedback_service.gd")
 
 @export var table_top_y := 0.0
 @export var rear_table_y := 0.0
@@ -85,6 +87,7 @@ var game_over := false
 var world: Node2D
 var merge_queue: MergeQueue
 var shot_controller: ShotController
+var feedback_service
 
 var _line_timer := 0.0
 var _hud: Control
@@ -113,6 +116,8 @@ var _target_level := 6
 var _target_root: Node2D
 var _target_transition := false
 var _target_drink: Drink
+var _startup_target_index := 0
+var _order_sequence := 0
 
 
 func _ready() -> void:
@@ -133,6 +138,10 @@ func _ready() -> void:
     merge_queue = MergeQueue.new()
     merge_queue.name = "MergeQueue"
     add_child(merge_queue)
+
+    feedback_service = FEEDBACK_SERVICE_SCRIPT.new()
+    feedback_service.name = "FeedbackService"
+    add_child(feedback_service)
 
     _build_walls()
     _build_ui()
@@ -485,6 +494,7 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
 
     _refresh_hud()
     _juice_effect(merged_drink.position)
+    feedback_service.emit_merge(merged_drink)
 
     print("MERGE L%d +%d  COMBO x%d +%d  (toplam: %d)" % [new_level, base, chain, combo_bonus, score])
 
@@ -572,6 +582,7 @@ func _game_over() -> void:
     # would miss every new record. Persist the current best at the terminal
     # state; restart then reloads the same record from user://.
     _save_best_score()
+    feedback_service.emit_game_fail()
 
     _refresh_hud()
     _final_score_label.text = "SKOR  %d\nREKOR  %d" % [score, best_score]
@@ -948,15 +959,19 @@ func _build_merge_target() -> void:
 
 
 func _choose_next_target(initial: bool = false) -> void:
-    # To-Go objectives now start at L6. The first objective is explicitly
-    # L6; after it is completed, objectives rotate through L6-L12 while
-    # avoiding an immediate repeat.
+    # Owner-directed verification sequence: L5 -> L6 -> L7. Once those three
+    # live orders are complete, return to the existing L6-L12 selection rule.
+    if initial:
+        _startup_target_index = 0
     var max_level := Drink.max_level()
     var target_min := mini(6, max_level)
     var target_max := mini(12, max_level)
 
     if target_max < 1:
         _target_level = 1
+    elif _startup_target_index < STARTUP_TO_GO_TARGETS.size():
+        _target_level = mini(int(STARTUP_TO_GO_TARGETS[_startup_target_index]), max_level)
+        _startup_target_index += 1
     elif target_min >= target_max:
         _target_level = target_max
     elif initial:
@@ -971,7 +986,8 @@ func _choose_next_target(initial: bool = false) -> void:
 
     _refresh_merge_target_visual()
 
-    # Every new order first checks the table inventory. If a matching L6-L12
+    # Every new order first checks the table inventory. If a matching
+    # eligible drink was produced earlier,
     # drink was produced earlier, one existing drink is delivered immediately.
     # Only one drink fulfils one order.
     call_deferred("_try_collect_stocked_target")
@@ -1051,19 +1067,22 @@ func _collect_merge_target(drink: Drink) -> void:
 
 func _finish_target_collection() -> void:
     var drink := _target_drink
+    var completed_level := _target_level
+    _order_sequence += 1
     _target_drink = null
     if is_instance_valid(drink):
         drink.queue_free()
 
     _to_go_panel.visible = true
     _order_completion_feedback()
+    feedback_service.emit_order_complete(_order_sequence, completed_level)
 
     # A delivered stock drink never receives merge/combo points a second time.
     # Only the currently requested To-Go reward is paid here.
-    var order_bonus := Drink.order_reward(_target_level)
+    var order_bonus := Drink.order_reward(completed_level)
     _add_score(order_bonus)
     _refresh_hud()
-    print("TO-GO ORDER L%d +%d  (toplam: %d)" % [_target_level, order_bonus, score])
+    print("TO-GO ORDER L%d +%d  (toplam: %d)" % [completed_level, order_bonus, score])
 
     _target_transition = false
     _choose_next_target(false)
