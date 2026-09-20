@@ -18,6 +18,24 @@ Do not use watermarked, scraped, or third-party copyrighted game art.
 
 ## A. Brand and splash
 
+### Owner-supplied canonical game logo — DO NOT REDESIGN
+
+The owner has supplied the final Beach Cocktails Merge logo locally at:
+
+`C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\beach cocktails merge logo.png`
+
+This exact artwork is the canonical game logo. Codex must copy/export it into the new asset library as:
+
+`assets/ui_assets/brand/logo_beach_cocktails_merge.png`
+
+Rules:
+- do not redraw, reinterpret, restyle, regenerate, recolor, or replace the logo;
+- preserve the exact BEACH COCKTAILS MERGE lettering, cocktail illustration, tropical leaves/flowers, palm, waves, colors, and composition;
+- only non-destructive technical cleanup is permitted when required for runtime use: correct alpha/transparency, trim accidental empty padding, and create size variants from the same artwork;
+- if the local source contains a baked checkerboard instead of true alpha, remove only the checkerboard/background and preserve the logo artwork exactly;
+- all new screen mockups/contact sheets that display the game logo must use this canonical owner-supplied logo;
+- the current runtime on-screen logo must later be replaced by this canonical logo during the separately authorized UIA-M14 integration step.
+
 `assets/ui_assets/brand/`
 - app_icon.png
 - splash_logo.png
