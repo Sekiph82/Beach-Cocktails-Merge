@@ -274,7 +274,7 @@ def decor(theme, side: str, island_id: str) -> Image.Image:
     return image
 
 
-def generic_element(theme, stem: str, size, group: str) -> Image.Image:
+def reusable_base(theme, stem: str, size, group: str) -> Image.Image:
     lower = stem.lower()
     transparent = any(token in lower for token in ("icon", "arrow", "badge", "glow", "flash", "sparkle", "trail", "decor", "overlay", "spinner", "fill", "ring", "rays", "confetti", "hand", "highlight"))
     image = Image.new("RGBA", size, (0, 0, 0, 0) if transparent else (0, 0, 0, 0))
@@ -443,7 +443,7 @@ def render(rel: str, group: str, stem: str, island_id: str | None):
         return themed_background(theme, stem)
     if "background" in stem:
         return themed_background(theme, stem)
-    return generic_element(theme, stem, size, group)
+    return reusable_base(theme, stem, size, group)
 
 
 def write_readme():
@@ -458,15 +458,15 @@ This branch-only library is generated for the `ui-assets` visual-production stre
 - `screens/`: splash, menu, pre-level, results, shop, settings, tutorial, and social screens.
 - `effects/`: restrained feedback overlays.
 - `tables/`: frozen common geometry JSON, silhouette mask, and edge overlay masters.
-- `source/`: generator provenance and style-reference notes only.
+- `source/`: generator provenance and style-reference notes only, including the generated remediation direction board.
 
 ## Generation and export
 
 `tools/ui_assets/generate_assets.py` creates original raster art with Pillow using explicit semantic pictogram, island landmark, material-skin, screen-composition, and effect renderers. The owner-supplied logo is copied from the local source after checkerboard-background removal only; no logo artwork is regenerated. The table skins are rasterized from one shared 720x1280 alpha polygon defined by `tables/table_geometry_v1.json`; only the clipped material treatment changes per island.
 
-`tools/ui_assets/validate_assets.py` checks manifest coverage, PNG decoding, dimensions, alpha expectations, table canvas/mask equality, front-corner/rear-width geometry, untouched protected paths, and V01 scope restrictions.
+`tools/ui_assets/validate_assets.py` checks manifest coverage, PNG decoding, dimensions, alpha expectations, table canvas/mask equality, preserved logo/mask/geometry blobs, front-corner/rear-width geometry, untouched protected paths, and remediation scope restrictions.
 
-The global, island, table, screen, semantic-icon, and major-screen contact sheets are audit evidence, not runtime integration. `source/style_reference_board.png` is a visual direction reference only. Runtime table/play-area and logo replacement remain deferred to UIA-M14.
+The global, island, table, screen, semantic-icon, and major-screen contact sheets are audit evidence, not runtime integration. `source/style_reference_board*.png` are visual direction references only. Runtime table/play-area and logo replacement remain deferred to UIA-M14.
 """
     (OUT / "README.md").write_text(text, encoding="utf-8")
 
@@ -500,7 +500,7 @@ def generate():
     save(mask.convert("RGBA"), OUT / "tables" / "table_silhouette_mask.png")
     save(edge_overlay(THEMES["sunny_cove"]), OUT / "tables" / "table_edge_overlay_master.png")
     (OUT / "tables" / "table_geometry_v1.json").write_text(json.dumps(geometry, indent=2) + "\n", encoding="utf-8")
-    (OUT / "source" / "generation_method.txt").write_text("Deterministic Pillow generation with explicit semantic pictograms, island landmarks, major-screen compositions, differentiated effects, and clipped island material skins. Canonical logo is owner-supplied with technical checkerboard alpha cleanup only. style_reference_board.png is an imagegen visual-direction reference and is not a runtime asset.\n", encoding="utf-8")
+    (OUT / "source" / "generation_method.txt").write_text("Deterministic Pillow generation with explicit semantic pictograms, island landmarks, major-screen compositions, differentiated effects, and clipped island material skins. Canonical logo is owner-supplied with technical checkerboard alpha cleanup only. style_reference_board*.png are imagegen visual-direction references and are not runtime assets.\n", encoding="utf-8")
 
     catalog = build_asset_catalog()
     for rel, group, stem, island_id in catalog:
@@ -569,7 +569,7 @@ def generate():
             "alpha_expected": image.mode in {"RGBA", "LA"},
             "island_id": island,
             "table_geometry_version": 1 if is_table else None,
-            "generation_source_method": "owner-supplied canonical logo with technical alpha cleanup and proportional size variant only" if path.name in {"app_icon.png", "splash_logo.png", "logo_beach_cocktails_merge.png", "brand_wordmark_small.png", "legal_logo_mark.png"} else ("imagegen visual direction reference; not a runtime asset" if path.name == "style_reference_board.png" else "deterministic original Pillow procedural generation"),
+            "generation_source_method": "owner-supplied canonical logo with technical alpha cleanup and proportional size variant only" if path.name in {"app_icon.png", "splash_logo.png", "logo_beach_cocktails_merge.png", "brand_wordmark_small.png", "legal_logo_mark.png"} else ("imagegen visual direction reference; not a runtime asset" if path.name.startswith("style_reference_board") else "deterministic original Pillow procedural generation"),
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         })
     (OUT / "ASSET_MANIFEST.json").write_text(json.dumps({"manifest_version": 1, "base_viewport": [W, H], "assets": manifest}, indent=2) + "\n", encoding="utf-8")
@@ -608,10 +608,71 @@ EFFECT_STEMS = {
     "win_rays", "confetti_strip", "milestone_glow", "tutorial_highlight_ring",
 }
 
+# These are intentionally reusable skin primitives, not semantic stand-ins.
+# Every other catalog stem must resolve through a dedicated renderer below.
+REUSABLE_BASE_STEMS = set("""
+brand_badge_small
+loading_bar_frame loading_tip_panel
+panel_generic_large panel_generic_medium panel_generic_small popup_frame tooltip_frame divider_gold
+tab_active tab_inactive button_primary button_secondary button_danger button_disabled button_locked button_small button_icon_round
+new_badge complete_badge current_badge milestone_badge finale_badge notification_dot new_content_badge reward_ready_badge sale_badge_small daily_ready_badge
+coin_counter_panel gem_counter_panel main_menu_logo_frame main_menu_play_button main_menu_world_map_button main_menu_shop_button main_menu_settings_button main_menu_daily_button profile_frame
+world_map_title_panel island_name_panel island_locked_overlay
+star_small_empty star_small_filled milestone_chest_marker finale_crown map_scroll_top_decor map_scroll_bottom_decor island_summary_panel stars_counter_panel next_milestone_panel
+map_title theme_badge complete_badge
+prelevel_panel level_number_badge timer_panel_small order_slot vip_badge vip_reward_slot booster_selector_panel
+timer_panel level_label_panel pause_button vip_badge vip_reward_frame
+pause_panel button_resume button_restart button_settings button_world_map button_quit
+level_complete_panel level_complete_title reward_slot vip_complete_badge score_summary_panel button_next_level button_replay button_island_map
+level_failed_panel time_up_title remaining_order_slot button_retry button_world_map_fail button_add_time video_ad_icon fail_timer_icon
+milestone_reward_panel milestone_banner milestone_chest_closed milestone_chest_open reward_slot button_claim island_complete_panel next_island_unlock_frame button_continue
+star_track_panel star_track_fill star_track_marker star_track_checkpoint star_track_chest_small star_track_chest_large star_track_claimed
+shop_header shop_tab_boosters shop_tab_currency shop_tab_special shop_item_card shop_item_card_featured starter_pack_badge sale_badge best_value_badge button_buy
+rewarded_ad_panel button_watch_ad button_no_thanks
+daily_reward_panel daily_day_slot daily_day_locked streak_badge
+settings_panel toggle_on toggle_off slider_track slider_handle button_close_settings
+tutorial_panel tutorial_arrow tutorial_skip_button
+leaderboard_panel rank_badge_1 rank_badge_2 rank_badge_3 player_avatar_frame
+booster_count_badge booster_slot booster_locked
+button_close_prelevel button_play_level
+coin_icon gem_icon star_empty star_filled star_large_empty star_large_filled reward_frame_small reward_frame_large small_chest_closed small_chest_open big_chest_closed big_chest_open premium_chest_closed premium_chest_open reward_glow
+""".split())
+
+REWARD_STEMS = {
+    "coin_icon", "gem_icon", "star_empty", "star_filled", "star_large_empty", "star_large_filled",
+    "star_small_empty", "star_small_filled", "small_chest_closed", "small_chest_open", "big_chest_closed",
+    "big_chest_open", "premium_chest_closed", "premium_chest_open", "daily_chest",
+    "coin_pack_icon_small", "coin_pack_icon_medium", "coin_pack_icon_large",
+    "gem_pack_icon_small", "gem_pack_icon_medium", "gem_pack_icon_large",
+}
+
 
 def _rgba(value: str, alpha: int = 255):
     r, g, b = rgb(value)
     return (r, g, b, alpha)
+
+
+def add_soft_texture(image: Image.Image, seed: int, opacity: int = 24, count: int = 900):
+    """Add restrained painterly grain without changing an existing alpha mask."""
+    layer = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer, "RGBA")
+    rng = random.Random(seed)
+    w, h = image.size
+    for _ in range(count):
+        x, y = rng.randrange(max(1, w)), rng.randrange(max(1, h))
+        radius = rng.choice((1, 1, 2, 3, 5))
+        color = (255, 242, 198, rng.randrange(max(4, opacity // 2), opacity + 1)) if rng.random() > .5 else (4, 26, 46, rng.randrange(max(4, opacity // 2), opacity + 1))
+        d.ellipse((x - radius, y - radius, x + radius, y + radius), fill=color)
+    image.alpha_composite(layer)
+    return image
+
+
+def finish_icon(image: Image.Image, theme, seed: int):
+    d = ImageDraw.Draw(image, "RGBA")
+    w, h = image.size
+    d.arc((10, 10, w - 10, h - 10), 198, 318, fill=_rgba(theme["light"], 150), width=max(2, w // 30))
+    add_soft_texture(image, seed, opacity=18, count=240)
+    return image
 
 
 def _icon_frame(draw, w, h, theme):
@@ -760,7 +821,125 @@ def semantic_icon(theme, stem: str, size) -> Image.Image:
         d.line((w*.35,h*.35,w*.65,h*.65), fill=light, width=sw//2)
     else:
         raise ValueError(f"No semantic pictogram for {stem}")
-    return image
+    return finish_icon(image, theme, sum(ord(char) for char in stem))
+
+
+def reward_art(theme, stem: str, size) -> Image.Image:
+    """Polished reward primitives; these are intentionally different from panels and badges."""
+    image = Image.new("RGBA", size, (0, 0, 0, 0))
+    d = ImageDraw.Draw(image, "RGBA")
+    w, h = size
+    light, accent, dark = _rgba(theme["light"]), _rgba(theme["accent"]), _rgba(theme["dark"])
+    cx, cy = w / 2, h / 2
+    if stem == "coin_icon" or stem.startswith("coin_pack"):
+        d.ellipse((10, 12, w - 10, h - 8), fill=_rgba("#d99034"), outline=light, width=max(3, w // 18))
+        d.ellipse((17, 18, w - 17, h - 15), fill=_rgba("#f7c85e"), outline=_rgba("#fff2bd"), width=max(2, w // 30))
+        d.arc((28, 24, w - 28, h - 20), 100, 280, fill=_rgba("#fff8d8", 170), width=max(2, w // 24))
+        d.ellipse((w * .39, h * .30, w * .61, h * .70), outline=_rgba("#b9782a"), width=max(2, w // 24))
+        if "medium" in stem or "large" in stem:
+            d.ellipse((w*.20, h*.20, w*.72, h*.72), outline=_rgba("#fff2bd", 170), width=max(2, w // 25))
+            d.ellipse((w*.28, h*.28, w*.80, h*.80), outline=_rgba("#d99034", 220), width=max(2, w // 25))
+    elif stem == "gem_icon" or stem.startswith("gem_pack"):
+        d.polygon([(cx, 7), (w - 14, h * .34), (w * .78, h - 8), (w * .22, h - 8), (14, h * .34)], fill=_rgba("#54d4db"), outline=light)
+        d.polygon([(cx, 7), (w * .58, h * .34), (w * .50, h - 8), (w * .22, h - 8), (14, h * .34)], fill=_rgba("#a6f4e9", 210))
+        d.line((cx, 7, w * .50, h - 8, 14, h * .34), fill=_rgba("#f7ffff", 190), width=max(2, w // 28))
+    elif stem in {"star_empty", "star_filled", "star_large_empty", "star_large_filled", "star_small_empty", "star_small_filled"}:
+        outer = min(w, h) * (.36 if "large" not in stem else .42)
+        outline = _rgba("#f8e4a6")
+        fill = _rgba("#f5c54f") if "filled" in stem else _rgba("#2b5362", 240)
+        d.polygon(star_points(cx, cy, outer, outer * .43), fill=fill, outline=outline)
+        d.polygon(star_points(cx, cy, outer * .58, outer * .24), fill=_rgba("#fff5c7", 120 if "filled" in stem else 60))
+    elif "chest" in stem:
+        premium = "premium" in stem
+        big = "big" in stem or "large" in stem
+        chest = _rgba("#7b432d" if not premium else "#172f4a")
+        metal = _rgba("#efbd54" if not premium else "#bceee4")
+        x0, y0, x1, y1 = w * .14, h * .38, w * .86, h * .86
+        d.ellipse((x0, h * .15, x1, h * .63), fill=_rgba("#bd7441" if not premium else "#2d6480"), outline=metal, width=max(3, w // 24))
+        d.rounded_rectangle((x0, y0, x1, y1), radius=max(8, w // 16), fill=chest, outline=metal, width=max(3, w // 24))
+        d.line((x0 + 8, h * .51, x1 - 8, h * .51), fill=metal, width=max(3, w // 22))
+        d.rectangle((w * .45, h * .48, w * .55, h * .69), fill=metal)
+        d.ellipse((w * .46, h * .58, w * .54, h * .66), fill=dark)
+        if big:
+            d.arc((x0 + 4, h * .10, x1 - 4, h * .67), 180, 360, fill=_rgba("#fff0aa", 180), width=max(2, w // 30))
+    else:
+        d.ellipse((8, 8, w - 8, h - 8), fill=dark, outline=accent, width=max(3, w // 18))
+        d.polygon(star_points(cx, cy, w * .30, w * .13), fill=light)
+    return finish_icon(image, theme, sum(ord(char) for char in stem) + 413)
+
+
+SCREEN_COMPONENT_STEMS = {
+    "prelevel_panel", "pause_panel", "level_complete_panel", "level_failed_panel", "milestone_reward_panel",
+    "island_complete_panel", "rewarded_ad_panel", "settings_panel", "vip_badge", "vip_complete_badge",
+    "timer_panel", "timer_panel_small", "level_label_panel", "vip_reward_frame", "vip_reward_slot", "order_slot",
+    "reward_slot", "remaining_order_slot", "score_summary_panel", "milestone_banner", "next_island_unlock_frame",
+}
+
+
+def screen_component(theme, stem: str, size) -> Image.Image:
+    """Dedicated hierarchy art for result, reward, timer, and modal families."""
+    w, h = size
+    image = rounded_panel(size, fill="#f8edc8", rim="#fff8dc", stroke=theme["dark"], shadow="#081827", radius=max(14, min(w, h)//7), accent=theme["accent"])
+    d = ImageDraw.Draw(image, "RGBA")
+    light, accent, dark = _rgba(theme["light"]), _rgba(theme["accent"]), _rgba(theme["dark"])
+    if stem in {"vip_badge", "vip_complete_badge"}:
+        image = Image.new("RGBA", size, (0, 0, 0, 0)); d = ImageDraw.Draw(image, "RGBA")
+        cx, cy = w/2, h/2
+        d.polygon([(cx,h*.12),(w*.80,h*.32),(w*.69,h*.78),(cx,h*.91),(w*.31,h*.78),(w*.20,h*.32)], fill=accent, outline=light)
+        d.polygon(star_points(cx, cy, min(w,h)*.24, min(w,h)*.11, 5), fill=light, outline=dark)
+        if stem == "vip_complete_badge":
+            d.arc((w*.18,h*.17,w*.82,h*.83), 205, 335, fill=_rgba("#fff4b6"), width=max(3,w//22))
+        return finish_icon(image, theme, 611 + sum(ord(char) for char in stem))
+    if stem in {"timer_panel", "timer_panel_small"}:
+        d.ellipse((w*.09,h*.18,w*.28,h*.82), fill=_rgba("#e96d57"), outline=light, width=max(2,w//35))
+        d.line((w*.185,h*.50,w*.185,h*.31), fill=light, width=max(2,w//32)); d.line((w*.185,h*.50,w*.24,h*.62), fill=light, width=max(2,w//32))
+        d.line((w*.34,h*.50,w*.90,h*.50), fill=_rgba(theme["dark"], 100), width=max(4,h//12))
+        return finish_icon(image, theme, 612 + len(stem))
+    if stem in {"level_label_panel", "score_summary_panel"}:
+        d.ellipse((w*.10,h*.22,w*.29,h*.78), fill=accent, outline=light, width=max(2,w//35))
+        d.polygon(star_points(w*.195,h*.50,min(w,h)*.10,min(w,h)*.045), fill=light)
+        d.line((w*.36,h*.36,w*.88,h*.36), fill=_rgba(theme["dark"], 125), width=max(3,h//10))
+        d.line((w*.36,h*.60,w*.72,h*.60), fill=_rgba(theme["dark"], 75), width=max(2,h//14))
+        return finish_icon(image, theme, 613 + len(stem))
+    if stem in {"order_slot", "reward_slot", "remaining_order_slot", "vip_reward_slot"}:
+        d.ellipse((w*.14,h*.22,w*.44,h*.78), fill=_rgba(theme["mid"]), outline=accent, width=max(2,w//35))
+        d.ellipse((w*.21,h*.29,w*.37,h*.71), fill=_rgba(theme["light"], 170), outline=light, width=max(2,w//40))
+        d.line((w*.52,h*.34,w*.88,h*.34), fill=_rgba(theme["dark"], 120), width=max(3,h//11))
+        d.line((w*.52,h*.61,w*.76,h*.61), fill=_rgba(theme["dark"], 70), width=max(2,h//15))
+        return finish_icon(image, theme, 614 + len(stem))
+    if stem == "pause_panel":
+        d.rounded_rectangle((w*.27,h*.22,w*.42,h*.78), radius=max(4,w//30), fill=accent)
+        d.rounded_rectangle((w*.58,h*.22,w*.73,h*.78), radius=max(4,w//30), fill=light)
+    elif stem == "level_complete_panel":
+        d.polygon([(w*.13,h*.64),(w*.22,h*.37),(w*.32,h*.50),(w*.42,h*.32),(w*.52,h*.50),(w*.64,h*.33),(w*.78,h*.64)], fill=_rgba("#6bb58d", 210), outline=accent)
+        d.polygon(star_points(w*.50,h*.42,min(w,h)*.13,min(w,h)*.06), fill=accent, outline=light)
+    elif stem == "level_failed_panel":
+        d.ellipse((w*.34,h*.23,w*.66,h*.55), fill=_rgba("#e86f62"), outline=light, width=max(3,w//30))
+        d.line((w*.41,h*.30,w*.59,h*.48), fill=light, width=max(4,w//18)); d.line((w*.59,h*.30,w*.41,h*.48), fill=dark, width=max(4,w//18))
+    elif stem == "milestone_reward_panel":
+        d.polygon(star_points(w*.50,h*.42,min(w,h)*.15,min(w,h)*.07,6), fill=accent, outline=light)
+        d.ellipse((w*.26,h*.55,w*.74,h*.86), fill=_rgba("#7b432d"), outline=accent, width=max(3,w//26))
+        d.arc((w*.26,h*.40,w*.74,h*.76), 180, 360, fill=light, width=max(3,w//26))
+    elif stem == "island_complete_panel":
+        d.polygon([(w*.18,h*.54),(w*.28,h*.30),(w*.50,h*.42),(w*.72,h*.30),(w*.82,h*.54),(w*.68,h*.80),(w*.32,h*.80)], fill=_rgba("#2f907d"), outline=accent)
+        d.polygon(star_points(w*.50,h*.50,min(w,h)*.13,min(w,h)*.06), fill=light)
+    elif stem == "rewarded_ad_panel":
+        d.rounded_rectangle((w*.22,h*.20,w*.78,h*.56), radius=max(8,w//18), fill=_rgba("#193a54"), outline=accent, width=max(3,w//26))
+        d.polygon([(w*.43,h*.28),(w*.65,h*.38),(w*.43,h*.48)], fill=light)
+        d.line((w*.28,h*.70,w*.72,h*.70), fill=_rgba(theme["dark"], 100), width=max(3,h//11))
+    elif stem == "settings_panel":
+        for row, color in enumerate((accent, _rgba("#54d4db"), _rgba("#f08b70"))):
+            yy = h * (.30 + row*.22)
+            d.line((w*.20,yy,w*.78,yy), fill=_rgba(theme["dark"], 110), width=max(3,h//18))
+            d.ellipse((w*(.34 + row*.13), yy-h*.07, w*(.46 + row*.13), yy+h*.07), fill=color, outline=light, width=2)
+    elif stem == "next_island_unlock_frame":
+        d.polygon([(w*.18,h*.60),(w*.36,h*.26),(w*.50,h*.50),(w*.65,h*.21),(w*.82,h*.60),(w*.68,h*.84),(w*.31,h*.84)], fill=_rgba(theme["mid"]), outline=accent)
+        d.polygon(star_points(w*.50,h*.47,min(w,h)*.11,min(w,h)*.05), fill=light)
+    elif stem == "milestone_banner":
+        d.polygon([(w*.06,h*.24),(w*.18,h*.24),(w*.25,h*.50),(w*.18,h*.76),(w*.06,h*.76),(w*.12,h*.50)], fill=accent, outline=light)
+        d.polygon([(w*.94,h*.24),(w*.82,h*.24),(w*.75,h*.50),(w*.82,h*.76),(w*.94,h*.76),(w*.88,h*.50)], fill=accent, outline=light)
+        d.polygon(star_points(w*.50,h*.50,min(w,h)*.18,min(w,h)*.08), fill=light)
+    return finish_icon(image, theme, 615 + sum(ord(char) for char in stem))
 
 
 def remediated_island_icon(theme, island_id: str) -> Image.Image:
@@ -809,7 +988,7 @@ def remediated_island_icon(theme, island_id: str) -> Image.Image:
         d.polygon([(33,169),(69,139),(79,84),(111,121),(144,72),(153,138),(191,169)], fill=dark, outline=accent)
         d.polygon([(80,137),(110,102),(143,137),(134,168),(92,168)], fill=_rgba("#147f93"), outline=light)
         d.polygon(star_points(111,51,24,10,6), fill=accent, outline=light)
-    return image
+    return finish_icon(image, theme, sum(ord(char) for char in island_id) + 712)
 
 
 def remediated_table_image(theme, island_id: str) -> Image.Image:
@@ -881,6 +1060,20 @@ def remediated_table_image(theme, island_id: str) -> Image.Image:
         for x,y in ((230,620),(470,800),(350,1070)):
             d.ellipse((x-34,y-22,x+34,y+22), fill=_rgba("#9ee8e0",90), outline=_rgba("#e6bd55",190), width=4)
         d.line((130,398,590,398), fill=_rgba("#e6bd55"), width=20)
+    # Material finish: fine grain, hand-placed highlights, and a restrained varnish sheen.
+    rng = random.Random(9100 + sum(ord(char) for char in island_id))
+    for _ in range(720):
+        x = rng.randrange(20, W - 20)
+        y = rng.randrange(430, H - 12)
+        length = rng.randrange(8, 52)
+        alpha = rng.randrange(12, 38)
+        color = _rgba(theme["light"] if rng.random() > .46 else theme["dark"], alpha)
+        d.line((x, y, min(W, x + length), y + rng.choice((-2, -1, 0, 1, 2))), fill=color, width=rng.choice((1, 1, 2, 3)))
+    for y, alpha in ((414, 70), (420, 30)):
+        d.line((130, y, 590, y), fill=_rgba(theme["light"], alpha), width=3)
+    d.line((42, 690, 678, 734), fill=_rgba(theme["light"], 22), width=26)
+    d.line((42, 694, 678, 738), fill=_rgba(theme["light"], 12), width=12)
+    add_soft_texture(image, 19000 + sum(ord(char) for char in island_id), opacity=14, count=420)
     image.putalpha(mask)
     return image
 
@@ -893,6 +1086,14 @@ def remediated_screen_background(theme, stem: str, size=(W,H), island_id=None) -
         d.rectangle((0,0,w,h), fill=_rgba("#0b2940")); d.ellipse((w*.12,h*.08,w*.88,h*.56), fill=_rgba("#f39d6b",100))
         d.polygon([(0,h*.66),(w*.2,h*.48),(w*.43,h*.63),(w*.67,h*.44),(w,h*.60),(w,h),(0,h)], fill=_rgba("#12637c"))
         for x in (w*.18,w*.52,w*.81): d.line((x,h*.68,x-20,h*.34), fill=_rgba("#1c5564"), width=max(5,w//55))
+        for x in (w*.16, w*.28, w*.78):
+            d.ellipse((x - 34, h*.62, x + 34, h*.68), fill=_rgba("#b8eff1", 115))
+            d.line((x, h*.64, x - 8, h*.83), fill=_rgba("#e8ffff", 95), width=5)
+        for x, y in ((w*.08,h*.22),(w*.90,h*.30)):
+            d.line((x, y + 160, x + (48 if x < w/2 else -48), y), fill=_rgba("#164c5a"), width=13)
+            for leaf in range(5):
+                d.ellipse((x + (48 if x < w/2 else -48) * .35 + leaf * (14 if x < w/2 else -14), y + leaf * 13, x + 90 + leaf * (12 if x < w/2 else -12), y + 24 + leaf * 13), fill=_rgba("#54a977", 190))
+        add_soft_texture(image, 4201, opacity=20, count=620)
         return image
     if stem == "main_menu_background":
         d.ellipse((w*.26,h*.12,w*.74,h*.48), fill=_rgba("#ffd169",180))
@@ -900,6 +1101,12 @@ def remediated_screen_background(theme, stem: str, size=(W,H), island_id=None) -
         d.polygon([(w*.08,h*.65),(w*.32,h*.51),(w*.52,h*.62),(w*.78,h*.48),(w*.96,h*.60),(w,h),(0,h)], fill=_rgba("#d18c58"))
         for x in (w*.10,w*.84):
             d.line((x,h*.70,x-20,h*.30), fill=_rgba("#174858"), width=max(8,w//32)); d.ellipse((x-55,h*.26,x+38,h*.33), fill=_rgba("#80c76b"), outline=_rgba("#f7e9bd"))
+        d.polygon([(w*.23,h*.51),(w*.50,h*.35),(w*.77,h*.51),(w*.72,h*.58),(w*.28,h*.58)], fill=_rgba("#efe0ad", 210), outline=_rgba("#fff3c7", 180))
+        d.line((w*.33,h*.56,w*.33,h*.76), fill=_rgba("#7c4b31"), width=10); d.line((w*.67,h*.56,w*.67,h*.76), fill=_rgba("#7c4b31"), width=10)
+        for x in (w*.42,w*.50,w*.58):
+            d.line((x,h*.38,x,h*.47), fill=_rgba("#5c3c2d"), width=4)
+            d.ellipse((x-11,h*.46,x+11,h*.50), fill=_rgba("#ffd46d"), outline=_rgba("#fff6c8"))
+        add_soft_texture(image, 4202, opacity=22, count=760)
         return image
     if stem == "world_map_background":
         d.rectangle((0,0,w,h), fill=_rgba("#168aa0"));
@@ -908,13 +1115,24 @@ def remediated_screen_background(theme, stem: str, size=(W,H), island_id=None) -
         d.ellipse((w*.36,h*.54,w*.76,h*.94), fill=_rgba("#36b7a5"), outline=_rgba("#f7e9bd",160), width=4)
         route=[(w*.18,h*.29),(w*.36,h*.48),(w*.59,h*.22),(w*.66,h*.66),(w*.45,h*.79)]
         d.line(route, fill=_rgba("#ffd266"), width=max(8,w//35), joint="curve")
-        for x,y in route: d.ellipse((x-18,y-18,x+18,y+18), fill=_rgba("#fff2c0"), outline=_rgba("#744934"), width=4)
+        for i,(x,y) in enumerate(route):
+            d.ellipse((x-18,y-18,x+18,y+18), fill=_rgba("#fff2c0"), outline=_rgba("#744934"), width=4)
+            d.polygon([(x-22,y+15),(x+24,y+15),(x+12,y+30),(x-12,y+30)], fill=_rgba("#d98c59", 210))
+            if i % 2 == 0: d.ellipse((x-7,y-7,x+7,y+7), fill=_rgba("#41b9a9"), outline=_rgba("#fff6c4"))
+        for y in range(int(h*.10), int(h*.94), 64):
+            d.arc((-80,y,w+80,y+30), 0, 180, fill=_rgba("#baf2e9", 55), width=3)
+        add_soft_texture(image, 4203, opacity=18, count=700)
         return image
     if stem == "shop_background":
         d.rectangle((0,0,w,h), fill=_rgba("#5c3529")); d.rectangle((w*.08,h*.12,w*.92,h*.86), fill=_rgba("#b46e45"), outline=_rgba("#f6d18a"), width=8)
         for y in (h*.31,h*.53,h*.75): d.line((w*.13,y,w*.87,y), fill=_rgba("#5c3529"), width=12)
         for x,y,col in ((w*.24,h*.22,"#f7e9bd"),(w*.46,h*.22,"#47e1d0"),(w*.68,h*.22,"#ff9d65"),(w*.28,h*.42,"#e9c66d"),(w*.52,h*.42,"#6dd5db"),(w*.74,h*.42,"#ff6f80"),(w*.36,h*.64,"#f7e9bd"),(w*.66,h*.64,"#47e1d0")):
             d.ellipse((x-30,y-30,x+30,y+30), fill=_rgba(col), outline=_rgba("#fff1c6"), width=3)
+            d.ellipse((x-18,y-18,x+12,y+4), fill=_rgba("#ffffff", 85))
+        d.polygon([(w*.08,h*.12),(w*.92,h*.12),(w*.84,h*.04),(w*.16,h*.04)], fill=_rgba("#f0c372"), outline=_rgba("#fff0b2"), width=4)
+        for x in (w*.22,w*.50,w*.78):
+            d.rounded_rectangle((x-14,h*.82,x+14,h*.87), radius=5, fill=_rgba("#f7e9bd"), outline=_rgba("#6a3f2e"))
+        add_soft_texture(image, 4204, opacity=24, count=680)
         return image
     if stem == "daily_reward_background":
         d.rectangle((0,0,w,h), fill=_rgba("#4a3154")); d.ellipse((w*.18,h*.07,w*.82,h*.51), fill=_rgba("#e7a46f",150), outline=_rgba("#ffd59c",170), width=6)
@@ -924,12 +1142,22 @@ def remediated_screen_background(theme, stem: str, size=(W,H), island_id=None) -
                 x=w*.19+col*w*.20; y=h*.60+row*h*.13
                 d.rounded_rectangle((x-32,y-28,x+32,y+28), radius=10, fill=_rgba("#fff2ce"), outline=_rgba("#bf8854"), width=3)
                 d.rectangle((x-16,y-4,x+16,y+18), fill=_rgba("#23a8ad")); d.line((x-14,y-4,x,y-20,x+14,y-4), fill=_rgba("#ffcf64"), width=4)
+        d.polygon([(w*.15,h*.49),(w*.85,h*.49),(w*.77,h*.40),(w*.23,h*.40)], fill=_rgba("#c9864f"), outline=_rgba("#ffe0a0"), width=5)
+        for angle in range(200, 341, 20):
+            x0, y0 = w*.50, h*.32
+            x1 = x0 + math.cos(math.radians(angle)) * w*.30
+            y1 = y0 + math.sin(math.radians(angle)) * h*.24
+            d.line((x0,y0,x1,y1), fill=_rgba("#ffd36b", 80), width=5)
+        add_soft_texture(image, 4205, opacity=20, count=620)
         return image
     if stem in {"island_map_background", "map_background"}:
         d.rectangle((0,0,w,h), fill=_rgba("#197487")); d.polygon([(w*.08,h*.86),(w*.28,h*.12),(w*.70,h*.10),(w*.92,h*.84)], fill=_rgba("#d5ad76"), outline=_rgba("#f9e2af"), width=9)
         route=[(w*.20,h*.70),(w*.36,h*.50),(w*.54,h*.61),(w*.70,h*.35),(w*.82,h*.49)]
         d.line(route, fill=_rgba("#d96f50"), width=max(8,w//40), joint="curve")
         for x,y in route: d.ellipse((x-24,y-24,x+24,y+24), fill=_rgba("#f7e9bd"), outline=_rgba("#684532"), width=5)
+        for x in range(int(w*.18), int(w*.84), 48):
+            d.line((x, h*.18, x + 26, h*.78), fill=_rgba("#9e744f", 32), width=3)
+        add_soft_texture(image, 4206, opacity=18, count=520)
         return image
     if stem == "gameplay_background":
         d.rectangle((0,0,w,h), fill=_rgba(theme["deep"])); d.rectangle((0,h*.38,w,h*.55), fill=_rgba(theme["mid"],180))
@@ -937,6 +1165,11 @@ def remediated_screen_background(theme, stem: str, size=(W,H), island_id=None) -
         for x in (w*.08,w*.90):
             d.line((x,h*.76,x+(-18 if x>w/2 else 18),h*.30), fill=_rgba(theme["dark"],220), width=max(8,w//35)); d.ellipse((x-45,h*.27,x+55,h*.34), fill=_rgba(theme["light"],160))
         for y in range(int(h*.47), int(h*.75), 34): d.arc((-80,y-22,w+80,y+22),0,180,fill=_rgba(theme["light"],100),width=4)
+        d.polygon([(0,h*.80),(w*.14,h*.70),(w*.27,h*.79),(w*.42,h*.68),(w*.58,h*.78),(w*.74,h*.66),(w,h*.78),(w,h),(0,h)], fill=_rgba(theme["dark"], 150))
+        for x in (w*.12,w*.86):
+            d.ellipse((x-46,h*.29,x+52,h*.36), fill=_rgba(theme["light"], 80))
+            d.line((x,h*.34,x + (24 if x < w/2 else -24),h*.62), fill=_rgba(theme["dark"], 180), width=9)
+        add_soft_texture(image, 4207 + sum(ord(char) for char in (island_id or "sunny_cove")), opacity=18, count=620)
         return image
     raise ValueError(f"No dedicated screen background renderer for {stem}")
 
@@ -1061,13 +1294,17 @@ def render(rel: str, group: str, stem: str, island_id: str | None):
         if stem == "table_edge_overlay": return edge_overlay(theme)
         return launch_zone(theme)
     if island_id and stem.startswith("decor_"): return decor(theme, stem.split("_")[-1], island_id)
+    if stem in SCREEN_COMPONENT_STEMS: return screen_component(theme, stem, size)
     if stem in SEMANTIC_STEMS: return semantic_icon(theme, stem, size)
+    if stem in REWARD_STEMS: return reward_art(theme, stem, size)
     if stem in EFFECT_STEMS: return effect_art(theme, stem, size)
     if stem in {"world_clouds_front", "world_clouds_back", "world_map_boat", "world_map_compass", "main_menu_decor_left", "main_menu_decor_right"}:
         return remediated_decor(theme, stem, size)
     if stem in {"loading_bar_fill", "loading_spinner", "booster_selected", "route_line", "route_marker", "route_marker_current", "route_marker_complete", "level_node_locked", "level_node_unlocked", "level_node_current", "level_node_completed", "level_node_milestone", "level_node_finale", "level_connector", "level_connector_complete", "island_complete_ribbon", "daily_day_current", "daily_day_claimed", "tutorial_hand"}:
         return remediated_misc(theme, stem, size)
-    return generic_element(theme, stem, size, group)
+    if stem in REUSABLE_BASE_STEMS:
+        return reusable_base(theme, stem, size, group)
+    raise ValueError(f"No explicit renderer for final asset: {group}/{stem}")
 
 
 if __name__ == "__main__":

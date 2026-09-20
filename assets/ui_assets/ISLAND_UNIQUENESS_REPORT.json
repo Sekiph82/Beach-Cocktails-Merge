@@ -1,7 +1,7 @@
 {
   "asset_family": "island",
   "asset_count": 10,
-  "minimum_pair_distance": 0.06066176470588235,
+  "minimum_pair_distance": 0.11077410130718954,
   "near_duplicate_threshold": 0.01,
   "near_duplicate_pairs": []
 }

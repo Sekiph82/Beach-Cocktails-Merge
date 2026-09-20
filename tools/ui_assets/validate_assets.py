@@ -11,7 +11,7 @@ from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "assets" / "ui_assets"
-START_HEAD = "0aea98839438dd95e096cf764b9586ad76fe3cd7"
+START_HEAD = "58a3a33"
 PROTECTED = ["assets/cocktails", "assets/environment", "assets/effects", "assets/ui", "scripts/game_manager.gd", "TASKS.md"]
 PRESERVED_LOGO_SHA256 = "B8B828FF49288E80DC9E6CA62ECA95173BCEAC3DB5B8217765D9970158160B42"
 SEMANTIC_PATHS = [
@@ -66,6 +66,18 @@ def write_uniqueness_report(name, paths):
     return report
 
 
+def worktree_blob(path):
+    result = git("hash-object", "--", path).stdout.strip()
+    assert result, f"missing worktree blob hash: {path}"
+    return result
+
+
+def head_blob(path):
+    result = git("rev-parse", f"{START_HEAD}:{path}").stdout.strip()
+    assert result, f"missing start-commit blob hash: {path}"
+    return result
+
+
 def main():
     manifest_path = OUT / "ASSET_MANIFEST.json"
     dimensions_path = OUT / "ASSET_DIMENSIONS.csv"
@@ -78,7 +90,9 @@ def main():
     assert len(assets) >= 390, f"unexpectedly small manifest: {len(assets)}"
     generator_source = (ROOT / "tools" / "ui_assets" / "generate_assets.py").read_text(encoding="utf-8")
     assert "No explicit renderer for final asset" in generator_source, "catch-all fallback guard missing"
+    assert "generic_element" not in generator_source, "legacy generic renderer name remains"
     assert 'stem.replace("_", " ").upper()' not in generator_source, "filename label fallback remains"
+    assert all("fallback" not in item.get("generation_source_method", "").lower() for item in assets), "fallback source recorded in manifest"
     dimensions = {}
     with dimensions_path.open(encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
@@ -127,6 +141,9 @@ def main():
 
     logo_path = OUT / "brand" / "logo_beach_cocktails_merge.png"
     assert hashlib.sha256(logo_path.read_bytes()).hexdigest().upper() == PRESERVED_LOGO_SHA256, "canonical owner logo changed"
+    assert worktree_blob("assets/ui_assets/brand/logo_beach_cocktails_merge.png") == head_blob("assets/ui_assets/brand/logo_beach_cocktails_merge.png"), "canonical logo blob changed from start"
+    assert worktree_blob("assets/ui_assets/tables/table_silhouette_mask.png") == head_blob("assets/ui_assets/tables/table_silhouette_mask.png"), "table silhouette mask changed from start"
+    assert worktree_blob("assets/ui_assets/tables/table_geometry_v1.json") == head_blob("assets/ui_assets/tables/table_geometry_v1.json"), "table geometry contract changed from start"
     semantic_report = write_uniqueness_report("semantic", SEMANTIC_PATHS)
     island_report = write_uniqueness_report("island", ISLAND_PATHS)
 
@@ -138,6 +155,7 @@ def main():
     print("PASS table-alpha-silhouette: 10 identical masks")
     print("PASS geometry: corners [0,1280]/[720,1280], rear [130,398]-[590,398], target 0.64")
     print(f"PASS canonical-logo: preserved SHA256 {PRESERVED_LOGO_SHA256}")
+    print("PASS preserved-logo-mask-geometry: start-commit blobs unchanged")
     print(f"PASS semantic-uniqueness: {semantic_report['asset_count']} assets; minimum distance {semantic_report['minimum_pair_distance']:.4f}")
     print(f"PASS island-uniqueness: {island_report['asset_count']} assets; minimum distance {island_report['minimum_pair_distance']:.4f}")
     print("PASS final-renderer-guard: explicit renderers only; no filename/stem fallback")

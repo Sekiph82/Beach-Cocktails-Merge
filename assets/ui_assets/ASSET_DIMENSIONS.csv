@@ -317,6 +317,7 @@ assets/ui_assets/screens/tutorial/tutorial_skip_button.png,360,104,RGBA,True
 assets/ui_assets/screens/tutorial/tutorial_timer_icon.png,128,128,RGBA,True
 assets/ui_assets/screens/tutorial/tutorial_vip_badge.png,128,128,RGBA,True
 assets/ui_assets/source/style_reference_board.png,1774,887,RGB,False
+assets/ui_assets/source/style_reference_board_remediation_v01.png,1536,1024,RGB,False
 assets/ui_assets/tables/table_edge_overlay_master.png,720,1280,RGBA,True
 assets/ui_assets/tables/table_silhouette_mask.png,720,1280,RGBA,True
 assets/ui_assets/ui/boosters/booster_count_badge.png,128,128,RGBA,True
