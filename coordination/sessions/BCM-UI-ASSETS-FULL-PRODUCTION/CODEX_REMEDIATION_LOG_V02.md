@@ -119,3 +119,10 @@ Before/after SHA evidence for mandatory opposite pairs:
 - Current tab inactive/active: `ffab0cacfa6ce0a83d249e80c0d9472d1a0dd168f9992c34700b2c764fd57f0f` / `ee7e273165babc82aeee3d026e7242acb2a11c8edc8cd10ea856b9d372d6d895`.
 
 V02 validation now reports: 398 decoded manifest assets; identical table masks; preserved logo/mask/geometry; stateful minimum distances stars `0.2124`, chests `0.1346`, toggle `0.1912`, level nodes `0.0481`, tabs `0.3427`, daily `0.0359`, route `0.2110`, booster `0.2571`; explicit renderer guard PASS; protected-scope PASS. The only warning is Pillow's existing `Image.getdata` deprecation warning.
+
+## V02 final repository evidence
+
+- Narrow V02 implementation end HEAD: `eaece1f` (`Fix stateful UI asset pairs V02`).
+- The final handoff-log publication commit is the next commit after `eaece1f`; its parent is the implementation end recorded above.
+- Before publication, `ui-assets` had the concurrent remote audit line merged without altering main; only `ui-assets` will be pushed.
+- Independent ChatGPT re-audit remains the required next actor. No self-audit or tracker transition is claimed.
