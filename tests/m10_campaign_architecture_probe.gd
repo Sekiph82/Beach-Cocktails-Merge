@@ -172,11 +172,14 @@ func _run() -> void:
 
     var save = save_script.new()
     var default_state: Dictionary = save.create_default_state()
-    _check("SaveManager schema version API exists", save.schema_version() == 1 and default_state["schema_version"] == 1)
-    _check("SaveManager write API is deferred", not save.write_state(default_state)["ok"] and save.write_state(default_state)["reason"] == save.LIVE_PERSISTENCE_DEFERRED)
+    var isolated_save_path := "user://m10_save_manager_probe/campaign_save.json"
+    var write_result: Dictionary = save.write_state(default_state, isolated_save_path)
+    var read_result: Dictionary = save.read_state(isolated_save_path, isolated_save_path + ".bak", "user://m10_save_manager_probe/legacy.cfg")
+    _check("SaveManager schema version API exists", save.schema_version() == default_state["schema_version"] and default_state["schema_version"] == 2)
+    _check("SaveManager isolated write API succeeds", write_result["ok"] and read_result["status"] == save.STATUS_VALID)
     var decoded_state: Dictionary = save.decode_state(save.encode_state(default_state))
-    _check("SaveManager encode/decode round trip works", decoded_state.get("schema_version") == 1 and decoded_state.get("unlocked_islands", []).has("sunny_cove") and decoded_state.get("coins") == 0)
-    _check("SaveManager read API is non-mutating M10 default", save.read_state()["schema_version"] == 1)
+    _check("SaveManager encode/decode round trip works", decoded_state.get("schema_version") == 2 and decoded_state.get("unlocked_islands", []).has("sunny_cove") and decoded_state.get("coins") == 0)
+    _check("SaveManager read API is isolated and structured", read_result["state"]["schema_version"] == 2 and read_result["source"] == "primary")
 
     if failures.is_empty():
         print("M10_CAMPAIGN_ARCHITECTURE_RESULT=PASS")
