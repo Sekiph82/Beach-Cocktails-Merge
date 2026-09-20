@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M09
 - Current Sprint: BCM-M09-AUDIO-HAPTICS-MICRO-POLISH
 - Current Task: Add bounded audio, optional haptics and micro-polish, and set the first three live To-Go targets to L5 -> L6 -> L7 for quick trail verification, without changing accepted gameplay physics or R11/M08 behavior.
-- Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`, including deterministic first three To-Go targets L5/L6/L7, bounded audio/haptics hooks, tests and regressions, then stops for independent audit.
+- Current Task Status: OWNER_RUNTIME_VERIFICATION_REQUIRED
+- Next Task/Action: Owner runs the normal Godot F5 game and verifies first three To-Go targets L5 -> L6 -> L7, observes the carried-forward yellow delivery trail, confirms accepted merge/completion visuals and unchanged HUD/table layout. Source audit passed.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -216,13 +216,16 @@ V02 execution prompt:
 
 Scope is visual polish only. Accepted physics, scoring, R11 table-edge behavior, rails, HUD layout, canonical assets and gameplay contracts are frozen.
 
-## Active M09 audio haptics micro-polish
+## Active M09 audio haptics micro-polish — source audited, owner runtime verification required
 
 Locked criteria:
 `coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_AUDIT_CRITERIA_V01.md`
 
 Execution prompt:
 `coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Independent audit:
+`coordination/sessions/BCM-M09-AUDIO-HAPTICS-MICRO-POLISH/CHATGPT_AUDIT_V01.md` — SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED.
 
 Owner-requested startup sequence for the normal main gameplay flow:
 L5 -> L6 -> L7, then existing normal target selection resumes.
