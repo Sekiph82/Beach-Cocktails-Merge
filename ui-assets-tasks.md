@@ -18,12 +18,21 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 
 - Current Milestone: UIA-M00
 - Current Sprint: BCM-UI-ASSETS-FULL-PRODUCTION
-- Current Task: Produce the complete visual asset library and canonical 10-island table family on the isolated ui-assets branch.
-- Current Task Status: READY
+- Current Task: Remediate V01 visual-quality defects: replace generic/programmer-art final assets with production-quality semantic assets while preserving the accepted logo, branch isolation, and canonical table geometry.
+- Current Task Status: CHANGES_REQUIRED
 - Required Actor: CODEX
 - Audit Owner: ChatGPT
 - Merge Status: DO NOT MERGE TO MAIN
 - Runtime Integration Status: DEFERRED UNTIL ASSET AUDIT PASSES
+
+## Latest independent audit
+
+- Audit: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_AUDIT_V01.md`
+- Verdict: **CHANGES_REQUIRED**
+- Remediation prompt: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_REMEDIATION_PROMPT_V01.md`
+- Remediation criteria: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_REMEDIATION_AUDIT_CRITERIA_V01.md`
+- Main finding: technical completeness/geometry passed, but generic/fallback programmer-art assets do not satisfy final-quality visual acceptance.
+- Merge status remains: **DO NOT MERGE TO MAIN**.
 
 ## Locked design documents
 
