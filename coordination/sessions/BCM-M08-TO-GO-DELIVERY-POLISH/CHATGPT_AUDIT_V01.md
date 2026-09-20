@@ -221,3 +221,20 @@ Required remediation:
 - prefer effect persistence, alpha/scale/easing, layering, or brief afterglow over changing gameplay speed.
 
 Revised final state: **CHANGES_REQUIRED — VISUAL REMEDIATION ONLY**.
+
+
+## Owner follow-up — 2026-09-20
+
+Owner subsequently observed the merge feedback during normal gameplay and explicitly accepted it.
+
+Current owner-visible state:
+- merge feedback: ACCEPTED;
+- To-Go completion panel flash: ACCEPTED;
+- HUD/table/layout preservation: ACCEPTED;
+- yellow To-Go delivery trail: NOT REJECTED, but not yet practically observed because the second live To-Go target was L12 and took too long to reproduce.
+
+The owner explicitly directed progression to the next milestone and asked that the next task make the first three live To-Go targets L5, L6, L7 so the trail can be exercised quickly in normal gameplay.
+
+Therefore trail visibility is carried forward as a **non-blocking M09 runtime verification item**, not treated as a current visual failure.
+
+Revised M08 owner verdict: **AUDITED_PASS WITH CARRY-FORWARD TRAIL VERIFICATION**.
