@@ -127,3 +127,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `949db59473f992f4ad314c706a7ccd05969bfda4`.
 - Worktree remained clean after push.
+
+## Batch 008 — Coconut Beach island pack
+
+- Timestamp: 2026-09-22 00:54:15 +03:00.
+- Tasks: VA-050 through VA-062.
+- Outputs: all 13 `assets/ui_assets/campaign/islands/coconut_beach/**` targets in the master list.
+- Generation: one separate built-in image-generation operation per distinct complete badge, decorative element, gameplay background, table material, table shadow, launch zone, map background, map title, table-edge overlay, theme badge and world icon; V04 `coconut_beach_master.png` was the direct authority. No V05 art or atlas slicing used.
+- Technical cleanup: exact master-list resizing, transparent compositing and frozen table-mask application only. `gameplay_table.png` uses the canonical `table_silhouette_mask.png` alpha without changing the protected geometry.
+- Rejected/regenerated attempts: none.
+- QA: exact dimensions and RGBA verified for all 13 outputs; representative target dimensions and frozen-table geometry verified; `gameplay_table.png` alpha compared against the canonical mask with zero differing pixels.
+- Blockers: none.
+- Commit/push: published in commit recorded below.

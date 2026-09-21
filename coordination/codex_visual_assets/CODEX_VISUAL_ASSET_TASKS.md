@@ -65,19 +65,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-047 Generate → `assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png`
 - [x] VA-048 Generate → `assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png`
 - [x] VA-049 Generate → `assets/ui_assets/campaign/islands/billionaire_island/world_icon.png`
-- [ ] VA-050 Generate → `assets/ui_assets/campaign/islands/coconut_beach/complete_badge.png`
-- [ ] VA-051 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_back.png`
-- [ ] VA-052 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_left.png`
-- [ ] VA-053 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_right.png`
-- [ ] VA-054 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_background.png`
-- [ ] VA-055 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png`
-- [ ] VA-056 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png`
-- [ ] VA-057 Generate → `assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png`
-- [ ] VA-058 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_background.png`
-- [ ] VA-059 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_title.png`
-- [ ] VA-060 Generate → `assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png`
-- [ ] VA-061 Generate → `assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png`
-- [ ] VA-062 Generate → `assets/ui_assets/campaign/islands/coconut_beach/world_icon.png`
+- [x] VA-050 Generate → `assets/ui_assets/campaign/islands/coconut_beach/complete_badge.png`
+- [x] VA-051 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_back.png`
+- [x] VA-052 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_left.png`
+- [x] VA-053 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_right.png`
+- [x] VA-054 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_background.png`
+- [x] VA-055 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png`
+- [x] VA-056 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png`
+- [x] VA-057 Generate → `assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png`
+- [x] VA-058 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_background.png`
+- [x] VA-059 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_title.png`
+- [x] VA-060 Generate → `assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png`
+- [x] VA-061 Generate → `assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png`
+- [x] VA-062 Generate → `assets/ui_assets/campaign/islands/coconut_beach/world_icon.png`
 - [ ] VA-063 Generate → `assets/ui_assets/campaign/islands/final_island/complete_badge.png`
 - [ ] VA-064 Generate → `assets/ui_assets/campaign/islands/final_island/decor_back.png`
 - [ ] VA-065 Generate → `assets/ui_assets/campaign/islands/final_island/decor_left.png`

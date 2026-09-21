@@ -131,3 +131,12 @@ Append one concise section per visual batch:
 - Implementation commit: `949db59473f992f4ad314c706a7ccd05969bfda4`.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.
+
+## Batch 008 — Coconut Beach island pack
+
+- Timestamp: 2026-09-22 00:54:15 +03:00.
+- Dedicated targets generated: 13.
+- Separate image-generation operation used for each distinct Coconut Beach asset with V04 Coconut Beach authority; no V05 visuals or atlas slicing used.
+- Target family: Coconut Beach completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
+- Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
+- Publication: pending commit and push to `codex/visual-assets-production`.
