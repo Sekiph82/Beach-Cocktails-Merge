@@ -104,19 +104,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-086 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png`
 - [x] VA-087 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png`
 - [x] VA-088 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/world_icon.png`
-- [ ] VA-089 Generate → `assets/ui_assets/campaign/islands/party_beach/complete_badge.png`
-- [ ] VA-090 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_back.png`
-- [ ] VA-091 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_left.png`
-- [ ] VA-092 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_right.png`
-- [ ] VA-093 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_background.png`
-- [ ] VA-094 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table.png`
-- [ ] VA-095 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png`
-- [ ] VA-096 Generate → `assets/ui_assets/campaign/islands/party_beach/launch_zone.png`
-- [ ] VA-097 Generate → `assets/ui_assets/campaign/islands/party_beach/map_background.png`
-- [ ] VA-098 Generate → `assets/ui_assets/campaign/islands/party_beach/map_title.png`
-- [ ] VA-099 Generate → `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png`
-- [ ] VA-100 Generate → `assets/ui_assets/campaign/islands/party_beach/theme_badge.png`
-- [ ] VA-101 Generate → `assets/ui_assets/campaign/islands/party_beach/world_icon.png`
+- [x] VA-089 Generate → `assets/ui_assets/campaign/islands/party_beach/complete_badge.png`
+- [x] VA-090 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_back.png`
+- [x] VA-091 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_left.png`
+- [x] VA-092 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_right.png`
+- [x] VA-093 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_background.png`
+- [x] VA-094 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table.png`
+- [x] VA-095 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png`
+- [x] VA-096 Generate → `assets/ui_assets/campaign/islands/party_beach/launch_zone.png`
+- [x] VA-097 Generate → `assets/ui_assets/campaign/islands/party_beach/map_background.png`
+- [x] VA-098 Generate → `assets/ui_assets/campaign/islands/party_beach/map_title.png`
+- [x] VA-099 Generate → `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png`
+- [x] VA-100 Generate → `assets/ui_assets/campaign/islands/party_beach/theme_badge.png`
+- [x] VA-101 Generate → `assets/ui_assets/campaign/islands/party_beach/world_icon.png`
 - [x] VA-102 Generate → `assets/ui_assets/campaign/islands/sunny_cove/complete_badge.png`
 - [x] VA-103 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_back.png`
 - [x] VA-104 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_left.png`
