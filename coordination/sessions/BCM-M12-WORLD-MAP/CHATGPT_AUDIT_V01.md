@@ -179,3 +179,40 @@ If the owner accepts these visual/runtime items, M12 can close without another s
 ## 14. Final verdict
 
 **SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED**
+
+
+## Owner runtime visual rejection — 2026-09-21
+
+Owner tested the actual WorldMapScene in Godot and provided runtime screenshots.
+
+Observed:
+- The current screen is a dark card/list UI, not an acceptable visual world-map presentation.
+- The owner requires a **visual map** with island locations represented spatially on the map.
+- Only Sunny Cove should be selectable/open initially.
+- The remaining island locations should be visibly locked.
+- Selecting Sunny Cove triggers a debugger/runtime error.
+- Startup/import also shows multiple parse-error notifications from historical R10 probe scripts.
+
+Authoritative runtime error shown by owner:
+- `world_map_controller.gd:61 @ refresh(): Object is locked and can't be freed.`
+- `WorldMapController.refresh: Attempted to free a locked object (calling or emitting).`
+
+This corresponds to the current refresh loop immediately calling `child.free()` while scene/UI signal processing can still hold the object locked.
+
+### Revised verdict
+
+The prior source-only verdict is superseded by owner runtime evidence.
+
+**CHANGES_REQUIRED**
+
+M12 does not close.
+
+Required remediation:
+1. Replace the list/card-only presentation with a genuine visual world-map scene.
+2. Show island locations spatially on the map.
+3. Initial state: Sunny Cove open/selectable; every other displayed island locked.
+4. Keep data-driven state ownership in LevelDatabase/CampaignManager.
+5. Fix the refresh/free runtime error safely, using deferred/queued cleanup rather than immediate free of locked UI nodes.
+6. Verify repeated selection/refresh does not throw debugger errors.
+7. Keep historical R10 probe parse errors out of the normal owner runtime/import experience if possible without rewriting historical acceptance logic; at minimum identify and isolate them from M12 runtime verification.
+8. Preserve gameplay and all accepted M01-M11 behavior.
