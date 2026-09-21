@@ -91,19 +91,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-073 Generate → `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png`
 - [x] VA-074 Generate → `assets/ui_assets/campaign/islands/final_island/theme_badge.png`
 - [x] VA-075 Generate → `assets/ui_assets/campaign/islands/final_island/world_icon.png`
-- [ ] VA-076 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/complete_badge.png`
-- [ ] VA-077 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_back.png`
-- [ ] VA-078 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_left.png`
-- [ ] VA-079 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_right.png`
-- [ ] VA-080 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_background.png`
-- [ ] VA-081 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table.png`
-- [ ] VA-082 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png`
-- [ ] VA-083 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png`
-- [ ] VA-084 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_background.png`
-- [ ] VA-085 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_title.png`
-- [ ] VA-086 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png`
-- [ ] VA-087 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png`
-- [ ] VA-088 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/world_icon.png`
+- [x] VA-076 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/complete_badge.png`
+- [x] VA-077 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_back.png`
+- [x] VA-078 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_left.png`
+- [x] VA-079 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_right.png`
+- [x] VA-080 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_background.png`
+- [x] VA-081 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table.png`
+- [x] VA-082 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png`
+- [x] VA-083 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png`
+- [x] VA-084 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_background.png`
+- [x] VA-085 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_title.png`
+- [x] VA-086 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png`
+- [x] VA-087 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png`
+- [x] VA-088 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/world_icon.png`
 - [ ] VA-089 Generate → `assets/ui_assets/campaign/islands/party_beach/complete_badge.png`
 - [ ] VA-090 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_back.png`
 - [ ] VA-091 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_left.png`

@@ -169,3 +169,12 @@ Append one concise section per visual batch:
 - Implementation commit: `f54391fb84c6057d60f5232f83a8507085df494e`.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.
+
+## Batch 011 — Frozen Paradise island pack
+
+- Timestamp: 2026-09-22 01:50:46 +03:00.
+- Dedicated targets generated: 13.
+- Separate image-generation operation used for each distinct Frozen Paradise asset with V04 Frozen Paradise authority; no V05 visuals or atlas slicing used.
+- Target family: Frozen Paradise completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
+- Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
+- Publication: pending commit and push to `codex/visual-assets-production`.
