@@ -54,3 +54,11 @@ Append one concise section per visual batch:
 - log path;
 - retries/rejected generations;
 - blockers/deferred items.
+
+## Batch 001 — global action and frame states
+
+- Timestamp: 2026-09-21 23:10:16 +03:00.
+- Dedicated targets generated: 11.
+- Separate image-generation operation used for each distinct non-protected asset, with V04 main-menu authority; no V05 visuals or atlas slicing used.
+- Target families: global buttons, generic panels, popup frame, tooltip frame.
+- Publication: pending commit and push to `codex/visual-assets-production`.

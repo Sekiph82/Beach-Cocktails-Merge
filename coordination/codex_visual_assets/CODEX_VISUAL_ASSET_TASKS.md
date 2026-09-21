@@ -354,13 +354,13 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-336 Generate → `assets/ui_assets/ui/gameplay/vip_badge.png`
 - [ ] VA-337 Generate → `assets/ui_assets/ui/gameplay/vip_reward_frame.png`
 - [ ] VA-338 Generate → `assets/ui_assets/ui/global/back_arrow.png`
-- [ ] VA-339 Generate → `assets/ui_assets/ui/global/button_danger.png`
-- [ ] VA-340 Generate → `assets/ui_assets/ui/global/button_disabled.png`
+- [x] VA-339 Generate → `assets/ui_assets/ui/global/button_danger.png`
+- [x] VA-340 Generate → `assets/ui_assets/ui/global/button_disabled.png`
 - [ ] VA-341 Generate → `assets/ui_assets/ui/global/button_icon_round.png`
-- [ ] VA-342 Generate → `assets/ui_assets/ui/global/button_locked.png`
-- [ ] VA-343 Generate → `assets/ui_assets/ui/global/button_primary.png`
-- [ ] VA-344 Generate → `assets/ui_assets/ui/global/button_secondary.png`
-- [ ] VA-345 Generate → `assets/ui_assets/ui/global/button_small.png`
+- [x] VA-342 Generate → `assets/ui_assets/ui/global/button_locked.png`
+- [x] VA-343 Generate → `assets/ui_assets/ui/global/button_primary.png`
+- [x] VA-344 Generate → `assets/ui_assets/ui/global/button_secondary.png`
+- [x] VA-345 Generate → `assets/ui_assets/ui/global/button_small.png`
 - [ ] VA-346 Generate → `assets/ui_assets/ui/global/check_icon.png`
 - [ ] VA-347 Generate → `assets/ui_assets/ui/global/close_x.png`
 - [ ] VA-348 Generate → `assets/ui_assets/ui/global/complete_badge.png`
@@ -378,12 +378,12 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-360 Generate → `assets/ui_assets/ui/global/new_content_badge.png`
 - [ ] VA-361 Generate → `assets/ui_assets/ui/global/next_arrow.png`
 - [ ] VA-362 Generate → `assets/ui_assets/ui/global/notification_dot.png`
-- [ ] VA-363 Generate → `assets/ui_assets/ui/global/panel_generic_large.png`
-- [ ] VA-364 Generate → `assets/ui_assets/ui/global/panel_generic_medium.png`
-- [ ] VA-365 Generate → `assets/ui_assets/ui/global/panel_generic_small.png`
+- [x] VA-363 Generate → `assets/ui_assets/ui/global/panel_generic_large.png`
+- [x] VA-364 Generate → `assets/ui_assets/ui/global/panel_generic_medium.png`
+- [x] VA-365 Generate → `assets/ui_assets/ui/global/panel_generic_small.png`
 - [ ] VA-366 Generate → `assets/ui_assets/ui/global/pause_icon.png`
 - [ ] VA-367 Generate → `assets/ui_assets/ui/global/play_icon.png`
-- [ ] VA-368 Generate → `assets/ui_assets/ui/global/popup_frame.png`
+- [x] VA-368 Generate → `assets/ui_assets/ui/global/popup_frame.png`
 - [ ] VA-369 Generate → `assets/ui_assets/ui/global/previous_arrow.png`
 - [ ] VA-370 Generate → `assets/ui_assets/ui/global/restart_icon.png`
 - [ ] VA-371 Generate → `assets/ui_assets/ui/global/reward_ready_badge.png`
@@ -391,7 +391,7 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-373 Generate → `assets/ui_assets/ui/global/settings_icon.png`
 - [ ] VA-374 Generate → `assets/ui_assets/ui/global/tab_active.png`
 - [ ] VA-375 Generate → `assets/ui_assets/ui/global/tab_inactive.png`
-- [ ] VA-376 Generate → `assets/ui_assets/ui/global/tooltip_frame.png`
+- [x] VA-376 Generate → `assets/ui_assets/ui/global/tooltip_frame.png`
 - [ ] VA-377 Generate → `assets/ui_assets/ui/rewards/big_chest_closed.png`
 - [ ] VA-378 Generate → `assets/ui_assets/ui/rewards/big_chest_open.png`
 - [ ] VA-379 Generate → `assets/ui_assets/ui/rewards/coin_icon.png`
