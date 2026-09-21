@@ -392,28 +392,28 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-374 Generate → `assets/ui_assets/ui/global/tab_active.png`
 - [ ] VA-375 Generate → `assets/ui_assets/ui/global/tab_inactive.png`
 - [x] VA-376 Generate → `assets/ui_assets/ui/global/tooltip_frame.png`
-- [ ] VA-377 Generate → `assets/ui_assets/ui/rewards/big_chest_closed.png`
-- [ ] VA-378 Generate → `assets/ui_assets/ui/rewards/big_chest_open.png`
-- [ ] VA-379 Generate → `assets/ui_assets/ui/rewards/coin_icon.png`
-- [ ] VA-380 Generate → `assets/ui_assets/ui/rewards/gem_icon.png`
-- [ ] VA-381 Generate → `assets/ui_assets/ui/rewards/premium_chest_closed.png`
-- [ ] VA-382 Generate → `assets/ui_assets/ui/rewards/premium_chest_open.png`
-- [ ] VA-383 Generate → `assets/ui_assets/ui/rewards/reward_frame_large.png`
-- [ ] VA-384 Generate → `assets/ui_assets/ui/rewards/reward_frame_small.png`
-- [ ] VA-385 Generate → `assets/ui_assets/ui/rewards/reward_glow.png`
-- [ ] VA-386 Generate → `assets/ui_assets/ui/rewards/small_chest_closed.png`
-- [ ] VA-387 Generate → `assets/ui_assets/ui/rewards/small_chest_open.png`
-- [ ] VA-388 Generate → `assets/ui_assets/ui/rewards/star_empty.png`
-- [ ] VA-389 Generate → `assets/ui_assets/ui/rewards/star_filled.png`
-- [ ] VA-390 Generate → `assets/ui_assets/ui/rewards/star_large_empty.png`
-- [ ] VA-391 Generate → `assets/ui_assets/ui/rewards/star_large_filled.png`
-- [ ] VA-392 Generate → `assets/ui_assets/ui/star_track/star_track_checkpoint.png`
-- [ ] VA-393 Generate → `assets/ui_assets/ui/star_track/star_track_chest_large.png`
-- [ ] VA-394 Generate → `assets/ui_assets/ui/star_track/star_track_chest_small.png`
-- [ ] VA-395 Generate → `assets/ui_assets/ui/star_track/star_track_claimed.png`
-- [ ] VA-396 Generate → `assets/ui_assets/ui/star_track/star_track_fill.png`
-- [ ] VA-397 Generate → `assets/ui_assets/ui/star_track/star_track_marker.png`
-- [ ] VA-398 Generate → `assets/ui_assets/ui/star_track/star_track_panel.png`
+- [x] VA-377 Generate → `assets/ui_assets/ui/rewards/big_chest_closed.png`
+- [x] VA-378 Generate → `assets/ui_assets/ui/rewards/big_chest_open.png`
+- [x] VA-379 Generate → `assets/ui_assets/ui/rewards/coin_icon.png`
+- [x] VA-380 Generate → `assets/ui_assets/ui/rewards/gem_icon.png`
+- [x] VA-381 Generate → `assets/ui_assets/ui/rewards/premium_chest_closed.png`
+- [x] VA-382 Generate → `assets/ui_assets/ui/rewards/premium_chest_open.png`
+- [x] VA-383 Generate → `assets/ui_assets/ui/rewards/reward_frame_large.png`
+- [x] VA-384 Generate → `assets/ui_assets/ui/rewards/reward_frame_small.png`
+- [x] VA-385 Generate → `assets/ui_assets/ui/rewards/reward_glow.png`
+- [x] VA-386 Generate → `assets/ui_assets/ui/rewards/small_chest_closed.png`
+- [x] VA-387 Generate → `assets/ui_assets/ui/rewards/small_chest_open.png`
+- [x] VA-388 Generate → `assets/ui_assets/ui/rewards/star_empty.png`
+- [x] VA-389 Generate → `assets/ui_assets/ui/rewards/star_filled.png`
+- [x] VA-390 Generate → `assets/ui_assets/ui/rewards/star_large_empty.png`
+- [x] VA-391 Generate → `assets/ui_assets/ui/rewards/star_large_filled.png`
+- [x] VA-392 Generate → `assets/ui_assets/ui/star_track/star_track_checkpoint.png`
+- [x] VA-393 Generate → `assets/ui_assets/ui/star_track/star_track_chest_large.png`
+- [x] VA-394 Generate → `assets/ui_assets/ui/star_track/star_track_chest_small.png`
+- [x] VA-395 Generate → `assets/ui_assets/ui/star_track/star_track_claimed.png`
+- [x] VA-396 Generate → `assets/ui_assets/ui/star_track/star_track_fill.png`
+- [x] VA-397 Generate → `assets/ui_assets/ui/star_track/star_track_marker.png`
+- [x] VA-398 Generate → `assets/ui_assets/ui/star_track/star_track_panel.png`
 
 ## Completion gate
 

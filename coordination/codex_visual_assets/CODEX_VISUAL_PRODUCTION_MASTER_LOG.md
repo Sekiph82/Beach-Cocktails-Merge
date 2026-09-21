@@ -63,6 +63,14 @@ Append one concise section per visual batch:
 - Target families: global buttons, generic panels, popup frame, tooltip frame.
 - Publication: pending commit and push to `codex/visual-assets-production`.
 
+## Batch 003 — reward and star-track states
+
+- Timestamp: 2026-09-21 23:10:16 +03:00.
+- Dedicated targets generated: 22.
+- Separate image-generation operation used for each distinct non-protected asset with V04 main-menu authority; no V05 visuals or atlas slicing used.
+- Target families: reward chests/currency/stars/frames/effects and star-track states.
+- Publication: pending commit and push to `codex/visual-assets-production`.
+
 ## Batch 002 — global navigation and utility icons
 
 - Timestamp: 2026-09-21 23:10:16 +03:00.

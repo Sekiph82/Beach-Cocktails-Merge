@@ -35,6 +35,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Blockers: none.
 - Commit/push: pending batch publication.
 
+## Batch 003 — reward and star-track states
+
+- Timestamp: 2026-09-21 23:10:16 +03:00.
+- Tasks: VA-377 through VA-398.
+- Outputs: all `ui/rewards/**` and `ui/star_track/**` targets in the master list.
+- Generation: one separate built-in image-generation operation per distinct chest, currency, star, frame, glow and star-track asset; V04 `main_menu_master.png` was the direct authority.
+- Technical cleanup: transparent padding and exact master-list resizing only.
+- Rejected/regenerated attempts: none.
+- QA: verified open/closed chest distinction, empty/filled star distinction, large/small frame distinction, claimed/checkpoint/marker/fill/panel distinction, RGBA output and exact dimensions.
+- Blockers: none.
+- Commit/push: pending batch publication.
+
 ## Batch 002 — global navigation and utility icons
 
 - Timestamp: 2026-09-21 23:10:16 +03:00.
