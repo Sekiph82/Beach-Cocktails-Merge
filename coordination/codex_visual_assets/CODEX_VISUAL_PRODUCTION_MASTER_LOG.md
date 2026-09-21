@@ -223,3 +223,9 @@ Append one concise section per visual batch:
 - Target family: Tiki Island completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
 - Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 014 publication record
+
+- Implementation commit: `49bd3e58fcc935610dcb99bda2ba9b4e277e752d`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 13/13 Tiki Island canonical paths were present.
