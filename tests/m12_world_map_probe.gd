@@ -40,8 +40,8 @@ func _level(island_id: String, level_id: int) -> Dictionary:
 
 func _two_island_data() -> Array[Dictionary]:
     return [
-        {"id": "sunny_cove", "display_name": "Sunny Cove", "order_index": 1, "level_count": 2, "unlock_rule": {"type": "default_open"}, "next_island_id": "tiki_island", "map_background": "", "reward_track": {"milestones": [2]}},
-        {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": 2}, "next_island_id": "", "map_background": "", "reward_track": {"milestones": []}},
+        {"id": "sunny_cove", "display_name": "Sunny Cove", "order_index": 1, "level_count": 2, "unlock_rule": {"type": "default_open"}, "next_island_id": "tiki_island", "map_background": "", "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png", "map_position": [0.18, 0.72], "reward_track": {"milestones": [2]}},
+        {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": 2}, "next_island_id": "", "map_background": "", "map_asset": "res://assets/ui_assets/campaign/world_map/tiki_island.png", "map_position": [0.72, 0.38], "reward_track": {"milestones": []}},
     ]
 
 
@@ -57,6 +57,8 @@ func _ten_island_data() -> Array[Dictionary]:
             "unlock_rule": {"type": "default_open"},
             "next_island_id": "" if index == 9 else "island_%02d" % (index + 2),
             "map_background": "",
+            "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
+            "map_position": [0.18, 0.72],
             "reward_track": {"milestones": []},
         })
     return islands
@@ -96,6 +98,8 @@ func _remove(path: String) -> void:
 
 
 func _run() -> void:
+    var project_text := FileAccess.get_file_as_string("res://project.godot").to_lower()
+    _check("normal startup excludes historical probe scripts", project_text.contains("run/main_scene=\"res://scenes/main.tscn\"") and not project_text.contains("tests/"))
     var database = _database(_two_island_data(), [_level("sunny_cove", 1), _level("sunny_cove", 2)])
     var campaign = _fresh_campaign(database)
     var world_map = await _mount(database, campaign)
@@ -118,7 +122,33 @@ func _run() -> void:
     var layout: Dictionary = world_map.get_layout_report(Vector2(720, 1280))
     _check("720x1280 layout has no horizontal clipping", not bool(layout["horizontal_clipping"]) and bool(layout["entries_fit_width"]))
     _check("720x1280 layout has no entry overlap", not bool(layout["overlap"]) and not bool(layout["navigation_overlap"]))
+    _check("visual map creates spatial markers", world_map.get_visual_marker_count() == 2 and world_map.get_marker_position("sunny_cove") != world_map.get_marker_position("tiki_island"))
     world_map.queue_free()
+    await process_frame
+
+    var canonical_database = database_script.new()
+    _check("canonical visual map definitions load", canonical_database.load_canonical())
+    var canonical_campaign = _fresh_campaign(canonical_database)
+    var canonical_map = await _mount(canonical_database, canonical_campaign)
+    var canonical_ids: Array[String] = canonical_map.get_entry_ids()
+    _check("canonical map displays ten planned destinations", canonical_ids.size() == 10 and canonical_map.get_visual_marker_count() == 10)
+    var all_future_locked := true
+    for canonical_id in canonical_ids:
+        if canonical_id != "sunny_cove":
+            all_future_locked = all_future_locked and canonical_map.get_entry_state(canonical_id) == "LOCKED" and not canonical_map.is_entry_selectable(canonical_id)
+    _check("Sunny Cove is the only fresh selectable destination", canonical_map.is_entry_selectable("sunny_cove") and all_future_locked)
+    var repeated_navigation: Array[String] = []
+    canonical_map.island_map_requested.connect(func(island_id: String) -> void: repeated_navigation.append(island_id))
+    for _attempt in range(3):
+        _check("repeated Sunny Cove selection remains accepted", canonical_map.select_island("sunny_cove"))
+        canonical_map.refresh()
+    await process_frame
+    await process_frame
+    var repeated_layout: Dictionary = canonical_map.get_layout_report(Vector2(720, 1280))
+    _check("repeated selection leaves no duplicate markers", canonical_map.get_map_node_count() == canonical_map.get_entry_count() and not bool(repeated_layout["duplicate_nodes"]))
+    _check("repeated selection emits one boundary per selection", repeated_navigation == ["sunny_cove", "sunny_cove", "sunny_cove"])
+    _check("visual map 720x1280 geometry remains clean", not bool(repeated_layout["horizontal_clipping"]) and not bool(repeated_layout["overlap"]))
+    canonical_map.queue_free()
     await process_frame
 
     var ten_database = _database(_ten_island_data(), [])
@@ -134,7 +164,9 @@ func _run() -> void:
     var complete_map = await _mount(database, complete_campaign)
     _check("COMPLETE state is derived from CampaignManager", complete_map.get_entry_state("sunny_cove") == "COMPLETE")
     _check("unlocked next island is rendered open", complete_map.get_entry_state("tiki_island") == "OPEN" and complete_map.is_entry_selectable("tiki_island"))
-    _check("CURRENT state follows campaign island selection", complete_map.select_island("tiki_island") and complete_map.get_entry_state("tiki_island") == "CURRENT")
+    var selected_next: bool = complete_map.select_island("tiki_island")
+    await process_frame
+    _check("CURRENT state follows campaign island selection", selected_next and complete_map.get_entry_state("tiki_island") == "CURRENT")
 
     var save = save_script.new()
     var save_path := "%s/reload.json" % TEST_ROOT

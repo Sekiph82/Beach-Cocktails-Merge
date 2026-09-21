@@ -34,8 +34,8 @@ func _database(level_count: int):
     var islands := {
         "schema_version": 1,
         "islands": [
-            {"id": "sunny_cove", "display_name": "Sunny Cove", "order_index": 1, "level_count": level_count, "unlock_rule": {"type": "default_open"}, "next_island_id": "tiki_island", "map_background": "", "reward_track": {"milestones": []}},
-            {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": level_count}, "next_island_id": "", "map_background": "", "reward_track": {"milestones": []}},
+            {"id": "sunny_cove", "display_name": "Sunny Cove", "order_index": 1, "level_count": level_count, "unlock_rule": {"type": "default_open"}, "next_island_id": "tiki_island", "map_background": "", "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png", "map_position": [0.18, 0.72], "reward_track": {"milestones": []}},
+            {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": level_count}, "next_island_id": "", "map_background": "", "map_asset": "res://assets/ui_assets/campaign/world_map/tiki_island.png", "map_position": [0.72, 0.38], "reward_track": {"milestones": []}},
         ],
     }
     var level_root := {"schema_version": 1, "island_id": "sunny_cove", "levels": levels}
