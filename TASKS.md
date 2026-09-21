@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M12
 - Current Sprint: BCM-M12-WORLD-MAP
 - Current Task: Build the reusable data-driven World Map UI from LevelDatabase/CampaignManager state without changing accepted core gameplay.
-- Current Task Status: READY
-- Next Task/Action: Codex executes M12 V03 full visual-production reset, regenerating the entire UI asset library under the two mandatory style-reference boards while preserving protected logo/table geometry and V02 lifecycle/data-driven fixes; then stops for independent audit.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes M12 V06 semantic asset de-duplication remediation against CHATGPT_AUDIT_V05.md, preserving V04-approved art direction and protected table/logo/reference assets, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
