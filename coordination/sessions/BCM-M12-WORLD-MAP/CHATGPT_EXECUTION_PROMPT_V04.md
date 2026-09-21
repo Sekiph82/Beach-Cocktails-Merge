@@ -61,3 +61,12 @@ Return:
 - AWAITING_AUDIT
 
 Then STOP.
+
+
+## TABLE VISUAL NOTE
+
+When later generating any table visuals/skins, derive them strictly from the existing frozen table geometry.
+
+Do not invent or alter the table silhouette, playable-area shape, rear edge, front corners, perspective envelope, mask, or boundary geometry.
+
+Any table visual must be generated/composited to fit the canonical table geometry exactly; only material, texture, lighting and island-specific surface treatment may change.
