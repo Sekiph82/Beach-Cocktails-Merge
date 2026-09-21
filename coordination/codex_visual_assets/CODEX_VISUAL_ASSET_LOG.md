@@ -139,3 +139,10 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: exact dimensions and RGBA verified for all 13 outputs; representative target dimensions and frozen-table geometry verified; `gameplay_table.png` alpha compared against the canonical mask with zero differing pixels.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
+
+## Batch 008 publication record
+
+- Implementation commit: `f9597e9e9a9de45bc97bea44d3907c64ffdeee46`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `f9597e9e9a9de45bc97bea44d3907c64ffdeee46`.
+- Worktree remained clean after push.
