@@ -266,3 +266,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: exact dimensions and RGBA verified for all 13 outputs; gameplay-table alpha compared against the canonical mask with zero differing pixels.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
+
+## Batch 015 publication record
+
+- Implementation commit: `f70c7a419eaeb3ecb8332aa0887731eaeea7467c`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `f70c7a419eaeb3ecb8332aa0887731eaeea7467c`.
+- Remote canonical paths verified: 13/13 Volcano Bay targets present.
+- Worktree remained clean after push.
