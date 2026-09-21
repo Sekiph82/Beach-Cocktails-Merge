@@ -35,6 +35,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Blockers: none.
 - Commit/push: pending batch publication.
 
+## Batch 004 — island-map progression UI
+
+- Timestamp: 2026-09-21 23:10:16 +03:00.
+- Tasks: VA-007 through VA-023.
+- Outputs: all 17 `assets/ui_assets/campaign/island_map/**` targets in the master list.
+- Generation: one separate built-in image-generation operation per distinct crown, panel, connector, node, decoration, chest marker and star asset; V04 `world_map_master.png` was the direct authority.
+- Technical cleanup: transparent padding and exact master-list resizing only.
+- Rejected/regenerated attempts: none.
+- QA: compared locked/unlocked/current/completed/milestone/finale node states, normal/completed connectors, empty/filled stars and top/bottom decorations; verified RGBA output and exact dimensions.
+- Blockers: none.
+- Commit/push: pending batch publication.
+
 ## Batch 003 — reward and star-track states
 
 - Timestamp: 2026-09-21 23:10:16 +03:00.

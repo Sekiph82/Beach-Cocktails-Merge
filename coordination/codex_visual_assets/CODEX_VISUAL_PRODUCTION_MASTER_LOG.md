@@ -63,6 +63,14 @@ Append one concise section per visual batch:
 - Target families: global buttons, generic panels, popup frame, tooltip frame.
 - Publication: pending commit and push to `codex/visual-assets-production`.
 
+## Batch 004 — island-map progression UI
+
+- Timestamp: 2026-09-21 23:10:16 +03:00.
+- Dedicated targets generated: 17.
+- Separate image-generation operation used for each distinct asset with V04 world-map authority; no V05 visuals or atlas slicing used.
+- Target family: Island Map progression nodes, connectors, decorations, milestone and star UI.
+- Publication: pending commit and push to `codex/visual-assets-production`.
+
 ## Batch 003 — reward and star-track states
 
 - Timestamp: 2026-09-21 23:10:16 +03:00.

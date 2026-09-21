@@ -22,23 +22,23 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-004 Generate → `assets/ui_assets/brand/legal_logo_mark.png`
 - [x] VA-005 PRESERVE → `assets/ui_assets/brand/logo_beach_cocktails_merge.png`
 - [ ] VA-006 Generate → `assets/ui_assets/brand/splash_logo.png`
-- [ ] VA-007 Generate → `assets/ui_assets/campaign/island_map/finale_crown.png`
-- [ ] VA-008 Generate → `assets/ui_assets/campaign/island_map/island_summary_panel.png`
-- [ ] VA-009 Generate → `assets/ui_assets/campaign/island_map/level_connector.png`
-- [ ] VA-010 Generate → `assets/ui_assets/campaign/island_map/level_connector_complete.png`
-- [ ] VA-011 Generate → `assets/ui_assets/campaign/island_map/level_node_completed.png`
-- [ ] VA-012 Generate → `assets/ui_assets/campaign/island_map/level_node_current.png`
-- [ ] VA-013 Generate → `assets/ui_assets/campaign/island_map/level_node_finale.png`
-- [ ] VA-014 Generate → `assets/ui_assets/campaign/island_map/level_node_locked.png`
-- [ ] VA-015 Generate → `assets/ui_assets/campaign/island_map/level_node_milestone.png`
-- [ ] VA-016 Generate → `assets/ui_assets/campaign/island_map/level_node_unlocked.png`
-- [ ] VA-017 Generate → `assets/ui_assets/campaign/island_map/map_scroll_bottom_decor.png`
-- [ ] VA-018 Generate → `assets/ui_assets/campaign/island_map/map_scroll_top_decor.png`
-- [ ] VA-019 Generate → `assets/ui_assets/campaign/island_map/milestone_chest_marker.png`
-- [ ] VA-020 Generate → `assets/ui_assets/campaign/island_map/next_milestone_panel.png`
-- [ ] VA-021 Generate → `assets/ui_assets/campaign/island_map/star_small_empty.png`
-- [ ] VA-022 Generate → `assets/ui_assets/campaign/island_map/star_small_filled.png`
-- [ ] VA-023 Generate → `assets/ui_assets/campaign/island_map/stars_counter_panel.png`
+- [x] VA-007 Generate → `assets/ui_assets/campaign/island_map/finale_crown.png`
+- [x] VA-008 Generate → `assets/ui_assets/campaign/island_map/island_summary_panel.png`
+- [x] VA-009 Generate → `assets/ui_assets/campaign/island_map/level_connector.png`
+- [x] VA-010 Generate → `assets/ui_assets/campaign/island_map/level_connector_complete.png`
+- [x] VA-011 Generate → `assets/ui_assets/campaign/island_map/level_node_completed.png`
+- [x] VA-012 Generate → `assets/ui_assets/campaign/island_map/level_node_current.png`
+- [x] VA-013 Generate → `assets/ui_assets/campaign/island_map/level_node_finale.png`
+- [x] VA-014 Generate → `assets/ui_assets/campaign/island_map/level_node_locked.png`
+- [x] VA-015 Generate → `assets/ui_assets/campaign/island_map/level_node_milestone.png`
+- [x] VA-016 Generate → `assets/ui_assets/campaign/island_map/level_node_unlocked.png`
+- [x] VA-017 Generate → `assets/ui_assets/campaign/island_map/map_scroll_bottom_decor.png`
+- [x] VA-018 Generate → `assets/ui_assets/campaign/island_map/map_scroll_top_decor.png`
+- [x] VA-019 Generate → `assets/ui_assets/campaign/island_map/milestone_chest_marker.png`
+- [x] VA-020 Generate → `assets/ui_assets/campaign/island_map/next_milestone_panel.png`
+- [x] VA-021 Generate → `assets/ui_assets/campaign/island_map/star_small_empty.png`
+- [x] VA-022 Generate → `assets/ui_assets/campaign/island_map/star_small_filled.png`
+- [x] VA-023 Generate → `assets/ui_assets/campaign/island_map/stars_counter_panel.png`
 - [ ] VA-024 Generate → `assets/ui_assets/campaign/islands/azure_bay/complete_badge.png`
 - [ ] VA-025 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_back.png`
 - [ ] VA-026 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_left.png`
