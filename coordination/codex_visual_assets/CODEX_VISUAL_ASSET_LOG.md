@@ -120,3 +120,10 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: exact dimensions and RGBA verified for all 13 outputs; representative Billionaire Island gameplay background, table material and world icon visually inspected; `gameplay_table.png` alpha compared against the canonical mask with zero differing pixels.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
+
+## Batch 007 publication record
+
+- Implementation commit: `949db59473f992f4ad314c706a7ccd05969bfda4`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `949db59473f992f4ad314c706a7ccd05969bfda4`.
+- Worktree remained clean after push.
