@@ -62,3 +62,11 @@ Append one concise section per visual batch:
 - Separate image-generation operation used for each distinct non-protected asset, with V04 main-menu authority; no V05 visuals or atlas slicing used.
 - Target families: global buttons, generic panels, popup frame, tooltip frame.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 002 — global navigation and utility icons
+
+- Timestamp: 2026-09-21 23:10:16 +03:00.
+- Dedicated targets generated: 12.
+- Separate image-generation operation used for each icon with V04 main-menu authority; no V05 visuals or atlas slicing used.
+- Target family: global navigation, state and utility icons.
+- Publication: pending commit and push to `codex/visual-assets-production`.
