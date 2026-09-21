@@ -52,19 +52,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-034 Generate → `assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png`
 - [x] VA-035 Generate → `assets/ui_assets/campaign/islands/azure_bay/theme_badge.png`
 - [x] VA-036 Generate → `assets/ui_assets/campaign/islands/azure_bay/world_icon.png`
-- [ ] VA-037 Generate → `assets/ui_assets/campaign/islands/billionaire_island/complete_badge.png`
-- [ ] VA-038 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_back.png`
-- [ ] VA-039 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_left.png`
-- [ ] VA-040 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_right.png`
-- [ ] VA-041 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_background.png`
-- [ ] VA-042 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png`
-- [ ] VA-043 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png`
-- [ ] VA-044 Generate → `assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png`
-- [ ] VA-045 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_background.png`
-- [ ] VA-046 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_title.png`
-- [ ] VA-047 Generate → `assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png`
-- [ ] VA-048 Generate → `assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png`
-- [ ] VA-049 Generate → `assets/ui_assets/campaign/islands/billionaire_island/world_icon.png`
+- [x] VA-037 Generate → `assets/ui_assets/campaign/islands/billionaire_island/complete_badge.png`
+- [x] VA-038 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_back.png`
+- [x] VA-039 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_left.png`
+- [x] VA-040 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_right.png`
+- [x] VA-041 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_background.png`
+- [x] VA-042 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png`
+- [x] VA-043 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png`
+- [x] VA-044 Generate → `assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png`
+- [x] VA-045 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_background.png`
+- [x] VA-046 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_title.png`
+- [x] VA-047 Generate → `assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png`
+- [x] VA-048 Generate → `assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png`
+- [x] VA-049 Generate → `assets/ui_assets/campaign/islands/billionaire_island/world_icon.png`
 - [ ] VA-050 Generate → `assets/ui_assets/campaign/islands/coconut_beach/complete_badge.png`
 - [ ] VA-051 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_back.png`
 - [ ] VA-052 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_left.png`

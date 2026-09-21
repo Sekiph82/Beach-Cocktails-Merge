@@ -116,3 +116,12 @@ Append one concise section per visual batch:
 - Implementation commit: `7645f0741bd18e1c4eba3bcce98ccb7a94585c00`.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.
+
+## Batch 007 — Billionaire Island island pack
+
+- Timestamp: 2026-09-22 00:42:15 +03:00.
+- Dedicated targets generated: 13.
+- Separate image-generation operation used for each distinct Billionaire Island asset with V04 Billionaire Island authority; no V05 visuals or atlas slicing used.
+- Target family: Billionaire Island completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
+- Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
+- Publication: pending commit and push to `codex/visual-assets-production`.
