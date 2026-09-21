@@ -163,3 +163,9 @@ Append one concise section per visual batch:
 - Target family: Final Island completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
 - Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 010 publication record
+
+- Implementation commit: `f54391fb84c6057d60f5232f83a8507085df494e`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.
