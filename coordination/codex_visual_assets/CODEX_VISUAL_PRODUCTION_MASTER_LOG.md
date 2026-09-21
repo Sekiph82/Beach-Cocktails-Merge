@@ -154,3 +154,12 @@ Append one concise section per visual batch:
 - Result: the dedicated image-generation service returned HTTP 429 `usage_limit_reached` before a complete labelled result set was returned; no raw output was promoted to a canonical target.
 - Repository impact: no Final Island canonical assets were changed; no task tracker status was advanced.
 - Blocker: generator response reported a reset in approximately two hours. Resume only after the service resets or the user explicitly authorizes reset-credit consumption.
+
+## Batch 010 — Final Island island pack resumed
+
+- Timestamp: 2026-09-22 01:34:48 +03:00.
+- Dedicated targets generated: 13.
+- Separate image-generation operation used for each distinct Final Island asset with V04 Final Island authority; no ambiguous Batch 009 output, V05 visual or atlas slicing used.
+- Target family: Final Island completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
+- Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
+- Publication: pending commit and push to `codex/visual-assets-production`.

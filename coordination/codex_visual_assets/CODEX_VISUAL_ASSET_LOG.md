@@ -155,3 +155,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Style authority: V04 `final_island_master.png` only; no V05 art or atlas slicing used.
 - Repository impact: no Final Island canonical assets or task checkboxes were changed.
 - Blocker: service response reported a reset in approximately two hours; continuing requires the generator limit to reset or explicit user-authorized reset-credit consumption.
+
+## Batch 010 — Final Island island pack resumed
+
+- Timestamp: 2026-09-22 01:34:48 +03:00.
+- Tasks: VA-063 through VA-075.
+- Outputs: all 13 `assets/ui_assets/campaign/islands/final_island/**` targets in the master list.
+- Generation: one separate built-in image-generation operation per distinct completion badge, decorative element, gameplay background, table material, table shadow, launch zone, map background, map title, table-edge overlay, theme badge and world icon; V04 `final_island_master.png` was the direct authority. No ambiguous Batch 009 output was promoted; no V05 art or atlas slicing used.
+- Technical cleanup: exact master-list resizing, transparent compositing and frozen table-mask application only. `gameplay_table.png` uses the canonical `table_silhouette_mask.png` alpha without changing the protected geometry.
+- Rejected/regenerated attempts: none in the resumed batch.
+- QA: exact dimensions and RGBA verified for all 13 outputs; representative completion badge, gameplay background, table material, map title and world icon visually inspected; `gameplay_table.png` alpha compared against the canonical mask with zero differing pixels.
+- Blockers: none.
+- Commit/push: published in commit recorded below.

@@ -78,19 +78,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-060 Generate → `assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png`
 - [x] VA-061 Generate → `assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png`
 - [x] VA-062 Generate → `assets/ui_assets/campaign/islands/coconut_beach/world_icon.png`
-- [ ] VA-063 Generate → `assets/ui_assets/campaign/islands/final_island/complete_badge.png`
-- [ ] VA-064 Generate → `assets/ui_assets/campaign/islands/final_island/decor_back.png`
-- [ ] VA-065 Generate → `assets/ui_assets/campaign/islands/final_island/decor_left.png`
-- [ ] VA-066 Generate → `assets/ui_assets/campaign/islands/final_island/decor_right.png`
-- [ ] VA-067 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_background.png`
-- [ ] VA-068 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table.png`
-- [ ] VA-069 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png`
-- [ ] VA-070 Generate → `assets/ui_assets/campaign/islands/final_island/launch_zone.png`
-- [ ] VA-071 Generate → `assets/ui_assets/campaign/islands/final_island/map_background.png`
-- [ ] VA-072 Generate → `assets/ui_assets/campaign/islands/final_island/map_title.png`
-- [ ] VA-073 Generate → `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png`
-- [ ] VA-074 Generate → `assets/ui_assets/campaign/islands/final_island/theme_badge.png`
-- [ ] VA-075 Generate → `assets/ui_assets/campaign/islands/final_island/world_icon.png`
+- [x] VA-063 Generate → `assets/ui_assets/campaign/islands/final_island/complete_badge.png`
+- [x] VA-064 Generate → `assets/ui_assets/campaign/islands/final_island/decor_back.png`
+- [x] VA-065 Generate → `assets/ui_assets/campaign/islands/final_island/decor_left.png`
+- [x] VA-066 Generate → `assets/ui_assets/campaign/islands/final_island/decor_right.png`
+- [x] VA-067 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_background.png`
+- [x] VA-068 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table.png`
+- [x] VA-069 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png`
+- [x] VA-070 Generate → `assets/ui_assets/campaign/islands/final_island/launch_zone.png`
+- [x] VA-071 Generate → `assets/ui_assets/campaign/islands/final_island/map_background.png`
+- [x] VA-072 Generate → `assets/ui_assets/campaign/islands/final_island/map_title.png`
+- [x] VA-073 Generate → `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png`
+- [x] VA-074 Generate → `assets/ui_assets/campaign/islands/final_island/theme_badge.png`
+- [x] VA-075 Generate → `assets/ui_assets/campaign/islands/final_island/world_icon.png`
 - [ ] VA-076 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/complete_badge.png`
 - [ ] VA-077 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_back.png`
 - [ ] VA-078 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_left.png`
