@@ -146,3 +146,11 @@ Append one concise section per visual batch:
 - Implementation commit: `f9597e9e9a9de45bc97bea44d3907c64ffdeee46`.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.
+
+## Batch 009 — Final Island generation blocked
+
+- Timestamp: 2026-09-22 01:03:29 +03:00.
+- Attempted target range: VA-063 through VA-075.
+- Result: the dedicated image-generation service returned HTTP 429 `usage_limit_reached` before a complete labelled result set was returned; no raw output was promoted to a canonical target.
+- Repository impact: no Final Island canonical assets were changed; no task tracker status was advanced.
+- Blocker: generator response reported a reset in approximately two hours. Resume only after the service resets or the user explicitly authorizes reset-credit consumption.

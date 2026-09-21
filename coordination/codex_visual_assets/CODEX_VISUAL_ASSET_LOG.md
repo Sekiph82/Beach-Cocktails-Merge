@@ -146,3 +146,12 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `f9597e9e9a9de45bc97bea44d3907c64ffdeee46`.
 - Worktree remained clean after push.
+
+## Batch 009 — Final Island generation blocked
+
+- Timestamp: 2026-09-22 01:03:29 +03:00.
+- Attempted tasks: VA-063 through VA-075.
+- Result: blocked by the image-generation service returning HTTP 429 `usage_limit_reached` before a complete per-asset result set was returned. Some unlabelled raw outputs were left in the generator-managed output directory, but none were promoted to canonical repository paths because their asset-role mapping could not be safely established.
+- Style authority: V04 `final_island_master.png` only; no V05 art or atlas slicing used.
+- Repository impact: no Final Island canonical assets or task checkboxes were changed.
+- Blocker: service response reported a reset in approximately two hours; continuing requires the generator limit to reset or explicit user-authorized reset-credit consumption.
