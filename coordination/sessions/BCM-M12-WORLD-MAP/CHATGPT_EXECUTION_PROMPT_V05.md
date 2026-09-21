@@ -51,6 +51,42 @@ Therefore V05 must still iterate through the full manifest and regenerate every 
 
 If a V04 master directly corresponds to a production asset, use it as source/reference and derive the production asset from it, but still produce the correct final file at the manifest path with the required dimensions/alpha contract.
 
+
+## V04 MASTER STYLE LOCK — NON-NEGOTIABLE
+
+The owner has visually approved the 12 V04 master images and explicitly states that they are very good.
+
+From this point onward, the 12 approved V04 masters are the **primary visual style authority** for all remaining V05 production assets.
+
+All remaining assets must match the V04 masters **as closely and consistently as possible**, not merely share a loose theme.
+
+Required consistency includes:
+- rendering style;
+- painterly/cartoon-realistic finish;
+- lighting model and contrast;
+- color treatment;
+- material richness;
+- depth and atmospheric perspective;
+- edge treatment;
+- highlight/shadow behavior;
+- decorative density;
+- tropical/resort visual language;
+- premium mobile-game polish;
+- overall visual sophistication.
+
+Do not introduce a new art style, alternate rendering language, flatter UI treatment, cheaper vector treatment, simplified programmer-art treatment, or unrelated visual family for any later asset.
+
+When generating each asset, use the relevant V04 master(s) as direct visual/style references whenever the image-generation tool supports reference inputs.
+
+For island-specific assets, the corresponding island V04 master is the first visual reference.
+For global/shared assets, use the V04 World Map/Main Menu masters plus the two original authority boards as the governing visual references.
+
+If a newly generated asset visibly looks like it belongs to a different game than the approved V04 masters, it must be rejected and regenerated.
+
+The target is not 'similar enough'. The target is **one visually unified game whose remaining 398 assets look like they were created by the same art team, in the same production pass, from the same approved V04 art direction**.
+
+V04 masters must not be redrawn, restyled, degraded, or replaced during V05. They are frozen approved style anchors.
+
 ## SEQUENTIAL PRODUCTION RULE
 
 Process assets one by one.
