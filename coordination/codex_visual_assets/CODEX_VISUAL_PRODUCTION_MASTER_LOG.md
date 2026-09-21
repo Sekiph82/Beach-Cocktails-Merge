@@ -110,3 +110,9 @@ Append one concise section per visual batch:
 - Target family: Azure Bay completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
 - Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 006 publication record
+
+- Implementation commit: `7645f0741bd18e1c4eba3bcce98ccb7a94585c00`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.

@@ -101,3 +101,10 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: exact dimensions and RGBA verified for all 13 outputs; representative Azure Bay gameplay background, table material and map title visually inspected; `gameplay_table.png` alpha compared against the canonical mask with zero differing pixels.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
+
+## Batch 006 publication record
+
+- Implementation commit: `7645f0741bd18e1c4eba3bcce98ccb7a94585c00`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `7645f0741bd18e1c4eba3bcce98ccb7a94585c00`.
+- Worktree remained clean after push.
