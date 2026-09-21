@@ -95,3 +95,9 @@ Append one concise section per visual batch:
 - Target family: Sunny Cove completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
 - Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 005 publication record
+
+- Implementation commit: `0aefcddbc74543a0f9e72f8c30b74b5453394b90`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.
