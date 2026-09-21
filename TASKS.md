@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M12
 - Current Sprint: BCM-M12-WORLD-MAP
 - Current Task: Build the reusable data-driven World Map UI from LevelDatabase/CampaignManager state without changing accepted core gameplay.
-- Current Task Status: DESIGN_APPROVAL_REQUIRED
-- Next Task/Action: Stop M12 implementation iteration. Owner and ChatGPT establish/approve a new polished tropical World Map visual reference first. Only after owner visual approval should Codex receive a V03 implementation prompt. Preserve V02 lifecycle/data-driven fixes.
+- Current Task Status: READY
+- Next Task/Action: Codex executes M12 V03 full visual-production reset, regenerating the entire UI asset library under the two mandatory style-reference boards while preserving protected logo/table geometry and V02 lifecycle/data-driven fixes; then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -266,7 +266,7 @@ Execution prompt:
 
 Scope: campaign persistence, backup/recovery, legacy best-score migration, idempotent progression, and isolated save tests only. Campaign UI and timed gameplay remain deferred.
 
-## Active M12 World Map — art direction reset, owner visual approval required
+## Active M12 World Map — V03 full visual asset regeneration
 
 Locked criteria:
 `coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_CRITERIA_V01.md`
