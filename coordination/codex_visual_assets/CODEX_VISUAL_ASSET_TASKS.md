@@ -143,19 +143,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-125 Generate → `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png`
 - [x] VA-126 Generate → `assets/ui_assets/campaign/islands/sunset_island/theme_badge.png`
 - [x] VA-127 Generate → `assets/ui_assets/campaign/islands/sunset_island/world_icon.png`
-- [ ] VA-128 Generate → `assets/ui_assets/campaign/islands/tiki_island/complete_badge.png`
-- [ ] VA-129 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_back.png`
-- [ ] VA-130 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_left.png`
-- [ ] VA-131 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_right.png`
-- [ ] VA-132 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_background.png`
-- [ ] VA-133 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png`
-- [ ] VA-134 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png`
-- [ ] VA-135 Generate → `assets/ui_assets/campaign/islands/tiki_island/launch_zone.png`
-- [ ] VA-136 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_background.png`
-- [ ] VA-137 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_title.png`
-- [ ] VA-138 Generate → `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png`
-- [ ] VA-139 Generate → `assets/ui_assets/campaign/islands/tiki_island/theme_badge.png`
-- [ ] VA-140 Generate → `assets/ui_assets/campaign/islands/tiki_island/world_icon.png`
+- [x] VA-128 Generate → `assets/ui_assets/campaign/islands/tiki_island/complete_badge.png`
+- [x] VA-129 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_back.png`
+- [x] VA-130 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_left.png`
+- [x] VA-131 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_right.png`
+- [x] VA-132 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_background.png`
+- [x] VA-133 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png`
+- [x] VA-134 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png`
+- [x] VA-135 Generate → `assets/ui_assets/campaign/islands/tiki_island/launch_zone.png`
+- [x] VA-136 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_background.png`
+- [x] VA-137 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_title.png`
+- [x] VA-138 Generate → `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png`
+- [x] VA-139 Generate → `assets/ui_assets/campaign/islands/tiki_island/theme_badge.png`
+- [x] VA-140 Generate → `assets/ui_assets/campaign/islands/tiki_island/world_icon.png`
 - [ ] VA-141 Generate → `assets/ui_assets/campaign/islands/volcano_bay/complete_badge.png`
 - [ ] VA-142 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_back.png`
 - [ ] VA-143 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_left.png`
