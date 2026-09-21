@@ -226,3 +226,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: exact dimensions and RGBA verified for all 13 outputs; gameplay-table alpha compared against the canonical mask with zero differing pixels.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
+
+## Batch 013 publication record
+
+- Implementation commit: `fd2304dc6b104001e82794f24814438f7f90665c`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `fd2304dc6b104001e82794f24814438f7f90665c`.
+- Remote canonical paths verified: 13/13 Sunset Island targets present.
+- Worktree remained clean after push.
