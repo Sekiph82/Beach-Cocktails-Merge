@@ -208,3 +208,39 @@ In a clean current-main checkout, run `WorldMapScene.tscn` and verify:
 ## 13. Final verdict
 
 **SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED**
+
+
+## Owner visual rejection — 2026-09-21
+
+Owner reviewed the actual M12 V02 runtime in Godot and explicitly rejects the visual direction.
+
+Authoritative visual findings from owner screenshots:
+- the map reads as a debug/prototype composition rather than a polished game world;
+- flat cyan/teal background and looping route lines are visually crude;
+- repeated circular lock markers dominate the composition;
+- island destinations are too small and visually generic;
+- route geometry crosses itself and creates clutter rather than a readable journey;
+- title treatment and decorative strokes look like placeholder/debug art;
+- visual hierarchy is weak and the scene does not match the polished tropical art direction of the game;
+- the overall quality bar is materially below the owner's accepted game visuals and other project art.
+
+The owner explicitly states the V02 visuals are unacceptable.
+
+### Audit correction
+
+The prior V02 verdict of SOURCE_AUDITED_PASS remains valid only for source/runtime mechanics, but visual acceptance is **FAILED**.
+
+I should not have treated the builder screenshots/source description as sufficient evidence of acceptable visual direction.
+
+### Revised M12 status
+
+**CHANGES_REQUIRED — ART DIRECTION RESET**
+
+M12 remains open.
+
+Before further implementation:
+1. stop iterating on the current cyan-route-marker composition;
+2. establish and owner-approve a new World Map visual reference/concept first;
+3. the approved direction must match the game's polished tropical/beach visual language rather than debug/procedural UI;
+4. only after visual reference approval should Codex implement the World Map scene against that reference;
+5. preserve the V02 source/runtime fixes for lifecycle safety and data-driven state where reusable.
