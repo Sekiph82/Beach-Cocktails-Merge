@@ -89,3 +89,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `0aefcddbc74543a0f9e72f8c30b74b5453394b90`.
 - Worktree remained clean after push.
+
+## Batch 006 — Azure Bay island pack
+
+- Timestamp: 2026-09-22 00:29:22 +03:00.
+- Tasks: VA-024 through VA-036.
+- Outputs: all 13 `assets/ui_assets/campaign/islands/azure_bay/**` targets in the master list.
+- Generation: one separate built-in image-generation operation per distinct complete badge, decorative element, gameplay background, table material, table shadow, launch zone, map background, map title, table-edge overlay, theme badge and world icon; V04 `azure_bay_master.png` was the direct authority. No V05 art or atlas slicing used.
+- Technical cleanup: exact master-list resizing, transparent compositing and frozen table-mask application only. `gameplay_table.png` uses the canonical `table_silhouette_mask.png` alpha without changing the protected geometry.
+- Rejected/regenerated attempts: none.
+- QA: exact dimensions and RGBA verified for all 13 outputs; representative Azure Bay gameplay background, table material and map title visually inspected; `gameplay_table.png` alpha compared against the canonical mask with zero differing pixels.
+- Blockers: none.
+- Commit/push: published in commit recorded below.

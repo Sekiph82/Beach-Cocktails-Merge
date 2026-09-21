@@ -101,3 +101,12 @@ Append one concise section per visual batch:
 - Implementation commit: `0aefcddbc74543a0f9e72f8c30b74b5453394b90`.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit.
+
+## Batch 006 — Azure Bay island pack
+
+- Timestamp: 2026-09-22 00:29:22 +03:00.
+- Dedicated targets generated: 13.
+- Separate image-generation operation used for each distinct Azure Bay asset with V04 Azure Bay authority; no V05 visuals or atlas slicing used.
+- Target family: Azure Bay completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
+- Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
+- Publication: pending commit and push to `codex/visual-assets-production`.

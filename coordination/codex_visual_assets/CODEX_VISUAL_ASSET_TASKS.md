@@ -39,19 +39,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-021 Generate → `assets/ui_assets/campaign/island_map/star_small_empty.png`
 - [x] VA-022 Generate → `assets/ui_assets/campaign/island_map/star_small_filled.png`
 - [x] VA-023 Generate → `assets/ui_assets/campaign/island_map/stars_counter_panel.png`
-- [ ] VA-024 Generate → `assets/ui_assets/campaign/islands/azure_bay/complete_badge.png`
-- [ ] VA-025 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_back.png`
-- [ ] VA-026 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_left.png`
-- [ ] VA-027 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_right.png`
-- [ ] VA-028 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_background.png`
-- [ ] VA-029 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png`
-- [ ] VA-030 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png`
-- [ ] VA-031 Generate → `assets/ui_assets/campaign/islands/azure_bay/launch_zone.png`
-- [ ] VA-032 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_background.png`
-- [ ] VA-033 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_title.png`
-- [ ] VA-034 Generate → `assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png`
-- [ ] VA-035 Generate → `assets/ui_assets/campaign/islands/azure_bay/theme_badge.png`
-- [ ] VA-036 Generate → `assets/ui_assets/campaign/islands/azure_bay/world_icon.png`
+- [x] VA-024 Generate → `assets/ui_assets/campaign/islands/azure_bay/complete_badge.png`
+- [x] VA-025 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_back.png`
+- [x] VA-026 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_left.png`
+- [x] VA-027 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_right.png`
+- [x] VA-028 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_background.png`
+- [x] VA-029 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png`
+- [x] VA-030 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png`
+- [x] VA-031 Generate → `assets/ui_assets/campaign/islands/azure_bay/launch_zone.png`
+- [x] VA-032 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_background.png`
+- [x] VA-033 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_title.png`
+- [x] VA-034 Generate → `assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png`
+- [x] VA-035 Generate → `assets/ui_assets/campaign/islands/azure_bay/theme_badge.png`
+- [x] VA-036 Generate → `assets/ui_assets/campaign/islands/azure_bay/world_icon.png`
 - [ ] VA-037 Generate → `assets/ui_assets/campaign/islands/billionaire_island/complete_badge.png`
 - [ ] VA-038 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_back.png`
 - [ ] VA-039 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_left.png`
