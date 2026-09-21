@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M12
 - Current Sprint: BCM-M12-WORLD-MAP
 - Current Task: Build the reusable data-driven World Map UI from LevelDatabase/CampaignManager state without changing accepted core gameplay.
-- Current Task Status: READY
-- Next Task/Action: Codex executes `coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`, builds the reusable World Map with campaign-derived island states, tests and 720x1280 evidence, then stops for independent audit.
+- Current Task Status: OWNER_RUNTIME_VERIFICATION_REQUIRED
+- Next Task/Action: Owner opens/runs the M12 World Map at 720x1280 portrait and visually verifies Sunny Cove current/open, Tiki locked, locked feedback readability, no clipping/overlap, comfortable tap targets, and acceptable temporary presentation. Source audit passed.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -266,13 +266,16 @@ Execution prompt:
 
 Scope: campaign persistence, backup/recovery, legacy best-score migration, idempotent progression, and isolated save tests only. Campaign UI and timed gameplay remain deferred.
 
-## Active M12 World Map
+## Active M12 World Map — source audited, owner runtime verification required
 
 Locked criteria:
 `coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_CRITERIA_V01.md`
 
 Execution prompt:
 `coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Independent audit:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_V01.md` — SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED.
 
 Scope: World Map UI only. Island Map, level path, gameplay timer, VIP runtime and full Sunny Cove content remain deferred.
 
