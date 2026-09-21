@@ -156,19 +156,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-138 Generate → `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png`
 - [x] VA-139 Generate → `assets/ui_assets/campaign/islands/tiki_island/theme_badge.png`
 - [x] VA-140 Generate → `assets/ui_assets/campaign/islands/tiki_island/world_icon.png`
-- [ ] VA-141 Generate → `assets/ui_assets/campaign/islands/volcano_bay/complete_badge.png`
-- [ ] VA-142 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_back.png`
-- [ ] VA-143 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_left.png`
-- [ ] VA-144 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_right.png`
-- [ ] VA-145 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_background.png`
-- [ ] VA-146 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png`
-- [ ] VA-147 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png`
-- [ ] VA-148 Generate → `assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png`
-- [ ] VA-149 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_background.png`
-- [ ] VA-150 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_title.png`
-- [ ] VA-151 Generate → `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png`
-- [ ] VA-152 Generate → `assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png`
-- [ ] VA-153 Generate → `assets/ui_assets/campaign/islands/volcano_bay/world_icon.png`
+- [x] VA-141 Generate → `assets/ui_assets/campaign/islands/volcano_bay/complete_badge.png`
+- [x] VA-142 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_back.png`
+- [x] VA-143 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_left.png`
+- [x] VA-144 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_right.png`
+- [x] VA-145 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_background.png`
+- [x] VA-146 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png`
+- [x] VA-147 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png`
+- [x] VA-148 Generate → `assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png`
+- [x] VA-149 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_background.png`
+- [x] VA-150 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_title.png`
+- [x] VA-151 Generate → `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png`
+- [x] VA-152 Generate → `assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png`
+- [x] VA-153 Generate → `assets/ui_assets/campaign/islands/volcano_bay/world_icon.png`
 - [ ] VA-154 Generate → `assets/ui_assets/campaign/world_map/azure_bay.png`
 - [ ] VA-155 Generate → `assets/ui_assets/campaign/world_map/billionaire_island.png`
 - [ ] VA-156 Generate → `assets/ui_assets/campaign/world_map/coconut_beach.png`
