@@ -130,19 +130,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-112 Generate → `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png`
 - [x] VA-113 Generate → `assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png`
 - [x] VA-114 Generate → `assets/ui_assets/campaign/islands/sunny_cove/world_icon.png`
-- [ ] VA-115 Generate → `assets/ui_assets/campaign/islands/sunset_island/complete_badge.png`
-- [ ] VA-116 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_back.png`
-- [ ] VA-117 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_left.png`
-- [ ] VA-118 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_right.png`
-- [ ] VA-119 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_background.png`
-- [ ] VA-120 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png`
-- [ ] VA-121 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png`
-- [ ] VA-122 Generate → `assets/ui_assets/campaign/islands/sunset_island/launch_zone.png`
-- [ ] VA-123 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_background.png`
-- [ ] VA-124 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_title.png`
-- [ ] VA-125 Generate → `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png`
-- [ ] VA-126 Generate → `assets/ui_assets/campaign/islands/sunset_island/theme_badge.png`
-- [ ] VA-127 Generate → `assets/ui_assets/campaign/islands/sunset_island/world_icon.png`
+- [x] VA-115 Generate → `assets/ui_assets/campaign/islands/sunset_island/complete_badge.png`
+- [x] VA-116 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_back.png`
+- [x] VA-117 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_left.png`
+- [x] VA-118 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_right.png`
+- [x] VA-119 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_background.png`
+- [x] VA-120 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png`
+- [x] VA-121 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png`
+- [x] VA-122 Generate → `assets/ui_assets/campaign/islands/sunset_island/launch_zone.png`
+- [x] VA-123 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_background.png`
+- [x] VA-124 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_title.png`
+- [x] VA-125 Generate → `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png`
+- [x] VA-126 Generate → `assets/ui_assets/campaign/islands/sunset_island/theme_badge.png`
+- [x] VA-127 Generate → `assets/ui_assets/campaign/islands/sunset_island/world_icon.png`
 - [ ] VA-128 Generate → `assets/ui_assets/campaign/islands/tiki_island/complete_badge.png`
 - [ ] VA-129 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_back.png`
 - [ ] VA-130 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_left.png`

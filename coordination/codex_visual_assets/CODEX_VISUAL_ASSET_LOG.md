@@ -214,3 +214,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `2b8bce47fd9d452624205ff3f1f4c9bc1a8655fc`.
 - Remote canonical paths verified: 13/13 Party Beach targets present.
 - Worktree remained clean after push.
+
+## Batch 013 — Sunset Island island pack
+
+- Timestamp: 2026-09-22 02:19:38 +03:00.
+- Tasks: VA-115 through VA-127.
+- Outputs: all 13 `assets/ui_assets/campaign/islands/sunset_island/**` targets in the master list.
+- Generation: one separate built-in image-generation operation per distinct completion badge, decorative element, gameplay background, table material, table shadow, launch zone, map background, map title, table-edge overlay, theme badge and world icon; V04 `sunset_island_master.png` was the direct authority. No V05 art or atlas slicing used.
+- Technical cleanup: exact master-list resizing, transparent compositing and frozen table-mask application only. `gameplay_table.png` uses the canonical `table_silhouette_mask.png` alpha without changing the protected geometry.
+- Rejected/regenerated attempts: none.
+- QA: exact dimensions and RGBA verified for all 13 outputs; gameplay-table alpha compared against the canonical mask with zero differing pixels.
+- Blockers: none.
+- Commit/push: published in commit recorded below.
