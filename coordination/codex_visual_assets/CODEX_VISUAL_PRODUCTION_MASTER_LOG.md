@@ -86,3 +86,12 @@ Append one concise section per visual batch:
 - Separate image-generation operation used for each icon with V04 main-menu authority; no V05 visuals or atlas slicing used.
 - Target family: global navigation, state and utility icons.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 005 — Sunny Cove island pack
+
+- Timestamp: 2026-09-22 00:15:46 +03:00.
+- Dedicated targets generated: 13.
+- Separate image-generation operation used for each distinct Sunny Cove asset with V04 Sunny Cove authority; no V05 visuals or atlas slicing used.
+- Target family: Sunny Cove completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
+- Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
+- Publication: pending commit and push to `codex/visual-assets-production`.

@@ -117,19 +117,19 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-099 Generate → `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png`
 - [ ] VA-100 Generate → `assets/ui_assets/campaign/islands/party_beach/theme_badge.png`
 - [ ] VA-101 Generate → `assets/ui_assets/campaign/islands/party_beach/world_icon.png`
-- [ ] VA-102 Generate → `assets/ui_assets/campaign/islands/sunny_cove/complete_badge.png`
-- [ ] VA-103 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_back.png`
-- [ ] VA-104 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_left.png`
-- [ ] VA-105 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_right.png`
-- [ ] VA-106 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png`
-- [ ] VA-107 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png`
-- [ ] VA-108 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png`
-- [ ] VA-109 Generate → `assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png`
-- [ ] VA-110 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_background.png`
-- [ ] VA-111 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_title.png`
-- [ ] VA-112 Generate → `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png`
-- [ ] VA-113 Generate → `assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png`
-- [ ] VA-114 Generate → `assets/ui_assets/campaign/islands/sunny_cove/world_icon.png`
+- [x] VA-102 Generate → `assets/ui_assets/campaign/islands/sunny_cove/complete_badge.png`
+- [x] VA-103 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_back.png`
+- [x] VA-104 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_left.png`
+- [x] VA-105 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_right.png`
+- [x] VA-106 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png`
+- [x] VA-107 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png`
+- [x] VA-108 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png`
+- [x] VA-109 Generate → `assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png`
+- [x] VA-110 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_background.png`
+- [x] VA-111 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_title.png`
+- [x] VA-112 Generate → `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png`
+- [x] VA-113 Generate → `assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png`
+- [x] VA-114 Generate → `assets/ui_assets/campaign/islands/sunny_cove/world_icon.png`
 - [ ] VA-115 Generate → `assets/ui_assets/campaign/islands/sunset_island/complete_badge.png`
 - [ ] VA-116 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_back.png`
 - [ ] VA-117 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_left.png`
