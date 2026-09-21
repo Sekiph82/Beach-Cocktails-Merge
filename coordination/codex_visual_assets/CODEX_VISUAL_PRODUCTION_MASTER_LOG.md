@@ -193,3 +193,9 @@ Append one concise section per visual batch:
 - Target family: Party Beach completion badge, decorations, gameplay/map backgrounds, frozen-geometry table material and overlays, launch zone, title, theme badge and world icon.
 - Validation: all 13 canonical paths are exact-size RGBA files; gameplay table alpha matches the protected table silhouette mask pixel-for-pixel.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 012 publication record
+
+- Implementation commit: `2b8bce47fd9d452624205ff3f1f4c9bc1a8655fc`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 13/13 Party Beach canonical paths were present.

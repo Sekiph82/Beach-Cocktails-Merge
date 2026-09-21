@@ -206,3 +206,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: exact dimensions and RGBA verified for all 13 outputs; gameplay-table alpha compared against the canonical mask with zero differing pixels.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
+
+## Batch 012 publication record
+
+- Implementation commit: `2b8bce47fd9d452624205ff3f1f4c9bc1a8655fc`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `2b8bce47fd9d452624205ff3f1f4c9bc1a8655fc`.
+- Remote canonical paths verified: 13/13 Party Beach targets present.
+- Worktree remained clean after push.
