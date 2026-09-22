@@ -345,3 +345,10 @@ Append one concise section per visual batch:
 - Validation: all ten canonical paths are exact-size RGBA files with true transparent alpha; selector, level badge, timer, normal order, VIP and pre-level panel semantics were visually inspected.
 - Rejected/regenerated attempts: the first VA-236 candidate was rejected as a circular medallion; a targeted compact close-button regeneration was promoted.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 023 publication record
+
+- Implementation commit: `1f98046da5042513c632f9b837d18a73ee57d9df`.
+- Remote branch HEAD: `1f98046da5042513c632f9b837d18a73ee57d9df`.
+- Remote canonical paths verified: 10/10 Pre-level targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.

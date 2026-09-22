@@ -412,3 +412,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: all ten outputs visually inspected after normalization; selector spaces, level badge, timer icon/panel, normal order slot, VIP badge and distinct VIP reward slot semantics are preserved. All ten are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
 - Blockers: none.
 - Commit/push: pending publication and remote verification.
+
+## Batch 023 publication record
+
+- Implementation commit: `1f98046da5042513c632f9b837d18a73ee57d9df`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `1f98046da5042513c632f9b837d18a73ee57d9df`.
+- Remote canonical paths verified: 10/10 Pre-level targets present.
+- Worktree was clean before this publication-record append.
