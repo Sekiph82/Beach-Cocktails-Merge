@@ -63,6 +63,12 @@ Append one concise section per visual batch:
 - Target families: global buttons, generic panels, popup frame, tooltip frame.
 - Publication: pending commit and push to `codex/visual-assets-production`.
 
+## Batch 018 publication record
+
+- Implementation commit: `73bdfa755e85c76d1388db20376660682f99a6d3`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 9/9 Daily Reward canonical paths were present.
+
 ## Batch 017 publication record
 
 - Implementation commit: `579cd4c7fb873347825bac628bbff9d455cb4c06`.
