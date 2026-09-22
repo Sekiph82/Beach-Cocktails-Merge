@@ -453,3 +453,10 @@ Append one concise section per visual batch:
 - Separate built-in image-generation operation used for every Splash visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all six canonical paths are exact-size RGBA files with true transparent alpha; loading controls, cocktail/spinner, tip panel and splash backdrop were visually inspected.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 030 publication record
+
+- Implementation commit: `e0eefcfa745ed0b127e163537dd0dc6bdf82fd20`.
+- Remote branch HEAD: `e0eefcfa745ed0b127e163537dd0dc6bdf82fd20`.
+- Remote canonical paths verified: 6/6 Splash targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
