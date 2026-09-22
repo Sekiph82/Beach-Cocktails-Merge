@@ -413,6 +413,14 @@ V05 production visuals are owner-rejected and are not style authority.
 - Blockers: none.
 - Commit/push: pending publication and remote verification.
 
+## Batch 029 publication record
+
+- Implementation commit: `73d426fd30e3ebaa617f7ca7bcd2c7004a94a295`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `73d426fd30e3ebaa617f7ca7bcd2c7004a94a295`.
+- Remote canonical paths verified: 7/7 Social targets present.
+- Worktree was clean before this publication-record append.
+
 ## Batch 026 publication record
 
 - Implementation commit: `f38cf9ce509916f8fd65d1f7da0be27c889d69be`.
