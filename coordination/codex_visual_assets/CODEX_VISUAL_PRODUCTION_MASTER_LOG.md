@@ -310,3 +310,11 @@ Append one concise section per visual batch:
 - Target family: ten island icons, lock/name treatments, route line and markers, cloud layers, world-map background, boat, compass and title panel.
 - Validation: all 22 canonical paths are exact-size RGBA files.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 021 — Milestones screen family
+
+- Timestamp: 2026-09-22 07:49:57 +03:00.
+- Dedicated targets generated: 11, VA-218 through VA-228.
+- Separate built-in image-generation operation used for every milestone visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all 11 canonical paths are exact-size RGBA files with true transparent alpha; button, chest, panel, ribbon, banner, glow, unlock-frame and reward-slot semantics were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

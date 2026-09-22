@@ -362,3 +362,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: exact dimensions and RGBA verified for all 22 outputs.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
+
+## Batch 021 — Milestones screen family
+
+- Timestamp: 2026-09-22 07:49:57 +03:00.
+- Tasks: VA-218 through VA-228.
+- Outputs: `assets/ui_assets/screens/milestones/button_claim.png`, `button_continue.png`, `island_complete_panel.png`, `island_complete_ribbon.png`, `milestone_banner.png`, `milestone_chest_closed.png`, `milestone_chest_open.png`, `milestone_glow.png`, `milestone_reward_panel.png`, `next_island_unlock_frame.png`, and `reward_slot.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; no text, logo or runtime copy baked into the UI frames.
+- Rejected/regenerated attempts: one extra unpromoted draft was generated while confirming the built-in output-path contract; it was not used for any canonical target. No promoted candidate required regeneration.
+- QA: every output visually inspected; claim/continue buttons are materially distinct; closed/open chest states are materially distinct; all 11 outputs are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending batch publication.

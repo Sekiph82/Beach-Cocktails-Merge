@@ -233,17 +233,17 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-215 Generate → `assets/ui_assets/screens/main_menu/main_menu_shop_button.png`
 - [x] VA-216 Generate → `assets/ui_assets/screens/main_menu/main_menu_world_map_button.png`
 - [x] VA-217 Generate → `assets/ui_assets/screens/main_menu/profile_frame.png`
-- [ ] VA-218 Generate → `assets/ui_assets/screens/milestones/button_claim.png`
-- [ ] VA-219 Generate → `assets/ui_assets/screens/milestones/button_continue.png`
-- [ ] VA-220 Generate → `assets/ui_assets/screens/milestones/island_complete_panel.png`
-- [ ] VA-221 Generate → `assets/ui_assets/screens/milestones/island_complete_ribbon.png`
-- [ ] VA-222 Generate → `assets/ui_assets/screens/milestones/milestone_banner.png`
-- [ ] VA-223 Generate → `assets/ui_assets/screens/milestones/milestone_chest_closed.png`
-- [ ] VA-224 Generate → `assets/ui_assets/screens/milestones/milestone_chest_open.png`
-- [ ] VA-225 Generate → `assets/ui_assets/screens/milestones/milestone_glow.png`
-- [ ] VA-226 Generate → `assets/ui_assets/screens/milestones/milestone_reward_panel.png`
-- [ ] VA-227 Generate → `assets/ui_assets/screens/milestones/next_island_unlock_frame.png`
-- [ ] VA-228 Generate → `assets/ui_assets/screens/milestones/reward_slot.png`
+- [x] VA-218 Generate → `assets/ui_assets/screens/milestones/button_claim.png`
+- [x] VA-219 Generate → `assets/ui_assets/screens/milestones/button_continue.png`
+- [x] VA-220 Generate → `assets/ui_assets/screens/milestones/island_complete_panel.png`
+- [x] VA-221 Generate → `assets/ui_assets/screens/milestones/island_complete_ribbon.png`
+- [x] VA-222 Generate → `assets/ui_assets/screens/milestones/milestone_banner.png`
+- [x] VA-223 Generate → `assets/ui_assets/screens/milestones/milestone_chest_closed.png`
+- [x] VA-224 Generate → `assets/ui_assets/screens/milestones/milestone_chest_open.png`
+- [x] VA-225 Generate → `assets/ui_assets/screens/milestones/milestone_glow.png`
+- [x] VA-226 Generate → `assets/ui_assets/screens/milestones/milestone_reward_panel.png`
+- [x] VA-227 Generate → `assets/ui_assets/screens/milestones/next_island_unlock_frame.png`
+- [x] VA-228 Generate → `assets/ui_assets/screens/milestones/reward_slot.png`
 - [ ] VA-229 Generate → `assets/ui_assets/screens/pause/button_quit.png`
 - [ ] VA-230 Generate → `assets/ui_assets/screens/pause/button_restart.png`
 - [ ] VA-231 Generate → `assets/ui_assets/screens/pause/button_resume.png`
