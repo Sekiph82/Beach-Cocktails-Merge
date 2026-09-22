@@ -69,6 +69,15 @@ Append one concise section per visual batch:
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 22/22 World Map canonical paths were present.
 
+## Batch 017 — Brand derivatives and effects
+
+- Timestamp: 2026-09-22 03:31:00 +03:00.
+- Dedicated targets generated or derived: 19.
+- Brand variants use protected technical derivation from the canonical owner logo, with distinct semantic crops/layouts; no second logo identity introduced.
+- Effects use one separate image-generation operation per distinct effect, against the approved Main Menu V04 master and both style boards; no V05 art or atlas slicing used.
+- Validation: all 19 canonical paths are exact-size RGBA files; visual preview confirms distinct effect roles.
+- Publication: pending commit and push to `codex/visual-assets-production`.
+
 ## Batch 004 — island-map progression UI
 
 - Timestamp: 2026-09-21 23:10:16 +03:00.

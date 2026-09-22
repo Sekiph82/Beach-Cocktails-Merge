@@ -91,6 +91,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 22/22 World Map targets present.
 - Worktree remained clean after push.
 
+## Batch 017 — Brand derivatives and effects
+
+- Timestamp: 2026-09-22 03:31:00 +03:00.
+- Tasks: VA-001 through VA-004, VA-006, and VA-183 through VA-196.
+- Brand outputs: five role-specific, non-destructive crop/pad/resize derivatives from the protected canonical owner logo; the owner logo itself was not modified.
+- Effects outputs: 14 independently generated, purpose-specific transparent effects using the approved Main Menu V04 master and both approved style boards; each was visually reviewed in a technical contact preview before canonical promotion.
+- Technical cleanup: exact master-list resizing and RGBA conversion only; no gameplay or protected source files changed.
+- Rejected/regenerated attempts: none.
+- QA: exact dimensions and RGBA verified for all 19 outputs; effect roles remain visually distinct in the preview.
+- Blockers: none.
+- Commit/push: published in commit recorded below.
+
 ## Batch 005 publication record
 
 - Implementation commit: `0aefcddbc74543a0f9e72f8c30b74b5453394b90`.

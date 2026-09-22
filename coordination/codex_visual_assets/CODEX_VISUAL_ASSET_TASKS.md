@@ -16,12 +16,12 @@ Protected canonical logo is pre-marked preserved.
 
 ## Production tasks
 
-- [ ] VA-001 Generate → `assets/ui_assets/brand/app_icon.png`
-- [ ] VA-002 Generate → `assets/ui_assets/brand/brand_badge_small.png`
-- [ ] VA-003 Generate → `assets/ui_assets/brand/brand_wordmark_small.png`
-- [ ] VA-004 Generate → `assets/ui_assets/brand/legal_logo_mark.png`
+- [x] VA-001 Generate → `assets/ui_assets/brand/app_icon.png`
+- [x] VA-002 Generate → `assets/ui_assets/brand/brand_badge_small.png`
+- [x] VA-003 Generate → `assets/ui_assets/brand/brand_wordmark_small.png`
+- [x] VA-004 Generate → `assets/ui_assets/brand/legal_logo_mark.png`
 - [x] VA-005 PRESERVE → `assets/ui_assets/brand/logo_beach_cocktails_merge.png`
-- [ ] VA-006 Generate → `assets/ui_assets/brand/splash_logo.png`
+- [x] VA-006 Generate → `assets/ui_assets/brand/splash_logo.png`
 - [x] VA-007 Generate → `assets/ui_assets/campaign/island_map/finale_crown.png`
 - [x] VA-008 Generate → `assets/ui_assets/campaign/island_map/island_summary_panel.png`
 - [x] VA-009 Generate → `assets/ui_assets/campaign/island_map/level_connector.png`
@@ -198,20 +198,20 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-180 Generate → `assets/ui_assets/CONTACT_SHEET_SEMANTIC_ICONS.png`
 - [ ] VA-181 Generate → `assets/ui_assets/CONTACT_SHEET_STATEFUL_UI.png`
 - [ ] VA-182 Generate → `assets/ui_assets/CONTACT_SHEET_TABLES.png`
-- [ ] VA-183 Generate → `assets/ui_assets/effects/combo_badge.png`
-- [ ] VA-184 Generate → `assets/ui_assets/effects/combo_glow.png`
-- [ ] VA-185 Generate → `assets/ui_assets/effects/confetti_strip.png`
-- [ ] VA-186 Generate → `assets/ui_assets/effects/merge_flash.png`
-- [ ] VA-187 Generate → `assets/ui_assets/effects/merge_ring.png`
-- [ ] VA-188 Generate → `assets/ui_assets/effects/milestone_glow.png`
-- [ ] VA-189 Generate → `assets/ui_assets/effects/order_complete_flash.png`
-- [ ] VA-190 Generate → `assets/ui_assets/effects/score_pop_bg.png`
-- [ ] VA-191 Generate → `assets/ui_assets/effects/sparkle_large.png`
-- [ ] VA-192 Generate → `assets/ui_assets/effects/sparkle_small.png`
-- [ ] VA-193 Generate → `assets/ui_assets/effects/timer_warning_glow.png`
-- [ ] VA-194 Generate → `assets/ui_assets/effects/to_go_trail_variant.png`
-- [ ] VA-195 Generate → `assets/ui_assets/effects/vip_complete_flash.png`
-- [ ] VA-196 Generate → `assets/ui_assets/effects/win_rays.png`
+- [x] VA-183 Generate → `assets/ui_assets/effects/combo_badge.png`
+- [x] VA-184 Generate → `assets/ui_assets/effects/combo_glow.png`
+- [x] VA-185 Generate → `assets/ui_assets/effects/confetti_strip.png`
+- [x] VA-186 Generate → `assets/ui_assets/effects/merge_flash.png`
+- [x] VA-187 Generate → `assets/ui_assets/effects/merge_ring.png`
+- [x] VA-188 Generate → `assets/ui_assets/effects/milestone_glow.png`
+- [x] VA-189 Generate → `assets/ui_assets/effects/order_complete_flash.png`
+- [x] VA-190 Generate → `assets/ui_assets/effects/score_pop_bg.png`
+- [x] VA-191 Generate → `assets/ui_assets/effects/sparkle_large.png`
+- [x] VA-192 Generate → `assets/ui_assets/effects/sparkle_small.png`
+- [x] VA-193 Generate → `assets/ui_assets/effects/timer_warning_glow.png`
+- [x] VA-194 Generate → `assets/ui_assets/effects/to_go_trail_variant.png`
+- [x] VA-195 Generate → `assets/ui_assets/effects/vip_complete_flash.png`
+- [x] VA-196 Generate → `assets/ui_assets/effects/win_rays.png`
 - [ ] VA-197 Generate → `assets/ui_assets/screens/daily_reward/button_claim.png`
 - [ ] VA-198 Generate → `assets/ui_assets/screens/daily_reward/daily_chest.png`
 - [ ] VA-199 Generate → `assets/ui_assets/screens/daily_reward/daily_day_claimed.png`
