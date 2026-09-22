@@ -381,3 +381,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `f83bc247a9c1151b1373efaaa630936b59e660a5`.
 - Remote canonical paths verified: 11/11 Milestones targets present.
 - Worktree was clean before this publication-record append.
+
+## Batch 022 — Pause screen family
+
+- Timestamp: 2026-09-22 08:06:40 +03:00.
+- Tasks: VA-229 through VA-234.
+- Outputs: `assets/ui_assets/screens/pause/button_quit.png`, `button_restart.png`, `button_resume.png`, `button_settings.png`, `button_world_map.png`, and `pause_panel.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime labels and copy remain unbaked.
+- Rejected/regenerated attempts: the first VA-229 candidate was rejected because it produced a decorative landscape plaque instead of a compact quit button; one targeted regeneration was promoted. No other promoted candidate required regeneration.
+- QA: all six outputs visually inspected after normalization; quit/resume/settings/world-map buttons are distinct role surfaces, restart is a clear circular-arrow icon, and the pause panel has a clean runtime copy area. All six are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending batch publication.

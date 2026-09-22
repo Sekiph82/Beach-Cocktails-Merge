@@ -323,3 +323,11 @@ Append one concise section per visual batch:
 
 - Remote branch HEAD: `f83bc247a9c1151b1373efaaa630936b59e660a5`.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 022 — Pause screen family
+
+- Timestamp: 2026-09-22 08:06:40 +03:00.
+- Dedicated targets generated: 6, VA-229 through VA-234.
+- Separate built-in image-generation operation used for every Pause visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all six canonical paths are exact-size RGBA files with true transparent alpha; quit/resume/settings/world-map role distinction, restart semantics and pause-panel copy space were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

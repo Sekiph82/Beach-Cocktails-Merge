@@ -244,12 +244,12 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-226 Generate → `assets/ui_assets/screens/milestones/milestone_reward_panel.png`
 - [x] VA-227 Generate → `assets/ui_assets/screens/milestones/next_island_unlock_frame.png`
 - [x] VA-228 Generate → `assets/ui_assets/screens/milestones/reward_slot.png`
-- [ ] VA-229 Generate → `assets/ui_assets/screens/pause/button_quit.png`
-- [ ] VA-230 Generate → `assets/ui_assets/screens/pause/button_restart.png`
-- [ ] VA-231 Generate → `assets/ui_assets/screens/pause/button_resume.png`
-- [ ] VA-232 Generate → `assets/ui_assets/screens/pause/button_settings.png`
-- [ ] VA-233 Generate → `assets/ui_assets/screens/pause/button_world_map.png`
-- [ ] VA-234 Generate → `assets/ui_assets/screens/pause/pause_panel.png`
+- [x] VA-229 Generate → `assets/ui_assets/screens/pause/button_quit.png`
+- [x] VA-230 Generate → `assets/ui_assets/screens/pause/button_restart.png`
+- [x] VA-231 Generate → `assets/ui_assets/screens/pause/button_resume.png`
+- [x] VA-232 Generate → `assets/ui_assets/screens/pause/button_settings.png`
+- [x] VA-233 Generate → `assets/ui_assets/screens/pause/button_world_map.png`
+- [x] VA-234 Generate → `assets/ui_assets/screens/pause/pause_panel.png`
 - [ ] VA-235 Generate → `assets/ui_assets/screens/prelevel/booster_selector_panel.png`
 - [ ] VA-236 Generate → `assets/ui_assets/screens/prelevel/button_close_prelevel.png`
 - [ ] VA-237 Generate → `assets/ui_assets/screens/prelevel/button_play_level.png`
