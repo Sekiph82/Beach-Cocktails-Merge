@@ -421,6 +421,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 6/6 Rewarded Ad targets present.
 - Worktree was clean before this publication-record append.
 
+## Batch 026 — Settings screen family
+
+- Timestamp: 2026-09-22 09:04:25 +03:00.
+- Tasks: VA-267 through VA-279.
+- Outputs: `assets/ui_assets/screens/settings/accessibility_icon.png`, `button_close_settings.png`, `haptic_icon.png`, `language_icon.png`, `music_icon.png`, `privacy_icon.png`, `restore_purchase_icon.png`, `settings_panel.png`, `slider_handle.png`, `slider_track.png`, `sound_icon.png`, `toggle_off.png`, and `toggle_on.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime setting labels and values remain unbaked.
+- Rejected/regenerated attempts: none.
+- QA: all 13 outputs visually inspected after normalization; accessibility, haptic, language, music, privacy, restore, sound, panel, close-button, slider and explicit toggle-state semantics are materially distinct. All 13 are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 024 publication record
 
 - Implementation commit: `c0bdcd41afa09aeff20293a11bebca9c90b4539a`.

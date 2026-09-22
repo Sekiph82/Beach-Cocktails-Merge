@@ -383,3 +383,11 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `8e6fc54cf6b4111a89e640fcdd8f4ddc71e05713`.
 - Remote canonical paths verified: 6/6 Rewarded Ad targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 026 — Settings screen family
+
+- Timestamp: 2026-09-22 09:04:25 +03:00.
+- Dedicated targets generated: 13, VA-267 through VA-279.
+- Separate built-in image-generation operation used for every Settings visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all 13 canonical paths are exact-size RGBA files with true transparent alpha; settings icons, panel, close button, slider controls and toggle states were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

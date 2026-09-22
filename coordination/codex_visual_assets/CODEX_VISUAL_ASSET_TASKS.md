@@ -282,19 +282,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-264 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_time_icon.png`
 - [x] VA-265 Generate → `assets/ui_assets/screens/rewarded_ad/rewarded_ad_panel.png`
 - [x] VA-266 Generate → `assets/ui_assets/screens/rewarded_ad/video_ad_icon.png`
-- [ ] VA-267 Generate → `assets/ui_assets/screens/settings/accessibility_icon.png`
-- [ ] VA-268 Generate → `assets/ui_assets/screens/settings/button_close_settings.png`
-- [ ] VA-269 Generate → `assets/ui_assets/screens/settings/haptic_icon.png`
-- [ ] VA-270 Generate → `assets/ui_assets/screens/settings/language_icon.png`
-- [ ] VA-271 Generate → `assets/ui_assets/screens/settings/music_icon.png`
-- [ ] VA-272 Generate → `assets/ui_assets/screens/settings/privacy_icon.png`
-- [ ] VA-273 Generate → `assets/ui_assets/screens/settings/restore_purchase_icon.png`
-- [ ] VA-274 Generate → `assets/ui_assets/screens/settings/settings_panel.png`
-- [ ] VA-275 Generate → `assets/ui_assets/screens/settings/slider_handle.png`
-- [ ] VA-276 Generate → `assets/ui_assets/screens/settings/slider_track.png`
-- [ ] VA-277 Generate → `assets/ui_assets/screens/settings/sound_icon.png`
-- [ ] VA-278 Generate → `assets/ui_assets/screens/settings/toggle_off.png`
-- [ ] VA-279 Generate → `assets/ui_assets/screens/settings/toggle_on.png`
+- [x] VA-267 Generate → `assets/ui_assets/screens/settings/accessibility_icon.png`
+- [x] VA-268 Generate → `assets/ui_assets/screens/settings/button_close_settings.png`
+- [x] VA-269 Generate → `assets/ui_assets/screens/settings/haptic_icon.png`
+- [x] VA-270 Generate → `assets/ui_assets/screens/settings/language_icon.png`
+- [x] VA-271 Generate → `assets/ui_assets/screens/settings/music_icon.png`
+- [x] VA-272 Generate → `assets/ui_assets/screens/settings/privacy_icon.png`
+- [x] VA-273 Generate → `assets/ui_assets/screens/settings/restore_purchase_icon.png`
+- [x] VA-274 Generate → `assets/ui_assets/screens/settings/settings_panel.png`
+- [x] VA-275 Generate → `assets/ui_assets/screens/settings/slider_handle.png`
+- [x] VA-276 Generate → `assets/ui_assets/screens/settings/slider_track.png`
+- [x] VA-277 Generate → `assets/ui_assets/screens/settings/sound_icon.png`
+- [x] VA-278 Generate → `assets/ui_assets/screens/settings/toggle_off.png`
+- [x] VA-279 Generate → `assets/ui_assets/screens/settings/toggle_on.png`
 - [ ] VA-280 Generate → `assets/ui_assets/screens/shop/best_value_badge.png`
 - [ ] VA-281 Generate → `assets/ui_assets/screens/shop/button_buy.png`
 - [ ] VA-282 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_large.png`
