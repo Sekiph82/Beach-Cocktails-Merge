@@ -445,3 +445,11 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `73d426fd30e3ebaa617f7ca7bcd2c7004a94a295`.
 - Remote canonical paths verified: 7/7 Social targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 030 — Splash screen family
+
+- Timestamp: 2026-09-22 13:10:19 +03:00.
+- Dedicated targets generated: 6, VA-304 through VA-309.
+- Separate built-in image-generation operation used for every Splash visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all six canonical paths are exact-size RGBA files with true transparent alpha; loading controls, cocktail/spinner, tip panel and splash backdrop were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

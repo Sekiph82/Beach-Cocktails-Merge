@@ -319,12 +319,12 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-301 Generate → `assets/ui_assets/screens/social/rank_badge_2.png`
 - [x] VA-302 Generate → `assets/ui_assets/screens/social/rank_badge_3.png`
 - [x] VA-303 Generate → `assets/ui_assets/screens/social/share_icon.png`
-- [ ] VA-304 Generate → `assets/ui_assets/screens/splash/loading_bar_fill.png`
-- [ ] VA-305 Generate → `assets/ui_assets/screens/splash/loading_bar_frame.png`
-- [ ] VA-306 Generate → `assets/ui_assets/screens/splash/loading_cocktail_icon.png`
-- [ ] VA-307 Generate → `assets/ui_assets/screens/splash/loading_spinner.png`
-- [ ] VA-308 Generate → `assets/ui_assets/screens/splash/loading_tip_panel.png`
-- [ ] VA-309 Generate → `assets/ui_assets/screens/splash/splash_background.png`
+- [x] VA-304 Generate → `assets/ui_assets/screens/splash/loading_bar_fill.png`
+- [x] VA-305 Generate → `assets/ui_assets/screens/splash/loading_bar_frame.png`
+- [x] VA-306 Generate → `assets/ui_assets/screens/splash/loading_cocktail_icon.png`
+- [x] VA-307 Generate → `assets/ui_assets/screens/splash/loading_spinner.png`
+- [x] VA-308 Generate → `assets/ui_assets/screens/splash/loading_tip_panel.png`
+- [x] VA-309 Generate → `assets/ui_assets/screens/splash/splash_background.png`
 - [ ] VA-310 Generate → `assets/ui_assets/screens/tutorial/tutorial_arrow.png`
 - [ ] VA-311 Generate → `assets/ui_assets/screens/tutorial/tutorial_hand.png`
 - [ ] VA-312 Generate → `assets/ui_assets/screens/tutorial/tutorial_highlight_ring.png`

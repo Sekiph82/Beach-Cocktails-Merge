@@ -421,6 +421,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 7/7 Social targets present.
 - Worktree was clean before this publication-record append.
 
+## Batch 030 — Splash screen family
+
+- Timestamp: 2026-09-22 13:10:19 +03:00.
+- Tasks: VA-304 through VA-309.
+- Outputs: `assets/ui_assets/screens/splash/loading_bar_fill.png`, `loading_bar_frame.png`, `loading_cocktail_icon.png`, `loading_spinner.png`, `loading_tip_panel.png`, and `splash_background.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime logo, progress values and tip copy remain unbaked.
+- Rejected/regenerated attempts: none.
+- QA: all six outputs visually inspected after normalization; fill/frame, cocktail, spinner, tip panel and transparent-center beach-bar splash backdrop are materially distinct. All six are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 026 publication record
 
 - Implementation commit: `f38cf9ce509916f8fd65d1f7da0be27c889d69be`.
