@@ -391,3 +391,10 @@ Append one concise section per visual batch:
 - Separate built-in image-generation operation used for every Settings visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all 13 canonical paths are exact-size RGBA files with true transparent alpha; settings icons, panel, close button, slider controls and toggle states were visually inspected.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 026 publication record
+
+- Implementation commit: `f38cf9ce509916f8fd65d1f7da0be27c889d69be`.
+- Remote branch HEAD: `f38cf9ce509916f8fd65d1f7da0be27c889d69be`.
+- Remote canonical paths verified: 13/13 Settings targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
