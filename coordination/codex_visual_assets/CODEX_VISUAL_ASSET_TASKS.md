@@ -346,13 +346,13 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-328 Generate → `assets/ui_assets/ui/boosters/booster_slot.png`
 - [x] VA-329 Generate → `assets/ui_assets/ui/boosters/booster_time.png`
 - [x] VA-330 Generate → `assets/ui_assets/ui/boosters/booster_upgrade.png`
-- [ ] VA-331 Generate → `assets/ui_assets/ui/gameplay/level_label_panel.png`
-- [ ] VA-332 Generate → `assets/ui_assets/ui/gameplay/pause_button.png`
-- [ ] VA-333 Generate → `assets/ui_assets/ui/gameplay/timer_icon.png`
-- [ ] VA-334 Generate → `assets/ui_assets/ui/gameplay/timer_panel.png`
-- [ ] VA-335 Generate → `assets/ui_assets/ui/gameplay/timer_warning_glow.png`
-- [ ] VA-336 Generate → `assets/ui_assets/ui/gameplay/vip_badge.png`
-- [ ] VA-337 Generate → `assets/ui_assets/ui/gameplay/vip_reward_frame.png`
+- [x] VA-331 Generate → `assets/ui_assets/ui/gameplay/level_label_panel.png`
+- [x] VA-332 Generate → `assets/ui_assets/ui/gameplay/pause_button.png`
+- [x] VA-333 Generate → `assets/ui_assets/ui/gameplay/timer_icon.png`
+- [x] VA-334 Generate → `assets/ui_assets/ui/gameplay/timer_panel.png`
+- [x] VA-335 Generate → `assets/ui_assets/ui/gameplay/timer_warning_glow.png`
+- [x] VA-336 Generate → `assets/ui_assets/ui/gameplay/vip_badge.png`
+- [x] VA-337 Generate → `assets/ui_assets/ui/gameplay/vip_reward_frame.png`
 - [x] VA-338 Generate → `assets/ui_assets/ui/global/back_arrow.png`
 - [x] VA-339 Generate → `assets/ui_assets/ui/global/button_danger.png`
 - [x] VA-340 Generate → `assets/ui_assets/ui/global/button_disabled.png`

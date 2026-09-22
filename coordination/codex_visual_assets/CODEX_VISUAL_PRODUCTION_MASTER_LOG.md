@@ -506,3 +506,10 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `1614e3cc9a5c103c4411ff5c607f095fb96c3bf9`.
 - Remote canonical paths verified: 8/8 Booster targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+## Batch 034 — Gameplay UI family
+
+- Timestamp: 2026-09-22 21:02:14 +03:00.
+- Dedicated targets generated: 7, VA-331 through VA-337.
+- Separate built-in image-generation operation used for every Gameplay visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all seven canonical paths are exact-size RGBA files with true transparent alpha; level label, pause, timer, warning glow, VIP badge and VIP reward-frame semantics were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

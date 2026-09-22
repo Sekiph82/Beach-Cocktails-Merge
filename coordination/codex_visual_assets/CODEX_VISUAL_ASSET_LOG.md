@@ -621,3 +621,14 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: all 16 outputs visually inspected after normalization; complete/failed/time-up states, normal/VIP reward semantics, timer/video-ad icons and replay/retry/navigation buttons are materially distinct. All 16 are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
 - Blockers: none.
 - Commit/push: pending publication and remote verification.
+## Batch 034 — Gameplay UI family
+
+- Timestamp: 2026-09-22 21:02:14 +03:00.
+- Tasks: VA-331 through VA-337.
+- Outputs: `assets/ui_assets/ui/gameplay/level_label_panel.png`, `pause_button.png`, `timer_icon.png`, `timer_panel.png`, `timer_warning_glow.png`, `vip_badge.png`, and `vip_reward_frame.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime level labels, pause copy, timer values and reward labels remain unbaked.
+- Rejected/regenerated attempts: none. An interrupted prior grouped generation produced only the VA-335 candidate; VA-336 and VA-337 were generated later as separate purpose-specific operations before promotion.
+- QA: all seven outputs visually inspected after normalization; level, pause, timer, warning glow, VIP badge and VIP reward-frame semantics are materially distinct. All seven are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
