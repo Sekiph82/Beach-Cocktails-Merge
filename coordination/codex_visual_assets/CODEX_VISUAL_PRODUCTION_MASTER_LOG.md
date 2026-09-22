@@ -330,4 +330,9 @@ Append one concise section per visual batch:
 - Dedicated targets generated: 6, VA-229 through VA-234.
 - Separate built-in image-generation operation used for every Pause visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all six canonical paths are exact-size RGBA files with true transparent alpha; quit/resume/settings/world-map role distinction, restart semantics and pause-panel copy space were visually inspected.
-- Publication: pending commit and push to `codex/visual-assets-production`.
+- Publication: committed as `01918704e42da3d2de76dd298e62a49d78006d9d` and pushed to `codex/visual-assets-production`; remote paths verified 6/6.
+
+## Batch 022 publication record
+
+- Remote branch HEAD: `01918704e42da3d2de76dd298e62a49d78006d9d`.
+- Official logs and the dedicated tracker are present on the remote visual branch.

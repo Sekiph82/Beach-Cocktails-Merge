@@ -392,4 +392,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - Rejected/regenerated attempts: the first VA-229 candidate was rejected because it produced a decorative landscape plaque instead of a compact quit button; one targeted regeneration was promoted. No other promoted candidate required regeneration.
 - QA: all six outputs visually inspected after normalization; quit/resume/settings/world-map buttons are distinct role surfaces, restart is a clear circular-arrow icon, and the pause panel has a clean runtime copy area. All six are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
 - Blockers: none.
-- Commit/push: pending batch publication.
+- Commit/push: published in commit `01918704e42da3d2de76dd298e62a49d78006d9d`.
+
+## Batch 022 publication record
+
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `01918704e42da3d2de76dd298e62a49d78006d9d`.
+- Remote canonical paths verified: 6/6 Pause targets present.
+- Worktree was clean before this publication-record append.
