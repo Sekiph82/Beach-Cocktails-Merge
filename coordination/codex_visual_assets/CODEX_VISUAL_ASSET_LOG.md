@@ -632,3 +632,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - QA: all seven outputs visually inspected after normalization; level, pause, timer, warning glow, VIP badge and VIP reward-frame semantics are materially distinct. All seven are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
 - Blockers: none.
 - Commit/push: pending publication and remote verification.
+
+## Batch 034 publication record
+
+- Implementation commit: `ebc1a558bc6e0d3f0c7fa2dcc5f6eb1eb0428a16`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `ebc1a558bc6e0d3f0c7fa2dcc5f6eb1eb0428a16`.
+- Remote canonical paths verified: 7/7 Gameplay UI targets present.
+- Worktree was clean before this publication-record append.

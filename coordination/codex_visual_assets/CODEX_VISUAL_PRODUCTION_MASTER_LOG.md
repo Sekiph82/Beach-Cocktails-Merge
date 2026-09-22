@@ -513,3 +513,10 @@ Append one concise section per visual batch:
 - Separate built-in image-generation operation used for every Gameplay visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all seven canonical paths are exact-size RGBA files with true transparent alpha; level label, pause, timer, warning glow, VIP badge and VIP reward-frame semantics were visually inspected.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 034 publication record
+
+- Implementation commit: `ebc1a558bc6e0d3f0c7fa2dcc5f6eb1eb0428a16`.
+- Remote branch HEAD: `ebc1a558bc6e0d3f0c7fa2dcc5f6eb1eb0428a16`.
+- Remote canonical paths verified: 7/7 Gameplay UI targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
