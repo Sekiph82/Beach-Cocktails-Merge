@@ -440,6 +440,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Usage-limit blocker preserved: VA-284 through VA-296 remain unchecked; no reset credit was consumed.
 - Worktree was clean before this publication-record append.
 
+## Batch 028 — Shop completion after usage-limit resume
+
+- Timestamp: 2026-09-22 12:49:14 +03:00.
+- Tasks: VA-284 through VA-296, completing the Shop family after the Batch 027 usage-limit interruption.
+- Outputs: `assets/ui_assets/screens/shop/coin_pack_icon_small.png`, `gem_pack_icon_large.png`, `gem_pack_icon_medium.png`, `gem_pack_icon_small.png`, `sale_badge.png`, `shop_background.png`, `shop_header.png`, `shop_item_card.png`, `shop_item_card_featured.png`, `shop_tab_boosters.png`, `shop_tab_currency.png`, `shop_tab_special.png`, and `starter_pack_badge.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime shop labels, prices, quantities and tabs remain unbaked.
+- Rejected/regenerated attempts: none after the usage-limit resume.
+- QA: all 13 resumed outputs visually inspected after normalization; gem/coin scale variants, standard/featured cards, sale/starter badges, shop backdrop/header and three tabs are materially distinct. All 13 resumed outputs plus the four previously published Shop outputs are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none after resume.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 025 publication record
 
 - Implementation commit: `8e6fc54cf6b4111a89e640fcdd8f4ddc71e05713`.

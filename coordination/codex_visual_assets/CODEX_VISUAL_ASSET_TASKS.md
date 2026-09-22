@@ -299,19 +299,19 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-281 Generate → `assets/ui_assets/screens/shop/button_buy.png`
 - [x] VA-282 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_large.png`
 - [x] VA-283 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_medium.png`
-- [ ] VA-284 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_small.png`
-- [ ] VA-285 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_large.png`
-- [ ] VA-286 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_medium.png`
-- [ ] VA-287 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_small.png`
-- [ ] VA-288 Generate → `assets/ui_assets/screens/shop/sale_badge.png`
-- [ ] VA-289 Generate → `assets/ui_assets/screens/shop/shop_background.png`
-- [ ] VA-290 Generate → `assets/ui_assets/screens/shop/shop_header.png`
-- [ ] VA-291 Generate → `assets/ui_assets/screens/shop/shop_item_card.png`
-- [ ] VA-292 Generate → `assets/ui_assets/screens/shop/shop_item_card_featured.png`
-- [ ] VA-293 Generate → `assets/ui_assets/screens/shop/shop_tab_boosters.png`
-- [ ] VA-294 Generate → `assets/ui_assets/screens/shop/shop_tab_currency.png`
-- [ ] VA-295 Generate → `assets/ui_assets/screens/shop/shop_tab_special.png`
-- [ ] VA-296 Generate → `assets/ui_assets/screens/shop/starter_pack_badge.png`
+- [x] VA-284 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_small.png`
+- [x] VA-285 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_large.png`
+- [x] VA-286 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_medium.png`
+- [x] VA-287 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_small.png`
+- [x] VA-288 Generate → `assets/ui_assets/screens/shop/sale_badge.png`
+- [x] VA-289 Generate → `assets/ui_assets/screens/shop/shop_background.png`
+- [x] VA-290 Generate → `assets/ui_assets/screens/shop/shop_header.png`
+- [x] VA-291 Generate → `assets/ui_assets/screens/shop/shop_item_card.png`
+- [x] VA-292 Generate → `assets/ui_assets/screens/shop/shop_item_card_featured.png`
+- [x] VA-293 Generate → `assets/ui_assets/screens/shop/shop_tab_boosters.png`
+- [x] VA-294 Generate → `assets/ui_assets/screens/shop/shop_tab_currency.png`
+- [x] VA-295 Generate → `assets/ui_assets/screens/shop/shop_tab_special.png`
+- [x] VA-296 Generate → `assets/ui_assets/screens/shop/starter_pack_badge.png`
 - [ ] VA-297 Generate → `assets/ui_assets/screens/social/friend_icon.png`
 - [ ] VA-298 Generate → `assets/ui_assets/screens/social/leaderboard_panel.png`
 - [ ] VA-299 Generate → `assets/ui_assets/screens/social/player_avatar_frame.png`

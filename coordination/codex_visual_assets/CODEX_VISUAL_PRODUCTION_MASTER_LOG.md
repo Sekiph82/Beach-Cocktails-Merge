@@ -415,3 +415,11 @@ Append one concise section per visual batch:
 - Remote canonical paths verified: 4/4 promoted Shop targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
 - Blocker remains recorded: VA-284 through VA-296 were not marked complete after HTTP 429 `usage_limit_reached`.
+
+## Batch 028 — Shop completion after usage-limit resume
+
+- Timestamp: 2026-09-22 12:49:14 +03:00.
+- Dedicated targets completed: 13, VA-284 through VA-296, completing the Shop family after the recorded 429 interruption.
+- Separate built-in image-generation operation used for every resumed Shop visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all 13 resumed canonical paths are exact-size RGBA files with true transparent alpha; coin/gem scale, badges, backdrop, header, cards and tabs were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.
