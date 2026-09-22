@@ -312,13 +312,13 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-294 Generate → `assets/ui_assets/screens/shop/shop_tab_currency.png`
 - [x] VA-295 Generate → `assets/ui_assets/screens/shop/shop_tab_special.png`
 - [x] VA-296 Generate → `assets/ui_assets/screens/shop/starter_pack_badge.png`
-- [ ] VA-297 Generate → `assets/ui_assets/screens/social/friend_icon.png`
-- [ ] VA-298 Generate → `assets/ui_assets/screens/social/leaderboard_panel.png`
-- [ ] VA-299 Generate → `assets/ui_assets/screens/social/player_avatar_frame.png`
-- [ ] VA-300 Generate → `assets/ui_assets/screens/social/rank_badge_1.png`
-- [ ] VA-301 Generate → `assets/ui_assets/screens/social/rank_badge_2.png`
-- [ ] VA-302 Generate → `assets/ui_assets/screens/social/rank_badge_3.png`
-- [ ] VA-303 Generate → `assets/ui_assets/screens/social/share_icon.png`
+- [x] VA-297 Generate → `assets/ui_assets/screens/social/friend_icon.png`
+- [x] VA-298 Generate → `assets/ui_assets/screens/social/leaderboard_panel.png`
+- [x] VA-299 Generate → `assets/ui_assets/screens/social/player_avatar_frame.png`
+- [x] VA-300 Generate → `assets/ui_assets/screens/social/rank_badge_1.png`
+- [x] VA-301 Generate → `assets/ui_assets/screens/social/rank_badge_2.png`
+- [x] VA-302 Generate → `assets/ui_assets/screens/social/rank_badge_3.png`
+- [x] VA-303 Generate → `assets/ui_assets/screens/social/share_icon.png`
 - [ ] VA-304 Generate → `assets/ui_assets/screens/splash/loading_bar_fill.png`
 - [ ] VA-305 Generate → `assets/ui_assets/screens/splash/loading_bar_frame.png`
 - [ ] VA-306 Generate → `assets/ui_assets/screens/splash/loading_cocktail_icon.png`

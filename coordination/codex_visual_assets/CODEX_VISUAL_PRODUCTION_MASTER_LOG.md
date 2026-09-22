@@ -430,3 +430,11 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `3e466a50b9adcb3aa460d92b1dd1c8ec00e73e25`.
 - Remote canonical paths verified: 17/17 Shop targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 029 — Social screen family
+
+- Timestamp: 2026-09-22 13:02:57 +03:00.
+- Dedicated targets generated: 7, VA-297 through VA-303.
+- Separate built-in image-generation operation used for every Social visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all seven canonical paths are exact-size RGBA files with true transparent alpha; friend, leaderboard, avatar, rank badges and share semantics were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

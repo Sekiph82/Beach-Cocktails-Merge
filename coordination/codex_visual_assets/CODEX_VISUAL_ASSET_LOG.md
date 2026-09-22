@@ -460,6 +460,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 17/17 Shop targets present.
 - Worktree was clean before this publication-record append.
 
+## Batch 029 — Social screen family
+
+- Timestamp: 2026-09-22 13:02:57 +03:00.
+- Tasks: VA-297 through VA-303.
+- Outputs: `assets/ui_assets/screens/social/friend_icon.png`, `leaderboard_panel.png`, `player_avatar_frame.png`, `rank_badge_1.png`, `rank_badge_2.png`, `rank_badge_3.png`, and `share_icon.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime names, scores, rank numerals and share copy remain unbaked.
+- Rejected/regenerated attempts: none.
+- QA: all seven outputs visually inspected after normalization; friend, leaderboard, avatar, first/second/third rank and share semantics are materially distinct. All seven are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 025 publication record
 
 - Implementation commit: `8e6fc54cf6b4111a89e640fcdd8f4ddc71e05713`.
