@@ -491,3 +491,11 @@ Append one concise section per visual batch:
 - Remote canonical path verified: VA-321 table edge overlay present.
 - Protected VA-322 local/remote blob SHA match: `7ae8ef369aa1131ce3fefa4b919d5926441250c2`.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 033 — Boosters UI family
+
+- Timestamp: 2026-09-22 13:35:44 +03:00.
+- Dedicated targets generated: 8, VA-323 through VA-330.
+- Separate built-in image-generation operation used for every Booster visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all eight canonical paths are exact-size RGBA files with true transparent alpha; tool, state, slot and count semantics were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

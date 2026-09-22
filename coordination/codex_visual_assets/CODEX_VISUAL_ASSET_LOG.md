@@ -422,6 +422,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Protected VA-322 mask verification: local and remote blob SHA `7ae8ef369aa1131ce3fefa4b919d5926441250c2` match.
 - Worktree was clean before this publication-record append.
 
+## Batch 033 — Boosters UI family
+
+- Timestamp: 2026-09-22 13:35:44 +03:00.
+- Tasks: VA-323 through VA-330.
+- Outputs: `assets/ui_assets/ui/boosters/booster_count_badge.png`, `booster_hammer.png`, `booster_locked.png`, `booster_selected.png`, `booster_shuffle.png`, `booster_slot.png`, `booster_time.png`, and `booster_upgrade.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime counts and labels remain unbaked.
+- Rejected/regenerated attempts: none.
+- QA: all eight outputs visually inspected after normalization; count, hammer, locked/selected states, shuffle, slot, time and upgrade semantics are materially distinct. All eight are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 031 publication record
 
 - Implementation commit: `1ded733d589da61945bbb6eeb2356a6a313ce9ce`.

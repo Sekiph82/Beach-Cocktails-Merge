@@ -338,14 +338,14 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-320 PRESERVE → `assets/ui_assets/source/style_reference_board_remediation_v01.png`
 - [x] VA-321 Generate → `assets/ui_assets/tables/table_edge_overlay_master.png`
 - [x] VA-322 PRESERVE → `assets/ui_assets/tables/table_silhouette_mask.png`
-- [ ] VA-323 Generate → `assets/ui_assets/ui/boosters/booster_count_badge.png`
-- [ ] VA-324 Generate → `assets/ui_assets/ui/boosters/booster_hammer.png`
-- [ ] VA-325 Generate → `assets/ui_assets/ui/boosters/booster_locked.png`
-- [ ] VA-326 Generate → `assets/ui_assets/ui/boosters/booster_selected.png`
-- [ ] VA-327 Generate → `assets/ui_assets/ui/boosters/booster_shuffle.png`
-- [ ] VA-328 Generate → `assets/ui_assets/ui/boosters/booster_slot.png`
-- [ ] VA-329 Generate → `assets/ui_assets/ui/boosters/booster_time.png`
-- [ ] VA-330 Generate → `assets/ui_assets/ui/boosters/booster_upgrade.png`
+- [x] VA-323 Generate → `assets/ui_assets/ui/boosters/booster_count_badge.png`
+- [x] VA-324 Generate → `assets/ui_assets/ui/boosters/booster_hammer.png`
+- [x] VA-325 Generate → `assets/ui_assets/ui/boosters/booster_locked.png`
+- [x] VA-326 Generate → `assets/ui_assets/ui/boosters/booster_selected.png`
+- [x] VA-327 Generate → `assets/ui_assets/ui/boosters/booster_shuffle.png`
+- [x] VA-328 Generate → `assets/ui_assets/ui/boosters/booster_slot.png`
+- [x] VA-329 Generate → `assets/ui_assets/ui/boosters/booster_time.png`
+- [x] VA-330 Generate → `assets/ui_assets/ui/boosters/booster_upgrade.png`
 - [ ] VA-331 Generate → `assets/ui_assets/ui/gameplay/level_label_panel.png`
 - [ ] VA-332 Generate → `assets/ui_assets/ui/gameplay/pause_button.png`
 - [ ] VA-333 Generate → `assets/ui_assets/ui/gameplay/timer_icon.png`
