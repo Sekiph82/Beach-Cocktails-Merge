@@ -421,6 +421,19 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 9/9 Tutorial targets present.
 - Worktree was clean before this publication-record append.
 
+## Batch 032 — Table edge overlay
+
+- Timestamp: 2026-09-22 13:24:52 +03:00.
+- Tasks: VA-321 only.
+- Output: `assets/ui_assets/tables/table_edge_overlay_master.png`.
+- Generation: one separate built-in image-generation operation for this distinct non-protected production target; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. VA-322 protected silhouette mask was not used as a generated source or modified.
+- Technical cleanup: transparent RGBA conversion and exact 720x1280 canvas normalization only.
+- Geometry QA: transparent playable interior preserved; rear edge, perspective side rails and front edge visually follow the frozen table geometry contract around rear points `(130,398)` and `(590,398)` and front corners `(0,1280)` and `(720,1280)`.
+- Rejected/regenerated attempts: none.
+- QA: exact-size RGBA PNG with alpha extrema `(0, 255)`; protected VA-322 remains unchanged.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 030 publication record
 
 - Implementation commit: `e0eefcfa745ed0b127e163537dd0dc6bdf82fd20`.

@@ -475,3 +475,11 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `1ded733d589da61945bbb6eeb2356a6a313ce9ce`.
 - Remote canonical paths verified: 9/9 Tutorial targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 032 — Table edge overlay
+
+- Timestamp: 2026-09-22 13:24:52 +03:00.
+- Dedicated targets generated: 1, VA-321.
+- Separate built-in image-generation operation used for the table edge overlay with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: 720x1280 RGBA with true transparent alpha; transparent interior and frozen perspective edge geometry were visually inspected. Protected VA-322 was not modified.
+- Publication: pending commit and push to `codex/visual-assets-production`.

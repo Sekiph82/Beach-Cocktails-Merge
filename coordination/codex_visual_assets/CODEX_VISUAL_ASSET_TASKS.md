@@ -336,7 +336,7 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-318 Generate → `assets/ui_assets/screens/tutorial/tutorial_vip_badge.png`
 - [x] VA-319 PRESERVE → `assets/ui_assets/source/style_reference_board.png`
 - [x] VA-320 PRESERVE → `assets/ui_assets/source/style_reference_board_remediation_v01.png`
-- [ ] VA-321 Generate → `assets/ui_assets/tables/table_edge_overlay_master.png`
+- [x] VA-321 Generate → `assets/ui_assets/tables/table_edge_overlay_master.png`
 - [x] VA-322 PRESERVE → `assets/ui_assets/tables/table_silhouette_mask.png`
 - [ ] VA-323 Generate → `assets/ui_assets/ui/boosters/booster_count_badge.png`
 - [ ] VA-324 Generate → `assets/ui_assets/ui/boosters/booster_hammer.png`
