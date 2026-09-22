@@ -91,6 +91,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 9/9 Daily Reward targets present.
 - Worktree remained clean after push.
 
+## Batch 019 — Main Menu screen family
+
+- Timestamp: 2026-09-22 03:49:31 +03:00.
+- Tasks: VA-206 through VA-217.
+- Outputs: all 12 `assets/ui_assets/screens/main_menu/**` targets in the master list.
+- Generation: one separate purpose-specific image-generation operation per counter panel, portrait background, button, decoration, logo frame and profile frame using the approved Main Menu V04/style authorities.
+- Technical cleanup: exact master-list resizing and RGBA conversion only; no protected logo or runtime code changed.
+- Rejected/regenerated attempts: none.
+- QA: exact dimensions and RGBA verified for all 12 outputs.
+- Blockers: none.
+- Commit/push: published in commit recorded below.
+
 ## Batch 017 publication record
 
 - Implementation commit: `579cd4c7fb873347825bac628bbff9d455cb4c06`.

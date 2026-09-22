@@ -221,18 +221,18 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-203 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_background.png`
 - [x] VA-204 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_panel.png`
 - [x] VA-205 Generate → `assets/ui_assets/screens/daily_reward/streak_badge.png`
-- [ ] VA-206 Generate → `assets/ui_assets/screens/main_menu/coin_counter_panel.png`
-- [ ] VA-207 Generate → `assets/ui_assets/screens/main_menu/gem_counter_panel.png`
-- [ ] VA-208 Generate → `assets/ui_assets/screens/main_menu/main_menu_background.png`
-- [ ] VA-209 Generate → `assets/ui_assets/screens/main_menu/main_menu_daily_button.png`
-- [ ] VA-210 Generate → `assets/ui_assets/screens/main_menu/main_menu_decor_left.png`
-- [ ] VA-211 Generate → `assets/ui_assets/screens/main_menu/main_menu_decor_right.png`
-- [ ] VA-212 Generate → `assets/ui_assets/screens/main_menu/main_menu_logo_frame.png`
-- [ ] VA-213 Generate → `assets/ui_assets/screens/main_menu/main_menu_play_button.png`
-- [ ] VA-214 Generate → `assets/ui_assets/screens/main_menu/main_menu_settings_button.png`
-- [ ] VA-215 Generate → `assets/ui_assets/screens/main_menu/main_menu_shop_button.png`
-- [ ] VA-216 Generate → `assets/ui_assets/screens/main_menu/main_menu_world_map_button.png`
-- [ ] VA-217 Generate → `assets/ui_assets/screens/main_menu/profile_frame.png`
+- [x] VA-206 Generate → `assets/ui_assets/screens/main_menu/coin_counter_panel.png`
+- [x] VA-207 Generate → `assets/ui_assets/screens/main_menu/gem_counter_panel.png`
+- [x] VA-208 Generate → `assets/ui_assets/screens/main_menu/main_menu_background.png`
+- [x] VA-209 Generate → `assets/ui_assets/screens/main_menu/main_menu_daily_button.png`
+- [x] VA-210 Generate → `assets/ui_assets/screens/main_menu/main_menu_decor_left.png`
+- [x] VA-211 Generate → `assets/ui_assets/screens/main_menu/main_menu_decor_right.png`
+- [x] VA-212 Generate → `assets/ui_assets/screens/main_menu/main_menu_logo_frame.png`
+- [x] VA-213 Generate → `assets/ui_assets/screens/main_menu/main_menu_play_button.png`
+- [x] VA-214 Generate → `assets/ui_assets/screens/main_menu/main_menu_settings_button.png`
+- [x] VA-215 Generate → `assets/ui_assets/screens/main_menu/main_menu_shop_button.png`
+- [x] VA-216 Generate → `assets/ui_assets/screens/main_menu/main_menu_world_map_button.png`
+- [x] VA-217 Generate → `assets/ui_assets/screens/main_menu/profile_frame.png`
 - [ ] VA-218 Generate → `assets/ui_assets/screens/milestones/button_claim.png`
 - [ ] VA-219 Generate → `assets/ui_assets/screens/milestones/button_continue.png`
 - [ ] VA-220 Generate → `assets/ui_assets/screens/milestones/island_complete_panel.png`

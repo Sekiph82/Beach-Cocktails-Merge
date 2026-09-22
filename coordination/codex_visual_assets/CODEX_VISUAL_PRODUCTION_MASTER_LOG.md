@@ -69,6 +69,14 @@ Append one concise section per visual batch:
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 9/9 Daily Reward canonical paths were present.
 
+## Batch 019 — Main Menu screen family
+
+- Timestamp: 2026-09-22 03:49:31 +03:00.
+- Dedicated targets generated: 12.
+- Separate image-generation operation used for every Main Menu visual with the approved Main Menu V04/style authorities; no V05 visuals or atlas slicing used.
+- Validation: all 12 canonical paths are exact-size RGBA files.
+- Publication: pending commit and push to `codex/visual-assets-production`.
+
 ## Batch 017 publication record
 
 - Implementation commit: `579cd4c7fb873347825bac628bbff9d455cb4c06`.
