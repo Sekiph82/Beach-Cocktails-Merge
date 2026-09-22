@@ -483,3 +483,11 @@ Append one concise section per visual batch:
 - Separate built-in image-generation operation used for the table edge overlay with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: 720x1280 RGBA with true transparent alpha; transparent interior and frozen perspective edge geometry were visually inspected. Protected VA-322 was not modified.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 032 publication record
+
+- Implementation commit: `683e9c509f33c9c344b6b896ffcbf89472c8912c`.
+- Remote branch HEAD: `683e9c509f33c9c344b6b896ffcbf89472c8912c`.
+- Remote canonical path verified: VA-321 table edge overlay present.
+- Protected VA-322 local/remote blob SHA match: `7ae8ef369aa1131ce3fefa4b919d5926441250c2`.
+- Official logs and the dedicated tracker are present on the remote visual branch.
