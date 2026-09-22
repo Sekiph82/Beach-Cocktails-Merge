@@ -361,3 +361,10 @@ Append one concise section per visual batch:
 - Validation: all 16 canonical paths are exact-size RGBA files with true transparent alpha; complete, failed, time-up, reward, timer, ad and navigation semantics were visually inspected.
 - Rejected/unpromoted output: one extra VA-245 draft was not promoted during output-path confirmation.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 024 publication record
+
+- Implementation commit: `c0bdcd41afa09aeff20293a11bebca9c90b4539a`.
+- Remote branch HEAD: `c0bdcd41afa09aeff20293a11bebca9c90b4539a`.
+- Remote canonical paths verified: 16/16 Results targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
