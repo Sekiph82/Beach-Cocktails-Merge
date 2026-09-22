@@ -468,3 +468,10 @@ Append one concise section per visual batch:
 - Separate built-in image-generation operation used for every Tutorial visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all nine canonical paths are exact-size RGBA files with true transparent alpha; guidance, merge/order, panel, skip, timer and VIP semantics were visually inspected.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 031 publication record
+
+- Implementation commit: `1ded733d589da61945bbb6eeb2356a6a313ce9ce`.
+- Remote branch HEAD: `1ded733d589da61945bbb6eeb2356a6a313ce9ce`.
+- Remote canonical paths verified: 9/9 Tutorial targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
