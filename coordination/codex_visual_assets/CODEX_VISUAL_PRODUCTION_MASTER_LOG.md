@@ -398,3 +398,12 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `f38cf9ce509916f8fd65d1f7da0be27c889d69be`.
 - Remote canonical paths verified: 13/13 Settings targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 027 — Shop partial batch and usage-limit blocker
+
+- Timestamp: 2026-09-22 09:10:54 +03:00.
+- Dedicated targets completed: 4, VA-280 through VA-283.
+- Separate built-in image-generation operation completed for each promoted Shop asset with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all four canonical paths are exact-size RGBA files with true transparent alpha; best-value badge, buy button and large/medium coin-pack scale distinction were visually inspected.
+- Blocker: the next request (VA-284) returned HTTP 429 `usage_limit_reached`; no reset credit was consumed, no ambiguous output was promoted, and VA-284 through VA-296 remain pending.
+- Publication: pending commit and push to `codex/visual-assets-production`.

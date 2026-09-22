@@ -295,10 +295,10 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-277 Generate → `assets/ui_assets/screens/settings/sound_icon.png`
 - [x] VA-278 Generate → `assets/ui_assets/screens/settings/toggle_off.png`
 - [x] VA-279 Generate → `assets/ui_assets/screens/settings/toggle_on.png`
-- [ ] VA-280 Generate → `assets/ui_assets/screens/shop/best_value_badge.png`
-- [ ] VA-281 Generate → `assets/ui_assets/screens/shop/button_buy.png`
-- [ ] VA-282 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_large.png`
-- [ ] VA-283 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_medium.png`
+- [x] VA-280 Generate → `assets/ui_assets/screens/shop/best_value_badge.png`
+- [x] VA-281 Generate → `assets/ui_assets/screens/shop/button_buy.png`
+- [x] VA-282 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_large.png`
+- [x] VA-283 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_medium.png`
 - [ ] VA-284 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_small.png`
 - [ ] VA-285 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_large.png`
 - [ ] VA-286 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_medium.png`

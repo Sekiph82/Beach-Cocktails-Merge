@@ -421,6 +421,16 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 13/13 Settings targets present.
 - Worktree was clean before this publication-record append.
 
+## Batch 027 — Shop partial batch and usage-limit blocker
+
+- Timestamp: 2026-09-22 09:10:54 +03:00.
+- Tasks completed: VA-280 through VA-283 only: `assets/ui_assets/screens/shop/best_value_badge.png`, `button_buy.png`, `coin_pack_icon_large.png`, and `coin_pack_icon_medium.png`.
+- Generation: one separate built-in image-generation operation completed for each of the four promoted assets; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime shop labels, prices and quantities remain unbaked.
+- QA: all four completed outputs visually inspected after normalization and verified as exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blocker: the next generation request, for VA-284, returned HTTP 429 `usage_limit_reached` with no usable output. No reset credit was consumed. VA-284 through VA-296 remain unchecked; no ambiguous or partial candidate was promoted.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 025 publication record
 
 - Implementation commit: `8e6fc54cf6b4111a89e640fcdd8f4ddc71e05713`.
