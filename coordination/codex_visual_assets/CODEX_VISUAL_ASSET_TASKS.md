@@ -276,12 +276,12 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-258 Generate → `assets/ui_assets/screens/results/time_up_title.png`
 - [x] VA-259 Generate → `assets/ui_assets/screens/results/video_ad_icon.png`
 - [x] VA-260 Generate → `assets/ui_assets/screens/results/vip_complete_badge.png`
-- [ ] VA-261 Generate → `assets/ui_assets/screens/rewarded_ad/button_no_thanks.png`
-- [ ] VA-262 Generate → `assets/ui_assets/screens/rewarded_ad/button_watch_ad.png`
-- [ ] VA-263 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_double_icon.png`
-- [ ] VA-264 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_time_icon.png`
-- [ ] VA-265 Generate → `assets/ui_assets/screens/rewarded_ad/rewarded_ad_panel.png`
-- [ ] VA-266 Generate → `assets/ui_assets/screens/rewarded_ad/video_ad_icon.png`
+- [x] VA-261 Generate → `assets/ui_assets/screens/rewarded_ad/button_no_thanks.png`
+- [x] VA-262 Generate → `assets/ui_assets/screens/rewarded_ad/button_watch_ad.png`
+- [x] VA-263 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_double_icon.png`
+- [x] VA-264 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_time_icon.png`
+- [x] VA-265 Generate → `assets/ui_assets/screens/rewarded_ad/rewarded_ad_panel.png`
+- [x] VA-266 Generate → `assets/ui_assets/screens/rewarded_ad/video_ad_icon.png`
 - [ ] VA-267 Generate → `assets/ui_assets/screens/settings/accessibility_icon.png`
 - [ ] VA-268 Generate → `assets/ui_assets/screens/settings/button_close_settings.png`
 - [ ] VA-269 Generate → `assets/ui_assets/screens/settings/haptic_icon.png`

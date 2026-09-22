@@ -421,6 +421,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 16/16 Results targets present.
 - Worktree was clean before this publication-record append.
 
+## Batch 025 — Rewarded Ad screen family
+
+- Timestamp: 2026-09-22 08:48:56 +03:00.
+- Tasks: VA-261 through VA-266.
+- Outputs: `assets/ui_assets/screens/rewarded_ad/button_no_thanks.png`, `button_watch_ad.png`, `reward_ad_double_icon.png`, `reward_ad_time_icon.png`, `rewarded_ad_panel.png`, and `video_ad_icon.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime labels, quantities, multipliers and ad copy remain unbaked.
+- Rejected/regenerated attempts: none.
+- QA: all six outputs visually inspected after normalization; no-thanks/watch-ad roles, double/time reward semantics, dialog copy area and video-ad icon are materially distinct. All six are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 023 publication record
 
 - Implementation commit: `1f98046da5042513c632f9b837d18a73ee57d9df`.

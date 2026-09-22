@@ -368,3 +368,11 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `c0bdcd41afa09aeff20293a11bebca9c90b4539a`.
 - Remote canonical paths verified: 16/16 Results targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 025 — Rewarded Ad screen family
+
+- Timestamp: 2026-09-22 08:48:56 +03:00.
+- Dedicated targets generated: 6, VA-261 through VA-266.
+- Separate built-in image-generation operation used for every Rewarded Ad visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all six canonical paths are exact-size RGBA files with true transparent alpha; button, reward-icon, panel and video-ad semantics were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.
