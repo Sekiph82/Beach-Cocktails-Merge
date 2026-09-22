@@ -336,3 +336,12 @@ Append one concise section per visual batch:
 
 - Remote branch HEAD: `01918704e42da3d2de76dd298e62a49d78006d9d`.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 023 — Pre-level screen family
+
+- Timestamp: 2026-09-22 08:23:47 +03:00.
+- Dedicated targets generated: 10, VA-235 through VA-244.
+- Separate built-in image-generation operation used for every Pre-level visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all ten canonical paths are exact-size RGBA files with true transparent alpha; selector, level badge, timer, normal order, VIP and pre-level panel semantics were visually inspected.
+- Rejected/regenerated attempts: the first VA-236 candidate was rejected as a circular medallion; a targeted compact close-button regeneration was promoted.
+- Publication: pending commit and push to `codex/visual-assets-production`.

@@ -400,3 +400,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `01918704e42da3d2de76dd298e62a49d78006d9d`.
 - Remote canonical paths verified: 6/6 Pause targets present.
 - Worktree was clean before this publication-record append.
+
+## Batch 023 — Pre-level screen family
+
+- Timestamp: 2026-09-22 08:23:47 +03:00.
+- Tasks: VA-235 through VA-244.
+- Outputs: `assets/ui_assets/screens/prelevel/booster_selector_panel.png`, `button_close_prelevel.png`, `button_play_level.png`, `level_number_badge.png`, `order_slot.png`, `prelevel_panel.png`, `timer_icon.png`, `timer_panel_small.png`, `vip_badge.png`, and `vip_reward_slot.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime labels, level numbers, timer values and reward copy remain unbaked.
+- Rejected/regenerated attempts: the first VA-236 candidate was rejected because it produced a circular medallion instead of a compact close button; one targeted regeneration was promoted. No other promoted candidate required regeneration.
+- QA: all ten outputs visually inspected after normalization; selector spaces, level badge, timer icon/panel, normal order slot, VIP badge and distinct VIP reward slot semantics are preserved. All ten are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.

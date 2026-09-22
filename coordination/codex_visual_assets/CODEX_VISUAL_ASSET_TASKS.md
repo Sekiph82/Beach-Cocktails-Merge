@@ -250,16 +250,16 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-232 Generate → `assets/ui_assets/screens/pause/button_settings.png`
 - [x] VA-233 Generate → `assets/ui_assets/screens/pause/button_world_map.png`
 - [x] VA-234 Generate → `assets/ui_assets/screens/pause/pause_panel.png`
-- [ ] VA-235 Generate → `assets/ui_assets/screens/prelevel/booster_selector_panel.png`
-- [ ] VA-236 Generate → `assets/ui_assets/screens/prelevel/button_close_prelevel.png`
-- [ ] VA-237 Generate → `assets/ui_assets/screens/prelevel/button_play_level.png`
-- [ ] VA-238 Generate → `assets/ui_assets/screens/prelevel/level_number_badge.png`
-- [ ] VA-239 Generate → `assets/ui_assets/screens/prelevel/order_slot.png`
-- [ ] VA-240 Generate → `assets/ui_assets/screens/prelevel/prelevel_panel.png`
-- [ ] VA-241 Generate → `assets/ui_assets/screens/prelevel/timer_icon.png`
-- [ ] VA-242 Generate → `assets/ui_assets/screens/prelevel/timer_panel_small.png`
-- [ ] VA-243 Generate → `assets/ui_assets/screens/prelevel/vip_badge.png`
-- [ ] VA-244 Generate → `assets/ui_assets/screens/prelevel/vip_reward_slot.png`
+- [x] VA-235 Generate → `assets/ui_assets/screens/prelevel/booster_selector_panel.png`
+- [x] VA-236 Generate → `assets/ui_assets/screens/prelevel/button_close_prelevel.png`
+- [x] VA-237 Generate → `assets/ui_assets/screens/prelevel/button_play_level.png`
+- [x] VA-238 Generate → `assets/ui_assets/screens/prelevel/level_number_badge.png`
+- [x] VA-239 Generate → `assets/ui_assets/screens/prelevel/order_slot.png`
+- [x] VA-240 Generate → `assets/ui_assets/screens/prelevel/prelevel_panel.png`
+- [x] VA-241 Generate → `assets/ui_assets/screens/prelevel/timer_icon.png`
+- [x] VA-242 Generate → `assets/ui_assets/screens/prelevel/timer_panel_small.png`
+- [x] VA-243 Generate → `assets/ui_assets/screens/prelevel/vip_badge.png`
+- [x] VA-244 Generate → `assets/ui_assets/screens/prelevel/vip_reward_slot.png`
 - [ ] VA-245 Generate → `assets/ui_assets/screens/results/button_add_time.png`
 - [ ] VA-246 Generate → `assets/ui_assets/screens/results/button_island_map.png`
 - [ ] VA-247 Generate → `assets/ui_assets/screens/results/button_next_level.png`
