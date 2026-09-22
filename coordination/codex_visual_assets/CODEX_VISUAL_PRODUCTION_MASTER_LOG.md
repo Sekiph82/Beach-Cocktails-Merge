@@ -499,3 +499,10 @@ Append one concise section per visual batch:
 - Separate built-in image-generation operation used for every Booster visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all eight canonical paths are exact-size RGBA files with true transparent alpha; tool, state, slot and count semantics were visually inspected.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 033 publication record
+
+- Implementation commit: `1614e3cc9a5c103c4411ff5c607f095fb96c3bf9`.
+- Remote branch HEAD: `1614e3cc9a5c103c4411ff5c607f095fb96c3bf9`.
+- Remote canonical paths verified: 8/8 Booster targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
