@@ -420,3 +420,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `1f98046da5042513c632f9b837d18a73ee57d9df`.
 - Remote canonical paths verified: 10/10 Pre-level targets present.
 - Worktree was clean before this publication-record append.
+
+## Batch 024 — Results screen family
+
+- Timestamp: 2026-09-22 08:40:36 +03:00.
+- Tasks: VA-245 through VA-260.
+- Outputs: `assets/ui_assets/screens/results/button_add_time.png`, `button_island_map.png`, `button_next_level.png`, `button_replay.png`, `button_retry.png`, `button_world_map_fail.png`, `fail_timer_icon.png`, `level_complete_panel.png`, `level_complete_title.png`, `level_failed_panel.png`, `remaining_order_slot.png`, `reward_slot.png`, `score_summary_panel.png`, `time_up_title.png`, `video_ad_icon.png`, and `vip_complete_badge.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime labels, scores, timers, quantities and reward copy remain unbaked.
+- Rejected/regenerated attempts: one extra unpromoted VA-245 draft was generated while confirming the output-path contract and was not used. No promoted Results candidate required regeneration.
+- QA: all 16 outputs visually inspected after normalization; complete/failed/time-up states, normal/VIP reward semantics, timer/video-ad icons and replay/retry/navigation buttons are materially distinct. All 16 are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.

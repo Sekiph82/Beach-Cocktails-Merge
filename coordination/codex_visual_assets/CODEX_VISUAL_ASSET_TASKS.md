@@ -260,22 +260,22 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-242 Generate → `assets/ui_assets/screens/prelevel/timer_panel_small.png`
 - [x] VA-243 Generate → `assets/ui_assets/screens/prelevel/vip_badge.png`
 - [x] VA-244 Generate → `assets/ui_assets/screens/prelevel/vip_reward_slot.png`
-- [ ] VA-245 Generate → `assets/ui_assets/screens/results/button_add_time.png`
-- [ ] VA-246 Generate → `assets/ui_assets/screens/results/button_island_map.png`
-- [ ] VA-247 Generate → `assets/ui_assets/screens/results/button_next_level.png`
-- [ ] VA-248 Generate → `assets/ui_assets/screens/results/button_replay.png`
-- [ ] VA-249 Generate → `assets/ui_assets/screens/results/button_retry.png`
-- [ ] VA-250 Generate → `assets/ui_assets/screens/results/button_world_map_fail.png`
-- [ ] VA-251 Generate → `assets/ui_assets/screens/results/fail_timer_icon.png`
-- [ ] VA-252 Generate → `assets/ui_assets/screens/results/level_complete_panel.png`
-- [ ] VA-253 Generate → `assets/ui_assets/screens/results/level_complete_title.png`
-- [ ] VA-254 Generate → `assets/ui_assets/screens/results/level_failed_panel.png`
-- [ ] VA-255 Generate → `assets/ui_assets/screens/results/remaining_order_slot.png`
-- [ ] VA-256 Generate → `assets/ui_assets/screens/results/reward_slot.png`
-- [ ] VA-257 Generate → `assets/ui_assets/screens/results/score_summary_panel.png`
-- [ ] VA-258 Generate → `assets/ui_assets/screens/results/time_up_title.png`
-- [ ] VA-259 Generate → `assets/ui_assets/screens/results/video_ad_icon.png`
-- [ ] VA-260 Generate → `assets/ui_assets/screens/results/vip_complete_badge.png`
+- [x] VA-245 Generate → `assets/ui_assets/screens/results/button_add_time.png`
+- [x] VA-246 Generate → `assets/ui_assets/screens/results/button_island_map.png`
+- [x] VA-247 Generate → `assets/ui_assets/screens/results/button_next_level.png`
+- [x] VA-248 Generate → `assets/ui_assets/screens/results/button_replay.png`
+- [x] VA-249 Generate → `assets/ui_assets/screens/results/button_retry.png`
+- [x] VA-250 Generate → `assets/ui_assets/screens/results/button_world_map_fail.png`
+- [x] VA-251 Generate → `assets/ui_assets/screens/results/fail_timer_icon.png`
+- [x] VA-252 Generate → `assets/ui_assets/screens/results/level_complete_panel.png`
+- [x] VA-253 Generate → `assets/ui_assets/screens/results/level_complete_title.png`
+- [x] VA-254 Generate → `assets/ui_assets/screens/results/level_failed_panel.png`
+- [x] VA-255 Generate → `assets/ui_assets/screens/results/remaining_order_slot.png`
+- [x] VA-256 Generate → `assets/ui_assets/screens/results/reward_slot.png`
+- [x] VA-257 Generate → `assets/ui_assets/screens/results/score_summary_panel.png`
+- [x] VA-258 Generate → `assets/ui_assets/screens/results/time_up_title.png`
+- [x] VA-259 Generate → `assets/ui_assets/screens/results/video_ad_icon.png`
+- [x] VA-260 Generate → `assets/ui_assets/screens/results/vip_complete_badge.png`
 - [ ] VA-261 Generate → `assets/ui_assets/screens/rewarded_ad/button_no_thanks.png`
 - [ ] VA-262 Generate → `assets/ui_assets/screens/rewarded_ad/button_watch_ad.png`
 - [ ] VA-263 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_double_icon.png`

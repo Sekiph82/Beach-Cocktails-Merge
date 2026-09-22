@@ -352,3 +352,12 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `1f98046da5042513c632f9b837d18a73ee57d9df`.
 - Remote canonical paths verified: 10/10 Pre-level targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 024 — Results screen family
+
+- Timestamp: 2026-09-22 08:40:36 +03:00.
+- Dedicated targets generated: 16, VA-245 through VA-260.
+- Separate built-in image-generation operation used for every Results visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all 16 canonical paths are exact-size RGBA files with true transparent alpha; complete, failed, time-up, reward, timer, ad and navigation semantics were visually inspected.
+- Rejected/unpromoted output: one extra VA-245 draft was not promoted during output-path confirmation.
+- Publication: pending commit and push to `codex/visual-assets-production`.
