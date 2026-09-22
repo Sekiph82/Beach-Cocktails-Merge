@@ -376,3 +376,10 @@ Append one concise section per visual batch:
 - Separate built-in image-generation operation used for every Rewarded Ad visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all six canonical paths are exact-size RGBA files with true transparent alpha; button, reward-icon, panel and video-ad semantics were visually inspected.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 025 publication record
+
+- Implementation commit: `8e6fc54cf6b4111a89e640fcdd8f4ddc71e05713`.
+- Remote branch HEAD: `8e6fc54cf6b4111a89e640fcdd8f4ddc71e05713`.
+- Remote canonical paths verified: 6/6 Rewarded Ad targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
