@@ -91,6 +91,14 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 12/12 Main Menu targets present.
 - Worktree remained clean after push.
 
+## Batch 020 — Blocked Milestones/Pause generation
+
+- Timestamp: 2026-09-22 04:00:00 +03:00.
+- Attempted tasks: VA-218 through VA-234 (Milestones and Pause families).
+- Blocker: the shared image-generation service returned HTTP 429 `usage_limit_reached` during the batch. No reset credit was consumed, no partial/ambiguous candidates were promoted, and all affected tasks remain unchecked.
+- Protected reconciliation: VA-319, VA-320 and VA-322 were verified unchanged and marked PRESERVE in the dedicated tracker; no protected source was regenerated.
+- Blocker state: remaining generation cannot continue until the service limit resets or the user explicitly authorizes a different action.
+
 ## Batch 018 publication record
 
 - Implementation commit: `73bdfa755e85c76d1388db20376660682f99a6d3`.

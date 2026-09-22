@@ -69,6 +69,14 @@ Append one concise section per visual batch:
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 12/12 Main Menu canonical paths were present.
 
+## Batch 020 — Blocked Milestones/Pause generation
+
+- Timestamp: 2026-09-22 04:00:00 +03:00.
+- Attempted tasks: VA-218 through VA-234.
+- Blocker: image generation returned HTTP 429 `usage_limit_reached`; no reset credit was consumed, no ambiguous outputs were promoted, and affected tracker rows remain unchecked.
+- Protected reconciliation: VA-319, VA-320 and VA-322 verified unchanged and marked PRESERVE; no protected source was regenerated.
+- Publication: blocker record pending commit and push to `codex/visual-assets-production`.
+
 ## Batch 018 publication record
 
 - Implementation commit: `73bdfa755e85c76d1388db20376660682f99a6d3`.

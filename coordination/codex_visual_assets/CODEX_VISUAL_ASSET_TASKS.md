@@ -334,10 +334,10 @@ Protected canonical logo is pre-marked preserved.
 - [ ] VA-316 Generate → `assets/ui_assets/screens/tutorial/tutorial_skip_button.png`
 - [ ] VA-317 Generate → `assets/ui_assets/screens/tutorial/tutorial_timer_icon.png`
 - [ ] VA-318 Generate → `assets/ui_assets/screens/tutorial/tutorial_vip_badge.png`
-- [ ] VA-319 Generate → `assets/ui_assets/source/style_reference_board.png`
-- [ ] VA-320 Generate → `assets/ui_assets/source/style_reference_board_remediation_v01.png`
+- [x] VA-319 PRESERVE → `assets/ui_assets/source/style_reference_board.png`
+- [x] VA-320 PRESERVE → `assets/ui_assets/source/style_reference_board_remediation_v01.png`
 - [ ] VA-321 Generate → `assets/ui_assets/tables/table_edge_overlay_master.png`
-- [ ] VA-322 Generate → `assets/ui_assets/tables/table_silhouette_mask.png`
+- [x] VA-322 PRESERVE → `assets/ui_assets/tables/table_silhouette_mask.png`
 - [ ] VA-323 Generate → `assets/ui_assets/ui/boosters/booster_count_badge.png`
 - [ ] VA-324 Generate → `assets/ui_assets/ui/boosters/booster_hammer.png`
 - [ ] VA-325 Generate → `assets/ui_assets/ui/boosters/booster_locked.png`
