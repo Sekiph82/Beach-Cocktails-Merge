@@ -244,3 +244,12 @@ Append one concise section per visual batch:
 - Implementation commit: `f70c7a419eaeb3ecb8332aa0887731eaeea7467c`.
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 13/13 Volcano Bay canonical paths were present.
+
+## Batch 016 — World Map family
+
+- Timestamp: 2026-09-22 03:14:30 +03:00.
+- Dedicated targets generated: 22.
+- Separate image-generation operation used for each distinct World Map asset with V04 World Map authority; no V05 visuals or atlas slicing used.
+- Target family: ten island icons, lock/name treatments, route line and markers, cloud layers, world-map background, boat, compass and title panel.
+- Validation: all 22 canonical paths are exact-size RGBA files.
+- Publication: pending commit and push to `codex/visual-assets-production`.

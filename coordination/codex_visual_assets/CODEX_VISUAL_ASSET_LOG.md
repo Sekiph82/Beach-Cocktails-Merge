@@ -274,3 +274,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `f70c7a419eaeb3ecb8332aa0887731eaeea7467c`.
 - Remote canonical paths verified: 13/13 Volcano Bay targets present.
 - Worktree remained clean after push.
+
+## Batch 016 — World Map family
+
+- Timestamp: 2026-09-22 03:14:30 +03:00.
+- Tasks: VA-154 through VA-175.
+- Outputs: all 22 `assets/ui_assets/campaign/world_map/**` targets in the master list.
+- Generation: one separate built-in image-generation operation per distinct island icon, lock/name treatment, route element, cloud layer, map background, boat, compass and title panel; V04 `world_map_master.png` was the direct authority. No V05 art or atlas slicing used.
+- Technical cleanup: exact master-list resizing and RGBA conversion only; no protected asset or frozen geometry was modified.
+- Rejected/regenerated attempts: none.
+- QA: exact dimensions and RGBA verified for all 22 outputs.
+- Blockers: none.
+- Commit/push: published in commit recorded below.

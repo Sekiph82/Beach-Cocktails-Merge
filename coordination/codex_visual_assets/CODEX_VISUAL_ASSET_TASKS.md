@@ -169,28 +169,28 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-151 Generate → `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png`
 - [x] VA-152 Generate → `assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png`
 - [x] VA-153 Generate → `assets/ui_assets/campaign/islands/volcano_bay/world_icon.png`
-- [ ] VA-154 Generate → `assets/ui_assets/campaign/world_map/azure_bay.png`
-- [ ] VA-155 Generate → `assets/ui_assets/campaign/world_map/billionaire_island.png`
-- [ ] VA-156 Generate → `assets/ui_assets/campaign/world_map/coconut_beach.png`
-- [ ] VA-157 Generate → `assets/ui_assets/campaign/world_map/final_island.png`
-- [ ] VA-158 Generate → `assets/ui_assets/campaign/world_map/frozen_paradise.png`
-- [ ] VA-159 Generate → `assets/ui_assets/campaign/world_map/island_locked_overlay.png`
-- [ ] VA-160 Generate → `assets/ui_assets/campaign/world_map/island_name_panel.png`
-- [ ] VA-161 Generate → `assets/ui_assets/campaign/world_map/party_beach.png`
-- [ ] VA-162 Generate → `assets/ui_assets/campaign/world_map/route_line.png`
-- [ ] VA-163 Generate → `assets/ui_assets/campaign/world_map/route_marker.png`
-- [ ] VA-164 Generate → `assets/ui_assets/campaign/world_map/route_marker_complete.png`
-- [ ] VA-165 Generate → `assets/ui_assets/campaign/world_map/route_marker_current.png`
-- [ ] VA-166 Generate → `assets/ui_assets/campaign/world_map/sunny_cove.png`
-- [ ] VA-167 Generate → `assets/ui_assets/campaign/world_map/sunset_island.png`
-- [ ] VA-168 Generate → `assets/ui_assets/campaign/world_map/tiki_island.png`
-- [ ] VA-169 Generate → `assets/ui_assets/campaign/world_map/volcano_bay.png`
-- [ ] VA-170 Generate → `assets/ui_assets/campaign/world_map/world_clouds_back.png`
-- [ ] VA-171 Generate → `assets/ui_assets/campaign/world_map/world_clouds_front.png`
-- [ ] VA-172 Generate → `assets/ui_assets/campaign/world_map/world_map_background.png`
-- [ ] VA-173 Generate → `assets/ui_assets/campaign/world_map/world_map_boat.png`
-- [ ] VA-174 Generate → `assets/ui_assets/campaign/world_map/world_map_compass.png`
-- [ ] VA-175 Generate → `assets/ui_assets/campaign/world_map/world_map_title_panel.png`
+- [x] VA-154 Generate → `assets/ui_assets/campaign/world_map/azure_bay.png`
+- [x] VA-155 Generate → `assets/ui_assets/campaign/world_map/billionaire_island.png`
+- [x] VA-156 Generate → `assets/ui_assets/campaign/world_map/coconut_beach.png`
+- [x] VA-157 Generate → `assets/ui_assets/campaign/world_map/final_island.png`
+- [x] VA-158 Generate → `assets/ui_assets/campaign/world_map/frozen_paradise.png`
+- [x] VA-159 Generate → `assets/ui_assets/campaign/world_map/island_locked_overlay.png`
+- [x] VA-160 Generate → `assets/ui_assets/campaign/world_map/island_name_panel.png`
+- [x] VA-161 Generate → `assets/ui_assets/campaign/world_map/party_beach.png`
+- [x] VA-162 Generate → `assets/ui_assets/campaign/world_map/route_line.png`
+- [x] VA-163 Generate → `assets/ui_assets/campaign/world_map/route_marker.png`
+- [x] VA-164 Generate → `assets/ui_assets/campaign/world_map/route_marker_complete.png`
+- [x] VA-165 Generate → `assets/ui_assets/campaign/world_map/route_marker_current.png`
+- [x] VA-166 Generate → `assets/ui_assets/campaign/world_map/sunny_cove.png`
+- [x] VA-167 Generate → `assets/ui_assets/campaign/world_map/sunset_island.png`
+- [x] VA-168 Generate → `assets/ui_assets/campaign/world_map/tiki_island.png`
+- [x] VA-169 Generate → `assets/ui_assets/campaign/world_map/volcano_bay.png`
+- [x] VA-170 Generate → `assets/ui_assets/campaign/world_map/world_clouds_back.png`
+- [x] VA-171 Generate → `assets/ui_assets/campaign/world_map/world_clouds_front.png`
+- [x] VA-172 Generate → `assets/ui_assets/campaign/world_map/world_map_background.png`
+- [x] VA-173 Generate → `assets/ui_assets/campaign/world_map/world_map_boat.png`
+- [x] VA-174 Generate → `assets/ui_assets/campaign/world_map/world_map_compass.png`
+- [x] VA-175 Generate → `assets/ui_assets/campaign/world_map/world_map_title_panel.png`
 - [ ] VA-176 Generate → `assets/ui_assets/CONTACT_SHEET_GLOBAL.png`
 - [ ] VA-177 Generate → `assets/ui_assets/CONTACT_SHEET_ISLANDS.png`
 - [ ] VA-178 Generate → `assets/ui_assets/CONTACT_SHEET_MAJOR_SCREENS.png`
