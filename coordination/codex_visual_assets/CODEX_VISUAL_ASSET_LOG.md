@@ -431,6 +431,15 @@ V05 production visuals are owner-rejected and are not style authority.
 - Blocker: the next generation request, for VA-284, returned HTTP 429 `usage_limit_reached` with no usable output. No reset credit was consumed. VA-284 through VA-296 remain unchecked; no ambiguous or partial candidate was promoted.
 - Commit/push: pending publication and remote verification.
 
+## Batch 027 publication record
+
+- Implementation commit: `7f7ad82503a154f27eb5d454a1dfd2050fae15b7`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `7f7ad82503a154f27eb5d454a1dfd2050fae15b7`.
+- Remote canonical paths verified: 4/4 promoted Shop targets present.
+- Usage-limit blocker preserved: VA-284 through VA-296 remain unchecked; no reset credit was consumed.
+- Worktree was clean before this publication-record append.
+
 ## Batch 025 publication record
 
 - Implementation commit: `8e6fc54cf6b4111a89e640fcdd8f4ddc71e05713`.

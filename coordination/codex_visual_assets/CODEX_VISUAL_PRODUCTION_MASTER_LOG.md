@@ -407,3 +407,11 @@ Append one concise section per visual batch:
 - Validation: all four canonical paths are exact-size RGBA files with true transparent alpha; best-value badge, buy button and large/medium coin-pack scale distinction were visually inspected.
 - Blocker: the next request (VA-284) returned HTTP 429 `usage_limit_reached`; no reset credit was consumed, no ambiguous output was promoted, and VA-284 through VA-296 remain pending.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Batch 027 publication record
+
+- Implementation commit: `7f7ad82503a154f27eb5d454a1dfd2050fae15b7`.
+- Remote branch HEAD: `7f7ad82503a154f27eb5d454a1dfd2050fae15b7`.
+- Remote canonical paths verified: 4/4 promoted Shop targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
+- Blocker remains recorded: VA-284 through VA-296 were not marked complete after HTTP 429 `usage_limit_reached`.
