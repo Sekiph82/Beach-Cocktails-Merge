@@ -460,3 +460,11 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `e0eefcfa745ed0b127e163537dd0dc6bdf82fd20`.
 - Remote canonical paths verified: 6/6 Splash targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+
+## Batch 031 — Tutorial screen family
+
+- Timestamp: 2026-09-22 13:21:37 +03:00.
+- Dedicated targets generated: 9, VA-310 through VA-318.
+- Separate built-in image-generation operation used for every Tutorial visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
+- Validation: all nine canonical paths are exact-size RGBA files with true transparent alpha; guidance, merge/order, panel, skip, timer and VIP semantics were visually inspected.
+- Publication: pending commit and push to `codex/visual-assets-production`.

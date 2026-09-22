@@ -421,6 +421,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 6/6 Splash targets present.
 - Worktree was clean before this publication-record append.
 
+## Batch 031 — Tutorial screen family
+
+- Timestamp: 2026-09-22 13:21:37 +03:00.
+- Tasks: VA-310 through VA-318.
+- Outputs: `assets/ui_assets/screens/tutorial/tutorial_arrow.png`, `tutorial_hand.png`, `tutorial_highlight_ring.png`, `tutorial_merge_icon.png`, `tutorial_order_icon.png`, `tutorial_panel.png`, `tutorial_skip_button.png`, `tutorial_timer_icon.png`, and `tutorial_vip_badge.png`.
+- Generation: one separate built-in image-generation operation per distinct non-protected asset; the approved V04 `main_menu_master.png` was the direct primary authority and both approved style boards were secondary references. No V05 art or atlas slicing used.
+- Technical cleanup: transparent RGBA conversion and exact master-list canvas normalization only; runtime tutorial copy, levels and order/timer values remain unbaked.
+- Rejected/regenerated attempts: none.
+- QA: all nine outputs visually inspected after normalization; arrow/hand/ring, merge/order cues, panel, skip, timer and VIP semantics are materially distinct. All nine are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
 ## Batch 029 publication record
 
 - Implementation commit: `73d426fd30e3ebaa617f7ca7bcd2c7004a94a295`.

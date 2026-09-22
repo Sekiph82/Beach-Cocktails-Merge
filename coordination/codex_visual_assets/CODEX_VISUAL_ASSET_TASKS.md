@@ -325,15 +325,15 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-307 Generate → `assets/ui_assets/screens/splash/loading_spinner.png`
 - [x] VA-308 Generate → `assets/ui_assets/screens/splash/loading_tip_panel.png`
 - [x] VA-309 Generate → `assets/ui_assets/screens/splash/splash_background.png`
-- [ ] VA-310 Generate → `assets/ui_assets/screens/tutorial/tutorial_arrow.png`
-- [ ] VA-311 Generate → `assets/ui_assets/screens/tutorial/tutorial_hand.png`
-- [ ] VA-312 Generate → `assets/ui_assets/screens/tutorial/tutorial_highlight_ring.png`
-- [ ] VA-313 Generate → `assets/ui_assets/screens/tutorial/tutorial_merge_icon.png`
-- [ ] VA-314 Generate → `assets/ui_assets/screens/tutorial/tutorial_order_icon.png`
-- [ ] VA-315 Generate → `assets/ui_assets/screens/tutorial/tutorial_panel.png`
-- [ ] VA-316 Generate → `assets/ui_assets/screens/tutorial/tutorial_skip_button.png`
-- [ ] VA-317 Generate → `assets/ui_assets/screens/tutorial/tutorial_timer_icon.png`
-- [ ] VA-318 Generate → `assets/ui_assets/screens/tutorial/tutorial_vip_badge.png`
+- [x] VA-310 Generate → `assets/ui_assets/screens/tutorial/tutorial_arrow.png`
+- [x] VA-311 Generate → `assets/ui_assets/screens/tutorial/tutorial_hand.png`
+- [x] VA-312 Generate → `assets/ui_assets/screens/tutorial/tutorial_highlight_ring.png`
+- [x] VA-313 Generate → `assets/ui_assets/screens/tutorial/tutorial_merge_icon.png`
+- [x] VA-314 Generate → `assets/ui_assets/screens/tutorial/tutorial_order_icon.png`
+- [x] VA-315 Generate → `assets/ui_assets/screens/tutorial/tutorial_panel.png`
+- [x] VA-316 Generate → `assets/ui_assets/screens/tutorial/tutorial_skip_button.png`
+- [x] VA-317 Generate → `assets/ui_assets/screens/tutorial/tutorial_timer_icon.png`
+- [x] VA-318 Generate → `assets/ui_assets/screens/tutorial/tutorial_vip_badge.png`
 - [x] VA-319 PRESERVE → `assets/ui_assets/source/style_reference_board.png`
 - [x] VA-320 PRESERVE → `assets/ui_assets/source/style_reference_board_remediation_v01.png`
 - [ ] VA-321 Generate → `assets/ui_assets/tables/table_edge_overlay_master.png`
