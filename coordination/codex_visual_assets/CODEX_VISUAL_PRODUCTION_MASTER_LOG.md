@@ -69,6 +69,14 @@ Append one concise section per visual batch:
 - Remote branch: `codex/visual-assets-production`.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 19/19 Brand and Effects canonical paths were present.
 
+## Batch 018 — Daily Reward screen family
+
+- Timestamp: 2026-09-22 03:40:06 +03:00.
+- Dedicated targets generated: 9.
+- Separate image-generation operation used for every Daily Reward visual, with approved Main Menu V04/style authorities; no V05 visuals or atlas slicing used.
+- Validation: all nine canonical paths are exact-size RGBA files.
+- Publication: pending commit and push to `codex/visual-assets-production`.
+
 ## Batch 016 publication record
 
 - Implementation commit: `6b35260bbe513275499341418cb53ccfc0bab067`.

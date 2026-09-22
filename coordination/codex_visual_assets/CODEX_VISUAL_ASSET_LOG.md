@@ -91,6 +91,18 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote canonical paths verified: 19/19 Brand and Effects targets present.
 - Worktree remained clean after push.
 
+## Batch 018 — Daily Reward screen family
+
+- Timestamp: 2026-09-22 03:40:06 +03:00.
+- Tasks: VA-197 through VA-205.
+- Outputs: all nine `assets/ui_assets/screens/daily_reward/**` targets in the master list.
+- Generation: one separate purpose-specific image-generation operation per daily reward button, chest, state tile, slot, portrait background, panel and streak badge using the approved Main Menu V04/style authorities.
+- Technical cleanup: exact master-list resizing and RGBA conversion only; no runtime code or protected assets changed.
+- Rejected/regenerated attempts: none.
+- QA: exact dimensions and RGBA verified for all nine outputs.
+- Blockers: none.
+- Commit/push: published in commit recorded below.
+
 ## Batch 016 publication record
 
 - Implementation commit: `6b35260bbe513275499341418cb53ccfc0bab067`.

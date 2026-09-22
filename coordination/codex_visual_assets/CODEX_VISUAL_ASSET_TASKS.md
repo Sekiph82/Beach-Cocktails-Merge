@@ -212,15 +212,15 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-194 Generate → `assets/ui_assets/effects/to_go_trail_variant.png`
 - [x] VA-195 Generate → `assets/ui_assets/effects/vip_complete_flash.png`
 - [x] VA-196 Generate → `assets/ui_assets/effects/win_rays.png`
-- [ ] VA-197 Generate → `assets/ui_assets/screens/daily_reward/button_claim.png`
-- [ ] VA-198 Generate → `assets/ui_assets/screens/daily_reward/daily_chest.png`
-- [ ] VA-199 Generate → `assets/ui_assets/screens/daily_reward/daily_day_claimed.png`
-- [ ] VA-200 Generate → `assets/ui_assets/screens/daily_reward/daily_day_current.png`
-- [ ] VA-201 Generate → `assets/ui_assets/screens/daily_reward/daily_day_locked.png`
-- [ ] VA-202 Generate → `assets/ui_assets/screens/daily_reward/daily_day_slot.png`
-- [ ] VA-203 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_background.png`
-- [ ] VA-204 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_panel.png`
-- [ ] VA-205 Generate → `assets/ui_assets/screens/daily_reward/streak_badge.png`
+- [x] VA-197 Generate → `assets/ui_assets/screens/daily_reward/button_claim.png`
+- [x] VA-198 Generate → `assets/ui_assets/screens/daily_reward/daily_chest.png`
+- [x] VA-199 Generate → `assets/ui_assets/screens/daily_reward/daily_day_claimed.png`
+- [x] VA-200 Generate → `assets/ui_assets/screens/daily_reward/daily_day_current.png`
+- [x] VA-201 Generate → `assets/ui_assets/screens/daily_reward/daily_day_locked.png`
+- [x] VA-202 Generate → `assets/ui_assets/screens/daily_reward/daily_day_slot.png`
+- [x] VA-203 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_background.png`
+- [x] VA-204 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_panel.png`
+- [x] VA-205 Generate → `assets/ui_assets/screens/daily_reward/streak_badge.png`
 - [ ] VA-206 Generate → `assets/ui_assets/screens/main_menu/coin_counter_panel.png`
 - [ ] VA-207 Generate → `assets/ui_assets/screens/main_menu/gem_counter_panel.png`
 - [ ] VA-208 Generate → `assets/ui_assets/screens/main_menu/main_menu_background.png`
