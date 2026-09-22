@@ -317,4 +317,9 @@ Append one concise section per visual batch:
 - Dedicated targets generated: 11, VA-218 through VA-228.
 - Separate built-in image-generation operation used for every milestone visual with V04 Main Menu authority and both approved style boards as secondary references; no V05 visuals or atlas slicing used.
 - Validation: all 11 canonical paths are exact-size RGBA files with true transparent alpha; button, chest, panel, ribbon, banner, glow, unlock-frame and reward-slot semantics were visually inspected.
-- Publication: pending commit and push to `codex/visual-assets-production`.
+- Publication: committed as `f83bc247a9c1151b1373efaaa630936b59e660a5` and pushed to `codex/visual-assets-production`; remote paths verified 11/11.
+
+## Batch 021 publication record
+
+- Remote branch HEAD: `f83bc247a9c1151b1373efaaa630936b59e660a5`.
+- Official logs and the dedicated tracker are present on the remote visual branch.

@@ -373,4 +373,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - Rejected/regenerated attempts: one extra unpromoted draft was generated while confirming the built-in output-path contract; it was not used for any canonical target. No promoted candidate required regeneration.
 - QA: every output visually inspected; claim/continue buttons are materially distinct; closed/open chest states are materially distinct; all 11 outputs are exact-size RGBA PNGs with alpha extrema `(0, 255)`.
 - Blockers: none.
-- Commit/push: pending batch publication.
+- Commit/push: published in commit `f83bc247a9c1151b1373efaaa630936b59e660a5`.
+
+## Batch 021 publication record
+
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `f83bc247a9c1151b1373efaaa630936b59e660a5`.
+- Remote canonical paths verified: 11/11 Milestones targets present.
+- Worktree was clean before this publication-record append.
