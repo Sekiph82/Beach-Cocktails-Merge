@@ -83,6 +83,14 @@ V05 production visuals are owner-rejected and are not style authority.
 - Blockers: none.
 - Commit/push: published in commit recorded below.
 
+## Batch 016 publication record
+
+- Implementation commit: `6b35260bbe513275499341418cb53ccfc0bab067`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `6b35260bbe513275499341418cb53ccfc0bab067`.
+- Remote canonical paths verified: 22/22 World Map targets present.
+- Worktree remained clean after push.
+
 ## Batch 005 publication record
 
 - Implementation commit: `0aefcddbc74543a0f9e72f8c30b74b5453394b90`.

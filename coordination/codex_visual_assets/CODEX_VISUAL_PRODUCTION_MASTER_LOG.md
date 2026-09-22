@@ -63,6 +63,12 @@ Append one concise section per visual batch:
 - Target families: global buttons, generic panels, popup frame, tooltip frame.
 - Publication: pending commit and push to `codex/visual-assets-production`.
 
+## Batch 016 publication record
+
+- Implementation commit: `6b35260bbe513275499341418cb53ccfc0bab067`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` matched the implementation commit; 22/22 World Map canonical paths were present.
+
 ## Batch 004 — island-map progression UI
 
 - Timestamp: 2026-09-21 23:10:16 +03:00.
