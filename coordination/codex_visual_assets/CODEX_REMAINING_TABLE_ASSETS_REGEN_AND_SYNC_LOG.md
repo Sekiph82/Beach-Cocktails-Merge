@@ -1,6 +1,6 @@
 # CODEX REMAINING TABLE ASSETS REGEN + SYNC LOG
 
-Status: AWAITING_EXECUTION
+Status: COMPLETE
 
 Execution prompt:
 https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/codex_visual_assets/CODEX_REMAINING_TABLE_ASSETS_REGEN_AND_SYNC_PROMPT.md
@@ -18,3 +18,32 @@ Required fields:
 - origin/main HEAD
 - desktop sync exact/not exact
 - HTTP 429 yes/no
+
+## Execution record
+
+- Date/time: 2026-09-23 22:38:31 +03:00.
+- Real image-generation operations: 18/18. Every listed PNG used one separate real image-generation operation; no grouped sheets, atlas slicing, procedural artwork, Python/Pillow artwork, recoloring, or technical derivation was used as a substitute.
+- Azure Bay reference authority: approved Azure Bay `gameplay_table.png`, `gameplay_table_shadow.png`, and `table_edge_overlay.png` were used as the exact geometry, perspective, form, and placement authorities. Those three authority files were not modified.
+- Completed asset paths:
+  - `assets/ui_assets/campaign/islands/final_island/gameplay_table.png`
+  - `assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png`
+  - `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png`
+  - `assets/ui_assets/campaign/islands/party_beach/gameplay_table.png`
+  - `assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png`
+  - `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png`
+  - `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png`
+  - `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png`
+  - `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png`
+  - `assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png`
+  - `assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png`
+  - `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png`
+  - `assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png`
+  - `assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png`
+  - `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png`
+  - `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png`
+  - `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png`
+  - `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png`
+- Image replacement commit SHA: `294bd72bab480bceb6ec660665addf9286bf6d1a`.
+- Generation failures: none.
+- HTTP 429: no.
+- Desktop synchronization: pending final log publication; final sync targets the pushed `origin/main` after the log commit.

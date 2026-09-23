@@ -545,3 +545,12 @@ Append one concise section per visual batch:
 - Remote canonical paths verified: 32/32 scoped owner-audit remediation targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
 - Remaining production tracker items outside this remediation scope remain unchanged and deferred/pending according to the live tracker.
+
+## Remaining Table Assets Regeneration — Batch 035
+
+- Timestamp: 2026-09-23 22:38:31 +03:00.
+- Dedicated targets generated: 18 table assets: VA-068, VA-069, VA-073, VA-095, VA-096, VA-099, VA-108, VA-109, VA-112, VA-121, VA-122, VA-125, VA-134, VA-135, VA-138, VA-146, VA-147, and VA-151.
+- Separate real image-generation operation used for every target. Approved Azure Bay gameplay table, gameplay-table shadow, and edge overlay were the exact geometry/reference authorities; matching V04 island masters supplied visual identity. No V05 visuals, atlas slicing, contact sheets, grouped sheets, or code-generated substitutes were used.
+- Technical processing was limited to post-generation resize/crop and alpha application to the approved Azure Bay form.
+- Image replacement commit: `294bd72bab480bceb6ec660665addf9286bf6d1a`.
+- HTTP 429: no. Generation failures: none.

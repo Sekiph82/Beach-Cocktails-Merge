@@ -706,3 +706,13 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `28a2981a63f6aab6d748db4a30d905f053c7f648`.
 - Remote canonical paths verified: 32/32 scoped owner-audit remediation targets present.
 - Tracker action: VA-009, VA-010, VA-021, VA-029, VA-030, VA-034, VA-042, VA-043, VA-047, VA-055, VA-056, VA-060, VA-068, VA-069, VA-072, VA-073, VA-074, VA-075, VA-082, VA-086, VA-095, VA-098, VA-099, VA-108, VA-112, VA-121, VA-125, VA-134, VA-138, VA-146, VA-147, and VA-151 marked complete again only after remote replacement verification.
+
+## Remaining Table Assets Regeneration — Batch 035
+
+- Timestamp: 2026-09-23 22:38:31 +03:00.
+- Tasks: VA-068, VA-069, VA-073, VA-095, VA-096, VA-099, VA-108, VA-109, VA-112, VA-121, VA-122, VA-125, VA-134, VA-135, VA-138, VA-146, VA-147, and VA-151.
+- Outputs: 18 canonical Final Island, Party Beach, Sunny Cove, Sunset Island, Tiki Island, and Volcano Bay gameplay-table, gameplay-table-shadow, and table-edge-overlay PNGs.
+- Generation: one separate real built-in image-generation operation per distinct asset; approved Azure Bay gameplay table, shadow, and edge overlay were the exact geometry/reference authorities; V04 island masters supplied island identity; no V05 art, atlas slicing, grouped sheets, or code-generated substitutes were used.
+- Technical processing: post-generation canvas normalization and alpha application only, using the approved Azure Bay forms; Azure Bay authority files were not modified.
+- Blockers: none; HTTP 429: no.
+- Image replacement commit: `294bd72bab480bceb6ec660665addf9286bf6d1a`.
