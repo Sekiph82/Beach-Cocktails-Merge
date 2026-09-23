@@ -1,0 +1,434 @@
+# BEACH COCKTAILS MERGE — CODEX VISUAL ASSET TASKS
+
+Status: ACTIVE VISUAL REGENERATION  
+Branch: `codex/visual-assets-production`
+
+The owner has REJECTED the V05 production visual set. Existing V05 presence does not count as completion.
+
+A box may be checked only when:
+- the exact final file exists at the canonical path;
+- it was generated/derived under the new Codex visual system;
+- it was visually inspected against the relevant V04 master;
+- dimensions/alpha/semantic QA passed;
+- it was committed and pushed to the dedicated visual branch.
+
+Protected canonical logo is pre-marked preserved.
+
+## Production tasks
+
+- [x] VA-001 Generate → `assets/ui_assets/brand/app_icon.png`
+- [x] VA-002 Generate → `assets/ui_assets/brand/brand_badge_small.png`
+- [x] VA-003 Generate → `assets/ui_assets/brand/brand_wordmark_small.png`
+- [x] VA-004 Generate → `assets/ui_assets/brand/legal_logo_mark.png`
+- [x] VA-005 PRESERVE → `assets/ui_assets/brand/logo_beach_cocktails_merge.png`
+- [x] VA-006 Generate → `assets/ui_assets/brand/splash_logo.png`
+- [x] VA-007 Generate → `assets/ui_assets/campaign/island_map/finale_crown.png`
+- [x] VA-008 Generate → `assets/ui_assets/campaign/island_map/island_summary_panel.png`
+- [x] VA-009 Generate → `assets/ui_assets/campaign/island_map/level_connector.png`
+- [x] VA-010 Generate → `assets/ui_assets/campaign/island_map/level_connector_complete.png`
+- [x] VA-011 Generate → `assets/ui_assets/campaign/island_map/level_node_completed.png`
+- [x] VA-012 Generate → `assets/ui_assets/campaign/island_map/level_node_current.png`
+- [x] VA-013 Generate → `assets/ui_assets/campaign/island_map/level_node_finale.png`
+- [x] VA-014 Generate → `assets/ui_assets/campaign/island_map/level_node_locked.png`
+- [x] VA-015 Generate → `assets/ui_assets/campaign/island_map/level_node_milestone.png`
+- [x] VA-016 Generate → `assets/ui_assets/campaign/island_map/level_node_unlocked.png`
+- [x] VA-017 Generate → `assets/ui_assets/campaign/island_map/map_scroll_bottom_decor.png`
+- [x] VA-018 Generate → `assets/ui_assets/campaign/island_map/map_scroll_top_decor.png`
+- [x] VA-019 Generate → `assets/ui_assets/campaign/island_map/milestone_chest_marker.png`
+- [x] VA-020 Generate → `assets/ui_assets/campaign/island_map/next_milestone_panel.png`
+- [x] VA-021 Generate → `assets/ui_assets/campaign/island_map/star_small_empty.png`
+- [x] VA-022 Generate → `assets/ui_assets/campaign/island_map/star_small_filled.png`
+- [x] VA-023 Generate → `assets/ui_assets/campaign/island_map/stars_counter_panel.png`
+- [x] VA-024 Generate → `assets/ui_assets/campaign/islands/azure_bay/complete_badge.png`
+- [x] VA-025 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_back.png`
+- [x] VA-026 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_left.png`
+- [x] VA-027 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_right.png`
+- [x] VA-028 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_background.png`
+- [x] VA-029 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png`
+- [x] VA-030 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png`
+- [x] VA-031 Generate → `assets/ui_assets/campaign/islands/azure_bay/launch_zone.png`
+- [x] VA-032 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_background.png`
+- [x] VA-033 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_title.png`
+- [x] VA-034 Generate → `assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png`
+- [x] VA-035 Generate → `assets/ui_assets/campaign/islands/azure_bay/theme_badge.png`
+- [x] VA-036 Generate → `assets/ui_assets/campaign/islands/azure_bay/world_icon.png`
+- [x] VA-037 Generate → `assets/ui_assets/campaign/islands/billionaire_island/complete_badge.png`
+- [x] VA-038 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_back.png`
+- [x] VA-039 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_left.png`
+- [x] VA-040 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_right.png`
+- [x] VA-041 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_background.png`
+- [x] VA-042 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png`
+- [x] VA-043 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png`
+- [x] VA-044 Generate → `assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png`
+- [x] VA-045 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_background.png`
+- [x] VA-046 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_title.png`
+- [x] VA-047 Generate → `assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png`
+- [x] VA-048 Generate → `assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png`
+- [x] VA-049 Generate → `assets/ui_assets/campaign/islands/billionaire_island/world_icon.png`
+- [x] VA-050 Generate → `assets/ui_assets/campaign/islands/coconut_beach/complete_badge.png`
+- [x] VA-051 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_back.png`
+- [x] VA-052 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_left.png`
+- [x] VA-053 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_right.png`
+- [x] VA-054 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_background.png`
+- [x] VA-055 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png`
+- [x] VA-056 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png`
+- [x] VA-057 Generate → `assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png`
+- [x] VA-058 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_background.png`
+- [x] VA-059 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_title.png`
+- [x] VA-060 Generate → `assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png`
+- [x] VA-061 Generate → `assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png`
+- [x] VA-062 Generate → `assets/ui_assets/campaign/islands/coconut_beach/world_icon.png`
+- [x] VA-063 Generate → `assets/ui_assets/campaign/islands/final_island/complete_badge.png`
+- [x] VA-064 Generate → `assets/ui_assets/campaign/islands/final_island/decor_back.png`
+- [x] VA-065 Generate → `assets/ui_assets/campaign/islands/final_island/decor_left.png`
+- [x] VA-066 Generate → `assets/ui_assets/campaign/islands/final_island/decor_right.png`
+- [x] VA-067 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_background.png`
+- [x] VA-068 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table.png`
+- [x] VA-069 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png`
+- [x] VA-070 Generate → `assets/ui_assets/campaign/islands/final_island/launch_zone.png`
+- [x] VA-071 Generate → `assets/ui_assets/campaign/islands/final_island/map_background.png`
+- [x] VA-072 Generate → `assets/ui_assets/campaign/islands/final_island/map_title.png`
+- [x] VA-073 Generate → `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png`
+- [x] VA-074 Generate → `assets/ui_assets/campaign/islands/final_island/theme_badge.png`
+- [x] VA-075 Generate → `assets/ui_assets/campaign/islands/final_island/world_icon.png`
+- [x] VA-076 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/complete_badge.png`
+- [x] VA-077 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_back.png`
+- [x] VA-078 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_left.png`
+- [x] VA-079 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_right.png`
+- [x] VA-080 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_background.png`
+- [x] VA-081 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table.png`
+- [x] VA-082 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png`
+- [x] VA-083 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png`
+- [x] VA-084 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_background.png`
+- [x] VA-085 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_title.png`
+- [x] VA-086 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png`
+- [x] VA-087 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png`
+- [x] VA-088 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/world_icon.png`
+- [x] VA-089 Generate → `assets/ui_assets/campaign/islands/party_beach/complete_badge.png`
+- [x] VA-090 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_back.png`
+- [x] VA-091 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_left.png`
+- [x] VA-092 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_right.png`
+- [x] VA-093 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_background.png`
+- [x] VA-094 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table.png`
+- [x] VA-095 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png`
+- [x] VA-096 Generate → `assets/ui_assets/campaign/islands/party_beach/launch_zone.png`
+- [x] VA-097 Generate → `assets/ui_assets/campaign/islands/party_beach/map_background.png`
+- [x] VA-098 Generate → `assets/ui_assets/campaign/islands/party_beach/map_title.png`
+- [x] VA-099 Generate → `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png`
+- [x] VA-100 Generate → `assets/ui_assets/campaign/islands/party_beach/theme_badge.png`
+- [x] VA-101 Generate → `assets/ui_assets/campaign/islands/party_beach/world_icon.png`
+- [x] VA-102 Generate → `assets/ui_assets/campaign/islands/sunny_cove/complete_badge.png`
+- [x] VA-103 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_back.png`
+- [x] VA-104 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_left.png`
+- [x] VA-105 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_right.png`
+- [x] VA-106 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png`
+- [x] VA-107 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png`
+- [x] VA-108 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png`
+- [x] VA-109 Generate → `assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png`
+- [x] VA-110 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_background.png`
+- [x] VA-111 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_title.png`
+- [x] VA-112 Generate → `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png`
+- [x] VA-113 Generate → `assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png`
+- [x] VA-114 Generate → `assets/ui_assets/campaign/islands/sunny_cove/world_icon.png`
+- [x] VA-115 Generate → `assets/ui_assets/campaign/islands/sunset_island/complete_badge.png`
+- [x] VA-116 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_back.png`
+- [x] VA-117 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_left.png`
+- [x] VA-118 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_right.png`
+- [x] VA-119 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_background.png`
+- [x] VA-120 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png`
+- [x] VA-121 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png`
+- [x] VA-122 Generate → `assets/ui_assets/campaign/islands/sunset_island/launch_zone.png`
+- [x] VA-123 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_background.png`
+- [x] VA-124 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_title.png`
+- [x] VA-125 Generate → `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png`
+- [x] VA-126 Generate → `assets/ui_assets/campaign/islands/sunset_island/theme_badge.png`
+- [x] VA-127 Generate → `assets/ui_assets/campaign/islands/sunset_island/world_icon.png`
+- [x] VA-128 Generate → `assets/ui_assets/campaign/islands/tiki_island/complete_badge.png`
+- [x] VA-129 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_back.png`
+- [x] VA-130 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_left.png`
+- [x] VA-131 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_right.png`
+- [x] VA-132 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_background.png`
+- [x] VA-133 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png`
+- [x] VA-134 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png`
+- [x] VA-135 Generate → `assets/ui_assets/campaign/islands/tiki_island/launch_zone.png`
+- [x] VA-136 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_background.png`
+- [x] VA-137 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_title.png`
+- [x] VA-138 Generate → `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png`
+- [x] VA-139 Generate → `assets/ui_assets/campaign/islands/tiki_island/theme_badge.png`
+- [x] VA-140 Generate → `assets/ui_assets/campaign/islands/tiki_island/world_icon.png`
+- [x] VA-141 Generate → `assets/ui_assets/campaign/islands/volcano_bay/complete_badge.png`
+- [x] VA-142 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_back.png`
+- [x] VA-143 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_left.png`
+- [x] VA-144 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_right.png`
+- [x] VA-145 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_background.png`
+- [x] VA-146 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png`
+- [x] VA-147 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png`
+- [x] VA-148 Generate → `assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png`
+- [x] VA-149 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_background.png`
+- [x] VA-150 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_title.png`
+- [x] VA-151 Generate → `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png`
+- [x] VA-152 Generate → `assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png`
+- [x] VA-153 Generate → `assets/ui_assets/campaign/islands/volcano_bay/world_icon.png`
+- [x] VA-154 Generate → `assets/ui_assets/campaign/world_map/azure_bay.png`
+- [x] VA-155 Generate → `assets/ui_assets/campaign/world_map/billionaire_island.png`
+- [x] VA-156 Generate → `assets/ui_assets/campaign/world_map/coconut_beach.png`
+- [x] VA-157 Generate → `assets/ui_assets/campaign/world_map/final_island.png`
+- [x] VA-158 Generate → `assets/ui_assets/campaign/world_map/frozen_paradise.png`
+- [x] VA-159 Generate → `assets/ui_assets/campaign/world_map/island_locked_overlay.png`
+- [x] VA-160 Generate → `assets/ui_assets/campaign/world_map/island_name_panel.png`
+- [x] VA-161 Generate → `assets/ui_assets/campaign/world_map/party_beach.png`
+- [x] VA-162 Generate → `assets/ui_assets/campaign/world_map/route_line.png`
+- [x] VA-163 Generate → `assets/ui_assets/campaign/world_map/route_marker.png`
+- [x] VA-164 Generate → `assets/ui_assets/campaign/world_map/route_marker_complete.png`
+- [x] VA-165 Generate → `assets/ui_assets/campaign/world_map/route_marker_current.png`
+- [x] VA-166 Generate → `assets/ui_assets/campaign/world_map/sunny_cove.png`
+- [x] VA-167 Generate → `assets/ui_assets/campaign/world_map/sunset_island.png`
+- [x] VA-168 Generate → `assets/ui_assets/campaign/world_map/tiki_island.png`
+- [x] VA-169 Generate → `assets/ui_assets/campaign/world_map/volcano_bay.png`
+- [x] VA-170 Generate → `assets/ui_assets/campaign/world_map/world_clouds_back.png`
+- [x] VA-171 Generate → `assets/ui_assets/campaign/world_map/world_clouds_front.png`
+- [x] VA-172 Generate → `assets/ui_assets/campaign/world_map/world_map_background.png`
+- [x] VA-173 Generate → `assets/ui_assets/campaign/world_map/world_map_boat.png`
+- [x] VA-174 Generate → `assets/ui_assets/campaign/world_map/world_map_compass.png`
+- [x] VA-175 Generate → `assets/ui_assets/campaign/world_map/world_map_title_panel.png`
+- [ ] VA-176 Generate → `assets/ui_assets/CONTACT_SHEET_GLOBAL.png`
+- [ ] VA-177 Generate → `assets/ui_assets/CONTACT_SHEET_ISLANDS.png`
+- [ ] VA-178 Generate → `assets/ui_assets/CONTACT_SHEET_MAJOR_SCREENS.png`
+- [ ] VA-179 Generate → `assets/ui_assets/CONTACT_SHEET_SCREENS.png`
+- [ ] VA-180 Generate → `assets/ui_assets/CONTACT_SHEET_SEMANTIC_ICONS.png`
+- [ ] VA-181 Generate → `assets/ui_assets/CONTACT_SHEET_STATEFUL_UI.png`
+- [ ] VA-182 Generate → `assets/ui_assets/CONTACT_SHEET_TABLES.png`
+- [x] VA-183 Generate → `assets/ui_assets/effects/combo_badge.png`
+- [x] VA-184 Generate → `assets/ui_assets/effects/combo_glow.png`
+- [x] VA-185 Generate → `assets/ui_assets/effects/confetti_strip.png`
+- [x] VA-186 Generate → `assets/ui_assets/effects/merge_flash.png`
+- [x] VA-187 Generate → `assets/ui_assets/effects/merge_ring.png`
+- [x] VA-188 Generate → `assets/ui_assets/effects/milestone_glow.png`
+- [x] VA-189 Generate → `assets/ui_assets/effects/order_complete_flash.png`
+- [x] VA-190 Generate → `assets/ui_assets/effects/score_pop_bg.png`
+- [x] VA-191 Generate → `assets/ui_assets/effects/sparkle_large.png`
+- [x] VA-192 Generate → `assets/ui_assets/effects/sparkle_small.png`
+- [x] VA-193 Generate → `assets/ui_assets/effects/timer_warning_glow.png`
+- [x] VA-194 Generate → `assets/ui_assets/effects/to_go_trail_variant.png`
+- [x] VA-195 Generate → `assets/ui_assets/effects/vip_complete_flash.png`
+- [x] VA-196 Generate → `assets/ui_assets/effects/win_rays.png`
+- [x] VA-197 Generate → `assets/ui_assets/screens/daily_reward/button_claim.png`
+- [x] VA-198 Generate → `assets/ui_assets/screens/daily_reward/daily_chest.png`
+- [x] VA-199 Generate → `assets/ui_assets/screens/daily_reward/daily_day_claimed.png`
+- [x] VA-200 Generate → `assets/ui_assets/screens/daily_reward/daily_day_current.png`
+- [x] VA-201 Generate → `assets/ui_assets/screens/daily_reward/daily_day_locked.png`
+- [x] VA-202 Generate → `assets/ui_assets/screens/daily_reward/daily_day_slot.png`
+- [x] VA-203 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_background.png`
+- [x] VA-204 Generate → `assets/ui_assets/screens/daily_reward/daily_reward_panel.png`
+- [x] VA-205 Generate → `assets/ui_assets/screens/daily_reward/streak_badge.png`
+- [x] VA-206 Generate → `assets/ui_assets/screens/main_menu/coin_counter_panel.png`
+- [x] VA-207 Generate → `assets/ui_assets/screens/main_menu/gem_counter_panel.png`
+- [x] VA-208 Generate → `assets/ui_assets/screens/main_menu/main_menu_background.png`
+- [x] VA-209 Generate → `assets/ui_assets/screens/main_menu/main_menu_daily_button.png`
+- [x] VA-210 Generate → `assets/ui_assets/screens/main_menu/main_menu_decor_left.png`
+- [x] VA-211 Generate → `assets/ui_assets/screens/main_menu/main_menu_decor_right.png`
+- [x] VA-212 Generate → `assets/ui_assets/screens/main_menu/main_menu_logo_frame.png`
+- [x] VA-213 Generate → `assets/ui_assets/screens/main_menu/main_menu_play_button.png`
+- [x] VA-214 Generate → `assets/ui_assets/screens/main_menu/main_menu_settings_button.png`
+- [x] VA-215 Generate → `assets/ui_assets/screens/main_menu/main_menu_shop_button.png`
+- [x] VA-216 Generate → `assets/ui_assets/screens/main_menu/main_menu_world_map_button.png`
+- [x] VA-217 Generate → `assets/ui_assets/screens/main_menu/profile_frame.png`
+- [x] VA-218 Generate → `assets/ui_assets/screens/milestones/button_claim.png`
+- [x] VA-219 Generate → `assets/ui_assets/screens/milestones/button_continue.png`
+- [x] VA-220 Generate → `assets/ui_assets/screens/milestones/island_complete_panel.png`
+- [x] VA-221 Generate → `assets/ui_assets/screens/milestones/island_complete_ribbon.png`
+- [x] VA-222 Generate → `assets/ui_assets/screens/milestones/milestone_banner.png`
+- [x] VA-223 Generate → `assets/ui_assets/screens/milestones/milestone_chest_closed.png`
+- [x] VA-224 Generate → `assets/ui_assets/screens/milestones/milestone_chest_open.png`
+- [x] VA-225 Generate → `assets/ui_assets/screens/milestones/milestone_glow.png`
+- [x] VA-226 Generate → `assets/ui_assets/screens/milestones/milestone_reward_panel.png`
+- [x] VA-227 Generate → `assets/ui_assets/screens/milestones/next_island_unlock_frame.png`
+- [x] VA-228 Generate → `assets/ui_assets/screens/milestones/reward_slot.png`
+- [x] VA-229 Generate → `assets/ui_assets/screens/pause/button_quit.png`
+- [x] VA-230 Generate → `assets/ui_assets/screens/pause/button_restart.png`
+- [x] VA-231 Generate → `assets/ui_assets/screens/pause/button_resume.png`
+- [x] VA-232 Generate → `assets/ui_assets/screens/pause/button_settings.png`
+- [x] VA-233 Generate → `assets/ui_assets/screens/pause/button_world_map.png`
+- [x] VA-234 Generate → `assets/ui_assets/screens/pause/pause_panel.png`
+- [x] VA-235 Generate → `assets/ui_assets/screens/prelevel/booster_selector_panel.png`
+- [x] VA-236 Generate → `assets/ui_assets/screens/prelevel/button_close_prelevel.png`
+- [x] VA-237 Generate → `assets/ui_assets/screens/prelevel/button_play_level.png`
+- [x] VA-238 Generate → `assets/ui_assets/screens/prelevel/level_number_badge.png`
+- [x] VA-239 Generate → `assets/ui_assets/screens/prelevel/order_slot.png`
+- [x] VA-240 Generate → `assets/ui_assets/screens/prelevel/prelevel_panel.png`
+- [x] VA-241 Generate → `assets/ui_assets/screens/prelevel/timer_icon.png`
+- [x] VA-242 Generate → `assets/ui_assets/screens/prelevel/timer_panel_small.png`
+- [x] VA-243 Generate → `assets/ui_assets/screens/prelevel/vip_badge.png`
+- [x] VA-244 Generate → `assets/ui_assets/screens/prelevel/vip_reward_slot.png`
+- [x] VA-245 Generate → `assets/ui_assets/screens/results/button_add_time.png`
+- [x] VA-246 Generate → `assets/ui_assets/screens/results/button_island_map.png`
+- [x] VA-247 Generate → `assets/ui_assets/screens/results/button_next_level.png`
+- [x] VA-248 Generate → `assets/ui_assets/screens/results/button_replay.png`
+- [x] VA-249 Generate → `assets/ui_assets/screens/results/button_retry.png`
+- [x] VA-250 Generate → `assets/ui_assets/screens/results/button_world_map_fail.png`
+- [x] VA-251 Generate → `assets/ui_assets/screens/results/fail_timer_icon.png`
+- [x] VA-252 Generate → `assets/ui_assets/screens/results/level_complete_panel.png`
+- [x] VA-253 Generate → `assets/ui_assets/screens/results/level_complete_title.png`
+- [x] VA-254 Generate → `assets/ui_assets/screens/results/level_failed_panel.png`
+- [x] VA-255 Generate → `assets/ui_assets/screens/results/remaining_order_slot.png`
+- [x] VA-256 Generate → `assets/ui_assets/screens/results/reward_slot.png`
+- [x] VA-257 Generate → `assets/ui_assets/screens/results/score_summary_panel.png`
+- [x] VA-258 Generate → `assets/ui_assets/screens/results/time_up_title.png`
+- [x] VA-259 Generate → `assets/ui_assets/screens/results/video_ad_icon.png`
+- [x] VA-260 Generate → `assets/ui_assets/screens/results/vip_complete_badge.png`
+- [x] VA-261 Generate → `assets/ui_assets/screens/rewarded_ad/button_no_thanks.png`
+- [x] VA-262 Generate → `assets/ui_assets/screens/rewarded_ad/button_watch_ad.png`
+- [x] VA-263 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_double_icon.png`
+- [x] VA-264 Generate → `assets/ui_assets/screens/rewarded_ad/reward_ad_time_icon.png`
+- [x] VA-265 Generate → `assets/ui_assets/screens/rewarded_ad/rewarded_ad_panel.png`
+- [x] VA-266 Generate → `assets/ui_assets/screens/rewarded_ad/video_ad_icon.png`
+- [x] VA-267 Generate → `assets/ui_assets/screens/settings/accessibility_icon.png`
+- [x] VA-268 Generate → `assets/ui_assets/screens/settings/button_close_settings.png`
+- [x] VA-269 Generate → `assets/ui_assets/screens/settings/haptic_icon.png`
+- [x] VA-270 Generate → `assets/ui_assets/screens/settings/language_icon.png`
+- [x] VA-271 Generate → `assets/ui_assets/screens/settings/music_icon.png`
+- [x] VA-272 Generate → `assets/ui_assets/screens/settings/privacy_icon.png`
+- [x] VA-273 Generate → `assets/ui_assets/screens/settings/restore_purchase_icon.png`
+- [x] VA-274 Generate → `assets/ui_assets/screens/settings/settings_panel.png`
+- [x] VA-275 Generate → `assets/ui_assets/screens/settings/slider_handle.png`
+- [x] VA-276 Generate → `assets/ui_assets/screens/settings/slider_track.png`
+- [x] VA-277 Generate → `assets/ui_assets/screens/settings/sound_icon.png`
+- [x] VA-278 Generate → `assets/ui_assets/screens/settings/toggle_off.png`
+- [x] VA-279 Generate → `assets/ui_assets/screens/settings/toggle_on.png`
+- [x] VA-280 Generate → `assets/ui_assets/screens/shop/best_value_badge.png`
+- [x] VA-281 Generate → `assets/ui_assets/screens/shop/button_buy.png`
+- [x] VA-282 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_large.png`
+- [x] VA-283 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_medium.png`
+- [x] VA-284 Generate → `assets/ui_assets/screens/shop/coin_pack_icon_small.png`
+- [x] VA-285 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_large.png`
+- [x] VA-286 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_medium.png`
+- [x] VA-287 Generate → `assets/ui_assets/screens/shop/gem_pack_icon_small.png`
+- [x] VA-288 Generate → `assets/ui_assets/screens/shop/sale_badge.png`
+- [x] VA-289 Generate → `assets/ui_assets/screens/shop/shop_background.png`
+- [x] VA-290 Generate → `assets/ui_assets/screens/shop/shop_header.png`
+- [x] VA-291 Generate → `assets/ui_assets/screens/shop/shop_item_card.png`
+- [x] VA-292 Generate → `assets/ui_assets/screens/shop/shop_item_card_featured.png`
+- [x] VA-293 Generate → `assets/ui_assets/screens/shop/shop_tab_boosters.png`
+- [x] VA-294 Generate → `assets/ui_assets/screens/shop/shop_tab_currency.png`
+- [x] VA-295 Generate → `assets/ui_assets/screens/shop/shop_tab_special.png`
+- [x] VA-296 Generate → `assets/ui_assets/screens/shop/starter_pack_badge.png`
+- [x] VA-297 Generate → `assets/ui_assets/screens/social/friend_icon.png`
+- [x] VA-298 Generate → `assets/ui_assets/screens/social/leaderboard_panel.png`
+- [x] VA-299 Generate → `assets/ui_assets/screens/social/player_avatar_frame.png`
+- [x] VA-300 Generate → `assets/ui_assets/screens/social/rank_badge_1.png`
+- [x] VA-301 Generate → `assets/ui_assets/screens/social/rank_badge_2.png`
+- [x] VA-302 Generate → `assets/ui_assets/screens/social/rank_badge_3.png`
+- [x] VA-303 Generate → `assets/ui_assets/screens/social/share_icon.png`
+- [x] VA-304 Generate → `assets/ui_assets/screens/splash/loading_bar_fill.png`
+- [x] VA-305 Generate → `assets/ui_assets/screens/splash/loading_bar_frame.png`
+- [x] VA-306 Generate → `assets/ui_assets/screens/splash/loading_cocktail_icon.png`
+- [x] VA-307 Generate → `assets/ui_assets/screens/splash/loading_spinner.png`
+- [x] VA-308 Generate → `assets/ui_assets/screens/splash/loading_tip_panel.png`
+- [x] VA-309 Generate → `assets/ui_assets/screens/splash/splash_background.png`
+- [x] VA-310 Generate → `assets/ui_assets/screens/tutorial/tutorial_arrow.png`
+- [x] VA-311 Generate → `assets/ui_assets/screens/tutorial/tutorial_hand.png`
+- [x] VA-312 Generate → `assets/ui_assets/screens/tutorial/tutorial_highlight_ring.png`
+- [x] VA-313 Generate → `assets/ui_assets/screens/tutorial/tutorial_merge_icon.png`
+- [x] VA-314 Generate → `assets/ui_assets/screens/tutorial/tutorial_order_icon.png`
+- [x] VA-315 Generate → `assets/ui_assets/screens/tutorial/tutorial_panel.png`
+- [x] VA-316 Generate → `assets/ui_assets/screens/tutorial/tutorial_skip_button.png`
+- [x] VA-317 Generate → `assets/ui_assets/screens/tutorial/tutorial_timer_icon.png`
+- [x] VA-318 Generate → `assets/ui_assets/screens/tutorial/tutorial_vip_badge.png`
+- [x] VA-319 PRESERVE → `assets/ui_assets/source/style_reference_board.png`
+- [x] VA-320 PRESERVE → `assets/ui_assets/source/style_reference_board_remediation_v01.png`
+- [x] VA-321 Generate → `assets/ui_assets/tables/table_edge_overlay_master.png`
+- [x] VA-322 PRESERVE → `assets/ui_assets/tables/table_silhouette_mask.png`
+- [x] VA-323 Generate → `assets/ui_assets/ui/boosters/booster_count_badge.png`
+- [x] VA-324 Generate → `assets/ui_assets/ui/boosters/booster_hammer.png`
+- [x] VA-325 Generate → `assets/ui_assets/ui/boosters/booster_locked.png`
+- [x] VA-326 Generate → `assets/ui_assets/ui/boosters/booster_selected.png`
+- [x] VA-327 Generate → `assets/ui_assets/ui/boosters/booster_shuffle.png`
+- [x] VA-328 Generate → `assets/ui_assets/ui/boosters/booster_slot.png`
+- [x] VA-329 Generate → `assets/ui_assets/ui/boosters/booster_time.png`
+- [x] VA-330 Generate → `assets/ui_assets/ui/boosters/booster_upgrade.png`
+- [x] VA-331 Generate → `assets/ui_assets/ui/gameplay/level_label_panel.png`
+- [x] VA-332 Generate → `assets/ui_assets/ui/gameplay/pause_button.png`
+- [x] VA-333 Generate → `assets/ui_assets/ui/gameplay/timer_icon.png`
+- [x] VA-334 Generate → `assets/ui_assets/ui/gameplay/timer_panel.png`
+- [x] VA-335 Generate → `assets/ui_assets/ui/gameplay/timer_warning_glow.png`
+- [x] VA-336 Generate → `assets/ui_assets/ui/gameplay/vip_badge.png`
+- [x] VA-337 Generate → `assets/ui_assets/ui/gameplay/vip_reward_frame.png`
+- [x] VA-338 Generate → `assets/ui_assets/ui/global/back_arrow.png`
+- [x] VA-339 Generate → `assets/ui_assets/ui/global/button_danger.png`
+- [x] VA-340 Generate → `assets/ui_assets/ui/global/button_disabled.png`
+- [x] VA-341 Generate → `assets/ui_assets/ui/global/button_icon_round.png`
+- [x] VA-342 Generate → `assets/ui_assets/ui/global/button_locked.png`
+- [x] VA-343 Generate → `assets/ui_assets/ui/global/button_primary.png`
+- [x] VA-344 Generate → `assets/ui_assets/ui/global/button_secondary.png`
+- [x] VA-345 Generate → `assets/ui_assets/ui/global/button_small.png`
+- [x] VA-346 Generate → `assets/ui_assets/ui/global/check_icon.png`
+- [x] VA-347 Generate → `assets/ui_assets/ui/global/close_x.png`
+- [ ] VA-348 Generate → `assets/ui_assets/ui/global/complete_badge.png`
+- [ ] VA-349 Generate → `assets/ui_assets/ui/global/current_badge.png`
+- [ ] VA-350 Generate → `assets/ui_assets/ui/global/daily_ready_badge.png`
+- [ ] VA-351 Generate → `assets/ui_assets/ui/global/divider_gold.png`
+- [ ] VA-352 Generate → `assets/ui_assets/ui/global/finale_badge.png`
+- [x] VA-353 Generate → `assets/ui_assets/ui/global/help_icon.png`
+- [x] VA-354 Generate → `assets/ui_assets/ui/global/home_icon.png`
+- [x] VA-355 Generate → `assets/ui_assets/ui/global/info_icon.png`
+- [x] VA-356 Generate → `assets/ui_assets/ui/global/lock_icon.png`
+- [x] VA-357 Generate → `assets/ui_assets/ui/global/map_icon.png`
+- [ ] VA-358 Generate → `assets/ui_assets/ui/global/milestone_badge.png`
+- [ ] VA-359 Generate → `assets/ui_assets/ui/global/new_badge.png`
+- [ ] VA-360 Generate → `assets/ui_assets/ui/global/new_content_badge.png`
+- [x] VA-361 Generate → `assets/ui_assets/ui/global/next_arrow.png`
+- [ ] VA-362 Generate → `assets/ui_assets/ui/global/notification_dot.png`
+- [x] VA-363 Generate → `assets/ui_assets/ui/global/panel_generic_large.png`
+- [x] VA-364 Generate → `assets/ui_assets/ui/global/panel_generic_medium.png`
+- [x] VA-365 Generate → `assets/ui_assets/ui/global/panel_generic_small.png`
+- [x] VA-366 Generate → `assets/ui_assets/ui/global/pause_icon.png`
+- [ ] VA-367 Generate → `assets/ui_assets/ui/global/play_icon.png`
+- [x] VA-368 Generate → `assets/ui_assets/ui/global/popup_frame.png`
+- [x] VA-369 Generate → `assets/ui_assets/ui/global/previous_arrow.png`
+- [ ] VA-370 Generate → `assets/ui_assets/ui/global/restart_icon.png`
+- [ ] VA-371 Generate → `assets/ui_assets/ui/global/reward_ready_badge.png`
+- [ ] VA-372 Generate → `assets/ui_assets/ui/global/sale_badge_small.png`
+- [ ] VA-373 Generate → `assets/ui_assets/ui/global/settings_icon.png`
+- [ ] VA-374 Generate → `assets/ui_assets/ui/global/tab_active.png`
+- [ ] VA-375 Generate → `assets/ui_assets/ui/global/tab_inactive.png`
+- [x] VA-376 Generate → `assets/ui_assets/ui/global/tooltip_frame.png`
+- [x] VA-377 Generate → `assets/ui_assets/ui/rewards/big_chest_closed.png`
+- [x] VA-378 Generate → `assets/ui_assets/ui/rewards/big_chest_open.png`
+- [x] VA-379 Generate → `assets/ui_assets/ui/rewards/coin_icon.png`
+- [x] VA-380 Generate → `assets/ui_assets/ui/rewards/gem_icon.png`
+- [x] VA-381 Generate → `assets/ui_assets/ui/rewards/premium_chest_closed.png`
+- [x] VA-382 Generate → `assets/ui_assets/ui/rewards/premium_chest_open.png`
+- [x] VA-383 Generate → `assets/ui_assets/ui/rewards/reward_frame_large.png`
+- [x] VA-384 Generate → `assets/ui_assets/ui/rewards/reward_frame_small.png`
+- [x] VA-385 Generate → `assets/ui_assets/ui/rewards/reward_glow.png`
+- [x] VA-386 Generate → `assets/ui_assets/ui/rewards/small_chest_closed.png`
+- [x] VA-387 Generate → `assets/ui_assets/ui/rewards/small_chest_open.png`
+- [x] VA-388 Generate → `assets/ui_assets/ui/rewards/star_empty.png`
+- [x] VA-389 Generate → `assets/ui_assets/ui/rewards/star_filled.png`
+- [x] VA-390 Generate → `assets/ui_assets/ui/rewards/star_large_empty.png`
+- [x] VA-391 Generate → `assets/ui_assets/ui/rewards/star_large_filled.png`
+- [x] VA-392 Generate → `assets/ui_assets/ui/star_track/star_track_checkpoint.png`
+- [x] VA-393 Generate → `assets/ui_assets/ui/star_track/star_track_chest_large.png`
+- [x] VA-394 Generate → `assets/ui_assets/ui/star_track/star_track_chest_small.png`
+- [x] VA-395 Generate → `assets/ui_assets/ui/star_track/star_track_claimed.png`
+- [x] VA-396 Generate → `assets/ui_assets/ui/star_track/star_track_fill.png`
+- [x] VA-397 Generate → `assets/ui_assets/ui/star_track/star_track_marker.png`
+- [x] VA-398 Generate → `assets/ui_assets/ui/star_track/star_track_panel.png`
+
+## Completion gate
+
+- [ ] All 398 canonical target paths present.
+- [ ] 397 non-protected production targets regenerated under the new system.
+- [ ] Canonical owner logo preserved byte-for-byte.
+- [ ] All 12 V04 masters preserved.
+- [ ] Both style boards preserved.
+- [ ] Every newly generated isolated asset has valid transparency where required.
+- [ ] No generated image contains unintended text/watermarks.
+- [ ] No unrelated semantic roles share the same final art unless explicitly approved as intentional reuse.
+- [ ] Small icons visually checked at mobile scale.
+- [ ] All ten island tables match frozen geometry/mask exactly.
+- [ ] No file outside the explicit write boundary modified.
+- [ ] Final `git status --short` contains only allowed image files plus Codex visual task/log files.
+- [ ] All allowed changes committed and pushed.
+- [ ] Final summary appended to `CODEX_VISUAL_ASSET_LOG.md`.
+- [ ] Master production log appended.
