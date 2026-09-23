@@ -640,3 +640,13 @@ V05 production visuals are owner-rejected and are not style authority.
 - Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `ebc1a558bc6e0d3f0c7fa2dcc5f6eb1eb0428a16`.
 - Remote canonical paths verified: 7/7 Gameplay UI targets present.
 - Worktree was clean before this publication-record append.
+## Owner Audit Remediation R01 — active scope reopened
+
+- Timestamp: 2026-09-23 08:43:24 +03:00.
+- Audit authority: `CODEX_VISUAL_OWNER_AUDIT_REPORT_V01.md`.
+- Master prompt: `CODEX_VISUAL_OWNER_AUDIT_REMEDIATION_MASTER_PROMPT_V01.md`.
+- Scope reopened in the dedicated tracker: VA-009, VA-010, VA-021, VA-029, VA-030, VA-034, VA-042, VA-043, VA-047, VA-055, VA-056, VA-060, VA-068, VA-069, VA-072, VA-073, VA-074, VA-075, VA-082, VA-086, VA-095, VA-098, VA-099, VA-108, VA-112, VA-121, VA-125, VA-134, VA-138, VA-146, VA-147, and VA-151.
+- Reason: owner audit requires remediation or targeted live re-QA for the scoped canonical files; current remote branch has the same canonical target blobs for these assets as the audit checkpoint, while the newer remote commits only added audit prompt/report files.
+- Protected authorities to preserve byte-for-byte: `assets/ui_assets/tables/table_silhouette_mask.png`, `assets/ui_assets/tables/table_geometry_v1.json`, and VA-321 `assets/ui_assets/tables/table_edge_overlay_master.png`.
+- Branch: `codex/visual-assets-production`; `main` must remain untouched.
+- Status: active; scoped tasks must not be marked complete again until replacement/live-QA passes and remote publication is verified.

@@ -520,3 +520,10 @@ Append one concise section per visual batch:
 - Remote branch HEAD: `ebc1a558bc6e0d3f0c7fa2dcc5f6eb1eb0428a16`.
 - Remote canonical paths verified: 7/7 Gameplay UI targets present.
 - Official logs and the dedicated tracker are present on the remote visual branch.
+## Owner Audit Remediation R01 — active scope reopened
+
+- Timestamp: 2026-09-23 08:43:24 +03:00.
+- Dedicated tracker reopened 32 owner-audit remediation IDs: VA-009, VA-010, VA-021, VA-029, VA-030, VA-034, VA-042, VA-043, VA-047, VA-055, VA-056, VA-060, VA-068, VA-069, VA-072, VA-073, VA-074, VA-075, VA-082, VA-086, VA-095, VA-098, VA-099, VA-108, VA-112, VA-121, VA-125, VA-134, VA-138, VA-146, VA-147, and VA-151.
+- Authority: `CODEX_VISUAL_OWNER_AUDIT_REPORT_V01.md` and `CODEX_VISUAL_OWNER_AUDIT_REMEDIATION_MASTER_PROMPT_V01.md`.
+- Protected geometry/reference sources remain frozen: `table_silhouette_mask.png`, `table_geometry_v1.json`, and VA-321 `table_edge_overlay_master.png`.
+- Publication: pending commit and push to `codex/visual-assets-production`.
