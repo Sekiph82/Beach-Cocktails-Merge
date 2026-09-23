@@ -650,3 +650,50 @@ V05 production visuals are owner-rejected and are not style authority.
 - Protected authorities to preserve byte-for-byte: `assets/ui_assets/tables/table_silhouette_mask.png`, `assets/ui_assets/tables/table_geometry_v1.json`, and VA-321 `assets/ui_assets/tables/table_edge_overlay_master.png`.
 - Branch: `codex/visual-assets-production`; `main` must remain untouched.
 - Status: active; scoped tasks must not be marked complete again until replacement/live-QA passes and remote publication is verified.
+
+## Owner Audit Remediation R01 — replacements and QA
+
+- Timestamp: 2026-09-23 08:50:31 +03:00.
+- Tasks: VA-009, VA-010, VA-021, VA-029, VA-030, VA-034, VA-042, VA-043, VA-047, VA-055, VA-056, VA-060, VA-068, VA-069, VA-072, VA-073, VA-074, VA-075, VA-082, VA-086, VA-095, VA-098, VA-099, VA-108, VA-112, VA-121, VA-125, VA-134, VA-138, VA-146, VA-147, and VA-151.
+- Method: one purpose-specific technical derivation per scoped asset. Gameplay tables were rematerialized through the protected WHITE-RGB table silhouette mask; shadows were rederived as subdued neutral cast/contact shadows from the frozen table footprint; island edge overlays were recolored from VA-321 while preserving its alpha geometry exactly; connector/star/title/badge/icon assets were redrawn as isolated V04-style UI derivatives.
+- V04 authority used: relevant island V04 masters for island identity, plus both accepted style boards. V05 visuals were not used as style references.
+- Rejected/regenerated attempts: first technical derivation of VA-074 and VA-075 was rejected during visual QA as too flat; both were rederived with stronger blackwood, pearl, turquoise and gold Final Island identity before promotion.
+- QA: all 32 scoped outputs are exact master-list dimensions and valid RGBA PNGs. VA-029, VA-042, VA-055, VA-068 and VA-146 gameplay-table alpha differs from the protected WHITE-RGB silhouette mask by `0` pixels. VA-034, VA-047, VA-060, VA-073, VA-086, VA-099, VA-112, VA-125, VA-138 and VA-151 edge-overlay alpha matches VA-321 with alpha IoU `1.000000` and `0` differing alpha-presence pixels. Protected `table_silhouette_mask.png`, `table_geometry_v1.json` and VA-321 were not modified.
+- Visual QA evidence: local non-canonical preview `owner_audit_r01_qa_montage_v02.png` was inspected after generation; it was used only as evidence and not as source art.
+- Blockers: none.
+- Commit/push: pending publication and remote verification.
+
+| Task | Canonical path | Old blob | New blob |
+| --- | --- | --- | --- |
+| VA-009 | `assets/ui_assets/campaign/island_map/level_connector.png` | `e71fc22776b4fefd2a4b983b5bf3f00815cd0c35` | `d1827fe98cbad3c8b6bf708bdc075d40c0805bcf` |
+| VA-010 | `assets/ui_assets/campaign/island_map/level_connector_complete.png` | `e23bffb020757a94469d69d25796c4b3e285b56f` | `0f4bc7f00c6bb1774272b27b710bdb92174fbece` |
+| VA-021 | `assets/ui_assets/campaign/island_map/star_small_empty.png` | `dcb697f4e34e436348ca41cb106dc3495e1dec2e` | `ef72e5bbe59d63c6450109dca46d4f4a36046b73` |
+| VA-029 | `assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png` | `12936b58c10ee2c1df1b158eed9174f13074cdae` | `4b45a8e61ebf7386a1cc6e311c55ca5ec1f0e259` |
+| VA-030 | `assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png` | `71884c316f7b2738857c6addaf1b18c355433040` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-034 | `assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png` | `ea5aa9fe6e88e422cc11af8770df5349c9859626` | `c61ea15d9c4f9eeac232d6d8900a90fe9117e7ce` |
+| VA-042 | `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png` | `4fd9cc52741f8a9ea2c5b19195ca33b34288a465` | `d0f3dcd142e3763230b4a500a4f9203032164837` |
+| VA-043 | `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png` | `5268d4877625d486d0e4b15d41292f9799d6ada1` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-047 | `assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png` | `2e963a4a8d360179b48787e64f0ab865a3711844` | `7e934842ecd9678a23801a2ecbe1db7aed1d4316` |
+| VA-055 | `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png` | `c74622794e5fdf5fc19255f306fa96fc1c6bf22f` | `1e444e31e121bc851d854beb101cfaa1c96a8e72` |
+| VA-056 | `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png` | `431f3f97fedf77184afcbfa058addd8c1d989cbb` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-060 | `assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png` | `bad2edd21271ceb92274e5b7672bd1acef13b8f1` | `e36609239c9240e490407387caefbbcff97ecd6a` |
+| VA-068 | `assets/ui_assets/campaign/islands/final_island/gameplay_table.png` | `117dd9cd3d99feca6735612da161b80a179190da` | `f3089deaeacf5e9e2c0f18a817dce13ea60cc098` |
+| VA-069 | `assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png` | `67ccd8d788dec0623287bf4c6f458f49ce2f895c` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-072 | `assets/ui_assets/campaign/islands/final_island/map_title.png` | `65eae3f3c1490d2bc47a89300955c9b6542d1ebb` | `61a34b7d6ec17a1f1083db5ff6abc63622e397ec` |
+| VA-073 | `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png` | `9a710862869781c114fe0bd5720b69d8f827067d` | `dc61883db1fbefce4e7b2759137bca976eecdc97` |
+| VA-074 | `assets/ui_assets/campaign/islands/final_island/theme_badge.png` | `4a3c0efd69e744c57d1828e97693dba2b6dcb697` | `22a97ec8b7e2853a76cabcda54b247615fc70d1f` |
+| VA-075 | `assets/ui_assets/campaign/islands/final_island/world_icon.png` | `ab2c72d89ce31447d89b887161deb94fbcec56ea` | `47e1e23798ad7b7f209e83a598f5a9475a1f62ae` |
+| VA-082 | `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png` | `1db1d83a929f7afee1c5cf2189d01aa95faf024d` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-086 | `assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png` | `17bbb1b9e60c7f8a51e8d3c90293bfaad2bae0e0` | `6a49e3880b0994172143322acf297d62b7799eeb` |
+| VA-095 | `assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png` | `d0b35a860591d5a623b59ae966abd48b774bbfc9` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-098 | `assets/ui_assets/campaign/islands/party_beach/map_title.png` | `c29b6a7b5e5263b19dfc7e695106da574403cd27` | `7a798ba49e9ccb362f686c7291e54b879e12b6e1` |
+| VA-099 | `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png` | `d2a0892be1e7c930c7ceed2f2218116d529edc97` | `70c5b1c22073da984e9809efdfb155c668cb70ce` |
+| VA-108 | `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png` | `5c795c4ea0fca60e86117763208fe23551bce487` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-112 | `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png` | `7a215c85322cf90ace88375874cc072f458d3d5a` | `38e6aa975b0b79d39944cc6a2a6038c3c371eb3f` |
+| VA-121 | `assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png` | `cc5275c7245d6585c27195134b556854f938d6e2` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-125 | `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png` | `6f52065e929fdbb25bd0cf3c15935c9f9c11f5a9` | `d924865764d6901f3b3349016bf1ebd84c6d0ffd` |
+| VA-134 | `assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png` | `eda61d8fbc5d04dd5d2441aec59fbbaaf946a97c` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-138 | `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png` | `893bb6b39e38156c79df80f041d8e043665b2ddf` | `e85e3185afde4d84cd2ae721c290dae6b3b3b895` |
+| VA-146 | `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png` | `b19439e309d78a38c0e3be30bd844d552ec3fbea` | `da3b8283720802769568cadae1669beaac637f36` |
+| VA-147 | `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png` | `7797389bcc52417b8b2121e59af3460d65381810` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
+| VA-151 | `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png` | `99327136202c910c74cd878b70561e502a3d223b` | `69d13d99a8ef71bbdd3e2289fcfc751d9904e3af` |

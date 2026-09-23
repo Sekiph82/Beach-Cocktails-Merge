@@ -527,3 +527,12 @@ Append one concise section per visual batch:
 - Authority: `CODEX_VISUAL_OWNER_AUDIT_REPORT_V01.md` and `CODEX_VISUAL_OWNER_AUDIT_REMEDIATION_MASTER_PROMPT_V01.md`.
 - Protected geometry/reference sources remain frozen: `table_silhouette_mask.png`, `table_geometry_v1.json`, and VA-321 `table_edge_overlay_master.png`.
 - Publication: pending commit and push to `codex/visual-assets-production`.
+
+## Owner Audit Remediation R01 — replacements and QA
+
+- Timestamp: 2026-09-23 08:50:31 +03:00.
+- Dedicated targets remediated: 32, VA-009, VA-010, VA-021, VA-029, VA-030, VA-034, VA-042, VA-043, VA-047, VA-055, VA-056, VA-060, VA-068, VA-069, VA-072, VA-073, VA-074, VA-075, VA-082, VA-086, VA-095, VA-098, VA-099, VA-108, VA-112, VA-121, VA-125, VA-134, VA-138, VA-146, VA-147, and VA-151.
+- Method: purpose-specific technical derivations using V04 visual authority; no V05 visuals, atlas slicing, runtime code, gameplay code, root `TASKS.md`, or protected table authority files were used or modified.
+- Validation: all 32 outputs are exact-size RGBA PNGs; five gameplay-table alpha masks differ from the protected WHITE-RGB silhouette by `0` pixels; ten edge overlays match VA-321 alpha geometry with IoU `1.000000`; ten shadows are neutral cast/contact shadows, not island illustrations.
+- Protected authorities unchanged: `table_silhouette_mask.png` blob `7ae8ef369aa1131ce3fefa4b919d5926441250c2`, `table_geometry_v1.json` blob `16379b6213e7c90bcb9c42cd980c5555b5470f2e`, and VA-321 `table_edge_overlay_master.png` blob `bd484cb62f8b6ceedd7cbcd5ba55e8cf962d7de7`.
+- Publication: pending commit and push to `codex/visual-assets-production`; tracker remains unchecked until remote replacement publication is verified.
