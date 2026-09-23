@@ -536,3 +536,12 @@ Append one concise section per visual batch:
 - Validation: all 32 outputs are exact-size RGBA PNGs; five gameplay-table alpha masks differ from the protected WHITE-RGB silhouette by `0` pixels; ten edge overlays match VA-321 alpha geometry with IoU `1.000000`; ten shadows are neutral cast/contact shadows, not island illustrations.
 - Protected authorities unchanged: `table_silhouette_mask.png` blob `7ae8ef369aa1131ce3fefa4b919d5926441250c2`, `table_geometry_v1.json` blob `16379b6213e7c90bcb9c42cd980c5555b5470f2e`, and VA-321 `table_edge_overlay_master.png` blob `bd484cb62f8b6ceedd7cbcd5ba55e8cf962d7de7`.
 - Publication: pending commit and push to `codex/visual-assets-production`; tracker remains unchecked until remote replacement publication is verified.
+
+## Owner Audit Remediation R01 publication record
+
+- Timestamp: 2026-09-23 08:53:21 +03:00.
+- Implementation commit: `28a2981a63f6aab6d748db4a30d905f053c7f648`.
+- Remote branch HEAD: `28a2981a63f6aab6d748db4a30d905f053c7f648`.
+- Remote canonical paths verified: 32/32 scoped owner-audit remediation targets present.
+- Official logs and the dedicated tracker are present on the remote visual branch.
+- Remaining production tracker items outside this remediation scope remain unchanged and deferred/pending according to the live tracker.

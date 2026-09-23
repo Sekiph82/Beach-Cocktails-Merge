@@ -24,8 +24,8 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-006 Generate → `assets/ui_assets/brand/splash_logo.png`
 - [x] VA-007 Generate → `assets/ui_assets/campaign/island_map/finale_crown.png`
 - [x] VA-008 Generate → `assets/ui_assets/campaign/island_map/island_summary_panel.png`
-- [ ] VA-009 Generate → `assets/ui_assets/campaign/island_map/level_connector.png`
-- [ ] VA-010 Generate → `assets/ui_assets/campaign/island_map/level_connector_complete.png`
+- [x] VA-009 Generate → `assets/ui_assets/campaign/island_map/level_connector.png`
+- [x] VA-010 Generate → `assets/ui_assets/campaign/island_map/level_connector_complete.png`
 - [x] VA-011 Generate → `assets/ui_assets/campaign/island_map/level_node_completed.png`
 - [x] VA-012 Generate → `assets/ui_assets/campaign/island_map/level_node_current.png`
 - [x] VA-013 Generate → `assets/ui_assets/campaign/island_map/level_node_finale.png`
@@ -36,7 +36,7 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-018 Generate → `assets/ui_assets/campaign/island_map/map_scroll_top_decor.png`
 - [x] VA-019 Generate → `assets/ui_assets/campaign/island_map/milestone_chest_marker.png`
 - [x] VA-020 Generate → `assets/ui_assets/campaign/island_map/next_milestone_panel.png`
-- [ ] VA-021 Generate → `assets/ui_assets/campaign/island_map/star_small_empty.png`
+- [x] VA-021 Generate → `assets/ui_assets/campaign/island_map/star_small_empty.png`
 - [x] VA-022 Generate → `assets/ui_assets/campaign/island_map/star_small_filled.png`
 - [x] VA-023 Generate → `assets/ui_assets/campaign/island_map/stars_counter_panel.png`
 - [x] VA-024 Generate → `assets/ui_assets/campaign/islands/azure_bay/complete_badge.png`
@@ -44,12 +44,12 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-026 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_left.png`
 - [x] VA-027 Generate → `assets/ui_assets/campaign/islands/azure_bay/decor_right.png`
 - [x] VA-028 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_background.png`
-- [ ] VA-029 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png`
-- [ ] VA-030 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png`
+- [x] VA-029 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png`
+- [x] VA-030 Generate → `assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png`
 - [x] VA-031 Generate → `assets/ui_assets/campaign/islands/azure_bay/launch_zone.png`
 - [x] VA-032 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_background.png`
 - [x] VA-033 Generate → `assets/ui_assets/campaign/islands/azure_bay/map_title.png`
-- [ ] VA-034 Generate → `assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png`
+- [x] VA-034 Generate → `assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png`
 - [x] VA-035 Generate → `assets/ui_assets/campaign/islands/azure_bay/theme_badge.png`
 - [x] VA-036 Generate → `assets/ui_assets/campaign/islands/azure_bay/world_icon.png`
 - [x] VA-037 Generate → `assets/ui_assets/campaign/islands/billionaire_island/complete_badge.png`
@@ -57,12 +57,12 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-039 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_left.png`
 - [x] VA-040 Generate → `assets/ui_assets/campaign/islands/billionaire_island/decor_right.png`
 - [x] VA-041 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_background.png`
-- [ ] VA-042 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png`
-- [ ] VA-043 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png`
+- [x] VA-042 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png`
+- [x] VA-043 Generate → `assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png`
 - [x] VA-044 Generate → `assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png`
 - [x] VA-045 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_background.png`
 - [x] VA-046 Generate → `assets/ui_assets/campaign/islands/billionaire_island/map_title.png`
-- [ ] VA-047 Generate → `assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png`
+- [x] VA-047 Generate → `assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png`
 - [x] VA-048 Generate → `assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png`
 - [x] VA-049 Generate → `assets/ui_assets/campaign/islands/billionaire_island/world_icon.png`
 - [x] VA-050 Generate → `assets/ui_assets/campaign/islands/coconut_beach/complete_badge.png`
@@ -70,12 +70,12 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-052 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_left.png`
 - [x] VA-053 Generate → `assets/ui_assets/campaign/islands/coconut_beach/decor_right.png`
 - [x] VA-054 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_background.png`
-- [ ] VA-055 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png`
-- [ ] VA-056 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png`
+- [x] VA-055 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png`
+- [x] VA-056 Generate → `assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png`
 - [x] VA-057 Generate → `assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png`
 - [x] VA-058 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_background.png`
 - [x] VA-059 Generate → `assets/ui_assets/campaign/islands/coconut_beach/map_title.png`
-- [ ] VA-060 Generate → `assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png`
+- [x] VA-060 Generate → `assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png`
 - [x] VA-061 Generate → `assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png`
 - [x] VA-062 Generate → `assets/ui_assets/campaign/islands/coconut_beach/world_icon.png`
 - [x] VA-063 Generate → `assets/ui_assets/campaign/islands/final_island/complete_badge.png`
@@ -83,25 +83,25 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-065 Generate → `assets/ui_assets/campaign/islands/final_island/decor_left.png`
 - [x] VA-066 Generate → `assets/ui_assets/campaign/islands/final_island/decor_right.png`
 - [x] VA-067 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_background.png`
-- [ ] VA-068 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table.png`
-- [ ] VA-069 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png`
+- [x] VA-068 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table.png`
+- [x] VA-069 Generate → `assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png`
 - [x] VA-070 Generate → `assets/ui_assets/campaign/islands/final_island/launch_zone.png`
 - [x] VA-071 Generate → `assets/ui_assets/campaign/islands/final_island/map_background.png`
-- [ ] VA-072 Generate → `assets/ui_assets/campaign/islands/final_island/map_title.png`
-- [ ] VA-073 Generate → `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png`
-- [ ] VA-074 Generate → `assets/ui_assets/campaign/islands/final_island/theme_badge.png`
-- [ ] VA-075 Generate → `assets/ui_assets/campaign/islands/final_island/world_icon.png`
+- [x] VA-072 Generate → `assets/ui_assets/campaign/islands/final_island/map_title.png`
+- [x] VA-073 Generate → `assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png`
+- [x] VA-074 Generate → `assets/ui_assets/campaign/islands/final_island/theme_badge.png`
+- [x] VA-075 Generate → `assets/ui_assets/campaign/islands/final_island/world_icon.png`
 - [x] VA-076 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/complete_badge.png`
 - [x] VA-077 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_back.png`
 - [x] VA-078 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_left.png`
 - [x] VA-079 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/decor_right.png`
 - [x] VA-080 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_background.png`
 - [x] VA-081 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table.png`
-- [ ] VA-082 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png`
+- [x] VA-082 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png`
 - [x] VA-083 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png`
 - [x] VA-084 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_background.png`
 - [x] VA-085 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/map_title.png`
-- [ ] VA-086 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png`
+- [x] VA-086 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png`
 - [x] VA-087 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png`
 - [x] VA-088 Generate → `assets/ui_assets/campaign/islands/frozen_paradise/world_icon.png`
 - [x] VA-089 Generate → `assets/ui_assets/campaign/islands/party_beach/complete_badge.png`
@@ -110,11 +110,11 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-092 Generate → `assets/ui_assets/campaign/islands/party_beach/decor_right.png`
 - [x] VA-093 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_background.png`
 - [x] VA-094 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table.png`
-- [ ] VA-095 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png`
+- [x] VA-095 Generate → `assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png`
 - [x] VA-096 Generate → `assets/ui_assets/campaign/islands/party_beach/launch_zone.png`
 - [x] VA-097 Generate → `assets/ui_assets/campaign/islands/party_beach/map_background.png`
-- [ ] VA-098 Generate → `assets/ui_assets/campaign/islands/party_beach/map_title.png`
-- [ ] VA-099 Generate → `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png`
+- [x] VA-098 Generate → `assets/ui_assets/campaign/islands/party_beach/map_title.png`
+- [x] VA-099 Generate → `assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png`
 - [x] VA-100 Generate → `assets/ui_assets/campaign/islands/party_beach/theme_badge.png`
 - [x] VA-101 Generate → `assets/ui_assets/campaign/islands/party_beach/world_icon.png`
 - [x] VA-102 Generate → `assets/ui_assets/campaign/islands/sunny_cove/complete_badge.png`
@@ -123,11 +123,11 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-105 Generate → `assets/ui_assets/campaign/islands/sunny_cove/decor_right.png`
 - [x] VA-106 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png`
 - [x] VA-107 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png`
-- [ ] VA-108 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png`
+- [x] VA-108 Generate → `assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png`
 - [x] VA-109 Generate → `assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png`
 - [x] VA-110 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_background.png`
 - [x] VA-111 Generate → `assets/ui_assets/campaign/islands/sunny_cove/map_title.png`
-- [ ] VA-112 Generate → `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png`
+- [x] VA-112 Generate → `assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png`
 - [x] VA-113 Generate → `assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png`
 - [x] VA-114 Generate → `assets/ui_assets/campaign/islands/sunny_cove/world_icon.png`
 - [x] VA-115 Generate → `assets/ui_assets/campaign/islands/sunset_island/complete_badge.png`
@@ -136,11 +136,11 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-118 Generate → `assets/ui_assets/campaign/islands/sunset_island/decor_right.png`
 - [x] VA-119 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_background.png`
 - [x] VA-120 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png`
-- [ ] VA-121 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png`
+- [x] VA-121 Generate → `assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png`
 - [x] VA-122 Generate → `assets/ui_assets/campaign/islands/sunset_island/launch_zone.png`
 - [x] VA-123 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_background.png`
 - [x] VA-124 Generate → `assets/ui_assets/campaign/islands/sunset_island/map_title.png`
-- [ ] VA-125 Generate → `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png`
+- [x] VA-125 Generate → `assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png`
 - [x] VA-126 Generate → `assets/ui_assets/campaign/islands/sunset_island/theme_badge.png`
 - [x] VA-127 Generate → `assets/ui_assets/campaign/islands/sunset_island/world_icon.png`
 - [x] VA-128 Generate → `assets/ui_assets/campaign/islands/tiki_island/complete_badge.png`
@@ -149,11 +149,11 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-131 Generate → `assets/ui_assets/campaign/islands/tiki_island/decor_right.png`
 - [x] VA-132 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_background.png`
 - [x] VA-133 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png`
-- [ ] VA-134 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png`
+- [x] VA-134 Generate → `assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png`
 - [x] VA-135 Generate → `assets/ui_assets/campaign/islands/tiki_island/launch_zone.png`
 - [x] VA-136 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_background.png`
 - [x] VA-137 Generate → `assets/ui_assets/campaign/islands/tiki_island/map_title.png`
-- [ ] VA-138 Generate → `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png`
+- [x] VA-138 Generate → `assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png`
 - [x] VA-139 Generate → `assets/ui_assets/campaign/islands/tiki_island/theme_badge.png`
 - [x] VA-140 Generate → `assets/ui_assets/campaign/islands/tiki_island/world_icon.png`
 - [x] VA-141 Generate → `assets/ui_assets/campaign/islands/volcano_bay/complete_badge.png`
@@ -161,12 +161,12 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-143 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_left.png`
 - [x] VA-144 Generate → `assets/ui_assets/campaign/islands/volcano_bay/decor_right.png`
 - [x] VA-145 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_background.png`
-- [ ] VA-146 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png`
-- [ ] VA-147 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png`
+- [x] VA-146 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png`
+- [x] VA-147 Generate → `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png`
 - [x] VA-148 Generate → `assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png`
 - [x] VA-149 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_background.png`
 - [x] VA-150 Generate → `assets/ui_assets/campaign/islands/volcano_bay/map_title.png`
-- [ ] VA-151 Generate → `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png`
+- [x] VA-151 Generate → `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png`
 - [x] VA-152 Generate → `assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png`
 - [x] VA-153 Generate → `assets/ui_assets/campaign/islands/volcano_bay/world_icon.png`
 - [x] VA-154 Generate → `assets/ui_assets/campaign/world_map/azure_bay.png`

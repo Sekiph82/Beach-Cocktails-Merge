@@ -697,3 +697,12 @@ V05 production visuals are owner-rejected and are not style authority.
 | VA-146 | `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png` | `b19439e309d78a38c0e3be30bd844d552ec3fbea` | `da3b8283720802769568cadae1669beaac637f36` |
 | VA-147 | `assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png` | `7797389bcc52417b8b2121e59af3460d65381810` | `975fc8bb9a794048e991c7f1f147dc8474d29735` |
 | VA-151 | `assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png` | `99327136202c910c74cd878b70561e502a3d223b` | `69d13d99a8ef71bbdd3e2289fcfc751d9904e3af` |
+
+## Owner Audit Remediation R01 publication record
+
+- Timestamp: 2026-09-23 08:53:21 +03:00.
+- Implementation commit: `28a2981a63f6aab6d748db4a30d905f053c7f648`.
+- Remote branch: `codex/visual-assets-production`.
+- Remote verification: local HEAD, `origin/codex/visual-assets-production`, and `git ls-remote` all resolved to `28a2981a63f6aab6d748db4a30d905f053c7f648`.
+- Remote canonical paths verified: 32/32 scoped owner-audit remediation targets present.
+- Tracker action: VA-009, VA-010, VA-021, VA-029, VA-030, VA-034, VA-042, VA-043, VA-047, VA-055, VA-056, VA-060, VA-068, VA-069, VA-072, VA-073, VA-074, VA-075, VA-082, VA-086, VA-095, VA-098, VA-099, VA-108, VA-112, VA-121, VA-125, VA-134, VA-138, VA-146, VA-147, and VA-151 marked complete again only after remote replacement verification.
