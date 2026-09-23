@@ -47,3 +47,13 @@ Required fields:
 - Generation failures: none.
 - HTTP 429: no.
 - Desktop synchronization: pending final log publication; final sync targets the pushed `origin/main` after the log commit.
+
+## Targeted table-readability remediation
+
+- Date/time: 2026-09-23 22:45:00 +03:00.
+- Replaced again: VA-095 Party Beach gameplay table, VA-121 Sunset Island gameplay table, and VA-146 Volcano Bay gameplay table.
+- Reason: the prior material passes were judged visually as scene/slab-like rather than unmistakable gameplay tables.
+- Real image-generation operations: 3/3, one separate operation per asset.
+- Geometry authority: approved Azure Bay gameplay table used for exact trapezoid shape, perspective, placement, playable area, and table thickness; Azure Bay authority was not modified.
+- Result: each replacement is an unmistakable empty trapezoid gameplay table with visible edge construction and a clean playable center.
+- HTTP 429: no.

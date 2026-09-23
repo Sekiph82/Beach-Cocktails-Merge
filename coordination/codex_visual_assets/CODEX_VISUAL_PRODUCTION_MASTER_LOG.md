@@ -554,3 +554,11 @@ Append one concise section per visual batch:
 - Technical processing was limited to post-generation resize/crop and alpha application to the approved Azure Bay form.
 - Image replacement commit: `294bd72bab480bceb6ec660665addf9286bf6d1a`.
 - HTTP 429: no. Generation failures: none.
+
+## Targeted Table Readability Remediation
+
+- Timestamp: 2026-09-23 22:45:00 +03:00.
+- Regenerated VA-095, VA-121, and VA-146 as separate real image-generation operations after visual review found the earlier surfaces insufficiently table-like.
+- Approved Azure Bay gameplay-table geometry remained frozen and authoritative; only island material artwork changed.
+- Final outputs are clear empty trapezoid gameplay tables with visible edge construction and clean play areas.
+- HTTP 429: no.

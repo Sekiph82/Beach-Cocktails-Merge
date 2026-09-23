@@ -716,3 +716,11 @@ V05 production visuals are owner-rejected and are not style authority.
 - Technical processing: post-generation canvas normalization and alpha application only, using the approved Azure Bay forms; Azure Bay authority files were not modified.
 - Blockers: none; HTTP 429: no.
 - Image replacement commit: `294bd72bab480bceb6ec660665addf9286bf6d1a`.
+
+## Targeted Table Readability Remediation
+
+- Timestamp: 2026-09-23 22:45:00 +03:00.
+- Targets: VA-095, VA-121, and VA-146 gameplay-table PNGs.
+- Generation: one separate real image-generation operation per target, using approved Azure Bay gameplay-table geometry and matching V04 identity references.
+- Change: regenerated the three surfaces to read unmistakably as empty thick trapezoid gameplay tables with visible table-edge construction and clean playable centers; no scenery or slab treatment.
+- HTTP 429: no.
