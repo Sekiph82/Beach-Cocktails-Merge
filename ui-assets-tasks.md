@@ -46,7 +46,7 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 ## Locked design documents
 
 - Full manifest: `docs/ui-assets/FULL_VISUAL_ASSET_MANIFEST_V1.md`
-- Table geometry: `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V1.md`
+- Table geometry: `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`
 - Execution prompt: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_EXECUTION_PROMPT_V01.md`
 - Locked audit criteria: `coordination/sessions/BCM-UI-ASSETS-FULL-PRODUCTION/CHATGPT_AUDIT_CRITERIA_V01.md`
 
@@ -72,10 +72,10 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 ### UIA-M02 — Canonical table geometry master
 
 - [ ] UIA-M02-001 — Inspect accepted 720×1280 composition and current table geometry.
-- [ ] UIA-M02-002 — Build one canonical replacement table silhouette with front outer corners exactly at viewport bottom corners.
+- [ ] UIA-M02-002 — Freeze the V2 table layout from the accepted R11 rail envelope: tabletop/front-art transition near y=988.333, then non-playable apron + two visible legs framing the L01-L12 progression area.
 - [ ] UIA-M02-003 — Set centered rear edge to approximately 64% viewport width, visibly wider than the narrow-table concept.
 - [ ] UIA-M02-004 — Freeze rear Y, depth, centerline, launch alignment, and one common playable-boundary geometry.
-- [ ] UIA-M02-005 — Produce `assets/ui_assets/tables/table_geometry_v1.json`.
+- [ ] UIA-M02-005 — Produce and preserve `assets/ui_assets/tables/table_geometry_v2.json`; V1 geometry/mask remain historical only.
 - [ ] UIA-M02-006 — Produce shared alpha/silhouette master and table-edge overlay master.
 - [ ] UIA-M02-007 — Prove all ten island tables use identical geometry by alpha-mask/overlay validation.
 - [ ] UIA-M02-008 — Do not modify current gameplay physics or runtime scene integration in this production pass.
@@ -177,8 +177,8 @@ This tracker is authoritative **only for the isolated `ui-assets` branch visual-
 
 ### UIA-M14 — Future table/runtime integration, blocked until separate authorization
 
-- [ ] UIA-M14-001 — Replace current visible table with the accepted canonical table asset on the isolated branch.
-- [ ] UIA-M14-002 — Update authoritative playable boundary to match the canonical new table exactly.
+- [ ] UIA-M14-001 — Replace the current visible table with the owner-approved Azure Bay V2 structural master and its island skins; tabletop, apron, legs, and progression-clearance relationship must remain identical across islands.
+- [ ] UIA-M14-002 — Preserve the accepted R11 playable boundary as V2 authority unless the owner explicitly authorizes a physics change; visual table art must conform to it.
 - [ ] UIA-M14-003 — Preserve one and only one playable area across all levels, maps, and islands.
 - [ ] UIA-M14-004 — Preserve accepted drink collision/merge semantics while changing table bounds.
 - [ ] UIA-M14-005 — Add island table-skin switching with zero geometry changes.
