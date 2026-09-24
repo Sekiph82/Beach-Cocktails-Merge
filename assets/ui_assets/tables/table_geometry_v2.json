@@ -1,0 +1,189 @@
+{
+  "geometry_version": 2,
+  "status": "OWNER_CONSTITUTIONAL",
+  "supersedes": "assets/ui_assets/tables/table_geometry_v1.json",
+  "viewport": {
+    "width": 720,
+    "height": 1280
+  },
+  "runtime_source": {
+    "width": 1024,
+    "height": 1536,
+    "cover_scale": 0.8333333333333334,
+    "offset_x": -66.66666666666667,
+    "offset_y": 0
+  },
+  "perspective_centerline_x": 360,
+  "runtime_playable_boundary": {
+    "authority": "scripts/game_manager.gd R11",
+    "left_source_points": [
+      [
+        199,
+        478
+      ],
+      [
+        149,
+        587
+      ],
+      [
+        124,
+        644
+      ],
+      [
+        85,
+        734
+      ],
+      [
+        60,
+        800
+      ],
+      [
+        20,
+        1000
+      ],
+      [
+        8,
+        1186
+      ]
+    ],
+    "right_source_points": [
+      [
+        833,
+        478
+      ],
+      [
+        880,
+        587
+      ],
+      [
+        905,
+        644
+      ],
+      [
+        942,
+        734
+      ],
+      [
+        964,
+        800
+      ],
+      [
+        1002,
+        1000
+      ],
+      [
+        1016,
+        1186
+      ]
+    ],
+    "left_viewport_points": [
+      [
+        99.167,
+        398.333
+      ],
+      [
+        57.5,
+        489.167
+      ],
+      [
+        36.667,
+        536.667
+      ],
+      [
+        4.167,
+        611.667
+      ],
+      [
+        -16.667,
+        666.667
+      ],
+      [
+        -50,
+        833.333
+      ],
+      [
+        -60,
+        988.333
+      ]
+    ],
+    "right_viewport_points": [
+      [
+        627.5,
+        398.333
+      ],
+      [
+        666.667,
+        489.167
+      ],
+      [
+        687.5,
+        536.667
+      ],
+      [
+        718.333,
+        611.667
+      ],
+      [
+        736.667,
+        666.667
+      ],
+      [
+        768.333,
+        833.333
+      ],
+      [
+        780,
+        988.333
+      ]
+    ],
+    "rear_source_y": 478,
+    "rear_viewport_y": 398.333,
+    "danger_source_y": 1080,
+    "danger_viewport_y": 900,
+    "launch_source_y": 1136,
+    "launch_viewport_y": 946.667,
+    "rear_edge_margin_px": 12
+  },
+  "visual_table_layout": {
+    "canvas": [
+      720,
+      1280
+    ],
+    "transparent_background": true,
+    "tabletop_front_art_transition_y": 988.333,
+    "lower_non_playable_zone": [
+      988.333,
+      1280
+    ],
+    "visible_front_apron_required": true,
+    "visible_front_legs_required": 2,
+    "leg_exact_x_positions_status": "FREEZE_AFTER_OWNER_APPROVED_AZURE_BAY_V2_MASTER"
+  },
+  "progression": {
+    "layer": "HUD CanvasLayer",
+    "panel_rect": [
+      12,
+      1039.465,
+      696,
+      232.535
+    ],
+    "icon_row_centers_y": [
+      1124.3,
+      1186.363
+    ],
+    "icon_column_centers_x": [
+      197.547,
+      262.335,
+      326.643,
+      390.951,
+      455.419,
+      520.689
+    ],
+    "requirement": "two visible table legs frame the progression area and must not occlude the 12 icon centers"
+  },
+  "legacy_not_authority": [
+    "assets/ui_assets/tables/table_geometry_v1.json",
+    "assets/ui_assets/tables/table_silhouette_mask.png",
+    "assets/ui_assets/tables/table_edge_overlay_master.png"
+  ]
+}
