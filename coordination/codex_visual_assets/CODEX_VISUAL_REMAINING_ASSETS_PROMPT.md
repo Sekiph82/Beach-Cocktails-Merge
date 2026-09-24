@@ -1,3 +1,15 @@
+# SUPERSEDED — DO NOT EXECUTE
+
+This historical prompt contains V1 table-geometry/mask rules and is not valid for current table production.
+
+Current mandatory authority:
+- https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md
+- https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/assets/ui_assets/tables/table_geometry_v2.json
+
+Do not execute this prompt unless the owner explicitly requests the historical workflow.
+
+---
+
 # BEACH COCKTAILS MERGE — CODEX VISUAL ASSET CONTINUATION / REMAINING PRODUCTION PROMPT
 
 Status: RESUME REMAINING VISUAL PRODUCTION AFTER BATCH 009
