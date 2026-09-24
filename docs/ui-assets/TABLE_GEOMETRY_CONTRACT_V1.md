@@ -1,3 +1,7 @@
+> **SUPERSEDED BY V2 — HISTORICAL ONLY.** Do not use this file as geometry authority for new table artwork. Current authority: [TABLE_GEOMETRY_CONTRACT_V2.md](TABLE_GEOMETRY_CONTRACT_V2.md).
+>
+> V1's bottom-corner tabletop polygon does not provide the required lower apron/leg/progression region and is not the live R11 runtime boundary.
+
 # Beach Cocktails Merge — Canonical Table Geometry Contract V1
 
 Branch: `ui-assets`
