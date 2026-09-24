@@ -40,7 +40,7 @@ Required:
 
 For all ten island `gameplay_table.png` assets:
 - verify 720×1280 canvas;
-- verify alpha silhouette equals canonical `table_silhouette_mask.png` pixel-for-pixel;
+- verify table visuals against `TABLE_GEOMETRY_CONTRACT_V2.md` / `table_geometry_v2.json`: R11 playable rail alignment, tabletop-front transition near y=988.333, mandatory front apron + two visible legs, and unobstructed L01-L12 progression area; do NOT use the legacy V1 mask as acceptance authority;
 - verify frozen table geometry JSON unchanged;
 - verify only material/texture/trim/inlay/lighting varies.
 
