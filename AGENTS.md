@@ -200,6 +200,23 @@ Do not regenerate or redesign owner-approved assets during integration unless th
 
 `guide_line` is not part of the current asset plan and must not be introduced unless the owner later asks for it.
 
+## Table geometry constitution V2
+
+Table visuals obey `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md` and `assets/ui_assets/tables/table_geometry_v2.json`.
+
+This is a constitutional project rule:
+- accepted R11 runtime rails remain the gameplay geometry authority;
+- V1 bottom-corner geometry and `table_silhouette_mask.png` are legacy and must not be used as authority for new table art;
+- `gameplay_table.png` is a 720x1280 transparent FULL TABLE asset;
+- playable/tabletop art follows the R11 envelope and transitions to non-playable front structure at approximately y=988.333 on the canonical viewport;
+- the lower region contains front apron/thickness and exactly two visible front legs;
+- the existing L01-L12 progression UI remains between the legs and must not be occluded;
+- Azure Bay V2 is the owner-approval master for final structural leg placement, after which every island uses the same geometry;
+- island skins may change materials/colors/trim only, never geometry;
+- do not retune R11 physics merely to fit AI-generated artwork.
+
+Any prompt, historical log, V1 contract, mask, or old asset instruction that conflicts with V2 is superseded.
+
 ## Safety
 
 - Preserve owner-created assets and project files.
