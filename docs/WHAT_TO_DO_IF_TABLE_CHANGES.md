@@ -1,101 +1,94 @@
-# What to Do If the Table Artwork Changes
+# What to Do If the Table Artwork Changes — V2
 
-**Context:** code state after the BCM-R11 table-edge fix.
-**Related report:** `docs/BCM-R11_TABLE_EDGE_FIX_REPORT.md`
+**Constitutional authority:** `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`
+**Machine-readable authority:** `assets/ui_assets/tables/table_geometry_v2.json`
+**Runtime baseline:** accepted R11 table-edge behavior in `scripts/game_manager.gd`
 
-After R11, table geometry is centralized in one place. Physics, collision, merge and footprint logic do not know the table dimensions — they are all derived from the constants below. Therefore, for a new table artwork, only the measurement values change.
+## Default rule: geometry first, artwork second
 
----
+Do **not** measure an arbitrary newly generated table and then retune gameplay to fit it.
 
-## 1. Must change — all in `scripts/game_manager.gd`
+The default workflow is the opposite:
 
-| Line | Constant | Action |
-|---|---|---|
-| 11 | `BACKGROUND_SOURCE_SIZE` | The new PNG's pixel dimensions. If the resolution is unchanged, leave it alone. |
-| 24-31 | `TABLE_LEFT_EDGE_SOURCE_POINTS` | Measure the new table's **left** edge on the new PNG and write the point list. |
-| 33-40 | `TABLE_RIGHT_EDGE_SOURCE_POINTS` | The same for the **right** edge. |
-| 19 | `ACTUAL_REAR_TABLE_SOURCE_Y` | The rear edge Y coordinate. It must be **the same as** `TABLE_LEFT_EDGE_SOURCE_POINTS[0].y`. |
-| 42 | `DANGER_SOURCE_Y` | The red dashed danger line. Move it upward if the table becomes shorter. |
-| 43 | `LAUNCH_SOURCE_Y` | The launch position. Adjust it in the same way. |
+1. preserve the accepted R11 playable rails;
+2. generate/fit the new table artwork to V2;
+3. preserve the canonical 720x1280 composition;
+4. keep the tabletop/front-art transition near y=988.333;
+5. reserve the lower region for front apron/thickness + two visible legs;
+6. keep the existing L01-L12 progression content visible between the legs.
 
-**The number of points is flexible.** The code uses `points.size()`: four points or ten points both work. The left and right lists do not have to have the same number of elements. The only requirement is that Y values are in ascending order.
+The legacy V1 bottom-corner polygon, V1 JSON, and `table_silhouette_mask.png` are not authority for new table art.
 
----
+## Runtime geometry frozen by default
 
-## 2. May also change
+Current source-space values in `scripts/game_manager.gd`:
+- `ACTUAL_REAR_TABLE_SOURCE_Y = 478`;
+- left rail = (199,478), (149,587), (124,644), (85,734), (60,800), (20,1000), (8,1186);
+- right rail = (833,478), (880,587), (905,644), (942,734), (964,800), (1002,1000), (1016,1186);
+- `DANGER_SOURCE_Y = 1080`;
+- `LAUNCH_SOURCE_Y = 1136`;
+- `REAR_EDGE_MARGIN = 12`.
 
-### `COLLIDER_RADII` — `scripts/drink.gd`, line 106
+At 720x1280 these map approximately to:
+- rear Y = 398.333;
+- danger Y = 900;
+- launch Y = 946.667;
+- front tabletop art transition / last rail sample Y = 988.333.
 
-This is the second most important item.
+Do not change these values for visual-production convenience.
 
-The table's **rear edge** is its narrowest point. At present it is 634 px in source space and 528 px on screen. L12 has a diameter of 180 px, so 2.9 of them fit across the rear edge.
+## Full table artwork
 
-If the table becomes narrower, this ratio falls and gameplay can jam: large glasses may not fit at the rear, leaving no room to merge and causing an early Game Over.
+`gameplay_table.png` is a full 720x1280 transparent table asset.
 
-> **Rule:** rear-edge width ÷ largest-glass diameter must be ≥ **2.5**
+It contains:
+- the V2-aligned tabletop;
+- front apron/table thickness below the tabletop;
+- exactly two visible front legs/supports.
 
-If the values must be reduced, scale the whole array proportionally. `visual_scale_for_level()` automatically scales the sprite — no other change is needed.
+The region below y≈988.333 is non-playable visual structure.
 
-This array controls both physics and presentation together.
+The two legs must frame, not cover, the existing progression UI.
 
-### `REAR_EDGE_MARGIN` — `scripts/game_manager.gd`, line 55
+## Progression area
 
-This is a fixed value in screen pixels (currently 12.0). If the table becomes smaller, 12 px will look proportionally larger; it will probably need to be reduced to 8–10. Adjust it by eye.
+At 720x1280 the current progression panel is approximately:
+- x = 12..708;
+- y = 1039.465..1272.
 
----
+Runtime L01-L12 icon centers are approximately:
+- X = 197.547, 262.335, 326.643, 390.951, 455.419, 520.689;
+- Y = 1124.300 and 1186.363.
 
-## 3. Do not touch
+No opaque leg/apron art may cover those icon centers.
 
-- `BOUNDARY_CONTACT_HULL_SOURCE_PX`, `VISIBLE_BODY_WIDTH_PX`, `VISIBLE_BODY_CENTER_OFFSET_PX`, `HELD_BODY_FOOT_SOURCE_PX`
-  → Measurements of the cocktail PNGs. They are unrelated to the table.
-- `get_table_footprint_local()`, `project_footprint_inside_table()`
-  → Geometry-independent. They read the rail list from `get_playable_boundary_edges()`.
-- `_build_walls()`, `_layout_danger_line()`, `get_table_rail_bounds_at_y()`, `table_top_y` / `rear_table_y` / `table_bottom_y`
-  → All are derived automatically from the constants above.
-- HUD panels
-  → They are positioned from viewport coordinates, independent of the background. The code will not break; however, if the new artwork's tiki roof / bamboo strip is in a different place, visual alignment must be checked by eye.
+Exact leg X placement is frozen only after owner approval of the Azure Bay V2 master, then reused for all islands.
 
----
+## What not to touch for a normal island skin
 
-## 4. Two rules to follow
+Do not change:
+- `scripts/game_manager.gd` rail points;
+- R11 footprint projection;
+- `REAR_EDGE_MARGIN`;
+- drink collider radii;
+- merge momentum;
+- launch speed/deceleration;
+- progression runtime logic.
 
-### Convexity
+Only the art skin changes.
 
-The solver treats the edge half-planes as an intersection. This requires the table shape to be **convex**: the table must widen continuously downward, with the rate of widening decreasing.
+## If the owner explicitly changes gameplay geometry
 
-Current left-edge slopes: −0.459, −0.439, −0.433, −0.379, −0.200, −0.065 — progressively flatter. A normal perspective table measurement naturally satisfies this condition.
+A physics/geometry change is a separate owner-authorized task.
 
-If the table has an inward notch or indentation, glasses will be pushed out of it.
+Then:
+1. update `scripts/game_manager.gd` rail/rear/danger/launch values;
+2. update `TABLE_GEOMETRY_CONTRACT_V2.md`;
+3. update `table_geometry_v2.json`;
+4. re-run all R11 table-edge/footprint regression checks;
+5. verify L12 rear fit;
+6. verify danger and launch placement;
+7. verify progression/leg composition;
+8. require owner runtime approval.
 
-### Aspect ratio
-
-`background_scale_for_viewport()` uses `cover` behavior: `max(vw/sw, vh/sh)`.
-
-Current artwork: 1024×1536 (ratio 0.667), viewport 720×1280 (ratio 0.5625).
-The image is scaled by height, cropping 66.7 px from each side.
-
-If the new image is narrower than 0.5625, the top and bottom will be cropped and the lower table may be cut off. Staying near **2:3** is safest.
-
----
-
-## 5. Implementation order
-
-1. Open the new PNG in an image editor. Select 5–7 points along the left and right edges and read their pixel coordinates.
-   **Coordinates must be in the PNG's own pixel space** — not screen coordinates. `source_to_viewport()` performs the conversion.
-2. Update the six constants above and run with F5.
-3. Throw the largest glass to the rear and check whether it fits.
-   If it does not, scale `COLLIDER_RADII`.
-4. Adjust `REAR_EDGE_MARGIN` visually.
-
----
-
-## 6. Recommended verification
-
-After the change, check:
-
-- [ ] Can a glass of every level touch the left / right / rear edge, with the gap not changing by level?
-- [ ] Does the largest glass (L12) fit at the rear edge?
-- [ ] Does a new glass after a near-edge merge avoid being thrown inward?
-- [ ] Do light and hard contacts with a settled glass produce similar results?
-- [ ] Are the danger line and launch ring in the correct places on the table?
-- [ ] Can a glass ever leave the table?
+Never silently change gameplay geometry to rescue a generated image.
