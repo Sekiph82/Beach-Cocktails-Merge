@@ -13,12 +13,12 @@ This branch-only library is generated for the M12 V05 visual-production stream. 
 
 ## Generation and export
 
-V05 production uses the accepted V04 visual masters plus Codex image-generation source atlases for the new visual families. Technical post-processing is limited to crops, resizes, alpha masks, composites, metadata, contact sheets, and evidence assembly; Pillow/procedural primitives are not used as final primary artwork. The owner-supplied logo, mandatory reference boards, and frozen table geometry/mask are preserved exactly. The table skins are derived from the shared 720x1280 alpha polygon defined by `tables/table_geometry_v1.json`; only the clipped material treatment changes per island.
+V05 production uses the accepted V04 visual masters plus Codex image-generation source atlases for the new visual families. Technical post-processing is limited to crops, resizes, alpha masks, composites, metadata, contact sheets, and evidence assembly; Pillow/procedural primitives are not used as final primary artwork. The owner-supplied logo and mandatory reference boards remain protected. Table production is governed by `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md` and `tables/table_geometry_v2.json`. V2 separates the accepted R11 playable tabletop from the lower non-playable apron/leg/progression region. The legacy V1 JSON/mask are historical only and must not be used to clip new full-table artwork.
 
 `V05_ASSET_REGEN_STATUS.csv` records one validation row for each of the 398 manifest assets. `v05_sources/` contains the three visual source atlases used for technical extraction, while the contact sheets and `docs/evidence/m12/v05/` provide builder evidence.
 
 `tools/ui_assets/generate_assets.py` is retained as historical tooling and is not the V05 final-art generator.
 
-`tools/ui_assets/validate_assets.py` checks manifest coverage, PNG decoding, dimensions, alpha expectations, table canvas/mask equality, preserved logo/mask/geometry blobs, front-corner/rear-width geometry, untouched protected paths, and remediation scope restrictions.
+`tools/ui_assets/validate_assets.py` contains historical V1 table-mask checks and is not V2 acceptance authority until a dedicated V2 validator is added. V2 acceptance follows the R11 rail envelope, tabletop-front transition, mandatory legs, and progression-clearance rules in the V2 contract.
 
 The global, island, table, screen, semantic-icon, and major-screen contact sheets are audit evidence, not runtime integration. `source/style_reference_board*.png` are visual direction references only. Runtime table/play-area and logo replacement remain deferred to UIA-M14.
