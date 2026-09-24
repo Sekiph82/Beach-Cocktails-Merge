@@ -113,8 +113,10 @@ Never regenerate or overwrite:
 - all 12 V04 masters;
 - `assets/ui_assets/source/style_reference_board_remediation_v01.png`;
 - `assets/ui_assets/source/style_reference_board.png`;
-- `assets/ui_assets/tables/table_geometry_v1.json`;
-- `assets/ui_assets/tables/table_silhouette_mask.png`;
+- `assets/ui_assets/tables/table_geometry_v2.json`;
+- `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`;
+
+Legacy `table_geometry_v1.json`, `table_silhouette_mask.png`, and `table_edge_overlay_master.png` are historical V1 artifacts and are NOT authority for new V2 table artwork;
 - accepted gameplay cocktail PNGs under `assets/cocktails/**`;
 - accepted runtime environment/UI assets outside this isolated visual-production target list.
 
@@ -180,27 +182,26 @@ For text-bearing UI where runtime text is expected:
 - generate the frame/background only;
 - do not bake labels, numbers, prices, level numbers, scores, timers, or localization copy unless the master list explicitly requires fixed artwork text.
 
-## TABLE VISUALS — STRICT GEOMETRY CONTRACT
+## TABLE VISUALS — STRICT GEOMETRY CONTRACT V2
 
-Every island table visual must be generated to fit the existing frozen table geometry exactly.
+Read and obey:
+- `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`
+- `assets/ui_assets/tables/table_geometry_v2.json`
 
-Do NOT alter:
-- table silhouette;
-- playable-area shape;
-- rear edge;
-- front corners;
-- perspective envelope;
-- mask;
-- boundary geometry.
+Non-negotiable:
+- R11 runtime rails are the playable geometry authority.
+- Do NOT use the legacy V1 bottom-corner polygon as authority.
+- Do NOT clip full `gameplay_table.png` artwork to the legacy `table_silhouette_mask.png`.
+- `gameplay_table.png` is a 720x1280 transparent FULL TABLE asset.
+- The playable/tabletop region follows the V2 R11 rail envelope down to the front tabletop art transition at approximately y=988.333.
+- Below that point is non-playable table structure.
+- Every island table must show a front apron/thickness and TWO visible front legs.
+- The existing L01-L12 progression UI is framed between the legs and must remain unobstructed.
+- Azure Bay V2 must receive owner approval before its final leg placement becomes structural authority for the other nine islands.
+- Island identity changes material/trim only, never geometry.
+- Shadows and edge overlays are separate functional assets and never redefine the playable boundary.
 
-Required workflow:
-1. use the corresponding island V04 master as style/material authority;
-2. generate the island-specific table material/surface treatment;
-3. composite/mask it through the canonical `table_silhouette_mask.png`;
-4. preserve the exact frozen alpha silhouette pixel-for-pixel;
-5. verify against `table_geometry_v1.json`.
-
-Only material, texture, trim, inlay, surface decoration and lighting may vary.
+If any historical prompt, V1 JSON, V1 mask, or old remediation instruction conflicts with V2, V2 wins.
 
 ## QA AFTER EVERY IMAGE
 
