@@ -19,6 +19,6 @@ V05 production uses the accepted V04 visual masters plus Codex image-generation 
 
 `tools/ui_assets/generate_assets.py` is retained as historical tooling and is not the V05 final-art generator.
 
-`tools/ui_assets/validate_assets.py` contains historical V1 table-mask checks and is not V2 acceptance authority until a dedicated V2 validator is added. V2 acceptance follows the R11 rail envelope, tabletop-front transition, mandatory legs, and progression-clearance rules in the V2 contract.
+`tools/ui_assets/validate_assets.py` now validates the V2 geometry data, 720x1280 table canvas, R11 rail constants, y≈988.333 tabletop-front transition contract, and presence of lower apron/leg structure. Visual leg placement and progression clearance still require owner/visual audit after Azure Bay V2 approval.
 
 The global, island, table, screen, semantic-icon, and major-screen contact sheets are audit evidence, not runtime integration. `source/style_reference_board*.png` are visual direction references only. Runtime table/play-area and logo replacement remain deferred to UIA-M14.
