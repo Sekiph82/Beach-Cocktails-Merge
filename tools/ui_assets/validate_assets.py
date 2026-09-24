@@ -120,7 +120,7 @@ def head_blob(path):
 def main():
     manifest_path = OUT / "ASSET_MANIFEST.json"
     dimensions_path = OUT / "ASSET_DIMENSIONS.csv"
-    geometry_path = OUT / "tables" / "table_geometry_v1.json"
+    geometry_path = OUT / "tables" / "table_geometry_v2.json"
     assert manifest_path.exists(), "manifest missing"
     assert dimensions_path.exists(), "dimensions CSV missing"
     assert geometry_path.exists(), "table geometry missing"
@@ -156,33 +156,41 @@ def main():
         assert hashlib.sha256(path.read_bytes()).hexdigest() == item["sha256"], f"checksum drift: {item['path']}"
 
     geometry = json.loads(geometry_path.read_text(encoding="utf-8"))
-    assert geometry["viewport_width"] == 720 and geometry["viewport_height"] == 1280
-    assert geometry["raster_edge_coordinates"]["front_left"] == [0, 1280]
-    assert geometry["raster_edge_coordinates"]["front_right"] == [720, 1280]
-    assert geometry["raster_edge_coordinates"]["rear_left"] == [130, 398]
-    assert geometry["raster_edge_coordinates"]["rear_right"] == [590, 398]
-    assert geometry["raster_edge_coordinates"]["rear_width_px"] == 460
-    assert geometry["normalized"]["rear_width"] == 0.64
-    assert geometry["canonical_launch_y"] == 947 and geometry["canonical_danger_y"] == 900
+    assert geometry["geometry_version"] == 2, "table geometry is not V2"
+    assert geometry["status"] == "OWNER_CONSTITUTIONAL", "V2 geometry status drift"
+    assert geometry["viewport"] == {"width": 720, "height": 1280}
+    runtime = geometry["runtime_playable_boundary"]
+    visual = geometry["visual_table_layout"]
+    progression = geometry["progression"]
+    assert runtime["left_source_points"][0] == [199, 478]
+    assert runtime["right_source_points"][0] == [833, 478]
+    assert runtime["left_source_points"][-1] == [8, 1186]
+    assert runtime["right_source_points"][-1] == [1016, 1186]
+    assert abs(runtime["rear_viewport_y"] - 398.333) < 0.01
+    assert abs(runtime["danger_viewport_y"] - 900.0) < 0.01
+    assert abs(runtime["launch_viewport_y"] - 946.667) < 0.01
+    assert runtime["rear_edge_margin_px"] == 12
+    assert visual["canvas"] == [720, 1280]
+    assert visual["transparent_background"] is True
+    assert abs(visual["tabletop_front_art_transition_y"] - 988.333) < 0.01
+    assert visual["visible_front_apron_required"] is True
+    assert visual["visible_front_legs_required"] == 2
+    assert progression["layer"] == "HUD CanvasLayer"
+    assert progression["panel_rect"] == [12, 1039.465, 696, 232.535]
 
     table_paths = sorted(OUT.glob("campaign/islands/*/gameplay_table.png"))
     assert len(table_paths) == 10, f"expected 10 gameplay tables, found {len(table_paths)}"
-    masks = []
     for path in table_paths:
         image = Image.open(path).convert("RGBA")
         assert image.size == (720, 1280), f"table canvas mismatch: {path}"
         alpha = image.getchannel("A")
-        assert alpha.getpixel((0, 1279)) > 0, f"front-left corner not occupied: {path}"
-        assert alpha.getpixel((719, 1279)) > 0, f"front-right raster corner not occupied: {path}"
-        masks.append(alpha)
-    for mask in masks[1:]:
-        assert ImageChops.difference(masks[0], mask).getbbox() is None, "table alpha silhouettes differ"
+        assert alpha.getbbox() is not None, f"empty table alpha: {path}"
+        lower_structure = alpha.crop((0, 989, 720, 1280))
+        assert lower_structure.getbbox() is not None, f"missing V2 lower apron/leg structure: {path}"
 
     logo_path = OUT / "brand" / "logo_beach_cocktails_merge.png"
     assert hashlib.sha256(logo_path.read_bytes()).hexdigest().upper() == PRESERVED_LOGO_SHA256, "canonical owner logo changed"
     assert worktree_blob("assets/ui_assets/brand/logo_beach_cocktails_merge.png") == head_blob("assets/ui_assets/brand/logo_beach_cocktails_merge.png"), "canonical logo blob changed from start"
-    assert worktree_blob("assets/ui_assets/tables/table_silhouette_mask.png") == head_blob("assets/ui_assets/tables/table_silhouette_mask.png"), "table silhouette mask changed from start"
-    assert worktree_blob("assets/ui_assets/tables/table_geometry_v1.json") == head_blob("assets/ui_assets/tables/table_geometry_v1.json"), "table geometry contract changed from start"
     semantic_report = write_uniqueness_report("semantic", SEMANTIC_PATHS)
     island_report = write_uniqueness_report("island", ISLAND_PATHS)
     stateful_results = validate_stateful_report()
@@ -192,10 +200,10 @@ def main():
     print(f"PASS manifest-existence: {len(assets)} assets present")
     print(f"PASS png-decode-dimensions-alpha: {decoded} decoded; CSV and manifest agree")
     print("PASS table-canvas: 10 x 720x1280")
-    print("PASS table-alpha-silhouette: 10 identical masks")
-    print("PASS geometry: corners [0,1280]/[720,1280], rear [130,398]-[590,398], target 0.64")
+    print("PASS table-v2-lower-structure: 10 tables contain non-playable apron/leg-region pixels")
+    print("PASS geometry-v2: R11 rails preserved; rear=398.333, danger=900, launch=946.667, tabletop-front=988.333")
     print(f"PASS canonical-logo: preserved SHA256 {PRESERVED_LOGO_SHA256}")
-    print("PASS preserved-logo-mask-geometry: start-commit blobs unchanged")
+    print("PASS canonical-logo: start-commit blob unchanged; V1 table mask is legacy")
     print(f"PASS semantic-uniqueness: {semantic_report['asset_count']} assets; minimum distance {semantic_report['minimum_pair_distance']:.4f}")
     print(f"PASS island-uniqueness: {island_report['asset_count']} assets; minimum distance {island_report['minimum_pair_distance']:.4f}")
     print(f"PASS stateful-stars: minimum distance {stateful_results['stars']:.4f}")
