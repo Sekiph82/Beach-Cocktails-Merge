@@ -1,3 +1,15 @@
+# SUPERSEDED — DO NOT EXECUTE
+
+This historical prompt is invalid for current table production because it relies on V1 geometry and/or pre-V2 Azure Bay assumptions.
+
+Current mandatory authority:
+- https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md
+- https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/assets/ui_assets/tables/table_geometry_v2.json
+
+Do not execute this prompt unless the owner explicitly requests the historical workflow.
+
+---
+
 # BEACH COCKTAILS MERGE — 32 ASSET REAL IMAGE REGENERATION + MAIN MERGE + DESKTOP SYNC
 
 Repository:
