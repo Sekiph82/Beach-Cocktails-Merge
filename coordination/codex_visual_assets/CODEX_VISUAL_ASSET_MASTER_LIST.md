@@ -50,7 +50,7 @@ Secondary authorities:
 
 Protected technical/canonical sources:
 - `assets/ui_assets/brand/logo_beach_cocktails_merge.png`
-- `assets/ui_assets/tables/table_geometry_v1.json`
+- `assets/ui_assets/tables/table_geometry_v2.json`
 - `assets/ui_assets/tables/table_silhouette_mask.png`
 
 ## Production rules by family
@@ -63,6 +63,16 @@ Protected technical/canonical sources:
 - Tables: matching island V04 master for material/style, frozen table geometry for silhouette.
 - Full-screen screens: Main Menu V04 master plus relevant island/world-map master for contextual theme.
 - Effects: painterly/glossy V04-compatible light/particle language; transparent and board-readable.
+
+## TABLE GEOMETRY V2 OVERRIDE
+
+For every island `gameplay_table.png`, `gameplay_table_shadow.png`, and `table_edge_overlay.png`, the controlling geometry authority is:
+- `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`
+- `assets/ui_assets/tables/table_geometry_v2.json`
+
+The legacy V1 JSON/mask/edge-master are historical only. New `gameplay_table.png` files are full 720x1280 table assets with the V2 tabletop plus mandatory front apron and two visible legs. They must preserve the L01-L12 progression area between the legs.
+
+Azure Bay V2 is the owner-approval structural master. Its final leg placement must be approved before the other island tables are regenerated.
 
 ## Exact canonical production targets
 
