@@ -6,10 +6,10 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M12
 - Current Sprint: BCM-M12-WORLD-MAP
-- Current Task: Clear M12 final-closure blockers: eight remaining V2 table families, canonical manifest/checksum truth, and deterministic World Map regression.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes M12 Final Closure Remediation V02 against CHATGPT_AUDIT_FINAL_CLOSURE_V01.md and locked CHATGPT_AUDIT_CRITERIA_FINAL_CLOSURE_V02.md, then stops for independent audit.
-- Required Actor: CODEX
+- Current Task: Owner visual acceptance of the technically validated ten-family V2 table set before unconditional M12 closure.
+- Current Task Status: OWNER_VISUAL_ACCEPTANCE_REQUIRED
+- Next Task/Action: Owner reviews the updated V2 table family/contact-sheet visuals. If accepted, ChatGPT records final owner acceptance, closes M12 and advances to M13. If any visual is rejected, ChatGPT issues a bounded remediation only for the rejected visual(s).
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -28,7 +28,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M09-001 — Feedback hooks, optional haptics architecture, and L5/L6/L7 startup To-Go sequence implemented, audited and owner-accepted; yellow trail accepted as-is.
 - [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
 - [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
-- [!] BCM-M12-001 — Create reusable data-driven World Map with island state rendering, selection, lock enforcement and mobile-safe layout.
+- [~] BCM-M12-001 — Create reusable data-driven World Map with island state rendering, selection, lock enforcement and mobile-safe layout.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -266,30 +266,24 @@ Execution prompt:
 
 Scope: campaign persistence, backup/recovery, legacy best-score migration, idempotent progression, and isolated save tests only. Campaign UI and timed gameplay remain deferred.
 
-## Active M12 World Map — Final Closure V02 Remediation
+## Active M12 World Map — V02 Technical Pass / Owner Visual Acceptance Pending
 
-Final Closure V01 independent audit:
-`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_FINAL_CLOSURE_V01.md` — **CHANGES_REQUIRED**.
+Final Closure V02 independent audit:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_FINAL_CLOSURE_V02.md` — **TECHNICAL PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
 
-Locked V02 remediation criteria:
-`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_CRITERIA_FINAL_CLOSURE_V02.md`
+Technical state:
+- 398/398 manifest/checksum validation PASS;
+- invalid semantic duplicates 8 -> 0;
+- all ten V2 table families PASS;
+- M12 clean-import probe run 1 PASS;
+- M12 clean-import probe run 2 PASS;
+- M10/M11/M04 and M07 R06 regressions PASS;
+- no R11 physics, brand pixels, M13 code, or root tracker changes by Codex.
 
-V02 execution prompt:
-`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_EXECUTION_PROMPT_FINAL_CLOSURE_V02.md`
+Only remaining gate:
+- direct owner visual acceptance of the changed V2 table artwork.
 
-Current blockers:
-- eight remaining island table families are not valid V2 families; their overlays are byte-identical to gameplay tables;
-- canonical `ASSET_MANIFEST.json` checksum metadata is stale relative to current repository bytes;
-- the M12 focused World Map probe has no current PASS result.
-
-Preserve:
-- owner-approved Azure Bay V2 structural authority;
-- accepted Billionaire Island V2 family unless a direct validator defect is proven;
-- V02 brand direction and current brand pixels;
-- R11 gameplay physics and accepted gameplay behavior;
-- M13 remains deferred until M12 reaches independent `AUDITED_PASS`.
-
-Any visible table-art change remains subject to owner visual acceptance after technical remediation.
+No further Codex work is authorized unless the owner rejects a specific visual.
 
 
 ## M08-M21 — Roadmap
