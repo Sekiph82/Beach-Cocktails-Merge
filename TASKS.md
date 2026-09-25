@@ -4,12 +4,12 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M12
-- Current Sprint: BCM-M12-WORLD-MAP
-- Current Task: Owner visual acceptance of the technically validated ten-family V2 table set before unconditional M12 closure.
-- Current Task Status: OWNER_VISUAL_ACCEPTANCE_REQUIRED
-- Next Task/Action: Owner reviews the updated V2 table family/contact-sheet visuals. If accepted, ChatGPT records final owner acceptance, closes M12 and advances to M13. If any visual is rejected, ChatGPT issues a bounded remediation only for the rejected visual(s).
-- Required Actor: OWNER
+- Current Milestone: M13
+- Current Sprint: BCM-M13-ISLAND-MAP
+- Current Task: Build the reusable data-driven Island Map and 100-level path engine without implementing M14 gameplay launch or M16 canonical level content.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes BCM-M13-ISLAND-MAP V01 against the locked M13 audit criteria, writes CODEX_LOG_V01.md, pushes main, and stops for independent audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -28,7 +28,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M09-001 — Feedback hooks, optional haptics architecture, and L5/L6/L7 startup To-Go sequence implemented, audited and owner-accepted; yellow trail accepted as-is.
 - [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
 - [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
-- [~] BCM-M12-001 — Create reusable data-driven World Map with island state rendering, selection, lock enforcement and mobile-safe layout.
+- [x] BCM-M12-001 — Reusable data-driven World Map closed with technical audit PASS and owner acceptance.
+- [~] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -266,24 +267,36 @@ Execution prompt:
 
 Scope: campaign persistence, backup/recovery, legacy best-score migration, idempotent progression, and isolated save tests only. Campaign UI and timed gameplay remain deferred.
 
-## Active M12 World Map — V02 Technical Pass / Owner Visual Acceptance Pending
+## M12 World Map — Closed
 
-Final Closure V02 independent audit:
-`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_FINAL_CLOSURE_V02.md` — **TECHNICAL PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
+Final owner-accepted audit:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_FINAL_CLOSURE_V03.md` — **AUDITED_PASS / OWNER_ACCEPTED**.
 
-Technical state:
-- 398/398 manifest/checksum validation PASS;
-- invalid semantic duplicates 8 -> 0;
-- all ten V2 table families PASS;
-- M12 clean-import probe run 1 PASS;
-- M12 clean-import probe run 2 PASS;
-- M10/M11/M04 and M07 R06 regressions PASS;
-- no R11 physics, brand pixels, M13 code, or root tracker changes by Codex.
+M12 closure:
+- 398/398 manifest/checksum PASS;
+- 10/10 V2 table families PASS;
+- invalid semantic duplicates = 0;
+- M12 deterministic clean-import regression PASS twice;
+- all visual sets owner accepted.
 
-Only remaining gate:
-- direct owner visual acceptance of the changed V2 table artwork.
+## Active M13 — Reusable Island Map and 100-level path
 
-No further Codex work is authorized unless the owner rejects a specific visual.
+Locked criteria:
+`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Execution prompt:
+`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Pending independent audit:
+`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_V01.md`
+
+Scope:
+- generic IslandMapScene;
+- reusable LevelButton;
+- mobile-safe deterministic 100-node path engine;
+- state/stars/milestones/summary/focus/navigation/restoration;
+- no M14 gameplay launch;
+- no M16 canonical Sunny Cove L1-100 content.
 
 
 ## M08-M21 — Roadmap
@@ -321,17 +334,17 @@ No further Codex work is authorized unless the owner rejects a specific visual.
 
 ### M12 — World Map
 
-- [ ] BCM-M12-001 — Create reusable WorldMapScene that reads island definitions from LevelDatabase/CampaignManager rather than hardcoded progression logic.
-- [ ] BCM-M12-002 — Add island nodes/cards for Sunny Cove and future islands with OPEN, LOCKED, COMPLETE, and CURRENT presentation states.
-- [ ] BCM-M12-003 — Implement sequential island unlock rules with Sunny Cove open by default and Tiki Island locked until Sunny Cove completion.
-- [ ] BCM-M12-004 — Implement navigation from main flow to world map and from world map to selected island map.
-- [ ] BCM-M12-005 — Add clear locked-island reason/progress text without requiring character animation or additional gameplay scenes.
-- [ ] BCM-M12-006 — Make layout mobile-safe and data-driven for at least 10 planned islands without scene-code duplication.
-- [ ] BCM-M12-007 — Add tests for island state rendering, selection, lock enforcement, and save reload.
+- [x] BCM-M12-001 — Create reusable WorldMapScene that reads island definitions from LevelDatabase/CampaignManager rather than hardcoded progression logic.
+- [x] BCM-M12-002 — Add island nodes/cards for Sunny Cove and future islands with OPEN, LOCKED, COMPLETE, and CURRENT presentation states.
+- [x] BCM-M12-003 — Implement sequential island unlock rules with Sunny Cove open by default and Tiki Island locked until Sunny Cove completion.
+- [x] BCM-M12-004 — Implement navigation from main flow to world map and from world map to selected island map.
+- [x] BCM-M12-005 — Add clear locked-island reason/progress text without requiring character animation or additional gameplay scenes.
+- [x] BCM-M12-006 — Make layout mobile-safe and data-driven for at least 10 planned islands without scene-code duplication.
+- [x] BCM-M12-007 — Add tests for island state rendering, selection, lock enforcement, and save reload.
 
 ### M13 — Reusable Island Map and 100-level path
 
-- [ ] BCM-M13-001 — Create generic IslandMapScene receiving island_id and rendering its configured level count.
+- [~] BCM-M13-001 — Create generic IslandMapScene receiving island_id and rendering its configured level count.
 - [ ] BCM-M13-002 — Create reusable LevelButton component with level number, locked/unlocked/current/completed state, 0-3 stars, and milestone marker.
 - [ ] BCM-M13-003 — Implement a vertically scrollable mobile path capable of showing 100 level nodes without creating 100 unique scenes.
 - [ ] BCM-M13-004 — Implement deterministic path/layout generation or reusable authored anchor pattern so every island can use one map engine with different skin/data.
