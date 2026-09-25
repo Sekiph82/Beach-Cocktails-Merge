@@ -187,6 +187,7 @@ For text-bearing UI where runtime text is expected:
 Read and obey:
 - `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`
 - `assets/ui_assets/tables/table_geometry_v2.json`
+- `docs/ui-assets/TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md`
 
 Non-negotiable:
 - R11 runtime rails are the playable geometry authority.
@@ -200,6 +201,8 @@ Non-negotiable:
 - Azure Bay V2 must receive owner approval before its final leg placement becomes structural authority for the other nine islands.
 - Island identity changes material/trim only, never geometry.
 - Shadows and edge overlays are separate functional assets and never redefine the playable boundary.
+- The overlay MUST be derived from the final accepted gameplay table; do not independently generate its geometry.
+- The shadow MUST use the fixed deterministic recipe in TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md; do not generate a scenic shadow.
 
 If any historical prompt, V1 JSON, V1 mask, or old remediation instruction conflicts with V2, V2 wins.
 
