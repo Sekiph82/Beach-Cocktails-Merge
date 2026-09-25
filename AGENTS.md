@@ -217,6 +217,20 @@ This is a constitutional project rule:
 
 Any prompt, historical log, V1 contract, mask, or old asset instruction that conflicts with V2 is superseded.
 
+## Table asset production rulechain V2
+
+For every island table family, Codex/ChatGPT MUST read and obey:
+- `docs/ui-assets/TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md`
+
+Mandatory sequence:
+1. final V2-fitted `gameplay_table.png`;
+2. derive `table_edge_overlay.png` from that exact final table;
+3. create `gameplay_table_shadow.png` using the fixed deterministic V2 shadow recipe.
+
+Independent AI generation of table-edge overlay geometry or scenic table shadows is forbidden.
+
+Azure Bay is the V2 structural master. The remaining nine islands must use the same geometry, apron/leg relationship, progression clearance, overlay derivation method, and shadow recipe. Only island art/material language may vary.
+
 ## Safety
 
 - Preserve owner-created assets and project files.
