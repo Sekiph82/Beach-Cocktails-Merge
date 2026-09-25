@@ -185,5 +185,56 @@
     "assets/ui_assets/tables/table_geometry_v1.json",
     "assets/ui_assets/tables/table_silhouette_mask.png",
     "assets/ui_assets/tables/table_edge_overlay_master.png"
-  ]
+  ],
+  "production_rulechain": "docs/ui-assets/TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md",
+  "production_rulechain_mandatory": true,
+  "asset_sequence": [
+    "gameplay_table.png",
+    "table_edge_overlay.png",
+    "gameplay_table_shadow.png"
+  ],
+  "overlay_rule": "derive from final accepted gameplay_table pixels; never independently generate geometry",
+  "shadow_recipe": {
+    "canvas": [
+      720,
+      1280
+    ],
+    "centerline_x": 360,
+    "rgb": [
+      22,
+      31,
+      43
+    ],
+    "main_ellipse": [
+      38,
+      925,
+      682,
+      1085
+    ],
+    "core_ellipse": [
+      92,
+      955,
+      628,
+      1055
+    ],
+    "left_leg_contact_ellipse": [
+      20,
+      1110,
+      190,
+      1275
+    ],
+    "right_leg_contact_ellipse": [
+      530,
+      1110,
+      700,
+      1275
+    ],
+    "construction_scale": 4,
+    "main_alpha": 118,
+    "core_alpha": 148,
+    "leg_alpha": 82,
+    "gaussian_blur_final_px": 34,
+    "downsample": "Lanczos",
+    "island_specific_geometry_changes": false
+  }
 }
