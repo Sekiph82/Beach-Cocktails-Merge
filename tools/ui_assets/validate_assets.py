@@ -185,8 +185,36 @@ def main():
         assert image.size == (720, 1280), f"table canvas mismatch: {path}"
         alpha = image.getchannel("A")
         assert alpha.getbbox() is not None, f"empty table alpha: {path}"
-        lower_structure = alpha.crop((0, 989, 720, 1280))
-        assert lower_structure.getbbox() is not None, f"missing V2 lower apron/leg structure: {path}"
+
+    canonical = geometry["canonical_v2_assets"]
+    playable_master = Image.open(ROOT / canonical["playable_surface_mask"]).convert("RGBA")
+    structure_master = Image.open(ROOT / canonical["structure_mask"]).convert("RGBA")
+    edge_master = Image.open(ROOT / canonical["edge_extraction_mask"]).convert("RGBA")
+    shadow_master = Image.open(ROOT / canonical["shadow_master"]).convert("RGBA")
+    for master in (playable_master, structure_master, edge_master, shadow_master):
+        assert master.size == (720, 1280), "V2 technical master canvas mismatch"
+
+    structure_alpha = structure_master.getchannel("A")
+    edge_alpha = edge_master.getchannel("A")
+    converted = geometry["v2_converted_islands"]
+    for island in converted:
+        base = OUT / "campaign" / "islands" / island
+        table = Image.open(base / "gameplay_table.png").convert("RGBA")
+        overlay = Image.open(base / "table_edge_overlay.png").convert("RGBA")
+        shadow = Image.open(base / "gameplay_table_shadow.png").convert("RGBA")
+        assert table.size == overlay.size == shadow.size == (720, 1280), f"V2 converted canvas mismatch: {island}"
+
+        table_alpha = table.getchannel("A")
+        actual_structure = table_alpha.crop((0, 989, 720, 1280))
+        expected_structure = structure_alpha.crop((0, 989, 720, 1280))
+        assert ImageChops.difference(actual_structure, expected_structure).getbbox() is None, f"V2 structure mask drift: {island}"
+
+        expected_overlay = Image.new("RGBA", (720, 1280), (0, 0, 0, 0))
+        combined_overlay_alpha = ImageChops.multiply(table_alpha, edge_alpha)
+        expected_overlay.paste(table, (0, 0), combined_overlay_alpha)
+        assert ImageChops.difference(overlay, expected_overlay).getbbox() is None, f"V2 overlay derivation drift: {island}"
+
+        assert ImageChops.difference(shadow, shadow_master).getbbox() is None, f"V2 shadow master drift: {island}"
 
     logo_path = OUT / "brand" / "logo_beach_cocktails_merge.png"
     assert hashlib.sha256(logo_path.read_bytes()).hexdigest().upper() == PRESERVED_LOGO_SHA256, "canonical owner logo changed"
@@ -200,7 +228,7 @@ def main():
     print(f"PASS manifest-existence: {len(assets)} assets present")
     print(f"PASS png-decode-dimensions-alpha: {decoded} decoded; CSV and manifest agree")
     print("PASS table-canvas: 10 x 720x1280")
-    print("PASS table-v2-lower-structure: 10 tables contain non-playable apron/leg-region pixels")
+    print(f"PASS table-v2-masters: {len(converted)} converted islands match structure, overlay, and shadow masters")
     print("PASS geometry-v2: R11 rails preserved; rear=398.333, danger=900, launch=946.667, tabletop-front=988.333")
     print(f"PASS canonical-logo: preserved SHA256 {PRESERVED_LOGO_SHA256}")
     print("PASS canonical-logo: start-commit blob unchanged; V1 table mask is legacy")
