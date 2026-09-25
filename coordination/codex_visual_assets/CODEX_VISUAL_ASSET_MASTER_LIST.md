@@ -51,6 +51,7 @@ Secondary authorities:
 Protected technical/canonical sources:
 - `assets/ui_assets/brand/logo_beach_cocktails_merge.png`
 - `assets/ui_assets/tables/table_geometry_v2.json`
+- `docs/ui-assets/TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md`
 - `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`
 
 Legacy technical artifacts retained for history, NOT current geometry authority:
@@ -78,6 +79,8 @@ For every island `gameplay_table.png`, `gameplay_table_shadow.png`, and `table_e
 The legacy V1 JSON/mask/edge-master are historical only. New `gameplay_table.png` files are full 720x1280 table assets with the V2 tabletop plus mandatory front apron and two visible legs. They must preserve the L01-L12 progression area between the legs.
 
 Azure Bay V2 is the owner-approval structural master. Its final leg placement must be approved before the other island tables are regenerated.
+
+MANDATORY production order for every island: gameplay_table → derived table_edge_overlay → deterministic gameplay_table_shadow. Independent overlay geometry generation or scenic shadow generation is forbidden.
 
 ## Exact canonical production targets
 
