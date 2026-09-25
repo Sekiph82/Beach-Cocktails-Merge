@@ -6,9 +6,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M12
 - Current Sprint: BCM-M12-WORLD-MAP
-- Current Task: Build the reusable data-driven World Map UI from LevelDatabase/CampaignManager state without changing accepted core gameplay.
+- Current Task: Clear M12 final-closure blockers: eight remaining V2 table families, canonical manifest/checksum truth, and deterministic World Map regression.
 - Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes M12 V06 semantic asset de-duplication remediation against CHATGPT_AUDIT_V05.md, preserving V04-approved art direction and protected table/logo/reference assets, then stops for independent audit.
+- Next Task/Action: Codex executes M12 Final Closure Remediation V02 against CHATGPT_AUDIT_FINAL_CLOSURE_V01.md and locked CHATGPT_AUDIT_CRITERIA_FINAL_CLOSURE_V02.md, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -28,7 +28,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M09-001 — Feedback hooks, optional haptics architecture, and L5/L6/L7 startup To-Go sequence implemented, audited and owner-accepted; yellow trail accepted as-is.
 - [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
 - [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
-- [~] BCM-M12-001 — Create reusable data-driven World Map with island state rendering, selection, lock enforcement and mobile-safe layout.
+- [!] BCM-M12-001 — Create reusable data-driven World Map with island state rendering, selection, lock enforcement and mobile-safe layout.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -266,18 +266,31 @@ Execution prompt:
 
 Scope: campaign persistence, backup/recovery, legacy best-score migration, idempotent progression, and isolated save tests only. Campaign UI and timed gameplay remain deferred.
 
-## Active M12 World Map — V03 full visual asset regeneration
+## Active M12 World Map — Final Closure V02 Remediation
 
-Locked criteria:
-`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_CRITERIA_V01.md`
+Final Closure V01 independent audit:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_FINAL_CLOSURE_V01.md` — **CHANGES_REQUIRED**.
 
-Execution prompt:
-`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`
+Locked V02 remediation criteria:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_CRITERIA_FINAL_CLOSURE_V02.md`
 
-Independent audit:
-`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_AUDIT_V01.md` — SOURCE_AUDITED_PASS / OWNER_RUNTIME_VERIFICATION_REQUIRED.
+V02 execution prompt:
+`coordination/sessions/BCM-M12-WORLD-MAP/CHATGPT_EXECUTION_PROMPT_FINAL_CLOSURE_V02.md`
 
-Scope: World Map UI only. Island Map, level path, gameplay timer, VIP runtime and full Sunny Cove content remain deferred.
+Current blockers:
+- eight remaining island table families are not valid V2 families; their overlays are byte-identical to gameplay tables;
+- canonical `ASSET_MANIFEST.json` checksum metadata is stale relative to current repository bytes;
+- the M12 focused World Map probe has no current PASS result.
+
+Preserve:
+- owner-approved Azure Bay V2 structural authority;
+- accepted Billionaire Island V2 family unless a direct validator defect is proven;
+- V02 brand direction and current brand pixels;
+- R11 gameplay physics and accepted gameplay behavior;
+- M13 remains deferred until M12 reaches independent `AUDITED_PASS`.
+
+Any visible table-art change remains subject to owner visual acceptance after technical remediation.
+
 
 ## M08-M21 — Roadmap
 
