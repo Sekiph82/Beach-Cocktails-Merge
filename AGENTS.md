@@ -211,7 +211,8 @@ This is a constitutional project rule:
 - playable/tabletop art follows the R11 envelope and transitions to non-playable front structure at approximately y=988.333 on the canonical viewport;
 - the lower region contains front apron/thickness and exactly two visible front legs;
 - the existing L01-L12 progression UI remains between the legs and must not be occluded;
-- Azure Bay V2 is the owner-approval master for final structural leg placement, after which every island uses the same geometry;
+- Azure Bay V2 is the owner-approved structural master. Canonical technical masters under `assets/ui_assets/tables/` are `table_playable_surface_mask_v2.png`, `table_structure_mask_v2.png`, `table_edge_extraction_mask_v2.png`, and `table_shadow_master_v2.png`;
+- every V2-converted island must use those exact masters for playable geometry, lower structure, overlay extraction, and shadow;
 - island skins may change materials/colors/trim only, never geometry;
 - do not retune R11 physics merely to fit AI-generated artwork.
 
