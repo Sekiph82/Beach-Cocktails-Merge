@@ -1,0 +1,23 @@
+{
+  "manifest_count": 398,
+  "duplicate_groups": [
+    {
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "paths": [
+        "assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png",
+        "assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png"
+      ],
+      "classification": "intentional semantic reuse",
+      "allowlist_reason": "V2 table shadow master is intentionally shared by every island family."
+    }
+  ],
+  "invalid_semantic_duplicate_count": 0
+}

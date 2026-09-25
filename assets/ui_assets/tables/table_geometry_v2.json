@@ -247,7 +247,15 @@
   },
   "v2_converted_islands": [
     "azure_bay",
-    "billionaire_island"
+    "billionaire_island",
+    "coconut_beach",
+    "final_island",
+    "frozen_paradise",
+    "party_beach",
+    "sunny_cove",
+    "sunset_island",
+    "tiki_island",
+    "volcano_bay"
   ],
   "canonical_v2_assets": {
     "playable_surface_mask": "assets/ui_assets/tables/table_playable_surface_mask_v2.png",

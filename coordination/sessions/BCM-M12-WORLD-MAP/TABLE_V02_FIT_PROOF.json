@@ -1,0 +1,155 @@
+{
+  "geometry_version": 2,
+  "islands": {
+    "coconut_beach": {
+      "source_sha256": "6a52bfbeae32ec6ff62e881caaab91ddb635ebd8521512189b6650cd510b0a19",
+      "gameplay_table_sha256": "7586ac0f28d21cba4e84b2a02b88273fb2c8e842226ee8b3846241d24b742217",
+      "table_edge_overlay_sha256": "68e32368d3df4bac09b03dea6c9456d89f36cb096631574806add35f2a95c725",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "final_island": {
+      "source_sha256": "5541ca6881c2014d57dd2f08f658edab774a2922e54c57d8fa31b83e2cada8e2",
+      "gameplay_table_sha256": "5c78cbe6535d16c726aa72dcbc87eab23886b3cbeaf10b525f6dd4c4306cb911",
+      "table_edge_overlay_sha256": "2cee6b7ab1f4b324837bf95a0cc4c497f95c6afc33f1b2416b61cff38c93c545",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "frozen_paradise": {
+      "source_sha256": "c29fcbf43744dba34bdafafe8bb53cafcc12b1076f84fec3e05cc43b97f8fa36",
+      "gameplay_table_sha256": "a2f94008d8495160da37caa015e1f4a260db9d8cd4268166f73bd6b1c89cbea6",
+      "table_edge_overlay_sha256": "67cac03dc52480091b8bf892201ff680ea3d3529c89b07d0b799b142080de965",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "party_beach": {
+      "source_sha256": "c53f7e0163fe3cefb1b9f72285e07b62e8083e3715f79d401245dfe5e46790ca",
+      "gameplay_table_sha256": "08788da337fb629e1afbb373651d8e166f1a56168b16c2c12f01063090eb1f4b",
+      "table_edge_overlay_sha256": "166ffadbf92513a5e0c5ddec3f9ae48afc08e720adc3169b2f8aefe8156872c1",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "sunny_cove": {
+      "source_sha256": "02366a8c87e18c25eca5725f3f23b812f58bc6018a1e093dcf74ebb04cc67e8d",
+      "gameplay_table_sha256": "2512c54f58669c7daff7986e7ab9d1288a2416ec4e7a15de792aa04df181238d",
+      "table_edge_overlay_sha256": "48b385f535cf63af1c097d1df59756ca13f5c9138e5b59fc916d1369d58ffc32",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "sunset_island": {
+      "source_sha256": "10a1759e5da0e937a56827e399cdea385f02f3d4d4ded94f997a1776625a9512",
+      "gameplay_table_sha256": "fc7718c08956a9caf9eff1567bff73aa599b616c55561798fe2432b8443d7bf3",
+      "table_edge_overlay_sha256": "2b761d97e863ce981bdbb37f762632677f2692ce6b237d93df96c15e067e3eb6",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "tiki_island": {
+      "source_sha256": "a9cdc7d49988a2359ecb13fd9241b9d50a9c78f8c168efcb83ad9a39f7801d6a",
+      "gameplay_table_sha256": "6d56b607227c86b446acf60eefdc90e58daf330e869b7a932e9f557f3c3090cb",
+      "table_edge_overlay_sha256": "e70f5bdfcf5bd99f4e1b5a7632970f38ef6cb89b5e303fc29b36f72e5f2f23f0",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "volcano_bay": {
+      "source_sha256": "82732f0cf3e417dc8db6e462a1ccf31025b301aff694ebee7a2fb6352f25b3f7",
+      "gameplay_table_sha256": "e3bbd0772f93225a57cf9219905c126aff2c1c04551f5a77c9d3d72ad5ce1d7b",
+      "table_edge_overlay_sha256": "22a4c1fa72951dc722b140d80bfd2b37f96d4f2d358b9e66d6715db012cccf35",
+      "gameplay_table_shadow_sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+      "gameplay_dimensions": [
+        720,
+        1280
+      ],
+      "gameplay_mode": "RGBA",
+      "overlay_differs_from_gameplay": true,
+      "target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c",
+      "shadow_matches_master_bytes": true,
+      "rear_y": 398.333,
+      "front_transition_y": 988.333,
+      "centerline_x": 360,
+      "visible_front_legs": 2
+    },
+    "billionaire_island_overlay_repaired": {
+      "gameplay_table_unchanged": true,
+      "table_edge_overlay_sha256": "26b1897659b20676dca7b442d4c8e027693df6c0783f119200fd4b9fd0c2d4c7",
+      "overlay_differs_from_gameplay": true
+    }
+  },
+  "common_target_alpha_sha256": "477b49c97b930d765f1585bd7142ba0853f2338aaf06e642fa50eb9a53f4da8c"
+}

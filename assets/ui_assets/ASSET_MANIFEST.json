@@ -17,7 +17,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "protected-logo-technical-variant",
-      "sha256": "3919f614bf810762411481a48c1f7e8f3ff24d6f94d2d3f2f57ae03fd5f4de84"
+      "sha256": "1b4199b47ee7a92a22fc7133ff0831171ebe1525fbd202173f8a3f7ff6d6af83"
     },
     {
       "path": "assets/ui_assets/brand/brand_badge_small.png",
@@ -31,7 +31,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "protected-logo-technical-variant",
-      "sha256": "48af490f8f4ff539c08c04eecc30ec3aa147b3b7b968d99420c2fa15328c149d"
+      "sha256": "fea85c49f4e1d8e684d5fd0cf6489987f61bf340aa79a5cd2a19c140c68967fa"
     },
     {
       "path": "assets/ui_assets/brand/brand_wordmark_small.png",
@@ -45,7 +45,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "protected-logo-technical-variant",
-      "sha256": "31a96884c60cd9df9bcbe771061fbbaf3e1ecfb67588de22e4331cfb200e3d8e"
+      "sha256": "26f6e020340359008a94495d33fcc3b7cc113f5ef4e35ace292918ecfde8d46d"
     },
     {
       "path": "assets/ui_assets/brand/legal_logo_mark.png",
@@ -59,7 +59,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "protected-logo-technical-variant",
-      "sha256": "6f67d487f74cf3ee9031f1b238b06af7ec627d7f99c01dc8c4a63719f36c01ea"
+      "sha256": "98cda067a060620da417fc41cfee0525e523153f38032c962909eaadc487bfc1"
     },
     {
       "path": "assets/ui_assets/brand/logo_beach_cocktails_merge.png",
@@ -73,7 +73,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "protected-preserved",
-      "sha256": "b8b828ff49288e80dc9e6ca62eca95173bceac3db5b8217765d9970158160b42"
+      "sha256": "a6cc39ca90c62cd8f2782167a55f5da351d6e94aa8b3e571c20f98e12eabdf13"
     },
     {
       "path": "assets/ui_assets/brand/splash_logo.png",
@@ -87,7 +87,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "protected-logo-technical-variant",
-      "sha256": "6f67d487f74cf3ee9031f1b238b06af7ec627d7f99c01dc8c4a63719f36c01ea"
+      "sha256": "01bccbdd8e1e623676157355d48f89cddab54e2995e0fd7ea5fba69174d7efdf"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/finale_crown.png",
@@ -101,7 +101,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "8cb67d7221c5117e903bc56433da9e8fdace6cbb1b073eb73fda3f3048b9e129"
+      "sha256": "db1a33ccb1b33ecc56b3e6176e96740e4ce96ffee9921bc21953b6666980f476"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/island_summary_panel.png",
@@ -115,7 +115,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "abc5aaa119977ba81930d9ca03ca85dd2dc801604b7b504e49ecfc046e4aa440"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_connector.png",
@@ -129,7 +129,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "e267796d3a81891c02768be4bc60054cf2d29006c92f8602c27d6d3774dc5c77"
+      "sha256": "d98872d8cc5d1da915df5ab93420b7ef51c2217800a3295a8cf6f21a802d117f"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_connector_complete.png",
@@ -143,7 +143,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "e267796d3a81891c02768be4bc60054cf2d29006c92f8602c27d6d3774dc5c77"
+      "sha256": "a3e869a25371420dc2d7d3425bd2575baffac25f51d61d3c588d91ee87de40fc"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_node_completed.png",
@@ -157,7 +157,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3c4a9cb2af1c958034ac34e3b839ebe22a46b9e3d567cc8e42f6e48008106d8f"
+      "sha256": "fa1547bc8321d872c1e0370e672abdf04056a80aa4be25a76bf64b887845b5b1"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_node_current.png",
@@ -171,7 +171,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "bcd1aa55b80223a795f283d4bb2cb868af8d9a67c46b927ef9f1a8ffaf24c5b4"
+      "sha256": "6799e3b8d70a370f40b380d0ab2a7d828c133a36c8e4b13ad4e5c8f31b694980"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_node_finale.png",
@@ -185,7 +185,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "8cb67d7221c5117e903bc56433da9e8fdace6cbb1b073eb73fda3f3048b9e129"
+      "sha256": "cad58b072d46050a9706622fd4b4488bb9d61abfc53b75f406d5ddca14e91e6b"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_node_locked.png",
@@ -199,7 +199,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "9c68f23ef539ca43c4295f3a1bb801c4a7f397e58715a0af18a7ee79c767b4f8"
+      "sha256": "5bdc6dcca69a6a4700a6288526a670cfec8f806ce2f706b69d5b7e0fd5d981d6"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_node_milestone.png",
@@ -213,7 +213,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "9af0b8bbfa836196ed40552c9e33a224f664dc036c645a73693b058398c601f5"
+      "sha256": "7ccc4066d64bc9ba311dc2d1bf9e72e9295917256b4e0a10fc4b61bdb9cdf912"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/level_node_unlocked.png",
@@ -227,7 +227,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "9af0b8bbfa836196ed40552c9e33a224f664dc036c645a73693b058398c601f5"
+      "sha256": "57611593497b7c9986e009c12e9af9cd655e1d9c959b173022a17d89faf046dc"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/map_scroll_bottom_decor.png",
@@ -241,7 +241,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "563e786b9ba9e293b4436c843eee17b8c8b49fa3baddb534d250626453884ffa"
+      "sha256": "41ce68cb8d1e02ca9be626459657d281b33f2cdd0fff854c6104141907b101f2"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/map_scroll_top_decor.png",
@@ -255,7 +255,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "563e786b9ba9e293b4436c843eee17b8c8b49fa3baddb534d250626453884ffa"
+      "sha256": "bbbe797be6fde2e6b44da235b8a2ef0736a0fcc3190829fba0465c4579486a72"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/milestone_chest_marker.png",
@@ -269,7 +269,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "fb7e4d3d5f6757e9f53c0c8f0e6e3b9167742f002a5c1522f3dff618051ca9ae"
+      "sha256": "c3b5786ba18b573329da272681035af8b34168afcc1f6d87db6e8a34b9ad9d3d"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/next_milestone_panel.png",
@@ -283,7 +283,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "9ca203f65b34cfef3d044d9f02061cab69cd6965f3b12907e4838c122a09d54e"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/star_small_empty.png",
@@ -297,7 +297,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "8365e605a2e6fb78bc40071113e2fa164e5a3fe254d8b9712d4962c4c9597842"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/star_small_filled.png",
@@ -311,7 +311,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "e0c2a4fb4b620745db51198b5ccad40b11c664584514ec0ecaea2c02d3a5b266"
     },
     {
       "path": "assets/ui_assets/campaign/island_map/stars_counter_panel.png",
@@ -325,7 +325,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "b2efdb34e6798ec09b11ef7532c4e462aa5b53e22579f8bd20a4024088c516b6"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/complete_badge.png",
@@ -339,7 +339,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "d9b39e2deab660554ce894fe4b3c75badb974e90786e14f35e3b335ab4b33173"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/decor_back.png",
@@ -353,7 +353,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "3f56ab0e344a39a8069eae332efafa88be59bc1cf921a4d46d710603eaa88348"
+      "sha256": "b22a3f1a8cfcb45b6bad2225b4cff21db3fc74be08df5513b831bb8a07d89411"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/decor_left.png",
@@ -367,7 +367,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "6976dd8e214c416b69a16d830322de28fd2dc681513f18d525b9941c0b9b0b8b"
+      "sha256": "31cd92686647acbfe9903d7fbe0dc52424ae32537771748eafa9fb6f2edb543d"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/decor_right.png",
@@ -381,7 +381,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "29430c4f7d2e9e973020d3ffdc1b954d752d1500bddfe4640b1922eccf68ddab"
+      "sha256": "817bb1d5bc5938a830e36efde71c96d91d82eaca5026459058f3830bea30c150"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_background.png",
@@ -395,7 +395,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "16ff2b65fab640aba31f8cd459110673573be47cb2fb8272bb50aae9af930193"
+      "sha256": "e9c8a775cfbe20a6d45463419a68add500387937219719d0ddedc3519c501bf1"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png",
@@ -407,9 +407,9 @@
       },
       "alpha_expected": true,
       "island_id": "azure_bay",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "e593e9b3b74e208663b83d7d098ff925c67245a3658ade90cddc9ecfc52157e4"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "dd088f1586afdc51be1eb877e653ed9d1301e0ee4eb85ffe8d62a7895ecad971"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png",
@@ -421,9 +421,9 @@
       },
       "alpha_expected": true,
       "island_id": "azure_bay",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/launch_zone.png",
@@ -437,7 +437,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "035fbc12d79ba4c87c2c0afe265bc5d12cc53927e8ae862e2e95b43338ef9474"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/map_background.png",
@@ -451,7 +451,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "16ff2b65fab640aba31f8cd459110673573be47cb2fb8272bb50aae9af930193"
+      "sha256": "5df0ef50354ee4631aba6ab884a9942a54d5a96ed9d81f053d7a207e90157570"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/map_title.png",
@@ -465,7 +465,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "7b551fd0dcc3ca2e3cf3be692ea2142a2de409df6f8309231d9ef94a3aaf9d4e"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png",
@@ -477,9 +477,9 @@
       },
       "alpha_expected": true,
       "island_id": "azure_bay",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "4a2c0276e53ecf61ee855d3d472d3d13297be3be24bcc92ce470027aa982d48f"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/theme_badge.png",
@@ -493,7 +493,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "0d8a2b8b825595655ab1040e4777871c9d6ab2b12599ff37666610c319e6f2a9"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/world_icon.png",
@@ -507,7 +507,7 @@
       "island_id": "azure_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "35679e86c71c18e2da027ebbc2353ae49ca62e4f4bd3bf9a8a0b534c08a0ffee"
+      "sha256": "41f6edb0345ee67cf44b4d174709ce7ff202060c91fad8ce5837e165af35c880"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/complete_badge.png",
@@ -521,7 +521,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "0dc40cbb7f04ea4800a032791365473b8f042f0fad39cf8b014efde48b6ca005"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/decor_back.png",
@@ -535,7 +535,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "4e8bd7a46ce33df464bc4d0930ecb0c3af5a9a4c5f509356f4b5b41f995ab3a0"
+      "sha256": "cc63eab61c06920727f8941b4dab6fc833a26aef945b88b6e4c78cef1a3c97d7"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/decor_left.png",
@@ -549,7 +549,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "921670e17dfaafc0e5829f09acdc7422b8ae6f73dd597b2d28ef203ba4225828"
+      "sha256": "b1ce6526135907313e914adce882790b9a39f517d4b0afa87ea0337ce01df91f"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/decor_right.png",
@@ -563,7 +563,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "ec18521639e77d263b24e226f0033e19d04ea15b50be8e583c29b17cc0882963"
+      "sha256": "c57eb9b851905511f867f1de4bdff5cc5def9166d06ab45a438cf0f4af7b513c"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_background.png",
@@ -577,7 +577,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "a1a264cec8426678def2f3298abdd9575785873bc3e9e4846998993ea60f2c65"
+      "sha256": "4a632cd409446ae34353a8ac8b1cd819347a674f115980ed0829e89d1e8ae50e"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png",
@@ -589,9 +589,9 @@
       },
       "alpha_expected": true,
       "island_id": "billionaire_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "8b020efc9449bdd5bf85f965e1fe6b43bf859ca21923b0094096fa3138c70251"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "60506cca0bc898078e51902120d764635b34da564bb8b44f2d981813a7842002"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png",
@@ -603,9 +603,9 @@
       },
       "alpha_expected": true,
       "island_id": "billionaire_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png",
@@ -619,7 +619,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "b906ea4d979590b3db0dd5a66144d112fbac2d694e54d1de0053e6f210716607"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/map_background.png",
@@ -633,7 +633,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "a1a264cec8426678def2f3298abdd9575785873bc3e9e4846998993ea60f2c65"
+      "sha256": "988158a248dc4ac4be6e46fe5b9547d222ec25a9034861ae99501f6372ed200a"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/map_title.png",
@@ -647,7 +647,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "8413845ac5b4f657baee8a5c96aba7a2002ec04fe5e66a663fbf72ad4c77aabd"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png",
@@ -659,9 +659,9 @@
       },
       "alpha_expected": true,
       "island_id": "billionaire_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "26b1897659b20676dca7b442d4c8e027693df6c0783f119200fd4b9fd0c2d4c7"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png",
@@ -675,7 +675,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "ee3dbed3c51127411bf4d2feb96679a6dffeef88d9ad97364d5d70e840f2b89a"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/world_icon.png",
@@ -689,7 +689,7 @@
       "island_id": "billionaire_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "0e812bf1d5b17d51c457e429bc09f47061fca0c4ee719e7fa96fa68f76f39479"
+      "sha256": "7eacd5ad7cbecc01b81a352ab7c6000b206c49833d81efcac165eafff525c9e3"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/complete_badge.png",
@@ -703,7 +703,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "6a2bb91c778e98da4c9453e08f791950291e4676b57c3e3f25ea97b8d38cc1ff"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/decor_back.png",
@@ -717,7 +717,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "d5e9cb875ab6c6f172bc617559c716f4f2cd5f34003733cf94e378134ccdd260"
+      "sha256": "06776456b768310986a1adef9fb23573f8ea52e3ec2fb4c6b93e94b58e467308"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/decor_left.png",
@@ -731,7 +731,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "74a8d592404b2434e26696e82e1d7651618796124c0da3cf0fc8366a725453b0"
+      "sha256": "29f53afcf9ae2895d003ba6497fd184f0fa68e81ad97c247eb158f92a4ad8f94"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/decor_right.png",
@@ -745,7 +745,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "2267fb6c18135a6b2c4b021349d04579b7bf892ef7ec12883d65c9c748fb9294"
+      "sha256": "7b625fbfcad1b6759a030f8fbb8afb42ba2d5936e781ff196792fded5e2d1e21"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_background.png",
@@ -759,7 +759,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "51a98ebf98c1a3dee1306dfc0fc86ec65fb8556f983a665b31777c0363a60049"
+      "sha256": "97de89f8f50a8ffdfee123be723c49666740e920947d71194796d6364a6d630a"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png",
@@ -771,9 +771,9 @@
       },
       "alpha_expected": true,
       "island_id": "coconut_beach",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "09da559b7b21b44f2a6bbc02b39dd8b054739f42c14374093933a390e9097687"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "7586ac0f28d21cba4e84b2a02b88273fb2c8e842226ee8b3846241d24b742217"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png",
@@ -785,9 +785,9 @@
       },
       "alpha_expected": true,
       "island_id": "coconut_beach",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png",
@@ -801,7 +801,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "ba79218239881cfbd47ad9d5ff32e651bedcb72e5c6adc5725e5757974af0967"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/map_background.png",
@@ -815,7 +815,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "51a98ebf98c1a3dee1306dfc0fc86ec65fb8556f983a665b31777c0363a60049"
+      "sha256": "d77ccbaeb3e61275c9a5f0bcd8b2321f74d8e4d6c180797f25195cdd50d1cc11"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/map_title.png",
@@ -829,7 +829,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "e46d70e8e700ab5e83baab614f6d96dfa28a946cc5ca0027a9ab173eb2399c30"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png",
@@ -841,9 +841,9 @@
       },
       "alpha_expected": true,
       "island_id": "coconut_beach",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "68e32368d3df4bac09b03dea6c9456d89f36cb096631574806add35f2a95c725"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png",
@@ -857,7 +857,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "1cf56e1fa5fe4b1d04577ed9dfafade8bdaecca772d9bc26648b3f78a97c3967"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/world_icon.png",
@@ -871,7 +871,7 @@
       "island_id": "coconut_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "7f67ef220a3f18748d5e37ef5fec2e30acf169617524c491ec20e2ca0e1abf7e"
+      "sha256": "7ae1df70269be14fcd4ecea0f095bcceb77b548ed5af73813cdc1e4560f49b07"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/complete_badge.png",
@@ -885,7 +885,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "f5ebdc75476b0198769c6e87a4e77a3f681772f6a3470dc98914e1e62ab819d8"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/decor_back.png",
@@ -899,7 +899,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "5975cfc94f320ad86ffce9cc7e3096ae1512eea2a0cdd491d1a2fd37e0c06b64"
+      "sha256": "4a4abeb879ca1c2bb2f7fdfa46e45f747e65964466a2d4ab91e2a418db7d89a1"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/decor_left.png",
@@ -913,7 +913,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "a2e89777297813c9d0ac7953b830f2900774da7ff30caf90f0a2cc74b4885797"
+      "sha256": "ad507fb2fdbf077e8e2ab56be4543fea05601a99e1567fd0a623ca1473e012ad"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/decor_right.png",
@@ -927,7 +927,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "a710f806e75865ec23230bf88e03e24728d18b176f275fc78c3e1233cc90fb8e"
+      "sha256": "aa68e2a221703b1e6efbd86f9c65a1fcefb615160bd8be032e589e7888a27937"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/gameplay_background.png",
@@ -941,7 +941,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "157af4f2e46334685e132a41a1a6c916be4f6661732b1389dc02e4e120d92dfa"
+      "sha256": "53553d94264ca8d410933fe2adf4123e8d558ec8689994ae18375df77544aef0"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/gameplay_table.png",
@@ -953,9 +953,9 @@
       },
       "alpha_expected": true,
       "island_id": "final_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "edccb9a76e2d726987656e990669e0f30a36dba4c65893f394e6583fd70b5cec"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "5c78cbe6535d16c726aa72dcbc87eab23886b3cbeaf10b525f6dd4c4306cb911"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png",
@@ -967,9 +967,9 @@
       },
       "alpha_expected": true,
       "island_id": "final_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/launch_zone.png",
@@ -983,7 +983,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "b5da9d46d2e3a05fb205b573b95c0fc6bc9aebf7ba40f95d780c0129e70d4054"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/map_background.png",
@@ -997,7 +997,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "157af4f2e46334685e132a41a1a6c916be4f6661732b1389dc02e4e120d92dfa"
+      "sha256": "745e17cbaf17b788e3f6142ea376ffee83c0cdf71ff829efb62efe6288d05e6b"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/map_title.png",
@@ -1011,7 +1011,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "97ab5fd532d025c551f3f170f7219fa4473102522eeb6fe7693b986d11e8483a"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png",
@@ -1023,9 +1023,9 @@
       },
       "alpha_expected": true,
       "island_id": "final_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "2cee6b7ab1f4b324837bf95a0cc4c497f95c6afc33f1b2416b61cff38c93c545"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/theme_badge.png",
@@ -1039,7 +1039,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "45aa79bc0e4c0999984046f5560fac4655a893b3a8afd845bfe72e937993e28b"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/world_icon.png",
@@ -1053,7 +1053,7 @@
       "island_id": "final_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "0c4e4a986d06284c98cf643a479aa45f2ee345b34c47a0f71f1636a77f8bfa1c"
+      "sha256": "95fc365a108d86dfd23ca46e54234e7b0866aa38ed55b4ef33ebd3cff16d39ce"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/complete_badge.png",
@@ -1067,7 +1067,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "e042971c7cd1e769dbed35a04a1075861155ff0377e70bb781f3aa4fcd7dc070"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/decor_back.png",
@@ -1081,7 +1081,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "520aea005c46c1c3ea2af507de7696bbac565a5281a3e0d9ac4acc069fadb672"
+      "sha256": "f758fc3a4fe4009397419fb6e900235d816c68ea6f88152eeaf7c78b585b06de"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/decor_left.png",
@@ -1095,7 +1095,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "60f1fceee1fa239d11a184903b21f59ee251aaf10f1296366d78ff588e019a31"
+      "sha256": "0d2e3e0c7dd052b86b7b99bdd1f5ff7dc68115b703152d3d8e3a61e4d222e0c5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/decor_right.png",
@@ -1109,7 +1109,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "5d1a797a4c67ab6a4a58f811e27ade08c1ca214247c663afb256840db355e090"
+      "sha256": "80cb3c94fb799b902d5bb8253a0fbea54945495cbea882945891869854bb6124"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_background.png",
@@ -1123,7 +1123,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "4beb1b2637aaff7e8677ea2de40a02db73ae3733c2b68aad1fac3f9c86259ce4"
+      "sha256": "61cdd26a8e7f49fd66bec49beafde24a1cdb8d266c6202fbb7f39b7abe182467"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table.png",
@@ -1135,9 +1135,9 @@
       },
       "alpha_expected": true,
       "island_id": "frozen_paradise",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "1d14e930c768fa64654a3095d305b4151e02ac6bd7cc55542e342c927c7280bc"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "a2f94008d8495160da37caa015e1f4a260db9d8cd4268166f73bd6b1c89cbea6"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png",
@@ -1149,9 +1149,9 @@
       },
       "alpha_expected": true,
       "island_id": "frozen_paradise",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png",
@@ -1165,7 +1165,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "8049c7addffb6baaf7f9dd4e42cf5e74bf899897012be3428676b868096c3a46"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/map_background.png",
@@ -1179,7 +1179,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "4beb1b2637aaff7e8677ea2de40a02db73ae3733c2b68aad1fac3f9c86259ce4"
+      "sha256": "93470cd3e87d17ebf9e1b447a160715f28146ab497d7aba73ebfa6c9b66bd6ef"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/map_title.png",
@@ -1193,7 +1193,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "5bdaed2ad8efcd572dc0373bf4b98e1053d4274daa0b02258bb9953e9fd6abc3"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png",
@@ -1205,9 +1205,9 @@
       },
       "alpha_expected": true,
       "island_id": "frozen_paradise",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "67cac03dc52480091b8bf892201ff680ea3d3529c89b07d0b799b142080de965"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png",
@@ -1221,7 +1221,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "5e55d0ffadccfa378c6041289000792e75e0acce1dfa06b9b18ab1f4c615f2d7"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/world_icon.png",
@@ -1235,7 +1235,7 @@
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "0cf47b3ed4acb86d9ee1303085f21731c05e89ff1eacd5933955d07edde696eb"
+      "sha256": "3ff1c38481b041d1bc65e9e3a5093c29e0552a6774912631e7a7f0e983575785"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/complete_badge.png",
@@ -1249,7 +1249,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "551577ca535dfa044962903bc2b0fad5e02b59e40f72583ca57646e4a3629739"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/decor_back.png",
@@ -1263,7 +1263,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "244ba2bcad7e63d2e2adcd11e9b08164d3e97328e4537ed7af02c7d0a60c09b0"
+      "sha256": "3de2ad94efaf7a6e691f33ef8bb1ca729fb7bb0e02960d4118a2288ec2a1f34c"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/decor_left.png",
@@ -1277,7 +1277,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "770609fb25850358a7cf2342566a415051ac06da55ec5e56ac6604627f85312c"
+      "sha256": "adb7a5e26536e2e4f5fa517f3b9698416752b21a114968748690d04d9c1f3c36"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/decor_right.png",
@@ -1291,7 +1291,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "14a40bc038808f55f6980abcadc44cff1bf1d10964e2eda0df49d84b08ec8e51"
+      "sha256": "61b36a01bf7604df57102ec0e355f1c04542fe36e3e13fed55fca9708cc4ec0c"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_background.png",
@@ -1305,7 +1305,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "c33d86b11af941a4d8871b33272b3a3435fd60355bbb9b867f136c6bd83c038f"
+      "sha256": "7d976627b9c5258027f57c9ed5edb70e374b03bf82df7ff47de92c5c26658046"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_table.png",
@@ -1317,9 +1317,9 @@
       },
       "alpha_expected": true,
       "island_id": "party_beach",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "8e6b66b2c79ba329291f4769bd8e88cab56d0dd47077e8b3b68654615b08b64a"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "08788da337fb629e1afbb373651d8e166f1a56168b16c2c12f01063090eb1f4b"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png",
@@ -1331,9 +1331,9 @@
       },
       "alpha_expected": true,
       "island_id": "party_beach",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/launch_zone.png",
@@ -1347,7 +1347,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "b590c707cc36b1adc9fa452b424a1f75fc70a082465fdc79ad933b0a3a6f2f6c"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/map_background.png",
@@ -1361,7 +1361,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "c33d86b11af941a4d8871b33272b3a3435fd60355bbb9b867f136c6bd83c038f"
+      "sha256": "7dd878df78b0f3a13e8f2d0d694fb458d9bf680cbffd1c90b9808c8840c8e8e5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/map_title.png",
@@ -1375,7 +1375,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "d3e473f34c50e36ea1af581333453daa2a4375726ad883828fc5463dfae62069"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png",
@@ -1387,9 +1387,9 @@
       },
       "alpha_expected": true,
       "island_id": "party_beach",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "166ffadbf92513a5e0c5ddec3f9ae48afc08e720adc3169b2f8aefe8156872c1"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/theme_badge.png",
@@ -1403,7 +1403,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "ddfdce302e8133fb6f9f384c23bb987346730624098259c012a19c36f45230c9"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/world_icon.png",
@@ -1417,7 +1417,7 @@
       "island_id": "party_beach",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "6fb4236a26a02624cff10b354674e12e76d26d132f5e2237cd804f6557d6c174"
+      "sha256": "58920e33f34f26df9064378956fe97fe78179174d7438d1c9f19c93b5c477884"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/complete_badge.png",
@@ -1431,7 +1431,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "a051cd709f87218d11caaea73ce80a6cd3013cfe69274e7ac6642c7013b54d42"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/decor_back.png",
@@ -1445,7 +1445,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "0720fe3aec6ff3cb04c2a268bc9cde4adff0b02c4b25f14fa2cb233dee3b363f"
+      "sha256": "38ca7d5630dffd9624bea28adf22a82c91c075d18d8564df706690d0c5380dea"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/decor_left.png",
@@ -1459,7 +1459,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "9c22986f9139036d0252e5d72e933a32f342298caf120b32b1ffa4433f134b37"
+      "sha256": "aa5db2e11a7eeb2a270355ebb3224349fed3308ee0e49504adf7706da8e2dff9"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/decor_right.png",
@@ -1473,7 +1473,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "be7929968ffc514b26e152c5e916a4cee415ff08495167c460c8226bb025f2f2"
+      "sha256": "f441656f342fd9dae56cd122b9261f302933bd8e291a92dd57c501ed22692bd3"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png",
@@ -1487,7 +1487,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "50f35a6f7efaf432df8fa0033175af9a646153ac21e18b0cfc3f76728cebae41"
+      "sha256": "4236f0edc72066a7083c232004766077d1c6a80daf13cf2c9edc289714207605"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png",
@@ -1499,9 +1499,9 @@
       },
       "alpha_expected": true,
       "island_id": "sunny_cove",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "ea4968f5ae9331cec1f99f66a27ce98052e98041241964199963df5365867b6b"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "2512c54f58669c7daff7986e7ab9d1288a2416ec4e7a15de792aa04df181238d"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png",
@@ -1513,9 +1513,9 @@
       },
       "alpha_expected": true,
       "island_id": "sunny_cove",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png",
@@ -1529,7 +1529,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "db4e7f96958397bfbca124fcd51e680d89ba59fd55e2a8c5cbbf9d67df471ab7"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
@@ -1543,7 +1543,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "50f35a6f7efaf432df8fa0033175af9a646153ac21e18b0cfc3f76728cebae41"
+      "sha256": "4366d497b54412400b74f3407fa6ee76e5277cdc44179c2d199954569e413a5e"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/map_title.png",
@@ -1557,7 +1557,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "c820734172ae81139920e3d60be53e2e8f662a9cba5e4a0f37feecac967c8815"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png",
@@ -1569,9 +1569,9 @@
       },
       "alpha_expected": true,
       "island_id": "sunny_cove",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "48b385f535cf63af1c097d1df59756ca13f5c9138e5b59fc916d1369d58ffc32"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png",
@@ -1585,7 +1585,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "490fd04df12da1131986731c9f735e988c573a92cb9a215691ba442107fcf28e"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/world_icon.png",
@@ -1599,7 +1599,7 @@
       "island_id": "sunny_cove",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "950c0c731027f915f4f94899ad15e2ce2da57dd594e514bfcf9a4677848b675c"
+      "sha256": "ae4acfac635b7e979e0d7aa62b2de428184679039892a24afcb07034a43630f8"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/complete_badge.png",
@@ -1613,7 +1613,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "782cf3d7d24e33caffd6101f16761b201d33b0a6fb74ecdafbec7ac256401433"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/decor_back.png",
@@ -1627,7 +1627,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "6a47ba3863d9566230b515cfb599ddd4f5e503dc33aee2538bfa48afb892a121"
+      "sha256": "2df52159e9a13eaefdc111a567ed8055bf2dc09f4f2eafecfe9015d4c5dbb4cd"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/decor_left.png",
@@ -1641,7 +1641,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "666ae60fb00f92a779669284c33afd30b60c9866a9717fb854633c30dbd9d062"
+      "sha256": "be154cf4203eedca786cec1e2c6d02e102721f988b6813b252814036f4e9c19a"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/decor_right.png",
@@ -1655,7 +1655,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "effdd696042884bf3252432fddc6f1d4b85a8d5239308515ec44017c443d6035"
+      "sha256": "a383463c67bcfdb21c12365f34fe573826a28ffeb80adf16ff540813c651ce5d"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_background.png",
@@ -1669,7 +1669,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "b4aa0767c5fc609aee587ab0762b44a559e0dcb2f5e83b5b6ba298e3f753e63c"
+      "sha256": "ed404eea538549e18515e2ae65cb414799c8c3c89801bb034db8259f1a99cb52"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png",
@@ -1681,9 +1681,9 @@
       },
       "alpha_expected": true,
       "island_id": "sunset_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "1c66c27f77bfb53ebbfa5624d15fa6e9531a81f787894c1acab4659b53a3d5ea"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "fc7718c08956a9caf9eff1567bff73aa599b616c55561798fe2432b8443d7bf3"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png",
@@ -1695,9 +1695,9 @@
       },
       "alpha_expected": true,
       "island_id": "sunset_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/launch_zone.png",
@@ -1711,7 +1711,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "7d11b9a0d0c1eff43b6e1273ff5f4974c63a74c171e82c4bf91e7ad5fa154e40"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/map_background.png",
@@ -1725,7 +1725,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "b4aa0767c5fc609aee587ab0762b44a559e0dcb2f5e83b5b6ba298e3f753e63c"
+      "sha256": "b60bce200cd65cd203685443a9111917f6e9b800e6e302f5da41b331ed0808f9"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/map_title.png",
@@ -1739,7 +1739,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "bf517dd54ec8a0ff552303c125e8d124c3d42843230e35d44db543ca6374cda9"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png",
@@ -1751,9 +1751,9 @@
       },
       "alpha_expected": true,
       "island_id": "sunset_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "2b761d97e863ce981bdbb37f762632677f2692ce6b237d93df96c15e067e3eb6"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/theme_badge.png",
@@ -1767,7 +1767,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "0593cc4bcebd382bcf68411ea16d324bc71cc2d544801c563ee0a0cf53f8d376"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/world_icon.png",
@@ -1781,7 +1781,7 @@
       "island_id": "sunset_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "9f309116bd160fc63b2583efcda3ec8610f01a92b1501267f27d9bd9ac7e62f5"
+      "sha256": "f0074dc080294d26d18ce4a1d06403747e577dcfa88db8258d956c603c7e495a"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/complete_badge.png",
@@ -1795,7 +1795,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "f9ccec75eb077455ddc9ac4b2ceb768f1b10299338a89c96f755567f3be3e758"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/decor_back.png",
@@ -1809,7 +1809,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "2deb27bbfd27358edece43054e5057b998a1c4cd60c370ebf124a26a633793c8"
+      "sha256": "991944a153018d08a91d5a99bef0e1ad21f67fd52d874d2152d0139f423a298c"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/decor_left.png",
@@ -1823,7 +1823,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "e058008c3161aec2bc24ca9b58e6dcdb94d120be0bf4898ee85eee8c9c4482db"
+      "sha256": "28033355ae129ce36cacdd5e28255a3801e05bc41c0d68f8d6803121406adff2"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/decor_right.png",
@@ -1837,7 +1837,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "7dd8401b4dbacb9422e4c44000e7d16406a02523cebea72f8f47cc1918c9aa19"
+      "sha256": "ea976c886b449a6e2ee14ed8c000eb6b9fc1e3d02ca8bec6b8f4af41afa78433"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_background.png",
@@ -1851,7 +1851,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "c7c60cecd247dc42d504c860aef52efa112214bb0d385ae1b6bb5fe4f554ec81"
+      "sha256": "31fa7a846b2eff7a7886d6e334ed3adec1f6aa9f291997e5c76d165270ae7b4a"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png",
@@ -1863,9 +1863,9 @@
       },
       "alpha_expected": true,
       "island_id": "tiki_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "6c17e3d6be93226fdc6ed0f1f483fabd097ae2def291de90097bce229a78ea46"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "6d56b607227c86b446acf60eefdc90e58daf330e869b7a932e9f557f3c3090cb"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png",
@@ -1877,9 +1877,9 @@
       },
       "alpha_expected": true,
       "island_id": "tiki_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/launch_zone.png",
@@ -1893,7 +1893,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "e10e674e136d4c0a45c43e2bf98c40d6c4a4c6b1c848a4019989bf54035a8cd9"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/map_background.png",
@@ -1907,7 +1907,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "c7c60cecd247dc42d504c860aef52efa112214bb0d385ae1b6bb5fe4f554ec81"
+      "sha256": "90dce10172991fac083b510e231a855e05270d6e18bc802a61c8f560ed530876"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/map_title.png",
@@ -1921,7 +1921,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "f333436fc83bc6d9192f72c97f5b40b7a115b05220c72a0d9cc8ebb679333cea"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png",
@@ -1933,9 +1933,9 @@
       },
       "alpha_expected": true,
       "island_id": "tiki_island",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "e70f5bdfcf5bd99f4e1b5a7632970f38ef6cb89b5e303fc29b36f72e5f2f23f0"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/theme_badge.png",
@@ -1949,7 +1949,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "2e3ff3ad28043837fafd64a5140768318d928475fcce74a9f2429fb57b1801e6"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/world_icon.png",
@@ -1963,7 +1963,7 @@
       "island_id": "tiki_island",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "dd4fcb59cf6dc4641850002732c10392b8e31a4a84cb68d8edff7015a3001790"
+      "sha256": "1e00284af75f0d22f1ee916d3b16326de95ec49c354ab8fc41a001a4b80f5108"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/complete_badge.png",
@@ -1977,7 +1977,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "d45d97b27769a40bab7f33d3ea509c60e0a69721e13c417b32c578acc42728c2"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/decor_back.png",
@@ -1991,7 +1991,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "be103ba63efb68b638c225f439610ce2cb6469036abf675fd40106a6726adbb2"
+      "sha256": "a152acf147160558a2fb4af58bee24c2ef35012d0440de4412dedea556d53b0e"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/decor_left.png",
@@ -2005,7 +2005,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "4bca86cc30fb302492a14dd605ad2da18d3ff40f8fc5c1069599be9ddcf437af"
+      "sha256": "b31d308cffbadff1e956bf2f550c37c47c8b0a89cf526eb7b7578ef84b2123ff"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/decor_right.png",
@@ -2019,7 +2019,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "700b23bdf2722a039fcbb69c7b58bfceeebb0d7904635f9145f441ab3603e479"
+      "sha256": "fa1a738afb051739bb5eed0bd150f77735ab820c16d2813975b49dfd0bc8b7a8"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_background.png",
@@ -2033,7 +2033,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "479167fb71bcaa1614ac311b9a1546c96edddb1f83020b5137aff363af778c04"
+      "sha256": "9d43e39f645168dbfe23be3765cb2c3e29cebe97a613a5e66ba88fe1f260f32b"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png",
@@ -2045,9 +2045,9 @@
       },
       "alpha_expected": true,
       "island_id": "volcano_bay",
-      "table_geometry_version": 1,
-      "generation_source_method": "V04-island-master-table-mask-composite",
-      "sha256": "08d6b8de01e312fe867730a791109bd572b88a3eea5285550b7f9c20517e6b0c"
+      "table_geometry_version": 2,
+      "generation_source_method": "canonical-v2-structural-table-material",
+      "sha256": "e3bbd0772f93225a57cf9219905c126aff2c1c04551f5a77c9d3d72ad5ce1d7b"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png",
@@ -2059,9 +2059,9 @@
       },
       "alpha_expected": true,
       "island_id": "volcano_bay",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-shadow",
-      "sha256": "3120b77d3522615dd351dacf55ca1849f008746adda42877a4d6476373bf74a7"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-shadow-master-copy",
+      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png",
@@ -2075,7 +2075,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "799ec680f552753c0c5986e0bd7fe1a088013fea1a9cb9013ec0b16e2380093d"
+      "sha256": "6a3e99c72b3e57760cfd67cf9a81ee1a1579610b7196fc6a2a74fe73d626170c"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/map_background.png",
@@ -2089,7 +2089,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-resize",
-      "sha256": "479167fb71bcaa1614ac311b9a1546c96edddb1f83020b5137aff363af778c04"
+      "sha256": "080f7bef447e01a6bbfcb4cafcab21de941bc63cd4f35fdfbe35e928ba88572d"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/map_title.png",
@@ -2103,7 +2103,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "70f3fdc7eadc0a39cefa3c6bbf0d265aa06ad888bc5cf28ef5ab33c7b85801bd"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png",
@@ -2115,9 +2115,9 @@
       },
       "alpha_expected": true,
       "island_id": "volcano_bay",
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "table_geometry_version": 2,
+      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
+      "sha256": "22a4c1fa72951dc722b140d80bfd2b37f96d4f2d358b9e66d6715db012cccf35"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png",
@@ -2131,7 +2131,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "64eb3588f584f1c0a9a303e8bc8e2105d09c4f8189c6f86082959c13048e7d96"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/world_icon.png",
@@ -2145,7 +2145,7 @@
       "island_id": "volcano_bay",
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "4e74b34a9f231167d8e841a4af327965e328023b0d0834b41aa3110fcbc4ee57"
+      "sha256": "c36fb5849b1f78f2e29bd6901a7d3a3ab06712e993055b86a861a1b1189e66b4"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/azure_bay.png",
@@ -2159,7 +2159,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "989b7f6e2bc1113af85dc971e33e20349f1f75531fb690cb6c9f3ad3af11aeee"
+      "sha256": "73a3b03c8766a3b68f3af3e1242562e68b9592e348c0a18517fbc75c4f22a6ea"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/billionaire_island.png",
@@ -2173,7 +2173,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "87818d0a97558401ae67dbf279613f0a2681ce354411316f40ca9bb11c525a81"
+      "sha256": "892a738160d71c474dfb782814735c357e2a61ae0cf3eb691bf401d04fe98785"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/coconut_beach.png",
@@ -2187,7 +2187,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "2a58a288e22e45568d6458229cb43ced32e0beb56242738b74372d60c85f7a56"
+      "sha256": "331695fea1e1fbb1191ad1422870a4cd1793c2337356e9569d4ec298f9d07fae"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/final_island.png",
@@ -2201,7 +2201,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "1e7479c81276edd681a9eec77576bc45b53b74eead92b2fc1e199ab08cb007ba"
+      "sha256": "7c9484795d31a3f0f06b877f0978b079ec37ae93e247c76079ceb70717f1dbd8"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/frozen_paradise.png",
@@ -2215,7 +2215,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "f7ee20358b3b714164cb70061c503315dc3e705a1b6aa6b2ca25e85bd4bf1faa"
+      "sha256": "e0c172d203fbcc0fc59628954b4e938344339cf192384e7dcedf159700bd528f"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/island_locked_overlay.png",
@@ -2229,7 +2229,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "9c68f23ef539ca43c4295f3a1bb801c4a7f397e58715a0af18a7ee79c767b4f8"
+      "sha256": "5743ef54db9aede4d7cf65c7fda692f03ac92e1820994b0788f55754943f57b5"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/island_name_panel.png",
@@ -2243,7 +2243,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "027a982d307d312f752faf5494b13a8b5b981365b87379307b79dcab2f250f8f"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/party_beach.png",
@@ -2257,7 +2257,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "466f8ede07eaa9997fb3f291142d4e831085c2b6b1c66fea41c505dacffd63b9"
+      "sha256": "b993a3e65fe609836629178b4b59daea0fa3fac0198e10978cc3879b8965258e"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/route_line.png",
@@ -2271,7 +2271,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "e267796d3a81891c02768be4bc60054cf2d29006c92f8602c27d6d3774dc5c77"
+      "sha256": "522a33a5d81c5610c1b5a45df5ac8e98c96c092a7ef02b53cf0a2b3b2ec68c9b"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/route_marker.png",
@@ -2285,7 +2285,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "33236ea3252e0dd5f4b9b7552ebcd961a1d88d41b1a469d81751c57cf958df91"
+      "sha256": "0e533f8474c4a00507fa0feb07f13fde69b6c825fc2fc1c7f35386173fd2cbcc"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/route_marker_complete.png",
@@ -2299,7 +2299,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3c4a9cb2af1c958034ac34e3b839ebe22a46b9e3d567cc8e42f6e48008106d8f"
+      "sha256": "21f64068a01fae67eb6a7021d9bb40e9d47673dbd872892ef0ab326a4ff88738"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/route_marker_current.png",
@@ -2313,7 +2313,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "bcd1aa55b80223a795f283d4bb2cb868af8d9a67c46b927ef9f1a8ffaf24c5b4"
+      "sha256": "2958039094b8a13ffe3cbcdf1862b84d0042d8bb06ce0c79154fd4a9206009b3"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/sunny_cove.png",
@@ -2327,7 +2327,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "d6df9e509b98c362d71847738bcef77d7b7e048887b0bec35cc21d398dff561d"
+      "sha256": "fbeb1b5b6955c86f442d36ca8cbf26ab467164a8bcc08f11e398c7e61e5f4540"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/sunset_island.png",
@@ -2341,7 +2341,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "fcc1edf9a01949721494a68b6b63f6f05a994b8cad5157d2c0679bf2e68aa3fb"
+      "sha256": "2a8a8b28e33d69f2d93d6799c5ae1e7ee26eb065b33e95fb268dc9f193a5823b"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/tiki_island.png",
@@ -2355,7 +2355,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "c6ce2531cf043ac697661bc7c7a445fab39298199ac2433796fc170a4e77acf4"
+      "sha256": "1aaf47e2cafe5babdc624721da0653af5de62c1869c31182cda64441fdb9dab9"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/volcano_bay.png",
@@ -2369,7 +2369,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-island-master-crop",
-      "sha256": "c1b6efa3cdd7989983f86c732a8d90e42295323a7157865792c98628a882af59"
+      "sha256": "34492701a0c0a78c964ddf974d3f4e7320f19b064aa57a1f46a632b90152599c"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/world_clouds_back.png",
@@ -2383,7 +2383,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-world-map-master-crop",
-      "sha256": "5fe9531b8c11169d20a223b97d4ae8a35be416e5ee7432a281b2ddffd2531cf9"
+      "sha256": "2f3c23808c8646d1c9924184afeb41492ce6774944d9a8f4dffa5cb2bb8e6385"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/world_clouds_front.png",
@@ -2397,7 +2397,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-world-map-master-crop",
-      "sha256": "5fe9531b8c11169d20a223b97d4ae8a35be416e5ee7432a281b2ddffd2531cf9"
+      "sha256": "44e946a9f46ba867afc7102887f447cfe2ea7f78cce50d72e09dcdcc8ef56dc0"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/world_map_background.png",
@@ -2411,7 +2411,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-world-map-master-resize",
-      "sha256": "4d18eb9e6456316685fea1a8753b96557873ac6338b9d64597a49ce5d1b51388"
+      "sha256": "09e26c73359615892a126be872164e2c07c34a2b0b0f6093011a9fde08438306"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/world_map_boat.png",
@@ -2425,7 +2425,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-world-map-master-crop",
-      "sha256": "92f12d5bde96956c19fc28719e372bdb3e86a661f516bc10e4d2362b121efffe"
+      "sha256": "e91bdfccdea205353dd506a7c30204f8343acfd5c9a13952c9ef1ce7088fc4d7"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/world_map_compass.png",
@@ -2439,7 +2439,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "33236ea3252e0dd5f4b9b7552ebcd961a1d88d41b1a469d81751c57cf958df91"
+      "sha256": "8d375bdab9f99f7aa7caa273134fdceceeb103551534266cc5157d5d2627c6f0"
     },
     {
       "path": "assets/ui_assets/campaign/world_map/world_map_title_panel.png",
@@ -2453,7 +2453,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "e0d1401021aa16c7cad34441afa698adbe9d39aeea0ec8ad4955bd894d9e5eaf"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_GLOBAL.png",
@@ -2467,7 +2467,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "959758bdc93a0f0d94cf6b2ddd96ca5e9ba3cbcd7ba1a529c3d17faa3dfb5e73"
+      "sha256": "0ed87bf8d7cf66aa14b90a95bbf6efb27fc18202556c62ba6832d87aa4e0bcfb"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_ISLANDS.png",
@@ -2481,7 +2481,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "10b08ca51dd08b44806e03518938bd9c0a31fcd0f77f382d222e17d0f68698a4"
+      "sha256": "5323c5d0fe9befbcf65dc44d8f3b86f66de3fecb563da55b4a74a11ad198328d"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_MAJOR_SCREENS.png",
@@ -2495,7 +2495,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "f511853b3e07bc9976e61efd08660e727245f3fee83c3021c22f93e3afce882e"
+      "sha256": "8af5341601e1223d38e482bafe56c88ce5b9c4775d3d4dc6c8eee956206a2182"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_SCREENS.png",
@@ -2509,7 +2509,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "531ba30466b247a21236db819133a70891a6cd154e03fbac57195c2c24876d59"
+      "sha256": "33549bb3c662e1c836a619ce1bde8f98f8677346c90492fa69eae333f603b808"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_SEMANTIC_ICONS.png",
@@ -2523,7 +2523,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "42d4d044897a85b3eda12b5fcaeedbb7c0806fd5b8ad664b3ec71a95ad1a5c1b"
+      "sha256": "22012fd51ecba532f444418d9c86011aee7a3135de024771fdaebed4fa878c6b"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_STATEFUL_UI.png",
@@ -2537,7 +2537,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5a284f6e3aae4b38060e75cf2ac60783a9edffaf3e07add3c4892932bb18c438"
+      "sha256": "5fbfc2d0e041944cb257ca67c0efb6aa0e65e514eb1141e093bd53155386135c"
     },
     {
       "path": "assets/ui_assets/CONTACT_SHEET_TABLES.png",
@@ -2551,7 +2551,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "718043d78789c6914116cbeb540a20de25627059659c2fdaef34bae4484f35e1"
+      "sha256": "9d613c629e5be62999f8d64056946531bcb4ba2bc2defa9de0cf54859e9d53ff"
     },
     {
       "path": "assets/ui_assets/effects/combo_badge.png",
@@ -2565,7 +2565,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "8f68f034bd273aa52d2d4ff45bf903b60ad8c1a93e9d091db90baaf5929cf79a"
+      "sha256": "fb85ea319d84359e3bbfb346f82424bc6a209ec3c2e12fdf16804c63e41ecb74"
     },
     {
       "path": "assets/ui_assets/effects/combo_glow.png",
@@ -2579,7 +2579,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "0b820a13d05d70dff42f746871efa006d754db0b48801003f2a5f559398c665f"
+      "sha256": "c7967d2cca72c027f0f381bed5ec36f78db4cdb70c89cfc5c97a1ea435ce61a2"
     },
     {
       "path": "assets/ui_assets/effects/confetti_strip.png",
@@ -2593,7 +2593,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "c69ca700c34c793a75dff28bd1aaf142f28c389fc2f06313ccf0a8e1671d5a47"
+      "sha256": "df377778cf70f0a113f20d6468eec9a54ead6ac8e4e9ea028e7bda57395ce2f2"
     },
     {
       "path": "assets/ui_assets/effects/merge_flash.png",
@@ -2607,7 +2607,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "51098187d6670f87741b7491ac82d585dfc98f4a13fa861f7438238449988d7c"
+      "sha256": "d5f414e778600e15d04230b1826c72156871c1f6f91d1986d5bf91504a39bee8"
     },
     {
       "path": "assets/ui_assets/effects/merge_ring.png",
@@ -2621,7 +2621,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "51098187d6670f87741b7491ac82d585dfc98f4a13fa861f7438238449988d7c"
+      "sha256": "2bfe82f67ed37fb53765a85ef188a2c78dd4ef0deb66a96663498d66d60d194c"
     },
     {
       "path": "assets/ui_assets/effects/milestone_glow.png",
@@ -2635,7 +2635,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "85647963aaa30e29fc3e989cb40757d6be2c9a18b0adce876ebdaa6ac72abcda"
+      "sha256": "a60fdda00d743c21aeb22171e7861644be4ac0491316e59baf73e8f5b64d3a72"
     },
     {
       "path": "assets/ui_assets/effects/order_complete_flash.png",
@@ -2649,7 +2649,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "56bddb41f00f45a29b551c1af05600d70bc7309fb26ecc1037a15c5087b4b8c1"
+      "sha256": "db94fd5069111ccfb52bd07a1f594d132a37dab5f25b90d31e8447249ed3b801"
     },
     {
       "path": "assets/ui_assets/effects/score_pop_bg.png",
@@ -2663,7 +2663,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "0b229568e34261716f77aad39cabbcf54a8d32384ff317a093c31b01ccd5a09e"
+      "sha256": "c24102a6273e14a1e33cb923be495cd188a73e7ceac45a735efcae3e0551ff19"
     },
     {
       "path": "assets/ui_assets/effects/sparkle_large.png",
@@ -2677,7 +2677,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "0b820a13d05d70dff42f746871efa006d754db0b48801003f2a5f559398c665f"
+      "sha256": "e76473d9a26174d4b8670c659c94cb9fd53f1874cba8d4455259469f91430615"
     },
     {
       "path": "assets/ui_assets/effects/sparkle_small.png",
@@ -2691,7 +2691,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "0b820a13d05d70dff42f746871efa006d754db0b48801003f2a5f559398c665f"
+      "sha256": "564e0534a053f4c11acd790c154bfd8584c8db73f14893e6cc0853270971f366"
     },
     {
       "path": "assets/ui_assets/effects/timer_warning_glow.png",
@@ -2705,7 +2705,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "9cd2970a27d2454a02c225e2c97562c45e8e1a961d46680ec78510b1205f1848"
+      "sha256": "7efad52f3b7f23ec073385a951c17bde0573eb1bda72057243aed840c01c58ae"
     },
     {
       "path": "assets/ui_assets/effects/to_go_trail_variant.png",
@@ -2719,7 +2719,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "50c15508063d10147a7e2525d66091f323fa09d7f8278d7ff15b296f34d2cbd4"
+      "sha256": "05b2f95f901089b8e398238aeae42a57f02fb53ccf1931d9f69d6d0b4a3e9c15"
     },
     {
       "path": "assets/ui_assets/effects/vip_complete_flash.png",
@@ -2733,7 +2733,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "c644803ba43072d3d29bf2e95da5b13cef8c4badcd75f55ba63eb5a1d1fba44b"
+      "sha256": "b511486f75215fe7248ff23ac005f38dc6441ec1b89db99ca53c5dfb814df39d"
     },
     {
       "path": "assets/ui_assets/effects/win_rays.png",
@@ -2747,7 +2747,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "e23a9929fc45a49cb35746e678b5eeeae981f7e4348477fb6fff1fb758c8082b"
+      "sha256": "941bea817d8c60b1a23124038dfc79beab0f06dbd77ff23b92e3100e328187de"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/button_claim.png",
@@ -2761,7 +2761,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "e4ddb177f4abc38475345cbb20140538d5a349f7ad3aff6d394181c167a93b37"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_chest.png",
@@ -2775,7 +2775,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "22aaaf9d2dfb10276fbc46c5050fcc8100e6a00ead255694c8859bfc6e7c7225"
+      "sha256": "2ba59a148c936a1dff390b62522e449640409be4a4b22cad5fb312a270c91d92"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_day_claimed.png",
@@ -2789,7 +2789,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c5795e602a999dd9cab3fcf8da05eca4e8986c00af817071270aa5897190f8f8"
+      "sha256": "c04b31ea0bf883f2fd58e90c819425015840cc952c6c1c2ecb9b5d07cc2c7db3"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_day_current.png",
@@ -2803,7 +2803,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "eaf046b41e1c6922d3fe141659e4b4fff3b5cc853787f2bec2724b6796c3de2d"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_day_locked.png",
@@ -2817,7 +2817,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "750231301268e0e04caaf0ed2401523da3d441e0b4e77008edea19682420ecae"
+      "sha256": "ef7ae29158b5f8be1a56b2be8603938079c817011837d324b840a4d9098644c8"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_day_slot.png",
@@ -2831,7 +2831,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "22690cf0de2c41b3079bfb648f7a48d796da83611ce3fd03ea072ba3080745dd"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_reward_background.png",
@@ -2845,7 +2845,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-screen-atlas-crop",
-      "sha256": "ae52ce34ee530844c605c83f79dba075a892a7ccba0385e5655791cfe5ef00ea"
+      "sha256": "6ee7b6cd20ff5608ab6f6a4e52579b2273946352b8e9093f526ec75fa7179d6a"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/daily_reward_panel.png",
@@ -2859,7 +2859,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "afae9458aaf7f5b67bc2d247a0eddc16afddeca527f4171c03af42ac0618f91d"
     },
     {
       "path": "assets/ui_assets/screens/daily_reward/streak_badge.png",
@@ -2873,7 +2873,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "9d9a01f59ef7298c5ca34630f8120dbc6cf2cc72032dab641cddd8345e7c38ec"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/coin_counter_panel.png",
@@ -2887,7 +2887,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "d77dde3ec99e32399371ec8f0439443f1f243ebf5b7b9fedc455f172123a444b"
+      "sha256": "4d8f1629b697e62c4216e3053255912e3d059a8213b57272101d863b7c4c0644"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/gem_counter_panel.png",
@@ -2901,7 +2901,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "8e076f830c712fc6553e7f78d7481e163db66a4549745dff98068a2726c456a4"
+      "sha256": "85c1fdf206615709cdabc831fe8c22bfb8aa6b4c887c5d66471567eb35841d74"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_background.png",
@@ -2915,7 +2915,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-main-menu-master-resize",
-      "sha256": "009076df7862ff83e7f0a5f9940b4c9ece304249b8eefdab10db8e10bc8f0abb"
+      "sha256": "445eebb2179e47f4998c90840afc716a3d22f40eba2ad23bc3b2785864fbc2f3"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_daily_button.png",
@@ -2929,7 +2929,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0459c17c0c6587d55224ae1d223862787689f9d9b9bdb10dde7ed30972e86807"
+      "sha256": "8826ea9e21376c6e37927ffd57e78baa9675754abc3a361051cdb140409b8d35"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_decor_left.png",
@@ -2943,7 +2943,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "f286552225d4e9c10b80d83535d9141a99ad070df61eb30b2ae1f91491ec0479"
+      "sha256": "f845d97cfa5c8f070059f0141dfe60ded7d0b115d55e55212402f24ec5660b4e"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_decor_right.png",
@@ -2957,7 +2957,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "f286552225d4e9c10b80d83535d9141a99ad070df61eb30b2ae1f91491ec0479"
+      "sha256": "67890140b9da927659526e7d7e4d5cfc7f37a3a6276135c106c85eecb0af126a"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_logo_frame.png",
@@ -2971,7 +2971,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "ae807a13509805aac4b07441e6f2b6dab98d6206c8aa8c07478e7e60ab050ef4"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_play_button.png",
@@ -2985,7 +2985,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "bb774d06f2f7c1d5d4916468e9b61db10d9a9607293f536893dbfd10a527ec97"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_settings_button.png",
@@ -2999,7 +2999,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0459c17c0c6587d55224ae1d223862787689f9d9b9bdb10dde7ed30972e86807"
+      "sha256": "f5a3ba6963d7ee23c26ece0f6759d6e3b7612e1f228eec30cc2a18c97cb56920"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_shop_button.png",
@@ -3013,7 +3013,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0459c17c0c6587d55224ae1d223862787689f9d9b9bdb10dde7ed30972e86807"
+      "sha256": "cb91d6871f367abc51026ecd59a0b5130b9879e6ac0802ed75c577adeafbb53b"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/main_menu_world_map_button.png",
@@ -3027,7 +3027,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0459c17c0c6587d55224ae1d223862787689f9d9b9bdb10dde7ed30972e86807"
+      "sha256": "46d4dfd2170c8071177880baffd1e22bad4bf236a17adbd0def9a4b45dc70ec9"
     },
     {
       "path": "assets/ui_assets/screens/main_menu/profile_frame.png",
@@ -3041,7 +3041,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "443dbdacce06a81713fd943a41348200d4814ffdbe61bc78d4bfbe4cc66212c6"
     },
     {
       "path": "assets/ui_assets/screens/milestones/button_claim.png",
@@ -3055,7 +3055,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "5d881b08d4a432da6a00e41795e5157d8abf35d9a9cfb0ada159fbc48eab0e4e"
     },
     {
       "path": "assets/ui_assets/screens/milestones/button_continue.png",
@@ -3069,7 +3069,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "98c8d0ac903ef7132aa8ef1fffe51c8229a60a50336b2d5c95ad93f4e872dc5e"
     },
     {
       "path": "assets/ui_assets/screens/milestones/island_complete_panel.png",
@@ -3083,7 +3083,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "78cf1fca078d857502aac607c9ba8b3f1b8a0fa7306b9daa365a1ee9bff941a2"
+      "sha256": "3da020ffd6410f82fb8dfbe7a268b52468b34bffa5ed460ccb5ac0c5d53976c7"
     },
     {
       "path": "assets/ui_assets/screens/milestones/island_complete_ribbon.png",
@@ -3097,7 +3097,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c5795e602a999dd9cab3fcf8da05eca4e8986c00af817071270aa5897190f8f8"
+      "sha256": "db25f2589ee5dd0bff47d8e0733ca53ed7744dcecad3e80837d8100a28af848a"
     },
     {
       "path": "assets/ui_assets/screens/milestones/milestone_banner.png",
@@ -3111,7 +3111,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "69e6dcab0c6c450aff2a1e5deb21b0cf5692d020492aba81a312922c86666924"
     },
     {
       "path": "assets/ui_assets/screens/milestones/milestone_chest_closed.png",
@@ -3125,7 +3125,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "20efa04870ad1969bacaf032084e7fe74d3f812c675fc40f824854c3d010f2e5"
+      "sha256": "bfd9b282c0eda11fad6734c8b5aa55a6fb02d95a0b87ac0744aeba915c105d9f"
     },
     {
       "path": "assets/ui_assets/screens/milestones/milestone_chest_open.png",
@@ -3139,7 +3139,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ff2c52cb052eddbafe619cc4776f10ced0fc5de5739c1b6e0f033ba90303db20"
+      "sha256": "75f54e0534090d080ff9d9644227606c32fdc20ec9fa832670cab4e90891c610"
     },
     {
       "path": "assets/ui_assets/screens/milestones/milestone_glow.png",
@@ -3153,7 +3153,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-effects-atlas-crop",
-      "sha256": "e23a9929fc45a49cb35746e678b5eeeae981f7e4348477fb6fff1fb758c8082b"
+      "sha256": "7f4a518ef6f2fe478475823fb286bcff8f83ddca256e24af95bf63d362b2e20e"
     },
     {
       "path": "assets/ui_assets/screens/milestones/milestone_reward_panel.png",
@@ -3167,7 +3167,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "abdb4aca0f15c73e33d927e67597aab44d29a78b142dea701486496097c63c7f"
     },
     {
       "path": "assets/ui_assets/screens/milestones/next_island_unlock_frame.png",
@@ -3181,7 +3181,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "b344836f5fc62a33517ffc6334775d9505be571aa63affa9041a15d70d1405b4"
+      "sha256": "05241b88a2b5950094c904a3ef3f0e8062444b7ce7e3d506435a4c64e371cefc"
     },
     {
       "path": "assets/ui_assets/screens/milestones/reward_slot.png",
@@ -3195,7 +3195,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "4b07933a9a2b6e426cea7ea34dae1f9918a19aecb0264d6e3219a12ac8636bbe"
     },
     {
       "path": "assets/ui_assets/screens/pause/button_quit.png",
@@ -3209,7 +3209,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cef574d9fe6801cc0956de0fb4334d1fa5a72d217d48205730e20a57844cff64"
+      "sha256": "d239d471246fe75dba5118ab1848f7f902c78a8e0f71c152974d82e55fa47e49"
     },
     {
       "path": "assets/ui_assets/screens/pause/button_restart.png",
@@ -3223,7 +3223,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "45ebb52f3eef5a57c6ac598f27cbeff12a4f3bd1fa60741eb038eea6f1cfd79d"
+      "sha256": "7bf94dbf28af5e1ade4c96e39016be94683bc0c06d9a59530f1d6d66b7944e2b"
     },
     {
       "path": "assets/ui_assets/screens/pause/button_resume.png",
@@ -3237,7 +3237,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "36e087dd251b6a5b018e0b2971b1e99fa5f29336176ef301bbc13f632c985e6a"
     },
     {
       "path": "assets/ui_assets/screens/pause/button_settings.png",
@@ -3251,7 +3251,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0459c17c0c6587d55224ae1d223862787689f9d9b9bdb10dde7ed30972e86807"
+      "sha256": "ace5916d9a1941ae33316954d694bfe059be06b4b2879a30bebb7605845e7dac"
     },
     {
       "path": "assets/ui_assets/screens/pause/button_world_map.png",
@@ -3265,7 +3265,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0459c17c0c6587d55224ae1d223862787689f9d9b9bdb10dde7ed30972e86807"
+      "sha256": "14b23bb3a736c18d28671cf95f0b340e2f2396665695c6e50eb57a517a8f7ffd"
     },
     {
       "path": "assets/ui_assets/screens/pause/pause_panel.png",
@@ -3279,7 +3279,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "74a7714f1d8086d5f96a1bebfb7afe745af2c86cf918888a093ad8687b30e157"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/booster_selector_panel.png",
@@ -3293,7 +3293,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "ac61689c3bb134fa4f686d4f87a5c25d4a408d8261afce40b7e6dcf8f02a2a08"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/button_close_prelevel.png",
@@ -3307,7 +3307,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cef574d9fe6801cc0956de0fb4334d1fa5a72d217d48205730e20a57844cff64"
+      "sha256": "6d312a7c81ddb625a1f7254231b72391a26b034eab38c6f9537db51f0324da4c"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/button_play_level.png",
@@ -3321,7 +3321,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "1707f1b24d02a751dd25f27e7d4c1f014cc27da1d94780002f1ea8ab2754d248"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/level_number_badge.png",
@@ -3335,7 +3335,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "0faf00f22566836544beba72404ed0a03b5d67aa6c9f6428e9f2c48bb052cbab"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/order_slot.png",
@@ -3349,7 +3349,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "b85997b7b569ed4b2acdec530c1ae15dd503c2629f157531205c92fa658dddb1"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/prelevel_panel.png",
@@ -3363,7 +3363,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "b58ea20306cb298edfe65d847325b0ee62ff65fcfae39c26094aacd81209f41b"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/timer_icon.png",
@@ -3377,7 +3377,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "7490d2bb2c74f92265b56de14155f09d3cc65caa07491220a2987274b61b5d0d"
+      "sha256": "b662d9fcccdef35daa5033f07d992d64af7bff5bf0407b0a2b6f5e14c91dbec3"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/timer_panel_small.png",
@@ -3391,7 +3391,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "16e814b16952e9fb88c23ffe19786ae172d87dbfcea2660f0e49dbe6d1cfe3fa"
+      "sha256": "9dd40ea3ef26b57fdd57e5fe7f8f6f8867915afbe29e66a10b479fa957af30d0"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/vip_badge.png",
@@ -3405,7 +3405,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c3f7981a2b496b7d78057468b74de2d80c1c3d304295eb39fa506c9ce349c1e9"
+      "sha256": "2b488311defe68a0a3720690e004c986e9d3b27e95d8e1ef83600f2567d5df95"
     },
     {
       "path": "assets/ui_assets/screens/prelevel/vip_reward_slot.png",
@@ -3419,7 +3419,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0b0ad81cb79f7b0ba98d075eacfb77848915c826a735f5d3ba690e7dbeaed1ae"
+      "sha256": "9d3fd08c5315586b97ac5b17ddb52f82c5de4f675710825c1efd7549434e7f0b"
     },
     {
       "path": "assets/ui_assets/screens/results/button_add_time.png",
@@ -3433,7 +3433,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "4649a8a78287e9cf136da0901d3dad34d9abeb3470ba7e5a12b20f1d4c1ccb8d"
     },
     {
       "path": "assets/ui_assets/screens/results/button_island_map.png",
@@ -3447,7 +3447,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "814c007b4e09fc6e01c0eb49f5dd5d64578eb8ce0762e938e2a3a56ae4a538b7"
     },
     {
       "path": "assets/ui_assets/screens/results/button_next_level.png",
@@ -3461,7 +3461,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "9be493c206e94a0f35e000085583f64f2200e1117fa8a79f225eed1f737dcba5"
     },
     {
       "path": "assets/ui_assets/screens/results/button_replay.png",
@@ -3475,7 +3475,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "48ad14a1738115a912c30a77de9338439b007ee910e5c38fe589240037c1b542"
     },
     {
       "path": "assets/ui_assets/screens/results/button_retry.png",
@@ -3489,7 +3489,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cef574d9fe6801cc0956de0fb4334d1fa5a72d217d48205730e20a57844cff64"
+      "sha256": "b144000a18f16ec170a593bfd3724ec08d82b187b18094752545d13a8366519f"
     },
     {
       "path": "assets/ui_assets/screens/results/button_world_map_fail.png",
@@ -3503,7 +3503,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0459c17c0c6587d55224ae1d223862787689f9d9b9bdb10dde7ed30972e86807"
+      "sha256": "8f347fbf8f7b801f7cf7e01bfde965809d0d2d79cde729d690a2662751539cce"
     },
     {
       "path": "assets/ui_assets/screens/results/fail_timer_icon.png",
@@ -3517,7 +3517,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "7490d2bb2c74f92265b56de14155f09d3cc65caa07491220a2987274b61b5d0d"
+      "sha256": "e4cb288c41c3745ae9bf75689509e1d39dbbacb09aa644926c393a31835b3ef8"
     },
     {
       "path": "assets/ui_assets/screens/results/level_complete_panel.png",
@@ -3531,7 +3531,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "78cf1fca078d857502aac607c9ba8b3f1b8a0fa7306b9daa365a1ee9bff941a2"
+      "sha256": "f6956009876b27e3ba2ad6624c44e61626c498c4b1baab82c5353521d103ce3d"
     },
     {
       "path": "assets/ui_assets/screens/results/level_complete_title.png",
@@ -3545,7 +3545,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "ad31203946655de59daf5e3d71afc29e8c793496ec200451eb2633e464b33713"
     },
     {
       "path": "assets/ui_assets/screens/results/level_failed_panel.png",
@@ -3559,7 +3559,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "964fa3921511ab4b6339f9fa0afa521c8c2af83f54fbc739805944432bbc4742"
     },
     {
       "path": "assets/ui_assets/screens/results/remaining_order_slot.png",
@@ -3573,7 +3573,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "60f7825d4544dede7af2508ec0d0b71713be977b8a18250bec7d6bfa237c026a"
     },
     {
       "path": "assets/ui_assets/screens/results/reward_slot.png",
@@ -3587,7 +3587,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "161931709690433d787ebe4dbfd991a585b20e74c9b316161134043a51d3f7d4"
     },
     {
       "path": "assets/ui_assets/screens/results/score_summary_panel.png",
@@ -3601,7 +3601,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "d9ddc45989e40a43988dcf1aea96c81ffddedb04ea6cad268eba44b84c835350"
     },
     {
       "path": "assets/ui_assets/screens/results/time_up_title.png",
@@ -3615,7 +3615,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "53f7dc47b253c358a68b0ce269e2134914d7c725fe40511be92311878181a24d"
     },
     {
       "path": "assets/ui_assets/screens/results/video_ad_icon.png",
@@ -3629,7 +3629,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "81598d17636ee42570aa95f9e63d27c261bf996932768d2b8dfdef741ec6daac"
+      "sha256": "ca2571793c9ec481f5667aecb7f6fd6dbc1ff31d47a4f6a7537faa4b32811620"
     },
     {
       "path": "assets/ui_assets/screens/results/vip_complete_badge.png",
@@ -3643,7 +3643,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c3f7981a2b496b7d78057468b74de2d80c1c3d304295eb39fa506c9ce349c1e9"
+      "sha256": "4d5851253b7f238e53aec52517c994e3517c47774060dc7669584dd116d434d5"
     },
     {
       "path": "assets/ui_assets/screens/rewarded_ad/button_no_thanks.png",
@@ -3657,7 +3657,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cef574d9fe6801cc0956de0fb4334d1fa5a72d217d48205730e20a57844cff64"
+      "sha256": "03a71aa59828150c1bf1660a9a61ded9b6919bcf46fdb12af611945afc204124"
     },
     {
       "path": "assets/ui_assets/screens/rewarded_ad/button_watch_ad.png",
@@ -3671,7 +3671,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "cc89349d9a34722cc4cd9e342193d95f12621c4727cec2101bdf78b50478f009"
     },
     {
       "path": "assets/ui_assets/screens/rewarded_ad/reward_ad_double_icon.png",
@@ -3685,7 +3685,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "ef293682f64497ff237f2b96e7e41a15d3f0bb5a657924da4eaf0f6e9c561d62"
     },
     {
       "path": "assets/ui_assets/screens/rewarded_ad/reward_ad_time_icon.png",
@@ -3699,7 +3699,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "9e5a1b6fde58b83b5fa43947898899610cdd9a1953fc34b501c80b7c599469f1"
     },
     {
       "path": "assets/ui_assets/screens/rewarded_ad/rewarded_ad_panel.png",
@@ -3713,7 +3713,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "1f65cd2ed54a68033d7d527c52337b1bceecc097e3e2364ecfd460ecf04481ed"
     },
     {
       "path": "assets/ui_assets/screens/rewarded_ad/video_ad_icon.png",
@@ -3727,7 +3727,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "81598d17636ee42570aa95f9e63d27c261bf996932768d2b8dfdef741ec6daac"
+      "sha256": "5957b25b2fcda1d0079b13df7b6a5fb14e5f516b437680e8afb40c4b43be0ca7"
     },
     {
       "path": "assets/ui_assets/screens/settings/accessibility_icon.png",
@@ -3741,7 +3741,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "7a80b7cb605fdf8b20ad46bd8543d48142a3cf648e4238fd2314a1bee979a63e"
+      "sha256": "bf940f83d9cb872ef3f8699464166dbcfe5a2808a460a52b678a86e0e6dc403c"
     },
     {
       "path": "assets/ui_assets/screens/settings/button_close_settings.png",
@@ -3755,7 +3755,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cef574d9fe6801cc0956de0fb4334d1fa5a72d217d48205730e20a57844cff64"
+      "sha256": "f78b56759fea0f24f7cd5961a23b4261d8a6343d50b1f861ab5043ca3002fea4"
     },
     {
       "path": "assets/ui_assets/screens/settings/haptic_icon.png",
@@ -3769,7 +3769,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c3f7981a2b496b7d78057468b74de2d80c1c3d304295eb39fa506c9ce349c1e9"
+      "sha256": "ef53a809680cf0ed8c58993224c8e77d5889a05c36c9228791cff219cfc024f2"
     },
     {
       "path": "assets/ui_assets/screens/settings/language_icon.png",
@@ -3783,7 +3783,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "56183a6025c67092f375f337b871b7314b564bf89823b796f75a95ab2f8e5853"
+      "sha256": "2f150b8c40b5b84360eaeb3f343b480a8d33307c647f54df01454aff9411e3c3"
     },
     {
       "path": "assets/ui_assets/screens/settings/music_icon.png",
@@ -3797,7 +3797,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "e62dd737994c78bce95ede8fd1ee69a4aa43cecf15df1ccbece3d5b32356fb63"
+      "sha256": "4659e037209be7ea7c1dfc952e3b259d96122a86910be707e1b1daeba25ed08b"
     },
     {
       "path": "assets/ui_assets/screens/settings/privacy_icon.png",
@@ -3811,7 +3811,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "68b2adf6413ac32838a5f64a98305148a4a338557d084db82c6aa1d49fe900c2"
+      "sha256": "396dcf7a2fd5f3ed2820fce1b100f1d4d4c3d48dcdf717d621e0e98263a20fed"
     },
     {
       "path": "assets/ui_assets/screens/settings/restore_purchase_icon.png",
@@ -3825,7 +3825,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "3f396008d879a7bf42f4c4d71c82c9436ae62210a1c027f72efe4d49506d7d98"
     },
     {
       "path": "assets/ui_assets/screens/settings/settings_panel.png",
@@ -3839,7 +3839,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "036b796168e7bdd22aaffeae0947e21aebdedae35cc1ac5f4cd7829e74fff7e0"
+      "sha256": "8c77c8c313aa50a5e7c57a6a8c805c78bbb95a778c4a882bbce204a3393a3e9a"
     },
     {
       "path": "assets/ui_assets/screens/settings/slider_handle.png",
@@ -3853,7 +3853,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "c121c11d193539f701483196f73c8f8ee41c197020ea827adbb01bb6c09fe8dc"
     },
     {
       "path": "assets/ui_assets/screens/settings/slider_track.png",
@@ -3867,7 +3867,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "d60154c0bb54c92fc512777301f60eea5b1899277252262c3b65c688a31234d7"
+      "sha256": "575de91af94a7ed6baad7b9da6d307a97e8e6e52ecef2d345665707fc4510344"
     },
     {
       "path": "assets/ui_assets/screens/settings/sound_icon.png",
@@ -3881,7 +3881,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "585ecc1afb4e16864207b3396370d6295d6c372ea2f64bc6392719c5e8cdf35d"
+      "sha256": "23acc6ccaa270fc362d4f65a743cfa86697f810421603bea799f71d50794a8d6"
     },
     {
       "path": "assets/ui_assets/screens/settings/toggle_off.png",
@@ -3895,7 +3895,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "e049565807a2a5fd05d572d77f96f8d666553af8fe6875d50030a075588847b3"
+      "sha256": "14b3e4d5bcd019bf7184373c7c3abc7f831f120f33dd75a486370ab0fd95eaa9"
     },
     {
       "path": "assets/ui_assets/screens/settings/toggle_on.png",
@@ -3909,7 +3909,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c60a8ed83fe99a4e576400ed7a956428eb8030cf9059ecfbfb2f3c8dc6eff499"
+      "sha256": "401c954ee0c58ed4dcfce5f05eb1ef15a32b33da59c60323dc4ab739f36d95ef"
     },
     {
       "path": "assets/ui_assets/screens/shop/best_value_badge.png",
@@ -3923,7 +3923,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "edbb02c912d6f2ddb9f52688fb7f661d9085937f9e9043c1a96457b2c0c0bc89"
     },
     {
       "path": "assets/ui_assets/screens/shop/button_buy.png",
@@ -3937,7 +3937,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "ba4517565610db1d6d35b810ce7c930c424a5575fe53d0c747ad2c4151eb24d7"
     },
     {
       "path": "assets/ui_assets/screens/shop/coin_pack_icon_large.png",
@@ -3951,7 +3951,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "74f381f6e611d857e9ab42750c661259f470159f18ccfc11804ca0ee9c223301"
+      "sha256": "ec944c5c51ee673d1d547ef658a364e8b4a620aa32425df3ef472805db226922"
     },
     {
       "path": "assets/ui_assets/screens/shop/coin_pack_icon_medium.png",
@@ -3965,7 +3965,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "74f381f6e611d857e9ab42750c661259f470159f18ccfc11804ca0ee9c223301"
+      "sha256": "db703e7cd3cfce1ba0193f5134bd7f1909288e76f04d2b508f37c9de1deabf35"
     },
     {
       "path": "assets/ui_assets/screens/shop/coin_pack_icon_small.png",
@@ -3979,7 +3979,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "74f381f6e611d857e9ab42750c661259f470159f18ccfc11804ca0ee9c223301"
+      "sha256": "dfb6158fa5bea19c210b2724be54e2a448fd0f783e3cea94e4530126aa232d92"
     },
     {
       "path": "assets/ui_assets/screens/shop/gem_pack_icon_large.png",
@@ -3993,7 +3993,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "585ecc1afb4e16864207b3396370d6295d6c372ea2f64bc6392719c5e8cdf35d"
+      "sha256": "32cd8461161472027c23a3b15cebe1082e209062c9ffc7db8d671ccb3d7683c5"
     },
     {
       "path": "assets/ui_assets/screens/shop/gem_pack_icon_medium.png",
@@ -4007,7 +4007,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "585ecc1afb4e16864207b3396370d6295d6c372ea2f64bc6392719c5e8cdf35d"
+      "sha256": "20857b65654a4b67aff33246841179e2947365d43052e22ddacef698c6966329"
     },
     {
       "path": "assets/ui_assets/screens/shop/gem_pack_icon_small.png",
@@ -4021,7 +4021,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "585ecc1afb4e16864207b3396370d6295d6c372ea2f64bc6392719c5e8cdf35d"
+      "sha256": "7bfed6a72113d873852f3c6cc9971fb6d65f580e80954a249d26c4e18af52c77"
     },
     {
       "path": "assets/ui_assets/screens/shop/sale_badge.png",
@@ -4035,7 +4035,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "6f34b632b8c633a3824c7c2cddf3e599196e74ad3ee7c257b22b26cbc68575fc"
     },
     {
       "path": "assets/ui_assets/screens/shop/shop_background.png",
@@ -4049,7 +4049,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-screen-atlas-crop",
-      "sha256": "7eead042c0e4a56eb3d2a23ddbcaf02bb27653f3fcdda34eb56c7227fba21df9"
+      "sha256": "ce5273621a4fe0ce47f08dd064467116ffd4370b3ce9040d5a60e4ee040ac378"
     },
     {
       "path": "assets/ui_assets/screens/shop/shop_header.png",
@@ -4063,7 +4063,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "01960e9f7a11d934a999aa0037ec4831a3392fab60cc5aa8d2c7033a35ce083a"
+      "sha256": "aab2ab3a289c813fb014b8af447ca4f2f2ae6917d1ebbc0eb3634014034afe2c"
     },
     {
       "path": "assets/ui_assets/screens/shop/shop_item_card.png",
@@ -4077,7 +4077,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "67edb19fa963f5a88ad002c42d39ccf058ef30f6c20072f51d19d9d68cd86193"
     },
     {
       "path": "assets/ui_assets/screens/shop/shop_item_card_featured.png",
@@ -4091,7 +4091,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "ff135d09b5e313044dada81fe6ac12d4444477c1547d0c4d920f7a1dd2dd713b"
     },
     {
       "path": "assets/ui_assets/screens/shop/shop_tab_boosters.png",
@@ -4105,7 +4105,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "d7b60d405a38429e635af97e99e9c17c1ea27fe00e863a6a9ac2e3e4939ab13a"
     },
     {
       "path": "assets/ui_assets/screens/shop/shop_tab_currency.png",
@@ -4119,7 +4119,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "227ea0a4268e404c2297674e6f1c78271f0bc750798b16a774290a106ccc327b"
     },
     {
       "path": "assets/ui_assets/screens/shop/shop_tab_special.png",
@@ -4133,7 +4133,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "b31519fb5866cc45485b493e7baf082701f5cf15e32564151cd7eedb3177300f"
     },
     {
       "path": "assets/ui_assets/screens/shop/starter_pack_badge.png",
@@ -4147,7 +4147,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "f75ac5454cc37caa8bbecf193a47dffe31ad6ec772ed820fab6209f504047fb7"
     },
     {
       "path": "assets/ui_assets/screens/social/friend_icon.png",
@@ -4161,7 +4161,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "243be4bd499b1c47f5c2666fb84836fe0e4e447415d454716133ae25cf59e828"
     },
     {
       "path": "assets/ui_assets/screens/social/leaderboard_panel.png",
@@ -4175,7 +4175,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "871312fab2afb84492227e948eef91709533766900a4e4dab0d124fc66d46c6c"
     },
     {
       "path": "assets/ui_assets/screens/social/player_avatar_frame.png",
@@ -4189,7 +4189,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "e900f75e57080e78c2fa654cd957add7fa93bfc971846e4a5192011979952beb"
     },
     {
       "path": "assets/ui_assets/screens/social/rank_badge_1.png",
@@ -4203,7 +4203,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "5b31298b64e62a1f6c29fd6376c72f81907610893304399a9a28eb0249d6413a"
     },
     {
       "path": "assets/ui_assets/screens/social/rank_badge_2.png",
@@ -4217,7 +4217,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "0719dc4bc20eb3c8aa276a1bf478666078ed8bbbfc4e4c0c933746baa2c99204"
     },
     {
       "path": "assets/ui_assets/screens/social/rank_badge_3.png",
@@ -4231,7 +4231,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "04487cecfdce44da39165aa5311be4dd3664e2cdc1ad059c43b57152e09c4161"
     },
     {
       "path": "assets/ui_assets/screens/social/share_icon.png",
@@ -4245,7 +4245,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "e6c9f5e095fc6608db386e0a2f24deb04bffb506a0ac66d017ec5eb5acdc5b93"
+      "sha256": "903d04942b34276baf13849bed3bd8b570b363fcc1f233c026d88ed2d1c6f613"
     },
     {
       "path": "assets/ui_assets/screens/splash/loading_bar_fill.png",
@@ -4259,7 +4259,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "d60154c0bb54c92fc512777301f60eea5b1899277252262c3b65c688a31234d7"
+      "sha256": "ddb7614fc516a897c3960b46453f03dd992c207908f0443908b3a0d46a98fb32"
     },
     {
       "path": "assets/ui_assets/screens/splash/loading_bar_frame.png",
@@ -4273,7 +4273,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "219528b6734a8123a9e1cb3b942d8a97d136e7dd72cc774b4659d43833f4868c"
     },
     {
       "path": "assets/ui_assets/screens/splash/loading_cocktail_icon.png",
@@ -4287,7 +4287,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "9127e0e6213431e1c3d20e77a278497bb6edff794657c35ef3cfe483c0aceb2e"
     },
     {
       "path": "assets/ui_assets/screens/splash/loading_spinner.png",
@@ -4301,7 +4301,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "cf912a724de7f60c48b2a5d9641afb01e3cf0e94f7e5fad8d2e447628e6b623f"
     },
     {
       "path": "assets/ui_assets/screens/splash/loading_tip_panel.png",
@@ -4315,7 +4315,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "e97129a0c135ce526e0ac0239b4d90aadde11364071d01f16058b5296c71cefc"
     },
     {
       "path": "assets/ui_assets/screens/splash/splash_background.png",
@@ -4329,7 +4329,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "V04-main-menu-master-resize",
-      "sha256": "009076df7862ff83e7f0a5f9940b4c9ece304249b8eefdab10db8e10bc8f0abb"
+      "sha256": "bd182ad610d66281a9b40a2430df0e26560a6dec62ba87f7662b9998b7ebc4d7"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_arrow.png",
@@ -4343,7 +4343,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "04b8c9cd60460259eade197969f070adaf2070e076987110f43bc5c1cdb153a3"
+      "sha256": "57b934a504935e16337cc3fb00404faca33cf81ba94b44c2ebe5dd69201c09fa"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_hand.png",
@@ -4357,7 +4357,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "6895231d6839b36f603bc16caad6fd24e1e8d0a869fa0c1b20d90ecb10db7d85"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_highlight_ring.png",
@@ -4371,7 +4371,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "82fe552d1cc955e92f88470bbfb0db91010b2ecc48d1b1a4b99d24195fd7ebf7"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_merge_icon.png",
@@ -4385,7 +4385,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "ae185117fdfb99a78250239d8dd630f85ed2f0d182dc6264c31d57831ec52d4c"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_order_icon.png",
@@ -4399,7 +4399,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "e4754f44c3c1d75cc322025c00de09b4d30dbd18a3aff88461a95607f6fdbad9"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_panel.png",
@@ -4413,7 +4413,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "5277b58b59812904b27ae1d47741d31fae03fecdc257a66f253d5a7fcb07749e"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_skip_button.png",
@@ -4427,7 +4427,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "1730250065b2060a4a3da40eeeebad469941aa234b2c89e28155a8c4bb8ddcd6"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_timer_icon.png",
@@ -4441,7 +4441,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "7490d2bb2c74f92265b56de14155f09d3cc65caa07491220a2987274b61b5d0d"
+      "sha256": "f7edd1952058ad761c7a03548411c3f42a7cb87205b6c892b062cc83c45928e5"
     },
     {
       "path": "assets/ui_assets/screens/tutorial/tutorial_vip_badge.png",
@@ -4455,7 +4455,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c3f7981a2b496b7d78057468b74de2d80c1c3d304295eb39fa506c9ce349c1e9"
+      "sha256": "5f296dcafaf9f0197d067cf9d20863e539369dcade7fcd428aadc6048c7ece0f"
     },
     {
       "path": "assets/ui_assets/source/style_reference_board.png",
@@ -4497,7 +4497,7 @@
       "island_id": null,
       "table_geometry_version": 1,
       "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "879c13bcadb38f194a5dbe404bbd888ff4c786e7abc295f443ba2f3dc319078f"
+      "sha256": "6cffe041d3b2774b3e97fe50f787d8afe4fa043d4a6924015b5519e9fb9929b8"
     },
     {
       "path": "assets/ui_assets/tables/table_silhouette_mask.png",
@@ -4525,7 +4525,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "bc24dc7ae0b742ed9eae924aeb2b54d18bc5ad8c6040b648a67f85166d9b4c10"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_hammer.png",
@@ -4539,7 +4539,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0b229568e34261716f77aad39cabbcf54a8d32384ff317a093c31b01ccd5a09e"
+      "sha256": "7fcdffbd3bc81d9720944b0fd69f4707462ec21696ff53d1221aa6d9ebd868cf"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_locked.png",
@@ -4553,7 +4553,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "750231301268e0e04caaf0ed2401523da3d441e0b4e77008edea19682420ecae"
+      "sha256": "d986499238015863a2911dc2ca95675589be6a3848cb45138399c256d1a50271"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_selected.png",
@@ -4567,7 +4567,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1a7310f8489411a9ef67baec9609182edae5a5b2f5eb3bb340f4a95dc6f2d79c"
+      "sha256": "23241ddbaa6dda2b39705e801eb298424084222ba776d07cbcb94ddca56229fe"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_shuffle.png",
@@ -4581,7 +4581,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cc28111ae993176e5728de48c06dcd05e8d0727cacd804723581169e21c663e7"
+      "sha256": "877ad42fa5570f51e2061e8a2dc86bc72bd7a96701dd0d69fea2594046f0a1b4"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_slot.png",
@@ -4595,7 +4595,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "56564f5a3c810f48ed8ab4c778d3c1830639da671d12fb19a95cf4a29dd040a9"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_time.png",
@@ -4609,7 +4609,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "50c15508063d10147a7e2525d66091f323fa09d7f8278d7ff15b296f34d2cbd4"
+      "sha256": "e280a0db0dd2f8d495ff9723499e03b62b0dc144f78377f19d63ad59dc772765"
     },
     {
       "path": "assets/ui_assets/ui/boosters/booster_upgrade.png",
@@ -4623,7 +4623,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "1f52efdc6b7e4d1c7f32ed33d7f8725d6b7fc06fc7bfb343a0f15781eb6173dd"
+      "sha256": "9c11999481cbe7fd2d4743e41a4f48ffb6f6e4123358a540412e4bf6b9daa367"
     },
     {
       "path": "assets/ui_assets/ui/gameplay/level_label_panel.png",
@@ -4637,7 +4637,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "3c95c0ce828574bce17241d4fab7f83b969a6a3000f6ec110cf4f05af96c2e98"
     },
     {
       "path": "assets/ui_assets/ui/gameplay/pause_button.png",
@@ -4651,7 +4651,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "fd6a485908ed4baa2c76fa11d9367de83b4f1278838ce83a4b93d514fc280d40"
     },
     {
       "path": "assets/ui_assets/ui/gameplay/timer_icon.png",
@@ -4665,7 +4665,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "7490d2bb2c74f92265b56de14155f09d3cc65caa07491220a2987274b61b5d0d"
+      "sha256": "38712986e31df3a3d3916057acd65288d90022a2fab6ce63d28a527941174c28"
     },
     {
       "path": "assets/ui_assets/ui/gameplay/timer_panel.png",
@@ -4679,7 +4679,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "16e814b16952e9fb88c23ffe19786ae172d87dbfcea2660f0e49dbe6d1cfe3fa"
+      "sha256": "59032bf5f3bcf713e5db3c7b7ac2005278465d1e39ef925b6f18a2b8e7c45479"
     },
     {
       "path": "assets/ui_assets/ui/gameplay/timer_warning_glow.png",
@@ -4693,7 +4693,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "9cd2970a27d2454a02c225e2c97562c45e8e1a961d46680ec78510b1205f1848"
+      "sha256": "e880b7f1f1e92860f4fc95e9fb9ec9069f4cc20507c9bcd8cf497d4cf11423c4"
     },
     {
       "path": "assets/ui_assets/ui/gameplay/vip_badge.png",
@@ -4707,7 +4707,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c3f7981a2b496b7d78057468b74de2d80c1c3d304295eb39fa506c9ce349c1e9"
+      "sha256": "e04974484ba23e1677de76bf20681118bef7544400ac6f919c53c342e73ce289"
     },
     {
       "path": "assets/ui_assets/ui/gameplay/vip_reward_frame.png",
@@ -4721,7 +4721,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "0b0ad81cb79f7b0ba98d075eacfb77848915c826a735f5d3ba690e7dbeaed1ae"
+      "sha256": "f2e33a107b168c0d01af9dba2c2211c694d6783bd789c6e3f7fe957e30b1ede6"
     },
     {
       "path": "assets/ui_assets/ui/global/back_arrow.png",
@@ -4735,7 +4735,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "b7043f0b0aba3240b47b7af51e35dca46bd141b84599a2f5c76f50420b1516ec"
+      "sha256": "7c8004c1f427dd40fce04c1a91d03bce9985841e5e84a37069bdb39778c4ede1"
     },
     {
       "path": "assets/ui_assets/ui/global/button_danger.png",
@@ -4749,7 +4749,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cef574d9fe6801cc0956de0fb4334d1fa5a72d217d48205730e20a57844cff64"
+      "sha256": "ecc7d364818ddd2c537c351d6db531044cabd18078c8a9a7c31df94a64163e35"
     },
     {
       "path": "assets/ui_assets/ui/global/button_disabled.png",
@@ -4763,7 +4763,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "61ec779d7ab1e45c86095e7dd73d79ea460e511a43a3dd1ba963ef5754993d9d"
     },
     {
       "path": "assets/ui_assets/ui/global/button_icon_round.png",
@@ -4777,7 +4777,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "45ebb52f3eef5a57c6ac598f27cbeff12a4f3bd1fa60741eb038eea6f1cfd79d"
+      "sha256": "cf50ee122546fd698c9d5debffc480c3d808959bc055bfa6146a3ec424c9679b"
     },
     {
       "path": "assets/ui_assets/ui/global/button_locked.png",
@@ -4791,7 +4791,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "72855a5dca7f2755a236e17467420f896325b0507d7f4899866725cebb00a9a8"
     },
     {
       "path": "assets/ui_assets/ui/global/button_primary.png",
@@ -4805,7 +4805,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "ceea311625f27f10a8e33211c2aea744512d795ec6501483fb70aa8e7b7e66cc"
     },
     {
       "path": "assets/ui_assets/ui/global/button_secondary.png",
@@ -4819,7 +4819,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "eddc41e852ae7d093f91b1ff5112852fbdf102fc97bef519952a339011930c98"
     },
     {
       "path": "assets/ui_assets/ui/global/button_small.png",
@@ -4833,7 +4833,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "875e3b276ffe2a0c9793e189ee894985c785dd49f3bb95fa4e5e15158ad7e267"
+      "sha256": "022a354bdebbb9f63f39de3bd4a13fe01d5ed8791db8826e4d59132b2ee239ab"
     },
     {
       "path": "assets/ui_assets/ui/global/check_icon.png",
@@ -4847,7 +4847,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c60a8ed83fe99a4e576400ed7a956428eb8030cf9059ecfbfb2f3c8dc6eff499"
+      "sha256": "f5d28d4a22ee3af09ba7e8204842f730866a6072ac4fe56a65f13eed194473d7"
     },
     {
       "path": "assets/ui_assets/ui/global/close_x.png",
@@ -4861,7 +4861,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "cd50b823bb499c44c4bf637ef8764accd0060012022d8fb4024c1ff0b434e98a"
+      "sha256": "ead280e05245df287ffa72c8f069510d937d07ecbe7c8e36d0d9db34de32cd3d"
     },
     {
       "path": "assets/ui_assets/ui/global/complete_badge.png",
@@ -4875,7 +4875,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c60a8ed83fe99a4e576400ed7a956428eb8030cf9059ecfbfb2f3c8dc6eff499"
+      "sha256": "35d1db98d417fdd0ff3efe89d59fbebbbf314bb975bbda85dcfb23d464d91661"
     },
     {
       "path": "assets/ui_assets/ui/global/current_badge.png",
@@ -4889,7 +4889,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "828942610af20372d120cbf937d0a4819039350b0f60bf7e9a10855e5ff64d4b"
     },
     {
       "path": "assets/ui_assets/ui/global/daily_ready_badge.png",
@@ -4903,7 +4903,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "26b61228874ea3b80fad88c249573b3791a67284bfd83579e03b07888f8b822e"
     },
     {
       "path": "assets/ui_assets/ui/global/divider_gold.png",
@@ -4917,7 +4917,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "b921a8593b87bb07928dd9b217cb9e436f8a442a59c48d48b6ac9fcefa7bbc6d"
+      "sha256": "2783f6bd6b6300be10768775418848d6abf9f7796a1aef2c2a79872011603891"
     },
     {
       "path": "assets/ui_assets/ui/global/finale_badge.png",
@@ -4931,7 +4931,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "06928e070cea7e9161b79822c5703111c391d32fc8283881791edb5ef3fe0e0a"
     },
     {
       "path": "assets/ui_assets/ui/global/help_icon.png",
@@ -4945,7 +4945,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "74f381f6e611d857e9ab42750c661259f470159f18ccfc11804ca0ee9c223301"
+      "sha256": "63a336327fb12cace5e5556f78d75f84feafecfc931cd3a4e64c964f52013dea"
     },
     {
       "path": "assets/ui_assets/ui/global/home_icon.png",
@@ -4959,7 +4959,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "57a4f40d247923fd801c4f9b16094c4527674abde1ef0f741d4404578cc90d7c"
+      "sha256": "9c62325ca6ba5022955128b59789804a423388b1505dc7e8419c8c853e8c3cc1"
     },
     {
       "path": "assets/ui_assets/ui/global/info_icon.png",
@@ -4973,7 +4973,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ad1bbfee08384ac64f3ffadaf72cff543bd314981de5f339535809daeebd521c"
+      "sha256": "f44ef547e0b333d8e23b116a04bf2714f92e40db0d9488eb7ac334c576ef7e3c"
     },
     {
       "path": "assets/ui_assets/ui/global/lock_icon.png",
@@ -4987,7 +4987,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "b2022b835ff6928c596c09be970581530990add0d2a5f76f0375446fa4eab1eb"
+      "sha256": "660d3af028e4cb29fc844a3e9ed6aab3a3addd2c66bd2d142ac3af3a34a737d7"
     },
     {
       "path": "assets/ui_assets/ui/global/map_icon.png",
@@ -5001,7 +5001,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ea63e7e9c625267c7db11920a2a7ba60a51205f181b58c194e51ca3da410899b"
+      "sha256": "504fa689fe1557683f6547f7f8c669f718c7b867badbc993a769fe8f9d27f797"
     },
     {
       "path": "assets/ui_assets/ui/global/milestone_badge.png",
@@ -5015,7 +5015,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "b63e566325b184571a572e93f716e7ae8344be6f70f51736fc77b13e9cc7eb09"
     },
     {
       "path": "assets/ui_assets/ui/global/new_badge.png",
@@ -5029,7 +5029,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "b7fdc75d354722e9896593a9c38979043012acec167972112ea16a8c886f84c9"
     },
     {
       "path": "assets/ui_assets/ui/global/new_content_badge.png",
@@ -5043,7 +5043,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "89a6abc4a4a9df9ca7005073112c9b1e9e4e97ac73e13acd4459b961813c0103"
     },
     {
       "path": "assets/ui_assets/ui/global/next_arrow.png",
@@ -5057,7 +5057,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "b9d3df2ba43ac21046c2b10cf51638b791540f919b28f2dc1e673b80418fbeaf"
+      "sha256": "f6e6f72aaff29d795ce8f19741ac1e8cf655860c42632f82c879e7dc35283fd6"
     },
     {
       "path": "assets/ui_assets/ui/global/notification_dot.png",
@@ -5071,7 +5071,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "358e768ebaa395870c4773458a34e8758388f6be88358fd9b3370a04c2a49218"
+      "sha256": "ff72ce547c8661f699b17dadf2c3de12b7058df3f52ee74b2e3d4d5888037ee3"
     },
     {
       "path": "assets/ui_assets/ui/global/panel_generic_large.png",
@@ -5085,7 +5085,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "818123a1d1cb9c8fda74629807ea6a8efa6e916107c6ed684a00e24146722a26"
     },
     {
       "path": "assets/ui_assets/ui/global/panel_generic_medium.png",
@@ -5099,7 +5099,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "f60b6e8b7bf77ca855cbc93ba1ee04e01626977e531c0ac7998fc82b430e6907"
     },
     {
       "path": "assets/ui_assets/ui/global/panel_generic_small.png",
@@ -5113,7 +5113,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "a1ec59e9f1a041b897892dd303dbda34d5763ba7f6e9bb51d0418a9bb32e3f36"
     },
     {
       "path": "assets/ui_assets/ui/global/pause_icon.png",
@@ -5127,7 +5127,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "620855fa6b4bf3cb93d81bfa136d87e925c6440d25cc913232ac3cc0b9e92330"
+      "sha256": "925585ab643e91b985dcad2193f5e55d35c5cc13b7679461e3d345e908a1f54f"
     },
     {
       "path": "assets/ui_assets/ui/global/play_icon.png",
@@ -5141,7 +5141,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "04b8c9cd60460259eade197969f070adaf2070e076987110f43bc5c1cdb153a3"
+      "sha256": "aa0cc600636a3e44c3231b415d58aeb5d265baa03b2b0610981e83bd4a243eee"
     },
     {
       "path": "assets/ui_assets/ui/global/popup_frame.png",
@@ -5155,7 +5155,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "b748f6315de930bca37939f20d5d2d2ef1894b7e82b6a701b39ad90876a668e1"
     },
     {
       "path": "assets/ui_assets/ui/global/previous_arrow.png",
@@ -5169,7 +5169,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "10563abc755fb395d66e09b5f383f221cad08ee32b26be0fd488b1a70650001e"
+      "sha256": "910cfbda7487daa37e4a0a14f78e59720ef61e9ee974a4c46a6f86cefcd74475"
     },
     {
       "path": "assets/ui_assets/ui/global/restart_icon.png",
@@ -5183,7 +5183,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "7490d2bb2c74f92265b56de14155f09d3cc65caa07491220a2987274b61b5d0d"
+      "sha256": "f3e9eea4b165a620ccf4f523e9fe76349fb6b4542d32bc9a353972a1da41008e"
     },
     {
       "path": "assets/ui_assets/ui/global/reward_ready_badge.png",
@@ -5197,7 +5197,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "b446519c3bf87e07f1aacbf305be7e6bf57c946c19d89a8a33bb1950353e0a6f"
     },
     {
       "path": "assets/ui_assets/ui/global/sale_badge_small.png",
@@ -5211,7 +5211,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "1bcf33d59026a40aa05ca8b8b90790bbdd42a1c57694adf69f0470b903b8674b"
     },
     {
       "path": "assets/ui_assets/ui/global/settings_icon.png",
@@ -5225,7 +5225,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "dcd121ec2df7d708e8776bd593ebe8eceb4a7fe42b6c7cfefccd760511d661e9"
+      "sha256": "a7be654e4445b21f30470600f90ae89403e7879c564842f59f843275943e429a"
     },
     {
       "path": "assets/ui_assets/ui/global/tab_active.png",
@@ -5239,7 +5239,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "453f549ea78aae913b65624214f271d07e694dccecf2f2224f1eea76ea2b5c9a"
+      "sha256": "110030f978595883a91a67126dd966db195ac4a94ec09df5c31544c4bc72de9e"
     },
     {
       "path": "assets/ui_assets/ui/global/tab_inactive.png",
@@ -5253,7 +5253,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5f8b6bf11f08b465d0179a6e8ab117946940b8ae7652d3fa5d862f37ab58acc2"
+      "sha256": "ac212181af2bd9eaf200860495f4560a1890cba528f4e35eb936e5dfadbf3bc4"
     },
     {
       "path": "assets/ui_assets/ui/global/tooltip_frame.png",
@@ -5267,7 +5267,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "f21c1bd327792dbf56a0e90feb52dcc44a9e777d0912f32199c83de2c37dbef2"
     },
     {
       "path": "assets/ui_assets/ui/rewards/big_chest_closed.png",
@@ -5281,7 +5281,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "a2205741de7d1987acdff539c24eeecd977270fde49e19d54361ca4d828bb452"
+      "sha256": "e246c0279c0f43596a2e922bb1fd28bcc01550ab2041174aa72fe08e12f7730f"
     },
     {
       "path": "assets/ui_assets/ui/rewards/big_chest_open.png",
@@ -5295,7 +5295,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "c3f7981a2b496b7d78057468b74de2d80c1c3d304295eb39fa506c9ce349c1e9"
+      "sha256": "91b6d3fe0ce64ee50e2179888586be117b420bc6a55ca34d272e2eaac92ee180"
     },
     {
       "path": "assets/ui_assets/ui/rewards/coin_icon.png",
@@ -5309,7 +5309,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "74f381f6e611d857e9ab42750c661259f470159f18ccfc11804ca0ee9c223301"
+      "sha256": "04d3b06b87e1b78f9e26af7bea4609ccb1f6a82d6be65faf080d58b55e9d3ee1"
     },
     {
       "path": "assets/ui_assets/ui/rewards/gem_icon.png",
@@ -5323,7 +5323,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "585ecc1afb4e16864207b3396370d6295d6c372ea2f64bc6392719c5e8cdf35d"
+      "sha256": "b231f0fcc1e19cc229f3caa97b785c6d9ddd188b5c46a37aa67d9b23cd795d0e"
     },
     {
       "path": "assets/ui_assets/ui/rewards/premium_chest_closed.png",
@@ -5337,7 +5337,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "b2022b835ff6928c596c09be970581530990add0d2a5f76f0375446fa4eab1eb"
+      "sha256": "0ad53dd88e501ee687abe74a83368f275a31d29949b5e781d60b0025034d15f8"
     },
     {
       "path": "assets/ui_assets/ui/rewards/premium_chest_open.png",
@@ -5351,7 +5351,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "3d121736526e4cd0e814e3d5648368cb68cc2dffb69879c07d103479d2d0bbef"
+      "sha256": "d26b31c1556438dab2344d0211d78ced09fe9eaafa5c484caf58cc417ca76297"
     },
     {
       "path": "assets/ui_assets/ui/rewards/reward_frame_large.png",
@@ -5365,7 +5365,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "9ade34414c84cde7548a2db8c977848706c7d37843637712db84cc965e4d84ec"
     },
     {
       "path": "assets/ui_assets/ui/rewards/reward_frame_small.png",
@@ -5379,7 +5379,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ae3c70a0d5a3ff498ff8d540ec05537498f1dfb885a8e78d359ac7fe28f00885"
+      "sha256": "f7c466efb1e5e1537fb76148acfb0f4eb5a463ead48a372350ace9a1cc45ff3d"
     },
     {
       "path": "assets/ui_assets/ui/rewards/reward_glow.png",
@@ -5393,7 +5393,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "e23a9929fc45a49cb35746e678b5eeeae981f7e4348477fb6fff1fb758c8082b"
+      "sha256": "9144878f1c68ee40d033799d18d2b02207e560b7c748d7e4a7f78f6fc193d5a8"
     },
     {
       "path": "assets/ui_assets/ui/rewards/small_chest_closed.png",
@@ -5407,7 +5407,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "22aaaf9d2dfb10276fbc46c5050fcc8100e6a00ead255694c8859bfc6e7c7225"
+      "sha256": "8479ce3517b349f79c9394491ccacd8f4c2e760807dfb318092a568f5e0d833f"
     },
     {
       "path": "assets/ui_assets/ui/rewards/small_chest_open.png",
@@ -5421,7 +5421,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "fb7e4d3d5f6757e9f53c0c8f0e6e3b9167742f002a5c1522f3dff618051ca9ae"
+      "sha256": "2d9c0512b7d4a18d01aab3243db331ab3432aa7a4baa3bbda446fdb89bf93610"
     },
     {
       "path": "assets/ui_assets/ui/rewards/star_empty.png",
@@ -5435,7 +5435,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "b2022b835ff6928c596c09be970581530990add0d2a5f76f0375446fa4eab1eb"
+      "sha256": "62b4eaaccc3223d40f5dd9684a3e1d704f87fa49e97608476d88eccf7d6027f1"
     },
     {
       "path": "assets/ui_assets/ui/rewards/star_filled.png",
@@ -5449,7 +5449,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "94692da8b8525aec44c41847912cb673a721bc271cc1e8a807e17cf0a911a2a9"
+      "sha256": "969ee8340ef59edc89ed34b449bed86e3acfffbfb83fda2ea4e2a8b65a149bf4"
     },
     {
       "path": "assets/ui_assets/ui/rewards/star_large_empty.png",
@@ -5463,7 +5463,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "a2205741de7d1987acdff539c24eeecd977270fde49e19d54361ca4d828bb452"
+      "sha256": "8d1e42452fff4f746d9469d7e2a381d6c3c692b400147e293647a773d4c27105"
     },
     {
       "path": "assets/ui_assets/ui/rewards/star_large_filled.png",
@@ -5477,7 +5477,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ff2c52cb052eddbafe619cc4776f10ced0fc5de5739c1b6e0f033ba90303db20"
+      "sha256": "56fac6d2cdb2082034bfc08ff6f384d8ec9c845e86bc246f7706203d26a63ce4"
     },
     {
       "path": "assets/ui_assets/ui/star_track/star_track_checkpoint.png",
@@ -5491,7 +5491,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "c952b879a9253e9d3203a1bf6355ef6bb67d6bc8ff3101252ffce9b9e32f874d"
     },
     {
       "path": "assets/ui_assets/ui/star_track/star_track_chest_large.png",
@@ -5505,7 +5505,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "903e3fff7c7807e758015186025ddd214d4740470ec3799dfb46a6c496dc690e"
     },
     {
       "path": "assets/ui_assets/ui/star_track/star_track_chest_small.png",
@@ -5519,7 +5519,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "c2291bf7472af4a3056aa1a696c93a79512c735732346c5ca5752057ffec8df9"
     },
     {
       "path": "assets/ui_assets/ui/star_track/star_track_claimed.png",
@@ -5533,7 +5533,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "ced10a5e06c8b7de1ac62dfecbd71e4c5de57e804c8bb156b743a3730fbd5142"
+      "sha256": "17b6e438b3adee94ccb8a769ef2b3daaf351b55a100feccd9b093cd8708383aa"
     },
     {
       "path": "assets/ui_assets/ui/star_track/star_track_fill.png",
@@ -5547,7 +5547,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "d87ab74b3182374092813d20d5e059787de3d04b27e710c1878065e9b978eeac"
     },
     {
       "path": "assets/ui_assets/ui/star_track/star_track_marker.png",
@@ -5561,7 +5561,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "7c7a1ce0193d033c44f36662d6e3673555008ab1abc64e4a174d3c8a4a2f66b5"
     },
     {
       "path": "assets/ui_assets/ui/star_track/star_track_panel.png",
@@ -5575,7 +5575,7 @@
       "island_id": null,
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
-      "sha256": "5680c67ad53f87a53441fa97d6fc2c50ebe1ec71d1cb391cd3b3aba29cae4ca7"
+      "sha256": "fd15db1ba7ad49d649f3613a859e53fe6e8e472749837606e2ff0c491d4dc006"
     }
   ]
 }
