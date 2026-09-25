@@ -8,7 +8,7 @@ This branch-only library is generated for the M12 V05 visual-production stream. 
 - `campaign/`: world-map, reusable progression UI, and ten island packs.
 - `screens/`: splash, menu, pre-level, results, shop, settings, tutorial, and social screens.
 - `effects/`: restrained feedback overlays.
-- `tables/`: frozen common geometry JSON, silhouette mask, and edge overlay masters.
+- `tables/`: V2 geometry JSON plus canonical playable-surface, lower-structure, edge-extraction, and shadow masters. Legacy V1 mask/edge-master files are retained only for history.
 - `source/`: generator provenance and style-reference notes only, including the generated remediation direction board.
 
 ## Generation and export
@@ -19,6 +19,6 @@ V05 production uses the accepted V04 visual masters plus Codex image-generation 
 
 `tools/ui_assets/generate_assets.py` is retained as historical tooling and is not the V05 final-art generator.
 
-`tools/ui_assets/validate_assets.py` now validates the V2 geometry data, 720x1280 table canvas, R11 rail constants, y≈988.333 tabletop-front transition contract, and presence of lower apron/leg structure. Visual leg placement and progression clearance still require owner/visual audit after Azure Bay V2 approval.
+`tools/ui_assets/validate_assets.py` now validates the V2 geometry data, 720x1280 table canvas, R11 rail constants, y≈988.333 tabletop-front transition contract, and presence of lower apron/leg structure. Azure Bay V2 is owner-approved and frozen as the structural master. The validator enforces canonical V2 structure/overlay/shadow masters for islands listed in `v2_converted_islands`.
 
 The global, island, table, screen, semantic-icon, and major-screen contact sheets are audit evidence, not runtime integration. `source/style_reference_board*.png` are visual direction references only. Runtime table/play-area and logo replacement remain deferred to UIA-M14.
