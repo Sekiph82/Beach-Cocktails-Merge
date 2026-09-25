@@ -8,6 +8,24 @@ Geometry authority:
 
 This document defines HOW the three table assets are produced. It is not optional guidance.
 
+## 0. Canonical V2 technical master assets
+
+Azure Bay V2 has owner approval and its structural layout is frozen.
+
+Mandatory technical masters:
+- `assets/ui_assets/tables/table_playable_surface_mask_v2.png` — canonical R11/V2 playable tabletop footprint;
+- `assets/ui_assets/tables/table_structure_mask_v2.png` — canonical lower apron + two-leg alpha footprint for y >= 989, frozen from the approved Azure Bay V2 master;
+- `assets/ui_assets/tables/table_edge_extraction_mask_v2.png` — canonical mask for deriving each island edge overlay from its own final gameplay table;
+- `assets/ui_assets/tables/table_shadow_master_v2.png` — canonical fixed shadow pixels for every island.
+
+For each V2-converted island:
+- fit the island artwork to the playable-surface master;
+- use the structure mask for the lower apron/leg footprint;
+- derive the overlay from that island's final gameplay table through the edge-extraction mask;
+- use the shadow master exactly.
+
+The legacy V1 geometry/mask/edge master remain historical only.
+
 ## 1. Required order
 
 For every island, always produce the three files in this exact order:
@@ -103,7 +121,7 @@ Canvas:
 Source:
 - final accepted `gameplay_table.png` of the SAME island.
 
-Use V2 rail points from `table_geometry_v2.json`.
+Use `assets/ui_assets/tables/table_edge_extraction_mask_v2.png`, generated from the V2 rail points in `table_geometry_v2.json`, as the canonical extraction mask.
 
 For tabletop edge extraction:
 - rear baseline = y 398;
@@ -173,7 +191,7 @@ Construction:
 - downsample to 720x1280 using Lanczos;
 - apply RGB (22,31,43).
 
-The same geometry and shadow recipe is used for all islands.
+The same geometry and shadow recipe is used for all islands. `assets/ui_assets/tables/table_shadow_master_v2.png` is the canonical pixel master and must be used exactly.
 
 Do not add island-specific scenery to the shadow.
 Do not change shadow geometry per island.
