@@ -126,7 +126,7 @@ Rules:
 - legs do not enter the playable tabletop;
 - legs preserve one common structural placement across all islands;
 - island identity may change the leg material/trim only;
-- exact final leg X positions become frozen from the owner-approved Azure Bay V2 master and then apply to all islands.
+- the exact lower apron/two-leg footprint is now frozen from the owner-approved Azure Bay V2 master in `assets/ui_assets/tables/table_structure_mask_v2.png` and applies to all islands.
 
 ## 7. L01-L12 progression zone
 
@@ -144,7 +144,7 @@ Hard requirement:
 - no opaque leg/apron artwork may cover the progression icon centers;
 - progression remains HUD/UI and does not become physics space.
 
-The owner-approved Azure Bay V2 master will freeze the exact leg placement after visual approval.
+The owner-approved Azure Bay V2 master has frozen the structural placement. `assets/ui_assets/tables/table_structure_mask_v2.png` is the canonical lower-structure footprint.
 
 ## 8. Asset-role rules
 
@@ -202,8 +202,8 @@ Artwork conforms to gameplay geometry, not vice versa.
 2. Generate Azure Bay V2 `gameplay_table.png` using this contract.
 3. Show the owner the isolated asset and an in-game/progression composition preview.
 4. Owner approves or rejects.
-5. After approval, freeze Azure Bay V2 structural leg placement as the visual master.
-6. Produce Azure Bay shadow and edge overlay.
+5. Azure Bay V2 structural placement is frozen in the canonical V2 masks/master assets under `assets/ui_assets/tables/`.
+6. Use the canonical edge-extraction mask and shadow master for every converted island.
 7. Apply the exact same geometry/structure to the other nine island skins.
 8. Audit visually before promotion.
 
