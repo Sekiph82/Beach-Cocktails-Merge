@@ -1,7 +1,13 @@
 # BEACH COCKTAILS MERGE — CODEX VISUAL ASSET TASKS
 
-Status: ACTIVE VISUAL REGENERATION  
-Branch: `codex/visual-assets-production`
+Status: M12 CLOSURE PREPARATION — INDEPENDENT AUDIT PENDING  
+Branch: `main`
+
+M12 closure state on current `main`: V02 is the selected brand authority; V2
+table geometry supersedes the historical V1 silhouette; current canonical
+assets are validation inputs only. The final closure contact sheets are
+evidence-only composites. The M12 regression probe currently has an open
+source/import failure and must not be represented as accepted completion.
 
 The owner has REJECTED the V05 production visual set. Existing V05 presence does not count as completion.
 
@@ -191,13 +197,13 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-173 Generate → `assets/ui_assets/campaign/world_map/world_map_boat.png`
 - [x] VA-174 Generate → `assets/ui_assets/campaign/world_map/world_map_compass.png`
 - [x] VA-175 Generate → `assets/ui_assets/campaign/world_map/world_map_title_panel.png`
-- [ ] VA-176 Generate → `assets/ui_assets/CONTACT_SHEET_GLOBAL.png`
-- [ ] VA-177 Generate → `assets/ui_assets/CONTACT_SHEET_ISLANDS.png`
-- [ ] VA-178 Generate → `assets/ui_assets/CONTACT_SHEET_MAJOR_SCREENS.png`
-- [ ] VA-179 Generate → `assets/ui_assets/CONTACT_SHEET_SCREENS.png`
-- [ ] VA-180 Generate → `assets/ui_assets/CONTACT_SHEET_SEMANTIC_ICONS.png`
-- [ ] VA-181 Generate → `assets/ui_assets/CONTACT_SHEET_STATEFUL_UI.png`
-- [ ] VA-182 Generate → `assets/ui_assets/CONTACT_SHEET_TABLES.png`
+- [x] VA-176 Evidence composite → `assets/ui_assets/CONTACT_SHEET_GLOBAL.png`
+- [x] VA-177 Evidence composite → `assets/ui_assets/CONTACT_SHEET_ISLANDS.png`
+- [x] VA-178 Evidence composite → `assets/ui_assets/CONTACT_SHEET_MAJOR_SCREENS.png`
+- [x] VA-179 Evidence composite → `assets/ui_assets/CONTACT_SHEET_SCREENS.png`
+- [x] VA-180 Evidence composite → `assets/ui_assets/CONTACT_SHEET_SEMANTIC_ICONS.png`
+- [x] VA-181 Evidence composite → `assets/ui_assets/CONTACT_SHEET_STATEFUL_UI.png`
+- [x] VA-182 Evidence composite → `assets/ui_assets/CONTACT_SHEET_TABLES.png`
 - [x] VA-183 Generate → `assets/ui_assets/effects/combo_badge.png`
 - [x] VA-184 Generate → `assets/ui_assets/effects/combo_glow.png`
 - [x] VA-185 Generate → `assets/ui_assets/effects/confetti_strip.png`
@@ -363,34 +369,34 @@ Protected canonical logo is pre-marked preserved.
 - [x] VA-345 Generate → `assets/ui_assets/ui/global/button_small.png`
 - [x] VA-346 Generate → `assets/ui_assets/ui/global/check_icon.png`
 - [x] VA-347 Generate → `assets/ui_assets/ui/global/close_x.png`
-- [ ] VA-348 Generate → `assets/ui_assets/ui/global/complete_badge.png`
-- [ ] VA-349 Generate → `assets/ui_assets/ui/global/current_badge.png`
-- [ ] VA-350 Generate → `assets/ui_assets/ui/global/daily_ready_badge.png`
-- [ ] VA-351 Generate → `assets/ui_assets/ui/global/divider_gold.png`
-- [ ] VA-352 Generate → `assets/ui_assets/ui/global/finale_badge.png`
+- [x] VA-348 Regenerated → `assets/ui_assets/ui/global/complete_badge.png`
+- [x] VA-349 Regenerated → `assets/ui_assets/ui/global/current_badge.png`
+- [x] VA-350 Regenerated → `assets/ui_assets/ui/global/daily_ready_badge.png`
+- [x] VA-351 Regenerated → `assets/ui_assets/ui/global/divider_gold.png`
+- [x] VA-352 Regenerated → `assets/ui_assets/ui/global/finale_badge.png`
 - [x] VA-353 Generate → `assets/ui_assets/ui/global/help_icon.png`
 - [x] VA-354 Generate → `assets/ui_assets/ui/global/home_icon.png`
 - [x] VA-355 Generate → `assets/ui_assets/ui/global/info_icon.png`
 - [x] VA-356 Generate → `assets/ui_assets/ui/global/lock_icon.png`
 - [x] VA-357 Generate → `assets/ui_assets/ui/global/map_icon.png`
-- [ ] VA-358 Generate → `assets/ui_assets/ui/global/milestone_badge.png`
-- [ ] VA-359 Generate → `assets/ui_assets/ui/global/new_badge.png`
-- [ ] VA-360 Generate → `assets/ui_assets/ui/global/new_content_badge.png`
+- [x] VA-358 Regenerated → `assets/ui_assets/ui/global/milestone_badge.png`
+- [x] VA-359 Regenerated → `assets/ui_assets/ui/global/new_badge.png`
+- [x] VA-360 Regenerated → `assets/ui_assets/ui/global/new_content_badge.png`
 - [x] VA-361 Generate → `assets/ui_assets/ui/global/next_arrow.png`
-- [ ] VA-362 Generate → `assets/ui_assets/ui/global/notification_dot.png`
+- [x] VA-362 Regenerated → `assets/ui_assets/ui/global/notification_dot.png`
 - [x] VA-363 Generate → `assets/ui_assets/ui/global/panel_generic_large.png`
 - [x] VA-364 Generate → `assets/ui_assets/ui/global/panel_generic_medium.png`
 - [x] VA-365 Generate → `assets/ui_assets/ui/global/panel_generic_small.png`
 - [x] VA-366 Generate → `assets/ui_assets/ui/global/pause_icon.png`
-- [ ] VA-367 Generate → `assets/ui_assets/ui/global/play_icon.png`
+- [x] VA-367 Regenerated → `assets/ui_assets/ui/global/play_icon.png`
 - [x] VA-368 Generate → `assets/ui_assets/ui/global/popup_frame.png`
 - [x] VA-369 Generate → `assets/ui_assets/ui/global/previous_arrow.png`
-- [ ] VA-370 Generate → `assets/ui_assets/ui/global/restart_icon.png`
-- [ ] VA-371 Generate → `assets/ui_assets/ui/global/reward_ready_badge.png`
-- [ ] VA-372 Generate → `assets/ui_assets/ui/global/sale_badge_small.png`
-- [ ] VA-373 Generate → `assets/ui_assets/ui/global/settings_icon.png`
-- [ ] VA-374 Generate → `assets/ui_assets/ui/global/tab_active.png`
-- [ ] VA-375 Generate → `assets/ui_assets/ui/global/tab_inactive.png`
+- [x] VA-370 Regenerated → `assets/ui_assets/ui/global/restart_icon.png`
+- [x] VA-371 Regenerated → `assets/ui_assets/ui/global/reward_ready_badge.png`
+- [x] VA-372 Regenerated → `assets/ui_assets/ui/global/sale_badge_small.png`
+- [x] VA-373 Regenerated → `assets/ui_assets/ui/global/settings_icon.png`
+- [x] VA-374 Regenerated → `assets/ui_assets/ui/global/tab_active.png`
+- [x] VA-375 Regenerated → `assets/ui_assets/ui/global/tab_inactive.png`
 - [x] VA-376 Generate → `assets/ui_assets/ui/global/tooltip_frame.png`
 - [x] VA-377 Generate → `assets/ui_assets/ui/rewards/big_chest_closed.png`
 - [x] VA-378 Generate → `assets/ui_assets/ui/rewards/big_chest_open.png`

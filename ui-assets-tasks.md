@@ -1,5 +1,11 @@
 # Beach Cocktails Merge — UI Assets Branch Task State
 
+Historical/superseded note: this isolated `ui-assets` branch plan is not the
+current production authority. Current `main` visual state is governed by
+`coordination/codex_visual_assets/CODEX_VISUAL_ASSET_TASKS.md`, the V2 table
+contracts, and the selected V02 brand direction. This file is retained as
+history and is not mass-completed.
+
 This tracker is authoritative **only for the isolated `ui-assets` branch visual-production stream**. It does not replace root `TASKS.md` on main.
 
 ## Branch isolation
