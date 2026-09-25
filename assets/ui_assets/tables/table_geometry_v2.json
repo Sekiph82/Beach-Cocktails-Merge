@@ -157,7 +157,15 @@
     ],
     "visible_front_apron_required": true,
     "visible_front_legs_required": 2,
-    "leg_exact_x_positions_status": "FREEZE_AFTER_OWNER_APPROVED_AZURE_BAY_V2_MASTER"
+    "leg_exact_x_positions_status": "FROZEN_FROM_OWNER_APPROVED_AZURE_BAY_V2_MASTER",
+    "structural_master_island": "azure_bay",
+    "structural_master_gameplay_table": "assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png",
+    "playable_surface_mask": "assets/ui_assets/tables/table_playable_surface_mask_v2.png",
+    "structure_mask": "assets/ui_assets/tables/table_structure_mask_v2.png",
+    "edge_extraction_mask": "assets/ui_assets/tables/table_edge_extraction_mask_v2.png",
+    "shadow_master": "assets/ui_assets/tables/table_shadow_master_v2.png",
+    "approved_master_commit": "eb2a470ae982d6f2bc03fbcbd8d6e796aeb72a58",
+    "structure_rule": "For y >= 989, V2-converted island gameplay_table alpha must use the approved Azure Bay lower structural footprint."
   },
   "progression": {
     "layer": "HUD CanvasLayer",
@@ -193,7 +201,7 @@
     "table_edge_overlay.png",
     "gameplay_table_shadow.png"
   ],
-  "overlay_rule": "derive from final accepted gameplay_table pixels; never independently generate geometry",
+  "overlay_rule": "derive from final accepted gameplay_table pixels through table_edge_extraction_mask_v2.png; never independently generate geometry",
   "shadow_recipe": {
     "canvas": [
       720,
@@ -236,5 +244,16 @@
     "gaussian_blur_final_px": 34,
     "downsample": "Lanczos",
     "island_specific_geometry_changes": false
-  }
+  },
+  "v2_converted_islands": [
+    "azure_bay",
+    "billionaire_island"
+  ],
+  "canonical_v2_assets": {
+    "playable_surface_mask": "assets/ui_assets/tables/table_playable_surface_mask_v2.png",
+    "structure_mask": "assets/ui_assets/tables/table_structure_mask_v2.png",
+    "edge_extraction_mask": "assets/ui_assets/tables/table_edge_extraction_mask_v2.png",
+    "shadow_master": "assets/ui_assets/tables/table_shadow_master_v2.png"
+  },
+  "shadow_rule": "use table_shadow_master_v2.png exactly for every island; deterministic recipe remains the reproducibility authority"
 }
