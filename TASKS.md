@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M13
 - Current Sprint: BCM-M13-ISLAND-MAP
 - Current Task: Build the reusable data-driven Island Map and 100-level path engine without implementing M14 gameplay launch or M16 canonical level content.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M13-ISLAND-MAP V01 against the locked M13 audit criteria, writes CODEX_LOG_V01.md, pushes main, and stops for independent audit.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes BCM-M13-ISLAND-MAP V02 remediation for real M12↔M13 navigation, exact scroll restoration and strengthened first-entry focus proof, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -29,7 +29,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
 - [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
 - [x] BCM-M12-001 — Reusable data-driven World Map closed with technical audit PASS and owner acceptance.
-- [~] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
+- [!] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -287,8 +287,14 @@ Locked criteria:
 Execution prompt:
 `coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`
 
-Pending independent audit:
-`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_V01.md`
+Independent audit V01:
+`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_V01.md` — **CHANGES_REQUIRED**.
+
+V02 locked criteria:
+`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_CRITERIA_V02.md`
+
+V02 execution prompt:
+`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_EXECUTION_PROMPT_V02.md`
 
 Scope:
 - generic IslandMapScene;
