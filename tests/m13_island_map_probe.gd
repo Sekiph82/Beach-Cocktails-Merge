@@ -6,6 +6,7 @@ extends SceneTree
 const ISLAND_ID := "m13_fixture"
 const TEST_ROOT := "user://m13_island_map_probe"
 const ISLAND_MAP_SCENE := preload("res://scenes/campaign/IslandMapScene.tscn")
+const CAMPAIGN_NAVIGATION_SCENE := preload("res://scenes/campaign/CampaignNavigationScene.tscn")
 const LEVEL_BUTTON_SCENE := preload("res://scenes/campaign/LevelButton.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
@@ -37,6 +38,8 @@ func _islands() -> Dictionary:
 			"unlock_rule": {"type": "default_open"},
 			"next_island_id": "",
 			"map_background": "",
+			"map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
+			"map_position": [0.50, 0.50],
 			"reward_track": {"milestones": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]},
 		}],
 	}
@@ -103,6 +106,15 @@ func _mount(database, campaign, restoration: Dictionary = {}):
 	return map
 
 
+func _mount_navigation(database, campaign):
+	var navigation = CAMPAIGN_NAVIGATION_SCENE.instantiate()
+	_check("campaign navigation host accepts canonical campaign authority", navigation.configure_campaign(database, campaign))
+	root.add_child(navigation)
+	await process_frame
+	await process_frame
+	return navigation
+
+
 func _remove(path: String) -> void:
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
@@ -159,15 +171,76 @@ func _run() -> void:
 	_check("summary exposes next milestone", summary["next_milestone"] == 10)
 	_check("summary exposes incomplete state", not bool(summary["island_complete"]))
 
+	var automatic_scroll: int = map.get_scroll_vertical()
+	map.set_scroll_vertical(913)
+	await process_frame
+	var manual_scroll: int = map.get_scroll_vertical()
+	if manual_scroll == automatic_scroll:
+		map.set_scroll_vertical(977)
+		await process_frame
+		manual_scroll = map.get_scroll_vertical()
+	_check("manual scroll position differs from automatic focus", manual_scroll != automatic_scroll)
 	var restoration: Dictionary = map.get_restoration_state()
 	var second_map = await _mount(database, campaign, restoration)
 	_check("selected level restores safely on re-entry", second_map.get_selected_level_id() == restoration["selected_level_id"])
 	_check("scroll focus restores safely on re-entry", second_map.get_focus_level_id() == restoration["scroll_focus_level_id"])
+	_check("actual scroll position restores exactly", second_map.get_scroll_vertical() == restoration["scroll_vertical"])
 
 	var returned := []
 	second_map.return_requested.connect(func() -> void: returned.append(true))
 	second_map.request_back_to_world_map()
 	_check("back navigation emits World Map boundary", returned == [true])
+
+	var focus_campaign = _campaign(database, _state(6, {1: 0, 2: 1, 3: 2, 5: 3}))
+	_check("campaign selection is deliberately lower before first entry", focus_campaign.select_level(ISLAND_ID, 2) and focus_campaign.selected_level_id == 2)
+	var focus_map = await _mount(database, focus_campaign)
+	_check("first-entry focus ignores lower campaign selection", focus_map.get_focus_level_id() == 6)
+	focus_map.queue_free()
+	await process_frame
+
+	var navigation_campaign = _campaign(database, _state(6, {1: 0, 2: 1, 3: 2, 5: 3}))
+	_check("navigation campaign selection is lower before first entry", navigation_campaign.select_level(ISLAND_ID, 2) and navigation_campaign.selected_level_id == 2)
+	var navigation = await _mount_navigation(database, navigation_campaign)
+	_check("navigation host owns one World Map and one Island Map", navigation.get_map_instance_count() == 2)
+	var first_host_entry: bool = navigation.show_island_map(ISLAND_ID)
+	await process_frame
+	await process_frame
+	_check("first host entry computes highest unfinished focus", first_host_entry and navigation.get_island_map().get_focus_level_id() == 6)
+	var navigation_map = navigation.get_island_map()
+	var navigation_auto_scroll: int = navigation_map.get_scroll_vertical()
+	navigation_map.set_scroll_vertical(913)
+	await process_frame
+	var navigation_manual_scroll: int = navigation_map.get_scroll_vertical()
+	if navigation_manual_scroll == navigation_auto_scroll:
+		navigation_map.set_scroll_vertical(977)
+		await process_frame
+		navigation_manual_scroll = navigation_map.get_scroll_vertical()
+	var navigation_restoration: Dictionary = navigation_map.get_restoration_state()
+	navigation.show_world_map()
+	await process_frame
+	var world_map = navigation.get_world_map()
+	var actual_signal_entry: bool = world_map.select_island(ISLAND_ID)
+	await process_frame
+	await process_frame
+	_check("actual M12 signal opens M13", actual_signal_entry and navigation.get_current_view() == "ISLAND_MAP")
+	_check("M12 signal passes exact island id", navigation.get_active_island_id() == ISLAND_ID and navigation.get_island_map().get_island_id() == ISLAND_ID)
+	_check("actual scroll survives M12 re-entry", navigation.get_island_map().get_scroll_vertical() == navigation_restoration["scroll_vertical"] and navigation_restoration["scroll_vertical"] == navigation_manual_scroll)
+	_check("selected/focus restoration survives M12 re-entry", navigation.get_island_map().get_selected_level_id() == navigation_restoration["selected_level_id"] and navigation.get_island_map().get_focus_level_id() == navigation_restoration["scroll_focus_level_id"])
+	navigation.get_island_map().request_back_to_world_map()
+	await process_frame
+	await process_frame
+	_check("M13 back returns to M12 World Map", navigation.get_current_view() == "WORLD_MAP" and navigation.get_world_map().visible)
+	var repeated_navigation_ok := true
+	for _attempt in range(3):
+		repeated_navigation_ok = repeated_navigation_ok and navigation.get_world_map().select_island(ISLAND_ID)
+		await process_frame
+		await process_frame
+		repeated_navigation_ok = repeated_navigation_ok and navigation.get_current_view() == "ISLAND_MAP" and navigation.get_map_instance_count() == 2 and navigation.get_island_map().get_level_button_count() == 100
+		navigation.get_island_map().request_back_to_world_map()
+		await process_frame
+		await process_frame
+		repeated_navigation_ok = repeated_navigation_ok and navigation.get_current_view() == "WORLD_MAP" and navigation.get_map_instance_count() == 2
+	_check("repeated M12-M13 transitions do not duplicate map instances", repeated_navigation_ok)
 
 	var save = SAVE_SCRIPT.new()
 	var save_path := "%s/progression.json" % TEST_ROOT
@@ -191,6 +264,7 @@ func _run() -> void:
 
 	map.queue_free()
 	second_map.queue_free()
+	navigation.queue_free()
 	reload_map.queue_free()
 	complete_map.queue_free()
 	await process_frame

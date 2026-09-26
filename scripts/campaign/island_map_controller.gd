@@ -28,6 +28,8 @@ var campaign_manager
 var selected_level_id := 0
 var _focus_level_id := 0
 var _restoration_state: Dictionary = {}
+var _has_restoration_state := false
+var _restored_scroll_vertical := -1
 var _refresh_queued := false
 var _level_buttons: Dictionary = {}
 var _milestone_levels: Array[int] = []
@@ -65,14 +67,21 @@ func configure_island(
 	level_database = database
 	campaign_manager = manager
 	_restoration_state = restoration.duplicate(true)
+	_has_restoration_state = not restoration.is_empty()
+	_restored_scroll_vertical = int(restoration.get("scroll_vertical", -1)) if _has_restoration_state else -1
 	selected_level_id = int(_restoration_state.get("selected_level_id", 0))
 	if selected_level_id <= 0 and campaign_manager.current_island_id == island_id:
 		selected_level_id = int(campaign_manager.selected_level_id)
 	if selected_level_id <= 0:
 		selected_level_id = 1
 	_focus_level_id = int(_restoration_state.get("scroll_focus_level_id", 0))
-	if _focus_level_id <= 0:
+	if _has_restoration_state and _focus_level_id <= 0:
 		_focus_level_id = selected_level_id
+	if not _has_restoration_state:
+		# First entry is intentionally independent from CampaignManager's
+		# currently selected level. _refresh_deferred computes the focus from
+		# unlocked/unfinished state after the configured level count is known.
+		_focus_level_id = 0
 	_refresh_milestones(definition)
 	refresh()
 	return true
@@ -139,6 +148,20 @@ func get_scroll_vertical() -> int:
 	return _scroll.scroll_vertical if _scroll != null else 0
 
 
+func set_scroll_vertical(value: int) -> void:
+	if _scroll == null or _content == null:
+		return
+	var viewport_height := _scroll.size.y
+	if viewport_height <= 0.0:
+		viewport_height = 1030.0
+	var max_scroll := maxi(0, int(_content.size.y - viewport_height))
+	_scroll.scroll_vertical = clampi(value, 0, max_scroll)
+
+
+func get_island_id() -> String:
+	return island_id
+
+
 func get_restoration_state() -> Dictionary:
 	return {
 		"island_id": island_id,
@@ -152,6 +175,8 @@ func restore_state(restoration: Dictionary) -> bool:
 	if str(restoration.get("island_id", island_id)) != island_id:
 		return false
 	_restoration_state = restoration.duplicate(true)
+	_has_restoration_state = true
+	_restored_scroll_vertical = int(restoration.get("scroll_vertical", -1))
 	var restored_selected := int(restoration.get("selected_level_id", 0))
 	if restored_selected > 0 and campaign_manager != null and campaign_manager.is_level_unlocked(island_id, restored_selected):
 		selected_level_id = restored_selected
@@ -235,7 +260,9 @@ func _refresh_deferred() -> void:
 		points.append(Vector2(x + NODE_SIZE.x * 0.5, y + NODE_SIZE.y * 0.5))
 	_path_line.points = points
 	_update_summary()
-	if _focus_level_id <= 0 or not _level_buttons.has(_focus_level_id):
+	if not _has_restoration_state:
+		_focus_level_id = _entry_focus_level(level_count)
+	elif _focus_level_id <= 0 or not _level_buttons.has(_focus_level_id):
 		_focus_level_id = _entry_focus_level(level_count)
 	call_deferred("_apply_focus")
 
@@ -264,6 +291,8 @@ func _on_level_button_selected(level_id: int) -> void:
 		return
 	selected_level_id = level_id
 	_focus_level_id = level_id
+	_has_restoration_state = false
+	_restored_scroll_vertical = -1
 	level_selected.emit(island_id, level_id)
 	_update_summary()
 	refresh()
@@ -281,7 +310,10 @@ func _apply_focus() -> void:
 		viewport_height = 1030.0
 	var target := int(button.position.y + button.size.y * 0.5 - viewport_height * 0.5)
 	var max_scroll := maxi(0, int(_content.size.y - viewport_height))
-	_scroll.scroll_vertical = clampi(target, 0, max_scroll)
+	if _has_restoration_state and _restored_scroll_vertical >= 0:
+		_scroll.scroll_vertical = clampi(_restored_scroll_vertical, 0, max_scroll)
+	else:
+		_scroll.scroll_vertical = clampi(target, 0, max_scroll)
 	_focus_label.text = "FOCUS  •  Level %d" % _focus_level_id
 
 
