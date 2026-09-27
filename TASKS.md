@@ -6,10 +6,10 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
-- Current Task: Apply owner-approved VIP target parity with the normal campaign To-Go rule and 2x normal To-Go delivery payout while preserving the audited V02 real VIP delivery/economy flow.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner reviews the committed BCM-M15 V03 VIP pending/partial/completed/non-VIP evidence for the bounded VIP 2X indicator; after owner decision, ChatGPT re-audits the gate and updates M15 state.
-- Required Actor: OWNER
+- Current Task: Replace the rejected inline VIP telemetry with an owner-approved separate VIP card attached below To-Go Orders, showing the VIP cocktail, progress, reward points, and 2X badge only.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes BCM-M15 V04 visual remediation only, publishes Windows/OpenGL evidence, and stops for independent audit and owner visual acceptance.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -350,7 +350,21 @@ V03 execution prompt:
 Independent audit V03:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V03.md` — **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
 
-Owner visual acceptance remains required before M15 closure; M16 must not begin.
+Owner rejected the V03 inline VIP presentation. Technical V03 behavior remains accepted.
+
+Owner visual ruling V04:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_RULING_V04.md`
+
+V04 locked criteria:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V04.md`
+
+V04 execution prompt:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V04.md`
+
+V04 pending audit:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V04.md`
+
+Owner visual acceptance remains required after V04 technical audit; M16 must not begin.
 
 Scope:
 - persistent GameEconomy authority;
