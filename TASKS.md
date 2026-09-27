@@ -6,10 +6,10 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
-- Current Task: Apply owner-approved VIP target parity with the normal campaign To-Go rule and 2x normal To-Go delivery payout while preserving the audited V02 real VIP delivery/economy flow.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner reviews the committed BCM-M15 V03 VIP pending/partial/completed/non-VIP evidence for the bounded VIP 2X indicator; after owner decision, ChatGPT re-audits the gate and updates M15 state.
-- Required Actor: OWNER
+- Current Task: BCM-M15-R01 — Remediate the owner-rejected VIP overlay visual states while preserving the audited V03 technical flow.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: CODEX implements the bounded M15 VIP overlay remediation from CHATGPT_REMEDIATION_PROMPT_V01.md, captures V04 evidence, and returns AWAITING_M15_AUDIT_V04.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -350,7 +350,19 @@ V03 execution prompt:
 Independent audit V03:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V03.md` — **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
 
-Owner visual acceptance remains required before M15 closure; M16 must not begin.
+Owner decision V04:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_DECISION_V04.md` — **VIP OVERLAY VISUAL GATE FAILED; NON-VIP BASELINE PASSED**.
+
+Independent audit V04:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V04.md` — **CHANGES_REQUIRED / OWNER_VISUAL_REMEDIATION_REQUIRED**.
+
+V04 locked criteria:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V04.md`
+
+V04 remediation prompt:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_REMEDIATION_PROMPT_V01.md`
+
+M15-R01 is ready for CODEX. M16 must not begin.
 
 Scope:
 - persistent GameEconomy authority;
@@ -439,6 +451,7 @@ Scope:
 - [ ] BCM-M15-005 — Implement one-time milestone reward claim state and duplicate-claim protection.
 - [ ] BCM-M15-006 — Add coin/reward ledger hooks while keeping campaign completion independent from purchases or ads.
 - [ ] BCM-M15-007 — Add tests for VIP optionality, reward grant, inventory persistence, replay, and duplicate prevention.
+- [~] BCM-M15-R01 — Remediate owner-rejected VIP pending/partial/completed overlay states while preserving the non-VIP baseline.
 
 ### M16 — Sunny Cove canonical Level 1-100 content
 
