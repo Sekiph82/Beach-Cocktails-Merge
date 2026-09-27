@@ -7,8 +7,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
 - Current Task: Implement persistent VIP rewards, booster inventory, +Time, milestone rewards, coin/reward ledger hooks, and compact VIP gameplay state without introducing purchases/ads or retuning accepted gameplay.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M15-VIP-BOOSTERS-ECONOMY V01 against the locked audit criteria, writes CODEX_LOG_V01.md, pushes main, and stops for independent audit.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes BCM-M15-VIP-BOOSTERS-ECONOMY V02 remediation for real distinct VIP delivery, cumulative VIP quantity, and independently inspectable UI evidence, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -31,7 +31,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M12-001 — Reusable data-driven World Map closed with technical audit PASS and owner acceptance.
 - [x] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
 - [x] BCM-M14-001 — Implement GameplaySessionBridge and authoritative timed campaign gameplay session flow.
-- [~] BCM-M15-001 — Implement persistent VIP rewards, booster inventory, +Time, milestone rewards and economy hooks.
+- [!] BCM-M15-001 — Implement persistent VIP rewards, booster inventory, +Time, milestone rewards and economy hooks.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -323,6 +323,15 @@ Execution prompt:
 Pending independent audit:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V01.md`
 
+Independent audit V01:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V01.md` — **CHANGES_REQUIRED**.
+
+V02 locked criteria:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V02.md`
+
+V02 execution prompt:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V02.md`
+
 Scope:
 - persistent GameEconomy authority;
 - VIP reward dispatch;
@@ -403,7 +412,7 @@ Scope:
 
 ### M15 — VIP orders, boosters, rewards, and economy hooks
 
-- [~] BCM-M15-001 — Add a compact VIP badge/state to the existing To-Go Orders UI without customer characters or new animated scenes.
+- [!] BCM-M15-001 — Add a compact VIP badge/state to the existing To-Go Orders UI without customer characters or new animated scenes.
 - [ ] BCM-M15-002 — Implement optional VIP completion reward dispatch for booster rewards.
 - [ ] BCM-M15-003 — Define initial booster inventory model and campaign reward integration.
 - [ ] BCM-M15-004 — Implement +Time booster contract for timed levels without altering base timer definitions.
