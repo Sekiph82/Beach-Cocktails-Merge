@@ -7,9 +7,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
 - Current Task: Replace the rejected inline VIP telemetry with an owner-approved separate VIP card attached below To-Go Orders, showing the VIP cocktail, progress, reward points, and 2X badge only.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M15 V04 visual remediation only, publishes Windows/OpenGL evidence, and stops for independent audit and owner visual acceptance.
-- Required Actor: CODEX
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner reviews the committed BCM-M15 V04 Windows/OpenGL VIP-card evidence and records visual acceptance or rejection; M15 remains open and M16 must not begin.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -361,8 +361,8 @@ V04 locked criteria:
 V04 execution prompt:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V04.md`
 
-V04 pending audit:
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V04.md`
+Independent audit V04:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V04.md` - **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
 
 Owner visual acceptance remains required after V04 technical audit; M16 must not begin.
 
