@@ -39,9 +39,10 @@ func _islands() -> Dictionary:
 			"unlock_rule": {"type": "default_open"},
 			"next_island_id": "",
 			"map_background": "",
-			"map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
-			"map_position": [0.5, 0.5],
-			"reward_track": {
+            "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
+            "map_position": [0.5, 0.5],
+            "target_policy": {"min_level": 5, "max_level": 8},
+            "reward_track": {
 				"milestones": [1, 2],
 				"rewards": {
 					"1": {"type": "coins", "quantity": 25},
@@ -70,14 +71,14 @@ func _levels() -> Dictionary:
 		"schema_version": 1,
 		"island_id": ISLAND_ID,
 		"levels": [
-			_level(1, {"enabled": true, "cocktail_level": 12, "quantity": 2, "reward": {"type": "booster", "id": "upgrade", "quantity": 1}}, {"type": "coins", "quantity": 10}),
-			_level(2, null, {"type": "coins", "quantity": 5}),
-			{
-				"island_id": ISLAND_ID,
-				"level_id": 3,
-				"time_limit_sec": 20,
-				"orders": [{"cocktail_level": 6, "quantity": 1}, {"cocktail_level": 12, "quantity": 1}],
-				"vip": {"enabled": true, "cocktail_level": 6, "quantity": 1},
+            _level(1, {"enabled": true, "cocktail_level": 8, "quantity": 2, "reward": {"type": "booster", "id": "upgrade", "quantity": 1}}, {"type": "coins", "quantity": 10}),
+            _level(2, null, {"type": "coins", "quantity": 5}),
+            {
+                "island_id": ISLAND_ID,
+                "level_id": 3,
+                "time_limit_sec": 20,
+                "orders": [{"cocktail_level": 6, "quantity": 1}, {"cocktail_level": 8, "quantity": 1}],
+                "vip": {"enabled": true, "cocktail_level": 6, "quantity": 1},
 				"rewards": {},
 				"score_star_thresholds": {"one_star": 0, "two_stars": 100, "three_stars": 200},
 				"feature_flags": {"timed": true, "vip": true, "boosters": true},
@@ -157,17 +158,17 @@ func _wait_seconds(seconds: float) -> void:
 
 func _run() -> void:
 	var database = _database()
-	var l1_database = _database_with_vip({"enabled": true, "cocktail_level": 1, "quantity": 1})
-	var l12_database = _database_with_vip({"enabled": true, "cocktail_level": 12, "quantity": 1})
-	var l0_database = _database_with_vip({"enabled": true, "cocktail_level": 0, "quantity": 1})
-	var l13_database = _database_with_vip({"enabled": true, "cocktail_level": 13, "quantity": 1})
-	var zero_quantity_database = _database_with_vip({"enabled": true, "cocktail_level": 1, "quantity": 0})
-	var fractional_quantity_database = _database_with_vip({"enabled": true, "cocktail_level": 1, "quantity": 1.5})
+	var valid_l5_database = _database_with_vip({"enabled": true, "cocktail_level": 5, "quantity": 1})
+	var valid_l8_database = _database_with_vip({"enabled": true, "cocktail_level": 8, "quantity": 1})
+	var invalid_l4_database = _database_with_vip({"enabled": true, "cocktail_level": 4, "quantity": 1})
+	var invalid_l9_database = _database_with_vip({"enabled": true, "cocktail_level": 9, "quantity": 1})
+	var zero_quantity_database = _database_with_vip({"enabled": true, "cocktail_level": 6, "quantity": 0})
+	var fractional_quantity_database = _database_with_vip({"enabled": true, "cocktail_level": 6, "quantity": 1.5})
 	var disabled_database = _database_with_vip({"enabled": false})
-	_check("VIP L1 target validates", l1_database != null)
-	_check("VIP L12 target validates", l12_database != null)
-	_check("VIP L0 target rejects", l0_database == null)
-	_check("VIP L13 target rejects", l13_database == null)
+	_check("shared policy accepts normal/VIP L5", valid_l5_database != null and database.is_campaign_target_level_eligible(ISLAND_ID, 5))
+	_check("shared policy accepts normal/VIP L8", valid_l8_database != null and database.is_campaign_target_level_eligible(ISLAND_ID, 8))
+	_check("shared policy rejects normal/VIP L4", invalid_l4_database == null and not database.is_campaign_target_level_eligible(ISLAND_ID, 4))
+	_check("shared policy rejects normal/VIP L9", invalid_l9_database == null and not database.is_campaign_target_level_eligible(ISLAND_ID, 9))
 	_check("VIP zero quantity rejects", zero_quantity_database == null)
 	_check("VIP fractional quantity rejects", fractional_quantity_database == null)
 	_check("disabled VIP metadata remains valid", disabled_database != null)
@@ -207,7 +208,7 @@ func _run() -> void:
 	var campaign = _campaign(database, economy)
 	var bridge = _bridge(database, campaign, economy)
 	var config: Dictionary = bridge.start_session(ISLAND_ID, 1)
-	_check("VIP session exposes exact target and pending 0/2 state", config["vip"]["cocktail_level"] == 12 and bridge.get_vip_state()["status"] == "PENDING" and bridge.get_vip_state()["required"] == 2 and bridge.get_vip_state()["delivered"] == 0 and bridge.get_vip_state()["remaining"] == 2)
+	_check("VIP session exposes exact target and pending 0/2 state", config["vip"]["cocktail_level"] == 8 and bridge.get_vip_state()["status"] == "PENDING" and bridge.get_vip_state()["required"] == 2 and bridge.get_vip_state()["delivered"] == 0 and bridge.get_vip_state()["remaining"] == 2)
 	bridge.mark_gameplay_ready()
 	var base_time := float(config["time_limit_sec"])
 	var before_time: float = bridge.timer_remaining_sec
@@ -215,6 +216,10 @@ func _run() -> void:
 	_check("+Time applies positive extension and consumes one item", time_result.get("ok", false) and is_equal_approx(bridge.timer_remaining_sec, before_time + 5.0) and economy.get_booster_count("time") == 0 and is_equal_approx(float(config["time_limit_sec"]), base_time))
 	var failed_time: Dictionary = bridge.apply_time_booster(5.0)
 	_check("+Time with empty inventory does not consume or extend", not failed_time.get("ok", false) and is_equal_approx(bridge.timer_remaining_sec, before_time + 5.0))
+	var mismatched_vip := bridge.record_vip_delivery(7, 1)
+	var nonpositive_vip := bridge.record_vip_delivery(8, 0)
+	_check("mismatched and nonpositive VIP deliveries pay zero", not mismatched_vip.get("ok", false) and not nonpositive_vip.get("ok", false) and bridge.get_vip_state()["delivered"] == 0)
+	_check("paused VIP delivery pays zero", bridge.pause_session("M15_TEST_PAUSE") and not bridge.record_vip_delivery(8, 1).get("ok", false) and bridge.resume_session() and bridge.get_vip_state()["delivered"] == 0)
 
 	var incomplete_vip_bridge = _bridge(database, campaign, economy)
 	incomplete_vip_bridge.start_session(ISLAND_ID, 1)
@@ -256,37 +261,37 @@ func _run() -> void:
 	await process_frame
 	var gameplay = navigation.get_node_or_null("CampaignGameplay")
 	_check("runtime selection reuses the shared bridge/economy", opened and selected and gameplay != null and navigation.get_session_bridge().get_economy() == economy)
-	_check("production normal target is L6 and VIP target is L12", gameplay != null and gameplay._target_level == 6 and navigation.get_session_bridge().get_vip_state()["cocktail_level"] == 12)
+	_check("production normal target is L6 and VIP target is L8", gameplay != null and gameplay._target_level == 6 and navigation.get_session_bridge().get_vip_state()["cocktail_level"] == 8)
 	_capture("vip_pending")
 
 	# Production VIP proof: on_merged is the same GameManager callback used by
 	# MergeQueue. The drink is consumed by the independent VIP capture route,
 	# while the mandatory normal L6 target remains untouched.
-	var merged_vip: Drink = gameplay.spawn_drink(12, Vector2(360.0, gameplay.launch_y - 160.0), false)
-	gameplay.on_merged(12, merged_vip)
+	var merged_vip: Drink = gameplay.spawn_drink(8, Vector2(360.0, gameplay.launch_y - 160.0), false)
+	gameplay.on_merged(8, merged_vip)
 	_check("newly merged VIP drink enters production capture", gameplay._vip_target_transition and gameplay._vip_target_drink == merged_vip and merged_vip.motion_state == Drink.MotionState.TARGET_CAPTURE)
 	var merged_vip_score_before_delivery: int = int(gameplay.score)
 	await _wait_seconds(0.52)
 	var first_vip_state: Dictionary = navigation.get_session_bridge().get_vip_state()
-	_check("merged VIP receives exact 2x unit payout", not is_instance_valid(merged_vip) and gameplay.score == merged_vip_score_before_delivery + 2 * Drink.order_reward(12))
+	_check("merged VIP receives exact 2x unit payout", not is_instance_valid(merged_vip) and gameplay.score == merged_vip_score_before_delivery + 2 * Drink.order_reward(8))
 	_check("first actual VIP delivery accumulates 1/2", first_vip_state["delivered"] == 1 and first_vip_state["remaining"] == 1 and not first_vip_state["completed"])
 	_capture("vip_partial")
 
 	# Stored drinks use the same production target-selection seam and must also
 	# satisfy the distinct VIP objective without becoming normal To-Go rewards.
-	var stored_vip: Drink = gameplay.spawn_drink(12, Vector2(460.0, gameplay.launch_y - 220.0), false)
+	var stored_vip: Drink = gameplay.spawn_drink(8, Vector2(460.0, gameplay.launch_y - 220.0), false)
 	stored_vip.set_settled()
 	gameplay._try_collect_stocked_target()
 	_check("stored VIP drink enters production capture", gameplay._vip_target_transition and gameplay._vip_target_drink == stored_vip and stored_vip.motion_state == Drink.MotionState.TARGET_CAPTURE)
 	var stored_vip_score_before_delivery: int = int(gameplay.score)
 	await _wait_seconds(0.52)
 	var completed_vip_state: Dictionary = navigation.get_session_bridge().get_vip_state()
-	_check("stored VIP receives exact 2x unit payout", not is_instance_valid(stored_vip) and gameplay.score == stored_vip_score_before_delivery + 2 * Drink.order_reward(12))
+	_check("stored VIP receives exact 2x unit payout", not is_instance_valid(stored_vip) and gameplay.score == stored_vip_score_before_delivery + 2 * Drink.order_reward(8))
 	_check("second actual VIP delivery completes cumulative 2/2", completed_vip_state["delivered"] == 2 and completed_vip_state["remaining"] == 0 and completed_vip_state["completed"])
 	_capture("vip_completed")
 
-	var extra_vip: Drink = gameplay.spawn_drink(12, Vector2(520.0, gameplay.launch_y - 280.0), false)
-	gameplay.on_merged(12, extra_vip)
+	var extra_vip: Drink = gameplay.spawn_drink(8, Vector2(520.0, gameplay.launch_y - 280.0), false)
+	gameplay.on_merged(8, extra_vip)
 	await process_frame
 	var extra_state: Dictionary = navigation.get_session_bridge().get_vip_state()
 	var extra_score: int = int(gameplay.score)
@@ -311,7 +316,7 @@ func _run() -> void:
 	_check("repeated WIN resolution does not duplicate reward", repeated_terminal.get("outcome", "") == "WIN" and economy.get_booster_count("upgrade") == upgrade_count_after_win)
 
 	# Same-level normal/VIP precedence: normal L6 claims first, then a
-	# subsequent L6 can satisfy VIP while the separate L12 order remains.
+	# subsequent L6 can satisfy VIP after the normal claim is complete.
 	navigation.return_to_island_map()
 	await process_frame
 	await process_frame

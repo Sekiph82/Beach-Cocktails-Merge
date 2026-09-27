@@ -11,6 +11,7 @@
             "map_background": "res://assets/environment/game_board_background.png",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
             "map_position": [0.16, 0.83],
+            "target_policy": {"min_level": 5, "max_level": 8},
             "reward_track": {
                 "milestones": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
                 "metadata": {"source": "sunny_cove_progression_v1"}

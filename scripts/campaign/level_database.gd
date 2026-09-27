@@ -145,6 +145,8 @@ func _validate_island_root(root: Variant) -> bool:
             return _fail("island unlock_rule must be an object: %s" % island_id)
         if not raw_island["reward_track"] is Dictionary:
             return _fail("island reward_track must be an object: %s" % island_id)
+        if raw_island.has("target_policy") and not _validate_target_policy(raw_island["target_policy"], island_id):
+            return false
         _islands_by_id[island_id] = raw_island.duplicate(true)
 
     for island_id in _islands_by_id:
@@ -244,8 +246,8 @@ func _validate_orders(orders: Variant, island_id: String, level_id: int) -> bool
             return _fail("order requires cocktail_level and quantity: %s/%d" % [island_id, level_id])
         var cocktail_level := int(order["cocktail_level"])
         var quantity := int(order["quantity"])
-        if cocktail_level < MIN_COCKTAIL_LEVEL or cocktail_level > MAX_COCKTAIL_LEVEL:
-            return _fail("cocktail target outside L1-L12: %s/%d" % [island_id, level_id])
+        if not is_campaign_target_level_eligible(island_id, cocktail_level):
+            return _fail("cocktail target outside campaign policy: %s/%d" % [island_id, level_id])
         if quantity <= 0:
             return _fail("order quantity must be positive: %s/%d" % [island_id, level_id])
     return true
@@ -257,12 +259,39 @@ func _validate_vip(vip: Dictionary, island_id: String, level_id: int) -> bool:
     if vip.has("enabled") and not bool(vip["enabled"]):
         return true
     if not vip.has("cocktail_level") or typeof(vip["cocktail_level"]) != TYPE_INT:
-        return _fail("enabled VIP cocktail_level must be an integer L1-L12: %s/%d" % [island_id, level_id])
+        return _fail("enabled VIP cocktail_level must be an integer campaign target: %s/%d" % [island_id, level_id])
     var cocktail_level := int(vip["cocktail_level"])
-    if cocktail_level < MIN_COCKTAIL_LEVEL or cocktail_level > MAX_COCKTAIL_LEVEL:
-        return _fail("enabled VIP cocktail target outside L1-L12: %s/%d" % [island_id, level_id])
+    if not is_campaign_target_level_eligible(island_id, cocktail_level):
+        return _fail("enabled VIP cocktail target outside campaign policy: %s/%d" % [island_id, level_id])
     if not vip.has("quantity") or typeof(vip["quantity"]) != TYPE_INT or int(vip["quantity"]) <= 0:
         return _fail("enabled VIP quantity must be a positive integer: %s/%d" % [island_id, level_id])
+    return true
+
+
+func is_campaign_target_level_eligible(island_id: String, cocktail_level: int) -> bool:
+    if cocktail_level < MIN_COCKTAIL_LEVEL or cocktail_level > MAX_COCKTAIL_LEVEL:
+        return false
+    var island: Variant = _islands_by_id.get(island_id, {})
+    if not island is Dictionary or not island.has("target_policy"):
+        # Test fixtures and future islands without a declared campaign policy
+        # retain the generic drink-level guard until their normal content pass
+        # supplies the policy. VIP never owns a separate fallback range.
+        return true
+    var policy: Dictionary = island["target_policy"]
+    return cocktail_level >= int(policy["min_level"]) and cocktail_level <= int(policy["max_level"])
+
+
+func _validate_target_policy(policy: Variant, island_id: String) -> bool:
+    if not policy is Dictionary or not policy.has_all(["min_level", "max_level"]):
+        return _fail("target_policy requires min_level and max_level: %s" % island_id)
+    if (typeof(policy["min_level"]) != TYPE_INT and typeof(policy["min_level"]) != TYPE_FLOAT) or (typeof(policy["max_level"]) != TYPE_INT and typeof(policy["max_level"]) != TYPE_FLOAT):
+        return _fail("target_policy bounds must be integers: %s" % island_id)
+    if not is_equal_approx(float(policy["min_level"]), float(int(policy["min_level"]))) or not is_equal_approx(float(policy["max_level"]), float(int(policy["max_level"]))):
+        return _fail("target_policy bounds must be integers: %s" % island_id)
+    var min_level := int(policy["min_level"])
+    var max_level := int(policy["max_level"])
+    if min_level < MIN_COCKTAIL_LEVEL or max_level > MAX_COCKTAIL_LEVEL or min_level > max_level:
+        return _fail("target_policy bounds are invalid: %s" % island_id)
     return true
 
 

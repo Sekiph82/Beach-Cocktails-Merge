@@ -64,6 +64,7 @@ const TOP_RAIL_CLEARANCE := 4.0
 const BEST_VALUE_RECESS_CENTER_Y_PX := 75.5
 const SCORE_VALUE_RECESS_CENTER_Y_PX := 73.0
 const TO_GO_DELIVERY_DURATION := 0.34
+const VIP_DELIVERY_MULTIPLIER := 2
 const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
 const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
 const STARTUP_TO_GO_TARGETS := [5, 6, 7]
@@ -558,8 +559,9 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
     print("MERGE L%d +%d  COMBO x%d +%d  (toplam: %d)" % [new_level, base, chain, combo_bonus, score])
 
     # The mandatory normal To-Go objective always wins when both objectives
-    # name the same level. A distinct VIP level has its own optional capture
-    # route; merge points are paid once above and VIP capture adds no reward.
+    # name the same level. A distinct VIP level uses its optional capture
+    # route; merge points are paid once above and VIP capture adds no duplicate
+    # merge/combo reward.
     if not _target_transition and not _vip_target_transition and new_level == _target_level:
         _collect_merge_target(merged_drink)
     elif not _target_transition and not _vip_target_transition and _active_vip_level() == new_level:
@@ -1240,7 +1242,7 @@ func _finish_vip_target() -> void:
         # mismatched, paused, and already-completed attempts score-neutral.
         var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
         var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
-        var vip_bonus := 2 * Drink.order_reward(delivered_level) * accepted
+        var vip_bonus := VIP_DELIVERY_MULTIPLIER * Drink.order_reward(delivered_level) * accepted
         if vip_bonus > 0:
             _add_score(vip_bonus)
             _refresh_hud()
