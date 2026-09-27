@@ -232,6 +232,18 @@ Independent AI generation of table-edge overlay geometry or scenic table shadows
 
 Azure Bay is the V2 structural master. The remaining nine islands must use the same geometry, apron/leg relationship, progression clearance, overlay derivation method, and shadow recipe. Only island art/material language may vary.
 
+## Repository hygiene and Desktop worktree policy
+
+- The only canonical Desktop project folder is `C:\Users\sekip\Desktop\Beach Cocktails - Merge`.
+- Never create another Beach Cocktails Merge clone, copy, backup, temporary directory, or Git worktree anywhere under Desktop.
+- Do not create suffixed Desktop folders such as `-M13`, `-M13V02`, sprint names, remediation names, or backup clones.
+- Temporary worktrees must be outside Desktop, preferably under `C:\Users\sekip\.codex\worktrees\...`.
+- Inspect existing branches and worktrees before creating anything new.
+- Do not create a new GitHub branch without explicit owner approval.
+- Do not merge or delete a GitHub branch without explicit owner approval.
+- If the canonical Desktop repository differs from `origin/main`, preserve owner work and report the exact divergence before attempting reconciliation.
+- A dirty or detached canonical Desktop repository is not disposable and must not be treated as a synchronization target for destructive operations.
+
 ## Safety
 
 - Preserve owner-created assets and project files.
