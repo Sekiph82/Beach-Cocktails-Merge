@@ -6,9 +6,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
-- Current Task: Apply owner-approved VIP L1-L12 target validation and 2x normal To-Go delivery payout while preserving the audited V02 real VIP delivery/economy flow.
+- Current Task: Apply owner-approved VIP target parity with the normal campaign To-Go rule and 2x normal To-Go delivery payout while preserving the audited V02 real VIP delivery/economy flow.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M15-VIP-BOOSTERS-ECONOMY V03 for the owner-approved L1-L12 VIP rule and 2x normal To-Go payout, then stops for independent audit.
+- Next Task/Action: Codex executes BCM-M15-VIP-BOOSTERS-ECONOMY V03 for owner-approved normal/VIP target-policy parity and 2x normal To-Go payout, then stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -337,7 +337,7 @@ Independent audit V02:
 
 Owner ruling V03:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_RULING_V03.md`
-- VIP targets may use L1-L12 inclusive.
+- VIP targets follow the same campaign To-Go target eligibility rule as normal objectives; no separate VIP range.
 - Each accepted VIP cocktail delivery pays 2× the normal To-Go reward for that same level.
 - Existing configured VIP economy reward remains separate and one-time on normal WIN + VIP completion.
 

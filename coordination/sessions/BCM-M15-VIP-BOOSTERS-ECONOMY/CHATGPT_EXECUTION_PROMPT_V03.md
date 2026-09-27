@@ -1,84 +1,96 @@
 # BCM-M15 VIP, Boosters, Rewards & Economy — Execution Prompt V03
 
-Implement the new owner ruling against:
+Implement the clarified owner ruling against:
+
 - `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_RULING_V03.md`
 - `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V03.md`
 
 Before any work, obey the mandatory canonical Desktop sync rule in `AGENTS.md` for:
-`C:\Users\sekip\Desktop\Beach Cocktails - Merge`.
+
+`C:\Users\sekip\Desktop\Beach Cocktails - Merge`
 
 ## Owner rule
 
-VIP cocktails may be any existing cocktail level **L1-L12**.
+VIP does **not** have its own L1-L12 target range.
 
-Every successfully delivered VIP cocktail pays **2x the normal To-Go reward of that same level**.
+VIP must follow the **same campaign To-Go target eligibility rule as normal To-Go orders** for the same island/content set.
 
-Use the existing single source of truth:
-`Drink.order_reward(level)`.
+Current roadmap example:
+- normal campaign target minimum = L5;
+- Sunny Cove normal targets = L5-L8;
+- therefore Sunny Cove VIP targets = L5-L8;
+- future-island VIP ranges follow that island's normal To-Go rule.
 
-Therefore:
-`VIP unit payout = 2 * Drink.order_reward(vip_level)`.
+Do not use the legacy/free-play `L6-L12` random selector as campaign content policy.
 
-## 1. Validate VIP target data
+The only VIP-specific difference is reward:
 
-Extend LevelDatabase validation so enabled VIP definitions enforce:
-- cocktail_level integer 1..12;
-- positive integer quantity;
-- deterministic rejection outside range.
+`VIP unit payout = 2 * Drink.order_reward(vip_level)`
 
-Do not apply the normal M16 minimum-L5 rule to VIP. L1-L4 are legal VIP targets.
+## 1. Target-policy parity
+
+Remove/avoid the superseded V03 idea of a VIP-only L1-L12 eligibility validator.
+
+Where validation/policy needs adjustment:
+- VIP must reuse the same target eligibility source/helper/policy as normal campaign To-Go;
+- do not create duplicated range constants that can drift;
+- keep positive-integer VIP quantity validation;
+- do not populate M16 Sunny Cove L1-L100 content in this task.
+
+If the current normal campaign eligibility rule is not yet encoded as a reusable validator because M16 owns content population, add only the minimum shared policy plumbing needed for parity, without authoring M16 level records.
 
 ## 2. Add delivery-time VIP premium
 
 On successful real V02 VIP capture completion:
 - compute `2 * Drink.order_reward(delivered_level)`;
-- add that bonus once to GameManager score;
+- add the bonus exactly once to GameManager score;
 - refresh HUD;
-- then update GameplaySessionBridge current score with the post-bonus total;
+- update GameplaySessionBridge with the post-bonus score;
 - record the accepted VIP delivery.
 
 Do not duplicate merge/combo score.
 
-Do not pay VIP premium for rejected/invalid/mismatched/post-completion no-op deliveries.
+No VIP bonus for rejected, mismatched, paused, invalid, or post-completion no-op deliveries.
 
-For a quantity-2 VIP order, each of the two actual delivered cocktails receives its own 2x unit payout.
+For quantity 2, each accepted physical VIP drink gets its own 2x unit payout.
 
 ## 3. Preserve separate economy reward
 
-Keep configured VIP booster/coin reward behavior separate:
+Configured VIP booster/coin reward remains separate:
 - no economy grant at delivery time;
-- economy grant only at normal WIN + VIP complete;
-- deterministic reward ledger remains idempotent.
+- grant only at normal WIN + completed VIP;
+- preserve deterministic reward-ledger idempotency.
 
 ## 4. Same-level normal/VIP rule
 
 Preserve V02 mandatory-normal-first precedence.
 
-If both normal and VIP request L6:
-- while normal L6 is pending, that drink goes to normal To-Go and receives normal 1x order reward only;
-- it does not also increment VIP;
-- after normal L6 requirement is satisfied, later L6 drinks may satisfy VIP and receive 2x VIP payout.
+If normal and VIP both request the same level:
+- while normal is pending, the drink satisfies normal To-Go and receives 1x normal order reward only;
+- it does not increment VIP;
+- after normal requirement is complete, later same-level drinks may satisfy VIP and receive 2x VIP payout.
 
 ## 5. VIP UI
 
-Keep the existing compact badge footprint.
+Keep the compact V02 badge footprint.
 
-Add a bounded premium indication so the player can understand VIP pays more. Prefer exact amount or a compact `2X` indicator without changing accepted HUD/table geometry.
+Add a bounded premium indicator such as `2X` or exact reward amount without moving accepted HUD/table geometry.
 
 Capture V03 Windows/OpenGL evidence under:
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/`.
+
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/`
 
 ## 6. Tests
 
-Extend the M15 probe for:
-- L1/L12 valid VIP targets;
-- L0/L13 invalid VIP targets;
-- invalid quantity;
+Extend M15 probe to prove:
+- VIP target eligibility mirrors normal campaign To-Go policy;
+- no independent L1-L12 VIP rule;
+- positive integer quantity validation;
 - merged VIP exact 2x payout;
 - stored VIP exact 2x payout;
 - quantity-2 cumulative payout;
 - no payout after completion;
-- normal order remains 1x;
+- normal delivery remains 1x;
 - same-level precedence;
 - terminal score includes VIP bonuses;
 - existing economy reward idempotency.
@@ -92,8 +104,8 @@ Then run:
 
 Do not:
 - edit root `TASKS.md`;
-- start M16 canonical content;
-- change normal target reward values;
+- start M16 canonical content population;
+- change normal To-Go reward values;
 - alter merge/combo scoring;
 - retune R11 physics/table/colliders;
 - add purchases/ads/backend;
@@ -103,14 +115,15 @@ Do not:
 ## Completion
 
 Write:
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CODEX_LOG_V03.md`
+
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CODEX_LOG_V03.md`
 
 Push to `main`, then perform mandatory post-task canonical Desktop sync.
 
 Return:
 - implementation SHA;
 - final main/canonical SHA;
-- VIP L1-L12 validation PASS/FAIL;
+- normal/VIP target-policy parity PASS/FAIL;
 - 2x VIP payout PASS/FAIL;
 - same-level precedence PASS/FAIL;
 - M15x2 and regression results;
