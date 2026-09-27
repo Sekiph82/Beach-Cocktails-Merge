@@ -189,6 +189,8 @@ func _validate_level_root(root: Variant) -> bool:
             return false
         if raw_level["vip"] != null and not raw_level["vip"] is Dictionary:
             return _fail("vip must be null or an object: %s/%d" % [island_id, level_id])
+        if raw_level["vip"] is Dictionary and not _validate_vip(raw_level["vip"], island_id, level_id):
+            return false
         if not raw_level["rewards"] is Dictionary:
             return _fail("rewards must be an object: %s/%d" % [island_id, level_id])
         if not raw_level["score_star_thresholds"] is Dictionary:
@@ -246,6 +248,21 @@ func _validate_orders(orders: Variant, island_id: String, level_id: int) -> bool
             return _fail("cocktail target outside L1-L12: %s/%d" % [island_id, level_id])
         if quantity <= 0:
             return _fail("order quantity must be positive: %s/%d" % [island_id, level_id])
+    return true
+
+
+func _validate_vip(vip: Dictionary, island_id: String, level_id: int) -> bool:
+    # Disabled VIP metadata is permitted so fixtures and future content can
+    # carry an explicitly disabled optional objective without a target.
+    if vip.has("enabled") and not bool(vip["enabled"]):
+        return true
+    if not vip.has("cocktail_level") or typeof(vip["cocktail_level"]) != TYPE_INT:
+        return _fail("enabled VIP cocktail_level must be an integer L1-L12: %s/%d" % [island_id, level_id])
+    var cocktail_level := int(vip["cocktail_level"])
+    if cocktail_level < MIN_COCKTAIL_LEVEL or cocktail_level > MAX_COCKTAIL_LEVEL:
+        return _fail("enabled VIP cocktail target outside L1-L12: %s/%d" % [island_id, level_id])
+    if not vip.has("quantity") or typeof(vip["quantity"]) != TYPE_INT or int(vip["quantity"]) <= 0:
+        return _fail("enabled VIP quantity must be a positive integer: %s/%d" % [island_id, level_id])
     return true
 
 

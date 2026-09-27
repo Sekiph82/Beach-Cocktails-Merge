@@ -1236,9 +1236,18 @@ func _finish_vip_target() -> void:
         drink.queue_free()
 
     if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+        # Record acceptance before paying the premium. This keeps rejected,
+        # mismatched, paused, and already-completed attempts score-neutral.
+        var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
+        var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
+        var vip_bonus := 2 * Drink.order_reward(delivered_level) * accepted
+        if vip_bonus > 0:
+            _add_score(vip_bonus)
+            _refresh_hud()
+        # The bridge must receive the post-premium score so terminal stars and
+        # the campaign result use the same authoritative total.
         campaign_session_bridge.set_current_score(score)
-        var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1, score)
-        print("VIP DELIVERY L%d +%d/%d (remaining: %d)" % [delivered_level, int(result.get("delivered", 0)), int(result.get("required", result.get("delivered", 0) + result.get("remaining", 0))), int(result.get("remaining", 0))])
+        print("VIP DELIVERY L%d +%d/%d BONUS %d (toplam: %d)" % [delivered_level, int(result.get("delivered", 0)), int(result.get("required", result.get("delivered", 0) + result.get("remaining", 0))), vip_bonus, score])
 
     _vip_target_transition = false
     call_deferred("_try_collect_stocked_target")
@@ -1260,7 +1269,7 @@ func _refresh_vip_badge() -> void:
         return
     _vip_badge_label.visible = true
     var status := "COMPLETED" if bool(vip_state.get("completed", false)) else "PENDING"
-    _vip_badge_label.text = "VIP  L%d  %d/%d  %s" % [int(vip_state.get("cocktail_level", 0)), int(vip_state.get("delivered", 0)), int(vip_state.get("required", vip_state.get("quantity", 1))), status]
+    _vip_badge_label.text = "VIP  2X  L%d  %d/%d  %s" % [int(vip_state.get("cocktail_level", 0)), int(vip_state.get("delivered", 0)), int(vip_state.get("required", vip_state.get("quantity", 1))), status]
 
 
 func _active_vip_level() -> int:
