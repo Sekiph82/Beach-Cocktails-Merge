@@ -25,8 +25,8 @@ func _draw() -> void:
     _box(next, outer_color)
     _box(strip, outer_color)
     if to_go != null:
-        _rect(Rect2(to_go.position + Vector2(30.0, 78.0) * to_go.size.x / 210.0, Vector2(150.0, 100.0) * to_go.size.x / 210.0), inner_color)
-        _rect(Rect2(to_go.position + Vector2(35.0, 215.0) * to_go.size.x / 210.0, Vector2(140.0, 35.0) * to_go.size.x / 210.0), inner_color)
+        _rect(Rect2(to_go.position + Vector2(48.0, 20.0) * to_go.size.x / 210.0, Vector2(54.0, 57.0) * to_go.size.x / 210.0), inner_color)
+        _rect(Rect2(to_go.position + Vector2(103.0, 49.0) * to_go.size.x / 210.0, Vector2(67.0, 27.0) * to_go.size.x / 210.0), inner_color)
     if next != null:
         _rect(Rect2(next.position + Vector2(28.0, 62.0) * next.size.x / 145.0, Vector2(90.0, 100.0) * next.size.x / 145.0), inner_color)
     if strip != null:

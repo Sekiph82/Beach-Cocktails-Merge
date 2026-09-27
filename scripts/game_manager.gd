@@ -65,6 +65,11 @@ const BEST_VALUE_RECESS_CENTER_Y_PX := 75.5
 const SCORE_VALUE_RECESS_CENTER_Y_PX := 73.0
 const TO_GO_DELIVERY_DURATION := 0.34
 const VIP_DELIVERY_MULTIPLIER := 2
+const TO_GO_PANEL_TEXTURE_PATH := "res://assets/ui/panel_to_go_vip_orders.png"
+const TO_GO_PANEL_SOURCE_SIZE := Vector2(1132.0, 755.0)
+const TO_GO_NORMAL_TARGET_CENTER_SOURCE := Vector2(414.0, 265.0)
+const TO_GO_VIP_TARGET_CENTER_SOURCE := Vector2(430.0, 575.0)
+const TO_GO_COCKTAIL_MAX_DIMENSION := 44.0
 const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
 const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
 const STARTUP_TO_GO_TARGETS := [5, 6, 7]
@@ -103,13 +108,11 @@ var _progression_strip: Control
 var _best_value: Label
 var _score_value: Label
 var _to_go_target_sprite: Sprite2D
+var _to_go_progress_label: Label
 var _to_go_reward_label: Label
-var _vip_card: Panel
 var _vip_target_sprite: Sprite2D
-var _vip_title_label: Label
 var _vip_progress_label: Label
 var _vip_reward_label: Label
-var _vip_multiplier_label: Label
 var _next_sprite: Sprite2D
 var _progression_icons: Array[Sprite2D] = []
 var _chain_label: Label
@@ -118,6 +121,7 @@ var _final_score_label: Label
 var _background: Sprite2D
 var _background_scale := 1.0
 var _background_offset := Vector2.ZERO
+var _ui_scale := 1.0
 var _launch_zone: Sprite2D
 var _danger_line: Sprite2D
 
@@ -697,7 +701,7 @@ func _refresh_hud() -> void:
     if _chain_label != null:
         _chain_label.visible = chain > 1
         _chain_label.text = "COMBO x%d" % chain
-    _refresh_vip_card()
+    _refresh_vip_panel()
 
 
 func _build_walls() -> void:
@@ -757,6 +761,7 @@ func _build_ui() -> void:
     # Keep the approved portrait HUD footprint stable on wider phones; the
     # playfield itself remains aspect-preserving and responsive under M06.
     var ui_scale := clampf(board_size.x / 720.0, 0.94, 1.0)
+    _ui_scale = ui_scale
     var canvas := CanvasLayer.new()
     canvas.name = "UI"
     add_child(canvas)
@@ -796,71 +801,33 @@ func _build_ui() -> void:
     _hud.add_child(logo)
 
     var to_go_width := 210.0 * ui_scale
-    var to_go_height := to_go_width * 1389.0 / 1132.0
+    var to_go_height := to_go_width * TO_GO_PANEL_SOURCE_SIZE.y / TO_GO_PANEL_SOURCE_SIZE.x
     # The supplied asset already contains its hanging artwork. Its alpha
     # bounds reach the source-image top, so placing the unchanged panel at y=0
     # makes that artwork touch the viewport ceiling without runtime additions.
     var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 0.0, to_go_width, to_go_height)
-    _to_go_panel = _make_panel("ToGoOrdersPanel", "res://assets/ui/panel_to_go_orders.png", to_go_rect)
+    _to_go_panel = _make_panel("ToGoOrdersPanel", TO_GO_PANEL_TEXTURE_PATH, to_go_rect)
     _hud.add_child(_to_go_panel)
 
     _to_go_target_sprite = Sprite2D.new()
     _to_go_target_sprite.name = "TargetCocktail"
-    # Keep the full alpha silhouette inside the measured baked cream target
-    # window; To-Go carries only target art and reward digits at runtime.
-    _to_go_target_sprite.position = Vector2(to_go_rect.size.x * 0.5, to_go_rect.size.y * 0.497)
+    _to_go_target_sprite.position = _panel_source_point(TO_GO_NORMAL_TARGET_CENTER_SOURCE, to_go_rect.size)
     _to_go_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     _to_go_target_sprite.z_index = 2
     _to_go_panel.add_child(_to_go_target_sprite)
 
-    # These inner content boxes are intentionally below the panel's baked
-    # title/artwork. Dynamic values never get baked into canonical PNGs.
-    # The reward belongs inside the cream board's lower-middle content area.
-    _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.19, to_go_rect.size.y * 0.73, to_go_rect.size.x * 0.62, 30.0 * ui_scale), 21, Color(0.30, 0.10, 0.03, 1.0))
-
-    # V04 moves VIP presentation out of the accepted To-Go panel. The card is
-    # deliberately a small HUD-only sibling so the normal target/reward art
-    # and the playable table geometry remain untouched.
-    var vip_card_width := 190.0 * ui_scale
-    var vip_card_height := 86.0 * ui_scale
-    var vip_card_rect := Rect2(
-        (board_size.x - vip_card_width) * 0.5,
-        to_go_rect.position.y + to_go_rect.size.y - 2.0 * ui_scale,
-        vip_card_width,
-        vip_card_height
-    )
-    _vip_card = Panel.new()
-    _vip_card.name = "VipCard"
-    _vip_card.position = vip_card_rect.position
-    _vip_card.size = vip_card_rect.size
-    _vip_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    var vip_style := StyleBoxFlat.new()
-    vip_style.bg_color = Color(0.18, 0.08, 0.04, 0.96)
-    vip_style.border_color = Color(0.96, 0.68, 0.23, 1.0)
-    vip_style.set_border_width_all(2)
-    vip_style.set_corner_radius_all(10)
-    vip_style.shadow_color = Color(0.04, 0.02, 0.01, 0.48)
-    vip_style.shadow_size = 5
-    vip_style.shadow_offset = Vector2(0.0, 2.0)
-    _vip_card.add_theme_stylebox_override("panel", vip_style)
-    _hud.add_child(_vip_card)
-
-    var vip_scale := ui_scale
-    _vip_title_label = _make_panel_text(_vip_card, "VIP", Rect2(48.0 * vip_scale, 4.0 * vip_scale, 132.0 * vip_scale, 19.0 * vip_scale), 14, Color(1.0, 0.86, 0.42, 1.0))
-    _vip_progress_label = _make_panel_text(_vip_card, "", Rect2(48.0 * vip_scale, 24.0 * vip_scale, 70.0 * vip_scale, 27.0 * vip_scale), 17, Color(1.0, 0.96, 0.82, 1.0))
-    _vip_reward_label = _make_panel_text(_vip_card, "", Rect2(48.0 * vip_scale, 56.0 * vip_scale, 76.0 * vip_scale, 22.0 * vip_scale), 13, Color(1.0, 0.86, 0.42, 1.0))
-    _vip_multiplier_label = _make_panel_text(_vip_card, "2X", Rect2(126.0 * vip_scale, 55.0 * vip_scale, 48.0 * vip_scale, 24.0 * vip_scale), 13, Color(1.0, 0.98, 0.88, 1.0))
-    _vip_multiplier_label.add_theme_color_override("font_shadow_color", Color(0.0, 0.0, 0.0, 0.6))
-    _vip_multiplier_label.add_theme_constant_override("shadow_offset_x", 1)
-    _vip_multiplier_label.add_theme_constant_override("shadow_offset_y", 1)
+    _to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 147.0), Vector2(337.0, 105.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 278.0), Vector2(337.0, 110.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
 
     _vip_target_sprite = Sprite2D.new()
     _vip_target_sprite.name = "VipTargetCocktail"
-    _vip_target_sprite.position = Vector2(26.0, 43.0) * vip_scale
+    _vip_target_sprite.position = _panel_source_point(TO_GO_VIP_TARGET_CENTER_SOURCE, to_go_rect.size)
     _vip_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     _vip_target_sprite.z_index = 2
-    _vip_card.add_child(_vip_target_sprite)
-    _vip_card.visible = false
+    _to_go_panel.add_child(_vip_target_sprite)
+    _vip_target_sprite.visible = false
+    _vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 467.0), Vector2(337.0, 105.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 593.0), Vector2(337.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
 
     var next_width := 145.0 * ui_scale
     var next_height := next_width * 1426.0 / 1103.0
@@ -948,6 +915,18 @@ func _make_panel(panel_name: String, texture_path: String, rect: Rect2) -> Contr
     artwork.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     panel.add_child(artwork)
     return panel
+
+
+func _panel_source_point(source_point: Vector2, panel_size: Vector2) -> Vector2:
+    return Vector2(source_point.x * panel_size.x / TO_GO_PANEL_SOURCE_SIZE.x, source_point.y * panel_size.y / TO_GO_PANEL_SOURCE_SIZE.y)
+
+
+func _panel_source_rect(source_position: Vector2, source_size: Vector2, panel_size: Vector2) -> Rect2:
+    return Rect2(_panel_source_point(source_position, panel_size), _panel_source_point(source_size, panel_size))
+
+
+func _to_go_cocktail_scale(level: int) -> float:
+    return _hud_icon_scale(level, TO_GO_COCKTAIL_MAX_DIMENSION * _ui_scale)
 
 
 func _make_panel_value(panel: Control, value: String, font_size: int, y_ratio: float) -> Label:
@@ -1184,9 +1163,10 @@ func _refresh_merge_target_visual() -> void:
     _to_go_target_sprite.visible = true
     _to_go_target_sprite.modulate = Color.WHITE
     _to_go_target_sprite.texture = Drink.texture_for_level(_target_level)
-    _to_go_target_sprite.scale = Vector2.ONE * _hud_icon_scale(_target_level, 104.0)
+    _to_go_target_sprite.scale = Vector2.ONE * _to_go_cocktail_scale(_target_level)
+    _to_go_progress_label.text = _normal_progress_text(_target_level)
     _to_go_reward_label.text = "%d" % Drink.order_reward(_target_level)
-    _refresh_vip_card()
+    _refresh_vip_panel()
     if _target_root != null:
         _target_root.position = _to_go_target_sprite.global_position
 
@@ -1244,6 +1224,7 @@ func _finish_target_collection() -> void:
         campaign_session_bridge.set_current_score(score)
         var delivery_id := "gameplay-order-%d" % _order_sequence
         campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
+        _to_go_progress_label.text = _normal_progress_text(completed_level)
         campaign_order_completed.emit(completed_level, 1)
         if campaign_session_bridge.is_terminal():
             return
@@ -1303,28 +1284,40 @@ func _finish_vip_target() -> void:
 
 
 func _on_vip_state_changed(_state: Dictionary) -> void:
-    _refresh_vip_card()
+    _refresh_vip_panel()
 
 
-func _refresh_vip_card() -> void:
-    if _vip_card == null:
+func _normal_progress_text(level: int) -> String:
+    if campaign_session_bridge != null and (campaign_session_bridge.is_session_active() or campaign_session_bridge.is_terminal()):
+        var objective_state: Dictionary = campaign_session_bridge.get_objective_state()
+        var totals: Dictionary = objective_state.get("normal_totals", {})
+        var completed: Dictionary = objective_state.get("normal_completed", {})
+        var required := int(totals.get(level, 0))
+        if required > 0:
+            return "%d/%d" % [int(completed.get(level, 0)), required]
+    return "0/1"
+
+
+func _refresh_vip_panel() -> void:
+    if _to_go_panel == null:
         return
+    _to_go_panel.visible = true
+    _vip_target_sprite.visible = false
+    _vip_progress_label.text = "0/0"
+    _vip_reward_label.text = ""
     if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-        _vip_card.visible = false
         return
     var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
     if not bool(vip_state.get("enabled", false)):
-        _vip_card.visible = false
         return
-    _vip_card.visible = true
     var vip_level := int(vip_state.get("cocktail_level", 0))
     var required := int(vip_state.get("required", vip_state.get("quantity", 1)))
     var delivered := int(vip_state.get("delivered", 0))
     _vip_target_sprite.texture = Drink.texture_for_level(vip_level)
-    _vip_target_sprite.scale = Vector2.ONE * _hud_icon_scale(vip_level, 46.0 * clampf(_vip_card.size.x / 190.0, 0.94, 1.0))
+    _vip_target_sprite.scale = Vector2.ONE * _to_go_cocktail_scale(vip_level)
+    _vip_target_sprite.visible = true
     _vip_progress_label.text = "✓" if bool(vip_state.get("completed", false)) else "%d/%d" % [delivered, required]
     _vip_reward_label.text = "%d" % (VIP_DELIVERY_MULTIPLIER * Drink.order_reward(vip_level))
-    _vip_multiplier_label.text = "2X"
 
 
 func _active_vip_level() -> int:

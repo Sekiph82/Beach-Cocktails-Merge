@@ -1,6 +1,6 @@
 extends SceneTree
 
-## Focused M15 V04 probe. It exercises the production economy/session/navigation
+## Focused M15 V05 probe. It exercises the production economy/session/navigation
 ## seams with deterministic in-memory campaign data and writes inspectable
 ## runtime evidence under the committed M15 session evidence folder.
 
@@ -11,7 +11,7 @@ const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
-const EVIDENCE_DIR := "res://coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v04"
+const EVIDENCE_DIR := "res://coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v05"
 
 var failures: Array[String] = []
 
@@ -262,13 +262,17 @@ func _run() -> void:
 	var gameplay = navigation.get_node_or_null("CampaignGameplay")
 	_check("runtime selection reuses the shared bridge/economy", opened and selected and gameplay != null and navigation.get_session_bridge().get_economy() == economy)
 	_check("production normal target is L6 and VIP target is L8", gameplay != null and gameplay._target_level == 6 and navigation.get_session_bridge().get_vip_state()["cocktail_level"] == 8)
-	var vip_card: Panel = gameplay._vip_card if gameplay != null else null
+	var to_go_panel: Control = gameplay._to_go_panel if gameplay != null else null
 	var vip_state_before_delivery: Dictionary = navigation.get_session_bridge().get_vip_state()
-	var vip_card_layout_ok: bool = vip_card != null and vip_card.visible and vip_card.position.y >= gameplay._to_go_panel.position.y + gameplay._to_go_panel.size.y - 3.0 and absf((vip_card.position.x + vip_card.size.x * 0.5) - (gameplay._to_go_panel.position.x + gameplay._to_go_panel.size.x * 0.5)) <= 1.0
-	_check("active VIP uses a separate attached HUD card", vip_card_layout_ok)
-	_check("VIP card reuses the To-Go cocktail texture", gameplay != null and gameplay._vip_target_sprite.texture == Drink.texture_for_level(int(vip_state_before_delivery["cocktail_level"])))
-	_check("VIP pending presentation shows 0/N, doubled reward, and 2X", gameplay != null and gameplay._vip_progress_label.text == "0/2" and gameplay._vip_reward_label.text == "%d" % (2 * Drink.order_reward(8)) and gameplay._vip_multiplier_label.text == "2X")
-	_capture("vip_pending")
+	_check("combined owner-approved HUD asset is active", to_go_panel != null and to_go_panel.get_node("Artwork").texture.resource_path == "res://assets/ui/panel_to_go_vip_orders.png")
+	_check("combined HUD keeps the existing To-Go display width", to_go_panel != null and is_equal_approx(to_go_panel.size.x, 210.0 * gameplay._ui_scale))
+	_check("obsolete procedural VIP card is absent", gameplay != null and gameplay.get_node_or_null("UI/HUD/VipCard") == null)
+	_check("normal target uses canonical cocktail and authoritative 0/1 progress", gameplay != null and gameplay._to_go_target_sprite.texture == Drink.texture_for_level(6) and gameplay._to_go_progress_label.text == "0/1")
+	_check("normal reward remains Drink.order_reward", gameplay != null and gameplay._to_go_reward_label.text == "%d" % Drink.order_reward(6))
+	_check("VIP target reuses canonical cocktail texture", gameplay != null and gameplay._vip_target_sprite.texture == Drink.texture_for_level(int(vip_state_before_delivery["cocktail_level"])))
+	_check("normal and VIP cocktail slots share one scaling policy", gameplay != null and is_equal_approx(gameplay._to_go_target_sprite.scale.x, gameplay._to_go_cocktail_scale(6)) and is_equal_approx(gameplay._vip_target_sprite.scale.x, gameplay._to_go_cocktail_scale(8)))
+	_check("VIP pending presentation shows 0/N and doubled reward", gameplay != null and gameplay._vip_progress_label.text == "0/2" and gameplay._vip_reward_label.text == "%d" % (2 * Drink.order_reward(8)))
+	_capture("normal_vip_pending")
 
 	# Production VIP proof: on_merged is the same GameManager callback used by
 	# MergeQueue. The drink is consumed by the independent VIP capture route,
@@ -282,7 +286,7 @@ func _run() -> void:
 	_check("merged VIP receives exact 2x unit payout", not is_instance_valid(merged_vip) and gameplay.score == merged_vip_score_before_delivery + 2 * Drink.order_reward(8))
 	_check("first actual VIP delivery accumulates 1/2", first_vip_state["delivered"] == 1 and first_vip_state["remaining"] == 1 and not first_vip_state["completed"])
 	_check("VIP partial presentation shows 1/N without debug words", gameplay._vip_progress_label.text == "1/2" and not gameplay._vip_progress_label.text.contains("PENDING") and not gameplay._vip_progress_label.text.contains("COMPLETED"))
-	_capture("vip_partial")
+	_capture("normal_vip_partial")
 
 	# Stored drinks use the same production target-selection seam and must also
 	# satisfy the distinct VIP objective without becoming normal To-Go rewards.
@@ -295,8 +299,8 @@ func _run() -> void:
 	var completed_vip_state: Dictionary = navigation.get_session_bridge().get_vip_state()
 	_check("stored VIP receives exact 2x unit payout", not is_instance_valid(stored_vip) and gameplay.score == stored_vip_score_before_delivery + 2 * Drink.order_reward(8))
 	_check("second actual VIP delivery completes cumulative 2/2", completed_vip_state["delivered"] == 2 and completed_vip_state["remaining"] == 0 and completed_vip_state["completed"])
-	_check("VIP completed presentation replaces the fraction with a check mark", gameplay._vip_progress_label.text == "✓" and gameplay._vip_card.visible)
-	_capture("vip_completed")
+	_check("VIP completed presentation replaces the fraction with a check mark", gameplay._vip_progress_label.text == "✓" and gameplay._to_go_panel.visible and gameplay._vip_target_sprite.visible)
+	_capture("normal_vip_completed")
 
 	var extra_vip: Drink = gameplay.spawn_drink(8, Vector2(520.0, gameplay.launch_y - 280.0), false)
 	gameplay.on_merged(8, extra_vip)
@@ -317,6 +321,7 @@ func _run() -> void:
 	await _wait_seconds(0.52)
 	var vip_win: Dictionary = navigation.get_session_bridge().get_terminal_result()
 	_check("normal L6 delivery remains 1x payout", gameplay.score == normal_score_before_delivery + Drink.order_reward(6))
+	_check("normal progress reflects authoritative completed/required state", gameplay._to_go_progress_label.text == "1/1")
 	_check("terminal result score includes VIP bonuses", vip_win.get("score", -1) == gameplay.score)
 	_check("normal WIN follows VIP completion and grants reward once", vip_win.get("outcome", "") == "WIN" and vip_win.get("vip_completed", false) and economy.get_booster_count("upgrade") == 1 and economy.has_granted_reward("vip:%s:1" % ISLAND_ID))
 	var upgrade_count_after_win := economy.get_booster_count("upgrade")
@@ -359,8 +364,10 @@ func _run() -> void:
 	navigation.get_island_map().select_level(2)
 	await process_frame
 	await process_frame
-	_capture("non_vip")
-	_check("non-VIP runtime hides the attached VIP card", navigation.get_node_or_null("CampaignGameplay") != null and not navigation.get_node("CampaignGameplay")._vip_card.visible)
+	_capture("non_vip_0_of_0")
+	var non_vip_gameplay = navigation.get_node_or_null("CampaignGameplay")
+	_check("non-VIP keeps the combined panel visible", non_vip_gameplay != null and non_vip_gameplay._to_go_panel.visible)
+	_check("non-VIP shows persistent 0/0 with no VIP reward", non_vip_gameplay != null and non_vip_gameplay._vip_progress_label.text == "0/0" and non_vip_gameplay._vip_reward_label.text.is_empty() and not non_vip_gameplay._vip_target_sprite.visible)
 	navigation.queue_free()
 	await process_frame
 

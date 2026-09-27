@@ -104,7 +104,7 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     var next := hud.get_node_or_null("NextPanel") as Control
     var strip := hud.get_node_or_null("ProgressionStrip") as Control
     print("M07_PANEL_SIZES label=%s logo=%s best=%s score=%s to_go=%s next=%s strip=%s" % [label, logo.size if logo != null else Vector2.INF, best.size if best != null else Vector2.INF, score.size if score != null else Vector2.INF, to_go.size if to_go != null else Vector2.INF, next.size if next != null else Vector2.INF, strip.size if strip != null else Vector2.INF])
-    _check("%s canonical logo/panels exist" % label, _asset(logo, "logo_beach_cocktails_merge.png") and _asset(best, "panel_best_score.png") and _asset(score, "panel_score.png") and _asset(to_go, "panel_to_go_orders.png") and _asset(next, "panel_next.png") and _asset(strip, "progression_strip.png"))
+    _check("%s canonical logo/panels exist" % label, _asset(logo, "logo_beach_cocktails_merge.png") and _asset(best, "panel_best_score.png") and _asset(score, "panel_score.png") and _asset(to_go, "panel_to_go_vip_orders.png") and _asset(next, "panel_next.png") and _asset(strip, "progression_strip.png"))
     var frame_count := 0
     if strip != null:
         for child in strip.get_children():
@@ -118,7 +118,7 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     _check("%s outer HUD panels remain on-screen" % label, _on_screen(logo, hud.size) and _on_screen(best, hud.size) and _on_screen(score, hud.size) and _on_screen(to_go, hud.size) and _on_screen(next, hud.size) and _on_screen(strip, hud.size))
     var to_go_artwork := to_go.get_node_or_null("Artwork") as Sprite2D if to_go != null else null
     var to_go_top := _sprite_visible_top(to_go, to_go_artwork)
-    _check("%s unchanged To-Go artwork touches viewport top without runtime ropes" % label, to_go_artwork != null and hud.get_node_or_null("ToGoRopeLeft") == null and hud.get_node_or_null("ToGoRopeRight") == null and absf(to_go_top) <= 0.5)
+    _check("%s combined To-Go/VIP artwork touches viewport top without runtime ropes" % label, to_go_artwork != null and hud.get_node_or_null("ToGoRopeLeft") == null and hud.get_node_or_null("ToGoRopeRight") == null and absf(to_go_top) <= 0.5)
 
     _check("%s live score values are dynamic" % label, manager._best_value != null and manager._score_value != null and manager._best_value.text == "24380" and manager._score_value.text == "12650")
     _check("%s exactly one active To-Go panel/target/reward" % label, _count_named(hud, "ToGoOrdersPanel") == 1 and manager._to_go_target_sprite != null and manager._to_go_target_sprite.texture == Drink.texture_for_level(6) and manager._to_go_reward_label.text == "1000")

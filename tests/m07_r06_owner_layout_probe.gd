@@ -11,8 +11,8 @@ const CASES := [
 const CAPTURE_DIR := "res://docs/evidence/m07_r08"
 const BEST_VALUE_BOX := Rect2(45.0, 49.5, 116.0, 52.0)
 const SCORE_VALUE_BOX := Rect2(45.0, 47.0, 116.0, 52.0)
-const TO_GO_TARGET_BOX := Rect2(30.0, 78.0, 150.0, 100.0)
-const TO_GO_REWARD_BOX := Rect2(35.0, 185.0, 140.0, 35.0)
+const TO_GO_TARGET_BOX := Rect2(48.0, 20.0, 54.0, 57.0)
+const TO_GO_REWARD_BOX := Rect2(103.0, 49.0, 67.0, 27.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
 
 var failures: Array[String] = []
@@ -111,7 +111,7 @@ func _check_layout(manager: GameManager, label: String) -> void:
     var to_go_artwork := to_go.get_node_or_null("Artwork") as Sprite2D
     var to_go_top := _sprite_visible_top(to_go, to_go_artwork)
     var no_runtime_rope := hud.get_node_or_null("ToGoRopeLeft") == null and hud.get_node_or_null("ToGoRopeRight") == null
-    _check("%s unchanged To-Go asset touches viewport top without runtime rope" % label, to_go_artwork != null and no_runtime_rope and absf(to_go_top) <= 0.5)
+    _check("%s combined To-Go/VIP asset touches viewport top without runtime rope" % label, to_go_artwork != null and no_runtime_rope and absf(to_go_top) <= 0.5)
     print("M07_R08_TO_GO_TOP label=%s panel_y=%.3f asset_top_y=%.3f no_runtime_rope=%s" % [label, to_go.position.y, to_go_top, no_runtime_rope])
 
     var next_ok := true
