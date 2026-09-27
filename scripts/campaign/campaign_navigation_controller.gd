@@ -1,22 +1,27 @@
 class_name CampaignNavigationController
 extends Control
 
-## Production campaign router for the M12 World Map and M13 Island Map.
-## It owns one instance of each reusable map and shares one campaign/database
-## authority between them. Level selection remains a signal boundary only.
+## Production campaign router for the M12 World Map, M13 Island Map, and the
+## M14 session boundary. It owns one instance of each reusable map and one
+## existing gameplay scene at a time.
 
 signal world_map_entered
 signal island_map_entered(island_id: String)
 signal level_selected(island_id: String, level_id: int)
+signal gameplay_session_started(configuration: Dictionary)
+signal gameplay_session_finished(result: Dictionary)
 
 const VIEW_WORLD_MAP := "WORLD_MAP"
 const VIEW_ISLAND_MAP := "ISLAND_MAP"
+const VIEW_GAMEPLAY := "GAMEPLAY"
 
 const WORLD_MAP_SCENE := preload("res://scenes/campaign/WorldMapScene.tscn")
 const ISLAND_MAP_SCENE := preload("res://scenes/campaign/IslandMapScene.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
+const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
+const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
 
 var level_database
 var campaign_manager
@@ -25,6 +30,8 @@ var active_island_id := ""
 
 var _world_map
 var _island_map
+var _gameplay
+var _session_bridge
 var _restoration_by_island: Dictionary = {}
 
 
@@ -40,6 +47,11 @@ func configure_campaign(database, manager) -> bool:
 		return false
 	level_database = database
 	campaign_manager = manager
+	if _session_bridge == null:
+		_session_bridge = BRIDGE_SCRIPT.new()
+		_session_bridge.island_map_requested.connect(_on_session_island_map_requested)
+		_session_bridge.session_terminal.connect(_on_session_terminal)
+	_session_bridge.configure(level_database, campaign_manager)
 	if is_inside_tree():
 		_ensure_map_instances()
 	return true
@@ -66,6 +78,10 @@ func show_world_map() -> bool:
 		return false
 	if current_view == VIEW_ISLAND_MAP and not active_island_id.is_empty():
 		_restoration_by_island[active_island_id] = _island_map.get_restoration_state()
+	if current_view == VIEW_GAMEPLAY:
+		_dispose_gameplay()
+		if _session_bridge != null:
+			_session_bridge.clear_session()
 	_island_map.visible = false
 	_world_map.visible = true
 	_world_map.refresh()
@@ -90,6 +106,45 @@ func get_island_map():
 	return _island_map
 
 
+func get_gameplay_instance_count() -> int:
+	return 1 if is_instance_valid(_gameplay) else 0
+
+
+func get_session_bridge():
+	return _session_bridge
+
+
+func retry_level() -> bool:
+	if _session_bridge == null or not _session_bridge.is_terminal():
+		return false
+	var configuration: Dictionary = _session_bridge.retry_session()
+	if configuration.is_empty():
+		return false
+	_dispose_gameplay()
+	current_view = VIEW_GAMEPLAY
+	call_deferred("_instantiate_gameplay", configuration)
+	return true
+
+
+func next_level() -> bool:
+	if _session_bridge == null or not _session_bridge.is_terminal():
+		return false
+	var configuration: Dictionary = _session_bridge.next_level_session()
+	if configuration.is_empty():
+		return false
+	_dispose_gameplay()
+	current_view = VIEW_GAMEPLAY
+	call_deferred("_instantiate_gameplay", configuration)
+	return true
+
+
+func return_to_island_map() -> bool:
+	if _session_bridge == null or not _session_bridge.is_terminal():
+		return false
+	var result: Dictionary = _session_bridge.return_to_island_map()
+	return bool(result.get("ok", false))
+
+
 func get_map_instance_count() -> int:
 	var count := 0
 	if _world_map != null:
@@ -102,6 +157,11 @@ func get_map_instance_count() -> int:
 func _ensure_map_instances() -> bool:
 	if level_database == null or campaign_manager == null:
 		return false
+	if _session_bridge == null:
+		_session_bridge = BRIDGE_SCRIPT.new()
+		_session_bridge.island_map_requested.connect(_on_session_island_map_requested)
+		_session_bridge.session_terminal.connect(_on_session_terminal)
+		_session_bridge.configure(level_database, campaign_manager)
 	if _world_map == null:
 		_world_map = WORLD_MAP_SCENE.instantiate()
 		_world_map.level_database = level_database
@@ -128,8 +188,47 @@ func _on_island_map_requested(island_id: String) -> void:
 
 
 func _on_level_selected(island_id: String, level_id: int) -> void:
-	# M14 owns gameplay launch. M13 forwards only the bounded selection signal.
 	level_selected.emit(island_id, level_id)
+	_launch_selected_level(island_id, level_id)
+
+
+func _launch_selected_level(island_id: String, level_id: int) -> bool:
+	if _session_bridge == null or is_instance_valid(_gameplay):
+		return false
+	var configuration: Dictionary = _session_bridge.start_session(island_id, level_id)
+	if configuration.is_empty():
+		return false
+	_island_map.visible = false
+	_world_map.visible = false
+	current_view = VIEW_GAMEPLAY
+	_instantiate_gameplay(configuration)
+	return true
+
+
+func _instantiate_gameplay(configuration: Dictionary) -> void:
+	if is_instance_valid(_gameplay):
+		return
+	_gameplay = GAMEPLAY_SCENE.instantiate()
+	_gameplay.name = "CampaignGameplay"
+	add_child(_gameplay)
+	if _gameplay.has_method("configure_campaign_session"):
+		_gameplay.configure_campaign_session(_session_bridge)
+	gameplay_session_started.emit(configuration)
+
+
+func _dispose_gameplay() -> void:
+	if is_instance_valid(_gameplay):
+		_gameplay.queue_free()
+	_gameplay = null
+
+
+func _on_session_terminal(result: Dictionary) -> void:
+	gameplay_session_finished.emit(result)
+
+
+func _on_session_island_map_requested(island_id: String) -> void:
+	_dispose_gameplay()
+	show_island_map(island_id)
 
 
 func _configure_default_campaign() -> void:

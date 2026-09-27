@@ -1,6 +1,9 @@
 class_name GameManager
 extends Node2D
 
+signal campaign_session_terminal(result: Dictionary)
+signal campaign_order_completed(level: int, quantity: int)
+
 ## Root game coordinator.
 ## Physics stays genuinely 2D, while the board geometry and drink artwork use
 ## a mild perspective treatment to create a more attractive 2.5D camera angle.
@@ -118,6 +121,7 @@ var _target_transition := false
 var _target_drink: Drink
 var _startup_target_index := 0
 var _order_sequence := 0
+var campaign_session_bridge
 
 
 func _ready() -> void:
@@ -161,6 +165,29 @@ func _ready() -> void:
 func _exit_tree() -> void:
     if instance == self:
         instance = null
+
+
+func configure_campaign_session(bridge) -> bool:
+    if bridge == null or not bridge.is_session_active():
+        return false
+    if campaign_session_bridge != null and campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
+        campaign_session_bridge.session_terminal.disconnect(_on_campaign_session_terminal)
+    campaign_session_bridge = bridge
+    if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
+        campaign_session_bridge.session_terminal.connect(_on_campaign_session_terminal)
+    var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
+    if configuration.is_empty():
+        return false
+    _target_level = campaign_session_bridge.get_next_required_order_level()
+    if _target_level > 0:
+        _refresh_merge_target_visual()
+        call_deferred("_try_collect_stocked_target")
+    campaign_session_bridge.set_current_score(score)
+    return campaign_session_bridge.mark_gameplay_ready()
+
+
+func get_campaign_session_bridge():
+    return campaign_session_bridge
 
 
 func get_board_size() -> Vector2:
@@ -506,6 +533,9 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
 
 
 func _process(delta: float) -> void:
+    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+        campaign_session_bridge.set_current_score(score)
+        campaign_session_bridge.tick(delta)
     if game_over:
         _update_launch_zone(false)
         return
@@ -589,6 +619,9 @@ func _game_over() -> void:
     _game_over_layer.visible = true
 
     print("OYUN BITTI - Skor: %d" % score)
+
+    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+        campaign_session_bridge.resolve_lose("TABLE_DANGER", score)
 
 
 func _restart_game() -> void:
@@ -959,6 +992,14 @@ func _build_merge_target() -> void:
 
 
 func _choose_next_target(initial: bool = false) -> void:
+    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+        _target_level = campaign_session_bridge.get_next_required_order_level()
+        if _target_level <= 0:
+            return
+        _refresh_merge_target_visual()
+        call_deferred("_try_collect_stocked_target")
+        return
+
     # Owner-directed verification sequence: L5 -> L6 -> L7. Once those three
     # live orders are complete, return to the existing L6-L12 selection rule.
     if initial:
@@ -1084,8 +1125,32 @@ func _finish_target_collection() -> void:
     _refresh_hud()
     print("TO-GO ORDER L%d +%d  (toplam: %d)" % [completed_level, order_bonus, score])
 
+    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+        campaign_session_bridge.set_current_score(score)
+        var delivery_id := "gameplay-order-%d" % _order_sequence
+        campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
+        campaign_order_completed.emit(completed_level, 1)
+        if campaign_session_bridge.is_terminal():
+            return
+
     _target_transition = false
     _choose_next_target(false)
+
+
+func _on_campaign_session_terminal(result: Dictionary) -> void:
+    if game_over:
+        return
+    game_over = true
+    if merge_queue != null:
+        merge_queue.clear()
+    if shot_controller != null:
+        shot_controller.stop_shooting()
+    if world != null:
+        for child in world.get_children():
+            if child is Drink:
+                (child as Drink).freeze = true
+    _update_launch_zone(false)
+    campaign_session_terminal.emit(result)
 
 
 func _make_label(pos: Vector2, size: Vector2, font_size: int, alignment: HorizontalAlignment) -> Label:
