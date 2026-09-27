@@ -4,11 +4,11 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M14
-- Current Sprint: BCM-M14-GAMEPLAY-SESSION-BRIDGE
-- Current Task: Implement the campaign GameplaySessionBridge, authoritative timed session lifecycle, normal To-Go objective win/lose flow, and Retry/Next/Island Map return without retuning accepted core gameplay.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes BCM-M14-GAMEPLAY-SESSION-BRIDGE V02 remediation for real executable campaign entry, corrected star semantics, and production pause/background lifecycle integration, then stops for independent audit.
+- Current Milestone: M15
+- Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
+- Current Task: Implement persistent VIP rewards, booster inventory, +Time, milestone rewards, coin/reward ledger hooks, and compact VIP gameplay state without introducing purchases/ads or retuning accepted gameplay.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes BCM-M15-VIP-BOOSTERS-ECONOMY V01 against the locked audit criteria, writes CODEX_LOG_V01.md, pushes main, and stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -30,7 +30,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
 - [x] BCM-M12-001 — Reusable data-driven World Map closed with technical audit PASS and owner acceptance.
 - [x] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
-- [!] BCM-M14-001 — Implement GameplaySessionBridge and authoritative timed campaign gameplay session flow.
+- [x] BCM-M14-001 — Implement GameplaySessionBridge and authoritative timed campaign gameplay session flow.
+- [~] BCM-M15-001 — Implement persistent VIP rewards, booster inventory, +Time, milestone rewards and economy hooks.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -295,33 +296,44 @@ M13 closure:
 - exact selected/focus/scroll restoration PASS;
 - M10/M11/M12 regressions preserved.
 
-## Active M14 — Gameplay Session Bridge
+## M14 Gameplay Session Bridge — Closed
+
+Independent audit V02:
+`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_AUDIT_V02.md` — **AUDITED_PASS**.
+
+M14 closure:
+- executable campaign shell entry PASS;
+- real M12 -> M13 -> M14 launch PASS;
+- immutable session and authoritative timer PASS;
+- production gameplay pause/background lifecycle PASS;
+- normal To-Go objective win/lose PASS;
+- optional VIP semantics PASS;
+- corrected 1/2/3-star contract PASS;
+- Retry / Next / Island Map PASS;
+- campaign progression/regressions preserved.
+
+## Active M15 — VIP, Boosters, Rewards & Economy
 
 Locked criteria:
-`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_AUDIT_CRITERIA_V01.md`
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V01.md`
 
 Execution prompt:
-`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_EXECUTION_PROMPT_V01.md`
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V01.md`
 
-Independent audit V01:
-`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_AUDIT_V01.md` — **CHANGES_REQUIRED**.
-
-V02 locked criteria:
-`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_AUDIT_CRITERIA_V02.md`
-
-V02 execution prompt:
-`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_EXECUTION_PROMPT_V02.md`
+Pending independent audit:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V01.md`
 
 Scope:
-- real M13 level selection -> existing gameplay session;
-- immutable level snapshot;
-- authoritative timer;
-- normal To-Go objective win/lose;
-- optional VIP state without M15 rewards;
-- progression handoff;
-- Retry / Next / Island Map;
-- no M16 canonical level-content authoring;
-- no R11 physics/HUD/asset retuning.
+- persistent GameEconomy authority;
+- VIP reward dispatch;
+- booster inventory;
+- +Time contract;
+- milestone rewards;
+- coin/reward ledger;
+- compact VIP state;
+- no purchases/ads/backend;
+- no M16 production level content;
+- no R11 physics/HUD geometry retuning.
 
 
 ## M08-M21 — Roadmap
@@ -380,18 +392,18 @@ Scope:
 
 ### M14 — Level launch and timed gameplay session bridge
 
-- [!] BCM-M14-001 — Implement GameplaySessionBridge to launch the existing gameplay scene from selected campaign level data.
-- [ ] BCM-M14-002 — Feed level timer, normal To-Go objectives, optional VIP objective, rewards, and scoring rules into gameplay without retuning accepted launch/merge/table physics.
-- [ ] BCM-M14-003 — Add authoritative countdown timer with start, pause, resume, app-background, success-stop, and timeout behavior.
-- [ ] BCM-M14-004 — Define win condition as completion of all normal level orders before timer expiry.
-- [ ] BCM-M14-005 — Define VIP objective as optional; VIP failure must never block normal level completion.
-- [ ] BCM-M14-006 — Add win/lose result model and return flow to Retry, Next Level, and Island Map.
-- [ ] BCM-M14-007 — Prevent campaign objectives from breaking the existing To-Go rule that qualifying stored L6-L12 drinks may satisfy later matching orders.
-- [ ] BCM-M14-008 — Add regression tests proving campaign mode preserves accepted core merge/scoring/edge behavior.
+- [x] BCM-M14-001 — Implement GameplaySessionBridge to launch the existing gameplay scene from selected campaign level data.
+- [x] BCM-M14-002 — Feed level timer, normal To-Go objectives, optional VIP objective, rewards, and scoring rules into gameplay without retuning accepted launch/merge/table physics.
+- [x] BCM-M14-003 — Add authoritative countdown timer with start, pause, resume, app-background, success-stop, and timeout behavior.
+- [x] BCM-M14-004 — Define win condition as completion of all normal level orders before timer expiry.
+- [x] BCM-M14-005 — Define VIP objective as optional; VIP failure must never block normal level completion.
+- [x] BCM-M14-006 — Add win/lose result model and return flow to Retry, Next Level, and Island Map.
+- [x] BCM-M14-007 — Prevent campaign objectives from breaking the existing To-Go rule that qualifying stored L6-L12 drinks may satisfy later matching orders.
+- [x] BCM-M14-008 — Add regression tests proving campaign mode preserves accepted core merge/scoring/edge behavior.
 
 ### M15 — VIP orders, boosters, rewards, and economy hooks
 
-- [ ] BCM-M15-001 — Add a compact VIP badge/state to the existing To-Go Orders UI without customer characters or new animated scenes.
+- [~] BCM-M15-001 — Add a compact VIP badge/state to the existing To-Go Orders UI without customer characters or new animated scenes.
 - [ ] BCM-M15-002 — Implement optional VIP completion reward dispatch for booster rewards.
 - [ ] BCM-M15-003 — Define initial booster inventory model and campaign reward integration.
 - [ ] BCM-M15-004 — Implement +Time booster contract for timed levels without altering base timer definitions.
