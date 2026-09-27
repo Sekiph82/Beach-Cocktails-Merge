@@ -6,9 +6,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
-- Current Task: BCM-M15-R01 — Remediate the owner-rejected VIP overlay visual states while preserving the audited V03 technical flow.
+- Current Task: Replace the rejected inline VIP telemetry with an owner-approved separate VIP card attached below To-Go Orders, showing the VIP cocktail, progress, reward points, and 2X badge only.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: CODEX implements the bounded M15 VIP overlay remediation from CHATGPT_REMEDIATION_PROMPT_V01.md, captures V04 evidence, and returns AWAITING_M15_AUDIT_V04.
+- Next Task/Action: Codex executes BCM-M15 V04 visual remediation only, publishes Windows/OpenGL evidence, and stops for independent audit and owner visual acceptance.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -350,19 +350,21 @@ V03 execution prompt:
 Independent audit V03:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V03.md` — **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
 
-Owner decision V04:
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_DECISION_V04.md` — **VIP OVERLAY VISUAL GATE FAILED; NON-VIP BASELINE PASSED**.
+Owner rejected the V03 inline VIP presentation. Technical V03 behavior remains accepted.
 
-Independent audit V04:
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V04.md` — **CHANGES_REQUIRED / OWNER_VISUAL_REMEDIATION_REQUIRED**.
+Owner visual ruling V04:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_RULING_V04.md`
 
 V04 locked criteria:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V04.md`
 
-V04 remediation prompt:
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_REMEDIATION_PROMPT_V01.md`
+V04 execution prompt:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V04.md`
 
-M15-R01 is ready for CODEX. M16 must not begin.
+V04 pending audit:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V04.md`
+
+Owner visual acceptance remains required after V04 technical audit; M16 must not begin.
 
 Scope:
 - persistent GameEconomy authority;

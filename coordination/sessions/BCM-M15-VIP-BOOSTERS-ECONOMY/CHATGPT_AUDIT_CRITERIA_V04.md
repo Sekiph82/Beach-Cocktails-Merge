@@ -1,92 +1,109 @@
-# BCM-M15 VIP Overlay Visual Remediation — Audit Criteria V04
+# BCM-M15 VIP Visual Remediation — Audit Criteria V04
 
-Status: **LOCKED BEFORE REMEDIATION**
+Status: **LOCKED BEFORE EXECUTION**
 
 Authority:
-
-- `OWNER_DECISION_V04.md`
-- `CHATGPT_AUDIT_V04.md`
-- M15 V03 technical audit and implementation
-- accepted M14 and R11 gameplay contracts
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_RULING_V04.md`
+- M15 V03 technical audit PASS
+- owner rejection of V03 VIP visuals
 
 ## Objective
 
-Remediate only the owner-rejected VIP overlay visual states while preserving
-the V03 technical implementation and the passing non-VIP baseline.
+Remediate only the VIP presentation. Preserve all V03 gameplay/economy behavior.
 
-## Gate A — VIP pending state
-
-PASS requires all of the following in the committed pending capture:
-
-- the VIP target cocktail image is visible;
-- no VIP overlay text covers or materially obscures the cocktail image;
-- the `2X` premium indication is visible;
-- the compact VIP overlay remains readable without changing accepted normal
-  To-Go panel/table/HUD geometry.
-
-## Gate B — VIP partial state
+## Gate A — Separate attached VIP card
 
 PASS requires:
+- existing To-Go Orders panel remains visually unchanged;
+- VIP information is removed from inside the To-Go Orders content area;
+- when VIP is active, a separate compact VIP card appears directly below and visually attached to To-Go Orders;
+- the VIP card is HUD-only and does not alter gameplay/table geometry;
+- no overlap with the normal To-Go cocktail image or reward value.
 
-- progress is materially visible through the VIP visual information
-  architecture;
-- changing only a textual `1/2` label is not the sole progress treatment;
-- the target image remains visible and the `2X` indication remains visible;
-- the partial state does not introduce the pending-state overlap or damage the
-  normal To-Go panel.
-
-## Gate C — VIP completed state
+## Gate B — VIP target cocktail image
 
 PASS requires:
+- VIP card shows the actual VIP target cocktail sprite/image;
+- it uses the same cocktail texture/art source used by To-Go Orders (`Drink.texture_for_level()` or the canonical equivalent);
+- cocktail artwork itself is not regenerated, recolored, restyled, or replaced;
+- the VIP target must be identifiable visually without relying on raw `L#` text.
 
-- completion is represented by a bounded visual state rather than the long
-  `COMPLETED` text;
-- the completed state remains legible inside the compact VIP overlay;
-- the target image and premium/completion meaning remain visually clear;
-- no accepted normal To-Go panel or table/HUD geometry is moved or redesigned.
+## Gate C — Progress presentation
 
-## Gate D — Non-VIP preservation
+PASS requires:
+- active VIP with required quantity N begins at `0/N`;
+- each accepted VIP delivery increments the visible count;
+- partial state shows `1/N`, `2/N`, etc.;
+- fully completed VIP replaces the numeric counter with `✓`;
+- no `PENDING` or `COMPLETED` words are displayed.
 
-PASS requires the V03 non-VIP baseline to remain visually equivalent in the
-new capture:
+## Gate D — Reward + 2X badge
 
-- the VIP overlay is absent when no VIP objective is active;
-- the normal To-Go panel remains readable and retains its current geometry;
-- no panel-asset replacement or unrelated HUD redesign is introduced.
+PASS requires:
+- VIP card shows the actual doubled VIP delivery payout for the target cocktail;
+- displayed value equals `2 * Drink.order_reward(vip_level)`;
+- a compact `2X` badge is positioned immediately adjacent to that value;
+- reward and 2X are visually legible at 720x1280;
+- no reward change is made to underlying scoring mechanics.
 
-## Gate E — Technical preservation
+## Gate E — Non-VIP state
 
-PASS requires preservation of the V03 technical contract:
+PASS requires:
+- VIP card is completely hidden when no VIP objective is active;
+- non-VIP To-Go Orders panel matches the accepted baseline with no dead space, placeholder, or residual VIP text.
 
-- normal/VIP target-policy parity remains intact;
-- exact 2x per-unit VIP payout remains intact;
-- same-level normal-first precedence remains intact;
-- score authority and separate economy reward remain intact;
-- no M16 content, purchases, ads, backend, R11 physics/table/collider, or
-  normal To-Go reward changes are introduced.
+## Gate F — Visual hierarchy
 
-## Gate F — Evidence and regression
+PASS requires:
+- VIP card reads as a secondary attached card, not as debug telemetry;
+- hierarchy is visually clear: VIP label, cocktail image, progress, reward + 2X;
+- no text crosses the cocktail sprite;
+- no raw `L8`, `PENDING`, `COMPLETED`, or similar state/debug strings;
+- the card remains compact and does not visually compete with the mandatory To-Go panel.
 
-Required committed Windows/OpenGL evidence under:
+## Gate G — Frozen behavior
 
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v04/`
+Source diff must not change:
+- V03 shared normal/VIP target policy;
+- VIP 2x payout calculation;
+- normal To-Go payout;
+- VIP quantity ledger;
+- same-level precedence;
+- terminal economy reward behavior;
+- WIN/LOSE/stars/progression;
+- R11 physics/table/collider behavior.
 
-The evidence must include:
+## Gate H — Evidence
 
-- VIP pending;
-- VIP partial;
-- VIP completed;
-- non-VIP hidden baseline.
+Capture Windows/OpenGL evidence under:
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v04/`
 
-Required checks:
+Required:
+- `vip_pending.png` showing `0/N`;
+- `vip_partial.png` showing partial progress;
+- `vip_completed.png` showing `✓`;
+- `non_vip.png` showing the VIP card fully absent.
 
+Evidence must show the full top HUD context, not only isolated crops.
+
+## Gate I — Regression
+
+Required PASS:
 - M15 focused probe twice;
-- M14, M13, M12, M11, M10, M08, M03, and M02 regressions;
-- `git diff --check`;
-- Godot import/parse bootstrap as applicable.
+- M14 gameplay-session regression;
+- M08 To-Go delivery regression;
+- M03 scoring/To-Go regression;
+- `git diff --check`.
 
-The builder log must be `CODEX_LOG_V04.md` and end with
-`AWAITING_M15_AUDIT_V04`. Owner visual acceptance remains required after the
-technical re-audit.
+Codex must not edit root `TASKS.md`.
 
-Any material failure or unverified item is `CHANGES_REQUIRED`.
+Mandatory canonical Desktop sync applies before and after the task.
+
+No new GitHub branch or Desktop project/worktree.
+
+## Builder log
+
+Write:
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CODEX_LOG_V04.md`
+
+Final technical verdict remains pending owner visual acceptance.
