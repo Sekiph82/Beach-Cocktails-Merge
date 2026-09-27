@@ -1,8 +1,8 @@
 extends SceneTree
 
-## Focused M15 probe. It exercises the production economy/session/navigation
-## seams with deterministic in-memory campaign data and writes only probe
-## screenshots under user://m15_screenshots/.
+## Focused M15 V02 probe. It exercises the production economy/session/navigation
+## seams with deterministic in-memory campaign data and writes inspectable
+## runtime evidence under the committed M15 session evidence folder.
 
 const ISLAND_ID := "m15_fixture"
 const TEST_ROOT := "user://m15_economy_probe"
@@ -11,6 +11,7 @@ const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
+const EVIDENCE_DIR := "res://coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v02"
 
 var failures: Array[String] = []
 
@@ -69,7 +70,7 @@ func _levels() -> Dictionary:
 		"schema_version": 1,
 		"island_id": ISLAND_ID,
 		"levels": [
-			_level(1, {"enabled": true, "cocktail_level": 12, "quantity": 1, "reward": {"type": "booster", "id": "upgrade", "quantity": 1}}, {"type": "coins", "quantity": 10}),
+			_level(1, {"enabled": true, "cocktail_level": 12, "quantity": 2, "reward": {"type": "booster", "id": "upgrade", "quantity": 1}}, {"type": "coins", "quantity": 10}),
 			_level(2, null, {"type": "coins", "quantity": 5}),
 		],
 	}
@@ -117,7 +118,7 @@ func _clean(path: String) -> void:
 
 
 func _capture(name: String) -> String:
-	var path := "user://m15_screenshots/%s.png" % name
+	var path := "%s/%s.png" % [EVIDENCE_DIR, name]
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(path.get_base_dir()))
 	if DisplayServer.get_name() == "headless":
 		print("M15_CAPTURE_UNAVAILABLE name=%s reason=HEADLESS_DISPLAY" % name)
@@ -130,6 +131,11 @@ func _capture(name: String) -> String:
 	var error: Error = image.save_png(ProjectSettings.globalize_path(path))
 	_check("screenshot captured: %s" % name, error == OK)
 	return path
+
+
+func _wait_seconds(seconds: float) -> void:
+	await create_timer(seconds).timeout
+	await process_frame
 
 
 func _run() -> void:
@@ -170,7 +176,7 @@ func _run() -> void:
 	var campaign = _campaign(database, economy)
 	var bridge = _bridge(database, campaign, economy)
 	var config: Dictionary = bridge.start_session(ISLAND_ID, 1)
-	_check("VIP session exposes exact target and pending state", config["vip"]["cocktail_level"] == 12 and bridge.get_vip_state()["status"] == "PENDING")
+	_check("VIP session exposes exact target and pending 0/2 state", config["vip"]["cocktail_level"] == 12 and bridge.get_vip_state()["status"] == "PENDING" and bridge.get_vip_state()["required"] == 2 and bridge.get_vip_state()["delivered"] == 0 and bridge.get_vip_state()["remaining"] == 2)
 	bridge.mark_gameplay_ready()
 	var base_time := float(config["time_limit_sec"])
 	var before_time: float = bridge.timer_remaining_sec
@@ -185,19 +191,6 @@ func _run() -> void:
 	var incomplete_result: Dictionary = incomplete_vip_bridge.record_to_go_delivery(6, 1, "m15-incomplete") ["terminal"]
 	_check("incomplete VIP still produces normal WIN", incomplete_result["outcome"] == "WIN" and not incomplete_result["vip_completed"])
 	_check("incomplete VIP grants no VIP booster", economy.get_booster_count("upgrade") == 0 and not economy.has_granted_reward("vip:%s:1" % ISLAND_ID))
-
-	var vip_bridge = _bridge(database, campaign, economy)
-	vip_bridge.start_session(ISLAND_ID, 1)
-	vip_bridge.mark_gameplay_ready()
-	vip_bridge.record_vip_delivery(12, 1)
-	_check("VIP badge state becomes completed only after requirement", vip_bridge.get_vip_state()["status"] == "COMPLETED")
-	var vip_win: Dictionary = vip_bridge.record_to_go_delivery(6, 1, "m15-vip-win")["terminal"]
-	_check("completed VIP reward dispatches only on normal WIN", vip_win["outcome"] == "WIN" and economy.get_booster_count("upgrade") == 1 and economy.has_granted_reward("vip:%s:1" % ISLAND_ID))
-	var replay_config: Dictionary = vip_bridge.retry_session()
-	vip_bridge.mark_gameplay_ready()
-	vip_bridge.set_vip_completed(true)
-	vip_bridge.record_to_go_delivery(6, 1, "m15-vip-replay")
-	_check("VIP replay after retry does not duplicate reward", economy.get_booster_count("upgrade") == 1)
 
 	var lose_economy = ECONOMY_SCRIPT.new()
 	lose_economy.configure()
@@ -232,10 +225,52 @@ func _run() -> void:
 	await process_frame
 	var gameplay = navigation.get_node_or_null("CampaignGameplay")
 	_check("runtime selection reuses the shared bridge/economy", opened and selected and gameplay != null and navigation.get_session_bridge().get_economy() == economy)
+	_check("production normal target is L6 and VIP target is L12", gameplay != null and gameplay._target_level == 6 and navigation.get_session_bridge().get_vip_state()["cocktail_level"] == 12)
 	_capture("vip_pending")
-	navigation.get_session_bridge().set_vip_completed(true)
-	await process_frame
+
+	# Production VIP proof: on_merged is the same GameManager callback used by
+	# MergeQueue. The drink is consumed by the independent VIP capture route,
+	# while the mandatory normal L6 target remains untouched.
+	var merged_vip: Drink = gameplay.spawn_drink(12, Vector2(360.0, gameplay.launch_y - 160.0), false)
+	gameplay.on_merged(12, merged_vip)
+	_check("newly merged VIP drink enters production capture", gameplay._vip_target_transition and gameplay._vip_target_drink == merged_vip and merged_vip.motion_state == Drink.MotionState.TARGET_CAPTURE)
+	await _wait_seconds(0.52)
+	var first_vip_state: Dictionary = navigation.get_session_bridge().get_vip_state()
+	_check("first actual VIP delivery accumulates 1/2", not is_instance_valid(merged_vip) and first_vip_state["delivered"] == 1 and first_vip_state["remaining"] == 1 and not first_vip_state["completed"])
+	_capture("vip_partial")
+
+	# Stored drinks use the same production target-selection seam and must also
+	# satisfy the distinct VIP objective without becoming normal To-Go rewards.
+	var stored_vip: Drink = gameplay.spawn_drink(12, Vector2(460.0, gameplay.launch_y - 220.0), false)
+	stored_vip.set_settled()
+	gameplay._try_collect_stocked_target()
+	_check("stored VIP drink enters production capture", gameplay._vip_target_transition and gameplay._vip_target_drink == stored_vip and stored_vip.motion_state == Drink.MotionState.TARGET_CAPTURE)
+	await _wait_seconds(0.52)
+	var completed_vip_state: Dictionary = navigation.get_session_bridge().get_vip_state()
+	_check("second actual VIP delivery completes cumulative 2/2", not is_instance_valid(stored_vip) and completed_vip_state["delivered"] == 2 and completed_vip_state["remaining"] == 0 and completed_vip_state["completed"])
 	_capture("vip_completed")
+
+	var extra_vip: Drink = gameplay.spawn_drink(12, Vector2(520.0, gameplay.launch_y - 280.0), false)
+	gameplay.on_merged(12, extra_vip)
+	await process_frame
+	var extra_state: Dictionary = navigation.get_session_bridge().get_vip_state()
+	_check("extra VIP delivery after completion is idempotent", is_instance_valid(extra_vip) and extra_state["delivered"] == 2 and extra_state["remaining"] == 0 and extra_state["completed"])
+	extra_vip.queue_free()
+
+	# The normal objective remains separately mandatory and is the only path
+	# that resolves WIN. VIP completion alone has not ended the session.
+	var normal_drink: Drink = gameplay.spawn_drink(6, Vector2(300.0, gameplay.launch_y - 120.0), false)
+	normal_drink.set_settled()
+	gameplay._try_collect_stocked_target()
+	_check("normal L6 enters its separate production capture", gameplay._target_transition and gameplay._target_drink == normal_drink)
+	await _wait_seconds(0.52)
+	var vip_win: Dictionary = navigation.get_session_bridge().get_terminal_result()
+	_check("normal WIN follows VIP completion and grants reward once", vip_win.get("outcome", "") == "WIN" and vip_win.get("vip_completed", false) and economy.get_booster_count("upgrade") == 1 and economy.has_granted_reward("vip:%s:1" % ISLAND_ID))
+	var upgrade_count_after_win := economy.get_booster_count("upgrade")
+	var repeated_terminal: Dictionary = navigation.get_session_bridge().resolve_win()
+	_check("repeated WIN resolution does not duplicate reward", repeated_terminal.get("outcome", "") == "WIN" and economy.get_booster_count("upgrade") == upgrade_count_after_win)
+
+	await process_frame
 	navigation.get_session_bridge().resolve_lose("SCREENSHOT_EXIT")
 	navigation.return_to_island_map()
 	await process_frame

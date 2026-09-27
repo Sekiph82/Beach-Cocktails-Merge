@@ -120,6 +120,8 @@ var _target_level := 6
 var _target_root: Node2D
 var _target_transition := false
 var _target_drink: Drink
+var _vip_target_transition := false
+var _vip_target_drink: Drink
 var _startup_target_index := 0
 var _order_sequence := 0
 var campaign_session_bridge
@@ -555,11 +557,13 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
 
     print("MERGE L%d +%d  COMBO x%d +%d  (toplam: %d)" % [new_level, base, chain, combo_bonus, score])
 
-    # If the newly-created drink matches the active To-Go Order, deliver it.
-    # Merge points/combo were already paid above; collection adds only the
-    # separate To-Go Orders reward.
-    if not _target_transition and new_level == _target_level:
+    # The mandatory normal To-Go objective always wins when both objectives
+    # name the same level. A distinct VIP level has its own optional capture
+    # route; merge points are paid once above and VIP capture adds no reward.
+    if not _target_transition and not _vip_target_transition and new_level == _target_level:
         _collect_merge_target(merged_drink)
+    elif not _target_transition and not _vip_target_transition and _active_vip_level() == new_level:
+        _collect_vip_target(merged_drink)
 
 
 func _process(delta: float) -> void:
@@ -1068,7 +1072,7 @@ func _choose_next_target(initial: bool = false) -> void:
 
 
 func _try_collect_stocked_target() -> void:
-    if game_over or _target_transition or world == null:
+    if game_over or _target_transition or _vip_target_transition or world == null:
         return
 
     var candidate: Drink = null
@@ -1092,6 +1096,34 @@ func _try_collect_stocked_target() -> void:
 
     if candidate != null:
         _collect_merge_target(candidate)
+        return
+
+    # Stored VIP drinks are independently deliverable when the mandatory
+    # normal target is different. If both objectives share a level, normal
+    # delivery remains the deterministic first claim while it is pending.
+    var vip_level := _active_vip_level()
+    var normal_pending: bool = campaign_session_bridge != null and campaign_session_bridge.is_session_active() and campaign_session_bridge.get_next_required_order_level() > 0
+    if vip_level <= 0 or (normal_pending and vip_level == _target_level):
+        return
+    var vip_candidate: Drink = null
+    var vip_distance := INF
+    for child in world.get_children():
+        if not (child is Drink):
+            continue
+        var drink := child as Drink
+        if drink.level != vip_level or drink.is_queued_for_deletion():
+            continue
+        if drink.motion_state == Drink.MotionState.HELD:
+            continue
+        if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
+            continue
+        var distance := drink.position.distance_to(_target_root.position)
+        if distance < vip_distance:
+            vip_candidate = drink
+            vip_distance = distance
+
+    if vip_candidate != null:
+        _collect_vip_target(vip_candidate)
 
 
 func _refresh_merge_target_visual() -> void:
@@ -1115,7 +1147,7 @@ func _refresh_merge_target_visual() -> void:
 
 
 func _collect_merge_target(drink: Drink) -> void:
-    if game_over or _target_transition:
+    if game_over or _target_transition or _vip_target_transition:
         return
     if not is_instance_valid(drink) or drink.is_queued_for_deletion():
         return
@@ -1161,7 +1193,6 @@ func _finish_target_collection() -> void:
 
     if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
         campaign_session_bridge.set_current_score(score)
-        campaign_session_bridge.record_vip_delivery(completed_level, 1, score)
         var delivery_id := "gameplay-order-%d" % _order_sequence
         campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
         campaign_order_completed.emit(completed_level, 1)
@@ -1170,6 +1201,47 @@ func _finish_target_collection() -> void:
 
     _target_transition = false
     _choose_next_target(false)
+
+
+func _collect_vip_target(drink: Drink) -> void:
+    if game_over or _target_transition or _vip_target_transition:
+        return
+    if not is_instance_valid(drink) or drink.is_queued_for_deletion():
+        return
+    if drink.level != _active_vip_level():
+        return
+
+    _vip_target_transition = true
+    _vip_target_drink = drink
+    drink.begin_target_capture()
+    _spawn_to_go_trail(drink.global_position, _target_root.global_position, TO_GO_DELIVERY_DURATION)
+
+    # VIP delivery reuses the existing To-Go destination and trail so no new
+    # HUD/table geometry is introduced. It never fades the normal target icon.
+    var tween := create_tween()
+    tween.set_parallel(true)
+    tween.set_trans(Tween.TRANS_QUAD)
+    tween.set_ease(Tween.EASE_IN)
+    tween.tween_property(drink, "position", _target_root.position, TO_GO_DELIVERY_DURATION)
+    tween.tween_property(drink, "scale", Vector2(0.42, 0.42), TO_GO_DELIVERY_DURATION)
+    tween.tween_property(drink, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
+    tween.finished.connect(_finish_vip_target, CONNECT_ONE_SHOT)
+
+
+func _finish_vip_target() -> void:
+    var drink := _vip_target_drink
+    var delivered_level := drink.level if is_instance_valid(drink) else _active_vip_level()
+    _vip_target_drink = null
+    if is_instance_valid(drink):
+        drink.queue_free()
+
+    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+        campaign_session_bridge.set_current_score(score)
+        var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1, score)
+        print("VIP DELIVERY L%d +%d/%d (remaining: %d)" % [delivered_level, int(result.get("delivered", 0)), int(result.get("required", result.get("delivered", 0) + result.get("remaining", 0))), int(result.get("remaining", 0))])
+
+    _vip_target_transition = false
+    call_deferred("_try_collect_stocked_target")
 
 
 func _on_vip_state_changed(_state: Dictionary) -> void:
@@ -1188,7 +1260,16 @@ func _refresh_vip_badge() -> void:
         return
     _vip_badge_label.visible = true
     var status := "COMPLETED" if bool(vip_state.get("completed", false)) else "PENDING"
-    _vip_badge_label.text = "VIP  L%d x%d  %s" % [int(vip_state.get("cocktail_level", 0)), int(vip_state.get("quantity", 1)), status]
+    _vip_badge_label.text = "VIP  L%d  %d/%d  %s" % [int(vip_state.get("cocktail_level", 0)), int(vip_state.get("delivered", 0)), int(vip_state.get("required", vip_state.get("quantity", 1))), status]
+
+
+func _active_vip_level() -> int:
+    if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+        return 0
+    var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
+    if not bool(vip_state.get("enabled", false)) or int(vip_state.get("remaining", 0)) <= 0:
+        return 0
+    return int(vip_state.get("cocktail_level", 0))
 
 
 func _on_campaign_session_terminal(result: Dictionary) -> void:

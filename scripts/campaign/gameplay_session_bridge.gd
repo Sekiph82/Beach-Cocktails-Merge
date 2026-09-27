@@ -42,6 +42,7 @@ var _normal_remaining_by_level: Dictionary = {}
 var _normal_completed_by_level: Dictionary = {}
 var _delivery_ids: Dictionary = {}
 var _vip_completed := false
+var _vip_delivered := 0
 var _background_paused := false
 var _pause_reason := ""
 var _current_score := 0
@@ -85,6 +86,7 @@ func start_session(island_id: String, level_id: int) -> Dictionary:
     _progression_result = {}
     _progression_submitted = false
     _vip_completed = false
+    _vip_delivered = 0
     vip_state_changed.emit(get_vip_state())
     _current_score = 0
     _background_paused = false
@@ -184,20 +186,29 @@ func get_objective_state() -> Dictionary:
         "normal_completed": _normal_completed_by_level.duplicate(true),
         "vip_enabled": _vip_enabled(),
         "vip_completed": _vip_completed,
+        "vip_delivered": int(get_vip_state().get("delivered", 0)),
+        "vip_remaining": int(get_vip_state().get("remaining", 0)),
     }
 
 
 func get_vip_state() -> Dictionary:
     var vip: Variant = _active_level.get("vip", null)
     if not _vip_enabled():
-        return {"enabled": false, "completed": false, "cocktail_level": 0, "quantity": 0, "status": "HIDDEN"}
+        return {"enabled": false, "completed": false, "cocktail_level": 0, "quantity": 0, "required": 0, "delivered": 0, "remaining": 0, "status": "HIDDEN"}
     var vip_config: Dictionary = vip
+    var required := maxi(1, int(vip_config.get("quantity", 1)))
+    var delivered := mini(_vip_delivered, required)
+    var remaining := required - delivered
+    var completed := delivered >= required
     return {
         "enabled": true,
-        "completed": _vip_completed,
+        "completed": completed,
         "cocktail_level": int(vip_config.get("cocktail_level", 0)),
-        "quantity": int(vip_config.get("quantity", 1)),
-        "status": "COMPLETED" if _vip_completed else "PENDING",
+        "quantity": required,
+        "required": required,
+        "delivered": delivered,
+        "remaining": remaining,
+        "status": "COMPLETED" if completed else "PENDING",
     }
 
 
@@ -238,21 +249,37 @@ func record_to_go_delivery(cocktail_level: int, quantity: int = 1, delivery_id: 
 
 
 func record_vip_delivery(cocktail_level: int, quantity: int = 1, score: int = -1) -> Dictionary:
+    if not is_session_active():
+        return {"ok": false, "reason": "NO_ACTIVE_SESSION", "vip_completed": _vip_completed}
+    if session_state == STATE_PAUSED:
+        return {"ok": false, "reason": "SESSION_PAUSED", "vip_completed": _vip_completed}
     if score >= 0:
         set_current_score(score)
     if not _vip_enabled():
         return {"ok": false, "reason": "VIP_DISABLED", "vip_completed": false}
     var vip: Dictionary = _active_level.get("vip", {})
-    if cocktail_level != int(vip.get("cocktail_level", 0)) or quantity < int(vip.get("quantity", 1)):
-        return {"ok": false, "reason": "VIP_REQUIREMENT_NOT_MET", "vip_completed": _vip_completed}
-    _vip_completed = true
-    vip_state_changed.emit(get_vip_state())
-    return {"ok": true, "vip_completed": true}
+    var required := maxi(1, int(vip.get("quantity", 1)))
+    var state := get_vip_state()
+    if cocktail_level != int(vip.get("cocktail_level", 0)):
+        return {"ok": false, "reason": "VIP_LEVEL_MISMATCH", "vip_completed": bool(state.get("completed", false)), "delivered": int(state.get("delivered", 0)), "remaining": int(state.get("remaining", 0))}
+    if quantity <= 0:
+        return {"ok": false, "reason": "VIP_QUANTITY_INVALID", "vip_completed": bool(state.get("completed", false)), "delivered": int(state.get("delivered", 0)), "remaining": int(state.get("remaining", 0))}
+    if bool(state.get("completed", false)):
+        return {"ok": true, "duplicate": true, "accepted": 0, "vip_completed": true, "delivered": int(state.get("delivered", 0)), "remaining": 0}
+
+    var accepted := mini(quantity, int(state.get("remaining", required)))
+    _vip_delivered += accepted
+    _vip_completed = _vip_delivered >= required
+    var updated := get_vip_state()
+    vip_state_changed.emit(updated)
+    return {"ok": true, "accepted": accepted, "vip_completed": bool(updated.get("completed", false)), "delivered": int(updated.get("delivered", 0)), "remaining": int(updated.get("remaining", 0))}
 
 
 func set_vip_completed(completed: bool) -> bool:
     if not _vip_enabled():
         return false
+    var required := maxi(1, int(get_vip_state().get("required", 1)))
+    _vip_delivered = required if completed else 0
     _vip_completed = completed
     vip_state_changed.emit(get_vip_state())
     return true
@@ -353,6 +380,7 @@ func clear_session() -> void:
     _terminal_result = {}
     _progression_result = {}
     _vip_completed = false
+    _vip_delivered = 0
     _background_paused = false
     _pause_reason = ""
     _current_score = 0
