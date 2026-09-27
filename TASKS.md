@@ -1,6 +1,6 @@
 # Beach Cocktails Merge — Canonical GitHub Task State
 
-This root `TASKS.md` is the authoritative current project-status tracker. GitHub `main`, locked ChatGPT audit criteria, independent audits, owner runtime screenshots/annotations, and committed repository evidence define project truth.
+This root `TASKS.md` is the **only** authoritative live project-status tracker and the **only project-status file consumed by the H!veAI parser**. GitHub repository metadata and the latest `main` commit are the remaining project-truth inputs. No parallel session index, roadmap, audit index, dashboard, hidden control-plane tracker, or equivalent status mirror is permitted. Prompts, criteria, logs, audits, manifests, and historical branch task files are evidence only, never competing current-state authorities.
 
 ## Project Status
 
@@ -12,6 +12,7 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
+- Progress: 56 / 101 = 55.45%. M15 technical implementation through V04 is complete; owner visual acceptance of the separate VIP card is the only open M15 closure gate.
 
 ## Tasks
 
@@ -24,18 +25,14 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M05-001 — Independent sprite/body/collider evidence closure completed and audited.
 - [x] BCM-M06-001 — Three-sided playable-envelope and cocktail-to-edge behavior closed by owner-accepted BCM-R11 table-footprint solution.
 - [x] BCM-M07-001 — HUD alignment/refinement closed; owner-accepted BEST/SCORE/NEXT/logo/To-Go/held behavior preserved through R11 regression.
-- [x] BCM-M08-001 — To-Go delivery animation and restrained visual effects implemented; merge/completion visuals owner-accepted, trail verification carried into M09.
-- [x] BCM-M09-001 — Feedback hooks, optional haptics architecture, and L5/L6/L7 startup To-Go sequence implemented, audited and owner-accepted; yellow trail accepted as-is.
-- [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
-- [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
-- [x] BCM-M12-001 — Reusable data-driven World Map closed with technical audit PASS and owner acceptance.
-- [x] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
-- [x] BCM-M14-001 — Implement GameplaySessionBridge and authoritative timed campaign gameplay session flow.
-- [~] BCM-M15-001 — Implement persistent VIP rewards, booster inventory, +Time, milestone rewards and economy hooks.
+
+Detailed canonical task rows for M08+ appear in the roadmap sections below. Each canonical task ID must appear exactly once in this file so the H!veAI parser cannot observe conflicting state.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
 ## Governance
+
+> **H!veAI tracking [OWNER-LOCKED — 2026-09-28]:** repository-root `TASKS.md` is the one and only live project-status tracker and H!veAI parser input. The top `Project Status` block controls current milestone, sprint, task, workflow status, next action, required actor, repository, branch, and progress. Every canonical task ID must appear exactly once. Do not create or maintain `coordination/SESSION_INDEX.md`, `coordination/AUDIT_INDEX.md`, `docs/04_ROADMAP.md`, `.hiveai/PROJECT_DASHBOARD.md`, `.hiveai/*` control-plane files, or any equivalent parallel tracker/status mirror. Audit/prompt/log files and historical task lists may exist only as evidence. **ChatGPT is the sole writer of root `TASKS.md`; Codex reads it but never edits it.** ChatGPT updates it after every independent audit, owner-gate decision, and before handing off the next implementation prompt.
 
 - Codex must never edit this file.
 - Prompt and locked audit criteria are created before implementation/remediation.
@@ -383,34 +380,34 @@ Scope:
 
 ### M08 — To-Go delivery polish
 
-- [~] BCM-M08-001 — Integrate To-Go delivery animation and restrained visual effects.
-- [ ] BCM-M08-002 — Preserve accepted physics, scoring, table-edge footprint, HUD placement, and canonical assets during delivery polish.
-- [ ] BCM-M08-003 — Run focused and full regression evidence and close only after independent audit.
+- [x] BCM-M08-001 — Integrate To-Go delivery animation and restrained visual effects.
+- [x] BCM-M08-002 — Preserve accepted physics, scoring, table-edge footprint, HUD placement, and canonical assets during delivery polish.
+- [x] BCM-M08-003 — Run focused and full regression evidence and close only after independent audit.
 
 ### M09 — Audio, haptics, and micro-polish
 
-- [ ] BCM-M09-001 — Add bounded merge, order-complete, VIP, level-win, level-fail, and UI audio hooks.
-- [ ] BCM-M09-002 — Add optional mobile haptics with settings toggle and safe no-op fallback on unsupported platforms.
+- [x] BCM-M09-001 — Add bounded merge, order-complete, VIP, level-win, level-fail, and UI audio hooks.
+- [x] BCM-M09-002 — Add optional mobile haptics with settings toggle and safe no-op fallback on unsupported platforms.
 - [ ] BCM-M09-003 — Add restrained timer urgency feedback that does not alter gameplay physics or obscure the board.
-- [ ] BCM-M09-004 — Add regression coverage for audio/haptic toggles and pause/resume behavior.
+- [x] BCM-M09-004 — Add regression coverage for audio/haptic toggles and pause/resume behavior.
 
 ### M10 — Campaign architecture and canonical data model
 
-- [ ] BCM-M10-001 — Introduce Campaign Module boundaries: CampaignManager, LevelDatabase, SaveManager, GameEconomy, and GameplaySessionBridge.
-- [ ] BCM-M10-002 — Define canonical island schema with island id, display name, level count, unlock rule, next-island relation, map/background references, and reward-track metadata.
-- [ ] BCM-M10-003 — Define canonical level schema with island id, level id, timer, normal To-Go objectives, optional VIP objective, rewards, score/star thresholds, and feature flags.
-- [ ] BCM-M10-004 — Define player progression/save schema for unlocked islands, unlocked levels, completion state, stars, best score, claimed milestone rewards, boosters, coins, and schema version.
-- [ ] BCM-M10-005 — Implement schema validation and deterministic loading failures for malformed/duplicate/missing campaign data.
-- [ ] BCM-M10-006 — Document campaign data ownership and extension rules so future islands require data/content changes rather than gameplay rewrites.
+- [x] BCM-M10-001 — Introduce Campaign Module boundaries: CampaignManager, LevelDatabase, SaveManager, GameEconomy, and GameplaySessionBridge.
+- [x] BCM-M10-002 — Define canonical island schema with island id, display name, level count, unlock rule, next-island relation, map/background references, and reward-track metadata.
+- [x] BCM-M10-003 — Define canonical level schema with island id, level id, timer, normal To-Go objectives, optional VIP objective, rewards, score/star thresholds, and feature flags.
+- [x] BCM-M10-004 — Define player progression/save schema for unlocked islands, unlocked levels, completion state, stars, best score, claimed milestone rewards, boosters, coins, and schema version.
+- [x] BCM-M10-005 — Implement schema validation and deterministic loading failures for malformed/duplicate/missing campaign data.
+- [x] BCM-M10-006 — Document campaign data ownership and extension rules so future islands require data/content changes rather than gameplay rewrites.
 
 ### M11 — Save, migration, and campaign progression core
 
-- [ ] BCM-M11-001 — Implement SaveManager persistence under user:// with atomic-write/backup strategy and explicit schema version.
-- [ ] BCM-M11-002 — Preserve existing best-score and gameplay persistence while migrating into campaign-aware save state.
-- [ ] BCM-M11-003 — Implement CampaignManager APIs for island unlock, level unlock, completion, replay, star update, reward claim, and next-level resolution.
-- [ ] BCM-M11-004 — Make completion idempotent so replaying a level cannot duplicate one-time unlock or milestone rewards.
-- [ ] BCM-M11-005 — Define recovery behavior for absent, older, malformed, and partially written saves without silently erasing valid owner progress.
-- [ ] BCM-M11-006 — Add automated tests for first boot, progression, replay, migration, corrupted-save fallback, and persistence reload.
+- [x] BCM-M11-001 — Implement SaveManager persistence under user:// with atomic-write/backup strategy and explicit schema version.
+- [x] BCM-M11-002 — Preserve existing best-score and gameplay persistence while migrating into campaign-aware save state.
+- [x] BCM-M11-003 — Implement CampaignManager APIs for island unlock, level unlock, completion, replay, star update, reward claim, and next-level resolution.
+- [x] BCM-M11-004 — Make completion idempotent so replaying a level cannot duplicate one-time unlock or milestone rewards.
+- [x] BCM-M11-005 — Define recovery behavior for absent, older, malformed, and partially written saves without silently erasing valid owner progress.
+- [x] BCM-M11-006 — Add automated tests for first boot, progression, replay, migration, corrupted-save fallback, and persistence reload.
 
 ### M12 — World Map
 
@@ -446,13 +443,13 @@ Scope:
 
 ### M15 — VIP orders, boosters, rewards, and economy hooks
 
-- [~] BCM-M15-001 — Add a compact VIP badge/state to the existing To-Go Orders UI without customer characters or new animated scenes.
-- [ ] BCM-M15-002 — Implement optional VIP completion reward dispatch for booster rewards.
-- [ ] BCM-M15-003 — Define initial booster inventory model and campaign reward integration.
-- [ ] BCM-M15-004 — Implement +Time booster contract for timed levels without altering base timer definitions.
-- [ ] BCM-M15-005 — Implement one-time milestone reward claim state and duplicate-claim protection.
-- [ ] BCM-M15-006 — Add coin/reward ledger hooks while keeping campaign completion independent from purchases or ads.
-- [ ] BCM-M15-007 — Add tests for VIP optionality, reward grant, inventory persistence, replay, and duplicate prevention.
+- [~] BCM-M15-001 — Present the owner-approved separate compact VIP card attached below To-Go Orders, with VIP cocktail image, progress counter, doubled reward points, and adjacent 2X badge.
+- [x] BCM-M15-002 — Implement optional VIP completion reward dispatch for booster rewards.
+- [x] BCM-M15-003 — Define initial booster inventory model and campaign reward integration.
+- [x] BCM-M15-004 — Implement +Time booster contract for timed levels without altering base timer definitions.
+- [x] BCM-M15-005 — Implement one-time milestone reward claim state and duplicate-claim protection.
+- [x] BCM-M15-006 — Add coin/reward ledger hooks while keeping campaign completion independent from purchases or ads.
+- [x] BCM-M15-007 — Add tests for VIP optionality, reward grant, inventory persistence, replay, and duplicate prevention.
 - [~] BCM-M15-R01 — Remediate owner-rejected VIP pending/partial/completed overlay states while preserving the non-VIP baseline.
 
 ### M16 — Sunny Cove canonical Level 1-100 content
