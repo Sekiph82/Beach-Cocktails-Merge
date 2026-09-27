@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
-- Current Task: Replace the rejected inline VIP telemetry with an owner-approved separate VIP card attached below To-Go Orders, showing the VIP cocktail, progress, reward points, and 2X badge only.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner reviews the committed BCM-M15 V04 Windows/OpenGL VIP-card evidence and records visual acceptance or rejection; M15 remains open and M16 must not begin.
-- Required Actor: OWNER
+- Current Task: Integrate the owner-approved combined To-Go + VIP HUD master at the existing To-Go width, with equal-size normal/VIP cocktail slots, dynamic progress/reward values, and persistent non-VIP `0/0` state.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes BCM-M15 V05 combined HUD integration against the owner-approved master asset, publishes Windows/OpenGL evidence, and stops for independent audit and owner runtime visual acceptance.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 56 / 101 = 55.45%. M15 technical implementation through V04 is complete; owner visual acceptance of the separate VIP card is the only open M15 closure gate.
+- Progress: 56 / 101 = 55.45%. M15 gameplay/economy behavior is technically accepted; V05 replaces the rejected V04 presentation with the owner-approved combined To-Go + VIP HUD master before M15 closure.
 
 ## Tasks
 
@@ -361,7 +361,24 @@ V04 execution prompt:
 Independent audit V04:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V04.md` - **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
 
-Owner visual acceptance remains required after V04 technical audit; M16 must not begin.
+Owner rejected the V04 runtime composition after visual review; V04 technical behavior remains accepted.
+
+Owner-approved V05 canonical HUD asset:
+`assets/ui/panel_to_go_vip_orders.png` — source width 1132 px, matching the previous To-Go source width.
+
+Owner ruling V05:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_RULING_V05.md`
+
+V05 locked criteria:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V05.md`
+
+V05 execution prompt:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V05.md`
+
+V05 pending audit:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V05.md`
+
+M16 must not begin until V05 technical audit and owner runtime visual acceptance close M15.
 
 Scope:
 - persistent GameEconomy authority;
@@ -443,14 +460,14 @@ Scope:
 
 ### M15 — VIP orders, boosters, rewards, and economy hooks
 
-- [~] BCM-M15-001 — Present the owner-approved separate compact VIP card attached below To-Go Orders, with VIP cocktail image, progress counter, doubled reward points, and adjacent 2X badge.
+- [~] BCM-M15-001 — Integrate the owner-approved combined To-Go + VIP HUD master with dynamic normal/VIP cocktails, progress, rewards, equal cocktail scaling, and persistent non-VIP `0/0` state.
 - [x] BCM-M15-002 — Implement optional VIP completion reward dispatch for booster rewards.
 - [x] BCM-M15-003 — Define initial booster inventory model and campaign reward integration.
 - [x] BCM-M15-004 — Implement +Time booster contract for timed levels without altering base timer definitions.
 - [x] BCM-M15-005 — Implement one-time milestone reward claim state and duplicate-claim protection.
 - [x] BCM-M15-006 — Add coin/reward ledger hooks while keeping campaign completion independent from purchases or ads.
 - [x] BCM-M15-007 — Add tests for VIP optionality, reward grant, inventory persistence, replay, and duplicate prevention.
-- [~] BCM-M15-R01 — Remediate owner-rejected VIP pending/partial/completed overlay states while preserving the non-VIP baseline.
+- [~] BCM-M15-R01 — Replace the owner-rejected V04 separate-card presentation with the canonical combined HUD master while preserving accepted M15 gameplay/economy behavior.
 
 ### M16 — Sunny Cove canonical Level 1-100 content
 
