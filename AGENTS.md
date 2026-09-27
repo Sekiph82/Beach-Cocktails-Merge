@@ -34,7 +34,9 @@ Unsynchronized local changes are incomplete work.
 
 ## Canonical project truth
 
-Root `TASKS.md` is the only authoritative current project-status tracker.
+Root `TASKS.md` is the **only authoritative live project-status tracker** and the **only project-status file consumed by the H!veAI parser**. GitHub `origin/main` plus the latest commit are the remaining repository-truth inputs. Coordination prompts/logs/audits are evidence, not parallel status authorities.
+
+Do not create, revive, or maintain `coordination/SESSION_INDEX.md`, `coordination/AUDIT_INDEX.md`, `docs/04_ROADMAP.md`, `.hiveai/PROJECT_DASHBOARD.md`, any `.hiveai/*` control-plane tracker, or any equivalent current-state mirror. Historical branch/task files may remain only when explicitly labeled historical/evidence-only.
 
 H!veAI parser requirements:
 
@@ -48,12 +50,22 @@ H!veAI parser requirements:
   - `Required Actor`
   - `Tracking Repository`
   - `Tracking Branch`
+  - `Progress`
+- Each canonical task ID must appear **exactly once** in root `TASKS.md`; duplicate task IDs with same or conflicting states are forbidden.
+- `Progress` is derived from unique canonical task IDs in root `TASKS.md`: validated `[x]` rows divided by all canonical task rows.
 - Task rows use only:
   - `- [x] TASK-ID — Title.` validated complete
   - `- [~] TASK-ID — Title.` active/in progress
   - `- [ ] TASK-ID — Title.` planned/pending
   - `- [!] TASK-ID — Title.` blocked
 - Do not create a competing `.hiveai/TASKS.md`, STATE, HANDOFF, PROJECT, RULES, EVENTS, or other current-state tracker.
+
+
+### Historical task-list rule
+
+- `ui-assets-tasks.md` is historical/superseded branch evidence only and is not a live tracker or H!veAI input.
+- `coordination/codex_visual_assets/CODEX_VISUAL_ASSET_TASKS.md` is visual-production evidence/history only and is not a live tracker or H!veAI input.
+- Asset manifests/status CSVs may track asset-level production facts, but they must never mirror the project's current milestone, actor, workflow status, next action, or overall progress.
 
 ### Absolute TASKS ownership rule
 
@@ -80,7 +92,7 @@ At the start of every milestone or remediation:
 
 1. Complete the sync-first preflight.
 2. Read `AGENTS.md` and root `TASKS.md` from the synchronized checkout.
-3. Read the authoritative prompt under `docs/prompts/`.
+3. Read the active ChatGPT prompt and locked criteria under `coordination/sessions/<SESSION-ID>/`.
 4. Inspect implementation and asset paths before editing.
 5. Create a new immutable Codex execution log under `docs/codex-logs/`.
 6. Work only on the active work item.
