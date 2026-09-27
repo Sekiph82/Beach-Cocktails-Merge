@@ -4,11 +4,11 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 
 ## Project Status
 
-- Current Milestone: M13
-- Current Sprint: BCM-M13-ISLAND-MAP
-- Current Task: Build the reusable data-driven Island Map and 100-level path engine without implementing M14 gameplay launch or M16 canonical level content.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes BCM-M13-ISLAND-MAP V02 remediation for real M12↔M13 navigation, exact scroll restoration and strengthened first-entry focus proof, then stops for independent audit.
+- Current Milestone: M14
+- Current Sprint: BCM-M14-GAMEPLAY-SESSION-BRIDGE
+- Current Task: Implement the campaign GameplaySessionBridge, authoritative timed session lifecycle, normal To-Go objective win/lose flow, and Retry/Next/Island Map return without retuning accepted core gameplay.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes BCM-M14-GAMEPLAY-SESSION-BRIDGE V01 against the locked audit criteria, writes CODEX_LOG_V01.md, pushes main, and stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -29,7 +29,8 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - [x] BCM-M10-001 — Campaign architecture/data foundation implemented and independently audited, including V02 validation/immutability remediation.
 - [x] BCM-M11-001 — Campaign save persistence, backup/recovery, legacy best-score migration and progression core implemented and independently audited.
 - [x] BCM-M12-001 — Reusable data-driven World Map closed with technical audit PASS and owner acceptance.
-- [!] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
+- [x] BCM-M13-001 — Create reusable Island Map with reusable LevelButton components and a mobile-safe 100-level path engine.
+- [~] BCM-M14-001 — Implement GameplaySessionBridge and authoritative timed campaign gameplay session flow.
 
 Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
 
@@ -279,30 +280,42 @@ M12 closure:
 - M12 deterministic clean-import regression PASS twice;
 - all visual sets owner accepted.
 
-## Active M13 — Reusable Island Map and 100-level path
+## M13 Island Map — Closed
+
+Independent audit V02:
+`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_V02.md` — **AUDITED_PASS**.
+
+M13 closure:
+- generic data-driven IslandMapScene PASS;
+- reusable LevelButton PASS;
+- 100-node mobile path PASS;
+- milestones/summary/state rendering PASS;
+- real M12↔M13 campaign navigation PASS;
+- first-entry highest-unlocked-unfinished focus PASS;
+- exact selected/focus/scroll restoration PASS;
+- M10/M11/M12 regressions preserved.
+
+## Active M14 — Gameplay Session Bridge
 
 Locked criteria:
-`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_CRITERIA_V01.md`
+`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_AUDIT_CRITERIA_V01.md`
 
 Execution prompt:
-`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_EXECUTION_PROMPT_V01.md`
+`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_EXECUTION_PROMPT_V01.md`
 
-Independent audit V01:
-`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_V01.md` — **CHANGES_REQUIRED**.
-
-V02 locked criteria:
-`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_AUDIT_CRITERIA_V02.md`
-
-V02 execution prompt:
-`coordination/sessions/BCM-M13-ISLAND-MAP/CHATGPT_EXECUTION_PROMPT_V02.md`
+Pending independent audit:
+`coordination/sessions/BCM-M14-GAMEPLAY-SESSION-BRIDGE/CHATGPT_AUDIT_V01.md`
 
 Scope:
-- generic IslandMapScene;
-- reusable LevelButton;
-- mobile-safe deterministic 100-node path engine;
-- state/stars/milestones/summary/focus/navigation/restoration;
-- no M14 gameplay launch;
-- no M16 canonical Sunny Cove L1-100 content.
+- real M13 level selection -> existing gameplay session;
+- immutable level snapshot;
+- authoritative timer;
+- normal To-Go objective win/lose;
+- optional VIP state without M15 rewards;
+- progression handoff;
+- Retry / Next / Island Map;
+- no M16 canonical level-content authoring;
+- no R11 physics/HUD/asset retuning.
 
 
 ## M08-M21 — Roadmap
@@ -350,18 +363,18 @@ Scope:
 
 ### M13 — Reusable Island Map and 100-level path
 
-- [~] BCM-M13-001 — Create generic IslandMapScene receiving island_id and rendering its configured level count.
-- [ ] BCM-M13-002 — Create reusable LevelButton component with level number, locked/unlocked/current/completed state, 0-3 stars, and milestone marker.
-- [ ] BCM-M13-003 — Implement a vertically scrollable mobile path capable of showing 100 level nodes without creating 100 unique scenes.
-- [ ] BCM-M13-004 — Implement deterministic path/layout generation or reusable authored anchor pattern so every island can use one map engine with different skin/data.
-- [ ] BCM-M13-005 — Auto-scroll/focus to the highest currently unlocked unfinished level when entering an island.
-- [ ] BCM-M13-006 — Add milestone presentation for levels 10/20/30/40/50/60/70/80/90/100 without requiring bespoke gameplay art.
-- [ ] BCM-M13-007 — Add island summary UI for stars earned, levels completed, next milestone, and island completion.
-- [ ] BCM-M13-008 — Add navigation back to World Map and safe restoration of selected/scroll state.
+- [x] BCM-M13-001 — Create generic IslandMapScene receiving island_id and rendering its configured level count.
+- [x] BCM-M13-002 — Create reusable LevelButton component with level number, locked/unlocked/current/completed state, 0-3 stars, and milestone marker.
+- [x] BCM-M13-003 — Implement a vertically scrollable mobile path capable of showing 100 level nodes without creating 100 unique scenes.
+- [x] BCM-M13-004 — Implement deterministic path/layout generation or reusable authored anchor pattern so every island can use one map engine with different skin/data.
+- [x] BCM-M13-005 — Auto-scroll/focus to the highest currently unlocked unfinished level when entering an island.
+- [x] BCM-M13-006 — Add milestone presentation for levels 10/20/30/40/50/60/70/80/90/100 without requiring bespoke gameplay art.
+- [x] BCM-M13-007 — Add island summary UI for stars earned, levels completed, next milestone, and island completion.
+- [x] BCM-M13-008 — Add navigation back to World Map and safe restoration of selected/scroll state.
 
 ### M14 — Level launch and timed gameplay session bridge
 
-- [ ] BCM-M14-001 — Implement GameplaySessionBridge to launch the existing gameplay scene from selected campaign level data.
+- [~] BCM-M14-001 — Implement GameplaySessionBridge to launch the existing gameplay scene from selected campaign level data.
 - [ ] BCM-M14-002 — Feed level timer, normal To-Go objectives, optional VIP objective, rewards, and scoring rules into gameplay without retuning accepted launch/merge/table physics.
 - [ ] BCM-M14-003 — Add authoritative countdown timer with start, pause, resume, app-background, success-stop, and timeout behavior.
 - [ ] BCM-M14-004 — Define win condition as completion of all normal level orders before timer expiry.
