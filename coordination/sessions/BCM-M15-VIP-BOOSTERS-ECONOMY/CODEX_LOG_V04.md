@@ -55,7 +55,8 @@ Canonical checkout: `C:\Users\sekip\Desktop\Beach Cocktails - Merge`
 
 ## Publication and handoff
 
-- Log commit: pending local commit after this file is recorded.
+- Initial blocker-log commit: `44a7b818b8e91ac7f53b3f35e0c4d5b01a4b33b8`.
+- A subsequent terminal log-correction commit is required only to replace this provisional publication note; its exact SHA is reported in the final handoff because a commit cannot embed its own SHA.
 - Push: not performed; the remote branch is five commits ahead and cannot be safely advanced from this divergent canonical checkout without resolving protected-file conflicts.
 - Final local/remote equality proof: unavailable because synchronization is blocked.
 - Required completion marker `AWAITING_M15_AUDIT_V04` was not emitted; the task did not reach implementation or audit handoff.
