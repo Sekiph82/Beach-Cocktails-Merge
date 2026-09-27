@@ -244,6 +244,27 @@ Azure Bay is the V2 structural master. The remaining nine islands must use the s
 - If the canonical Desktop repository differs from `origin/main`, preserve owner work and report the exact divergence before attempting reconciliation.
 - A dirty or detached canonical Desktop repository is not disposable and must not be treated as a synchronization target for destructive operations.
 
+## Mandatory Canonical Desktop Sync Before Every Task
+
+Before reading or implementing any new Codex task, synchronize the canonical
+Desktop checkout with the current `origin/main`. ChatGPT may have updated
+`TASKS.md`, prompts, audit criteria, audits, or other coordination files after
+the prior task.
+
+1. From `C:\Users\sekip\Desktop\Beach Cocktails - Merge`, run:
+   - `git status --short --branch`
+   - `git remote -v`
+   - `git fetch origin main`
+   - `git rev-list --left-right --count HEAD...origin/main`
+2. If the canonical checkout is clean and behind-only, fast-forward it to `origin/main`.
+3. If it contains only proven generated/reproducible clutter, remove only those generated items as authorized, then fast-forward.
+4. If it contains any unique or ambiguous owner change, stop and report it; never overwrite, stash, reset, or discard it silently.
+5. After ChatGPT updates `TASKS.md` or other coordination artifacts on GitHub, the next Codex task must synchronize the canonical Desktop checkout before implementation begins.
+6. After Codex completes and pushes a task, if the canonical checkout is clean, fast-forward it to the just-pushed remote `main` before handoff.
+7. If post-task synchronization is blocked by unique owner changes, report the blocker instead of creating another Desktop copy or worktree.
+8. Temporary implementation worktrees may exist only outside Desktop.
+9. Do not create a new GitHub branch without explicit owner approval.
+
 ## Safety
 
 - Preserve owner-created assets and project files.
