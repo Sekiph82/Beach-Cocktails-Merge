@@ -7,9 +7,9 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
 - Current Task: Integrate the owner-approved combined To-Go + VIP HUD master at the existing To-Go width, with equal-size normal/VIP cocktail slots, dynamic progress/reward values, and persistent non-VIP `0/0` state.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M15 V05 combined HUD integration against the owner-approved master asset, publishes Windows/OpenGL evidence, and stops for independent audit and owner runtime visual acceptance.
-- Required Actor: CODEX
+- Current Task Status: OWNER_VISUAL_ACCEPTANCE_REQUIRED
+- Next Task/Action: Owner reviews the committed V05 Windows/OpenGL evidence and records acceptance or rejection of placement, typography, equal cocktail sizing, overlap/legibility, and persistent non-VIP 0/0; M16 remains blocked.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 - Progress: 56 / 101 = 55.45%. M15 gameplay/economy behavior is technically accepted; V05 replaces the rejected V04 presentation with the owner-approved combined To-Go + VIP HUD master before M15 closure.
@@ -375,8 +375,11 @@ V05 locked criteria:
 V05 execution prompt:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V05.md`
 
-V05 pending audit:
-`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V05.md`
+Independent audit V05:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V05.md` — **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
+
+V05 technical audit passed. Owner runtime visual acceptance remains required
+for the four committed V05 captures before M15 closure.
 
 M16 must not begin until V05 technical audit and owner runtime visual acceptance close M15.
 
