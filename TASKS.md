@@ -7,9 +7,9 @@ This root `TASKS.md` is the authoritative current project-status tracker. GitHub
 - Current Milestone: M15
 - Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
 - Current Task: Apply owner-approved VIP target parity with the normal campaign To-Go rule and 2x normal To-Go delivery payout while preserving the audited V02 real VIP delivery/economy flow.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M15-VIP-BOOSTERS-ECONOMY V03 for owner-approved normal/VIP target-policy parity and 2x normal To-Go payout, then stops for independent audit.
-- Required Actor: CODEX
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner reviews the committed BCM-M15 V03 VIP pending/partial/completed/non-VIP evidence for the bounded VIP 2X indicator; after owner decision, ChatGPT re-audits the gate and updates M15 state.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 
@@ -346,6 +346,11 @@ V03 locked criteria:
 
 V03 execution prompt:
 `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V03.md`
+
+Independent audit V03:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V03.md` — **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
+
+Owner visual acceptance remains required before M15 closure; M16 must not begin.
 
 Scope:
 - persistent GameEconomy authority;
