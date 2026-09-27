@@ -21,10 +21,13 @@ const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
+const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
 
 var level_database
 var campaign_manager
+var economy
+var save_manager
 var current_view := VIEW_WORLD_MAP
 var active_island_id := ""
 
@@ -33,6 +36,7 @@ var _island_map
 var _gameplay
 var _session_bridge
 var _restoration_by_island: Dictionary = {}
+var _persistence_enabled := false
 
 
 func _ready() -> void:
@@ -42,16 +46,24 @@ func _ready() -> void:
 	_ensure_map_instances()
 
 
-func configure_campaign(database, manager) -> bool:
+func configure_campaign(database, manager, configured_economy = null) -> bool:
 	if database == null or manager == null or not database.is_loaded():
 		return false
 	level_database = database
 	campaign_manager = manager
+	_persistence_enabled = false
+	economy = configured_economy if configured_economy != null else ECONOMY_SCRIPT.new()
+	if configured_economy == null:
+		economy.configure_from_state(campaign_manager.get_progression_state())
+	if campaign_manager.has_method("set_economy"):
+		campaign_manager.set_economy(economy)
+	_bind_persistence_signals()
 	if _session_bridge == null:
 		_session_bridge = BRIDGE_SCRIPT.new()
 		_session_bridge.island_map_requested.connect(_on_session_island_map_requested)
 		_session_bridge.session_terminal.connect(_on_session_terminal)
-	_session_bridge.configure(level_database, campaign_manager)
+	_session_bridge.configure(level_database, campaign_manager, economy)
+	_bind_persistence_signals()
 	if is_inside_tree():
 		_ensure_map_instances()
 	return true
@@ -114,6 +126,14 @@ func get_session_bridge():
 	return _session_bridge
 
 
+func get_economy():
+	return economy
+
+
+func get_save_manager():
+	return save_manager
+
+
 func retry_level() -> bool:
 	if _session_bridge == null or not _session_bridge.is_terminal():
 		return false
@@ -161,7 +181,8 @@ func _ensure_map_instances() -> bool:
 		_session_bridge = BRIDGE_SCRIPT.new()
 		_session_bridge.island_map_requested.connect(_on_session_island_map_requested)
 		_session_bridge.session_terminal.connect(_on_session_terminal)
-		_session_bridge.configure(level_database, campaign_manager)
+		_session_bridge.configure(level_database, campaign_manager, economy)
+		_bind_persistence_signals()
 	if _world_map == null:
 		_world_map = WORLD_MAP_SCENE.instantiate()
 		_world_map.level_database = level_database
@@ -235,6 +256,44 @@ func _configure_default_campaign() -> void:
 	level_database = DATABASE_SCRIPT.new()
 	if not level_database.load_canonical():
 		return
+	save_manager = SAVE_SCRIPT.new()
+	var loaded: Dictionary = save_manager.read_state()
+	var loaded_state: Dictionary = loaded.get("state", save_manager.create_default_state())
+	economy = ECONOMY_SCRIPT.new()
+	var economy_result: Dictionary = economy.configure_from_state(loaded_state)
+	if not bool(economy_result.get("ok", false)):
+		economy.configure()
 	campaign_manager = CAMPAIGN_SCRIPT.new()
-	if not campaign_manager.configure(level_database, SAVE_SCRIPT.new().create_default_state()):
+	if not campaign_manager.configure(level_database, loaded_state, economy):
 		return
+	_persistence_enabled = true
+	_bind_persistence_signals()
+	if loaded.get("status", "") == save_manager.STATUS_MISSING:
+		_persist_campaign_state()
+
+
+func _bind_persistence_signals() -> void:
+	if campaign_manager != null and campaign_manager.has_signal("progression_changed") and not campaign_manager.progression_changed.is_connected(_on_campaign_changed):
+		campaign_manager.progression_changed.connect(_on_campaign_changed)
+	if _session_bridge != null and _session_bridge.has_signal("economy_changed") and not _session_bridge.economy_changed.is_connected(_on_economy_changed):
+		_session_bridge.economy_changed.connect(_on_economy_changed)
+
+
+func _on_campaign_changed(_island_id: String, _level_id: int) -> void:
+	_persist_campaign_state()
+
+
+func _on_economy_changed(_state: Dictionary) -> void:
+	_persist_campaign_state()
+
+
+func _persist_campaign_state() -> Dictionary:
+	if not _persistence_enabled or save_manager == null or campaign_manager == null or economy == null:
+		return {"ok": false, "reason": "PERSISTENCE_DISABLED"}
+	var state: Dictionary = campaign_manager.get_progression_state()
+	var economy_state: Dictionary = economy.export_state()
+	state["coins"] = economy_state["coins"]
+	state["boosters"] = economy_state["boosters"]
+	state["reward_ledger"] = economy_state["reward_ledger"]
+	state["schema_version"] = save_manager.schema_version()
+	return save_manager.write_state(state)

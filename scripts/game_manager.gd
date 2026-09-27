@@ -103,6 +103,7 @@ var _best_value: Label
 var _score_value: Label
 var _to_go_target_sprite: Sprite2D
 var _to_go_reward_label: Label
+var _vip_badge_label: Label
 var _next_sprite: Sprite2D
 var _progression_icons: Array[Sprite2D] = []
 var _chain_label: Label
@@ -172,9 +173,13 @@ func configure_campaign_session(bridge) -> bool:
         return false
     if campaign_session_bridge != null and campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
         campaign_session_bridge.session_terminal.disconnect(_on_campaign_session_terminal)
+    if campaign_session_bridge != null and campaign_session_bridge.has_signal("vip_state_changed") and campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
+        campaign_session_bridge.vip_state_changed.disconnect(_on_vip_state_changed)
     campaign_session_bridge = bridge
     if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
         campaign_session_bridge.session_terminal.connect(_on_campaign_session_terminal)
+    if campaign_session_bridge.has_signal("vip_state_changed") and not campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
+        campaign_session_bridge.vip_state_changed.connect(_on_vip_state_changed)
     var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
     if configuration.is_empty():
         return false
@@ -800,6 +805,9 @@ func _build_ui() -> void:
     # title/artwork. Dynamic values never get baked into canonical PNGs.
     # The reward belongs inside the cream board's lower-middle content area.
     _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.19, to_go_rect.size.y * 0.73, to_go_rect.size.x * 0.62, 30.0 * ui_scale), 21, Color(0.30, 0.10, 0.03, 1.0))
+    _vip_badge_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.08, to_go_rect.size.y * 0.64, to_go_rect.size.x * 0.84, 22.0 * ui_scale), 12, Color(0.34, 0.12, 0.02, 1.0))
+    _vip_badge_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    _vip_badge_label.visible = false
 
     var next_width := 145.0 * ui_scale
     var next_height := next_width * 1426.0 / 1103.0
@@ -1097,6 +1105,7 @@ func _refresh_merge_target_visual() -> void:
     _to_go_target_sprite.texture = Drink.texture_for_level(_target_level)
     _to_go_target_sprite.scale = Vector2.ONE * _hud_icon_scale(_target_level, 104.0)
     _to_go_reward_label.text = "%d" % Drink.order_reward(_target_level)
+    _refresh_vip_badge()
     if _target_root != null:
         _target_root.position = _to_go_target_sprite.global_position
 
@@ -1152,6 +1161,7 @@ func _finish_target_collection() -> void:
 
     if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
         campaign_session_bridge.set_current_score(score)
+        campaign_session_bridge.record_vip_delivery(completed_level, 1, score)
         var delivery_id := "gameplay-order-%d" % _order_sequence
         campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
         campaign_order_completed.emit(completed_level, 1)
@@ -1160,6 +1170,25 @@ func _finish_target_collection() -> void:
 
     _target_transition = false
     _choose_next_target(false)
+
+
+func _on_vip_state_changed(_state: Dictionary) -> void:
+    _refresh_vip_badge()
+
+
+func _refresh_vip_badge() -> void:
+    if _vip_badge_label == null:
+        return
+    if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+        _vip_badge_label.visible = false
+        return
+    var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
+    if not bool(vip_state.get("enabled", false)):
+        _vip_badge_label.visible = false
+        return
+    _vip_badge_label.visible = true
+    var status := "COMPLETED" if bool(vip_state.get("completed", false)) else "PENDING"
+    _vip_badge_label.text = "VIP  L%d x%d  %s" % [int(vip_state.get("cocktail_level", 0)), int(vip_state.get("quantity", 1)), status]
 
 
 func _on_campaign_session_terminal(result: Dictionary) -> void:

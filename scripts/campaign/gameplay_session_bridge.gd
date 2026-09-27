@@ -15,6 +15,8 @@ signal timer_updated(remaining_sec: float)
 signal session_paused(reason: String)
 signal session_resumed
 signal island_map_requested(island_id: String)
+signal economy_changed(state: Dictionary)
+signal vip_state_changed(state: Dictionary)
 
 const STATE_IDLE := "IDLE"
 const STATE_READY := "READY"
@@ -27,6 +29,7 @@ const OUTCOME_LOSE := "LOSE"
 
 var level_database
 var campaign_manager
+var economy
 var active_island_id := ""
 var active_level_id := 0
 var session_state := STATE_IDLE
@@ -48,9 +51,10 @@ var _session_serial := 0
 var _progression_submitted := false
 
 
-func configure(database, manager = null) -> bool:
+func configure(database, manager = null, configured_economy = null) -> bool:
     level_database = database
     campaign_manager = manager
+    economy = configured_economy
     clear_session()
     return level_database != null and level_database.is_loaded()
 
@@ -81,6 +85,7 @@ func start_session(island_id: String, level_id: int) -> Dictionary:
     _progression_result = {}
     _progression_submitted = false
     _vip_completed = false
+    vip_state_changed.emit(get_vip_state())
     _current_score = 0
     _background_paused = false
     timer_remaining_sec = float(_active_level.get("time_limit_sec", 0.0))
@@ -182,6 +187,24 @@ func get_objective_state() -> Dictionary:
     }
 
 
+func get_vip_state() -> Dictionary:
+    var vip: Variant = _active_level.get("vip", null)
+    if not _vip_enabled():
+        return {"enabled": false, "completed": false, "cocktail_level": 0, "quantity": 0, "status": "HIDDEN"}
+    var vip_config: Dictionary = vip
+    return {
+        "enabled": true,
+        "completed": _vip_completed,
+        "cocktail_level": int(vip_config.get("cocktail_level", 0)),
+        "quantity": int(vip_config.get("quantity", 1)),
+        "status": "COMPLETED" if _vip_completed else "PENDING",
+    }
+
+
+func get_economy():
+    return economy
+
+
 func set_current_score(score: int) -> void:
     _current_score = maxi(0, score)
 
@@ -223,6 +246,7 @@ func record_vip_delivery(cocktail_level: int, quantity: int = 1, score: int = -1
     if cocktail_level != int(vip.get("cocktail_level", 0)) or quantity < int(vip.get("quantity", 1)):
         return {"ok": false, "reason": "VIP_REQUIREMENT_NOT_MET", "vip_completed": _vip_completed}
     _vip_completed = true
+    vip_state_changed.emit(get_vip_state())
     return {"ok": true, "vip_completed": true}
 
 
@@ -230,7 +254,24 @@ func set_vip_completed(completed: bool) -> bool:
     if not _vip_enabled():
         return false
     _vip_completed = completed
+    vip_state_changed.emit(get_vip_state())
     return true
+
+
+func apply_time_booster(extension_sec: float, booster_id: String = "time") -> Dictionary:
+    if economy == null:
+        return {"ok": false, "reason": "ECONOMY_NOT_CONFIGURED", "consumed": false}
+    if (session_state != STATE_ACTIVE and session_state != STATE_PAUSED) or timer_remaining_sec <= 0.0:
+        return {"ok": false, "reason": "SESSION_NOT_TIMED_ACTIVE", "consumed": false}
+    if extension_sec <= 0.0:
+        return {"ok": false, "reason": "EXTENSION_MUST_BE_POSITIVE", "consumed": false}
+    var consumed: Dictionary = economy.consume_booster(booster_id, 1)
+    if not bool(consumed.get("ok", false)):
+        return {"ok": false, "reason": str(consumed.get("reason", "BOOSTER_NOT_CONSUMED")), "consumed": false}
+    timer_remaining_sec += extension_sec
+    timer_updated.emit(timer_remaining_sec)
+    economy_changed.emit(economy.export_state())
+    return {"ok": true, "consumed": true, "extension_sec": extension_sec, "remaining_time_sec": timer_remaining_sec}
 
 
 func resolve_win(score: int = -1) -> Dictionary:
@@ -316,6 +357,7 @@ func clear_session() -> void:
     _pause_reason = ""
     _current_score = 0
     _progression_submitted = false
+    vip_state_changed.emit(get_vip_state())
 
 
 func _can_start_session() -> bool:
@@ -395,11 +437,36 @@ func _resolve_terminal(outcome: String, reason: String) -> Dictionary:
     }
     if outcome == OUTCOME_WIN:
         _submit_progression(mutable_result)
+        mutable_result["economy"] = _dispatch_session_rewards()
         mutable_result["next_level_available"] = bool(_progression_result.get("next_level", {}).get("ok", false))
         mutable_result["progression"] = _progression_result.duplicate(true)
     _terminal_result = _deep_read_only(mutable_result)
     session_terminal.emit(get_terminal_result())
     return get_terminal_result()
+
+
+func _dispatch_session_rewards() -> Dictionary:
+    if economy == null:
+        return {"ok": true, "configured": false, "grants": []}
+    var grants: Array = []
+    var level_reward: Variant = _active_level.get("rewards", {})
+    if level_reward is Dictionary and not level_reward.is_empty():
+        var level_id := "level:%s:%d" % [active_island_id, active_level_id]
+        var level_result: Dictionary = economy.grant_reward(level_id, level_reward)
+        grants.append(level_result)
+        if not bool(level_result.get("ok", false)):
+            return {"ok": false, "configured": true, "grants": grants}
+    if _vip_completed:
+        var vip: Variant = _active_level.get("vip", null)
+        var vip_reward: Variant = vip.get("reward", {}) if vip is Dictionary else {}
+        if vip_reward is Dictionary and not vip_reward.is_empty():
+            var vip_id := "vip:%s:%d" % [active_island_id, active_level_id]
+            var vip_result: Dictionary = economy.grant_reward(vip_id, vip_reward)
+            grants.append(vip_result)
+            if not bool(vip_result.get("ok", false)):
+                return {"ok": false, "configured": true, "grants": grants}
+    economy_changed.emit(economy.export_state())
+    return {"ok": true, "configured": true, "grants": grants}
 
 
 func _submit_progression(result: Dictionary) -> void:

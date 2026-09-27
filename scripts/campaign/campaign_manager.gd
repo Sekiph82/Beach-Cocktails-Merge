@@ -11,17 +11,23 @@ var level_database
 var current_island_id := ""
 var selected_level_id := 0
 var _state: Dictionary = {}
+var economy
 
 
-func configure(database, progression_state: Dictionary = {}) -> bool:
+func configure(database, progression_state: Dictionary = {}, configured_economy = null) -> bool:
     if database == null or not database.is_loaded():
         return false
     level_database = database
+    economy = configured_economy
     _state = _normalized_state(progression_state)
     _refresh_island_unlocks()
     current_island_id = _first_unlocked_island()
     selected_level_id = _highest_unlocked_level(current_island_id)
     return not current_island_id.is_empty()
+
+
+func set_economy(configured_economy) -> void:
+    economy = configured_economy
 
 
 func select_level(island_id: String, level_id: int) -> bool:
@@ -211,12 +217,19 @@ func claim_milestone(island_id: String, milestone_id: Variant) -> Dictionary:
         return {"ok": true, "changed": false, "duplicate": true, "milestone_id": milestone_id}
     if not is_level_completed(island_id, int(milestone_id)):
         return {"ok": false, "reason": "MILESTONE_NOT_REACHED", "changed": false}
+    var reward_result := {"ok": true, "granted": false, "duplicate": false}
+    if economy != null:
+        var reward := _milestone_reward(island, milestone_id)
+        var reward_id := "milestone:%s:%s" % [island_id, str(milestone_id)]
+        reward_result = economy.grant_reward(reward_id, reward)
+        if not bool(reward_result.get("ok", false)):
+            return {"ok": false, "reason": "MILESTONE_REWARD_REJECTED:%s" % str(reward_result.get("reason", "UNKNOWN")), "changed": false, "reward": reward_result}
     claimed.append(milestone_id)
     claimed.sort()
     island_state["claimed_milestones"] = claimed
     _set_island_state(island_id, island_state)
     progression_changed.emit(island_id, int(milestone_id))
-    return {"ok": true, "changed": true, "duplicate": false, "milestone_id": milestone_id}
+    return {"ok": true, "changed": true, "duplicate": false, "milestone_id": milestone_id, "reward": reward_result}
 
 
 func is_milestone_claimed(island_id: String, milestone_id: Variant) -> bool:
@@ -271,6 +284,8 @@ func _normalized_state(progression_state: Dictionary) -> Dictionary:
         state["boosters"] = {}
     if not state.has("legacy_best_score"):
         state["legacy_best_score"] = 0
+    if not state.has("reward_ledger"):
+        state["reward_ledger"] = []
     for island_id in state["unlocked_islands"]:
         if not state["islands"].has(island_id):
             state["islands"][island_id] = {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": []}
@@ -293,6 +308,18 @@ func _set_island_state(island_id: String, island_state: Dictionary) -> void:
     var islands: Dictionary = _state.get("islands", {}).duplicate(true)
     islands[island_id] = island_state.duplicate(true)
     _state["islands"] = islands
+
+
+func _milestone_reward(island: Dictionary, milestone_id: Variant) -> Dictionary:
+    var reward_track: Dictionary = island.get("reward_track", {})
+    var rewards: Variant = reward_track.get("rewards", reward_track.get("milestone_rewards", {}))
+    if rewards is Dictionary:
+        var reward: Variant = rewards.get(str(milestone_id), rewards.get(milestone_id, null))
+        if reward is Dictionary:
+            return reward.duplicate(true)
+    # A configured milestone with no economy payload is still claimable and is
+    # recorded idempotently. Zero coins gives the ledger a deterministic mark.
+    return {"coins": 0}
 
 
 func _first_unlocked_island() -> String:

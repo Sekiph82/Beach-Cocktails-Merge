@@ -32,6 +32,7 @@ func create_default_state() -> Dictionary:
         "legacy_best_score": 0,
         "boosters": {},
         "coins": 0,
+        "reward_ledger": [],
     }
 
 
@@ -52,6 +53,16 @@ func validate_state(state: Variant) -> Dictionary:
         return {"ok": false, "reason": "INVALID_STATE_SHAPE"}
     if not _is_non_negative_number(state["coins"]) or not _is_non_negative_number(state["legacy_best_score"]):
         return {"ok": false, "reason": "NEGATIVE_OR_INVALID_GLOBAL_VALUE"}
+    for booster_id in state["boosters"]:
+        var booster_quantity = state["boosters"][booster_id]
+        if typeof(booster_id) != TYPE_STRING or str(booster_id).is_empty() or not _is_non_negative_number(booster_quantity) or not is_equal_approx(float(booster_quantity), float(int(booster_quantity))):
+            return {"ok": false, "reason": "INVALID_BOOSTER_INVENTORY"}
+    if state.has("reward_ledger"):
+        if not state["reward_ledger"] is Array:
+            return {"ok": false, "reason": "INVALID_REWARD_LEDGER"}
+        for reward_id in state["reward_ledger"]:
+            if typeof(reward_id) != TYPE_STRING or str(reward_id).is_empty():
+                return {"ok": false, "reason": "INVALID_REWARD_ID"}
     for island_id in state["unlocked_islands"]:
         if typeof(island_id) != TYPE_STRING or str(island_id).is_empty():
             return {"ok": false, "reason": "INVALID_UNLOCKED_ISLAND"}
@@ -80,6 +91,7 @@ func encode_state(state: Dictionary) -> String:
 func decode_state(serialized: String) -> Dictionary:
     var parsed = JSON.parse_string(serialized)
     parsed = _normalize_json_numbers(parsed)
+    parsed = _normalize_m15_fields(parsed)
     if not validate_state(parsed)["ok"]:
         return {}
     return parsed.duplicate(true)
@@ -107,7 +119,7 @@ func load_state(
     var should_persist_recovery := false
 
     if primary["ok"]:
-        selected = primary["state"].duplicate(true)
+        selected = _normalize_m15_fields(primary["state"].duplicate(true))
         status = STATUS_MIGRATED if primary["migrated"] else STATUS_VALID
         reason = primary["reason"]
         source = "primary"
@@ -115,7 +127,7 @@ func load_state(
     else:
         var backup := _read_candidate(resolved_backup)
         if backup["ok"]:
-            selected = backup["state"].duplicate(true)
+            selected = _normalize_m15_fields(backup["state"].duplicate(true))
             status = STATUS_RECOVERED
             reason = "PRIMARY_%s_BACKUP_VALID" % primary["reason"]
             source = "backup"
@@ -208,6 +220,8 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
         migrated["boosters"] = {}
     if not migrated.has("coins"):
         migrated["coins"] = 0
+    if not migrated.has("reward_ledger"):
+        migrated["reward_ledger"] = []
     for island_id in migrated.get("islands", {}):
         var island_state: Dictionary = migrated["islands"][island_id]
         if not island_state.has("completed_levels"):
@@ -253,6 +267,7 @@ func _read_candidate(path: String) -> Dictionary:
     if parsed == null or not parsed is Dictionary:
         return {"ok": false, "status": STATUS_FALLBACK, "reason": "MALFORMED_JSON", "migrated": false}
     parsed = _normalize_json_numbers(parsed)
+    parsed = _normalize_m15_fields(parsed)
     var validation := validate_state(parsed)
     if validation["ok"]:
         return {"ok": true, "status": STATUS_VALID, "reason": "PRIMARY_OR_BACKUP_VALID", "state": parsed.duplicate(true), "migrated": false}
@@ -294,6 +309,17 @@ func _load_result(ok: bool, status: String, reason: String, state: Dictionary, s
         "legacy_migrated": legacy_migrated,
         "state": state.duplicate(true),
     }
+
+
+func _normalize_m15_fields(value: Variant) -> Variant:
+    if not value is Dictionary:
+        return value
+    var normalized: Dictionary = value.duplicate(true)
+    if not normalized.has("reward_ledger"):
+        # Current-schema saves from before M15 are valid and intentionally load
+        # with an empty ledger; no progression fields are rewritten or dropped.
+        normalized["reward_ledger"] = []
+    return normalized
 
 
 func _resolve_backup_path(path: String, backup_path: String) -> String:
