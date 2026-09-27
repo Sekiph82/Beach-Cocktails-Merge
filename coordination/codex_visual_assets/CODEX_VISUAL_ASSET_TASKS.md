@@ -1,6 +1,8 @@
 # BEACH COCKTAILS MERGE — CODEX VISUAL ASSET TASKS
 
-Status: M12 CLOSURE PREPARATION — INDEPENDENT AUDIT PENDING  
+> **ARCHIVED / EVIDENCE-ONLY CHECKLIST — NOT H!veAI INPUT.** Root `TASKS.md` is the sole live project-status tracker. This checklist may preserve asset-production history but must not define the current milestone, actor, workflow state, next action, or project progress.
+
+Historical status: M12 CLOSURE PREPARATION — INDEPENDENT AUDIT PENDING  
 Branch: `main`
 
 M12 closure state on current `main`: V02 is the selected brand authority; V2
