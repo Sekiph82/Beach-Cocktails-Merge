@@ -104,7 +104,12 @@ var _best_value: Label
 var _score_value: Label
 var _to_go_target_sprite: Sprite2D
 var _to_go_reward_label: Label
-var _vip_badge_label: Label
+var _vip_card: Panel
+var _vip_target_sprite: Sprite2D
+var _vip_title_label: Label
+var _vip_progress_label: Label
+var _vip_reward_label: Label
+var _vip_multiplier_label: Label
 var _next_sprite: Sprite2D
 var _progression_icons: Array[Sprite2D] = []
 var _chain_label: Label
@@ -692,6 +697,7 @@ func _refresh_hud() -> void:
     if _chain_label != null:
         _chain_label.visible = chain > 1
         _chain_label.text = "COMBO x%d" % chain
+    _refresh_vip_card()
 
 
 func _build_walls() -> void:
@@ -811,9 +817,50 @@ func _build_ui() -> void:
     # title/artwork. Dynamic values never get baked into canonical PNGs.
     # The reward belongs inside the cream board's lower-middle content area.
     _to_go_reward_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.19, to_go_rect.size.y * 0.73, to_go_rect.size.x * 0.62, 30.0 * ui_scale), 21, Color(0.30, 0.10, 0.03, 1.0))
-    _vip_badge_label = _make_panel_text(_to_go_panel, "", Rect2(to_go_rect.size.x * 0.08, to_go_rect.size.y * 0.64, to_go_rect.size.x * 0.84, 22.0 * ui_scale), 12, Color(0.34, 0.12, 0.02, 1.0))
-    _vip_badge_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    _vip_badge_label.visible = false
+
+    # V04 moves VIP presentation out of the accepted To-Go panel. The card is
+    # deliberately a small HUD-only sibling so the normal target/reward art
+    # and the playable table geometry remain untouched.
+    var vip_card_width := 190.0 * ui_scale
+    var vip_card_height := 86.0 * ui_scale
+    var vip_card_rect := Rect2(
+        (board_size.x - vip_card_width) * 0.5,
+        to_go_rect.position.y + to_go_rect.size.y - 2.0 * ui_scale,
+        vip_card_width,
+        vip_card_height
+    )
+    _vip_card = Panel.new()
+    _vip_card.name = "VipCard"
+    _vip_card.position = vip_card_rect.position
+    _vip_card.size = vip_card_rect.size
+    _vip_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    var vip_style := StyleBoxFlat.new()
+    vip_style.bg_color = Color(0.18, 0.08, 0.04, 0.96)
+    vip_style.border_color = Color(0.96, 0.68, 0.23, 1.0)
+    vip_style.set_border_width_all(2)
+    vip_style.set_corner_radius_all(10)
+    vip_style.shadow_color = Color(0.04, 0.02, 0.01, 0.48)
+    vip_style.shadow_size = 5
+    vip_style.shadow_offset = Vector2(0.0, 2.0)
+    _vip_card.add_theme_stylebox_override("panel", vip_style)
+    _hud.add_child(_vip_card)
+
+    var vip_scale := ui_scale
+    _vip_title_label = _make_panel_text(_vip_card, "VIP", Rect2(48.0 * vip_scale, 4.0 * vip_scale, 132.0 * vip_scale, 19.0 * vip_scale), 14, Color(1.0, 0.86, 0.42, 1.0))
+    _vip_progress_label = _make_panel_text(_vip_card, "", Rect2(48.0 * vip_scale, 24.0 * vip_scale, 70.0 * vip_scale, 27.0 * vip_scale), 17, Color(1.0, 0.96, 0.82, 1.0))
+    _vip_reward_label = _make_panel_text(_vip_card, "", Rect2(48.0 * vip_scale, 56.0 * vip_scale, 76.0 * vip_scale, 22.0 * vip_scale), 13, Color(1.0, 0.86, 0.42, 1.0))
+    _vip_multiplier_label = _make_panel_text(_vip_card, "2X", Rect2(126.0 * vip_scale, 55.0 * vip_scale, 48.0 * vip_scale, 24.0 * vip_scale), 13, Color(1.0, 0.98, 0.88, 1.0))
+    _vip_multiplier_label.add_theme_color_override("font_shadow_color", Color(0.0, 0.0, 0.0, 0.6))
+    _vip_multiplier_label.add_theme_constant_override("shadow_offset_x", 1)
+    _vip_multiplier_label.add_theme_constant_override("shadow_offset_y", 1)
+
+    _vip_target_sprite = Sprite2D.new()
+    _vip_target_sprite.name = "VipTargetCocktail"
+    _vip_target_sprite.position = Vector2(26.0, 43.0) * vip_scale
+    _vip_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    _vip_target_sprite.z_index = 2
+    _vip_card.add_child(_vip_target_sprite)
+    _vip_card.visible = false
 
     var next_width := 145.0 * ui_scale
     var next_height := next_width * 1426.0 / 1103.0
@@ -1139,7 +1186,7 @@ func _refresh_merge_target_visual() -> void:
     _to_go_target_sprite.texture = Drink.texture_for_level(_target_level)
     _to_go_target_sprite.scale = Vector2.ONE * _hud_icon_scale(_target_level, 104.0)
     _to_go_reward_label.text = "%d" % Drink.order_reward(_target_level)
-    _refresh_vip_badge()
+    _refresh_vip_card()
     if _target_root != null:
         _target_root.position = _to_go_target_sprite.global_position
 
@@ -1256,22 +1303,28 @@ func _finish_vip_target() -> void:
 
 
 func _on_vip_state_changed(_state: Dictionary) -> void:
-    _refresh_vip_badge()
+    _refresh_vip_card()
 
 
-func _refresh_vip_badge() -> void:
-    if _vip_badge_label == null:
+func _refresh_vip_card() -> void:
+    if _vip_card == null:
         return
     if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-        _vip_badge_label.visible = false
+        _vip_card.visible = false
         return
     var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
     if not bool(vip_state.get("enabled", false)):
-        _vip_badge_label.visible = false
+        _vip_card.visible = false
         return
-    _vip_badge_label.visible = true
-    var status := "COMPLETED" if bool(vip_state.get("completed", false)) else "PENDING"
-    _vip_badge_label.text = "VIP  2X  L%d  %d/%d  %s" % [int(vip_state.get("cocktail_level", 0)), int(vip_state.get("delivered", 0)), int(vip_state.get("required", vip_state.get("quantity", 1))), status]
+    _vip_card.visible = true
+    var vip_level := int(vip_state.get("cocktail_level", 0))
+    var required := int(vip_state.get("required", vip_state.get("quantity", 1)))
+    var delivered := int(vip_state.get("delivered", 0))
+    _vip_target_sprite.texture = Drink.texture_for_level(vip_level)
+    _vip_target_sprite.scale = Vector2.ONE * _hud_icon_scale(vip_level, 46.0 * clampf(_vip_card.size.x / 190.0, 0.94, 1.0))
+    _vip_progress_label.text = "✓" if bool(vip_state.get("completed", false)) else "%d/%d" % [delivered, required]
+    _vip_reward_label.text = "%d" % (VIP_DELIVERY_MULTIPLIER * Drink.order_reward(vip_level))
+    _vip_multiplier_label.text = "2X"
 
 
 func _active_vip_level() -> int:
