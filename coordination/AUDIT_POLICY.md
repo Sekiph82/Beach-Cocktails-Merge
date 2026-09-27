@@ -1,5 +1,18 @@
 # Beach Cocktails Merge — Independent Audit Policy
 
+## H!veAI tracking authority [OWNER-LOCKED — 2026-09-28]
+
+- GitHub `origin/main` is repository/project-state authority.
+- Repository-root `TASKS.md` is the **only live project-status tracker** and the **only project-status file consumed by the H!veAI parser**.
+- The top `## Project Status` block owns current milestone, sprint, task, workflow status, next action, required actor, tracking repository, tracking branch, and progress.
+- Every canonical task ID must appear exactly once in root `TASKS.md`.
+- Progress is computed from unique canonical task IDs in root `TASKS.md`: validated `[x]` tasks divided by all canonical task rows.
+- `coordination/SESSION_INDEX.md`, `coordination/AUDIT_INDEX.md`, `docs/04_ROADMAP.md`, `.hiveai/*` trackers/dashboards, and equivalent parallel status mirrors are forbidden.
+- Prompts, audit criteria, Codex logs, ChatGPT audits, owner rulings, manifests, screenshots, and historical task files are evidence only. They do not become a second live tracker.
+- `ui-assets-tasks.md` and `coordination/codex_visual_assets/CODEX_VISUAL_ASSET_TASKS.md` are historical/evidence-only and must not be treated as live current-state authorities.
+- **ChatGPT is the sole writer of root `TASKS.md`. Codex must not edit it during implementation, validation, or handoff.**
+- After every independent audit, owner-gate decision, or newly issued remediation/implementation cycle, ChatGPT updates root `TASKS.md` before the next builder handoff.
+
 ## Core rule
 
 Every implementation/remediation session must use the same four-artifact protocol as the proven ScrubBots workflow:
@@ -55,7 +68,7 @@ For visual milestones, ChatGPT must inspect the committed production screenshots
 - `AUDITED_PASS` — all material locked criteria pass; no BLOCKER/MAJOR; required independent evidence exists.
 - `CHANGES_REQUIRED` — any material criterion fails or remains unverified.
 
-No milestone/task is advanced in `TASKS.md` until `CHATGPT_AUDIT` reaches `AUDITED_PASS`.
+No milestone/task is advanced in `TASKS.md` until the independent audit and any required owner gate establish the appropriate state. ChatGPT then updates the H!veAI `Project Status` block, canonical task rows, and `Progress` in the same root `TASKS.md` transaction.
 
 ## Builder stop rule
 
