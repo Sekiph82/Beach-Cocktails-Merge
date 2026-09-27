@@ -190,6 +190,31 @@ func get_campaign_session_bridge():
     return campaign_session_bridge
 
 
+func set_campaign_gameplay_paused(paused: bool) -> bool:
+    if campaign_session_bridge == null:
+        return false
+    return campaign_session_bridge.set_gameplay_paused(paused)
+
+
+func handle_application_backgrounded() -> bool:
+    if campaign_session_bridge == null:
+        return false
+    return campaign_session_bridge.set_background_paused(true)
+
+
+func handle_application_resumed() -> bool:
+    if campaign_session_bridge == null:
+        return false
+    return campaign_session_bridge.set_background_paused(false)
+
+
+func _notification(what: int) -> void:
+    if what == NOTIFICATION_APPLICATION_PAUSED:
+        handle_application_backgrounded()
+    elif what == NOTIFICATION_APPLICATION_RESUMED:
+        handle_application_resumed()
+
+
 func get_board_size() -> Vector2:
     return get_viewport_rect().size
 

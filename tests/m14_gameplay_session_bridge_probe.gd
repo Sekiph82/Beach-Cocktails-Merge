@@ -8,7 +8,6 @@ const ISLAND_ID := "m14_fixture"
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
-const NAVIGATION_SCENE := preload("res://scenes/campaign/CampaignNavigationScene.tscn")
 
 var failures: Array[String] = []
 
@@ -153,17 +152,44 @@ func _run() -> void:
     var pre_vip_result := win_bridge.record_to_go_delivery(7, 1, "l7")
     var win_result: Dictionary = pre_vip_result["terminal"]
     _check("incomplete VIP never blocks normal WIN", win_result["outcome"] == "WIN" and not win_result["vip_completed"])
+    _check("score-only completion cannot earn three stars", win_result["stars"] == 2)
     _check("WIN progression is submitted exactly once", campaign.is_level_completed(ISLAND_ID, 1) and win_bridge.get_progression_result()["ok"] and win_bridge.resolve_win() == win_result)
     var terminal_time: float = win_bridge.timer_remaining_sec
     win_bridge.tick(2.0)
     _check("WIN stops timer", win_bridge.timer_remaining_sec == terminal_time and win_bridge.session_state == win_bridge.STATE_TERMINAL)
+
+    var matrix_campaign = _campaign(database)
+    var vip_low_bridge = _bridge(database, matrix_campaign)
+    vip_low_bridge.start_session(ISLAND_ID, 1)
+    vip_low_bridge.mark_gameplay_ready()
+    vip_low_bridge.set_current_score(100)
+    vip_low_bridge.set_vip_completed(true)
+    vip_low_bridge.record_to_go_delivery(6, 2, "vip-low-l6")
+    var vip_low_result: Dictionary = vip_low_bridge.record_to_go_delivery(7, 1, "vip-low-l7")["terminal"]
+    _check("VIP completion with insufficient three-star score earns two stars", vip_low_result["stars"] == 2)
+
+    var vip_high_bridge = _bridge(database, matrix_campaign)
+    vip_high_bridge.start_session(ISLAND_ID, 1)
+    vip_high_bridge.mark_gameplay_ready()
+    vip_high_bridge.set_current_score(300)
+    vip_high_bridge.set_vip_completed(true)
+    vip_high_bridge.record_to_go_delivery(6, 2, "vip-high-l6")
+    var vip_high_result: Dictionary = vip_high_bridge.record_to_go_delivery(7, 1, "vip-high-l7")["terminal"]
+    _check("VIP completion with three-star score earns three stars", vip_high_result["stars"] == 3)
+
+    var plain_bridge = _bridge(database, matrix_campaign)
+    plain_bridge.start_session(ISLAND_ID, 2)
+    plain_bridge.mark_gameplay_ready()
+    plain_bridge.set_current_score(0)
+    var plain_result: Dictionary = plain_bridge.record_to_go_delivery(6, 1, "plain-normal")["terminal"]
+    _check("plain normal completion earns one star", plain_result["stars"] == 1)
 
     var replay_configuration: Dictionary = win_bridge.retry_session()
     _check("Retry creates a fresh READY session from original definition", replay_configuration["island_id"] == ISLAND_ID and replay_configuration["level_id"] == 1 and win_bridge.session_state == win_bridge.STATE_READY and is_equal_approx(win_bridge.timer_remaining_sec, 5.0))
     win_bridge.mark_gameplay_ready()
     win_bridge.record_to_go_delivery(6, 2, "replay-l6", 1)
     win_bridge.record_to_go_delivery(7, 1, "replay-l7", 1)
-    _check("worse replay cannot lower best score or stars", campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["best_score"] == 300 and campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["stars"] == 3)
+    _check("worse replay cannot lower best score or stars", campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["best_score"] == 300 and campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["stars"] == 2)
     _check("Next Level resolves only an unlocked next level", win_bridge.next_level_session()["level_id"] == 2 and win_bridge.active_level_id == 2)
     _check("next-level session starts with clean objective/timer state", win_bridge.session_state == win_bridge.STATE_READY and win_bridge.get_objective_state()["normal_remaining"][6] == 1 and is_equal_approx(win_bridge.timer_remaining_sec, 5.0))
     win_bridge.mark_gameplay_ready()
@@ -172,21 +198,51 @@ func _run() -> void:
     win_bridge.island_map_requested.connect(func(island_id: String) -> void: map_requests.append(island_id))
     _check("Island Map return preserves exact island boundary", win_bridge.return_to_island_map()["ok"] and map_requests == [ISLAND_ID] and win_bridge.session_state == win_bridge.STATE_IDLE)
 
-    var navigation = NAVIGATION_SCENE.instantiate()
+    var configured_entry: String = str(ProjectSettings.get_setting("application/run/main_scene", ""))
+    _check("configured app entry is campaign shell", configured_entry == "res://scenes/campaign/CampaignNavigationScene.tscn")
+    var app_entry_scene := load(configured_entry) as PackedScene
+    var navigation = app_entry_scene.instantiate()
+    _check("configured entry instantiates the real M13 navigation host", navigation is CampaignNavigationController)
     _check("M13 navigation host configures exact fixture campaign", navigation.configure_campaign(database, campaign))
     root.add_child(navigation)
     await process_frame
     await process_frame
     _check("navigation owns one reusable map pair", navigation.get_map_instance_count() == 2)
-    var navigation_map_opened: bool = navigation.show_island_map(ISLAND_ID)
+    var navigation_map_opened: bool = navigation.get_world_map().select_island(ISLAND_ID)
     await process_frame
     await process_frame
+    _check("real M12 World Map selection enters the exact M13 Island Map", navigation_map_opened and navigation.get_current_view() == navigation.VIEW_ISLAND_MAP and navigation.get_island_map().island_id == ISLAND_ID)
     var navigation_level_selected: bool = navigation.get_island_map().select_level(2)
     _check("M13 level selection launches existing gameplay scene through M14", navigation_map_opened and navigation_level_selected)
     await process_frame
     await process_frame
     _check("production selection enters GAMEPLAY with one instance", navigation.get_current_view() == navigation.VIEW_GAMEPLAY and navigation.get_gameplay_instance_count() == 1 and navigation.get_session_bridge().active_level_id == 2)
+    var gameplay := navigation.get_node_or_null("CampaignGameplay") as GameManager
+    var production_pause_time: float = navigation.get_session_bridge().timer_remaining_sec
+    _check("production gameplay pause hook pauses the active bridge", gameplay != null and gameplay.set_campaign_gameplay_paused(true) and navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_PAUSED)
+    navigation.get_session_bridge().tick(1.0)
+    _check("production gameplay pause hook freezes the timer", is_equal_approx(navigation.get_session_bridge().timer_remaining_sec, production_pause_time))
+    _check("production gameplay resume hook resumes the active bridge", gameplay != null and gameplay.set_campaign_gameplay_paused(false) and navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_ACTIVE)
+    var production_resume_time: float = navigation.get_session_bridge().timer_remaining_sec
+    navigation.get_session_bridge().tick(0.5)
+    _check("production gameplay resume hook allows timer progress", navigation.get_session_bridge().timer_remaining_sec < production_resume_time)
+    var app_background_time: float = navigation.get_session_bridge().timer_remaining_sec
+    gameplay._notification(NOTIFICATION_APPLICATION_PAUSED)
+    navigation.get_session_bridge().tick(1.0)
+    _check("production application pause notification freezes the bridge timer", navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_PAUSED and is_equal_approx(navigation.get_session_bridge().timer_remaining_sec, app_background_time))
+    gameplay._notification(NOTIFICATION_APPLICATION_RESUMED)
+    var app_resume_time: float = navigation.get_session_bridge().timer_remaining_sec
+    navigation.get_session_bridge().tick(0.5)
+    _check("production application resume notification resumes background-paused gameplay", navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_ACTIVE and navigation.get_session_bridge().timer_remaining_sec < app_resume_time)
+    gameplay.set_campaign_gameplay_paused(true)
+    gameplay._notification(NOTIFICATION_APPLICATION_PAUSED)
+    gameplay._notification(NOTIFICATION_APPLICATION_RESUMED)
+    _check("pre-existing user pause survives application resume", navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_PAUSED)
+    gameplay.set_campaign_gameplay_paused(false)
     navigation.get_session_bridge().resolve_lose("TEST_NAV_LOSE")
+    gameplay._notification(NOTIFICATION_APPLICATION_PAUSED)
+    gameplay._notification(NOTIFICATION_APPLICATION_RESUMED)
+    _check("terminal gameplay is not resumed by application lifecycle", navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_TERMINAL)
     _check("Retry path is bounded and does not duplicate gameplay", navigation.retry_level() and navigation.get_gameplay_instance_count() <= 1)
     await process_frame
     await process_frame

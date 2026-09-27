@@ -422,7 +422,7 @@ func _derive_stars() -> int:
     var three_stars = thresholds.get("three_stars", null)
     if two_stars != null and _current_score >= int(two_stars):
         stars = maxi(stars, 2)
-    if three_stars != null and _current_score >= int(three_stars):
+    if _vip_completed and three_stars != null and _current_score >= int(three_stars):
         stars = maxi(stars, 3)
     return clampi(stars, 1, 3)
 
