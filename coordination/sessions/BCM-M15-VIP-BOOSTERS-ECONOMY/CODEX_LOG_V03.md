@@ -1,99 +1,88 @@
-# BCM-M15 VIP Range + Premium Payout — Codex Execution Log V03
+# BCM-M15 VIP, Boosters, Rewards & Economy — CODEX Log V03
 
-- Work item: `BCM-M15-001` / `BCM-M15-VIP-BOOSTERS-ECONOMY`
-- Prompt: `CHATGPT_EXECUTION_PROMPT_V03.md`
-- Locked criteria: `CHATGPT_AUDIT_CRITERIA_V03.md`
-- Owner ruling: `OWNER_RULING_V03.md`
-- Branch target: `main`
-- Remote: `origin` — `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`
-- Canonical checkout: `C:\Users\sekip\Desktop\Beach Cocktails - Merge`
-- Start HEAD after sync: `161b37c92b8d6acf76a59ade44a56a5c718bc37a`
-- Implementation SHA: `9ae9202d9e5511fb5c42926fd2fd371f0a80e8dd`
-- Status: implementation complete; awaiting independent audit
+Status: `AWAITING_M15_AUDIT_V03`
 
-## Authorization and sync preflight
+## Work item and authority
 
-- `git status --short --branch` initially reported clean `main`, behind only.
-- `git remote -v` matched the canonical `Sekiph82/Beach-Cocktails-Merge` origin.
-- `git fetch origin main` completed successfully.
-- Initial history comparison was `0 6` for `HEAD...origin/main`.
-- Canonical `main` was reconciled safely with `git merge --ff-only origin/main`.
-- Synchronized tracker state was `READY_FOR_CODEX`, Required Actor `CODEX`, exact task V03.
-- No reset, clean, stash, rebase, destructive checkout, force-push, branch creation, Desktop copy, or Desktop worktree was used.
-- Existing outside-Desktop worktrees were not touched.
+- Work item: `BCM-M15-VIP-BOOSTERS-ECONOMY V03`
+- Prompt: `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V03.md`
+- Audit criteria: `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V03.md`
+- Owner ruling: `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/OWNER_RULING_V03.md`
+- Branch: `main`
+- Remote: `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`
 
-## Changed files
+## Synchronization
 
-- `scripts/campaign/level_database.gd` — deterministic enabled-VIP validation for integer L1-L12 targets and positive integer quantities; disabled VIP metadata remains valid.
-- `scripts/game_manager.gd` — accepted VIP delivery now pays `2 * Drink.order_reward(level)` per unit exactly once, updates HUD, and forwards the post-premium score to the bridge; compact badge adds `2X`.
-- `tests/m15_vip_boosters_economy_probe.gd` — V03 boundary, payout, precedence, terminal-score, idempotency, and UI evidence coverage.
-- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_pending.png`.
-- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_partial.png`.
-- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_completed.png`.
-- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/non_vip.png`.
-- This immutable V03 log.
+Initial canonical preflight from `C:\Users\sekip\Desktop\Beach Cocktails - Merge`:
 
-## Implementation summary
+- `git status --short --branch`: clean `main`, `[ahead 3, behind 4]` versus `origin/main`.
+- `git remote -v`: fetch/push `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`.
+- `git fetch origin main`: completed successfully.
+- `git rev-list --left-right --count HEAD...origin/main`: `3 4`.
+- The histories reconciled cleanly with a non-destructive merge; no reset, rebase, stash, force-push, branch, or worktree was used.
+- Synchronization merge commit: `b2789224784ff3b8154e01276d631933b9f46b08`.
+- Live `TASKS.md` after synchronization authorized this task with `Current Task Status: READY_FOR_CODEX` and `Required Actor: CODEX`.
+- Codex did not author or manually edit root `TASKS.md`; the remote-authoritative version was incorporated only by the synchronization merge.
+- Superseded unpublished local V03 logs were removed from the final tree because the relocked live authority explicitly stated that no `CODEX_LOG_V03.md` existed when clarification was locked. No owner asset or project source was removed.
 
-- LevelDatabase enforces enabled VIP `cocktail_level` as an integer in L1-L12 and `quantity` as a positive integer. L1/L12 pass; L0/L13, zero, and fractional quantities fail deterministically.
-- The real V02 VIP capture completion route records delivery acceptance before calculating the premium. Rejected, mismatched, paused, invalid, and already-completed attempts add no premium.
-- Each accepted unit adds exactly `2 * Drink.order_reward(delivered_level)`. Merge/combo scoring remains in the existing merge path and is not duplicated.
-- The GameManager refreshes HUD after the premium and then updates GameplaySessionBridge with the post-premium score, so terminal result and stars observe the authoritative total.
-- Same-level precedence remains mandatory-normal-first. The probe verifies the normal L6 delivery pays 1x first, then a later L6 delivery pays 2x VIP while another normal objective remains.
-- Configured VIP booster/coin economy rewards remain terminal-only, separate from delivery scoring, and idempotent.
-- No normal reward-table, merge/combo, physics/table/collider, accepted asset, M16 content, purchase, ad, backend, or root `TASKS.md` changes were made.
+Implementation start HEAD after synchronization: `b2789224784ff3b8154e01276d631933b9f46b08`.
 
-## Verification
+## Implementation
 
-Normal Godot 4.7.2 import/bootstrap:
+- Added an optional island `target_policy` and a shared `LevelDatabase.is_campaign_target_level_eligible()` helper.
+- Normal campaign orders and enabled VIP targets now use the same policy source; Sunny Cove is explicitly `L5-L8`.
+- Preserved generic validation for fixtures/future islands without an authored policy; VIP has no independent fallback range.
+- Preserved positive-integer VIP quantity validation and disabled VIP metadata behavior.
+- Retained/verified real VIP capture completion with one 2× `Drink.order_reward(level)` bonus per accepted unit, post-bonus bridge score update, no duplicate merge/combo score, and zero payout for invalid/paused/duplicate deliveries.
+- Kept the compact VIP badge and bounded `2X` premium indicator without changing table/HUD geometry.
+- No M16 level records, purchases, ads, backend, physics, table, collider, or root tracker changes were made.
 
-- `godot_console.exe --headless --path . --editor --quit` — exit `0`; only the known ignored nested `res://original_reference/project.godot` warning.
-- `git diff --check` — exit `0` before commit.
+## Files changed
 
-Focused M15 V03:
+- `data/campaign/islands.json`
+- `scripts/campaign/level_database.gd`
+- `scripts/game_manager.gd`
+- `tests/m15_vip_boosters_economy_probe.gd`
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/non_vip.png`
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_pending.png`
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_partial.png`
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_completed.png`
+- This immutable log.
 
-- `godot_console.exe --headless --path . --script res://tests/m15_vip_boosters_economy_probe.gd` — run 1 exit `0`; `M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS`.
-- Same command with no intervening source changes — run 2 exit `0`; `M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS`.
-- `godot_console.exe --path . --display-driver windows --rendering-method gl_compatibility --resolution 720x1280 --script res://tests/m15_vip_boosters_economy_probe.gd` — exit `0`; OpenGL 3.3 Intel compatibility renderer; `M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS`; all four V03 PNGs captured.
+## Tests and evidence
 
-V03 probe coverage includes:
+Godot 4.7.2.0 was used.
 
-- L1/L12 accepted and L0/L13 rejected;
-- zero/fractional quantity rejected and disabled VIP accepted;
-- merged and stored quantity-2 VIP units each paid exact 2x;
-- extra completed VIP delivery paid zero and remained idempotent;
-- normal L6 remained 1x;
-- same-level normal-first then later VIP payout;
-- terminal result included accepted VIP bonuses;
-- existing economy reward idempotency, save/reload, +Time, milestone, WIN/LOSE, and shared runtime authority.
+- Import/parse bootstrap: `godot_console.exe --headless --editor --path . --import --quit` — PASS.
+- M15 focused probe, headless: `godot_console.exe --headless --path . --script res://tests/m15_vip_boosters_economy_probe.gd` — PASS.
+- M15 focused probe, Windows/OpenGL Compatibility: `godot_console.exe --path . --rendering-method gl_compatibility --script res://tests/m15_vip_boosters_economy_probe.gd` — PASS.
+- M15 PASS coverage: shared normal/VIP L5-L8 policy, L4/L9 rejection, positive integer quantity, mismatched/nonpositive/paused zero payout, merged and stored 2× delivery, quantity-2 cumulative payout, post-completion zero payout, normal 1× payout, terminal score, economy idempotency, same-level normal-first precedence, and hidden non-VIP badge.
+- Required regression probes: M14, M13, M12, M11, M10, M08, M03, and M02 — PASS, exit code 0.
+- `git diff --check` — PASS.
 
-Required regressions, all exit `0` and PASS:
+Windows/OpenGL evidence:
 
-- M14: `M14_GAMEPLAY_SESSION_BRIDGE_RESULT=PASS`.
-- M13: `M13_ISLAND_MAP_RESULT=PASS`.
-- M12: `M12_WORLD_MAP_RESULT=PASS`.
-- M11: `M11_SAVE_MIGRATION_PROGRESSION_RESULT=PASS`; expected malformed-JSON recovery diagnostics emitted by corruption cases.
-- M10: `M10_CAMPAIGN_ARCHITECTURE_RESULT=PASS`.
-- M08: `M08_TO_GO_DELIVERY_RESULT=PASS`; existing headless dummy-render capture emitted non-fatal null-texture diagnostics.
-- M03: `M03_PROBE_RESULT=PASS`.
-- M02: `M02_PROBE_RESULT=PASS`.
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_pending.png`
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_partial.png`
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/vip_completed.png`
+- `coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v03/non_vip.png`
 
-## Evidence and limitations
+## Manual checks and limitations
 
-- Visually inspected all four Windows/OpenGL V03 captures. The accepted To-Go/table geometry is unchanged; the badge reads `VIP 2X L12 0/2 PENDING`, `VIP 2X L12 1/2 PENDING`, and `VIP 2X L12 2/2 COMPLETED`; the non-VIP badge is hidden.
-- No owner-native visual acceptance, physical-device check, clean-machine check, or independent ChatGPT audit was performed.
-- Godot generated the known 14 translation sidecars during import. Those exact generated files were removed; no owner-authored asset was changed or staged.
+- Performed a Windows/OpenGL Compatibility runtime probe and confirmed all four evidence captures were written.
+- Did not perform owner visual acceptance; the bounded badge/premium indication remains subject to the independent audit and owner review.
+- Did not perform the independent ChatGPT audit or update `TASKS.md`.
+- Godot generated translation/import clutter during bootstrap; exact generated translation files were removed and no generated artifacts were staged.
+- Expected malformed-save parser diagnostics appeared during M11 recovery coverage; the M11 result remained PASS.
 
-## Publication and governance
+## Publication
 
-- `TASKS.md` was read and left byte-for-byte unchanged. Its pre-implementation blob SHA-1 was `5c97d9b08e81d03ad5f29527550fddeb5bf889f4` and no diff exists.
-- Implementation commit: `9ae9202d9e5511fb5c42926fd2fd371f0a80e8dd` (`Implement M15 VIP range and premium payouts`).
-- This log is a separate immutable evidence commit and is intended to be pushed after the implementation commit.
-- After publication, verify canonical HEAD, `origin/main`, and `git ls-remote origin refs/heads/main` equality.
-- Final canonical post-task sync must leave `main` clean except ignored Godot/editor state.
+- Implementation/evidence commit: `825fd07619524e0516e7e8bf925f99fa79b50551`.
+- The log/evidence handoff commit and final remote SHA are verified after this log is committed and pushed.
+- Required final marker: `AWAITING_M15_AUDIT_V03`.
 
-## Audit boundary
+## Handoff URLs
 
-This is builder evidence only. Codex does not edit `TASKS.md`, issue the M15 verdict, or perform the independent acceptance audit.
-
-`AWAITING_M15_AUDIT_V03`
+- Log: `https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CODEX_LOG_V03.md`
+- Prompt: `https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_EXECUTION_PROMPT_V03.md`
+- Criteria: `https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_CRITERIA_V03.md`
