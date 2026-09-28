@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Qualify a stronger deterministic merge-aware validation policy at canonical physics time scale and prove it actually changes horizontal aim from board state instead of repeating the owner-observed fixed-lane behavior.
+- Current Task: Execute the actual M17-007 full Sunny Cove screening using the qualified canonical-scale merge-aware solver: 100-level reachability/timer analysis, 45 challenge classes, VIP-interception workload analysis, and physical outlier candidate flags.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M17 V03A canonical-scale solver qualification with anti-fixed-lane gates. If horizontal responsiveness or qualification fails, it must stop without tuning. M17-008 remains blocked.
+- Next Task/Action: Codex executes BCM-M17 V04 full canonical screening and publishes the 100-level/classification report. M17-008 remains blocked until independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 74 / 101 = 73.27%. M17-001..006 are independently audited PASS. M17-007 is active under V03A; owner-observed fixed-lane behavior is now an explicit qualification failure condition.
+- Progress: 74 / 101 = 73.27%. M17-001..006 are independently audited PASS and V03A qualified the merge-aware solver. M17-007 remains active for the actual full canonical screening; M17-008 remains blocked.
 
 ## Tasks
 
@@ -586,8 +586,17 @@ V03A locked criteria:
 V03A execution prompt:
 `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V03A.md`
 
-V03A pending audit:
-`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V03A.md`
+V03A independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V03A.md` — **AUDITED_PASS / SOLVER_QUALIFIED_FOR_M17_007**.
+
+V04 locked criteria:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V04.md`
+
+V04 execution prompt:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V04.md`
+
+V04 pending audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V04.md`
 
 V01 covers M17-001..006 tooling/evidence only. M17-007/008 remain pending; no canonical level tuning is authorized before independent audit of the harness.
 
