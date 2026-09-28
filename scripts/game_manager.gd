@@ -817,7 +817,7 @@ func _build_ui() -> void:
     _to_go_panel.add_child(_to_go_target_sprite)
 
     _to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 520.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
-    _to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 700.0), Vector2(430.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 700.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
 
     _vip_target_sprite = Sprite2D.new()
     _vip_target_sprite.name = "VipTargetCocktail"
@@ -827,7 +827,7 @@ func _build_ui() -> void:
     _to_go_panel.add_child(_vip_target_sprite)
     _vip_target_sprite.visible = false
     _vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 1100.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
-    _vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 1295.0), Vector2(430.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 1295.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
 
     var next_width := 145.0 * ui_scale
     var next_height := next_width * 1426.0 / 1103.0

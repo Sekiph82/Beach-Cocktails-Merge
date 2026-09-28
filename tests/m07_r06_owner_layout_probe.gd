@@ -12,7 +12,7 @@ const CAPTURE_DIR := "res://docs/evidence/m07_r08"
 const BEST_VALUE_BOX := Rect2(45.0, 49.5, 116.0, 52.0)
 const SCORE_VALUE_BOX := Rect2(45.0, 47.0, 116.0, 52.0)
 const TO_GO_TARGET_BOX := Rect2(34.0, 92.0, 65.0, 64.0)
-const TO_GO_REWARD_BOX := Rect2(104.0, 128.0, 80.0, 27.0)
+const TO_GO_REWARD_BOX := Rect2(122.0, 128.0, 65.0, 27.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
 
 var failures: Array[String] = []
