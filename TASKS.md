@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: M15
-- Current Sprint: BCM-M15-VIP-BOOSTERS-ECONOMY
-- Current Task: Integrate the owner-approved V06 tall To-Go + VIP HUD master at the same existing width, with ~2×+ vertical footprint, long hanging ropes, equal-size normal/VIP cocktail slots, and persistent non-VIP `0/0` state.
+- Current Milestone: M16
+- Current Sprint: BCM-M16-SUNNY-COVE-CONTENT
+- Current Task: Populate and validate Sunny Cove canonical Level 1-100 normal campaign content from the approved progression table; do not invent VIP placement content.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M15 V06 using the owner-approved 1132×1698 tall HUD master, preserves the existing width, publishes Windows/OpenGL evidence, and stops for independent audit and owner visual acceptance.
+- Next Task/Action: Codex executes BCM-M16 V01, expands Sunny Cove from the 2-level seed to the approved 100-level canonical normal-content table, validates all rows/timers/progression, and stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 56 / 101 = 55.45%. M15 gameplay/economy behavior is technically accepted; owner rejected V05 only for visual scale, and V06 now applies the taller long-rope master before M15 closure.
+- Progress: 58 / 101 = 57.43%. M15 is independently audited and owner-accepted; M16 V01 is active for Sunny Cove canonical Level 1-100 normal content and validation.
 
 ## Tasks
 
@@ -477,18 +477,42 @@ Scope:
 
 ### M15 — VIP orders, boosters, rewards, and economy hooks
 
-- [~] BCM-M15-001 — Integrate the owner-approved V06 tall combined To-Go + VIP HUD master at unchanged width with long ropes, expanded vertical footprint, dynamic normal/VIP content, equal cocktail scaling, and persistent non-VIP `0/0` state.
+- [x] BCM-M15-001 — Integrate the owner-approved V06 tall combined To-Go + VIP HUD master at unchanged width with long ropes, expanded vertical footprint, dynamic normal/VIP content, equal cocktail scaling, and persistent non-VIP `0/0` state.
 - [x] BCM-M15-002 — Implement optional VIP completion reward dispatch for booster rewards.
 - [x] BCM-M15-003 — Define initial booster inventory model and campaign reward integration.
 - [x] BCM-M15-004 — Implement +Time booster contract for timed levels without altering base timer definitions.
 - [x] BCM-M15-005 — Implement one-time milestone reward claim state and duplicate-claim protection.
 - [x] BCM-M15-006 — Add coin/reward ledger hooks while keeping campaign completion independent from purchases or ads.
 - [x] BCM-M15-007 — Add tests for VIP optionality, reward grant, inventory persistence, replay, and duplicate prevention.
-- [~] BCM-M15-R01 — Replace the owner-rejected V05 miniature runtime presentation with the V06 1132×1698 tall long-rope master while preserving accepted M15 gameplay/economy behavior.
+- [x] BCM-M15-R01 — Replace the owner-rejected V05 miniature runtime presentation with the V06 1132×1698 tall long-rope master while preserving accepted M15 gameplay/economy behavior.
 
-### M16 — Sunny Cove canonical Level 1-100 content
+### M15 final closure V06
 
-- [ ] BCM-M16-001 — Add Sunny Cove island definition with exactly 100 sequential levels.
+Final independent audit:
+`coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/CHATGPT_AUDIT_V06.md` — **AUDITED_PASS / OWNER_ACCEPTED**.
+
+Final accepted runtime HEAD at audit: `96488258453e4aee23da57f3b73db8fd3a69464a`.
+
+The owner accepted the V06-R01 tall To-Go/VIP HUD visuals, including white centered reward digits. M15 gameplay/economy behavior and the final HUD are closed. M16 may proceed.
+
+## M16 — Sunny Cove canonical Level 1-100 content
+
+Active M16 V01 locked criteria:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Active M16 V01 execution prompt:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Pending independent audit:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_V01.md`
+
+Authoritative level table:
+`docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md`
+
+BCM-M16-009 remains pending unless an already-approved exact VIP placement table exists; Codex must not invent VIP content.
+
+
+- [~] BCM-M16-001 — Add Sunny Cove island definition with exactly 100 sequential levels.
 - [ ] BCM-M16-002 — Encode the approved minimum normal target rule: no normal campaign target below L5.
 - [ ] BCM-M16-003 — Encode spawn assumption baseline L1-L3 and merge cost model L(n)=2^(n-1) L1-equivalent units.
 - [ ] BCM-M16-004 — Encode timer baseline from calculated production time multiplied by exactly 2; do not add a fixed minimum-time padding.
