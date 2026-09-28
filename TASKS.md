@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M16
 - Current Sprint: BCM-M16-SUNNY-COVE-CONTENT
-- Current Task: Populate and validate Sunny Cove canonical Level 1-100 normal campaign content from the approved progression table; do not invent VIP placement content.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M16 V01, expands Sunny Cove from the 2-level seed to the approved 100-level canonical normal-content table, validates all rows/timers/progression, and stops for independent audit.
-- Required Actor: CODEX
+- Current Task: Define the owner-approved Sunny Cove VIP placement/reward policy for BCM-M16-009; all 100 normal campaign levels are already audited complete.
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner defines the Sunny Cove VIP placement/reward content policy for BCM-M16-009. Codex must not invent VIP frequency, target levels, quantities, or rewards.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 58 / 101 = 57.43%. M15 is independently audited and owner-accepted; M16 V01 is active for Sunny Cove canonical Level 1-100 normal content and validation.
+- Progress: 67 / 101 = 66.34%. M16 V01 normal Level 1-100 content is independently audited complete; only BCM-M16-009 Sunny Cove VIP placement/reward content remains open in M16.
 
 ## Tasks
 
@@ -503,8 +503,10 @@ Active M16 V01 locked criteria:
 Active M16 V01 execution prompt:
 `coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_EXECUTION_PROMPT_V01.md`
 
-Pending independent audit:
-`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_V01.md`
+M16 V01 independent audit result:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_V01.md` — **AUDITED_PASS / V01_SCOPE_COMPLETE**.
+
+BCM-M16-001..008 and BCM-M16-010 are closed. BCM-M16-009 remains owner-required because no approved exact VIP placement/reward table exists.
 
 Authoritative level table:
 `docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md`
@@ -512,16 +514,16 @@ Authoritative level table:
 BCM-M16-009 remains pending unless an already-approved exact VIP placement table exists; Codex must not invent VIP content.
 
 
-- [~] BCM-M16-001 — Add Sunny Cove island definition with exactly 100 sequential levels.
-- [ ] BCM-M16-002 — Encode the approved minimum normal target rule: no normal campaign target below L5.
-- [ ] BCM-M16-003 — Encode spawn assumption baseline L1-L3 and merge cost model L(n)=2^(n-1) L1-equivalent units.
-- [ ] BCM-M16-004 — Encode timer baseline from calculated production time multiplied by exactly 2; do not add a fixed minimum-time padding.
-- [ ] BCM-M16-005 — Set Level 1 baseline to 1×L5 with approximately 20 seconds.
-- [ ] BCM-M16-006 — Keep Sunny Cove normal targets within L5-L8 and reserve L9 as future-island progression content.
-- [ ] BCM-M16-007 — Set Sunny Cove Level 100 target to 1×L8 + 1×L7 + 1×L6 + 1×L5 with a 300-second / 5:00 timer.
-- [ ] BCM-M16-008 — Populate all 100 Sunny Cove level records from the approved progression table, including intentional difficulty-wave relief levels.
+- [x] BCM-M16-001 — Add Sunny Cove island definition with exactly 100 sequential levels.
+- [x] BCM-M16-002 — Encode the approved minimum normal target rule: no normal campaign target below L5.
+- [x] BCM-M16-003 — Encode spawn assumption baseline L1-L3 and merge cost model L(n)=2^(n-1) L1-equivalent units.
+- [x] BCM-M16-004 — Encode timer baseline from calculated production time multiplied by exactly 2; do not add a fixed minimum-time padding.
+- [x] BCM-M16-005 — Set Level 1 baseline to 1×L5 with approximately 20 seconds.
+- [x] BCM-M16-006 — Keep Sunny Cove normal targets within L5-L8 and reserve L9 as future-island progression content.
+- [x] BCM-M16-007 — Set Sunny Cove Level 100 target to 1×L8 + 1×L7 + 1×L6 + 1×L5 with a 300-second / 5:00 timer.
+- [x] BCM-M16-008 — Populate all 100 Sunny Cove level records from the approved progression table, including intentional difficulty-wave relief levels.
 - [ ] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
-- [ ] BCM-M16-010 — Validate unique ids, sequential unlock chain, objective legality, timers, and Level 1/100 anchor values in automated tests.
+- [x] BCM-M16-010 — Validate unique ids, sequential unlock chain, objective legality, timers, and Level 1/100 anchor values in automated tests.
 
 ### M17 — Difficulty model and level validation
 
