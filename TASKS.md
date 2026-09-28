@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Build the M17 deterministic difficulty model, transparent timer-planning tool, spatial telemetry schema, seeded/replayable validation harness, and first peak/relief baseline report without tuning canonical levels.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M17 V01 tooling/evidence foundation for M17-001..006, publishes the baseline report, and stops for independent audit. M17-007/008 tuning/outlier decisions remain blocked.
+- Current Task: Remediate M17 telemetry integrity: separate TABLE_DANGER from timeout, implement an honest rail-proximity event proxy, and regenerate the same 20×3 baseline cohort without tuning canonical levels.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes BCM-M17 V02 telemetry remediation, regenerates the exact same 60-trial cohort, and stops for independent audit. M17-007/008 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 68 / 101 = 67.33%. M16 is independently audited and owner-accepted. M17 V01 is active for difficulty-model/telemetry/harness foundation with canonical level data frozen.
+- Progress: 71 / 101 = 70.30%. M17-001..003 are independently audited PASS. M17-004..006 remain open because V01 misclassified TABLE_DANGER as timeout and reported structurally false-zero rail-contact telemetry.
 
 ## Tasks
 
@@ -563,18 +563,27 @@ Active M17 V01 locked criteria:
 Active M17 V01 execution prompt:
 `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V01.md`
 
-Pending independent audit:
-`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V01.md`
+V01 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V01.md` — **CHANGES_REQUIRED** for telemetry/report integrity only.
+
+V02 locked criteria:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V02.md`
+
+V02 execution prompt:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V02.md`
+
+V02 pending audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V02.md`
 
 V01 covers M17-001..006 tooling/evidence only. M17-007/008 remain pending; no canonical level tuning is authorized before independent audit of the harness.
 
 
-- [~] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
-- [~] BCM-M17-002 — Implement timer-calculation tooling that exposes theoretical cost, expected L1-L3 spawn production, raw calculated time, and ×2 final target time.
-- [~] BCM-M17-003 — Treat theoretical merge cost as a lower-level planning metric only; do not assume spatially separated same-level cocktails merge for free.
-- [~] BCM-M17-004 — Define spatial-complexity telemetry for board occupancy, large-piece coexistence, travel/contact time, congestion, and failed merge approaches.
-- [~] BCM-M17-005 — Build a level validation/simulation harness or replayable bot test interface that can run repeated seeded trials against campaign data.
-- [~] BCM-M17-006 — Report completion rate, median completion time, percentile completion times, timeout causes, and board-congestion metrics per tested level.
+- [x] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
+- [x] BCM-M17-002 — Implement timer-calculation tooling that exposes theoretical cost, expected L1-L3 spawn production, raw calculated time, and ×2 final target time.
+- [x] BCM-M17-003 — Treat theoretical merge cost as a lower-level planning metric only; do not assume spatially separated same-level cocktails merge for free.
+- [!] BCM-M17-004 — Define spatial-complexity telemetry for board occupancy, large-piece coexistence, travel/contact time, congestion, and failed merge approaches.
+- [!] BCM-M17-005 — Build a level validation/simulation harness or replayable bot test interface that can run repeated seeded trials against campaign data.
+- [!] BCM-M17-006 — Report completion rate, median completion time, percentile completion times, timeout causes, and board-congestion metrics per tested level.
 - [ ] BCM-M17-007 — Flag mathematically impossible, effectively impossible, or outlier levels before they are accepted into canonical campaign data.
 - [ ] BCM-M17-008 — Tune data only after evidence; never hide impossible level design behind arbitrary timer extensions.
 
