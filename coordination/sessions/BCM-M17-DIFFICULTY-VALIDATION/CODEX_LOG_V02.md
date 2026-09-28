@@ -125,7 +125,12 @@ M02_PROBE_RESULT=PASS
 ## Publication and final sync
 
 - Intended changes are limited to the files listed above.
-- Implementation and evidence are committed together for this V02 handoff.
-- Final commit SHA, local/remote equality, and `git ls-remote` proof are recorded below after publication.
-- Final status must be clean and the checkout must be synchronized with `origin/main`.
+- Implementation/evidence publication commit SHA: `8a0422c397f30894ab85f8f9f40f6dcb819ef3b5`.
+- Post-push sync proof before this evidence-log finalization:
+  - `git rev-parse HEAD`: `8a0422c397f30894ab85f8f9f40f6dcb819ef3b5`.
+  - `git rev-parse origin/main`: `8a0422c397f30894ab85f8f9f40f6dcb819ef3b5`.
+  - `git ls-remote origin refs/heads/main`: `8a0422c397f30894ab85f8f9f40f6dcb819ef3b5`.
+  - `git rev-list --left-right --count HEAD...origin/main`: `0 0`.
+  - `git status --short --branch`: clean `main...origin/main`.
+- This evidence-log finalization is a follow-up commit; its SHA is reported in the final handoff because a commit cannot contain its own SHA.
 - Independent ChatGPT audit remains required; Codex does not update `TASKS.md` or assign the milestone verdict.
