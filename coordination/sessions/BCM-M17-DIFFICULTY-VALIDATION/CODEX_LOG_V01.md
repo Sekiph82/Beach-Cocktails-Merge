@@ -88,8 +88,8 @@ The separate `tests/r10_runtime_physics_closure_probe.gd` had pre-existing type-
 
 ## Publication
 
-- Implementation commit SHA: to be recorded after the bounded implementation commit.
-- Final commit SHA: to be recorded after the immutable log commit.
+- Implementation commit SHA: `21386b2bbf3a364c8860f5cb7b4e26bce03bc83f`.
+- Final publication commit SHA: recorded by the post-push sync proof and final handoff response; the log amendment itself is the evidence-finalization commit.
 - Final sync proof after push:
 ```text
 git rev-parse HEAD
