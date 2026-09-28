@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M16
 - Current Sprint: BCM-M16-SUNNY-COVE-CONTENT
-- Current Task: Remediate only the Sunny Cove Island Map VIP marker so it visibly shows the existing crown+VIP badge at a legible size; V02 data/reward/replay behavior is technically accepted and frozen.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes BCM-M16 V03 marker-only remediation using the existing gameplay VIP crown badge, commits Island Map screenshot evidence, and stops for independent audit and owner visual acceptance. M17 remains blocked.
-- Required Actor: CODEX
+- Current Task: Owner reviews the final V03 Sunny Cove Island Map VIP crown-marker screenshots. V02/V03 technical implementation is independently audited PASS.
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner accepts or rejects the committed V03 VIP crown-marker visuals. If accepted, ChatGPT closes BCM-M16-009 and M16, then advances H!veAI to M17.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 67 / 101 = 66.34%. M16 V02 VIP data/reward/replay behavior passes technical audit, but BCM-M16-009 remains open because the current Island Map marker asset does not visibly communicate VIP/crown.
+- Progress: 67 / 101 = 66.34%. M16 V03 is independently audited technical PASS; only owner visual acceptance of the final crown+VIP marker remains before BCM-M16-009 and M16 closure.
 
 ## Tasks
 
@@ -531,8 +531,8 @@ V03 locked criteria:
 V03 remediation prompt:
 `coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_EXECUTION_PROMPT_V03.md`
 
-V03 pending audit:
-`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_V03.md`
+V03 independent audit:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_V03.md` — **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**.
 
 
 - [x] BCM-M16-001 — Add Sunny Cove island definition with exactly 100 sequential levels.
@@ -543,7 +543,7 @@ V03 pending audit:
 - [x] BCM-M16-006 — Keep Sunny Cove normal targets within L5-L8 and reserve L9 as future-island progression content.
 - [x] BCM-M16-007 — Set Sunny Cove Level 100 target to 1×L8 + 1×L7 + 1×L6 + 1×L5 with a 300-second / 5:00 timer.
 - [x] BCM-M16-008 — Populate all 100 Sunny Cove level records from the approved progression table, including intentional difficulty-wave relief levels.
-- [!] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
+- [~] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
 - [x] BCM-M16-010 — Validate unique ids, sequential unlock chain, objective legality, timers, and Level 1/100 anchor values in automated tests.
 
 ### M17 — Difficulty model and level validation
