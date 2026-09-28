@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: M16
-- Current Sprint: BCM-M16-SUNNY-COVE-CONTENT
-- Current Task: Owner reviews the final V03 Sunny Cove Island Map VIP crown-marker screenshots. V02/V03 technical implementation is independently audited PASS.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner accepts or rejects the committed V03 VIP crown-marker visuals. If accepted, ChatGPT closes BCM-M16-009 and M16, then advances H!veAI to M17.
-- Required Actor: OWNER
+- Current Milestone: M17
+- Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
+- Current Task: Build the M17 deterministic difficulty model, transparent timer-planning tool, spatial telemetry schema, seeded/replayable validation harness, and first peak/relief baseline report without tuning canonical levels.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes BCM-M17 V01 tooling/evidence foundation for M17-001..006, publishes the baseline report, and stops for independent audit. M17-007/008 tuning/outlier decisions remain blocked.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 67 / 101 = 66.34%. M16 V03 is independently audited technical PASS; only owner visual acceptance of the final crown+VIP marker remains before BCM-M16-009 and M16 closure.
+- Progress: 68 / 101 = 67.33%. M16 is independently audited and owner-accepted. M17 V01 is active for difficulty-model/telemetry/harness foundation with canonical level data frozen.
 
 ## Tasks
 
@@ -543,17 +543,38 @@ V03 independent audit:
 - [x] BCM-M16-006 — Keep Sunny Cove normal targets within L5-L8 and reserve L9 as future-island progression content.
 - [x] BCM-M16-007 — Set Sunny Cove Level 100 target to 1×L8 + 1×L7 + 1×L6 + 1×L5 with a 300-second / 5:00 timer.
 - [x] BCM-M16-008 — Populate all 100 Sunny Cove level records from the approved progression table, including intentional difficulty-wave relief levels.
-- [~] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
+- [x] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
 - [x] BCM-M16-010 — Validate unique ids, sequential unlock chain, objective legality, timers, and Level 1/100 anchor values in automated tests.
 
-### M17 — Difficulty model and level validation
+### M16 final closure V03
 
-- [ ] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
-- [ ] BCM-M17-002 — Implement timer-calculation tooling that exposes theoretical cost, expected L1-L3 spawn production, raw calculated time, and ×2 final target time.
-- [ ] BCM-M17-003 — Treat theoretical merge cost as a lower-level planning metric only; do not assume spatially separated same-level cocktails merge for free.
-- [ ] BCM-M17-004 — Define spatial-complexity telemetry for board occupancy, large-piece coexistence, travel/contact time, congestion, and failed merge approaches.
-- [ ] BCM-M17-005 — Build a level validation/simulation harness or replayable bot test interface that can run repeated seeded trials against campaign data.
-- [ ] BCM-M17-006 — Report completion rate, median completion time, percentile completion times, timeout causes, and board-congestion metrics per tested level.
+Final independent audit:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_V03.md` — **AUDITED_PASS / OWNER_ACCEPTED**.
+
+Final owner-approved V03 marker uses the existing gameplay crown+VIP badge at 36×36 and preserves the fully audited 25-level VIP content/reward/replay contract.
+
+**M16 CLOSED.**
+
+## M17 — Difficulty model and level validation
+
+Active M17 V01 locked criteria:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V01.md`
+
+Active M17 V01 execution prompt:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V01.md`
+
+Pending independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V01.md`
+
+V01 covers M17-001..006 tooling/evidence only. M17-007/008 remain pending; no canonical level tuning is authorized before independent audit of the harness.
+
+
+- [~] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
+- [~] BCM-M17-002 — Implement timer-calculation tooling that exposes theoretical cost, expected L1-L3 spawn production, raw calculated time, and ×2 final target time.
+- [~] BCM-M17-003 — Treat theoretical merge cost as a lower-level planning metric only; do not assume spatially separated same-level cocktails merge for free.
+- [~] BCM-M17-004 — Define spatial-complexity telemetry for board occupancy, large-piece coexistence, travel/contact time, congestion, and failed merge approaches.
+- [~] BCM-M17-005 — Build a level validation/simulation harness or replayable bot test interface that can run repeated seeded trials against campaign data.
+- [~] BCM-M17-006 — Report completion rate, median completion time, percentile completion times, timeout causes, and board-congestion metrics per tested level.
 - [ ] BCM-M17-007 — Flag mathematically impossible, effectively impossible, or outlier levels before they are accepted into canonical campaign data.
 - [ ] BCM-M17-008 — Tune data only after evidence; never hide impossible level design behind arbitrary timer extensions.
 
