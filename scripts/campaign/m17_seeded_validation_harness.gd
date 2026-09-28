@@ -26,7 +26,9 @@ const MAX_EXTRA_SETTLE_FRAMES := 90
 const MAX_SHOTS_MULTIPLIER := 3.0
 const LARGE_PIECE_LEVEL := 7
 const BOARD_OCCUPANCY_AREA_PX2 := 360000.0
-const RAIL_PROXIMITY_PROXY_PX := 1.0
+const RAIL_ENTER_THRESHOLD_PX := 1.0
+const RAIL_RELEASE_THRESHOLD_PX := 3.0
+const RAIL_CONTACT_METRIC := "footprint_proximity_transition_proxy"
 const LANE_X_POSITIONS: Array[float] = [150.0, 220.0, 290.0, 360.0, 430.0, 500.0, 570.0]
 
 var _root: Node
@@ -47,6 +49,7 @@ func telemetry_schema_keys() -> Array[String]:
 		"shot_count", "merge_count", "failed_merge_approach_count",
 		"peak_live_drinks", "mean_live_drinks", "peak_board_occupancy",
 		"large_piece_coexistence_peak", "contact_count", "rail_contact_count",
+		"rail_contact_metric", "rail_enter_threshold_px", "rail_release_threshold_px",
 		"danger_line_exposure_sec", "normal_objective_complete", "vip_complete",
 		"action_log", "terminal_reason", "physics_hook",
 	]
@@ -69,6 +72,9 @@ func new_telemetry(island_id: String, level_id: int, seed_value: int) -> Diction
 		"large_piece_coexistence_peak": 0,
 		"contact_count": 0,
 		"rail_contact_count": 0,
+		"rail_contact_metric": RAIL_CONTACT_METRIC,
+		"rail_enter_threshold_px": RAIL_ENTER_THRESHOLD_PX,
+		"rail_release_threshold_px": RAIL_RELEASE_THRESHOLD_PX,
 		"danger_line_exposure_sec": 0.0,
 		"normal_objective_complete": false,
 		"vip_complete": false,
@@ -86,7 +92,65 @@ func validate_telemetry(telemetry: Dictionary) -> Array[String]:
 	var outcome := str(telemetry.get("outcome", ""))
 	if not [OUTCOME_COMPLETED, OUTCOME_TIMEOUT, OUTCOME_DANGER, OUTCOME_HARNESS_ABORT].has(outcome):
 		errors.append("invalid outcome: %s" % outcome)
+	if str(telemetry.get("rail_contact_metric", "")) != RAIL_CONTACT_METRIC:
+		errors.append("rail_contact_metric must document the proximity transition proxy")
+	if not is_equal_approx(float(telemetry.get("rail_enter_threshold_px", -1.0)), RAIL_ENTER_THRESHOLD_PX):
+		errors.append("rail enter threshold must be 1.0 px")
+	if not is_equal_approx(float(telemetry.get("rail_release_threshold_px", -1.0)), RAIL_RELEASE_THRESHOLD_PX):
+		errors.append("rail release threshold must be 3.0 px")
 	return errors
+
+
+func new_rail_proxy_state() -> Dictionary:
+	return {
+		"rail_near": {},
+		"rail_seen_keys": {},
+		"rail_contact_count": 0,
+	}
+
+
+func begin_rail_proxy_sample(state: Dictionary) -> void:
+	state["rail_seen_keys"] = {}
+
+
+func update_rail_proximity(state: Dictionary, drink_instance_id: int, edge_name: String, minimum_signed_distance: float) -> bool:
+	## Count one enter transition per drink instance and authoritative edge.
+	## Hysteresis prevents repeated events while the footprint remains near.
+	var key := "%d|%s" % [drink_instance_id, edge_name]
+	state["rail_seen_keys"][key] = true
+	var was_near := bool(state["rail_near"].get(key, false))
+	if was_near:
+		if minimum_signed_distance > RAIL_RELEASE_THRESHOLD_PX:
+			state["rail_near"].erase(key)
+		return false
+	if minimum_signed_distance <= RAIL_ENTER_THRESHOLD_PX:
+		state["rail_near"][key] = true
+		state["rail_contact_count"] = int(state["rail_contact_count"]) + 1
+		return true
+	return false
+
+
+func end_rail_proxy_sample(state: Dictionary) -> void:
+	## Remove drink/edge pairs that were not present in this sample.
+	for key in state["rail_near"].keys().duplicate():
+		if not state["rail_seen_keys"].has(key):
+			state["rail_near"].erase(key)
+	state["rail_seen_keys"].clear()
+
+
+func classify_trial_outcome(terminal: Dictionary, manager_game_over: bool, elapsed_sec: float, time_limit_sec: float) -> Dictionary:
+	## Required precedence: WIN, danger/game-over, actual timeout, bounded abort.
+	var terminal_outcome := str(terminal.get("outcome", ""))
+	var terminal_reason := str(terminal.get("reason", ""))
+	if terminal_outcome == "WIN":
+		return {"outcome": OUTCOME_COMPLETED, "terminal_reason": terminal_reason}
+	if terminal_reason == "TABLE_DANGER":
+		return {"outcome": OUTCOME_DANGER, "terminal_reason": terminal_reason if not terminal_reason.is_empty() else "DANGER_LINE"}
+	if terminal_reason == "TIMEOUT" or (time_limit_sec > 0.0 and elapsed_sec >= time_limit_sec):
+		return {"outcome": OUTCOME_TIMEOUT, "terminal_reason": terminal_reason if not terminal_reason.is_empty() else "TIME_LIMIT"}
+	if manager_game_over:
+		return {"outcome": OUTCOME_DANGER, "terminal_reason": terminal_reason if not terminal_reason.is_empty() else "DANGER_LINE"}
+	return {"outcome": OUTCOME_HARNESS_ABORT, "terminal_reason": terminal_reason if not terminal_reason.is_empty() else "ACTION_BUDGET"}
 
 
 func run_trial(database, island_id: String, level_id: int, seed_value: int, action_log_override: Array = []) -> Dictionary:
@@ -126,6 +190,8 @@ func run_trial(database, island_id: String, level_id: int, seed_value: int, acti
 		"merge_count": 0,
 		"contact_count": 0,
 		"rail_contact_count": 0,
+		"rail_near": {},
+		"rail_seen_keys": {},
 		"peak_live_drinks": 0,
 		"live_sum": 0.0,
 		"sample_count": 0,
@@ -199,15 +265,13 @@ func run_trial(database, island_id: String, level_id: int, seed_value: int, acti
 
 	if bridge.is_terminal():
 		var terminal: Dictionary = bridge.get_terminal_result()
-		var terminal_outcome := str(terminal.get("outcome", ""))
-		telemetry["outcome"] = OUTCOME_COMPLETED if terminal_outcome == "WIN" else OUTCOME_TIMEOUT
-		telemetry["terminal_reason"] = str(terminal.get("reason", ""))
-	elif manager.game_over:
-		telemetry["outcome"] = OUTCOME_DANGER
-		telemetry["terminal_reason"] = "DANGER_LINE"
+		var classified := classify_trial_outcome(terminal, manager.game_over, elapsed, float(level_definition.get("time_limit_sec", 0.0)))
+		telemetry["outcome"] = classified["outcome"]
+		telemetry["terminal_reason"] = classified["terminal_reason"]
 	else:
-		telemetry["outcome"] = OUTCOME_TIMEOUT if elapsed >= float(level_definition.get("time_limit_sec", 0.0)) else OUTCOME_HARNESS_ABORT
-		telemetry["terminal_reason"] = "TIME_LIMIT" if telemetry["outcome"] == OUTCOME_TIMEOUT else "ACTION_BUDGET"
+		var classified := classify_trial_outcome({}, manager.game_over, elapsed, float(level_definition.get("time_limit_sec", 0.0)))
+		telemetry["outcome"] = classified["outcome"]
+		telemetry["terminal_reason"] = classified["terminal_reason"]
 
 	telemetry["elapsed_sec"] = elapsed
 	telemetry["remaining_sec"] = maxf(0.0, float(bridge.timer_remaining_sec))
@@ -251,8 +315,6 @@ func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> v
 
 func _on_drink_contact(body: Node, state: Dictionary) -> void:
 	state["contact_count"] = int(state["contact_count"]) + 1
-	if body != null and (str(body.name).contains("Rail") or str(body.name).contains("TopRail")):
-		state["rail_contact_count"] = int(state["rail_contact_count"]) + 1
 
 
 func _sample(manager, state: Dictionary) -> void:
@@ -262,6 +324,8 @@ func _sample(manager, state: Dictionary) -> void:
 	var large_count := 0
 	var occupied_area := 0.0
 	var danger := false
+	begin_rail_proxy_sample(state)
+	var edges: Array[Dictionary] = manager.get_playable_boundary_edges()
 	for child in manager.world.get_children():
 		if not child is Drink or child.is_queued_for_deletion() or child.motion_state == Drink.MotionState.HELD:
 			continue
@@ -272,15 +336,15 @@ func _sample(manager, state: Dictionary) -> void:
 			large_count += 1
 		if drink.is_settled() and drink.position.y + drink.radius > manager.death_line_y:
 			danger = true
-		# Rail contacts are counted from the production body_entered callback.
-		# This read-only projection is an additional deterministic proximity proxy.
+		var drink_id := drink.get_instance_id()
 		var footprint := drink.get_table_footprint_local()
-		for edge in manager.get_playable_boundary_edges():
+		for edge in edges:
+			var edge_name := str(edge["name"])
 			var minimum_distance := INF
 			for point in footprint:
 				minimum_distance = minf(minimum_distance, edge["inward_normal"].dot(drink.position + point - edge["a"]))
-			if minimum_distance <= RAIL_PROXIMITY_PROXY_PX:
-				break
+			update_rail_proximity(state, drink_id, edge_name, minimum_distance)
+	end_rail_proxy_sample(state)
 	if danger:
 		state["danger_line_exposure_sec"] = float(state["danger_line_exposure_sec"]) + float(state["step_sec"])
 	state["peak_live_drinks"] = maxi(int(state["peak_live_drinks"]), live_count)

@@ -5,6 +5,8 @@ extends SceneTree
 const DATABASE_SCRIPT = preload("res://scripts/campaign/level_database.gd")
 const MODEL_SCRIPT = preload("res://scripts/campaign/m17_difficulty_model.gd")
 const HARNESS_SCRIPT = preload("res://scripts/campaign/m17_seeded_validation_harness.gd")
+const GAME_MANAGER_SCRIPT = preload("res://scripts/game_manager.gd")
+const BRIDGE_SCRIPT = preload("res://scripts/campaign/gameplay_session_bridge.gd")
 const CANONICAL_LEVELS_PATH := "res://data/campaign/levels/sunny_cove.json"
 
 var failures: Array[String] = []
@@ -52,6 +54,8 @@ func _run() -> void:
 	var harness = HARNESS_SCRIPT.new(root)
 	var schema_record: Dictionary = harness.new_telemetry("sunny_cove", 1, 17017001)
 	_check("telemetry schema is complete", harness.validate_telemetry(schema_record).is_empty())
+	await _run_outcome_fixtures(database, harness)
+	_run_rail_proxy_fixtures(harness)
 	var first: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001)
 	var second: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001)
 	_check("same seed produces the same action log", first["action_log"] == second["action_log"])
@@ -69,3 +73,70 @@ func _run() -> void:
 		return
 	print("M17_DIFFICULTY_VALIDATION_RESULT=FAIL failures=%s" % str(failures))
 	quit(1)
+
+
+func _configure_fixture(database) -> Dictionary:
+	var manager = GAME_MANAGER_SCRIPT.new()
+	root.add_child(manager)
+	await root.get_tree().process_frame
+	var bridge = BRIDGE_SCRIPT.new()
+	_check("fixture GameManager is ready", manager.world != null and manager.shot_controller != null)
+	_check("fixture campaign bridge starts", bridge.configure(database) and not bridge.start_session("sunny_cove", 1).is_empty() and manager.configure_campaign_session(bridge))
+	return {"manager": manager, "bridge": bridge}
+
+
+func _cleanup_fixture(manager) -> void:
+	manager.queue_free()
+	await root.get_tree().process_frame
+
+
+func _run_outcome_fixtures(database, harness) -> void:
+	var danger_fixture: Dictionary = await _configure_fixture(database)
+	var danger_manager = danger_fixture["manager"]
+	var danger_bridge = danger_fixture["bridge"]
+	var danger_drink = danger_manager.spawn_drink(1, Vector2(360.0, danger_manager.death_line_y + 10.0), false)
+	danger_manager._process(0.50)
+	var before_tolerance: bool = not danger_manager.game_over
+	danger_manager._process(0.50)
+	var danger_terminal: Dictionary = danger_bridge.get_terminal_result()
+	var danger_classification: Dictionary = harness.classify_trial_outcome(danger_terminal, danger_manager.game_over, 1.0, 20.0)
+	_check("danger fixture uses production danger-line/game-over path", danger_manager.game_over and danger_drink.freeze and before_tolerance)
+	_check("TABLE_DANGER fixture terminal reason is preserved", danger_terminal.get("reason", "") == "TABLE_DANGER")
+	_check("TABLE_DANGER fixture outcome is danger", danger_classification["outcome"] == "danger" and danger_classification["terminal_reason"] == "TABLE_DANGER")
+	_check("TABLE_DANGER fixture is not timeout", danger_classification["outcome"] != "timeout")
+	await _cleanup_fixture(danger_manager)
+
+	var timeout_fixture: Dictionary = await _configure_fixture(database)
+	var timeout_manager = timeout_fixture["manager"]
+	var timeout_bridge = timeout_fixture["bridge"]
+	var time_limit := float(timeout_bridge.get_session_configuration().get("time_limit_sec", 0.0))
+	timeout_bridge.tick(time_limit)
+	var timeout_terminal: Dictionary = timeout_bridge.get_terminal_result()
+	var timeout_classification: Dictionary = harness.classify_trial_outcome(timeout_terminal, timeout_manager.game_over, time_limit, time_limit)
+	_check("timeout fixture expires the production campaign timer", timeout_terminal.get("reason", "") == "TIMEOUT")
+	_check("TIMEOUT fixture outcome is timeout and not danger", timeout_classification["outcome"] == "timeout" and timeout_classification["terminal_reason"] == "TIMEOUT")
+	await _cleanup_fixture(timeout_manager)
+
+
+func _run_rail_proxy_fixtures(harness) -> void:
+	var state: Dictionary = harness.new_rail_proxy_state()
+	harness.begin_rail_proxy_sample(state)
+	var first_event: bool = harness.update_rail_proximity(state, 101, "LeftRail_0", 1.0)
+	harness.end_rail_proxy_sample(state)
+	_check("controlled near-rail footprint creates one proxy event", first_event and int(state["rail_contact_count"]) == 1)
+	for _sample in range(4):
+		harness.begin_rail_proxy_sample(state)
+		harness.update_rail_proximity(state, 101, "LeftRail_0", 0.25)
+		harness.end_rail_proxy_sample(state)
+	_check("continuous proximity does not inflate the same edge event", int(state["rail_contact_count"]) == 1)
+	harness.begin_rail_proxy_sample(state)
+	harness.update_rail_proximity(state, 202, "LeftRail_0", 40.0)
+	harness.end_rail_proxy_sample(state)
+	_check("centered footprint does not create a false rail event", int(state["rail_contact_count"]) == 1)
+	harness.begin_rail_proxy_sample(state)
+	harness.update_rail_proximity(state, 101, "LeftRail_0", 3.01)
+	harness.end_rail_proxy_sample(state)
+	harness.begin_rail_proxy_sample(state)
+	var reentry_event: bool = harness.update_rail_proximity(state, 101, "LeftRail_0", 0.5)
+	harness.end_rail_proxy_sample(state)
+	_check("release beyond 3px then re-entry creates a second event", reentry_event and int(state["rail_contact_count"]) == 2)
