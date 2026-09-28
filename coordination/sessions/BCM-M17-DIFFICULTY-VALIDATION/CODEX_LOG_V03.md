@@ -141,7 +141,12 @@ The M15 headless run emitted only its expected `M15_CAPTURE_UNAVAILABLE ... HEAD
 ## Publication and final sync
 
 - Intended changes are limited to the five implementation/report paths above plus this immutable execution log.
-- Implementation/evidence publication commit SHA and final post-push synchronization proof are recorded below after publication.
+- Implementation/evidence publication commit SHA: `202e2e913974976c519e662bbeca7c78a82a795c`.
+- Post-push synchronization proof before this evidence-log finalization:
+  - `git rev-parse HEAD`: `202e2e913974976c519e662bbeca7c78a82a795c`.
+  - `git rev-parse origin/main`: `202e2e913974976c519e662bbeca7c78a82a795c`.
+  - `git ls-remote origin refs/heads/main`: `202e2e913974976c519e662bbeca7c78a82a795c`.
+  - `git rev-list --left-right --count HEAD...origin/main`: `0 0`.
+  - `git status --short --branch`: clean `main...origin/main` before this log finalization edit.
 - The evidence-log finalization commit SHA will be reported in the final handoff because a commit cannot contain its own SHA.
 - Independent ChatGPT audit remains required; Codex does not update `TASKS.md` or assign the milestone verdict.
-
