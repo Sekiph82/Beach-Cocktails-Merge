@@ -66,10 +66,10 @@ const SCORE_VALUE_RECESS_CENTER_Y_PX := 73.0
 const TO_GO_DELIVERY_DURATION := 0.34
 const VIP_DELIVERY_MULTIPLIER := 2
 const TO_GO_PANEL_TEXTURE_PATH := "res://assets/ui/panel_to_go_vip_orders.png"
-const TO_GO_PANEL_SOURCE_SIZE := Vector2(1132.0, 755.0)
-const TO_GO_NORMAL_TARGET_CENTER_SOURCE := Vector2(414.0, 265.0)
-const TO_GO_VIP_TARGET_CENTER_SOURCE := Vector2(430.0, 575.0)
-const TO_GO_COCKTAIL_MAX_DIMENSION := 44.0
+const TO_GO_PANEL_SOURCE_SIZE := Vector2(1132.0, 1698.0)
+const TO_GO_NORMAL_TARGET_CENTER_SOURCE := Vector2(358.0, 665.0)
+const TO_GO_VIP_TARGET_CENTER_SOURCE := Vector2(358.0, 1254.0)
+const TO_GO_COCKTAIL_MAX_DIMENSION := 60.0
 const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
 const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
 const STARTUP_TO_GO_TARGETS := [5, 6, 7]
@@ -816,8 +816,8 @@ func _build_ui() -> void:
     _to_go_target_sprite.z_index = 2
     _to_go_panel.add_child(_to_go_target_sprite)
 
-    _to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 147.0), Vector2(337.0, 105.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
-    _to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 278.0), Vector2(337.0, 110.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 520.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 700.0), Vector2(430.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
 
     _vip_target_sprite = Sprite2D.new()
     _vip_target_sprite.name = "VipTargetCocktail"
@@ -826,8 +826,8 @@ func _build_ui() -> void:
     _vip_target_sprite.z_index = 2
     _to_go_panel.add_child(_vip_target_sprite)
     _vip_target_sprite.visible = false
-    _vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 467.0), Vector2(337.0, 105.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
-    _vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 593.0), Vector2(337.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 1100.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+    _vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(568.0, 1295.0), Vector2(430.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
 
     var next_width := 145.0 * ui_scale
     var next_height := next_width * 1426.0 / 1103.0

@@ -11,7 +11,7 @@ const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
-const EVIDENCE_DIR := "res://coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v05"
+const EVIDENCE_DIR := "res://coordination/sessions/BCM-M15-VIP-BOOSTERS-ECONOMY/evidence/v06"
 
 var failures: Array[String] = []
 
@@ -264,8 +264,9 @@ func _run() -> void:
 	_check("production normal target is L6 and VIP target is L8", gameplay != null and gameplay._target_level == 6 and navigation.get_session_bridge().get_vip_state()["cocktail_level"] == 8)
 	var to_go_panel: Control = gameplay._to_go_panel if gameplay != null else null
 	var vip_state_before_delivery: Dictionary = navigation.get_session_bridge().get_vip_state()
-	_check("combined owner-approved HUD asset is active", to_go_panel != null and to_go_panel.get_node("Artwork").texture.resource_path == "res://assets/ui/panel_to_go_vip_orders.png")
-	_check("combined HUD keeps the existing To-Go display width", to_go_panel != null and is_equal_approx(to_go_panel.size.x, 210.0 * gameplay._ui_scale))
+	var to_go_artwork := to_go_panel.get_node("Artwork") as Sprite2D if to_go_panel != null else null
+	_check("combined owner-approved V06 HUD asset is active", to_go_artwork != null and to_go_artwork.texture.resource_path == "res://assets/ui/panel_to_go_vip_orders.png" and to_go_artwork.texture.get_width() == 1132 and to_go_artwork.texture.get_height() == 1698)
+	_check("combined HUD keeps width and derives the tall V06 height", to_go_panel != null and is_equal_approx(to_go_panel.size.x, 210.0 * gameplay._ui_scale) and is_equal_approx(to_go_panel.size.y, 210.0 * gameplay._ui_scale * 1698.0 / 1132.0) and is_equal_approx(to_go_panel.position.x, (gameplay.get_board_size().x - to_go_panel.size.x) * 0.5) and is_equal_approx(to_go_panel.position.y, 0.0))
 	_check("obsolete procedural VIP card is absent", gameplay != null and gameplay.get_node_or_null("UI/HUD/VipCard") == null)
 	_check("normal target uses canonical cocktail and authoritative 0/1 progress", gameplay != null and gameplay._to_go_target_sprite.texture == Drink.texture_for_level(6) and gameplay._to_go_progress_label.text == "0/1")
 	_check("normal reward remains Drink.order_reward", gameplay != null and gameplay._to_go_reward_label.text == "%d" % Drink.order_reward(6))
