@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M16
 - Current Sprint: BCM-M16-SUNNY-COVE-CONTENT
-- Current Task: Define the owner-approved Sunny Cove VIP placement/reward policy for BCM-M16-009; all 100 normal campaign levels are already audited complete.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner defines the Sunny Cove VIP placement/reward content policy for BCM-M16-009. Codex must not invent VIP frequency, target levels, quantities, or rewards.
-- Required Actor: OWNER
+- Current Task: Implement owner-approved Sunny Cove VIP content for BCM-M16-009: 25 VIP levels every 4 levels, exact target/quantity table, crown marker, +Time/Upgrade cadence, and replay-later reward behavior.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes BCM-M16 V02 exactly against OWNER_RULING_V02, publishes evidence/tests, and stops for independent audit. M17 remains blocked.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 67 / 101 = 66.34%. M16 V01 normal Level 1-100 content is independently audited complete; only BCM-M16-009 Sunny Cove VIP placement/reward content remains open in M16.
+- Progress: 67 / 101 = 66.34%. M16 V01 normal Level 1-100 content is audited complete; BCM-M16-009 is now owner-approved and active for Codex V02 implementation.
 
 ## Tasks
 
@@ -511,7 +511,19 @@ BCM-M16-001..008 and BCM-M16-010 are closed. BCM-M16-009 remains owner-required 
 Authoritative level table:
 `docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md`
 
-BCM-M16-009 remains pending unless an already-approved exact VIP placement table exists; Codex must not invent VIP content.
+BCM-M16-009 owner policy is now approved.
+
+Owner ruling V02:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/OWNER_RULING_V02.md`
+
+Locked audit criteria V02:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_CRITERIA_V02.md`
+
+Execution prompt V02:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_EXECUTION_PROMPT_V02.md`
+
+Pending audit V02:
+`coordination/sessions/BCM-M16-SUNNY-COVE-CONTENT/CHATGPT_AUDIT_V02.md`
 
 
 - [x] BCM-M16-001 — Add Sunny Cove island definition with exactly 100 sequential levels.
@@ -522,7 +534,7 @@ BCM-M16-009 remains pending unless an already-approved exact VIP placement table
 - [x] BCM-M16-006 — Keep Sunny Cove normal targets within L5-L8 and reserve L9 as future-island progression content.
 - [x] BCM-M16-007 — Set Sunny Cove Level 100 target to 1×L8 + 1×L7 + 1×L6 + 1×L5 with a 300-second / 5:00 timer.
 - [x] BCM-M16-008 — Populate all 100 Sunny Cove level records from the approved progression table, including intentional difficulty-wave relief levels.
-- [ ] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
+- [~] BCM-M16-009 — Add VIP placements/rewards separately from the normal timer-cost calculation.
 - [x] BCM-M16-010 — Validate unique ids, sequential unlock chain, objective legality, timers, and Level 1/100 anchor values in automated tests.
 
 ### M17 — Difficulty model and level validation
