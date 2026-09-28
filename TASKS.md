@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Execute the actual M17-007 full Sunny Cove screening using the qualified canonical-scale merge-aware solver: 100-level reachability/timer analysis, 45 challenge classes, VIP-interception workload analysis, and physical outlier candidate flags.
+- Current Task: Restore true VIP optionality before any M17-008 tuning: prevent VIP auto-capture from consuming mandatory normal-production reserve while preserving surplus VIP delivery and all canonical data.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M17 V04 full canonical screening and publishes the 100-level/classification report. M17-008 remains blocked until independent audit.
+- Next Task/Action: Codex executes BCM-M17 V05 VIP optionality remediation, proves normal WIN can miss VIP and surplus VIP remains completable, then stops for independent audit. Post-fix rescreen/tuning remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 74 / 101 = 73.27%. M17-001..006 are independently audited PASS and V03A qualified the merge-aware solver. M17-007 remains active for the actual full canonical screening; M17-008 remains blocked.
+- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. M17-008 is active only for evidence-driven structural remediation first; timer/objective tuning remains blocked.
 
 ## Tasks
 
@@ -595,8 +595,19 @@ V04 locked criteria:
 V04 execution prompt:
 `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V04.md`
 
-V04 pending audit:
-`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V04.md`
+V04 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V04.md` — **AUDITED_PASS / BCM-M17-007 COMPLETE**.
+
+V04's most important finding: all 25 configured VIP levels have pre-fix mandatory-intermediate interception risk. Timer padding is not an acceptable first fix.
+
+V05 locked criteria:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V05.md`
+
+V05 execution prompt:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V05.md`
+
+V05 pending audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V05.md`
 
 V01 covers M17-001..006 tooling/evidence only. M17-007/008 remain pending; no canonical level tuning is authorized before independent audit of the harness.
 
@@ -607,8 +618,8 @@ V01 covers M17-001..006 tooling/evidence only. M17-007/008 remain pending; no ca
 - [x] BCM-M17-004 — Define spatial-complexity telemetry for board occupancy, large-piece coexistence, travel/contact time, congestion, and failed merge approaches.
 - [x] BCM-M17-005 — Build a level validation/simulation harness or replayable bot test interface that can run repeated seeded trials against campaign data.
 - [x] BCM-M17-006 — Report completion rate, median completion time, percentile completion times, timeout causes, and board-congestion metrics per tested level.
-- [~] BCM-M17-007 — Flag mathematically impossible, effectively impossible, or outlier levels before they are accepted into canonical campaign data.
-- [ ] BCM-M17-008 — Tune data only after evidence; never hide impossible level design behind arbitrary timer extensions.
+- [x] BCM-M17-007 — Flag mathematically impossible, effectively impossible, or outlier levels before they are accepted into canonical campaign data.
+- [~] BCM-M17-008 — Tune data only after evidence; never hide impossible level design behind arbitrary timer extensions.
 
 ### M18 — Stars, score mastery, milestones, and replay
 
