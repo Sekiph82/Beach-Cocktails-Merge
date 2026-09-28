@@ -60,8 +60,8 @@ func _run() -> void:
     _check("Sunny Cove is default-open", database.get_island("sunny_cove").get("unlock_rule", {}).get("type") == "default_open")
     _check("get_island works", database.get_island("sunny_cove").get("display_name") == "Sunny Cove")
     _check("get_level works", database.get_level("sunny_cove", 1).get("level_id") == 1)
-    _check("get_levels_for_island works", database.get_levels_for_island("sunny_cove").size() == 2)
-    _check("seed does not contain full Sunny Cove dataset", database.get_levels_for_island("sunny_cove").size() < 100)
+    _check("get_levels_for_island works", database.get_levels_for_island("sunny_cove").size() == 100)
+    _check("canonical Sunny Cove contains the full 100-level dataset", database.get_levels_for_island("sunny_cove").size() == 100)
 
     var duplicate_island := _valid_islands()
     duplicate_island["islands"].append(duplicate_island["islands"][0].duplicate(true))
@@ -126,7 +126,7 @@ func _run() -> void:
     _check("FULL validation rejects positive-count island with zero loaded rows", not empty_rows_database.load_from_data(empty_rows_islands, empty_rows_levels, LevelDatabase.ValidationMode.FULL))
 
     var strict_database = database_script.new()
-    _check("full validation rejects partial declared level count", not strict_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVELS_PATH, LevelDatabase.ValidationMode.FULL))
+    _check("full validation accepts the canonical declared level count", strict_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVELS_PATH, LevelDatabase.ValidationMode.FULL))
 
     var campaign = campaign_script.new()
     _check("CampaignManager configures without gameplay scene", campaign.configure(_new_database()))
