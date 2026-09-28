@@ -1,6 +1,6 @@
 # BCM-M16 VIP Crown Marker Remediation — Independent Audit V03
 
-Verdict: **TECHNICAL_AUDIT_PASS / OWNER_VISUAL_ACCEPTANCE_REQUIRED**
+Verdict: **AUDITED_PASS / OWNER_ACCEPTED**
 
 Auditor: ChatGPT  
 Builder: CODEX  
@@ -20,7 +20,7 @@ The prior V02 failure is corrected:
 - VIP/non-VIP state behavior remains intact;
 - no Sunny Cove content, reward, replay, economy, M15 HUD, or physics systems were modified.
 
-M16 now requires only the owner's final visual acceptance of the committed V03 screenshots before BCM-M16-009 and M16 can close.
+The owner explicitly accepted the committed V03 screenshots. BCM-M16-009 and M16 are closed.
 
 ## 2. Diff scope
 
@@ -101,7 +101,7 @@ Observed:
 
 The marker is intentionally compact, but materially clearer and more semantically correct than the rejected V02 turquoise-frame marker.
 
-Final visual acceptance remains an owner gate.
+Owner visual acceptance: **PASS**.
 
 ## 7. Gate E — Frozen V02 contracts
 
@@ -155,15 +155,11 @@ No repository evidence contradicts the builder results.
 
 **Technical verdict: AUDITED_PASS.**
 
-**Owner visual acceptance: PENDING.**
+**Owner visual acceptance: PASS.**
 
-BCM-M16-009 remains open only for the owner visual gate.
+Owner decision: **VISUAL ACCEPTED**.
 
-If owner accepts the V03 screenshots:
-- BCM-M16-009 may be marked complete;
-- M16 may close;
-- H!veAI may advance to M17.
+**BCM-M16-009: complete.**
+**M16: AUDITED_PASS / OWNER_ACCEPTED / CLOSED.**
 
-If owner rejects only marker appearance/placement:
-- reopen with a new visual-only remediation version;
-- keep all V02/V03 data/reward/replay contracts frozen.
+H!veAI may advance to M17.
