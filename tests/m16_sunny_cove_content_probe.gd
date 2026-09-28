@@ -239,7 +239,14 @@ func _run() -> void:
     _check("VIP crown marker is visible for CURRENT VIP level", marker_map.get_level_state(12) == "CURRENT" and current_vip_button.is_vip_marker_visible())
     _check("VIP crown marker is visible for LOCKED VIP level", marker_map.get_level_state(16) == "LOCKED" and locked_vip_button.is_vip_marker_visible())
     _check("non-VIP level has no crown marker", not non_vip_button.is_vip() and not non_vip_button.is_vip_marker_visible())
-    _check("crown marker reuses approved VIP badge asset", completed_vip_button.get_node("VipCrownMarker").texture.resource_path == "res://assets/ui_assets/screens/prelevel/vip_badge.png")
+    var marker_node: TextureRect = completed_vip_button.get_node("VipCrownMarker")
+    _check("crown marker uses the canonical gameplay VIP badge asset", marker_node.texture.resource_path == "res://assets/ui_assets/ui/gameplay/vip_badge.png")
+    _check("crown marker display size is exactly 36x36", marker_node.size == Vector2(36.0, 36.0) and marker_node.custom_minimum_size == Vector2(36.0, 36.0))
+    var marker_rect := Rect2(marker_node.position, marker_node.size)
+    var left_position := 92.0 + marker_rect.position.x
+    var right_position := 512.0 + marker_rect.position.x
+    _check("crown marker stays adjacent without covering the level node", marker_rect.position.x >= completed_vip_button.size.x and marker_rect.position.y >= 0.0)
+    _check("crown marker remains inside the map bounds on both path sides", left_position >= 0.0 and left_position + marker_rect.size.x <= 720.0 and right_position >= 0.0 and right_position + marker_rect.size.x <= 720.0)
     marker_map.queue_free()
     await process_frame
 

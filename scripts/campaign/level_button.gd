@@ -10,7 +10,9 @@ const STATE_LOCKED := "LOCKED"
 const STATE_OPEN := "OPEN"
 const STATE_CURRENT := "CURRENT"
 const STATE_COMPLETE := "COMPLETE"
-const VIP_MARKER_TEXTURE := preload("res://assets/ui_assets/screens/prelevel/vip_badge.png")
+const VIP_MARKER_TEXTURE_PATH := "res://assets/ui_assets/ui/gameplay/vip_badge.png"
+const VIP_MARKER_TEXTURE := preload(VIP_MARKER_TEXTURE_PATH)
+const VIP_MARKER_SIZE := Vector2(36.0, 36.0)
 
 var island_id := ""
 var level_id := 0
@@ -90,9 +92,9 @@ func _on_pressed() -> void:
 func _build_vip_marker() -> void:
 	_vip_marker = TextureRect.new()
 	_vip_marker.name = "VipCrownMarker"
-	_vip_marker.position = Vector2(120.0, 4.0)
-	_vip_marker.custom_minimum_size = Vector2(24.0, 24.0)
-	_vip_marker.size = Vector2(24.0, 24.0)
+	_vip_marker.position = Vector2(118.0, 2.0)
+	_vip_marker.custom_minimum_size = VIP_MARKER_SIZE
+	_vip_marker.size = VIP_MARKER_SIZE
 	_vip_marker.texture = VIP_MARKER_TEXTURE
 	_vip_marker.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_vip_marker.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
