@@ -79,11 +79,12 @@ V03A five-trial evidence was reused by exact challenge-signature membership for 
 
 ## Publication
 
-- Implementation commit SHA: pending commit.
-- Final log-finalization commit SHA: pending commit.
-- Final proof that local `HEAD`, `origin/main`, and `git ls-remote origin refs/heads/main` match: pending publication.
-- Final divergence proof: pending publication.
-- Final worktree cleanliness: pending publication.
+- Implementation commit SHA: `3d360d2025830f51ae1f9b41cdc0d1e5ebcf76c8`.
+- Implementation commit was pushed to `origin/main` successfully.
+- Post-implementation proof: local `HEAD`, `origin/main`, and `git ls-remote origin refs/heads/main` all resolved to `3d360d2025830f51ae1f9b41cdc0d1e5ebcf76c8`.
+- Post-implementation divergence: `0 0`.
+- Post-implementation worktree: clean.
+- This log is being finalized in the follow-up publication commit immediately after the implementation push.
 
 ## Handoff boundary
 
