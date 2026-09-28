@@ -13,6 +13,7 @@ extends RefCounted
 const MODEL_SCRIPT = preload("res://scripts/campaign/m17_difficulty_model.gd")
 const BRIDGE_SCRIPT = preload("res://scripts/campaign/gameplay_session_bridge.gd")
 const GAME_MANAGER_SCRIPT = preload("res://scripts/game_manager.gd")
+const DRINK_SCRIPT = preload("res://scripts/drink.gd")
 
 const OUTCOME_COMPLETED := "completed"
 const OUTCOME_TIMEOUT := "timeout"
@@ -30,6 +31,8 @@ const RAIL_ENTER_THRESHOLD_PX := 1.0
 const RAIL_RELEASE_THRESHOLD_PX := 3.0
 const RAIL_CONTACT_METRIC := "footprint_proximity_transition_proxy"
 const LANE_X_POSITIONS: Array[float] = [150.0, 220.0, 290.0, 360.0, 430.0, 500.0, 570.0]
+const POLICY_WEAK_V02 := "WEAK_V02"
+const POLICY_MERGE_AWARE_V01 := "MERGE_AWARE_V01"
 
 var _root: Node
 var time_scale := 1.0
@@ -43,6 +46,10 @@ func set_time_scale(value: float) -> void:
 	time_scale = maxf(1.0, value)
 
 
+func get_time_scale() -> float:
+	return time_scale
+
+
 func telemetry_schema_keys() -> Array[String]:
 	return [
 		"island_id", "level_id", "seed", "outcome", "elapsed_sec", "remaining_sec",
@@ -51,7 +58,8 @@ func telemetry_schema_keys() -> Array[String]:
 		"large_piece_coexistence_peak", "contact_count", "rail_contact_count",
 		"rail_contact_metric", "rail_enter_threshold_px", "rail_release_threshold_px",
 		"danger_line_exposure_sec", "normal_objective_complete", "vip_complete",
-		"action_log", "terminal_reason", "physics_hook",
+		"action_log", "policy_name", "unique_x_positions", "lateral_variation_eligible",
+		"lateral_variation", "decision_reason_counts", "terminal_reason", "physics_hook",
 	]
 
 
@@ -79,6 +87,11 @@ func new_telemetry(island_id: String, level_id: int, seed_value: int) -> Diction
 		"normal_objective_complete": false,
 		"vip_complete": false,
 		"action_log": [],
+		"policy_name": POLICY_WEAK_V02,
+		"unique_x_positions": 0,
+		"lateral_variation_eligible": false,
+		"lateral_variation": false,
+		"decision_reason_counts": {},
 		"terminal_reason": "",
 		"physics_hook": "production GameManager.spawn_drink + Drink.launch_up + Godot physics frames",
 	}
@@ -153,8 +166,16 @@ func classify_trial_outcome(terminal: Dictionary, manager_game_over: bool, elaps
 	return {"outcome": OUTCOME_HARNESS_ABORT, "terminal_reason": terminal_reason if not terminal_reason.is_empty() else "ACTION_BUDGET"}
 
 
-func run_trial(database, island_id: String, level_id: int, seed_value: int, action_log_override: Array = []) -> Dictionary:
+func run_trial(
+	database,
+	island_id: String,
+	level_id: int,
+	seed_value: int,
+	action_log_override: Array = [],
+	policy_name: String = POLICY_WEAK_V02
+) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
+	telemetry["policy_name"] = policy_name
 	var level_definition: Dictionary = database.get_level(island_id, level_id)
 	if level_definition.is_empty():
 		telemetry["terminal_reason"] = "LEVEL_NOT_FOUND"
@@ -192,6 +213,7 @@ func run_trial(database, island_id: String, level_id: int, seed_value: int, acti
 		"rail_contact_count": 0,
 		"rail_near": {},
 		"rail_seen_keys": {},
+		"next_drink_instance_id": 1,
 		"peak_live_drinks": 0,
 		"live_sum": 0.0,
 		"sample_count": 0,
@@ -212,6 +234,7 @@ func run_trial(database, island_id: String, level_id: int, seed_value: int, acti
 		var spawn_level: int
 		var lane_index: int
 		var x_position: float
+		var lane_choice: Dictionary = {}
 		if replaying:
 			if action_index >= action_log_override.size():
 				telemetry["terminal_reason"] = "REPLAY_ACTION_LOG_EXHAUSTED"
@@ -222,17 +245,33 @@ func run_trial(database, island_id: String, level_id: int, seed_value: int, acti
 			x_position = float(action.get("x_position", LANE_X_POSITIONS[clampi(lane_index, 0, LANE_X_POSITIONS.size() - 1)]))
 		else:
 			spawn_level = rng.randi_range(1, 3)
-			var lane_choice := _choose_lane(manager, spawn_level, action_index, seed_value)
+			_assign_missing_stable_instance_ids(manager, state)
+			lane_choice = choose_action(manager, spawn_level, policy_name)
 			lane_index = int(lane_choice["lane_index"])
 			x_position = float(lane_choice["x_position"])
 
 		var same_level_before := _has_same_level(manager, spawn_level)
-		var action_record := {
-			"step": action_index,
-			"spawn_level": spawn_level,
-			"lane_index": lane_index,
-			"x_position": x_position,
-		}
+		var action_record: Dictionary
+		if replaying:
+			action_record = {
+				"step": action_index,
+				"spawn_level": spawn_level,
+				"lane_index": lane_index,
+				"x_position": x_position,
+				"decision_reason": str(action_log_override[action_index].get("decision_reason", "replay_action")),
+				"same_level_target_found": bool(action_log_override[action_index].get("same_level_target_found", false)),
+				"target_instance_id": action_log_override[action_index].get("target_instance_id", null),
+			}
+		else:
+			action_record = {
+				"step": action_index,
+				"spawn_level": spawn_level,
+				"lane_index": lane_index,
+				"x_position": x_position,
+				"decision_reason": str(lane_choice.get("decision_reason", "unspecified")),
+				"same_level_target_found": bool(lane_choice.get("same_level_target_found", false)),
+				"target_instance_id": lane_choice.get("target_instance_id", null),
+			}
 		telemetry["action_log"].append(action_record)
 		var launched = manager.spawn_drink(spawn_level, Vector2(x_position, manager.launch_y), true)
 		if launched == null:
@@ -284,6 +323,16 @@ func run_trial(database, island_id: String, level_id: int, seed_value: int, acti
 	telemetry["contact_count"] = int(state["contact_count"])
 	telemetry["rail_contact_count"] = int(state["rail_contact_count"])
 	telemetry["danger_line_exposure_sec"] = float(state["danger_line_exposure_sec"])
+	var unique_x: Dictionary = {}
+	var decision_reasons: Dictionary = {}
+	for action in telemetry["action_log"]:
+		unique_x[String.num(float(action.get("x_position", 0.0)), 3)] = true
+		var reason := str(action.get("decision_reason", "unspecified"))
+		decision_reasons[reason] = int(decision_reasons.get(reason, 0)) + 1
+	telemetry["unique_x_positions"] = unique_x.size()
+	telemetry["lateral_variation_eligible"] = int(telemetry["shot_count"]) >= 5
+	telemetry["lateral_variation"] = bool(telemetry["lateral_variation_eligible"]) and int(telemetry["unique_x_positions"]) >= 2
+	telemetry["decision_reason_counts"] = decision_reasons
 	var objective_state: Dictionary = bridge.get_objective_state()
 	telemetry["normal_objective_complete"] = bridge.is_terminal() and str(bridge.get_terminal_result().get("outcome", "")) == "WIN"
 	telemetry["vip_complete"] = bool(objective_state.get("vip_completed", false))
@@ -295,10 +344,21 @@ func run_trial(database, island_id: String, level_id: int, seed_value: int, acti
 
 
 func _attach_drink(drink: Drink, state: Dictionary) -> void:
+	drink.set_meta("m17_instance_id", int(state["next_drink_instance_id"]))
+	state["next_drink_instance_id"] = int(state["next_drink_instance_id"]) + 1
 	if not drink.merged.is_connected(_on_drink_merge):
 		drink.merged.connect(_on_drink_merge.bind(state))
 	if not drink.body_entered.is_connected(_on_drink_contact):
 		drink.body_entered.connect(_on_drink_contact.bind(state))
+
+
+func _assign_missing_stable_instance_ids(manager, state: Dictionary) -> void:
+	if manager.world == null:
+		return
+	for child in manager.world.get_children():
+		if child is Drink and not child.is_queued_for_deletion() and not child.has_meta("m17_instance_id"):
+			child.set_meta("m17_instance_id", int(state["next_drink_instance_id"]))
+			state["next_drink_instance_id"] = int(state["next_drink_instance_id"]) + 1
 
 
 func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> void:
@@ -363,33 +423,163 @@ func _has_same_level(manager, level: int) -> bool:
 	return false
 
 
-func _choose_lane(manager, level: int, action_index: int, seed_value: int) -> Dictionary:
-	var matching: Array[Drink] = []
-	var lane_counts: Array[int] = []
-	for _lane in LANE_X_POSITIONS:
-		lane_counts.append(0)
-	if manager.world != null:
-		for child in manager.world.get_children():
-			if not child is Drink or child.is_queued_for_deletion() or child.motion_state == Drink.MotionState.HELD:
-				continue
-			var drink: Drink = child
-			var nearest_lane := 0
-			var nearest_distance := INF
-			for lane_index in range(LANE_X_POSITIONS.size()):
-				var distance := absf(drink.position.x - LANE_X_POSITIONS[lane_index])
-				if distance < nearest_distance:
-					nearest_distance = distance
-					nearest_lane = lane_index
-				lane_counts[nearest_lane] += 1
-				if drink.level == level:
-					matching.append(drink)
+func tag_drink_instance(drink: Drink, stable_id: int) -> void:
+	if drink != null:
+		drink.set_meta("m17_instance_id", stable_id)
+
+
+func choose_action(manager, level: int, policy_name: String = POLICY_WEAK_V02) -> Dictionary:
+	var observations := _board_observations(manager)
+	var objective_level := 0
+	var bridge = manager.get_campaign_session_bridge()
+	if bridge != null and bridge.is_session_active():
+		objective_level = bridge.get_next_required_order_level()
+	var legal_x_positions := _legal_launch_x_positions(manager, level)
+	if policy_name == POLICY_MERGE_AWARE_V01:
+		return _select_merge_aware_action(level, observations, objective_level, legal_x_positions)
+	return _select_weak_v02_action(level, observations, legal_x_positions)
+
+
+func choose_action_from_observations(
+	level: int,
+	observations: Array,
+	objective_level: int = 0,
+	legal_x_positions: Array = []
+) -> Dictionary:
+	## Pure deterministic policy seam for focused qualification fixtures. It has
+	## no seed/RNG argument and therefore cannot inspect future spawn values.
+	return _select_merge_aware_action(level, observations, objective_level, legal_x_positions)
+
+
+func _board_observations(manager) -> Array[Dictionary]:
+	var observations: Array[Dictionary] = []
+	if manager.world == null:
+		return observations
+	for child in manager.world.get_children():
+		if not child is Drink or child.is_queued_for_deletion() or child.motion_state == Drink.MotionState.HELD:
+			continue
+		var drink: Drink = child
+		observations.append({
+			"level": drink.level,
+			"x": drink.position.x,
+			"y": drink.position.y,
+			"motion_state": int(drink.motion_state),
+			"instance_id": _stable_instance_id(drink),
+		})
+	return observations
+
+
+func _stable_instance_id(drink: Drink) -> int:
+	if drink.has_meta("m17_instance_id"):
+		return int(drink.get_meta("m17_instance_id"))
+	return drink.get_instance_id()
+
+
+func _select_weak_v02_action(level: int, observations: Array, legal_x_positions: Array) -> Dictionary:
+	var matching: Array = []
+	for observation in observations:
+		if int(observation.get("level", 0)) == level:
+			matching.append(observation)
 	if not matching.is_empty():
-		matching.sort_custom(func(a: Drink, b: Drink) -> bool:
-			return a.position.y < b.position.y if not is_equal_approx(a.position.y, b.position.y) else a.get_instance_id() < b.get_instance_id()
+		matching.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+			return float(a.get("y", 0.0)) < float(b.get("y", 0.0)) if not is_equal_approx(float(a.get("y", 0.0)), float(b.get("y", 0.0))) else int(a.get("instance_id", 0)) < int(b.get("instance_id", 0))
 		)
-		return {"lane_index": 0, "x_position": matching[0].position.x}
-	# A central fallback keeps the baseline policy deterministic and makes the
-	# physical tradeoff visible: unlike an optimal player it deliberately accepts
-	# central congestion when no same-level merge target exists.
-	var chosen_lane := LANE_X_POSITIONS.size() / 2
-	return {"lane_index": chosen_lane, "x_position": LANE_X_POSITIONS[chosen_lane]}
+		var target: Dictionary = matching[0]
+		var selected_x := _nearest_legal_x(float(target.get("x", LANE_X_POSITIONS[LANE_X_POSITIONS.size() / 2])), legal_x_positions)
+		return _action_result(selected_x, true, int(target.get("instance_id", 0)), "legacy_fixed_lane")
+	var fallback_x := _nearest_legal_x(LANE_X_POSITIONS[LANE_X_POSITIONS.size() / 2], legal_x_positions)
+	return _action_result(fallback_x, false, null, "legacy_fixed_lane")
+
+
+func _select_merge_aware_action(level: int, observations: Array, objective_level: int, legal_x_positions: Array = []) -> Dictionary:
+	var matching: Array = []
+	for observation in observations:
+		if int(observation.get("level", 0)) == level:
+			matching.append(observation)
+	if not matching.is_empty():
+		# Lower-board targets are reached first by the upward shot; instance ID
+		# provides the stable tie-breaker when their heights are equal.
+		matching.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+			return float(a.get("y", 0.0)) > float(b.get("y", 0.0)) if not is_equal_approx(float(a.get("y", 0.0)), float(b.get("y", 0.0))) else int(a.get("instance_id", 0)) < int(b.get("instance_id", 0))
+		)
+		var target: Dictionary = matching[0]
+		var target_x := _nearest_legal_x(float(target.get("x", LANE_X_POSITIONS[LANE_X_POSITIONS.size() / 2])), legal_x_positions)
+		return _action_result(target_x, true, int(target.get("instance_id", 0)), "same_level_target")
+
+	var candidate_xs: Array = legal_x_positions if not legal_x_positions.is_empty() else LANE_X_POSITIONS.duplicate()
+	var best_x := float(candidate_xs[0])
+	var best_score := INF
+	var best_center_distance := INF
+	for candidate in candidate_xs:
+		var x := float(candidate)
+		var congestion := 0.0
+		for observation in observations:
+			var horizontal_distance := absf(float(observation.get("x", 0.0)) - x)
+			var weight := 1.0
+			if float(observation.get("y", 0.0)) >= 700.0:
+				weight += 1.0
+			if horizontal_distance <= 105.0:
+				congestion += weight * (1.0 - horizontal_distance / 210.0)
+		var center_distance := absf(x - LANE_X_POSITIONS[LANE_X_POSITIONS.size() / 2])
+		if congestion < best_score - 0.0001 or (is_equal_approx(congestion, best_score) and center_distance < best_center_distance - 0.0001):
+			best_score = congestion
+			best_center_distance = center_distance
+			best_x = x
+	var reason := "objective_priority" if objective_level == level else "low_congestion_lane"
+	return _action_result(best_x, false, null, reason)
+
+
+func _action_result(x_position: float, same_level_target_found: bool, target_instance_id, decision_reason: String) -> Dictionary:
+	return {
+		"lane_index": _nearest_lane_index(x_position),
+		"x_position": x_position,
+		"decision_reason": decision_reason,
+		"same_level_target_found": same_level_target_found,
+		"target_instance_id": target_instance_id,
+	}
+
+
+func _nearest_lane_index(x_position: float) -> int:
+	var selected := 0
+	var distance := INF
+	for lane_index in range(LANE_X_POSITIONS.size()):
+		var candidate_distance := absf(x_position - LANE_X_POSITIONS[lane_index])
+		if candidate_distance < distance:
+			distance = candidate_distance
+			selected = lane_index
+	return selected
+
+
+func _nearest_legal_x(desired_x: float, legal_x_positions: Array) -> float:
+	if legal_x_positions.is_empty():
+		return desired_x
+	var selected := float(legal_x_positions[0])
+	var distance := absf(desired_x - selected)
+	for candidate in legal_x_positions:
+		var candidate_distance := absf(desired_x - float(candidate))
+		if candidate_distance < distance:
+			distance = candidate_distance
+			selected = float(candidate)
+	return selected
+
+
+func _legal_launch_x_positions(manager, level: int) -> Array:
+	var legal: Array = []
+	var probe: Drink = DRINK_SCRIPT.create(level)
+	if probe == null:
+		return LANE_X_POSITIONS.duplicate()
+	var footprint := probe.get_table_footprint_local()
+	for x_position in LANE_X_POSITIONS:
+		var origin: Vector2 = manager.get_launch_position(float(x_position), probe.radius, level)
+		var valid := true
+		for edge in manager.get_playable_boundary_edges():
+			for point in footprint:
+				if edge["inward_normal"].dot(origin + point - edge["a"]) < -0.001:
+					valid = false
+					break
+			if not valid:
+				break
+		if valid:
+			legal.append(float(x_position))
+	probe.free()
+	return legal if not legal.is_empty() else LANE_X_POSITIONS.duplicate()

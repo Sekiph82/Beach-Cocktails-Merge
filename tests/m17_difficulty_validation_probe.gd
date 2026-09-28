@@ -54,17 +54,21 @@ func _run() -> void:
 	var harness = HARNESS_SCRIPT.new(root)
 	var schema_record: Dictionary = harness.new_telemetry("sunny_cove", 1, 17017001)
 	_check("telemetry schema is complete", harness.validate_telemetry(schema_record).is_empty())
+	_run_policy_fixtures(harness)
 	await _run_outcome_fixtures(database, harness)
 	_run_rail_proxy_fixtures(harness)
-	var first: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001)
-	var second: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001)
+	harness.set_time_scale(1.0)
+	_check("qualification runner policy time scale is canonical", is_equal_approx(harness.get_time_scale(), 1.0))
+	var first: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001, [], HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01)
+	var second: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001, [], HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01)
 	_check("same seed produces the same action log", first["action_log"] == second["action_log"])
 	_check("same seed preserves logical outcome", first["outcome"] == second["outcome"])
-	var replay: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001, first["action_log"])
+	var replay: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001, first["action_log"], HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01)
 	_check("exact action-log replay preserves logical result", replay["outcome"] == first["outcome"] and replay["merge_count"] == first["merge_count"])
-	var different: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017002)
+	var different: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017002, [], HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01)
 	_check("different seed changes the seeded action sequence", different["action_log"] != first["action_log"])
 	_check("focused trial telemetry validates", harness.validate_telemetry(first).is_empty())
+	_check("merge-aware actions carry decision evidence", _action_logs_have_decision_evidence(first["action_log"]))
 	_check("canonical Sunny Cove JSON is byte-for-byte unchanged", _sha256(CANONICAL_LEVELS_PATH) == before_hash)
 
 	if failures.is_empty():
@@ -73,6 +77,31 @@ func _run() -> void:
 		return
 	print("M17_DIFFICULTY_VALIDATION_RESULT=FAIL failures=%s" % str(failures))
 	quit(1)
+
+
+func _action_logs_have_decision_evidence(action_log: Array) -> bool:
+	if action_log.is_empty():
+		return false
+	for action in action_log:
+		if not action.has("x_position") or not action.has("lane_index") or not action.has("decision_reason") or not action.has("same_level_target_found") or not action.has("target_instance_id"):
+			return false
+	return true
+
+
+func _run_policy_fixtures(harness) -> void:
+	var left_target: Dictionary = harness.choose_action_from_observations(2, [{"level": 2, "x": 150.0, "y": 760.0, "instance_id": 101}], 6)
+	var right_target: Dictionary = harness.choose_action_from_observations(2, [{"level": 2, "x": 570.0, "y": 760.0, "instance_id": 202}], 6)
+	var left_congestion: Dictionary = harness.choose_action_from_observations(2, [
+		{"level": 1, "x": 150.0, "y": 820.0, "instance_id": 301},
+		{"level": 3, "x": 150.0, "y": 760.0, "instance_id": 302},
+	], 6)
+	var repeated_left: Dictionary = harness.choose_action_from_observations(2, [{"level": 2, "x": 150.0, "y": 760.0, "instance_id": 101}], 6)
+	_check("same-level left target shifts action left", left_target["same_level_target_found"] and float(left_target["x_position"]) < 360.0 and left_target["target_instance_id"] == 101)
+	_check("same-level right target shifts action right", right_target["same_level_target_found"] and float(right_target["x_position"]) > 360.0 and right_target["target_instance_id"] == 202)
+	_check("left-side congestion selects a safer non-left lane", not left_congestion["same_level_target_found"] and int(left_congestion["lane_index"]) > 0 and left_congestion["decision_reason"] == "low_congestion_lane")
+	_check("identical board state produces identical action", left_target == repeated_left)
+	_check("policy has no future-RNG input", not left_target.has("future_seed") and not left_target.has("rng_value"))
+	_check("policy returns a legal horizontal bucket", int(left_target["lane_index"]) >= 0 and int(left_target["lane_index"]) < 7 and int(right_target["lane_index"]) >= 0 and int(right_target["lane_index"]) < 7)
 
 
 func _configure_fixture(database) -> Dictionary:
