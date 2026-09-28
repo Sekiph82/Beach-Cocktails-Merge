@@ -10,12 +10,15 @@ const STATE_LOCKED := "LOCKED"
 const STATE_OPEN := "OPEN"
 const STATE_CURRENT := "CURRENT"
 const STATE_COMPLETE := "COMPLETE"
+const VIP_MARKER_TEXTURE := preload("res://assets/ui_assets/screens/prelevel/vip_badge.png")
 
 var island_id := ""
 var level_id := 0
 var level_state := STATE_LOCKED
 var earned_stars := 0
 var milestone := false
+var vip_enabled := false
+var _vip_marker: TextureRect
 
 
 func _ready() -> void:
@@ -23,6 +26,7 @@ func _ready() -> void:
 	size = custom_minimum_size
 	focus_mode = Control.FOCUS_ALL
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	_build_vip_marker()
 	pressed.connect(_on_pressed)
 
 
@@ -30,15 +34,19 @@ func configure(
 		configured_island_id: String,
 		configured_level_id: int,
 		configured_state: String,
-		configured_stars: int,
-		configured_milestone: bool
+	configured_stars: int,
+	configured_milestone: bool,
+	configured_vip: bool = false
 	) -> void:
 	island_id = configured_island_id
 	level_id = configured_level_id
 	level_state = configured_state
 	earned_stars = clampi(configured_stars, 0, 3)
 	milestone = configured_milestone
+	vip_enabled = configured_vip
 	disabled = level_state == STATE_LOCKED
+	if _vip_marker != null:
+		_vip_marker.visible = vip_enabled
 	tooltip_text = "Level %d%s" % [level_id, " milestone" if milestone else ""]
 	text = _display_text()
 	_apply_style()
@@ -67,8 +75,32 @@ func is_milestone() -> bool:
 	return milestone
 
 
+func is_vip() -> bool:
+	return vip_enabled
+
+
+func is_vip_marker_visible() -> bool:
+	return _vip_marker != null and _vip_marker.visible
+
+
 func _on_pressed() -> void:
 	try_select()
+
+
+func _build_vip_marker() -> void:
+	_vip_marker = TextureRect.new()
+	_vip_marker.name = "VipCrownMarker"
+	_vip_marker.position = Vector2(120.0, 4.0)
+	_vip_marker.custom_minimum_size = Vector2(24.0, 24.0)
+	_vip_marker.size = Vector2(24.0, 24.0)
+	_vip_marker.texture = VIP_MARKER_TEXTURE
+	_vip_marker.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_vip_marker.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_vip_marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_vip_marker.tooltip_text = "VIP opportunity"
+	_vip_marker.z_index = 3
+	_vip_marker.visible = vip_enabled
+	add_child(_vip_marker)
 
 
 func _display_text() -> String:

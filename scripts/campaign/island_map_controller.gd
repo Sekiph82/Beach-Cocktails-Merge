@@ -253,7 +253,7 @@ func _refresh_deferred() -> void:
 		var y := 26.0 + float(level_id - 1) * NODE_HEIGHT
 		button.position = Vector2(x, y)
 		button.size = NODE_SIZE
-		button.configure(island_id, level_id, _state_for(level_id), _stars_for(level_id), _milestone_levels.has(level_id))
+		button.configure(island_id, level_id, _state_for(level_id), _stars_for(level_id), _milestone_levels.has(level_id), _is_vip_level(level_id))
 		button.level_selected.connect(_on_level_button_selected)
 		_node_layer.add_child(button)
 		_level_buttons[level_id] = button
@@ -275,6 +275,14 @@ func _state_for(level_id: int) -> String:
 	if level_id == selected_level_id or level_id == int(campaign_manager.selected_level_id):
 		return STATE_CURRENT
 	return STATE_OPEN
+
+
+func _is_vip_level(level_id: int) -> bool:
+	if level_database == null:
+		return false
+	var level: Dictionary = level_database.get_level(island_id, level_id)
+	var vip: Variant = level.get("vip", null)
+	return vip is Dictionary and bool(vip.get("enabled", false))
 
 
 func _entry_focus_level(level_count: int) -> int:

@@ -258,12 +258,12 @@ func _validate_vip(vip: Dictionary, island_id: String, level_id: int) -> bool:
     # carry an explicitly disabled optional objective without a target.
     if vip.has("enabled") and not bool(vip["enabled"]):
         return true
-    if not vip.has("cocktail_level") or typeof(vip["cocktail_level"]) != TYPE_INT:
+    if not vip.has("cocktail_level") or (typeof(vip["cocktail_level"]) != TYPE_INT and typeof(vip["cocktail_level"]) != TYPE_FLOAT) or not is_equal_approx(float(vip["cocktail_level"]), float(int(vip["cocktail_level"]))):
         return _fail("enabled VIP cocktail_level must be an integer campaign target: %s/%d" % [island_id, level_id])
     var cocktail_level := int(vip["cocktail_level"])
     if not is_campaign_target_level_eligible(island_id, cocktail_level):
         return _fail("enabled VIP cocktail target outside campaign policy: %s/%d" % [island_id, level_id])
-    if not vip.has("quantity") or typeof(vip["quantity"]) != TYPE_INT or int(vip["quantity"]) <= 0:
+    if not vip.has("quantity") or (typeof(vip["quantity"]) != TYPE_INT and typeof(vip["quantity"]) != TYPE_FLOAT) or not is_equal_approx(float(vip["quantity"]), float(int(vip["quantity"]))) or int(vip["quantity"]) <= 0:
         return _fail("enabled VIP quantity must be a positive integer: %s/%d" % [island_id, level_id])
     return true
 
