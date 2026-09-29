@@ -6,9 +6,9 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: BCM-M17-008 V07-R01 bounded integrity remediation and fresh five-trial confirmation rerun.
+- Current Task: BCM-M17-008 V07-R02 exact-committed-runner remediation and fresh five-trial confirmation.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex deletes only the owner-authorized untracked V07 blocked-attempt log, restores a clean synchronized canonical checkout, fixes the two V07 integrity defects, runs fresh V07-R01 42×5 confirmation evidence, then runs regressions only after direct PASS and stops at AWAITING_M17_AUDIT_V07_R01. Canonical tuning and M18 remain blocked.
+- Next Task/Action: Codex preserves V07-R01 failed evidence, creates a new V07-R02 runner, commits/pushes and proves the exact runner bytes before execution, then runs fresh 42×5 confirmation evidence under the R02 seed namespace. Regressions run only after direct PASS; stop at AWAITING_M17_AUDIT_V07_R02. Canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -671,6 +671,19 @@ V07-R01 bounded remediation package:
 - Required final marker: `AWAITING_M17_AUDIT_V07_R01`
 
 V07-R01 must fix only the mapping and seed-registry defects, preserve historical V07 evidence, run a fresh 42×5 confirmation with 168 new trials under a new seed namespace, prove 213 unique aggregate seeds, and run regressions only after direct PASS. No canonical timer/objective tuning is authorized inside V07-R01.
+
+V07-R01 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07_R01.md` — **CHANGES_REQUIRED / RUNNER-PROVENANCE-INTEGRITY_FAILURE**.
+
+V07-R01 produced 168 fresh trials and recorded 213 unique aggregate seeds, but the failed JSON contains 168 `duplicate aggregate seed` errors that cannot be emitted by the final committed R01 runner at the handoff HEAD. The failed R01 outputs remain historical evidence and are not promoted.
+
+V07-R02 bounded remediation package:
+- Prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_REMEDIATION_PROMPT_V07_R02.md`
+- Locked criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07_R02.md`
+- Required log: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R02.md`
+- Required final marker: `AWAITING_M17_AUDIT_V07_R02`
+
+V07-R02 requires commit-before-execution provenance: the new runner must be committed/pushed, the checkout must be clean, and the bytes executed must equal the runner bytes at current HEAD. It uses a fresh `17900000 + representative*100 + trial_index` namespace for 168 new trials. No canonical tuning is authorized in R02.
 
 V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 remains active for V07 evidence confirmation first; M18 remains blocked.
 
