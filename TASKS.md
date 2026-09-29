@@ -6,10 +6,10 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Resolve the remaining canonical Desktop synchronization blocker, then remediate the failed BCM-M17 V07 confirmation run before any re-execution.
-- Current Task Status: OWNER_DECISION_REQUIRED
-- Next Task/Action: OWNER must decide the disposition of the remaining untracked blocked-attempt log. Until that decision is recorded, CODEX must not modify, stage, execute, relocate, delete, or begin remediation/V07 children. After safe resolution, ChatGPT must publish the bounded remediation package for the committed direct-run integrity failure; canonical tuning and M18 remain blocked.
-- Required Actor: OWNER
+- Current Task: BCM-M17-008 V07-R01 bounded integrity remediation and fresh five-trial confirmation rerun.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex deletes only the owner-authorized untracked V07 blocked-attempt log, restores a clean synchronized canonical checkout, fixes the two V07 integrity defects, runs fresh V07-R01 42×5 confirmation evidence, then runs regressions only after direct PASS and stops at AWAITING_M17_AUDIT_V07_R01. Canonical tuning and M18 remain blocked.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 - Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. M17-008 remains active for five-trial confirmation before any timer/objective tuning.
@@ -656,9 +656,18 @@ V07 five-trial confirmation package:
 
 The complete ordered V07 package is frozen and CODEX is authorized to execute all three children in order. A child is not accepted independently of the master batch, and no later child may begin after an earlier child fails or is unverified.
 
-V07 execution is currently blocked by the remaining ambiguous untracked Codex sync-blocker log. The V07 runner/report are committed evidence, but the direct runner failed its integrity checks; no ordered child handoff or acceptance evidence exists on `origin/main`. ChatGPT recorded the current decision gate in `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07.md`.
+V07 direct execution produced 168 new trials and 42×5 aggregates but failed its required integrity gate because of typed mapping comparison and seed-registry accounting defects. The failed V07 report remains historical failed-run evidence and is not promoted to PASS.
 
-V07 must reuse each audited V06-R02 candidate trial as trial 1 and add four new post-V05 canonical-scale trials for each of the 42 candidate classes, for 168 new trials total and exactly five post-V05 trials per candidate. Only exact-class 0/5 may become `HIGH_RISK_SOLVER_FAILURE`. No canonical timer/objective tuning is authorized inside V07.
+Owner sync-blocker ruling:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/OWNER_RULING_V07_SYNC_BLOCKER.md` — owner explicitly authorizes deletion of only the superseded untracked `CODEX_LOG_V07_ATTEMPT_20260929_SYNC_BLOCKED.md` local file.
+
+V07-R01 bounded remediation package:
+- Prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_REMEDIATION_PROMPT_V07_R01.md`
+- Locked criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07_R01.md`
+- Required log: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R01.md`
+- Required final marker: `AWAITING_M17_AUDIT_V07_R01`
+
+V07-R01 must fix only the mapping and seed-registry defects, preserve historical V07 evidence, run a fresh 42×5 confirmation with 168 new trials under a new seed namespace, prove 213 unique aggregate seeds, and run regressions only after direct PASS. No canonical timer/objective tuning is authorized inside V07-R01.
 
 V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 remains active for V07 evidence confirmation first; M18 remains blocked.
 
