@@ -1,124 +1,99 @@
-# CODEX Execution Log — BCM-M17 V07 Five-Trial Confirmation
+# BCM-M17 V07 Five-Trial Confirmation — CODEX Log
 
-Status: `TEMPLATE — NOT STARTED`
+Status: `CHANGES_REQUIRED` / direct V07 runner failed; regression sequence not started.
 
-This file is the repository-required immutable master-log template for the V07 batch. CODEX must populate a new committed version during execution and must not edit root `TASKS.md` or this template's locked requirements.
-
-## Work item and contract
+## Work item and authority
 
 - Work item: `BCM-M17-008` V07 five-trial confirmation.
-- Prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V07.md`
-- Locked criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07.md`
-- Prior audit: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V06_R02.md`
-- Required final marker: `AWAITING_M17_AUDIT_V07`
+- Prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V07.md`.
+- Locked criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07.md`.
+- Branch: `main`.
+- Remote: `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`.
+- Start HEAD: `1c548367da2d9d28b94563546aa4cb274ee9dc9d`.
+- End HEAD before publication: `1c548367da2d9d28b94563546aa4cb274ee9dc9d`.
 
-## Ordered child package
+## Synchronization preflight
 
-1. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_01.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_01.md` / `CODEX_LOG_V07_CHILD_01.md` - preflight and source/freeze proof.
-2. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_02.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_02.md` / `CODEX_LOG_V07_CHILD_02.md` - confirmation trials and reports.
-3. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_03.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_03.md` / `CODEX_LOG_V07_CHILD_03.md` - regressions and final handoff.
+- `git status --short --branch`: clean before V07 implementation, `## main...origin/main`.
+- `git remote -v`: fetch and push both `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`.
+- `git fetch origin main`: completed; fast-forwarded clean checkout from `13c5b58` to `1c548367da2d9d28b94563546aa4cb274ee9dc9d`.
+- `git rev-list --left-right --count HEAD...origin/main`: `0 4` before fast-forward; `0 0` after fast-forward.
+- No reset, clean, stash, rebase, force-push, destructive checkout, branch creation, or worktree creation was used.
 
-The children are ordered gates. A later child is not accepted when an earlier child is failed, blocked, or unverified.
+## Scope and files
 
-## Synchronization
+Intended V07 evidence-only files:
 
-- Canonical checkout: `C:\Users\sekip\Desktop\Beach Cocktails - Merge`
-- Start HEAD: `<SHA>`
-- End HEAD: `<SHA>`
-- Branch: `main`
-- Remote: `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`
-- `git status --short --branch`: `<exact output>`
-- `git remote -v`: `<exact output>`
-- `git fetch origin main`: `<exact result>`
-- `git rev-list --left-right --count HEAD...origin/main`: `<exact output>`
-- Final `git rev-parse HEAD`: `<SHA>`
-- Final `git rev-parse origin/main`: `<SHA>`
-- Final `git ls-remote origin refs/heads/main`: `<SHA>`
+- `tools/campaign/m17_canonical_confirmation_v07.gd`
+- `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07.json`
+- `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07.md`
+- `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07.md`
 
-## Frozen scope and files
+The pre-existing untracked `CODEX_LOG_V07_ATTEMPT_20260929_SYNC_BLOCKED.md` was preserved byte-for-byte and was not staged.
 
-List every changed file and explain why it is within V07 evidence-only scope. Confirm unchanged:
+Root `TASKS.md`, canonical Sunny Cove data, V04/V05/V06/V06-R01/V06-R02 evidence, and gameplay implementation were not edited.
 
-- root `TASKS.md`;
-- `data/campaign/levels/sunny_cove.json`;
-- canonical timers, normal objectives, VIP targets/quantities/rewards;
-- V04/V05/V06/V06-R01/V06-R02 evidence;
-- M15 HUD, score/economy, progression, table, physics, colliders, M18 and later files.
+## Source and canonical evidence
 
-Expected new outputs:
+- V06-R02 source SHA-256: `4A555D786A02EB1041A500316E007DD7F87E1C40DF8A28DE01739FC81B1AAA89`.
+- Canonical Sunny Cove SHA-256: `9FEABEE63BE44CFBB2B9DB7527A06B1B0E3F072C6859F4E7B8C6B3D7D9F25495`.
+- Required candidate set derived from V06-R02: `C01,C03,C04,C06,C07,C08,C09,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C27,C28,C29,C30,C31,C32,C33,C34,C35,C36,C37,C38,C39,C40,C41,C42,C43,C44,C45`.
+- Candidate count: `42`.
+- V06-R02 carried-forward classes: `C02/L3`, `C05/L7`, `C10/L14`.
 
-- `M17_CANONICAL_CONFIRMATION_V07.json`;
-- `M17_CANONICAL_CONFIRMATION_V07.md`;
-- `CODEX_LOG_V07_CHILD_01.md`;
-- `CODEX_LOG_V07_CHILD_02.md`;
-- `CODEX_LOG_V07_CHILD_03.md`;
-- this completed `CODEX_LOG_V07.md`;
-- optional new evidence-only runner under `tools/campaign/`.
+## Commands and results
 
-## Source and evidence hashes
+1. V07 parse check:
 
-- V06-R02 source report SHA-256: `<SHA>`
-- Canonical Sunny Cove SHA-256: `<SHA>`
-- V07 JSON SHA-256: `<SHA>`
-- V07 Markdown SHA-256: `<SHA>`
+   ```text
+   Godot_v4.7.2-stable_win64_console.exe --headless --path . --check-only --script res://tools/campaign/m17_canonical_confirmation_v07.gd
+   exit=0
+   ```
 
-## Candidate set and trial accounting
+2. Direct V07 confirmation run:
 
-- Candidate source: derived from V06-R02, not hand-authored.
-- Exact candidate IDs: `C01,C03,C04,C06,C07,C08,C09,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C27,C28,C29,C30,C31,C32,C33,C34,C35,C36,C37,C38,C39,C40,C41,C42,C43,C44,C45`
-- Candidate count: `42`
-- Carried-forward feasible classes: `C02` / L3, `C05` / L7, `C10` / L14
-- New trials: `168` (`42 × 4`)
-- Candidate aggregates: `42 × 5` post-V05 trials, reusing each audited V06-R02 trial as trial 1
-- Seed namespace and duplicate-seed result: `<exact evidence>`
-- Policy: `MERGE_AWARE_V01`
-- Engine time scale: `1.0`
+   ```text
+   Godot_v4.7.2-stable_win64_console.exe --headless --path . --script res://tools/campaign/m17_canonical_confirmation_v07.gd
+   exit=1
+   ```
 
-## Direct runner and report results
+   The run executed the requested four new trials for each of 42 candidates: `168` new trials. The generated report contains `42` candidate records with exactly `5` trials each and `3` carried-forward records with one V06-R02 trial each. VIP semantics computed as `0/25` forced and `25/25` surplus.
 
-Record exact commands, stdout markers, stderr, and exit codes. The direct runner must pass before regressions begin.
+3. `git diff --check`: passed for the current tracked diff; no product data diff was present.
 
-- V07 parse check: `<command / result / exit>`
-- V07 direct confirmation run: `<command / exact result / exit>`
-- Report shape/integrity: `<exact result>`
-- 100 levels / 45 classes: `<result>`
-- 42 candidate classes at exactly five trials: `<result>`
-- 168 new trials: `<result>`
-- Flat telemetry and legal action logs: `<result>`
-- `0/25` forced and `25/25` surplus: `<result>`
-- Final `SOLVER_FEASIBLE` count/IDs: `<result>`
-- Final `HIGH_RISK_SOLVER_FAILURE` count/IDs/representatives: `<result>`
-- No `SCREENING_FAILURE_NEEDS_CONFIRMATION` remains among five-trial candidates: `<result>`
-- No timer/objective/canonical-data tuning: `<confirmed>`
+4. Required post-PASS regressions were not run because the direct V07 runner failed, as required by the V07 stop rule.
 
-## Required regression sequence
+## Direct failure
 
-Record exact command, exact result, and exit code for each:
+The runner returned:
 
-1. V06 analytical probe.
-2. V05 optionality probe.
-3. M17 difficulty validation run 1.
-4. M17 difficulty validation run 2.
-5. M16 Sunny Cove content probe.
-6. M15 VIP/boosters/economy probe.
-7. M14 GameplaySessionBridge probe.
-8. M02 physics regression probe.
-9. V07 JSON/Markdown independent inspection.
-10. `git diff --check`.
-11. Root `TASKS.md` diff empty.
-12. Canonical Sunny Cove data diff empty.
+```text
+M17_CANONICAL_CONFIRMATION_V07_RESULT=FAIL
+```
 
-## Limitations and governance
+Failure reasons recorded by the runner:
 
-- Owner-native/mobile/manual difficulty acceptance: `<not performed / exact limitation>`
-- Headless visual capture limitations: `<exact limitation>`
-- Root `TASKS.md` was not edited: `<explicit confirmation>`
-- M17-008 tuning and M18 were not started: `<explicit confirmation>`
+- All 45 source class member/signature mapping comparisons were rejected because JSON-loaded Variant arrays/dictionaries were compared directly to typed/generated mappings.
+- The runner’s seed registry reported `212` unique aggregate seeds instead of the expected `213`; the generated report’s actual trial seeds were otherwise distinct.
+- Because the direct runner failed, its report status is `FAIL` and the batch is not audit-ready.
 
-## Publication
+Generated report hashes:
 
-- Commit SHA: `<SHA>`
-- Commit URL: `https://github.com/Sekiph82/Beach-Cocktails-Merge/commit/<SHA>`
-- Final marker:
+- `M17_CANONICAL_CONFIRMATION_V07.json`: `99DD063CFADA66C61BBE215973A21B9ABECABC23A8B2878BB8212F0A06254AFB`.
+- `M17_CANONICAL_CONFIRMATION_V07.md`: `BBF3FD11A1438B30EDEF492910997F4DB02511AD48E7A08C4B8572B372985615`.
 
-`AWAITING_M17_AUDIT_V07`
+The report’s observed final class counts were `16` solver-feasible and `29` high-risk 0/5, including the three carried-forward classes. These are failed-run evidence only and are not an acceptance verdict.
+
+## Integrity and freeze results
+
+- `TASKS.md` was not modified.
+- `data/campaign/levels/sunny_cove.json` was not modified.
+- No timer, objective, VIP target, reward, physics, collider, HUD, score, economy, progression, M18, or later-milestone changes were made.
+- No repair-after-failure run was performed.
+- No independent audit was requested because the direct required runner did not pass.
+
+## Required next action
+
+This V07 attempt is stopped at the direct-run failure. A subsequent authorized remediation must correct the runner’s typed mapping and seed-registry validation, then execute a fresh V07 contract; the failed report must not be promoted as a PASS.
+
+CHANGES_REQUIRED
