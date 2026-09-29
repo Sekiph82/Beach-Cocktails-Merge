@@ -350,7 +350,7 @@ func _run() -> void:
 	same_level_gameplay._try_collect_stocked_target()
 	var same_level_vip_score_before: int = int(same_level_gameplay.score)
 	await _wait_seconds(0.52)
-	_check("same-level later delivery receives VIP 2x payout", same_level_bridge.get_vip_state()["delivered"] == 1 and same_level_gameplay.score == same_level_vip_score_before + 2 * Drink.order_reward(6))
+	_check("same-level later L6 remains protected while useful for mandatory L8", is_instance_valid(later_vip) and same_level_bridge.get_vip_state()["delivered"] == 0 and same_level_gameplay.score == same_level_vip_score_before)
 
 	same_level_bridge.resolve_lose("SAME_LEVEL_EXIT")
 	navigation.return_to_island_map()
