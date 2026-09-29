@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: BCM-M17-008 V07-R02 exact-committed-runner remediation and fresh five-trial confirmation.
+- Current Task: BCM-M17-008 V07-R03 typed mapping-comparison remediation and fresh exact-committed five-trial confirmation.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex preserves V07-R01 failed evidence, creates a new V07-R02 runner, commits/pushes and proves the exact runner bytes before execution, then runs fresh 42×5 confirmation evidence under the R02 seed namespace. Regressions run only after direct PASS; stop at AWAITING_M17_AUDIT_V07_R02. Canonical tuning and M18 remain blocked.
+- Next Task/Action: Codex executes the single ordered V07-R03 remediation child: preserve V07-R02/V07-R01 failed evidence, correct only typed mapping comparison in a new committed R03 runner, prove exact bytes before execution, run fresh 42×5 evidence under the R03 seed namespace, run regressions only after direct PASS, and stop at AWAITING_M17_AUDIT_V07_R03. Canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. M17-008 remains active for five-trial confirmation before any timer/objective tuning.
+- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. V07-R02 is independently audited CHANGES_REQUIRED. M17-008 remains active for V07-R03 five-trial confirmation before any timer/objective tuning.
 
 ## Tasks
 
@@ -684,6 +684,18 @@ V07-R02 bounded remediation package:
 - Required final marker: `AWAITING_M17_AUDIT_V07_R02`
 
 V07-R02 requires commit-before-execution provenance: the new runner must be committed/pushed, the checkout must be clean, and the bytes executed must equal the runner bytes at current HEAD. It uses a fresh `17900000 + representative*100 + trial_index` namespace for 168 new trials. No canonical tuning is authorized in R02.
+
+V07-R02 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07_R02.md` — **CHANGES_REQUIRED / DIRECT-RUNNER-INTEGRITY-FAILURE**.
+
+V07-R03 bounded remediation package:
+- Master remediation prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_REMEDIATION_PROMPT_V07_R03.md`
+- Master remediation criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07_R03.md`
+- Ordered Child 01 prompt/criteria/log: `CHATGPT_REMEDIATION_PROMPT_V07_R03_CHILD_01.md` / `CHATGPT_AUDIT_CRITERIA_V07_R03_CHILD_01.md` / `CODEX_LOG_V07_R03_CHILD_01.md`
+- Required master log template: `CODEX_LOG_V07_R03.md`
+- Required final marker: `AWAITING_M17_AUDIT_V07_R03`
+
+V07-R03 is limited to correcting the typed/numeric semantic mapping comparison and producing fresh exact-committed confirmation. No canonical timer/objective/VIP/gameplay tuning is authorized, and no later child or M18 work may begin.
 
 V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 remains active for V07 evidence confirmation first; M18 remains blocked.
 
