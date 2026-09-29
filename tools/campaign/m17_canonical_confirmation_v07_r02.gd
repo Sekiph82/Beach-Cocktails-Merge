@@ -14,8 +14,8 @@ const SESSION_DIR := "res://coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION"
 const LEVELS_PATH := "res://data/campaign/levels/sunny_cove.json"
 const V06_R02_PATH := SESSION_DIR + "/M17_CANONICAL_SCREENING_V06_R02.json"
 const V05_PATH := SESSION_DIR + "/M17_VIP_OPTIONALITY_V05.json"
-const OUT_JSON := SESSION_DIR + "/M17_CANONICAL_CONFIRMATION_V07_R01.json"
-const OUT_MD := SESSION_DIR + "/M17_CANONICAL_CONFIRMATION_V07_R01.md"
+const OUT_JSON := SESSION_DIR + "/M17_CANONICAL_CONFIRMATION_V07_R02.json"
+const OUT_MD := SESSION_DIR + "/M17_CANONICAL_CONFIRMATION_V07_R02.md"
 const POLICY_NAME := HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01
 const TIME_SCALE := 1.0
 const NEW_SEED_BASE := 17900000
@@ -259,10 +259,10 @@ func _run() -> void:
 	var serialized_report: Dictionary = _load_json(OUT_JSON)
 	var integrity_ok := validation_errors.is_empty() and _report_integrity(serialized_report, harness)
 	if integrity_ok:
-		print("M17_CANONICAL_CONFIRMATION_V07_R01_RESULT=PASS levels=%d classes=%d candidates=%d new_trials=%d aggregate_candidate_trials=%d unique_seeds=%d feasible=%d high_risk=%d forced=%d/25 surplus=%d/25" % [levels.size(), canonical_classes.size(), candidate_ids.size(), new_trial_count, candidate_ids.size() * CONFIRMATION_TRIAL_COUNT, all_used_seeds.size(), final_feasible_ids.size(), final_high_risk_ids.size(), vip_forced_count, vip_surplus_count])
+		print("M17_CANONICAL_CONFIRMATION_V07_R02_RESULT=PASS levels=%d classes=%d candidates=%d new_trials=%d aggregate_candidate_trials=%d unique_seeds=%d feasible=%d high_risk=%d forced=%d/25 surplus=%d/25" % [levels.size(), canonical_classes.size(), candidate_ids.size(), new_trial_count, candidate_ids.size() * CONFIRMATION_TRIAL_COUNT, all_used_seeds.size(), final_feasible_ids.size(), final_high_risk_ids.size(), vip_forced_count, vip_surplus_count])
 		quit(0)
 		return
-	print("M17_CANONICAL_CONFIRMATION_V07_R01_RESULT=FAIL errors=%s integrity=%s" % ["; ".join(validation_errors), str(integrity_ok)])
+	print("M17_CANONICAL_CONFIRMATION_V07_R02_RESULT=FAIL errors=%s integrity=%s" % ["; ".join(validation_errors), str(integrity_ok)])
 	quit(1)
 
 
@@ -356,7 +356,7 @@ func _summarize_candidate(class_record: Dictionary, source_trial: Dictionary, tr
 		"signature": class_record["signature"],
 		"representative": int(class_record["representative"]),
 		"member_level_ids": class_record["member_level_ids"],
-		"evidence_source": "V06_R02_TRIAL_1_PLUS_V07_R01_FOUR_TRIALS",
+		"evidence_source": "V06_R02_TRIAL_1_PLUS_V07_R02_FOUR_TRIALS",
 		"evidence_source_level": int(class_record["representative"]),
 		"carried_forward_from_v06_r02": false,
 		"source_trial_provenance": "audited M17_CANONICAL_SCREENING_V06_R02 exact trial 1",
@@ -635,5 +635,3 @@ func _write_report(report: Dictionary) -> void:
 	var md_file := FileAccess.open(OUT_MD, FileAccess.WRITE)
 	md_file.store_string(markdown)
 	md_file.close()
-
-
