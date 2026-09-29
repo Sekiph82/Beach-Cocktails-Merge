@@ -6,9 +6,9 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Run the fresh post-V05 100-level canonical screening before any M17-008 timer/objective tuning.
+- Current Task: Remediate the BCM-M17 V06 Child 03 stop-condition violation with the bounded V06-R01 fresh rescreen.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the complete BCM-M17 V06 post-V05 canonical rescreen batch in the published child order, then stops at AWAITING_M17_AUDIT_V06. Canonical tuning and M18 remain blocked.
+- Next Task/Action: Codex executes the complete V06-R01 remediation package in order, runs Child 04 only after Child 03 passes, then stops at AWAITING_M17_AUDIT_V06_R01. Canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -616,7 +616,18 @@ V06 post-fix rescreen batch package:
 - Master log template: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V06.md`
 - Required final marker: `AWAITING_M17_AUDIT_V06`
 
-V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation is independently passed. M17-008 remains active for the V06 post-fix rescreen first; no canonical level tuning is authorized before independent audit of that rescreen.
+V06 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V06.md` — **CHANGES_REQUIRED** for the Child 03 required-test stop-condition violation.
+
+V06-R01 bounded remediation package:
+- Master remediation prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_REMEDIATION_PROMPT_V06_R01.md`
+- Master remediation criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V06_R01.md`
+- Child 03 remediation prompt/criteria: `CHATGPT_REMEDIATION_PROMPT_V06_R01_CHILD_03.md` / `CHATGPT_AUDIT_CRITERIA_V06_R01_CHILD_03.md`
+- Child 04 final-handoff prompt/criteria: `CHATGPT_REMEDIATION_PROMPT_V06_R01_CHILD_04.md` / `CHATGPT_AUDIT_CRITERIA_V06_R01_CHILD_04.md`
+- Master log template: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V06_R01.md`
+- Required final marker: `AWAITING_M17_AUDIT_V06_R01`
+
+V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation is independently passed. V06 is independently audited `CHANGES_REQUIRED` only for its Child 03 stop-condition violation; M17-008 remains active for V06-R01 remediation first. No canonical level tuning is authorized before independent audit of the corrected handoff.
 
 
 - [x] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
