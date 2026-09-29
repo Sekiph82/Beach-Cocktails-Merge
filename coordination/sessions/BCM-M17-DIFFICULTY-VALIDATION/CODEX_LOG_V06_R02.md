@@ -5,7 +5,7 @@
 | Child | Required handoff | Status | Commit/SHA | Scope |
 | --- | --- | --- | --- | --- |
 | 03 | `CODEX_LOG_V06_R02_CHILD_03.md` | COMPLETE / DIRECT PASS | `e75bc7a0dfe5b49ea52b0d39328d251d66687ec8` | bounded runner-schema correction and fresh 45-class screen |
-| 04 | `CODEX_LOG_V06_R02_CHILD_04.md` | COMPLETE / FINAL HANDOFF | pending publication | regressions, report inspection, final handoff |
+| 04 | `CODEX_LOG_V06_R02_CHILD_04.md` | COMPLETE / FINAL HANDOFF | `7b3f92dc384bcab808b43054f3348193756e3bbe` | regressions, report inspection, final handoff |
 
 ## Contract and scope
 

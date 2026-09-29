@@ -51,4 +51,5 @@ Child 04 was not started until the V06-R02 direct runner returned exit code `0` 
 
 - Child 04 completion marker: `CHILD_04_REMEDIATION_COMPLETE_FINAL_HANDOFF_V06_R02`.
 - Final marker for the ordered remediation: `AWAITING_M17_AUDIT_V06_R02`.
-- Child 04 publication commit/URL: pending publication.
+- Child 04 publication commit: `7b3f92dc384bcab808b43054f3348193756e3bbe`.
+- Child 04 publication URL: https://github.com/Sekiph82/Beach-Cocktails-Merge/commit/7b3f92dc384bcab808b43054f3348193756e3bbe
