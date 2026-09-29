@@ -8,7 +8,7 @@
 | 02 | COMPLETE | `2b32e45a83e03ad0aef810dba4293d92b38f653a` | deterministic reserve planner and production guards |
 | 03 | COMPLETE | `653e460399d53505a1fdd9b01181cc1905a9b430` | focused planner, production, and replay-later tests |
 | 04 | COMPLETE | `a6a7832abd508a5aef535def75224d038d4b2827` | all-25 post-fix structural evidence |
-| 05 | PENDING | — | required regressions, final log, and audit handoff |
+| 05 | COMPLETE | `8c63963e3ebd6da4046525550b46b6bde035465a` | required regressions, final log, and audit handoff |
 
 This is an append-only builder progress record. It is not independent acceptance and does not modify root `TASKS.md`.
 
@@ -33,6 +33,14 @@ This is an append-only builder progress record. It is not independent acceptance
 - All-25 structural report: historical V04 risk `25/25`, post-V05 forced capture `0/25`, surplus path `25/25`.
 - V04 hash and canonical Sunny Cove hash are recorded and unchanged.
 - Post-fix physical screening and canonical tuning remain blocked for independent audit.
+
+## Child 05 completion marker
+
+- `CHILD_05_COMPLETE`
+- All required V05 and regression commands passed; the one M15 fixture conflict was aligned with the normative reserve rule and re-run successfully.
+- Canonical data and V04 historical evidence hashes are unchanged.
+- Root `TASKS.md` remains untouched.
+- Final batch boundary: `AWAITING_M17_AUDIT_V05`.
 
 ## Child 01 completion marker
 
