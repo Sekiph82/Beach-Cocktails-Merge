@@ -1,77 +1,117 @@
 # BCM-M17 V07-R01 Child 01 — Synchronization, Source Integrity, and Scope Freeze
 
-Status: `PASS — HANDOFF_TO_CHILD_02`
+Status: `PASS` / `CHILD_01_REMEDIATION_COMPLETE_HANDOFF_TO_CHILD_02`
 
-## Authority and work item
+This is builder evidence only; no independent acceptance is claimed.
 
-- Work item: `BCM-M17-008` V07-R01.
+## Authority and scope
+
+- Work item: `BCM-M17-008` V07-R01 Child 01.
 - Prompt: `CHATGPT_REMEDIATION_PROMPT_V07_R01_CHILD_01.md`.
-- Criteria: `CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_01.md`.
-- Master remediation: `CHATGPT_REMEDIATION_PROMPT_V07_R01.md`.
+- Locked criteria: `CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_01.md`.
+- Master package: `CHATGPT_REMEDIATION_PROMPT_V07_R01.md` / `CHATGPT_AUDIT_CRITERIA_V07_R01.md`.
 - Branch: `main`.
 - Remote: `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`.
+- Start HEAD: `79f3c2ec2eda9404860f43a148ce0e423fa3c3eb`.
 
-## Owner-authorized blocker deletion
+## Authorized blocker and synchronization
 
-The exact authorized path was checked before implementation:
+The owner-authorized path was:
 
 `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_ATTEMPT_20260929_SYNC_BLOCKED.md`
 
-- File exists after owner ruling: `False`.
-- Tracked by Git: `False`.
-- Owner deletion was already present in synchronized commit `22b20f1` (`owner: resolve BCM-M17 V07 sync blocker`).
-- No deletion, move, staging, overwrite, reset, clean, stash, rebase, or other local-material mutation was performed by Child 01.
-- No other untracked/local material was deleted or changed.
+At the beginning of this run, `Test-Path` returned `False`; the exact file was
+already absent from the canonical checkout. No deletion was therefore
+performed, and no other file was deleted, moved, staged, overwritten, reset,
+stashed, rebased, or cleaned.
 
-## Synchronization preflight
+Exact preflight results after confirming the authorized path state:
 
-- `git status --short --branch`: `## main...origin/main`.
-- `git remote -v`: fetch/push both `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`.
-- `git fetch origin main`: exit `0`.
-- `git rev-list --left-right --count HEAD...origin/main`: `0 0`.
-- Start HEAD: `79f3c2ec2eda9404860f43a148ce0e423fa3c3eb` (`coordination: complete BCM-M17 V07-R01 batch package`).
-- `git rev-parse HEAD`: `79f3c2ec2eda9404860f43a148ce0e423fa3c3eb`.
-- Canonical checkout was clean and synchronized before source inspection.
+```text
+TARGET_EXISTS=False
+git status --short --branch
+## main...origin/main
+git fetch origin main
+completed
+git rev-list --left-right --count HEAD...origin/main
+0 0
+git rev-parse --abbrev-ref HEAD
+main
+git rev-parse HEAD
+79f3c2ec2eda9404860f43a148ce0e423fa3c3eb
+git rev-parse origin/main
+79f3c2ec2eda9404860f43a148ce0e423fa3c3eb
+git ls-remote origin refs/heads/main
+79f3c2ec2eda9404860f43a148ce0e423fa3c3eb	refs/heads/main
+```
 
-## Source and canonical integrity
+## Source and frozen-path validation
 
-- V06-R02 report: `V06-R02`, status `PASS`, 100 levels, 45 classes.
-- V06-R02 SHA-256: `4A555D786A02EB1041A500316E007DD7F87E1C40DF8A28DE01739FC81B1AAA89`.
-- V05 optionality SHA-256: `5FC6EF353D012C8D37D6FB68E6D2759F010636A2313AC0ED9272CC582F98D218`.
-- Canonical Sunny Cove SHA-256: `9FEABEE63BE44CFBB2B9DB7527A06B1B0E3F072C6859F4E7B8C6B3D7D9F25495`.
-- Root `TASKS.md` SHA-256: `32B5D015481510B3129B90C63C11D1934A6741B8FBBA5870550174D0CE3C7C90`.
-- V06-R02 policy: `MERGE_AWARE_V01`.
-- V06-R02 engine time scale: `1.0`.
-- V06-R02 post-V05 VIP semantics: forced `0/25`, surplus `25/25`.
-- V05 source semantics: forced `0/25`, surplus `25/25`.
+Recorded SHA-256 values:
 
-## Candidate and mapping proof
+- `M17_CANONICAL_SCREENING_V06_R02.json`: `4A555D786A02EB1041A500316E007DD7F87E1C40DF8A28DE01739FC81B1AAA89`.
+- `M17_CANONICAL_SCREENING_V06_R02.md`: `6736C641B84D8ED27BEBCB56750045C7C45AEEDB4B42951134984ABB851D9A3D`.
+- `M17_VIP_OPTIONALITY_V05.json`: `5FC6EF353D012C8D37D6FB68E6D2759F010636A2313AC0ED9272CC582F98D218`.
+- `M17_VIP_OPTIONALITY_V05.md`: `1FC7AE02FB637A5A99F35E38BCCD4FCB2E175A332E5C0B90302DB0ECA93FF130`.
+- `data/campaign/levels/sunny_cove.json`: `9FEABEE63BE44CFBB2B9DB7527A06B1B0E3F072C6859F4E7B8C6B3D7D9F25495`.
 
-Derived from the audited V06-R02 `SCREENING_FAILURE_NEEDS_CONFIRMATION` flags:
+V06-R02 source contract inspection returned:
 
-`C01,C03,C04,C06,C07,C08,C09,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,C21,C22,C23,C24,C25,C26,C27,C28,C29,C30,C31,C32,C33,C34,C35,C36,C37,C38,C39,C40,C41,C42,C43,C44,C45`
+```text
+status=PASS
+report_version=V06-R02
+policy_name=MERGE_AWARE_V01
+engine_time_scale=1.0
+level_count=100
+challenge_class_count=45
+trial_count_per_class=1
+validation_errors=0
+```
 
-- Candidate count: `42`.
-- Carried-forward feasible classes: `C02/L3`, `C05/L7`, `C10/L14`.
-- Source class count: `45`.
-- Canonical Sunny Cove level count: `100`.
-- Representatives/member mappings were inspected in the source report and are non-empty for all 45 classes; the complete source mapping is unchanged and remains historical evidence.
-- No V07 historical report, runner, canonical data, production code, or tracker file was modified in Child 01.
+V05 optionality source contract inspection returned `status=PASS`,
+`post_v05_forced_capture_count=0`, `post_v05_forced_capture_denominator=25`,
+`post_v05_surplus_path_count=25`, and
+`post_v05_surplus_path_denominator=25`.
 
-## Frozen-scope checks
+The exact pending confirmation candidate set was validated as 42 classes:
 
-- `git diff --name-only`: empty before Child 01 log creation.
-- `git diff -- TASKS.md`: empty.
-- `git diff -- data/campaign/levels/sunny_cove.json`: empty.
-- No gameplay, HUD, physics, colliders, score, economy, progression, VIP content, timers/objectives, M18+, or historical V07 evidence was touched.
-- Manual/native/owner acceptance: not performed; outside Child 01 scope.
+```text
+C01,C03,C04,C06,C07,C08,C09,C11,C12,C13,C14,C15,C16,C17,C18,C19,C20,
+C21,C22,C23,C24,C25,C26,C27,C28,C29,C30,C31,C32,C33,C34,C35,C36,C37,
+C38,C39,C40,C41,C42,C43,C44,C45
+```
+
+The carried-forward feasible classes were validated directly from V06-R02:
+
+```text
+C02: representative=3; members=3,5; flag=SOLVER_FEASIBLE
+C05: representative=7; members=7; flag=SOLVER_FEASIBLE
+C10: representative=14; members=14; flag=SOLVER_FEASIBLE
+```
+
+All 45 class records contained representative, member-level, and signature
+mapping data. The source contained exactly 45 classes and the candidate-set
+comparison returned `candidate_set_match=True; count=42`.
+
+Frozen-path checks returned exit code `0` for each of:
+
+- `TASKS.md`;
+- `data/campaign/levels/sunny_cove.json`;
+- V06-R02 JSON and Markdown;
+- V05 optionality JSON and Markdown.
+
+No runner, production, canonical-data, historical-evidence, tracker, or
+owner-only path was changed in Child 01.
 
 ## Commands and limitations
 
-- PowerShell JSON/schema/hash inspection commands completed with exit `0`.
-- This child intentionally did not edit or execute the V07 runner and did not run confirmation trials.
-- This child is builder evidence only and does not assign the independent audit verdict.
+- Read-only repository preflight, source JSON inspection, SHA-256 inspection,
+  candidate/mapping inspection, and frozen-path `git diff --exit-code` checks
+  were run successfully.
+- No runner was edited or executed in Child 01, as required.
+- No owner-native, manual, mobile, clean-machine, or independent audit gate was
+  performed or claimed.
 
-## Handoff
+## Completion marker
 
-Child 01 passed its locked gates. Child 02 is authorized to create the new R01 runner, correct only the two specified integrity defects, and run the fresh confirmation. Child 03 remains blocked until Child 02 direct PASS.
+`CHILD_01_REMEDIATION_COMPLETE_HANDOFF_TO_CHILD_02`
