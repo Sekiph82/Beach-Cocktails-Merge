@@ -19,6 +19,28 @@ Branch: `main`
 
 The locked V07-R01 criteria are authoritative.
 
+## Exact ordered child batch
+
+Execute the complete remediation batch in this order. A later child is not
+accepted when an earlier child fails or is unverified:
+
+1. `CHATGPT_REMEDIATION_PROMPT_V07_R01_CHILD_01.md` - authorized blocker
+   deletion, synchronized preflight, source integrity, and frozen-scope proof;
+   handoff `CODEX_LOG_V07_R01_CHILD_01.md`.
+2. `CHATGPT_REMEDIATION_PROMPT_V07_R01_CHILD_02.md` - bounded runner fixes,
+   fresh 42-class confirmation, and report production; handoff
+   `CODEX_LOG_V07_R01_CHILD_02.md`.
+3. `CHATGPT_REMEDIATION_PROMPT_V07_R01_CHILD_03.md` - required regressions,
+   report inspection, and publication; handoff
+   `CODEX_LOG_V07_R01_CHILD_03.md` plus the master
+   `CODEX_LOG_V07_R01.md`.
+
+The matching locked child criteria are
+`CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_01.md`,
+`CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_02.md`, and
+`CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_03.md`. The child logs and master log
+are builder evidence only. Stop at the first failed or unverified child.
+
 ## Step 1 — clear only the owner-approved local blocker
 
 The owner explicitly authorizes deletion of exactly:
@@ -120,6 +142,8 @@ Do not change:
 
 Create:
 `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R01.md`
+
+Use the pre-published master log template and link all three ordered child logs.
 
 Include exact sync/deletion proof, changed files, commands/results, hashes, 168-new-trial proof, 42×5 proof, **213 unique seeds**, final class lists/counts, VIP `0/25` + `25/25`, regressions, final HEAD/origin/remote equality, and confirmation that `TASKS.md` was untouched.
 

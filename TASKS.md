@@ -664,6 +664,9 @@ Owner sync-blocker ruling:
 V07-R01 bounded remediation package:
 - Prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_REMEDIATION_PROMPT_V07_R01.md`
 - Locked criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07_R01.md`
+- Ordered Child 01 prompt/criteria: `CHATGPT_REMEDIATION_PROMPT_V07_R01_CHILD_01.md` / `CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_01.md`
+- Ordered Child 02 prompt/criteria: `CHATGPT_REMEDIATION_PROMPT_V07_R01_CHILD_02.md` / `CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_02.md`
+- Ordered Child 03 prompt/criteria: `CHATGPT_REMEDIATION_PROMPT_V07_R01_CHILD_03.md` / `CHATGPT_AUDIT_CRITERIA_V07_R01_CHILD_03.md`
 - Required log: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R01.md`
 - Required final marker: `AWAITING_M17_AUDIT_V07_R01`
 

@@ -9,6 +9,17 @@ Authority:
 - `CHATGPT_AUDIT_CRITERIA_V07.md`
 - audited V06-R02 evidence.
 
+## Ordered child package
+
+The remediation is a single ordered batch:
+
+1. Child 01 - synchronization, source integrity, and scope freeze;
+2. Child 02 - bounded runner remediation and fresh confirmation evidence;
+3. Child 03 - regressions, report inspection, and final publication.
+
+Each child must satisfy its matching locked criteria file before the next child
+begins. The master log template and child handoffs are required evidence.
+
 ## Gate A — resolve the local sync blocker safely
 
 Before implementation, CODEX may delete exactly:
@@ -104,3 +115,9 @@ Final marker:
 `AWAITING_M17_AUDIT_V07_R01`
 
 M17-008 canonical tuning and M18 remain blocked until independent ChatGPT audit.
+
+The required pre-issued package is:
+- `CHATGPT_REMEDIATION_PROMPT_V07_R01.md`;
+- `CHATGPT_AUDIT_CRITERIA_V07_R01.md`;
+- the three ordered R01 child prompt/criteria pairs;
+- `CODEX_LOG_V07_R01.md` master-log template.
