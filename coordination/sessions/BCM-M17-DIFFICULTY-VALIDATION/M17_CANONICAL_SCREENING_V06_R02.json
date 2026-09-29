@@ -627,7 +627,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 7.59744266666903,
+					"remaining_sec": 7.59923639393944,
 					"seed": 17600300,
 					"shot_count": 33,
 					"terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
@@ -965,7 +965,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 11.5571993333335,
+					"remaining_sec": 11.5560090303033,
 					"seed": 17600400,
 					"shot_count": 29,
 					"terminal_reason": "TABLE_DANGER",
@@ -1365,19 +1365,19 @@
 						}
 					],
 					"contact_count": 59,
-					"danger_line_exposure_sec": 2.21666666666666,
+					"danger_line_exposure_sec": 2.23333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 9,
 						"same_level_target": 29
 					},
-					"elapsed_sec": 37.3166666666658,
+					"elapsed_sec": 37.3333333333325,
 					"failed_merge_approach_count": 12,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 6,
-					"mean_live_drinks": 8.24966502903082,
+					"mean_live_drinks": 8.25357142857143,
 					"merge_count": 17,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -1389,7 +1389,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 22.5690660000055,
+					"remaining_sec": 22.5559606666683,
 					"seed": 17600600,
 					"shot_count": 38,
 					"terminal_reason": "TABLE_DANGER",
@@ -1733,7 +1733,7 @@
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 7,
-					"mean_live_drinks": 5.11887727022565,
+					"mean_live_drinks": 5.11832691249312,
 					"merge_count": 20,
 					"normal_objective_complete": true,
 					"outcome": "completed",
@@ -1745,7 +1745,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 29.600731000005,
+					"remaining_sec": 29.5983036666666,
 					"seed": 17600700,
 					"shot_count": 31,
 					"terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
@@ -2288,19 +2288,19 @@
 						}
 					],
 					"contact_count": 88,
-					"danger_line_exposure_sec": 2.91666666666666,
+					"danger_line_exposure_sec": 2.93333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 14,
 						"same_level_target": 40
 					},
-					"elapsed_sec": 53.3333333333316,
+					"elapsed_sec": 53.3499999999983,
 					"failed_merge_approach_count": 13,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 8,
-					"mean_live_drinks": 9.1928125,
+					"mean_live_drinks": 9.19556388628554,
 					"merge_count": 28,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -2312,7 +2312,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 6.55259166667271,
+					"remaining_sec": 6.52848966666699,
 					"seed": 17600800,
 					"shot_count": 54,
 					"terminal_reason": "TABLE_DANGER",
@@ -2627,19 +2627,19 @@
 						}
 					],
 					"contact_count": 50,
-					"danger_line_exposure_sec": 1.65,
+					"danger_line_exposure_sec": 1.63333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 6,
 						"same_level_target": 23
 					},
-					"elapsed_sec": 28.3166666666663,
+					"elapsed_sec": 28.2999999999997,
 					"failed_merge_approach_count": 13,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 9,
-					"mean_live_drinks": 8.30782813419659,
+					"mean_live_drinks": 8.30329799764429,
 					"merge_count": 12,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -2651,7 +2651,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 51.5644385555638,
+					"remaining_sec": 51.5703703703738,
 					"seed": 17600900,
 					"shot_count": 29,
 					"terminal_reason": "TABLE_DANGER",
@@ -3941,7 +3941,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 34.553932777788,
+					"remaining_sec": 34.5472648518537,
 					"seed": 17601200,
 					"shot_count": 46,
 					"terminal_reason": "TABLE_DANGER",
@@ -4487,7 +4487,7 @@
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 14,
-					"mean_live_drinks": 7.30761874402295,
+					"mean_live_drinks": 7.30793751992349,
 					"merge_count": 32,
 					"normal_objective_complete": true,
 					"outcome": "completed",
@@ -4499,7 +4499,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 27.6074233333424,
+					"remaining_sec": 27.5956170000071,
 					"seed": 17601400,
 					"shot_count": 53,
 					"terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
@@ -5065,19 +5065,19 @@
 						}
 					],
 					"contact_count": 79,
-					"danger_line_exposure_sec": 1.01666666666667,
+					"danger_line_exposure_sec": 1.0,
 					"decision_reason_counts": {
 						"low_congestion_lane": 16,
 						"same_level_target": 40
 					},
-					"elapsed_sec": 55.3833333333315,
+					"elapsed_sec": 55.3666666666648,
 					"failed_merge_approach_count": 11,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 15,
-					"mean_live_drinks": 9.27655732771592,
+					"mean_live_drinks": 9.27363034316677,
 					"merge_count": 29,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -5089,7 +5089,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 44.4926850000127,
+					"remaining_sec": 44.5052393333399,
 					"seed": 17601500,
 					"shot_count": 56,
 					"terminal_reason": "TABLE_DANGER",
@@ -5657,7 +5657,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 46.5754480000128,
+					"remaining_sec": 46.5680635925984,
 					"seed": 17601800,
 					"shot_count": 54,
 					"terminal_reason": "TABLE_DANGER",
@@ -6126,7 +6126,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 77.579672666679,
+					"remaining_sec": 77.5830262328111,
 					"seed": 17602000,
 					"shot_count": 43,
 					"terminal_reason": "TABLE_DANGER",
@@ -6559,7 +6559,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 81.5042677777897,
+					"remaining_sec": 81.5049408412742,
 					"seed": 17602400,
 					"shot_count": 39,
 					"terminal_reason": "TABLE_DANGER",
@@ -7186,7 +7186,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 59.5550907777962,
+					"remaining_sec": 59.5524858571444,
 					"seed": 17602600,
 					"shot_count": 61,
 					"terminal_reason": "TABLE_DANGER",
@@ -7205,7 +7205,7 @@
 			"evidence_source_level": 27,
 			"harness_abort_count": 0,
 			"median_completion_time_sec": 0.0,
-			"median_contact_count": 115.0,
+			"median_contact_count": 116.0,
 			"median_merge_count": 45.0,
 			"median_peak_live_drinks": 19.0,
 			"median_peak_occupancy": 0.145970611990546,
@@ -7936,20 +7936,20 @@
 							"x_position": 360.0
 						}
 					],
-					"contact_count": 115,
-					"danger_line_exposure_sec": 1.61666666666667,
+					"contact_count": 116,
+					"danger_line_exposure_sec": 1.6,
 					"decision_reason_counts": {
 						"low_congestion_lane": 19,
 						"same_level_target": 58
 					},
-					"elapsed_sec": 76.3333333333303,
+					"elapsed_sec": 76.3166666666636,
 					"failed_merge_approach_count": 14,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 27,
-					"mean_live_drinks": 8.782096069869,
+					"mean_live_drinks": 8.77964621096309,
 					"merge_count": 45,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -7961,7 +7961,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 43.5499197777958,
+					"remaining_sec": 43.5633706666738,
 					"seed": 17602700,
 					"shot_count": 77,
 					"terminal_reason": "TABLE_DANGER",
@@ -8585,19 +8585,19 @@
 						}
 					],
 					"contact_count": 85,
-					"danger_line_exposure_sec": 1.65,
+					"danger_line_exposure_sec": 1.63333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 16,
 						"same_level_target": 46
 					},
-					"elapsed_sec": 61.5666666666645,
+					"elapsed_sec": 61.5499999999978,
 					"failed_merge_approach_count": 13,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 29,
-					"mean_live_drinks": 9.25473741201949,
+					"mean_live_drinks": 9.25182778229082,
 					"merge_count": 35,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -8609,7 +8609,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 78.3279370000025,
+					"remaining_sec": 78.3353650000096,
 					"seed": 17602900,
 					"shot_count": 62,
 					"terminal_reason": "TABLE_DANGER",
@@ -9053,19 +9053,19 @@
 						}
 					],
 					"contact_count": 68,
-					"danger_line_exposure_sec": 1.65,
+					"danger_line_exposure_sec": 1.76666666666667,
 					"decision_reason_counts": {
 						"low_congestion_lane": 11,
 						"same_level_target": 32
 					},
-					"elapsed_sec": 42.3166666666655,
+					"elapsed_sec": 42.4333333333322,
 					"failed_merge_approach_count": 12,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 30,
-					"mean_live_drinks": 10.0393855848759,
+					"mean_live_drinks": 10.0597014925373,
 					"merge_count": 20,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -9077,7 +9077,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 97.5683803333305,
+					"remaining_sec": 97.450665666673,
 					"seed": 17603000,
 					"shot_count": 43,
 					"terminal_reason": "TABLE_DANGER",
@@ -9731,7 +9731,7 @@
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 36,
-					"mean_live_drinks": 8.68401968401968,
+					"mean_live_drinks": 8.68272468272468,
 					"merge_count": 35,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -9743,7 +9743,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 75.5242114444493,
+					"remaining_sec": 75.5468218518613,
 					"seed": 17603600,
 					"shot_count": 65,
 					"terminal_reason": "TABLE_DANGER",
@@ -10248,19 +10248,19 @@
 						}
 					],
 					"contact_count": 69,
-					"danger_line_exposure_sec": 1.65,
+					"danger_line_exposure_sec": 1.68333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 14,
 						"same_level_target": 36
 					},
-					"elapsed_sec": 49.5333333333318,
+					"elapsed_sec": 49.5666666666651,
 					"failed_merge_approach_count": 9,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 38,
-					"mean_live_drinks": 9.8492597577389,
+					"mean_live_drinks": 9.85541358439812,
 					"merge_count": 27,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -10272,7 +10272,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 110.347285999969,
+					"remaining_sec": 110.302998962972,
 					"seed": 17603800,
 					"shot_count": 50,
 					"terminal_reason": "TABLE_DANGER",
@@ -10773,7 +10773,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 113.549171666639,
+					"remaining_sec": 113.559153666676,
 					"seed": 17604000,
 					"shot_count": 47,
 					"terminal_reason": "TABLE_DANGER",
@@ -11334,19 +11334,19 @@
 						}
 					],
 					"contact_count": 89,
-					"danger_line_exposure_sec": 2.06666666666666,
+					"danger_line_exposure_sec": 2.08333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 14,
 						"same_level_target": 42
 					},
-					"elapsed_sec": 55.2999999999981,
+					"elapsed_sec": 55.3166666666648,
 					"failed_merge_approach_count": 14,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 41,
-					"mean_live_drinks": 10.1473779385172,
+					"mean_live_drinks": 10.1509490810485,
 					"merge_count": 29,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -11358,7 +11358,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 64.5691640000163,
+					"remaining_sec": 64.5706362794675,
 					"seed": 17604100,
 					"shot_count": 56,
 					"terminal_reason": "TABLE_DANGER",
@@ -12015,19 +12015,19 @@
 						}
 					],
 					"contact_count": 100,
-					"danger_line_exposure_sec": 1.0,
+					"danger_line_exposure_sec": 1.01666666666667,
 					"decision_reason_counts": {
 						"low_congestion_lane": 21,
 						"same_level_target": 46
 					},
-					"elapsed_sec": 66.3999999999975,
+					"elapsed_sec": 66.4166666666642,
 					"failed_merge_approach_count": 11,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 43,
-					"mean_live_drinks": 10.4244477911647,
+					"mean_live_drinks": 10.4233375156838,
 					"merge_count": 35,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -12039,7 +12039,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 93.4717767777501,
+					"remaining_sec": 93.4688552188768,
 					"seed": 17604300,
 					"shot_count": 67,
 					"terminal_reason": "TABLE_DANGER",
@@ -12465,19 +12465,19 @@
 						}
 					],
 					"contact_count": 67,
-					"danger_line_exposure_sec": 2.25,
+					"danger_line_exposure_sec": 2.26666666666666,
 					"decision_reason_counts": {
 						"low_congestion_lane": 10,
 						"same_level_target": 31
 					},
-					"elapsed_sec": 40.649999999999,
+					"elapsed_sec": 40.6666666666656,
 					"failed_merge_approach_count": 16,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 44,
-					"mean_live_drinks": 11.3960639606396,
+					"mean_live_drinks": 11.3991803278689,
 					"merge_count": 16,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -12489,7 +12489,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 99.2289073333284,
+					"remaining_sec": 99.2179331005413,
 					"seed": 17604400,
 					"shot_count": 41,
 					"terminal_reason": "TABLE_DANGER",
@@ -12924,19 +12924,19 @@
 						}
 					],
 					"contact_count": 64,
-					"danger_line_exposure_sec": 2.33333333333333,
+					"danger_line_exposure_sec": 2.31666666666666,
 					"decision_reason_counts": {
 						"low_congestion_lane": 13,
 						"same_level_target": 29
 					},
-					"elapsed_sec": 41.3166666666656,
+					"elapsed_sec": 41.2999999999989,
 					"failed_merge_approach_count": 12,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 46,
-					"mean_live_drinks": 11.2020976200081,
+					"mean_live_drinks": 11.1981436642454,
 					"merge_count": 17,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -12948,7 +12948,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 118.56511588885,
+					"remaining_sec": 118.577031365099,
 					"seed": 17604600,
 					"shot_count": 42,
 					"terminal_reason": "TABLE_DANGER",
@@ -13403,7 +13403,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 139.554085777728,
+					"remaining_sec": 139.549718158744,
 					"seed": 17604700,
 					"shot_count": 41,
 					"terminal_reason": "TABLE_DANGER",
@@ -13924,19 +13924,19 @@
 						}
 					],
 					"contact_count": 78,
-					"danger_line_exposure_sec": 1.61666666666667,
+					"danger_line_exposure_sec": 1.63333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 15,
 						"same_level_target": 37
 					},
-					"elapsed_sec": 51.2999999999984,
+					"elapsed_sec": 51.316666666665,
 					"failed_merge_approach_count": 12,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 48,
-					"mean_live_drinks": 10.5747238466537,
+					"mean_live_drinks": 10.5784345566742,
 					"merge_count": 25,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -13948,7 +13948,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 108.574242424222,
+					"remaining_sec": 108.557725741721,
 					"seed": 17604800,
 					"shot_count": 52,
 					"terminal_reason": "TABLE_DANGER",
@@ -14345,7 +14345,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 145.569221666623,
+					"remaining_sec": 145.577026543067,
 					"seed": 17604900,
 					"shot_count": 35,
 					"terminal_reason": "TABLE_DANGER",
@@ -14358,17 +14358,17 @@
 			"class_id": "C29",
 			"completed_count": 0,
 			"completion_rate": 0.0,
-			"danger_count": 0,
+			"danger_count": 1,
 			"engine_time_scale": 1.0,
 			"evidence_source": "V06_R02_FRESH_1_TRIAL_CANONICAL_SCALE",
 			"evidence_source_level": 56,
 			"harness_abort_count": 0,
 			"median_completion_time_sec": 0.0,
-			"median_contact_count": 624.0,
-			"median_merge_count": 110.0,
-			"median_peak_live_drinks": 34.0,
-			"median_peak_occupancy": 0.25855307539044,
-			"median_rail_proxy_events": 37.0,
+			"median_contact_count": 423.0,
+			"median_merge_count": 90.0,
+			"median_peak_live_drinks": 31.0,
+			"median_peak_occupancy": 0.240427831108479,
+			"median_rail_proxy_events": 25.0,
 			"member_level_ids": [
 				56,
 				72
@@ -14396,7 +14396,7 @@
 					"quantity": 2
 				}
 			},
-			"timeout_count": 1,
+			"timeout_count": 0,
 			"trial_count": 1,
 			"trials": [
 				{
@@ -15235,7 +15235,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 92,
-							"target_instance_id": 123,
+							"target_instance_id": 153,
 							"x_position": 570.0
 						},
 						{
@@ -15316,7 +15316,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 101,
-							"target_instance_id": 163,
+							"target_instance_id": 167,
 							"x_position": 570.0
 						},
 						{
@@ -15330,12 +15330,12 @@
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 6,
+							"lane_index": 3,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 103,
-							"target_instance_id": 167,
-							"x_position": 570.0
+							"target_instance_id": 4,
+							"x_position": 360.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15343,7 +15343,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 104,
-							"target_instance_id": 164,
+							"target_instance_id": 123,
 							"x_position": 570.0
 						},
 						{
@@ -15352,7 +15352,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 105,
-							"target_instance_id": 172,
+							"target_instance_id": 123,
 							"x_position": 570.0
 						},
 						{
@@ -15370,35 +15370,35 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 107,
-							"target_instance_id": 168,
+							"target_instance_id": 171,
 							"x_position": 290.0
 						},
 						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
+							"decision_reason": "low_congestion_lane",
+							"lane_index": 5,
+							"same_level_target_found": false,
 							"spawn_level": 3,
 							"step": 108,
-							"target_instance_id": 176,
-							"x_position": 570.0
+							"target_instance_id": null,
+							"x_position": 500.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 6,
+							"lane_index": 5,
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 109,
 							"target_instance_id": 180,
-							"x_position": 570.0
+							"x_position": 500.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 4,
+							"lane_index": 3,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 110,
-							"target_instance_id": 4,
-							"x_position": 430.0
+							"target_instance_id": 172,
+							"x_position": 360.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15411,21 +15411,21 @@
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 4,
+							"lane_index": 3,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 112,
-							"target_instance_id": 183,
-							"x_position": 430.0
+							"target_instance_id": 4,
+							"x_position": 360.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 4,
+							"lane_index": 2,
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 113,
-							"target_instance_id": 187,
-							"x_position": 430.0
+							"target_instance_id": 184,
+							"x_position": 290.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15433,17 +15433,17 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 114,
-							"target_instance_id": 181,
+							"target_instance_id": 186,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "low_congestion_lane",
-							"lane_index": 2,
+							"lane_index": 5,
 							"same_level_target_found": false,
 							"spawn_level": 3,
 							"step": 115,
 							"target_instance_id": null,
-							"x_position": 290.0
+							"x_position": 500.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15465,12 +15465,12 @@
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 5,
+							"lane_index": 3,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 118,
-							"target_instance_id": 195,
-							"x_position": 500.0
+							"target_instance_id": 187,
+							"x_position": 360.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15487,7 +15487,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 120,
-							"target_instance_id": 199,
+							"target_instance_id": 196,
 							"x_position": 570.0
 						},
 						{
@@ -15501,12 +15501,12 @@
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 3,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 122,
-							"target_instance_id": 4,
-							"x_position": 360.0
+							"target_instance_id": 203,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15519,21 +15519,21 @@
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 2,
+							"lane_index": 3,
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 124,
-							"target_instance_id": 192,
-							"x_position": 290.0
+							"target_instance_id": 198,
+							"x_position": 360.0
 						},
 						{
-							"decision_reason": "low_congestion_lane",
-							"lane_index": 1,
-							"same_level_target_found": false,
+							"decision_reason": "same_level_target",
+							"lane_index": 6,
+							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 125,
-							"target_instance_id": null,
-							"x_position": 220.0
+							"target_instance_id": 205,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15546,12 +15546,12 @@
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 3,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 127,
-							"target_instance_id": 204,
-							"x_position": 360.0
+							"target_instance_id": 212,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15559,17 +15559,17 @@
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 128,
-							"target_instance_id": 210,
+							"target_instance_id": 212,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 129,
-							"target_instance_id": 87,
-							"x_position": 150.0
+							"target_instance_id": 212,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15577,7 +15577,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 130,
-							"target_instance_id": 123,
+							"target_instance_id": 211,
 							"x_position": 570.0
 						},
 						{
@@ -15586,17 +15586,17 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 131,
-							"target_instance_id": 216,
+							"target_instance_id": 218,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 132,
-							"target_instance_id": 215,
-							"x_position": 150.0
+							"target_instance_id": 212,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15604,7 +15604,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 133,
-							"target_instance_id": 123,
+							"target_instance_id": 211,
 							"x_position": 570.0
 						},
 						{
@@ -15613,7 +15613,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 134,
-							"target_instance_id": 218,
+							"target_instance_id": 212,
 							"x_position": 570.0
 						},
 						{
@@ -15622,7 +15622,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 135,
-							"target_instance_id": 222,
+							"target_instance_id": 224,
 							"x_position": 570.0
 						},
 						{
@@ -15631,17 +15631,17 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 136,
-							"target_instance_id": 224,
+							"target_instance_id": 226,
 							"x_position": 570.0
 						},
 						{
-							"decision_reason": "same_level_target",
-							"lane_index": 0,
-							"same_level_target_found": true,
+							"decision_reason": "low_congestion_lane",
+							"lane_index": 4,
+							"same_level_target_found": false,
 							"spawn_level": 3,
 							"step": 137,
-							"target_instance_id": 220,
-							"x_position": 150.0
+							"target_instance_id": null,
+							"x_position": 430.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15649,17 +15649,17 @@
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 138,
-							"target_instance_id": 218,
+							"target_instance_id": 212,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 3,
+							"lane_index": 4,
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 139,
-							"target_instance_id": 212,
-							"x_position": 360.0
+							"target_instance_id": 229,
+							"x_position": 430.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15667,7 +15667,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 140,
-							"target_instance_id": 185,
+							"target_instance_id": 223,
 							"x_position": 500.0
 						},
 						{
@@ -15694,44 +15694,44 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 143,
-							"target_instance_id": 202,
+							"target_instance_id": 211,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 5,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 144,
-							"target_instance_id": 234,
-							"x_position": 500.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 145,
-							"target_instance_id": 237,
+							"target_instance_id": 212,
 							"x_position": 570.0
 						},
 						{
+							"decision_reason": "low_congestion_lane",
+							"lane_index": 0,
+							"same_level_target_found": false,
+							"spawn_level": 3,
+							"step": 145,
+							"target_instance_id": null,
+							"x_position": 150.0
+						},
+						{
 							"decision_reason": "same_level_target",
-							"lane_index": 6,
+							"lane_index": 1,
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 146,
-							"target_instance_id": 244,
-							"x_position": 570.0
+							"target_instance_id": 241,
+							"x_position": 220.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 147,
-							"target_instance_id": 87,
-							"x_position": 150.0
+							"target_instance_id": 240,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15739,26 +15739,26 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 148,
-							"target_instance_id": 240,
+							"target_instance_id": 239,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 149,
-							"target_instance_id": 247,
-							"x_position": 150.0
+							"target_instance_id": 212,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 150,
-							"target_instance_id": 87,
-							"x_position": 150.0
+							"target_instance_id": 247,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15766,7 +15766,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 151,
-							"target_instance_id": 237,
+							"target_instance_id": 249,
 							"x_position": 570.0
 						},
 						{
@@ -15775,7 +15775,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 152,
-							"target_instance_id": 249,
+							"target_instance_id": 246,
 							"x_position": 570.0
 						},
 						{
@@ -15784,7 +15784,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 153,
-							"target_instance_id": 253,
+							"target_instance_id": 245,
 							"x_position": 570.0
 						},
 						{
@@ -15793,7 +15793,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 154,
-							"target_instance_id": 254,
+							"target_instance_id": 252,
 							"x_position": 570.0
 						},
 						{
@@ -15802,7 +15802,7 @@
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 155,
-							"target_instance_id": 258,
+							"target_instance_id": 212,
 							"x_position": 570.0
 						},
 						{
@@ -15811,26 +15811,26 @@
 							"same_level_target_found": true,
 							"spawn_level": 1,
 							"step": 156,
-							"target_instance_id": 240,
+							"target_instance_id": 254,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 157,
-							"target_instance_id": 252,
-							"x_position": 150.0
+							"target_instance_id": 255,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 158,
-							"target_instance_id": 87,
-							"x_position": 150.0
+							"target_instance_id": 257,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15838,26 +15838,26 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 159,
-							"target_instance_id": 260,
+							"target_instance_id": 259,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 160,
-							"target_instance_id": 264,
-							"x_position": 150.0
+							"target_instance_id": 255,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 161,
-							"target_instance_id": 268,
-							"x_position": 150.0
+							"target_instance_id": 253,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15865,26 +15865,26 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 162,
-							"target_instance_id": 237,
+							"target_instance_id": 263,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 163,
-							"target_instance_id": 87,
-							"x_position": 150.0
+							"target_instance_id": 262,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 164,
-							"target_instance_id": 272,
-							"x_position": 150.0
+							"target_instance_id": 266,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
@@ -15892,345 +15892,66 @@
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 165,
-							"target_instance_id": 271,
+							"target_instance_id": 269,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 2,
 							"step": 166,
-							"target_instance_id": 87,
-							"x_position": 150.0
+							"target_instance_id": 262,
+							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
-							"lane_index": 0,
+							"lane_index": 6,
 							"same_level_target_found": true,
 							"spawn_level": 3,
 							"step": 167,
-							"target_instance_id": 274,
-							"x_position": 150.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 168,
-							"target_instance_id": 261,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 1,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 169,
-							"target_instance_id": 277,
-							"x_position": 220.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 170,
-							"target_instance_id": 261,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 171,
-							"target_instance_id": 285,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 172,
-							"target_instance_id": 261,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 173,
-							"target_instance_id": 237,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 174,
-							"target_instance_id": 261,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 0,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 175,
-							"target_instance_id": 87,
-							"x_position": 150.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 176,
-							"target_instance_id": 261,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 177,
-							"target_instance_id": 289,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 178,
-							"target_instance_id": 261,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 179,
-							"target_instance_id": 295,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 180,
-							"target_instance_id": 299,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 181,
-							"target_instance_id": 298,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 1,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 182,
-							"target_instance_id": 291,
-							"x_position": 220.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 183,
-							"target_instance_id": 295,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 184,
-							"target_instance_id": 294,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 185,
-							"target_instance_id": 306,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 186,
-							"target_instance_id": 303,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 187,
-							"target_instance_id": 309,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 188,
-							"target_instance_id": 303,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 189,
-							"target_instance_id": 311,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 190,
-							"target_instance_id": 312,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 191,
-							"target_instance_id": 314,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 192,
-							"target_instance_id": 317,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 193,
-							"target_instance_id": 314,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 194,
-							"target_instance_id": 320,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 1,
-							"step": 195,
-							"target_instance_id": 315,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 196,
-							"target_instance_id": 306,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 197,
-							"target_instance_id": 325,
-							"x_position": 570.0
-						},
-						{
-							"decision_reason": "same_level_target",
-							"lane_index": 6,
-							"same_level_target_found": true,
-							"spawn_level": 3,
-							"step": 198,
-							"target_instance_id": 326,
+							"target_instance_id": 253,
 							"x_position": 570.0
 						},
 						{
 							"decision_reason": "same_level_target",
 							"lane_index": 5,
 							"same_level_target_found": true,
-							"spawn_level": 2,
-							"step": 199,
-							"target_instance_id": 307,
+							"spawn_level": 1,
+							"step": 168,
+							"target_instance_id": 256,
 							"x_position": 500.0
 						}
 					],
-					"contact_count": 624,
-					"danger_line_exposure_sec": 0.683333333333334,
+					"contact_count": 423,
+					"danger_line_exposure_sec": 2.91666666666666,
 					"decision_reason_counts": {
-						"low_congestion_lane": 25,
-						"same_level_target": 175
+						"low_congestion_lane": 27,
+						"same_level_target": 142
 					},
-					"elapsed_sec": 199.900000000051,
-					"failed_merge_approach_count": 70,
+					"elapsed_sec": 168.63333333336,
+					"failed_merge_approach_count": 55,
 					"island_id": "sunny_cove",
-					"large_piece_coexistence_peak": 2,
+					"large_piece_coexistence_peak": 1,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 56,
-					"mean_live_drinks": 16.6377355344339,
-					"merge_count": 110,
+					"mean_live_drinks": 13.9455425973513,
+					"merge_count": 90,
 					"normal_objective_complete": false,
-					"outcome": "timeout",
-					"peak_board_occupancy": 0.25855307539044,
-					"peak_live_drinks": 34,
+					"outcome": "danger",
+					"peak_board_occupancy": 0.240427831108479,
+					"peak_live_drinks": 31,
 					"physics_hook": "production GameManager.spawn_drink + Drink.launch_up + Godot physics frames",
 					"policy_name": "MERGE_AWARE_V01",
-					"rail_contact_count": 37,
+					"rail_contact_count": 25,
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 0.0,
+					"remaining_sec": 31.2373737374304,
 					"seed": 17605600,
-					"shot_count": 200,
-					"terminal_reason": "TIMEOUT",
+					"shot_count": 169,
+					"terminal_reason": "TABLE_DANGER",
 					"unique_x_positions": 7,
 					"vip_complete": true
 				}
@@ -16998,19 +16719,19 @@
 						}
 					],
 					"contact_count": 117,
-					"danger_line_exposure_sec": 1.61666666666667,
+					"danger_line_exposure_sec": 1.6,
 					"decision_reason_counts": {
 						"low_congestion_lane": 22,
 						"same_level_target": 57
 					},
-					"elapsed_sec": 78.3333333333302,
+					"elapsed_sec": 78.3166666666635,
 					"failed_merge_approach_count": 11,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 58,
-					"mean_live_drinks": 10.1329787234043,
+					"mean_live_drinks": 10.1308789104065,
 					"merge_count": 46,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -17022,7 +16743,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 121.552990666617,
+					"remaining_sec": 121.559722222154,
 					"seed": 17605800,
 					"shot_count": 79,
 					"terminal_reason": "TABLE_DANGER",
@@ -17468,19 +17189,19 @@
 						}
 					],
 					"contact_count": 67,
-					"danger_line_exposure_sec": 6.38333333333332,
+					"danger_line_exposure_sec": 6.39999999999998,
 					"decision_reason_counts": {
 						"low_congestion_lane": 9,
 						"same_level_target": 34
 					},
-					"elapsed_sec": 42.3166666666655,
+					"elapsed_sec": 42.3333333333322,
 					"failed_merge_approach_count": 16,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 59,
-					"mean_live_drinks": 10.8322174084285,
+					"mean_live_drinks": 10.8358267716535,
 					"merge_count": 18,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -17492,7 +17213,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 157.556193999953,
+					"remaining_sec": 157.551397830703,
 					"seed": 17605900,
 					"shot_count": 43,
 					"terminal_reason": "TABLE_DANGER",
@@ -17913,19 +17634,19 @@
 						}
 					],
 					"contact_count": 73,
-					"danger_line_exposure_sec": 5.53333333333332,
+					"danger_line_exposure_sec": 5.59999999999999,
 					"decision_reason_counts": {
 						"low_congestion_lane": 9,
 						"same_level_target": 31
 					},
-					"elapsed_sec": 39.2499999999991,
+					"elapsed_sec": 39.3166666666657,
 					"failed_merge_approach_count": 14,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 60,
-					"mean_live_drinks": 9.99872611464968,
+					"mean_live_drinks": 10.0139889783807,
 					"merge_count": 18,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -17937,7 +17658,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 180.631123999953,
+					"remaining_sec": 180.562142736906,
 					"seed": 17606000,
 					"shot_count": 40,
 					"terminal_reason": "TABLE_DANGER",
@@ -18795,19 +18516,19 @@
 						}
 					],
 					"contact_count": 126,
-					"danger_line_exposure_sec": 2.79999999999999,
+					"danger_line_exposure_sec": 2.76666666666666,
 					"decision_reason_counts": {
 						"low_congestion_lane": 22,
 						"same_level_target": 67
 					},
-					"elapsed_sec": 88.2999999999963,
+					"elapsed_sec": 88.2666666666629,
 					"failed_merge_approach_count": 14,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 64,
-					"mean_live_drinks": 9.9516798791997,
+					"mean_live_drinks": 9.94750755287009,
 					"merge_count": 53,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -18819,7 +18540,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 91.5780975555161,
+					"remaining_sec": 91.6197480909156,
 					"seed": 17606400,
 					"shot_count": 89,
 					"terminal_reason": "TABLE_DANGER",
@@ -19374,7 +19095,7 @@
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 66,
-					"mean_live_drinks": 8.62217266645428,
+					"mean_live_drinks": 8.6218540936604,
 					"merge_count": 27,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -19386,7 +19107,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 167.561699222166,
+					"remaining_sec": 167.572846296311,
 					"seed": 17606600,
 					"shot_count": 53,
 					"terminal_reason": "TABLE_DANGER",
@@ -19987,7 +19708,7 @@
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 68,
-					"mean_live_drinks": 8.0494568324757,
+					"mean_live_drinks": 8.04917095483133,
 					"merge_count": 32,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -19999,7 +19720,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 161.575848999943,
+					"remaining_sec": 161.574143000028,
 					"seed": 17606800,
 					"shot_count": 59,
 					"terminal_reason": "TABLE_DANGER",
@@ -20443,7 +20164,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 200.453562999957,
+					"remaining_sec": 200.457848592605,
 					"seed": 17606900,
 					"shot_count": 40,
 					"terminal_reason": "TABLE_DANGER",
@@ -21383,19 +21104,19 @@
 						}
 					],
 					"contact_count": 142,
-					"danger_line_exposure_sec": 1.0,
+					"danger_line_exposure_sec": 1.01666666666667,
 					"decision_reason_counts": {
 						"low_congestion_lane": 28,
 						"same_level_target": 70
 					},
-					"elapsed_sec": 97.4499999999958,
+					"elapsed_sec": 97.4666666666624,
 					"failed_merge_approach_count": 13,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 1,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 76,
-					"mean_live_drinks": 10.0755943218745,
+					"mean_live_drinks": 10.0771203830369,
 					"merge_count": 57,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -21407,7 +21128,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 142.421944333291,
+					"remaining_sec": 142.414739074052,
 					"seed": 17607600,
 					"shot_count": 98,
 					"terminal_reason": "TABLE_DANGER",
@@ -22328,19 +22049,19 @@
 						}
 					],
 					"contact_count": 135,
-					"danger_line_exposure_sec": 1.0,
+					"danger_line_exposure_sec": 1.01666666666667,
 					"decision_reason_counts": {
 						"low_congestion_lane": 29,
 						"same_level_target": 67
 					},
-					"elapsed_sec": 95.5499999999959,
+					"elapsed_sec": 95.5666666666625,
 					"failed_merge_approach_count": 12,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 77,
-					"mean_live_drinks": 11.1294261294261,
+					"mean_live_drinks": 11.1309731426578,
 					"merge_count": 55,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -22352,7 +22073,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 124.322793666581,
+					"remaining_sec": 124.314670909013,
 					"seed": 17607700,
 					"shot_count": 96,
 					"terminal_reason": "TABLE_DANGER",
@@ -22937,7 +22658,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 205.516987666617,
+					"remaining_sec": 205.515066363651,
 					"seed": 17607900,
 					"shot_count": 55,
 					"terminal_reason": "TABLE_DANGER",
@@ -23333,7 +23054,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 205.570321333294,
+					"remaining_sec": 205.576263616174,
 					"seed": 17608000,
 					"shot_count": 35,
 					"terminal_reason": "TABLE_DANGER",
@@ -23886,19 +23607,19 @@
 						}
 					],
 					"contact_count": 90,
-					"danger_line_exposure_sec": 2.76666666666666,
+					"danger_line_exposure_sec": 2.75,
 					"decision_reason_counts": {
 						"low_congestion_lane": 13,
 						"same_level_target": 42
 					},
-					"elapsed_sec": 54.3333333333315,
+					"elapsed_sec": 54.3166666666649,
 					"failed_merge_approach_count": 15,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 87,
-					"mean_live_drinks": 11.8981595092025,
+					"mean_live_drinks": 11.8956735194845,
 					"merge_count": 27,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -23910,7 +23631,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 185.554312666608,
+					"remaining_sec": 185.556280222229,
 					"seed": 17608700,
 					"shot_count": 55,
 					"terminal_reason": "TABLE_DANGER",
@@ -24709,19 +24430,19 @@
 						}
 					],
 					"contact_count": 116,
-					"danger_line_exposure_sec": 2.13333333333333,
+					"danger_line_exposure_sec": 2.15,
 					"decision_reason_counts": {
 						"low_congestion_lane": 24,
 						"same_level_target": 58
 					},
-					"elapsed_sec": 81.43333333333,
+					"elapsed_sec": 81.4499999999967,
 					"failed_merge_approach_count": 15,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 88,
-					"mean_live_drinks": 11.8843634875153,
+					"mean_live_drinks": 11.8866380192347,
 					"merge_count": 44,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -24733,7 +24454,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 178.441046999921,
+					"remaining_sec": 178.436196190478,
 					"seed": 17608800,
 					"shot_count": 82,
 					"terminal_reason": "TABLE_DANGER",
@@ -25441,7 +25162,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 211.498555333327,
+					"remaining_sec": 211.504533666638,
 					"seed": 17608900,
 					"shot_count": 69,
 					"terminal_reason": "TABLE_DANGER",
@@ -25934,19 +25655,19 @@
 						}
 					],
 					"contact_count": 73,
-					"danger_line_exposure_sec": 3.09999999999999,
+					"danger_line_exposure_sec": 3.08333333333333,
 					"decision_reason_counts": {
 						"low_congestion_lane": 11,
 						"same_level_target": 37
 					},
-					"elapsed_sec": 47.4166666666653,
+					"elapsed_sec": 47.3999999999986,
 					"failed_merge_approach_count": 17,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 96,
-					"mean_live_drinks": 11.5040421792619,
+					"mean_live_drinks": 11.5007032348805,
 					"merge_count": 20,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -25958,7 +25679,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 232.4690121111,
+					"remaining_sec": 232.467701666679,
 					"seed": 17609600,
 					"shot_count": 48,
 					"terminal_reason": "TABLE_DANGER",
@@ -26365,19 +26086,19 @@
 						}
 					],
 					"contact_count": 59,
-					"danger_line_exposure_sec": 2.08333333333333,
+					"danger_line_exposure_sec": 2.06666666666666,
 					"decision_reason_counts": {
 						"low_congestion_lane": 9,
 						"same_level_target": 29
 					},
-					"elapsed_sec": 37.3166666666658,
+					"elapsed_sec": 37.2999999999992,
 					"failed_merge_approach_count": 12,
 					"island_id": "sunny_cove",
 					"large_piece_coexistence_peak": 0,
 					"lateral_variation": true,
 					"lateral_variation_eligible": true,
 					"level_id": 100,
-					"mean_live_drinks": 8.13666815542653,
+					"mean_live_drinks": 8.13270777479893,
 					"merge_count": 17,
 					"normal_objective_complete": false,
 					"outcome": "danger",
@@ -26389,7 +26110,7 @@
 					"rail_contact_metric": "footprint_proximity_transition_proxy",
 					"rail_enter_threshold_px": 1.0,
 					"rail_release_threshold_px": 3.0,
-					"remaining_sec": 262.570541555605,
+					"remaining_sec": 262.576880741723,
 					"seed": 17610000,
 					"shot_count": 38,
 					"terminal_reason": "TABLE_DANGER",
