@@ -4,13 +4,21 @@
 
 | Child | Status | Commit / SHA | Scope |
 | --- | --- | --- | --- |
-| 01 | COMPLETE | pending publication | synchronized preflight, ordered-package recovery, canonical freeze evidence |
-| 02 | PENDING | — | deterministic reserve planner and production guards |
+| 01 | COMPLETE | `448802f303398a5ae41c9c36e015cf9c77132238` | synchronized preflight, ordered-package recovery, canonical freeze evidence |
+| 02 | COMPLETE | `2b32e45a83e03ad0aef810dba4293d92b38f653a` | deterministic reserve planner and production guards |
 | 03 | PENDING | — | focused planner, production, and replay-later tests |
 | 04 | PENDING | — | all-25 post-fix structural evidence |
 | 05 | PENDING | — | required regressions, final log, and audit handoff |
 
 This is an append-only builder progress record. It is not independent acceptance and does not modify root `TASKS.md`.
+
+## Child 02 completion marker
+
+- `CHILD_02_COMPLETE`
+- Planner: `scripts/campaign/m17_vip_optionality_model.gd`.
+- Guards: direct merge and stocked board VIP capture in `scripts/game_manager.gd`.
+- Parse/import check and diff check passed; focused behavioral evidence is scheduled for Child 03.
+- Generated translation sidecars from the import check were removed by exact path and were not staged.
 
 ## Child 01 completion marker
 
