@@ -6,9 +6,9 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Restore true VIP optionality before any M17-008 tuning: prevent VIP auto-capture from consuming mandatory normal-production reserve while preserving surplus VIP delivery and all canonical data.
+- Current Task: Run the fresh post-V05 100-level canonical screening before any M17-008 timer/objective tuning.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes BCM-M17 V05 VIP optionality remediation, proves normal WIN can miss VIP and surplus VIP remains completable, then stops for independent audit. Post-fix rescreen/tuning remain blocked.
+- Next Task/Action: Codex executes the complete BCM-M17 V06 post-V05 canonical rescreen batch in the published child order, then stops at AWAITING_M17_AUDIT_V06. Canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -606,10 +606,17 @@ V05 locked criteria:
 V05 execution prompt:
 `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V05.md`
 
-V05 pending audit:
-`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V05.md`
+V05 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V05.md` — **AUDITED_PASS / V05_STRUCTURAL_REMEDIATION_COMPLETE**.
 
-V01 covers M17-001..006 tooling/evidence only. M17-007/008 remain pending; no canonical level tuning is authorized before independent audit of the harness.
+V06 post-fix rescreen batch package:
+- Master prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V06.md`
+- Master audit criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V06.md`
+- Ordered child prompts/criteria: `CHATGPT_EXECUTION_PROMPT_V06_CHILD_01.md` through `CHATGPT_EXECUTION_PROMPT_V06_CHILD_04.md` and matching `CHATGPT_AUDIT_CRITERIA_V06_CHILD_*.md`
+- Master log template: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V06.md`
+- Required final marker: `AWAITING_M17_AUDIT_V06`
+
+V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation is independently passed. M17-008 remains active for the V06 post-fix rescreen first; no canonical level tuning is authorized before independent audit of that rescreen.
 
 
 - [x] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
