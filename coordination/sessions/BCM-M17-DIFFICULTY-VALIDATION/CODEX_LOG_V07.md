@@ -12,6 +12,14 @@ This file is the repository-required immutable master-log template for the V07 b
 - Prior audit: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V06_R02.md`
 - Required final marker: `AWAITING_M17_AUDIT_V07`
 
+## Ordered child package
+
+1. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_01.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_01.md` / `CODEX_LOG_V07_CHILD_01.md` - preflight and source/freeze proof.
+2. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_02.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_02.md` / `CODEX_LOG_V07_CHILD_02.md` - confirmation trials and reports.
+3. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_03.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_03.md` / `CODEX_LOG_V07_CHILD_03.md` - regressions and final handoff.
+
+The children are ordered gates. A later child is not accepted when an earlier child is failed, blocked, or unverified.
+
 ## Synchronization
 
 - Canonical checkout: `C:\Users\sekip\Desktop\Beach Cocktails - Merge`
@@ -41,6 +49,9 @@ Expected new outputs:
 
 - `M17_CANONICAL_CONFIRMATION_V07.json`;
 - `M17_CANONICAL_CONFIRMATION_V07.md`;
+- `CODEX_LOG_V07_CHILD_01.md`;
+- `CODEX_LOG_V07_CHILD_02.md`;
+- `CODEX_LOG_V07_CHILD_03.md`;
 - this completed `CODEX_LOG_V07.md`;
 - optional new evidence-only runner under `tools/campaign/`.
 
@@ -111,4 +122,3 @@ Record exact command, exact result, and exit code for each:
 - Final marker:
 
 `AWAITING_M17_AUDIT_V07`
-

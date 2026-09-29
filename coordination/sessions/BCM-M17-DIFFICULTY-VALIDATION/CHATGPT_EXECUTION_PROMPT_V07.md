@@ -34,6 +34,16 @@ The three V06-R02 solver-feasible classes C02, C05 and C10 require no additional
 
 This is an evidence/confirmation task only. Do not tune levels in this task.
 
+## Exact child order and handoffs
+
+Execute the complete batch in this order. Do not skip, reorder, or treat a later child as accepted when an earlier child fails.
+
+1. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_01.md` - preflight, V06-R02 source integrity, exact candidate derivation, and frozen-scope proof; handoff `CODEX_LOG_V07_CHILD_01.md`.
+2. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_02.md` - 42-class five-trial confirmation, 168 new trials, and V07 report production; handoff `CODEX_LOG_V07_CHILD_02.md`.
+3. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_03.md` - required regressions, report integrity inspection, and final publication; handoff `CODEX_LOG_V07_CHILD_03.md` plus the master `CODEX_LOG_V07.md`.
+
+The matching locked criteria are `CHATGPT_AUDIT_CRITERIA_V07_CHILD_01.md`, `CHATGPT_AUDIT_CRITERIA_V07_CHILD_02.md`, and `CHATGPT_AUDIT_CRITERIA_V07_CHILD_03.md`. Each child must pass its criteria before the next child begins. The master log must link the three child logs and preserve their exact order.
+
 ## Mandatory synchronization
 
 From the canonical Desktop checkout:
@@ -136,6 +146,9 @@ Create new immutable evidence only:
 
 - `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07.json`
 - `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07.md`
+- `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_CHILD_01.md`
+- `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_CHILD_02.md`
+- `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_CHILD_03.md`
 - `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07.md`
 
 The report must include all 100 levels and all 45 classes, not only the 42 candidates.

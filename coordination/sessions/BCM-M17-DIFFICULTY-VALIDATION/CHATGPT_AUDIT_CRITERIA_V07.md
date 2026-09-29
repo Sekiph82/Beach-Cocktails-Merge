@@ -9,6 +9,16 @@ Authority:
 - V03A-qualified `MERGE_AWARE_V01` solver
 - M17 rule that one failed trial is only a confirmation candidate and exact-class 0/5 is required for `HIGH_RISK_SOLVER_FAILURE`.
 
+## Gate A0 - complete batch package and order
+
+Before builder execution, the following ordered child prompt/criteria pairs must be present and read:
+
+1. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_01.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_01.md`, handoff `CODEX_LOG_V07_CHILD_01.md`;
+2. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_02.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_02.md`, handoff `CODEX_LOG_V07_CHILD_02.md`;
+3. `CHATGPT_EXECUTION_PROMPT_V07_CHILD_03.md` / `CHATGPT_AUDIT_CRITERIA_V07_CHILD_03.md`, handoff `CODEX_LOG_V07_CHILD_03.md`.
+
+The children must execute in that order. The master `CODEX_LOG_V07.md` must include each child result and the final marker. A missing child artifact or out-of-order handoff is `CHANGES_REQUIRED`.
+
 ## Gate A — governance, synchronization and freeze
 
 The canonical Desktop checkout must start clean and synchronized with `origin/main` after pulling the ChatGPT audit/tracker/prompt commits.

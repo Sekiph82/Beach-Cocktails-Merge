@@ -6,9 +6,9 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Execute BCM-M17 V07 five-trial confirmation for the 42 V06-R02 screening-failure candidate classes.
+- Current Task: Execute the authorized BCM-M17 V07 five-trial confirmation batch for the 42 V06-R02 screening-failure candidate classes (Children 01-03 in order).
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex runs V07 evidence-only confirmation: reuse each audited V06-R02 candidate trial, add four new post-V05 MERGE_AWARE_V01 trials per candidate (168 new trials total), publish the 45-class/100-level confirmation report, run regressions, and stop at AWAITING_M17_AUDIT_V07. Canonical tuning and M18 remain blocked.
+- Next Task/Action: CODEX is authorized for the complete V07 batch package: Child 01 preflight/source/freeze proof, Child 02 four fresh trials for each candidate and the 45-class/100-level report, then Child 03 regressions/final handoff. Publish the ordered child logs plus master log and stop at AWAITING_M17_AUDIT_V07. Canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -648,8 +648,13 @@ V06-R02 establishes a trustworthy post-V05 one-trial screen: 3 classes are `SOLV
 V07 five-trial confirmation package:
 - Execution prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V07.md`
 - Locked audit criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07.md`
+- Ordered Child 01 prompt/criteria/log: `CHATGPT_EXECUTION_PROMPT_V07_CHILD_01.md`, `CHATGPT_AUDIT_CRITERIA_V07_CHILD_01.md`, `CODEX_LOG_V07_CHILD_01.md`
+- Ordered Child 02 prompt/criteria/log: `CHATGPT_EXECUTION_PROMPT_V07_CHILD_02.md`, `CHATGPT_AUDIT_CRITERIA_V07_CHILD_02.md`, `CODEX_LOG_V07_CHILD_02.md`
+- Ordered Child 03 prompt/criteria/log: `CHATGPT_EXECUTION_PROMPT_V07_CHILD_03.md`, `CHATGPT_AUDIT_CRITERIA_V07_CHILD_03.md`, `CODEX_LOG_V07_CHILD_03.md`
 - Required builder log: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07.md`
 - Required final marker: `AWAITING_M17_AUDIT_V07`
+
+The complete ordered V07 package is frozen and CODEX is authorized to execute all three children in order. A child is not accepted independently of the master batch, and no later child may begin after an earlier child fails or is unverified.
 
 V07 must reuse each audited V06-R02 candidate trial as trial 1 and add four new post-V05 canonical-scale trials for each of the 42 candidate classes, for 168 new trials total and exactly five post-V05 trials per candidate. Only exact-class 0/5 may become `HIGH_RISK_SOLVER_FAILURE`. No canonical timer/objective tuning is authorized inside V07.
 
