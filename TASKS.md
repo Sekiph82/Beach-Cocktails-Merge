@@ -6,9 +6,9 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Resolve the canonical Desktop synchronization blocker before executing the authorized BCM-M17 V07 five-trial confirmation batch.
+- Current Task: Resolve the remaining canonical Desktop synchronization blocker, then remediate the failed BCM-M17 V07 confirmation run before any re-execution.
 - Current Task Status: OWNER_DECISION_REQUIRED
-- Next Task/Action: OWNER must decide the disposition of the ambiguous untracked V07 runner `tools/campaign/m17_canonical_confirmation_v07.gd` and the untracked blocked-attempt log. Until that decision is recorded, CODEX must not modify, stage, execute, relocate, delete, or begin Children 01-03. After safe resolution, return to the frozen V07 package and stop at AWAITING_M17_AUDIT_V07; canonical tuning and M18 remain blocked.
+- Next Task/Action: OWNER must decide the disposition of the remaining untracked blocked-attempt log. Until that decision is recorded, CODEX must not modify, stage, execute, relocate, delete, or begin remediation/V07 children. After safe resolution, ChatGPT must publish the bounded remediation package for the committed direct-run integrity failure; canonical tuning and M18 remain blocked.
 - Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
@@ -656,7 +656,7 @@ V07 five-trial confirmation package:
 
 The complete ordered V07 package is frozen and CODEX is authorized to execute all three children in order. A child is not accepted independently of the master batch, and no later child may begin after an earlier child fails or is unverified.
 
-V07 execution is currently blocked before Child 01 by an ambiguous untracked canonical-checkout runner and an untracked Codex sync-blocker log. ChatGPT recorded the independent decision gate in `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07.md`; no V07 implementation or acceptance evidence exists on `origin/main`.
+V07 execution is currently blocked by the remaining ambiguous untracked Codex sync-blocker log. The V07 runner/report are committed evidence, but the direct runner failed its integrity checks; no ordered child handoff or acceptance evidence exists on `origin/main`. ChatGPT recorded the current decision gate in `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07.md`.
 
 V07 must reuse each audited V06-R02 candidate trial as trial 1 and add four new post-V05 canonical-scale trials for each of the 42 candidate classes, for 168 new trials total and exactly five post-V05 trials per candidate. Only exact-class 0/5 may become `HIGH_RISK_SOLVER_FAILURE`. No canonical timer/objective tuning is authorized inside V07.
 

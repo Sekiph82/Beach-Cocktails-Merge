@@ -22,63 +22,65 @@ The frozen package is present on `origin/main`: the V07 master prompt, master cr
 
 Read-only preflight from `C:\Users\sekip\Desktop\Beach Cocktails - Merge`:
 
-- `git status --short --branch`: `## main...origin/main`, plus two untracked files:
+- Audited live base: `f62fcc8d1f8bd0c5fe24fedd366fb3ab36b937c3` on `origin/main`.
+- `git status --short --branch`: `## main...origin/main`, plus one untracked file:
   - `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_ATTEMPT_20260929_SYNC_BLOCKED.md`
-  - `tools/campaign/m17_canonical_confirmation_v07.gd`
 - `git remote -v`: fetch and push both use `https://github.com/Sekiph82/Beach-Cocktails-Merge.git`.
 - `git fetch origin main`: completed successfully.
 - `git rev-list --left-right --count HEAD...origin/main`: `0 0`.
-- `git rev-parse HEAD`: `e8fc631cd238665797f4ba60e04e09f2d12f7663`.
-- `git rev-parse origin/main`: `e8fc631cd238665797f4ba60e04e09f2d12f7663`.
-- `git ls-remote origin refs/heads/main`: `e8fc631cd238665797f4ba60e04e09f2d12f7663`.
+- `git rev-parse HEAD`: `f62fcc8d1f8bd0c5fe24fedd366fb3ab36b937c3`.
+- `git rev-parse origin/main`: `f62fcc8d1f8bd0c5fe24fedd366fb3ab36b937c3`.
+- `git ls-remote origin refs/heads/main`: `f62fcc8d1f8bd0c5fe24fedd366fb3ab36b937c3`.
 - No reset, clean, stash, rebase, overwrite, deletion, branch creation, or worktree creation was performed.
 
-The untracked runner is the exact evidence-only path named by the frozen V07 prompt, so it cannot safely be classified as generated clutter or overwritten. Its ownership/disposition is not established by GitHub history. The untracked attempt log records that CODEX stopped before editing, staging, executing, or publishing it.
+The V07 runner and failed-run report are now committed evidence (`c7ceb87` and its publication proof `f62fcc8`). The remaining untracked attempt log is preserved as ambiguous local material; its earlier pre-implementation claim does not supersede the later committed failed-run evidence.
 
 ## 3. BATCH PACKAGE STATUS
 
-The complete ordered V07 package is committed in `e8fc631` and is not missing. No duplicate package was created.
+The complete ordered V07 package is committed in `e8fc631` and is not missing. No duplicate package was created. A direct V07 run was subsequently published, but it failed its required integrity gate.
 
 The following required post-execution artifacts are absent from `origin/main`:
 
 - `CODEX_LOG_V07_CHILD_01.md`
 - `CODEX_LOG_V07_CHILD_02.md`
 - `CODEX_LOG_V07_CHILD_03.md`
-- V07 confirmation JSON/Markdown report
-- `CHATGPT_AUDIT_V07.md` before this audit
+- a passing V07 confirmation result
+- the final `AWAITING_M17_AUDIT_V07` handoff
 
-Therefore there is no implementation handoff to accept and no child result to audit.
+The report and master log are present, but the master log records a non-zero direct-run result caused by typed mapping comparisons and a seed-registry count mismatch. There is no passing implementation handoff and no ordered child handoff to accept.
 
 ## 4. BUILDER CLAIMS VS REPOSITORY TRUTH
 
-The untracked attempt log claims `BLOCKED_SYNC_PRE_IMPLEMENTATION`, with no product implementation, no trial run, no regression run, no commit, and no push. Those claims are consistent with repository truth: the only committed V07 state is the frozen package at `e8fc631`; no V07 output or child log is present on `origin/main`.
+The untracked attempt log claims `BLOCKED_SYNC_PRE_IMPLEMENTATION`, which is consistent with that earlier local attempt but is not the complete current history. The later committed V07 run produced 168 new trials and a 42-class report, then correctly failed its integrity checks; required regressions were not started and no acceptance marker was claimed.
 
 ## 5. ACCEPTANCE CRITERIA MATRIX
 
 | Criterion | Result | Evidence |
 |---|---|---|
 | Complete V07 package exists before execution | PASS | Committed package at `e8fc631` |
-| Canonical checkout is clean for CODEX execution | FAIL / OWNER GATE | Two ambiguous untracked files remain |
-| Child 01 executed and logged | UNVERIFIED | No committed child log; builder stopped pre-implementation |
-| 42 candidates receive four fresh trials each | UNVERIFIED | No V07 report or trial output |
-| Exactly 168 new trials / 42×5 aggregates | UNVERIFIED | No V07 report |
+| Canonical checkout is clean for CODEX execution | FAIL / OWNER GATE | One ambiguous untracked local attempt log remains |
+| Child 01 executed and logged | FAIL | No committed Child 01 log; master log does not establish ordered child handoff |
+| 42 candidates receive four fresh trials each | PARTIAL / CHANGES_REQUIRED | Committed failed-run evidence reports 168 new trials, but direct integrity checks failed |
+| Exactly 168 new trials / 42×5 aggregates | PARTIAL / CHANGES_REQUIRED | Report contains the counts, but the required runner returned non-zero and cannot be accepted |
 | Required regressions pass | UNVERIFIED | No child 03 handoff |
 | Final `AWAITING_M17_AUDIT_V07` handoff exists | FAIL | No committed master/child handoff; attempt explicitly says marker not reached |
 | Owner/native acceptance | NOT IN SCOPE / NOT PERFORMED | No owner acceptance was guessed |
 
 ## 6. DECISION NEEDED
 
-The owner must explicitly decide the disposition of both untracked files, especially `tools/campaign/m17_canonical_confirmation_v07.gd`, which is both ambiguous local work and the exact runner path authorized by V07:
+The owner must explicitly decide the disposition of the remaining untracked local attempt log:
 
-- confirm that the runner and attempt log are authorized V07 work that CODEX may preserve, stage, execute, and publish under the frozen package; or
-- explicitly authorize a safe alternative disposition for the local files before any synchronization or implementation continues.
+- confirm that it may be preserved/staged as governed evidence; or
+- explicitly authorize a safe alternative disposition before synchronization continues.
 
-Until that decision is recorded, CODEX must not modify, stage, execute, relocate, delete, or overwrite either file, and Children 01-03 must not begin.
+After that gate, a bounded remediation package is required for the committed direct-run failure before another V07 execution. The failed report must not be promoted to PASS, and canonical tuning/M18 remain blocked.
+
+Until that decision is recorded, CODEX must not modify, stage, execute, relocate, delete, or overwrite the untracked log, and no remediation or V07 child may begin.
 
 ## 7. TRACKER / FINAL STATE
 
-Root `TASKS.md` was unchanged during the preflight and has now been updated by ChatGPT to `OWNER_DECISION_REQUIRED` with `Required Actor: OWNER`. Progress remains `75 / 101 = 74.26%`; no M17 task was closed or advanced.
+Root `TASKS.md` remains `OWNER_DECISION_REQUIRED` with `Required Actor: OWNER`. Progress remains `75 / 101 = 74.26%`; no M17 task was closed or advanced.
 
 Final verdict: **CHANGES_REQUIRED / OWNER_DECISION_REQUIRED / BLOCKED_SYNC_PRE_IMPLEMENTATION**.
 
-M17 V07 remains frozen and M17 canonical tuning/M18 remain blocked. No production code, canonical data, historical evidence, or ambiguous local file was modified by this audit.
+M17 V07 remains frozen and M17 canonical tuning/M18 remain blocked. This correction changes only the ChatGPT audit and tracker; no production code, canonical data, or ambiguous local file was modified.
