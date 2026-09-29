@@ -92,6 +92,16 @@ The report’s observed final class counts were `16` solver-feasible and `29` hi
 - No repair-after-failure run was performed.
 - No independent audit was requested because the direct required runner did not pass.
 
+## Publication proof
+
+- Publication commit: `c7ceb87c491aaa560cc799689aacb7f59f85e2d0`.
+- GitHub commit: https://github.com/Sekiph82/Beach-Cocktails-Merge/commit/c7ceb87c491aaa560cc799689aacb7f59f85e2d0
+- Final local HEAD: `c7ceb87c491aaa560cc799689aacb7f59f85e2d0`.
+- Final `origin/main`: `c7ceb87c491aaa560cc799689aacb7f59f85e2d0`.
+- Final remote `refs/heads/main`: `c7ceb87c491aaa560cc799689aacb7f59f85e2d0`.
+- Final equality: PASS (`0 0` divergence).
+- The only remaining working-tree item is the pre-existing untracked `CODEX_LOG_V07_ATTEMPT_20260929_SYNC_BLOCKED.md`; it was preserved and not staged.
+
 ## Required next action
 
 This V07 attempt is stopped at the direct-run failure. A subsequent authorized remediation must correct the runner’s typed mapping and seed-registry validation, then execute a fresh V07 contract; the failed report must not be promoted as a PASS.
