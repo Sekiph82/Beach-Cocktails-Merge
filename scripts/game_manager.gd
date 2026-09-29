@@ -74,6 +74,7 @@ const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
 const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
 const STARTUP_TO_GO_TARGETS := [5, 6, 7]
 const FEEDBACK_SERVICE_SCRIPT := preload("res://scripts/feedback_service.gd")
+const VIP_OPTIONALITY_MODEL := preload("res://scripts/campaign/m17_vip_optionality_model.gd")
 
 @export var table_top_y := 0.0
 @export var rear_table_y := 0.0
@@ -573,8 +574,8 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
     # merge/combo reward.
     if not _target_transition and not _vip_target_transition and new_level == _target_level:
         _collect_merge_target(merged_drink)
-    elif not _target_transition and not _vip_target_transition and _active_vip_level() == new_level:
-        _collect_vip_target(merged_drink)
+	elif not _target_transition and not _vip_target_transition and _active_vip_level() == new_level and _vip_candidate_is_surplus(merged_drink):
+		_collect_vip_target(merged_drink)
 
 
 func _process(delta: float) -> void:
@@ -1150,8 +1151,31 @@ func _try_collect_stocked_target() -> void:
             vip_candidate = drink
             vip_distance = distance
 
-    if vip_candidate != null:
-        _collect_vip_target(vip_candidate)
+	if vip_candidate != null and _vip_candidate_is_surplus(vip_candidate):
+		_collect_vip_target(vip_candidate)
+
+
+func _vip_candidate_is_surplus(candidate: Drink) -> bool:
+	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		return false
+	if not is_instance_valid(candidate) or candidate.is_queued_for_deletion():
+		return false
+	var objective_state: Dictionary = campaign_session_bridge.get_objective_state()
+	var normal_remaining: Variant = objective_state.get("normal_remaining", {})
+	if not normal_remaining is Dictionary:
+		return false
+	var board_levels: Array[int] = []
+	if world != null:
+		for child in world.get_children():
+			if not (child is Drink):
+				continue
+			var drink := child as Drink
+			if drink.is_queued_for_deletion() or drink.motion_state == Drink.MotionState.HELD:
+				continue
+			if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
+				continue
+			board_levels.append(drink.level)
+	return VIP_OPTIONALITY_MODEL.candidate_is_surplus(normal_remaining, board_levels, candidate.level)
 
 
 func _refresh_merge_target_visual() -> void:
