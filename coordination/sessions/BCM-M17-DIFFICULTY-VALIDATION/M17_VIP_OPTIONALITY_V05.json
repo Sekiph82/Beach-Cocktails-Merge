@@ -1,0 +1,727 @@
+{
+	"M17_CANONICAL_SCREENING_V04": "PRE_OPTIONALITY_FIX / HISTORICAL_FOR_PHYSICAL_CLASSIFICATION",
+	"authority": "CHATGPT_AUDIT_CRITERIA_V05 / CHATGPT_EXECUTION_PROMPT_V05",
+	"canonical_data_path": "data/campaign/levels/sunny_cove.json",
+	"canonical_data_sha256": "9FEABEE63BE44CFBB2B9DB7527A06B1B0E3F072C6859F4E7B8C6B3D7D9F25495",
+	"historical_v04_risk_count": 25,
+	"historical_v04_risk_denominator": 25,
+	"island_id": "sunny_cove",
+	"level_count": 25,
+	"levels": [
+		{
+			"level_id": 4,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 16,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 8,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 16,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 12,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 6.0,
+					"quantity": 2.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 16,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 16,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 6.0,
+					"quantity": 2.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 16,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 20,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5,
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 24,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 28,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5,
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 32,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 36,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 3.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 40,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 44,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 3.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 48,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 2.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 52,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 56,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 60,
+			"minimal_mandatory_vip_level_board": [
+				7,
+				7
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 7,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 64,
+			"minimal_mandatory_vip_level_board": [
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5,
+				5
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 7.0,
+					"quantity": 2.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 32,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 5,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 68,
+			"minimal_mandatory_vip_level_board": [
+				7,
+				7
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 3.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 7,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 72,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 76,
+			"minimal_mandatory_vip_level_board": [
+				7,
+				7,
+				7
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 7,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 80,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6,
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 2.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 84,
+			"minimal_mandatory_vip_level_board": [
+				7,
+				7
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 3.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 7,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 88,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6,
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 92,
+			"minimal_mandatory_vip_level_board": [
+				7,
+				7,
+				7
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 7,
+				"enabled": true,
+				"quantity": 1
+			}
+		},
+		{
+			"level_id": 96,
+			"minimal_mandatory_vip_level_board": [
+				6,
+				6,
+				6,
+				6,
+				6,
+				6,
+				6
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 2,
+			"vip_target": {
+				"cocktail_level": 6,
+				"enabled": true,
+				"quantity": 2
+			}
+		},
+		{
+			"level_id": 100,
+			"minimal_mandatory_vip_level_board": [
+				7,
+				7,
+				7
+			],
+			"normal_objectives": [
+				{
+					"cocktail_level": 8.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 7.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 6.0,
+					"quantity": 1.0
+				},
+				{
+					"cocktail_level": 5.0,
+					"quantity": 1.0
+				}
+			],
+			"post_v05_forced_capture_count": 0,
+			"post_v05_surplus_vip_possible": true,
+			"v04_historical_forced_capture_cost": 64,
+			"v04_historical_forced_capture_count": 1,
+			"vip_target": {
+				"cocktail_level": 7,
+				"enabled": true,
+				"quantity": 1
+			}
+		}
+	],
+	"post_v05_forced_capture_count": 0,
+	"post_v05_forced_capture_denominator": 25,
+	"post_v05_surplus_path_count": 25,
+	"post_v05_surplus_path_denominator": 25,
+	"report_version": "M17_VIP_OPTIONALITY_V05",
+	"schema_version": 1,
+	"status": "PASS",
+	"v04_historical_path": "res://coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_SCREENING_V04.json",
+	"v04_historical_sha256": "D437652BF6E3BD45B787909DEBA19FEA8F4BEF98FA481D680F8CD64799918F72",
+	"validation_errors": []
+}
