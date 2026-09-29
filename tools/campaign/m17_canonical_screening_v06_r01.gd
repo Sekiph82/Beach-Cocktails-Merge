@@ -1,6 +1,6 @@
 extends SceneTree
 
-## BCM-M17 V06-R01 fresh post-V05 canonical-scale screening runner.
+## BCM-M17 V06-R02 fresh post-V05 canonical-scale screening runner.
 ## It is evidence-only: no campaign data or gameplay tuning is written.
 ## The report is produced directly by this runner; no repair pass is used.
 
@@ -14,8 +14,8 @@ const SESSION_DIR := "res://coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION"
 const LEVELS_PATH := "res://data/campaign/levels/sunny_cove.json"
 const V04_PATH := SESSION_DIR + "/M17_CANONICAL_SCREENING_V04.json"
 const V05_PATH := SESSION_DIR + "/M17_VIP_OPTIONALITY_V05.json"
-const OUT_JSON := SESSION_DIR + "/M17_CANONICAL_SCREENING_V06_R01.json"
-const OUT_MD := SESSION_DIR + "/M17_CANONICAL_SCREENING_V06_R01.md"
+const OUT_JSON := SESSION_DIR + "/M17_CANONICAL_SCREENING_V06_R02.json"
+const OUT_MD := SESSION_DIR + "/M17_CANONICAL_SCREENING_V06_R02.md"
 const POLICY_NAME := HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01
 const TIME_SCALE := 1.0
 const SEED_BASE := 17600000
@@ -57,7 +57,7 @@ func _run() -> void:
 		var trials: Array[Dictionary] = []
 		for trial_index in range(TRIALS_PER_CLASS):
 			var seed_value := SEED_BASE + representative * 100 + trial_index
-			print("M17 V06-R01 screening %s representative L%d trial=%d seed=%d time_scale=%.1f" % [str(class_record["class_id"]), representative, trial_index + 1, seed_value, harness.get_time_scale()])
+			print("M17 V06-R02 screening %s representative L%d trial=%d seed=%d time_scale=%.1f" % [str(class_record["class_id"]), representative, trial_index + 1, seed_value, harness.get_time_scale()])
 			var result: Dictionary = await harness.run_trial(database, "sunny_cove", representative, seed_value, [], POLICY_NAME)
 			trials.append(result)
 			if not harness.validate_telemetry(result).is_empty():
@@ -123,11 +123,11 @@ func _run() -> void:
 
 	var v05: Dictionary = _load_json(V05_PATH)
 	if vip_forced_count != 0 or vip_surplus_count != 25:
-		validation_errors.append("post-V05 V06-R01 aggregate was forced=%d/25 surplus=%d/25" % [vip_forced_count, vip_surplus_count])
+		validation_errors.append("post-V05 V06-R02 aggregate was forced=%d/25 surplus=%d/25" % [vip_forced_count, vip_surplus_count])
 	var report := {
 		"schema_version": 1,
 		"milestone": "BCM-M17",
-		"report_version": "V06-R01",
+		"report_version": "V06-R02",
 		"status": "PASS" if validation_errors.is_empty() else "FAIL",
 		"island_id": "sunny_cove",
 		"canonical_data_path": "res://data/campaign/levels/sunny_cove.json",
@@ -160,7 +160,7 @@ func _run() -> void:
 		"challenge_classes": class_records,
 		"levels": level_records,
 		"interpretation_boundary": [
-			"Every V06-R01 decision trial uses MERGE_AWARE_V01 at Engine.time_scale = 1.0.",
+			"Every V06-R02 decision trial uses MERGE_AWARE_V01 at Engine.time_scale = 1.0.",
 			"One completion demonstrates one solver-feasible path, not human difficulty or owner acceptance.",
 			"A failed single trial is SCREENING_FAILURE_NEEDS_CONFIRMATION; exact-class 0/5 is HIGH_RISK_SOLVER_FAILURE, not proof of impossibility.",
 			"Post-V05 reserve evidence uses bridge-authoritative normal_remaining and indivisible equal-level reserve semantics.",
@@ -171,10 +171,10 @@ func _run() -> void:
 	}
 	_write_report(report)
 	if validation_errors.is_empty() and _report_integrity(report):
-		print("M17_CANONICAL_SCREENING_V06_R01_RESULT=PASS levels=%d classes=%d trials=%d forced=%d/25 surplus=%d/25" % [levels.size(), classes.size(), classes.size() * TRIALS_PER_CLASS, vip_forced_count, vip_surplus_count])
+		print("M17_CANONICAL_SCREENING_V06_R02_RESULT=PASS levels=%d classes=%d trials=%d forced=%d/25 surplus=%d/25" % [levels.size(), classes.size(), classes.size() * TRIALS_PER_CLASS, vip_forced_count, vip_surplus_count])
 		quit(0)
 		return
-	print("M17_CANONICAL_SCREENING_V06_R01_RESULT=FAIL errors=%s" % "; ".join(validation_errors))
+	print("M17_CANONICAL_SCREENING_V06_R02_RESULT=FAIL errors=%s" % "; ".join(validation_errors))
 	quit(1)
 
 
@@ -209,7 +209,7 @@ func _summarize_class(class_record: Dictionary, trials: Array[Dictionary]) -> Di
 		"signature": class_record["signature"],
 		"representative": int(class_record["representative"]),
 		"member_level_ids": class_record["member_level_ids"],
-		"evidence_source": "V06_R01_FRESH_1_TRIAL_CANONICAL_SCALE",
+		"evidence_source": "V06_R02_FRESH_1_TRIAL_CANONICAL_SCALE",
 		"evidence_source_level": int(class_record["representative"]),
 		"policy_name": POLICY_NAME,
 		"engine_time_scale": TIME_SCALE,
@@ -305,7 +305,7 @@ func _action_log_is_legal(action_log: Array) -> bool:
 func _classification_definitions() -> Dictionary:
 	return {
 		"SOLVER_FEASIBLE": "at least one of one fresh canonical-scale MERGE_AWARE_V01 trials completed",
-		"HIGH_RISK_SOLVER_FAILURE": "exact class received five fresh canonical-scale trials and zero completed; this V06-R01 one-trial screen does not assign it",
+		"HIGH_RISK_SOLVER_FAILURE": "exact class received five fresh canonical-scale trials and zero completed; this V06-R02 one-trial screen does not assign it",
 		"SCREENING_FAILURE_NEEDS_CONFIRMATION": "one canonical-scale trial failed to complete; not an impossibility claim",
 		"MATHEMATICALLY_UNREACHABLE": "mandatory target is outside legal L1-L3 equal-merge closure or structurally invalid",
 		"ANALYTICAL_TIMER_RATIO_OUTLIER": "absolute timer/cost ratio deviation from cohort median is greater than 5 percent",
@@ -314,7 +314,7 @@ func _classification_definitions() -> Dictionary:
 
 
 func _report_integrity(report: Dictionary) -> bool:
-	if str(report.get("report_version", "")) != "V06-R01":
+	if str(report.get("report_version", "")) != "V06-R02":
 		return false
 	if int(report.get("level_count", 0)) != EXPECTED_LEVEL_COUNT or int(report.get("challenge_class_count", 0)) != EXPECTED_CLASS_COUNT:
 		return false
@@ -322,15 +322,18 @@ func _report_integrity(report: Dictionary) -> bool:
 		return false
 	if report.get("levels", []).size() != EXPECTED_LEVEL_COUNT or report.get("challenge_classes", []).size() != EXPECTED_CLASS_COUNT:
 		return false
+	var harness := HARNESS_SCRIPT.new(root)
 	for class_record in report.get("challenge_classes", []):
 		if int(class_record.get("trial_count", 0)) != TRIALS_PER_CLASS or class_record.get("trials", []).size() != TRIALS_PER_CLASS:
 			return false
 		if class_record.get("physical_screening_flags", []).is_empty():
 			return false
+		if str(class_record.get("policy_name", "")) != POLICY_NAME or not is_equal_approx(float(class_record.get("engine_time_scale", 0.0)), TIME_SCALE):
+			return false
 		for trial in class_record.get("trials", []):
-			if str(trial.get("policy_name", "")) != POLICY_NAME or not is_equal_approx(float(trial.get("engine_time_scale", 0.0)), TIME_SCALE):
+			if not harness.validate_telemetry(trial).is_empty():
 				return false
-			if trial.get("telemetry", {}).is_empty() or trial.get("action_log", []).is_empty():
+			if not _action_log_is_legal(trial.get("action_log", [])):
 				return false
 	for level_record in report.get("levels", []):
 		if str(level_record.get("class_id", "")).is_empty() or level_record.get("physical_screening_flags", []).is_empty():
@@ -358,7 +361,7 @@ func _drink_max_level() -> int:
 
 
 func _write_minimal_failure() -> void:
-	var report := {"report_version": "V06-R01_FAILURE", "validation_errors": validation_errors, "canonical_data_sha256": _sha256(LEVELS_PATH)}
+	var report := {"report_version": "V06-R02_FAILURE", "validation_errors": validation_errors, "canonical_data_sha256": _sha256(LEVELS_PATH)}
 	var file := FileAccess.open(OUT_JSON, FileAccess.WRITE)
 	file.store_string(JSON.stringify(report, "\t"))
 	file.close()
@@ -368,7 +371,7 @@ func _write_report(report: Dictionary) -> void:
 	var json_file := FileAccess.open(OUT_JSON, FileAccess.WRITE)
 	json_file.store_string(JSON.stringify(report, "\t"))
 	json_file.close()
-	var markdown := "# BCM-M17 V06-R01 Post-V05 Canonical Sunny Cove Rescreen\n\n"
+	var markdown := "# BCM-M17 V06-R02 Post-V05 Canonical Sunny Cove Rescreen\n\n"
 	markdown += "Status: **%s**; policy: `%s`; Engine.time_scale: `%.1f`; canonical data SHA-256: `%s`.\n\n" % [str(report["status"]), str(report["policy_name"]), float(report["engine_time_scale"]), str(report["canonical_data_sha256"])]
 	markdown += "V04 SHA-256: `%s`; V05 SHA-256: `%s`.\n\n" % [str(report["v04_report_sha256"]), str(report["v05_report_sha256"])]
 	markdown += "Fresh evidence: `%d` classes x `%d` trial = `%d` trials; levels: `%d`.\n\n" % [int(report["challenge_class_count"]), int(report["trial_count_per_class"]), int(report["challenge_class_count"]) * int(report["trial_count_per_class"]), int(report["level_count"])]
