@@ -77,5 +77,6 @@ Frozen SHA-256 values recorded during inspection:
 
 ## Publication
 
-- Child 03 commit SHA/URL: pending publication.
+- Child 03 evidence commit: `e75bc7a0dfe5b49ea52b0d39328d251d66687ec8`.
+- Child 03 evidence URL: https://github.com/Sekiph82/Beach-Cocktails-Merge/commit/e75bc7a0dfe5b49ea52b0d39328d251d66687ec8
 - Completion marker: `CHILD_03_REMEDIATION_COMPLETE_HANDOFF_TO_CHILD_04_V06_R02`.
