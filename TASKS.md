@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: Remediate the BCM-M17 V06-R01 Child 03 direct-runner integrity failure with the bounded V06-R02 fresh rescreen.
+- Current Task: Execute BCM-M17 V07 five-trial confirmation for the 42 V06-R02 screening-failure candidate classes.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the complete V06-R02 remediation package in order, runs Child 04 only after Child 03 passes, then stops at AWAITING_M17_AUDIT_V06_R02. Canonical tuning and M18 remain blocked.
+- Next Task/Action: Codex runs V07 evidence-only confirmation: reuse each audited V06-R02 candidate trial, add four new post-V05 MERGE_AWARE_V01 trials per candidate (168 new trials total), publish the 45-class/100-level confirmation report, run regressions, and stop at AWAITING_M17_AUDIT_V07. Canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. M17-008 is active only for evidence-driven structural remediation first; timer/objective tuning remains blocked.
+- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. M17-008 remains active for five-trial confirmation before any timer/objective tuning.
 
 ## Tasks
 
@@ -638,9 +638,22 @@ V06-R02 bounded remediation package:
 - Master log template: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V06_R02.md`
 - Required final marker: `AWAITING_M17_AUDIT_V06_R02`
 
-V06-R02 is limited to correcting the runner's schema-integrity check and producing a fresh direct-PASS screen. No canonical level tuning is authorized before independent audit of the corrected handoff.
+V06-R02 is limited to correcting the runner's schema-integrity check and producing a fresh direct-PASS screen.
 
-V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation is independently passed. V06 and V06-R01 are independently audited `CHANGES_REQUIRED`; M17-008 remains active for V06-R02 remediation first. No canonical level tuning is authorized before independent audit of the corrected handoff.
+V06-R02 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V06_R02.md` — **AUDITED_PASS / V06-R02 REMEDIATION COMPLETE**.
+
+V06-R02 establishes a trustworthy post-V05 one-trial screen: 3 classes are `SOLVER_FEASIBLE` (C02, C05, C10) and 42 classes remain `SCREENING_FAILURE_NEEDS_CONFIRMATION`. One failed trial is not enough for a high-risk classification.
+
+V07 five-trial confirmation package:
+- Execution prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_EXECUTION_PROMPT_V07.md`
+- Locked audit criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07.md`
+- Required builder log: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07.md`
+- Required final marker: `AWAITING_M17_AUDIT_V07`
+
+V07 must reuse each audited V06-R02 candidate trial as trial 1 and add four new post-V05 canonical-scale trials for each of the 42 candidate classes, for 168 new trials total and exactly five post-V05 trials per candidate. Only exact-class 0/5 may become `HIGH_RISK_SOLVER_FAILURE`. No canonical timer/objective tuning is authorized inside V07.
+
+V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 remains active for V07 evidence confirmation first; M18 remains blocked.
 
 
 - [x] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
