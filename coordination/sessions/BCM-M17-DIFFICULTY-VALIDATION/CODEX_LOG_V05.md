@@ -42,6 +42,10 @@ This is an append-only builder progress record. It is not independent acceptance
 - Root `TASKS.md` remains untouched.
 - Final batch boundary: `AWAITING_M17_AUDIT_V05`.
 
+## Evidence URL correction index
+
+Direct GitHub commit, log, report, and final master-log URLs are recorded in `CODEX_LOG_V05_EVIDENCE_URLS_CORRECTION.md`.
+
 ## Child 01 completion marker
 
 - `CHILD_01_COMPLETE`
