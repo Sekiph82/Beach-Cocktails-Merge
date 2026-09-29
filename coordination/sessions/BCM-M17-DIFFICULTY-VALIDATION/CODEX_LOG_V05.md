@@ -6,7 +6,7 @@
 | --- | --- | --- | --- |
 | 01 | COMPLETE | `448802f303398a5ae41c9c36e015cf9c77132238` | synchronized preflight, ordered-package recovery, canonical freeze evidence |
 | 02 | COMPLETE | `2b32e45a83e03ad0aef810dba4293d92b38f653a` | deterministic reserve planner and production guards |
-| 03 | PENDING | — | focused planner, production, and replay-later tests |
+| 03 | COMPLETE | `653e460399d53505a1fdd9b01181cc1905a9b430` | focused planner, production, and replay-later tests |
 | 04 | PENDING | — | all-25 post-fix structural evidence |
 | 05 | PENDING | — | required regressions, final log, and audit handoff |
 
@@ -19,6 +19,13 @@ This is an append-only builder progress record. It is not independent acceptance
 - Guards: direct merge and stocked board VIP capture in `scripts/game_manager.gd`.
 - Parse/import check and diff check passed; focused behavioral evidence is scheduled for Child 03.
 - Generated translation sidecars from the import check were removed by exact path and were not staged.
+
+## Child 03 completion marker
+
+- `CHILD_03_COMPLETE`
+- V05 focused planner/integration probe: `M17_VIP_OPTIONALITY_RESULT=PASS`.
+- F1/F2/F3/F4, L4 VIP miss, direct surplus VIP, stocked surplus VIP, replay-later, and reward idempotency all passed.
+- Child 02 indentation correction is recorded in `CODEX_LOG_V05_CHILD_02_CORRECTION.md` and verified by the console parser.
 
 ## Child 01 completion marker
 
