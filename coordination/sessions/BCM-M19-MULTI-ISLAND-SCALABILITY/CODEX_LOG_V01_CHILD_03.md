@@ -1,5 +1,9 @@
 # CODEX Execution Log — BCM-M19-003
 
-Status: `PENDING_CODEX_EXECUTION`
+Status: `BUILDER_PASS`
 
-Record Sunny L5-L8 preservation, Tiki L9 reservation, higher-level policy document, focused validation, commit/push equality and scope proof.
+- Prompt/criteria: `CHATGPT_EXECUTION_PROMPT_V01_CHILD_03.md` / locked child criteria.
+- Sunny Cove remains declaratively L5-L8 with no L9 normal/VIP content. Tiki declares max target L9 but remains zero-level and has no invented introduction level.
+- Added `docs/CAMPAIGN_COCKTAIL_LEVEL_PROGRESSION_POLICY.md`; the policy is data-first and bounded by the existing LevelDatabase L1-L12 guard.
+- Focused probe: `godot_console.exe --headless --path . --script res://tests/m19_multi_island_scalability_probe.gd` — exit `0`; `M19_CHILD_03_RESULT=PASS`.
+- No island-name branch was added to gameplay/runtime code.

@@ -15,6 +15,14 @@ const DEFAULT_ISLANDS_PATH := "res://data/campaign/islands.json"
 const DEFAULT_LEVELS_PATH := "res://data/campaign/levels/sunny_cove.json"
 const MIN_COCKTAIL_LEVEL := 1
 const MAX_COCKTAIL_LEVEL := 12
+const REQUIRED_THEME_KEYS := [
+    "gameplay_background",
+    "gameplay_table",
+    "gameplay_table_shadow",
+    "table_edge_overlay",
+    "launch_zone",
+    "island_map_background",
+]
 
 var validation_mode: ValidationMode = ValidationMode.SEED
 var last_error := ""
@@ -26,7 +34,7 @@ var _loaded := false
 
 func load_canonical(
         islands_path: String = DEFAULT_ISLANDS_PATH,
-        levels_path: String = DEFAULT_LEVELS_PATH,
+        levels_path: Variant = DEFAULT_LEVELS_PATH,
         mode: ValidationMode = ValidationMode.SEED
     ) -> bool:
     validation_mode = mode
@@ -35,24 +43,27 @@ func load_canonical(
     var islands_root = _read_json(islands_path, "islands")
     if islands_root == null:
         return false
-    var levels_root = _read_json(levels_path, "levels")
-    if levels_root == null:
+    var level_roots := _read_json_roots(levels_path, "levels")
+    if level_roots.is_empty():
         return false
 
     if not _validate_island_root(islands_root):
         return false
-    if not _validate_level_root(levels_root):
+    if not _validate_level_roots(level_roots):
         return false
     _loaded = true
     return true
 
 
-func load_from_data(islands_root: Variant, levels_root: Variant, mode: ValidationMode = ValidationMode.SEED) -> bool:
+func load_from_data(islands_root: Variant, levels_roots: Variant, mode: ValidationMode = ValidationMode.SEED) -> bool:
     validation_mode = mode
     _reset()
     if not _validate_island_root(islands_root):
         return false
-    if not _validate_level_root(levels_root):
+    var normalized_level_roots := _normalize_level_roots(levels_roots)
+    if normalized_level_roots.is_empty():
+        return _fail("level roots must contain at least one object")
+    if not _validate_level_roots(normalized_level_roots):
         return false
     _loaded = true
     return true
@@ -82,11 +93,32 @@ func get_levels_for_island(island_id: String) -> Array[Dictionary]:
     return result
 
 
+func get_island_theme(island_id: String) -> Dictionary:
+    var island := get_island(island_id)
+    var theme: Variant = island.get("theme", {})
+    if not theme is Dictionary:
+        return {}
+    return _copy_read_only(theme)
+
+
 func get_island_ids() -> Array[String]:
     var ids: Array[String] = []
     for island_id in _islands_by_id.keys():
         ids.append(str(island_id))
     ids.sort()
+    return ids
+
+
+func get_island_ids_in_order() -> Array[String]:
+    var islands: Array[Dictionary] = []
+    for island_id in _islands_by_id:
+        islands.append(_islands_by_id[island_id])
+    islands.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+        return int(a.get("order_index", 0)) < int(b.get("order_index", 0))
+    )
+    var ids: Array[String] = []
+    for island in islands:
+        ids.append(str(island.get("id", "")))
     return ids
 
 
@@ -115,6 +147,31 @@ func _read_json(path: String, label: String):
         _fail("malformed %s JSON: %s" % [label, path])
         return null
     return parsed
+
+
+func _read_json_roots(paths: Variant, label: String) -> Array:
+    var path_list: Array = [paths] if paths is String else paths if paths is Array else []
+    if path_list.is_empty():
+        _fail("%s paths must contain at least one path" % label)
+        return []
+    var roots: Array = []
+    for raw_path in path_list:
+        if not raw_path is String or str(raw_path).is_empty():
+            _fail("%s path must be a non-empty string" % label)
+            return []
+        var parsed = _read_json(str(raw_path), label)
+        if parsed == null:
+            return []
+        roots.append(parsed)
+    return roots
+
+
+func _normalize_level_roots(level_roots: Variant) -> Array:
+    if level_roots is Dictionary:
+        return [level_roots]
+    if level_roots is Array:
+        return level_roots
+    return []
 
 
 func _validate_island_root(root: Variant) -> bool:
@@ -147,6 +204,8 @@ func _validate_island_root(root: Variant) -> bool:
             return _fail("island reward_track must be an object: %s" % island_id)
         if raw_island.has("target_policy") and not _validate_target_policy(raw_island["target_policy"], island_id):
             return false
+        if raw_island.has("theme") and not _validate_theme(raw_island["theme"], island_id):
+            return false
         _islands_by_id[island_id] = raw_island.duplicate(true)
 
     for island_id in _islands_by_id:
@@ -158,52 +217,57 @@ func _validate_island_root(root: Variant) -> bool:
     return true
 
 
-func _validate_level_root(root: Variant) -> bool:
-    if not root is Dictionary:
-        return _fail("level root must be an object")
-    if not root.has("schema_version") or int(root["schema_version"]) != 1:
-        return _fail("level schema_version must be 1")
-    if not root.has("island_id") or not root.has("levels") or not root["levels"] is Array:
-        return _fail("level root must contain island_id and levels array")
-    var root_island_id := str(root["island_id"])
-    if not _islands_by_id.has(root_island_id):
-        return _fail("level root references unknown island: %s" % root_island_id)
+func _validate_level_roots(roots: Array) -> bool:
+    var loaded_root_ids: Dictionary = {}
+    for root in roots:
+        if not root is Dictionary:
+            return _fail("level root must be an object")
+        if not root.has("schema_version") or int(root["schema_version"]) != 1:
+            return _fail("level schema_version must be 1")
+        if not root.has("island_id") or not root.has("levels") or not root["levels"] is Array:
+            return _fail("level root must contain island_id and levels array")
+        var root_island_id := str(root["island_id"])
+        if root_island_id.is_empty() or loaded_root_ids.has(root_island_id):
+            return _fail("duplicate level root island id: %s" % root_island_id)
+        loaded_root_ids[root_island_id] = true
+        if not _islands_by_id.has(root_island_id):
+            return _fail("level root references unknown island: %s" % root_island_id)
 
-    for raw_level in root["levels"]:
-        if not raw_level is Dictionary:
-            return _fail("level entry must be an object")
-        if not _has_required(raw_level, ["island_id", "level_id", "time_limit_sec", "orders", "vip", "rewards", "score_star_thresholds", "feature_flags"]):
-            return false
-        var island_id := str(raw_level["island_id"])
-        var level_id := int(raw_level["level_id"])
-        if island_id != root_island_id:
-            return _fail("level island_id does not match file root: L%d" % level_id)
-        if not _islands_by_id.has(island_id):
-            return _fail("level references unknown island: %s" % island_id)
-        if level_id <= 0:
-            return _fail("level_id must be positive: %s/%d" % [island_id, level_id])
-        var key := _level_key(island_id, level_id)
-        if _levels_by_key.has(key):
-            return _fail("duplicate level id: %s/%d" % [island_id, level_id])
-        if float(raw_level["time_limit_sec"]) <= 0.0:
-            return _fail("time_limit_sec must be positive: %s/%d" % [island_id, level_id])
-        if not _validate_orders(raw_level["orders"], island_id, level_id):
-            return false
-        if raw_level["vip"] != null and not raw_level["vip"] is Dictionary:
-            return _fail("vip must be null or an object: %s/%d" % [island_id, level_id])
-        if raw_level["vip"] is Dictionary and not _validate_vip(raw_level["vip"], island_id, level_id):
-            return false
-        if not raw_level["rewards"] is Dictionary:
-            return _fail("rewards must be an object: %s/%d" % [island_id, level_id])
-        if not raw_level["score_star_thresholds"] is Dictionary:
-            return _fail("score_star_thresholds must be an object: %s/%d" % [island_id, level_id])
-        if not raw_level["feature_flags"] is Dictionary:
-            return _fail("feature_flags must be an object: %s/%d" % [island_id, level_id])
-        var copy: Dictionary = raw_level.duplicate(true)
-        _levels_by_key[key] = copy
-        if not _levels_by_island.has(island_id):
-            _levels_by_island[island_id] = []
-        _levels_by_island[island_id].append(copy)
+        for raw_level in root["levels"]:
+            if not raw_level is Dictionary:
+                return _fail("level entry must be an object")
+            if not _has_required(raw_level, ["island_id", "level_id", "time_limit_sec", "orders", "vip", "rewards", "score_star_thresholds", "feature_flags"]):
+                return false
+            var island_id := str(raw_level["island_id"])
+            var level_id := int(raw_level["level_id"])
+            if island_id != root_island_id:
+                return _fail("level island_id does not match file root: L%d" % level_id)
+            if not _islands_by_id.has(island_id):
+                return _fail("level references unknown island: %s" % island_id)
+            if level_id <= 0:
+                return _fail("level_id must be positive: %s/%d" % [island_id, level_id])
+            var key := _level_key(island_id, level_id)
+            if _levels_by_key.has(key):
+                return _fail("duplicate level id: %s/%d" % [island_id, level_id])
+            if float(raw_level["time_limit_sec"]) <= 0.0:
+                return _fail("time_limit_sec must be positive: %s/%d" % [island_id, level_id])
+            if not _validate_orders(raw_level["orders"], island_id, level_id):
+                return false
+            if raw_level["vip"] != null and not raw_level["vip"] is Dictionary:
+                return _fail("vip must be null or an object: %s/%d" % [island_id, level_id])
+            if raw_level["vip"] is Dictionary and not _validate_vip(raw_level["vip"], island_id, level_id):
+                return false
+            if not raw_level["rewards"] is Dictionary:
+                return _fail("rewards must be an object: %s/%d" % [island_id, level_id])
+            if not raw_level["score_star_thresholds"] is Dictionary:
+                return _fail("score_star_thresholds must be an object: %s/%d" % [island_id, level_id])
+            if not raw_level["feature_flags"] is Dictionary:
+                return _fail("feature_flags must be an object: %s/%d" % [island_id, level_id])
+            var copy: Dictionary = raw_level.duplicate(true)
+            _levels_by_key[key] = copy
+            if not _levels_by_island.has(island_id):
+                _levels_by_island[island_id] = []
+            _levels_by_island[island_id].append(copy)
 
     for island_id in _islands_by_id:
         var loaded_levels: Array = _levels_by_island.get(island_id, [])
@@ -292,6 +356,21 @@ func _validate_target_policy(policy: Variant, island_id: String) -> bool:
     var max_level := int(policy["max_level"])
     if min_level < MIN_COCKTAIL_LEVEL or max_level > MAX_COCKTAIL_LEVEL or min_level > max_level:
         return _fail("target_policy bounds are invalid: %s" % island_id)
+    return true
+
+
+func _validate_theme(theme: Variant, island_id: String) -> bool:
+    if not theme is Dictionary:
+        return _fail("theme must be an object: %s" % island_id)
+    var family_prefix := "res://assets/ui_assets/campaign/islands/%s/" % island_id
+    for key in REQUIRED_THEME_KEYS:
+        if not theme.has(key) or typeof(theme[key]) != TYPE_STRING or str(theme[key]).is_empty():
+            return _fail("theme missing required path %s: %s" % [key, island_id])
+        var path := str(theme[key])
+        if not path.begins_with(family_prefix):
+            return _fail("theme path is outside island asset family: %s/%s" % [island_id, key])
+        if not FileAccess.file_exists(path):
+            return _fail("theme asset does not exist: %s" % path)
     return true
 
 

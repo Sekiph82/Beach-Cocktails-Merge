@@ -104,6 +104,13 @@ func get_session_configuration() -> Dictionary:
     return _session_configuration
 
 
+func get_active_island_theme() -> Dictionary:
+    if _session_configuration.is_empty():
+        return {}
+    var theme: Variant = _session_configuration.get("island_theme", {})
+    return theme if theme is Dictionary else {}
+
+
 func mark_gameplay_ready() -> bool:
     if session_state != STATE_READY:
         return false
@@ -429,10 +436,12 @@ func _configure_objectives(orders: Variant) -> void:
 
 
 func _build_session_configuration() -> Dictionary:
+    var island_theme: Dictionary = level_database.get_island_theme(active_island_id) if level_database.has_method("get_island_theme") else {}
     var configuration := {
         "session_serial": _session_serial,
         "island_id": active_island_id,
         "level_id": active_level_id,
+        "island_theme": island_theme,
         "time_limit_sec": float(_active_level.get("time_limit_sec", 0.0)),
         "orders": _active_level.get("orders", []).duplicate(true),
         "vip": _active_level.get("vip", null),
