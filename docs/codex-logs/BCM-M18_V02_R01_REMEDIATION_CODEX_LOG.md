@@ -60,6 +60,7 @@ Status: READY_FOR_INDEPENDENT_AUDIT
 ## Final repository state
 
 - Final implementation/evidence commit: `6ca18894f47e8bf20209e0454329106fbd5505f1`.
-- The completion-log publication commit will be the subsequent bounded log-only commit; after push, the exact final `HEAD`, `origin/main`, and `git ls-remote origin refs/heads/main` values will be recorded in the coordination log and reported to the user.
+- Completion-log publication commit: `35001dd4c53fa4ddec7443d0d7f2a37f3703ade8` (`docs: close M18 V02-R01 builder evidence`).
+- Post-push equality proof at the implementation/evidence boundary: `git rev-parse HEAD` = `35001dd4c53fa4ddec7443d0d7f2a37f3703ade8`; `git rev-parse origin/main` = `35001dd4c53fa4ddec7443d0d7f2a37f3703ade8`; `git ls-remote origin refs/heads/main` = `35001dd4c53fa4ddec7443d0d7f2a37f3703ade8`; all matched.
 - Required audit handoff: `AWAITING_M18_AUDIT_V02_R01`.
 - `TASKS.md` remains untouched and the work stops at M18 audit pending.

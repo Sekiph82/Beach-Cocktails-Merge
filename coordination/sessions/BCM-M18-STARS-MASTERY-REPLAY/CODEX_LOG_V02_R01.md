@@ -29,6 +29,13 @@ Final implementation/evidence commit:
 
 The final log-only publication commit and post-push SHA equality proof are recorded below after publication.
 
+Post-push equality proof at the implementation/evidence boundary:
+
+- `git rev-parse HEAD` = `35001dd4c53fa4ddec7443d0d7f2a37f3703ade8`
+- `git rev-parse origin/main` = `35001dd4c53fa4ddec7443d0d7f2a37f3703ade8`
+- `git ls-remote origin refs/heads/main` = `35001dd4c53fa4ddec7443d0d7f2a37f3703ade8`
+- All three values matched; the Desktop checkout was clean.
+
 Successful final marker:
 
 `AWAITING_M18_AUDIT_V02_R01`
