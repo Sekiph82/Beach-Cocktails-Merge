@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: M18
-- Current Sprint: BCM-M18-STARS-MASTERY-REPLAY
-- Current Task: BCM-M18-003..006 — V02-R01 bounded remediation for cumulative-reward claim integrity, replay captures, and evidence correction.
+- Current Milestone: M19
+- Current Sprint: BCM-M19-MULTI-ISLAND-SCALABILITY
+- Current Task: BCM-M19-001..006 — Multi-island scalability and Tiki Island handoff.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex fixes only the economy-unavailable cumulative-star reward claim edge case, adds the locked deferred-grant tests, produces the four mandatory M18 replay-state runtime captures, records the correct Child 05 merge SHA in new evidence, runs the focused V02-R01 regression set, and stops at AWAITING_M18_AUDIT_V02_R01. Preserve historical V01/V02 evidence and root TASKS.md; do not start M19.
+- Next Task/Action: Codex executes the locked M19 V01 six-child batch in order: multi-island LevelDatabase/shared runtime, Tiki placeholder unlock boundary, Tiki L9 reservation policy, exact 10-island sequence, per-island theme hooks using existing immutable asset families, then data-first scalability closure. Stop at AWAITING_M19_AUDIT_V01; preserve M18 and root TASKS.md; do not start M20.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 78 / 101 = 77.23%. M17-001..008 and M18-001/002 are independently audited PASS. M18 V02 is independently CHANGES_REQUIRED for one cumulative-reward claim edge case, missing Child 05 runtime captures, and one exact-SHA evidence typo. M19 remains blocked until independent M18 closure.
+- Progress: 82 / 101 = 81.19%. M18-001..006 are independently AUDITED_PASS and M18 is closed. M19-001..006 are the active ordered batch. M20 remains blocked until independent M19 closure.
 
 ## Tasks
 
@@ -814,16 +814,28 @@ V02-R01 remediation package:
 
 The remediation is limited to the economy-unavailable cumulative-star claim edge case, four missing Child 05 replay-state runtime captures, and the exact Child 05 merge-SHA evidence correction. Existing V02 functional behavior outside that scope remains frozen.
 
+M18 V02-R01 independent audit:
+`coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_AUDIT_V02_R01.md` — **AUDITED_PASS / M18 CLOSED**.
+
 - [x] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
 - [x] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
-- [!] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
-- [~] BCM-M18-004 — Keep next-level progression based on level completion, not mandatory perfect-star replay.
-- [!] BCM-M18-005 — Add replay flow from Island Map with previously earned state visible.
-- [~] BCM-M18-006 — Add tests for star upgrades, worse replay preservation, milestone claims, and 100% island completion.
+- [x] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
+- [x] BCM-M18-004 — Keep next-level progression based on level completion, not mandatory perfect-star replay.
+- [x] BCM-M18-005 — Add replay flow from Island Map with previously earned state visible.
+- [x] BCM-M18-006 — Add tests for star upgrades, worse replay preservation, milestone claims, and 100% island completion.
 
 ### M19 — Multi-island scalability and Tiki Island handoff
 
-- [ ] BCM-M19-001 — Prove the campaign engine can load a second island without duplicating CampaignManager, IslandMap, LevelButton, timer, or save logic.
+M19 V01 ordered batch package:
+- Master prompt: `coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CHATGPT_EXECUTION_PROMPT_V01.md`
+- Master locked criteria: `coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CHATGPT_AUDIT_CRITERIA_V01.md`
+- Ordered child prompts/criteria: `CHATGPT_EXECUTION_PROMPT_V01_CHILD_01.md` through `CHATGPT_EXECUTION_PROMPT_V01_CHILD_06.md` and matching locked child criteria.
+- Master log template: `coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CODEX_LOG_V01.md`
+- Required final marker: `AWAITING_M19_AUDIT_V01`
+
+M19 is architecture/data scalability only. Tiki remains a zero-level canonical placeholder; no Tiki production levels or final-island owner name may be invented. Existing approved island asset families under `assets/ui_assets/campaign/islands/<island_id>/` are immutable inputs.
+
+- [~] BCM-M19-001 — Prove the campaign engine can load a second island without duplicating CampaignManager, IslandMap, LevelButton, timer, or save logic.
 - [ ] BCM-M19-002 — Add Tiki Island locked placeholder and unlock it only when Sunny Cove Level 100 is completed.
 - [ ] BCM-M19-003 — Reserve L9 introduction for Tiki Island data and document higher-level progression policy for later islands.
 - [ ] BCM-M19-004 — Define planned island sequence: Sunny Cove, Tiki Island, Azure Bay, Coconut Beach, Sunset Island, Party Beach, Frozen Paradise, Volcano Bay, Billionaire Island, and final island slot/name TBD.
