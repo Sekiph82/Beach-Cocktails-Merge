@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M18
 - Current Sprint: BCM-M18-STARS-MASTERY-REPLAY
-- Current Task: BCM-M18-003 — Sunny Cove cumulative star/reward track owner decision.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner must supply or approve the exact Sunny Cove cumulative-star threshold-to-reward payload in repository truth. Do not start Child 03 implementation or Children 04-06 until that payload is present and a new bounded handoff is issued; preserve the independently audited Child 01/02 results. Do not start M19.
-- Required Actor: OWNER
+- Current Task: BCM-M18-003..006 — V02 owner-approved continuation from cumulative-star rewards through M18 integration closure.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes M18 V02 in strict order: implement the owner-approved cumulative-star reward track for BCM-M18-003, then continue BCM-M18-004, BCM-M18-005, and BCM-M18-006 only after each prior child passes and publishes clean equality. Preserve independently audited M18-001/002 and historical V01 blocker evidence. Stop at AWAITING_M18_AUDIT_V02; do not start M19.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 78 / 101 = 77.23%. M17-001..008 are independently audited PASS at the V05 evidence-correction boundary. M18 Child 01/02 are independently audited PASS; Child 03 is OWNER_REQUIRED for the missing approved cumulative-star reward payload, and Children 04-06 remain blocked/unstarted. M19 remains blocked until M18 is independently audited.
+- Progress: 78 / 101 = 77.23%. M17-001..008 are independently audited PASS. M18-001/002 are independently audited PASS. The BCM-M18-003 owner payload is now approved in OWNER_RULING_V02; BCM-M18-003..006 remain implementation/audit work. M19 remains blocked until independent M18 closure.
 
 ## Tasks
 
@@ -781,11 +781,27 @@ M18 V01 complete ordered milestone-batch package:
 - Master log template: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CODEX_LOG_V01.md`
 - Required final marker: `AWAITING_M18_AUDIT_V01`
 
-The complete M18 V01 package was frozen before execution. Child 01/02 are independently audited PASS; Child 03 is OWNER_REQUIRED because the approved cumulative-star reward payload is absent; Children 04-06 are blocked/unstarted. Resume requires a new bounded ChatGPT handoff after the owner decision. No later child may begin after an earlier child fails or is unverified; M19 remains blocked.
+The complete M18 V01 package was frozen before execution. Child 01/02 are independently audited PASS. V01 Child 03 truthfully stopped at OWNER_REQUIRED and Children 04-06 remained unstarted.
+
+Owner ruling V02:
+`coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/OWNER_RULING_V02.md` — **OWNER_APPROVED** exact Sunny Cove cumulative-star reward payload:
+- 30/60/90/120 stars: `time ×1`
+- 150 stars: `upgrade ×1`
+- 180/210/240/270 stars: `time ×1`
+- 300 stars: `upgrade ×1`
+
+M18 V02 continuation package:
+- Master continuation prompt: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_CONTINUATION_PROMPT_V02.md`
+- Locked continuation criteria: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_AUDIT_CRITERIA_V02.md`
+- Master log: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CODEX_LOG_V02.md`
+- Ordered V02 logs: `CODEX_LOG_V02_CHILD_03.md` through `CODEX_LOG_V02_CHILD_06.md`
+- Required final marker: `AWAITING_M18_AUDIT_V02`
+
+V02 resumes at BCM-M18-003 only. M18-001/002 must not be reimplemented. BCM-M18-004..006 may execute only in order after each prior child passes and publishes clean equality. M19 remains blocked until independent M18 closure.
 
 - [x] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
 - [x] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
-- [!] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
+- [~] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
 - [ ] BCM-M18-004 — Keep next-level progression based on level completion, not mandatory perfect-star replay.
 - [ ] BCM-M18-005 — Add replay flow from Island Map with previously earned state visible.
 - [ ] BCM-M18-006 — Add tests for star upgrades, worse replay preservation, milestone claims, and 100% island completion.
