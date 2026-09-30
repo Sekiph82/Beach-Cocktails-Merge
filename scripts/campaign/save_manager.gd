@@ -76,7 +76,7 @@ func validate_state(state: Variant) -> Dictionary:
             return {"ok": false, "reason": "INVALID_ISLAND_COLLECTIONS:%s" % island_id}
         for level_id in island_state["completed_levels"]:
             var record = island_state["completed_levels"][level_id]
-            if not record is Dictionary or not _is_non_negative_number(record.get("stars", 0)) or not _is_non_negative_number(record.get("best_score", 0)):
+            if not record is Dictionary or not _is_bounded_stars(record.get("stars", 0)) or not _is_non_negative_number(record.get("best_score", 0)):
                 return {"ok": false, "reason": "INVALID_COMPLETION_RECORD:%s/%s" % [island_id, level_id]}
     return {"ok": true, "reason": "VALID"}
 
@@ -230,6 +230,11 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
             island_state["claimed_milestones"] = []
         if not island_state.has("highest_unlocked_level"):
             island_state["highest_unlocked_level"] = 1
+        for level_id in island_state["completed_levels"]:
+            var record: Variant = island_state["completed_levels"][level_id]
+            if record is Dictionary:
+                record["stars"] = clampi(int(record.get("stars", 0)), 0, 3)
+                record["best_score"] = maxi(0, int(record.get("best_score", 0)))
     var validation := validate_state(migrated)
     if not validation["ok"]:
         return {"ok": false, "reason": "MIGRATION_INVALID:%s" % validation["reason"]}
@@ -340,6 +345,10 @@ func _remove_file(path: String) -> void:
 
 func _is_non_negative_number(value: Variant) -> bool:
     return (typeof(value) == TYPE_INT or typeof(value) == TYPE_FLOAT) and float(value) >= 0.0
+
+
+func _is_bounded_stars(value: Variant) -> bool:
+    return _is_non_negative_number(value) and is_equal_approx(float(value), float(int(value))) and int(value) <= 3
 
 
 func _normalize_json_numbers(value: Variant) -> Variant:

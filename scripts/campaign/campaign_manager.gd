@@ -131,8 +131,10 @@ func mark_level_completed(island_id: String, level_id: int, result: Dictionary =
     var old_record: Dictionary = completed.get(key, {})
     var old_highest_level := int(island_state.get("highest_unlocked_level", 1))
     var new_record: Dictionary = old_record.duplicate(true)
-    new_record["stars"] = maxi(int(old_record.get("stars", 0)), clampi(int(result.get("stars", 1)), 1, 3))
-    new_record["best_score"] = maxi(int(old_record.get("best_score", 0)), maxi(0, int(result.get("score", 0))))
+    var old_stars := clampi(int(old_record.get("stars", 0)), 0, 3)
+    var old_best_score := maxi(0, int(old_record.get("best_score", 0)))
+    new_record["stars"] = maxi(old_stars, clampi(int(result.get("stars", 1)), 1, 3))
+    new_record["best_score"] = maxi(old_best_score, maxi(0, int(result.get("score", 0))))
     new_record["completed"] = true
     if result.has("vip_completed"):
         new_record["vip_completed"] = bool(old_record.get("vip_completed", false)) or bool(result["vip_completed"])
