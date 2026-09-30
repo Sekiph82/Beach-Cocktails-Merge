@@ -7,3 +7,4 @@ Status: `BUILDER_PASS`
 - Focused probe: `godot_console.exe --headless --path . --script res://tests/m19_multi_island_scalability_probe.gd` — exit `0`; `M19_CHILD_01_RESULT=PASS`.
 - Shared-runtime evidence: one fixture `LevelDatabase`, `CampaignManager`, `SaveManager`, `GameplaySessionBridge`, and reusable navigation map pair run both fixture islands; no duplicated engine scene/class was added.
 - Scope: no `TASKS.md` edit, Tiki level, asset mutation, M20 work, or accepted gameplay tuning.
+- Implementation/evidence publication SHA: `216cd27e97cd99d0afc15150012531eca63f59e2`.

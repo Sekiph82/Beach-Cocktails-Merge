@@ -34,6 +34,8 @@ No canonical PNG, level JSON, root tracker, accepted gameplay/physics/HUD/timer/
 - M07-R04 headless capture was separately attempted and exited `1` because its pre-existing capture path calls `save_png` on a null image; this is outside M19 and the successful M07-R06 owner-layout probe was used for the protected boundary.
 - Import/parse: `godot_console.exe --headless --quiet --path . --editor --import --quit` — exit `0`; only the known nested `original_reference` project warning was emitted.
 - `git diff --check` — exit `0`.
+- Implementation/evidence publication SHA: `216cd27e97cd99d0afc15150012531eca63f59e2`.
+- At that publication, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `216cd27e97cd99d0afc15150012531eca63f59e2`; divergence was `0 0`.
 
 ## Limitations and audit boundary
 

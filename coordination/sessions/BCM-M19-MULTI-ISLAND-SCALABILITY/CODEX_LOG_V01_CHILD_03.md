@@ -7,3 +7,4 @@ Status: `BUILDER_PASS`
 - Added `docs/CAMPAIGN_COCKTAIL_LEVEL_PROGRESSION_POLICY.md`; the policy is data-first and bounded by the existing LevelDatabase L1-L12 guard.
 - Focused probe: `godot_console.exe --headless --path . --script res://tests/m19_multi_island_scalability_probe.gd` — exit `0`; `M19_CHILD_03_RESULT=PASS`.
 - No island-name branch was added to gameplay/runtime code.
+- Implementation/evidence publication SHA: `216cd27e97cd99d0afc15150012531eca63f59e2`.

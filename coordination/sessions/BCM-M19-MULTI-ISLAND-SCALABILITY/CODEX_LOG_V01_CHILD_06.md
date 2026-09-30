@@ -7,3 +7,4 @@ Status: `BUILDER_PASS`
 - Focused probe: `godot_console.exe --headless --path . --script res://tests/m19_multi_island_scalability_probe.gd` — exit `0`; `M19_CHILD_06_RESULT=PASS` and `M19_SCALABILITY_RESULT=PASS`.
 - Locked regression set: M10-M16, M18 focused/integration, M01-M03, M07-R06 owner-layout, M08, and M09 exited `0`. M07-R04 headless capture is a pre-existing null `save_png` limitation; M07-R06 is the successful owner-layout boundary run.
 - Final marker: `AWAITING_M19_AUDIT_V01`.
+- Implementation/evidence publication SHA: `216cd27e97cd99d0afc15150012531eca63f59e2`.

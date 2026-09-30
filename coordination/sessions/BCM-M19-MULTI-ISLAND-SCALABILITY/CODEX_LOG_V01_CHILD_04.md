@@ -6,3 +6,4 @@ Status: `BUILDER_PASS`
 - Added ordered-id lookup support and preserved the exact ten-island order and next-island chain. `final_island` remains the terminal slot with display name `Final Island (TBD)`.
 - Focused probe: `godot_console.exe --headless --path . --script res://tests/m19_multi_island_scalability_probe.gd` — exit `0`; `M19_CHILD_04_RESULT=PASS`.
 - No existing island id was renamed and no final owner name was invented.
+- Implementation/evidence publication SHA: `216cd27e97cd99d0afc15150012531eca63f59e2`.
