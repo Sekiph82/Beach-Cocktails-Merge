@@ -27,6 +27,7 @@ func create_default_state() -> Dictionary:
                 "highest_unlocked_level": 1,
                 "completed_levels": {},
                 "claimed_milestones": [],
+                "claimed_star_rewards": [],
             },
         },
         "legacy_best_score": 0,
@@ -72,8 +73,11 @@ func validate_state(state: Variant) -> Dictionary:
             return {"ok": false, "reason": "INVALID_ISLAND_STATE:%s" % island_id}
         if not _is_non_negative_number(island_state.get("highest_unlocked_level", -1)) or int(island_state.get("highest_unlocked_level", 0)) < 1:
             return {"ok": false, "reason": "INVALID_HIGHEST_LEVEL:%s" % island_id}
-        if not island_state.get("completed_levels", {}) is Dictionary or not island_state.get("claimed_milestones", []) is Array:
+        if not island_state.get("completed_levels", {}) is Dictionary or not island_state.get("claimed_milestones", []) is Array or not island_state.get("claimed_star_rewards", []) is Array:
             return {"ok": false, "reason": "INVALID_ISLAND_COLLECTIONS:%s" % island_id}
+        for threshold in island_state.get("claimed_star_rewards", []):
+            if not _is_positive_integer(threshold):
+                return {"ok": false, "reason": "INVALID_CUMULATIVE_REWARD_CLAIM:%s" % island_id}
         for level_id in island_state["completed_levels"]:
             var record = island_state["completed_levels"][level_id]
             if not record is Dictionary or not _is_bounded_stars(record.get("stars", 0)) or not _is_non_negative_number(record.get("best_score", 0)):
@@ -228,6 +232,8 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
             island_state["completed_levels"] = {}
         if not island_state.has("claimed_milestones"):
             island_state["claimed_milestones"] = []
+        if not island_state.has("claimed_star_rewards"):
+            island_state["claimed_star_rewards"] = []
         if not island_state.has("highest_unlocked_level"):
             island_state["highest_unlocked_level"] = 1
         for level_id in island_state["completed_levels"]:
@@ -324,6 +330,10 @@ func _normalize_m15_fields(value: Variant) -> Variant:
         # Current-schema saves from before M15 are valid and intentionally load
         # with an empty ledger; no progression fields are rewritten or dropped.
         normalized["reward_ledger"] = []
+    if normalized.has("islands") and normalized["islands"] is Dictionary:
+        for island_id in normalized["islands"]:
+            if normalized["islands"][island_id] is Dictionary and not normalized["islands"][island_id].has("claimed_star_rewards"):
+                normalized["islands"][island_id]["claimed_star_rewards"] = []
     return normalized
 
 
@@ -349,6 +359,10 @@ func _is_non_negative_number(value: Variant) -> bool:
 
 func _is_bounded_stars(value: Variant) -> bool:
     return _is_non_negative_number(value) and is_equal_approx(float(value), float(int(value))) and int(value) <= 3
+
+
+func _is_positive_integer(value: Variant) -> bool:
+    return _is_non_negative_number(value) and is_equal_approx(float(value), float(int(value))) and int(value) > 0
 
 
 func _normalize_json_numbers(value: Variant) -> Variant:

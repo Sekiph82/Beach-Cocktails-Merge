@@ -147,6 +147,8 @@ func mark_level_completed(island_id: String, level_id: int, result: Dictionary =
         island_state["highest_unlocked_level"] = maxi(int(island_state.get("highest_unlocked_level", 1)), level_id + 1)
     _set_island_state(island_id, island_state)
     var changed := old_record != new_record or int(island_state.get("highest_unlocked_level", 1)) != old_highest_level
+    var cumulative_rewards := _claim_cumulative_star_rewards(island_id)
+    changed = changed or not cumulative_rewards.is_empty()
     var unlock_changed := _refresh_island_unlocks()
     changed = changed or unlock_changed
     if changed:
@@ -158,6 +160,8 @@ func mark_level_completed(island_id: String, level_id: int, result: Dictionary =
         "island_complete": is_island_complete(island_id),
         "next_level": resolve_next_level(island_id, level_id),
         "next_island": resolve_next_island(island_id),
+        "cumulative_stars": get_cumulative_stars(island_id),
+        "cumulative_rewards": cumulative_rewards,
     }
 
 
@@ -242,6 +246,17 @@ func get_progression_state() -> Dictionary:
     return _state.duplicate(true)
 
 
+func get_cumulative_stars(island_id: String) -> int:
+    var completed: Dictionary = _get_island_state(island_id).get("completed_levels", {})
+    var total := 0
+    for record in completed.values():
+        if record is Dictionary and bool(record.get("completed", false)):
+            total += clampi(int(record.get("stars", 0)), 0, 3)
+    var island: Dictionary = level_database.get_island(island_id) if level_database != null else {}
+    var maximum := maxi(0, int(island.get("level_count", 0)) * 3)
+    return mini(total, maximum) if maximum > 0 else total
+
+
 func _refresh_island_unlocks() -> bool:
     if level_database == null:
         return false
@@ -252,7 +267,7 @@ func _refresh_island_unlocks() -> bool:
             unlocked.append(island_id)
             changed = true
             if not _state.get("islands", {}).has(island_id):
-                _set_island_state(island_id, {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": []})
+                _set_island_state(island_id, {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": [], "claimed_star_rewards": []})
     unlocked.sort()
     _state["unlocked_islands"] = unlocked
     return changed
@@ -290,7 +305,9 @@ func _normalized_state(progression_state: Dictionary) -> Dictionary:
         state["reward_ledger"] = []
     for island_id in state["unlocked_islands"]:
         if not state["islands"].has(island_id):
-            state["islands"][island_id] = {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": []}
+            state["islands"][island_id] = {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": [], "claimed_star_rewards": []}
+        elif not state["islands"][island_id].has("claimed_star_rewards"):
+            state["islands"][island_id]["claimed_star_rewards"] = []
     return state
 
 
@@ -303,6 +320,8 @@ func _get_island_state(island_id: String) -> Dictionary:
         island_state["completed_levels"] = {}
     if not island_state.has("claimed_milestones"):
         island_state["claimed_milestones"] = []
+    if not island_state.has("claimed_star_rewards"):
+        island_state["claimed_star_rewards"] = []
     return island_state
 
 
@@ -322,6 +341,44 @@ func _milestone_reward(island: Dictionary, milestone_id: Variant) -> Dictionary:
     # A configured milestone with no economy payload is still claimable and is
     # recorded idempotently. Zero coins gives the ledger a deterministic mark.
     return {"coins": 0}
+
+
+func _claim_cumulative_star_rewards(island_id: String) -> Array:
+    if level_database == null:
+        return []
+    var island: Dictionary = level_database.get_island(island_id)
+    var reward_track: Dictionary = island.get("reward_track", {})
+    var configured: Variant = reward_track.get("cumulative_star_rewards", [])
+    if not configured is Array:
+        return []
+    var cumulative_stars := get_cumulative_stars(island_id)
+    var island_state := _get_island_state(island_id)
+    var claimed: Array = island_state.get("claimed_star_rewards", []).duplicate(true)
+    var newly_claimed: Array = []
+    var changed := false
+    for entry in configured:
+        if not entry is Dictionary:
+            continue
+        var threshold := int(entry.get("threshold", 0))
+        var reward: Variant = entry.get("reward", {})
+        if threshold <= 0 or threshold > cumulative_stars or not reward is Dictionary:
+            continue
+        if claimed.has(threshold):
+            continue
+        var grant := {"ok": true, "granted": false, "duplicate": false, "reason": "ECONOMY_UNAVAILABLE"}
+        if economy != null:
+            var reward_id := "cumulative-stars:%s:%d" % [island_id, threshold]
+            grant = economy.grant_reward(reward_id, reward)
+        if not bool(grant.get("ok", false)):
+            continue
+        claimed.append(threshold)
+        newly_claimed.append({"threshold": threshold, "reward": reward.duplicate(true), "grant": grant.duplicate(true)})
+        changed = true
+    if changed:
+        claimed.sort()
+        island_state["claimed_star_rewards"] = claimed
+        _set_island_state(island_id, island_state)
+    return newly_claimed
 
 
 func _first_unlocked_island() -> String:
