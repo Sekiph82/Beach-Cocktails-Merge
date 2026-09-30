@@ -1,28 +1,26 @@
-# CODEX Execution Log - BCM-M17 V07-R03-R02-V04
+# CODEX Execution Log - BCM-M17 V07-R03-R02-V04 Child 01
 
 Status: COMPLETE - BUILDER EVIDENCE - AWAITING INDEPENDENT AUDIT
 
 Work item: BCM-M17-008 V07-R03-R02-V04 capture-compatible evidence-handoff remediation.
 
-Master prompt/criteria: CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_V04.md / CHATGPT_AUDIT_CRITERIA_V07_R03_R02_V04.md.
+Prompt/criteria: CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_CHILD_01_V04.md / CHATGPT_AUDIT_CRITERIA_V07_R03_R02_CHILD_01_V04.md.
 
-Exact ordered package: exactly one child, Child 01. No later child exists.
+The package contains exactly one ordered child. This is builder evidence only; independent audit remains with ChatGPT.
 
-## Batch result
-
-Child 01 completed the evidence-only retry. The compatible smoke check passed, then the eight-command locked sequence ran exactly once and in order. Every required marker and native exit code passed. The existing V07-R03 direct PASS was inspected read-only and was not rerun or repaired.
-
-## Governance, preservation, and synchronization
+## Governance and synchronization
 
 - Canonical checkout: C:\Users\sekip\Desktop\Beach Cocktails - Merge
-- Branch/remote: main / origin https://github.com/Sekiph82/Beach-Cocktails-Merge.git
-- Preflight: clean ## main...origin/main; fetch succeeded; divergence 0 0
-- Required Actor/status: CODEX / READY_FOR_CODEX
-- TASKS.md was read and remained byte-for-byte unchanged; Codex did not edit it
-- No production code, canonical data, runner/report, historical evidence, timer/objective tuning, or M18 work changed
-- No direct V07-R03 confirmation runner was invoked
+- Branch: main
+- Remote: origin https://github.com/Sekiph82/Beach-Cocktails-Merge.git
+- Preflight: git status --short --branch, git remote -v, git fetch origin main, git rev-list --left-right --count HEAD...origin/main
+- Result: clean ## main...origin/main; fetch succeeded; divergence 0 0
+- Required Actor: CODEX; live status: READY_FOR_CODEX
+- Root README.md absent; README.txt read
+- TASKS.md read and remained byte-for-byte unchanged
+- No destructive synchronization operation used
 
-## Equality and protected hashes
+## Execution-time equality
 
 - Start/execution HEAD: 09505694d1d7f640230cca6bd245ddbe00c8bc3c
 - Start/execution origin/main: 09505694d1d7f640230cca6bd245ddbe00c8bc3c
@@ -33,13 +31,17 @@ Child 01 completed the evidence-only retry. The compatible smoke check passed, t
 - git diff --quiet -- TASKS.md: exit 0
 - git diff --cached --quiet -- TASKS.md: exit 0
 
+## Protected bytes and preserved V07-R03 PASS
+
 - TASKS.md: A5FD6A7717CDB1A335FDE4DACAC51CC788101EF011DA49A67F3DCB7F5F581E59
 - data/campaign/levels/sunny_cove.json: 9FEABEE63BE44CFBB2B9DB7527A06B1B0E3F072C6859F4E7B8C6B3D7D9F25495
 - tools/campaign/m17_canonical_confirmation_v07_r03.gd: 0250AD26D995C8101F17E4834785746142CE00F511F5DA1929E80A7803A1ADBC
 - M17_CANONICAL_CONFIRMATION_V07_R03.json: 4B07CE2778F9CD001756BE26259B169288D002F385484F94A85A120BF7101C9A
 - M17_CANONICAL_CONFIRMATION_V07_R03.md: 82EA191C7333BEED7DAAFA4639EAE47EAF904B2C3ADE0A9A9390C6ECC1165276
 
-## Compatibility gate
+Read-only inspection: R03_REPORT_INSPECTION_RESULT=PASS status=PASS report_version=V07-R03 validation_errors=0. The R03 confirmation runner was not invoked. The R03 runner/report, canonical Sunny Cove data, TASKS.md, and all prior attempts remained unchanged.
+
+## Compatibility smoke check
 
 ```text
 CAPTURE_IMPLEMENTATION=ProcessStartInfo.Arguments plus ReadToEndAsync, WaitForExit, and exact ExitCode; ProcessStartInfo.ArgumentList was not used.
@@ -56,12 +58,7 @@ REPOSITORY_STATUS_BEFORE=CLEAN
 REPOSITORY_STATUS_AFTER=CLEAN
 ```
 
-## Ordered child record
-
-- Child 01: COMPLETE
-- Locked order: V06 analytical -> V05 optionality -> M17 difficulty twice -> M16 -> M15 -> M14 -> M02
-- Complete transcripts, exact commands, native exit codes, and required markers are duplicated below and in the child log
-- git diff --check, TASKS worktree/index freeze checks, and clean status passed
+The native smoke process passed before the locked sequence. The compatible wrapper used ProcessStartInfo.Arguments, asynchronous complete stdout/stderr reads, WaitForExit, and exact native ExitCode. No ProcessStartInfo.ArgumentList API was used.
 
 ## Complete locked regression transcript
 
@@ -1485,19 +1482,22 @@ REQUIRED_MARKER_PRESENT=True
 
 ```
 
-## Limitations and handoff
+## Freeze, scope, and limitations
 
-- Headless-only validation; no owner/native/manual visual acceptance and no independent GPT audit was performed
-- M15 emitted expected HEADLESS_DISPLAY capture-unavailable diagnostics for visual snapshots while its functional probe passed
-- Terminal post-publication equality is recorded in docs/codex-logs/BCM-M17_V07_R03_R02_V04_CAPTURE_COMPATIBLE_CODEX_LOG.md
-- This is builder evidence only; ChatGPT remains the independent auditor and lifecycle owner
+- Eight locked commands ran exactly once: V06 analytical, V05 optionality, M17 difficulty run 01, M17 difficulty run 02, M16, M15, M14, M02.
+- Both M17 runs emitted M17_DIFFICULTY_VALIDATION_RESULT=PASS and exit 0.
+- M15 emitted expected non-fatal M15_CAPTURE_UNAVAILABLE ... HEADLESS_DISPLAY diagnostics; its functional assertions and PASS marker passed.
+- git diff --check and TASKS worktree/index freeze checks passed; final pre-publication status was clean.
+- No production code, canonical data, R03 runner/report, historical evidence, TASKS.md, prompt/audit file, timer/objective tuning, owner/native/manual acceptance, or M18 work changed.
+- The terminal post-publication equality record is in docs/codex-logs/BCM-M17_V07_R03_R02_V04_CAPTURE_COMPATIBLE_CODEX_LOG.md.
 
 ## Evidence URLs
 
 - https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R03_R02_CHILD_01_V04.md
-- https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R03_R02_V04.md
 - https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07_R03.md
 
 ## Completion marker
+
+CHILD_01_COMPLETE
 
 AWAITING_M17_AUDIT_V07_R03_R02
