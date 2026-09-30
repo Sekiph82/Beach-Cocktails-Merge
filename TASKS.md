@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: M17
-- Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: BCM-M17-008 V07-R03-R02-V05 log-embedded equality correction.
+- Current Milestone: M18
+- Current Sprint: BCM-M18-STARS-MASTERY-REPLAY
+- Current Task: BCM-M18-BATCH-001 complete ordered children in the frozen M18 package.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the single ordered V07-R03-R02-V05 documentation child: preserve the complete V04 transcripts and all prior evidence without rerunning any command, publish the new child/master logs, embed the verified first-publication equality in both logs, publish the final second-publication equality record, and stop at AWAITING_M17_AUDIT_V07_R03_R02. Do not repair the R03 report, tune canonical data, or start M18.
+- Next Task/Action: Codex executes the complete frozen M18 batch in the six ordered child prompts: star contract, monotonic best score/replay, Sunny Cove cumulative star/reward track, completion-based progression, Island Map replay visibility, and full integration/regression closure. Stop the entire batch on any failed or unverified child and hand off at AWAITING_M18_AUDIT_V01. Do not start M19.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. V07-R03 direct evidence passes. V07-R03-R01, V07-R03-R02, V07-R03-R02-V03, and V07-R03-R02-V04 remain independently CHANGES_REQUIRED. M17-008 remains active for the V05 evidence-log correction before any timer/objective tuning.
+- Progress: 76 / 101 = 75.25%. M17-001..008 are independently audited PASS at the V05 evidence-correction boundary. M18 is authorized as one complete six-child batch; M19 remains blocked until M18 is independently audited.
 
 ## Tasks
 
@@ -757,7 +757,10 @@ V07-R03-R02-V05 bounded no-rerun documentation package:
 
 V07-R03-R02-V05 is evidence-only and must not rerun the V04 sequence. It preserves V04 and all prior evidence, embeds the first-publication equality in both new logs, publishes the final second-publication equality record, and blocks M17 tuning and M18.
 
-V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 remains active for V05 evidence-log closure first; M18 remains blocked.
+V07-R03-R02-V05 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07_R03_R02_V05.md` — **AUDITED_PASS**.
+
+V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 is closed as an evidence-log correction only; no canonical difficulty tuning was accepted.
 
 
 - [x] BCM-M17-001 — Implement deterministic L1-equivalent objective cost calculation for every campaign level.
@@ -767,9 +770,18 @@ V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural
 - [x] BCM-M17-005 — Build a level validation/simulation harness or replayable bot test interface that can run repeated seeded trials against campaign data.
 - [x] BCM-M17-006 — Report completion rate, median completion time, percentile completion times, timeout causes, and board-congestion metrics per tested level.
 - [x] BCM-M17-007 — Flag mathematically impossible, effectively impossible, or outlier levels before they are accepted into canonical campaign data.
-- [~] BCM-M17-008 — Tune data only after evidence; never hide impossible level design behind arbitrary timer extensions.
+- [x] BCM-M17-008 — Tune data only after evidence; never hide impossible level design behind arbitrary timer extensions.
 
 ### M18 — Stars, score mastery, milestones, and replay
+
+M18 V01 complete ordered milestone-batch package:
+- Master prompt: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_EXECUTION_PROMPT_V01.md`
+- Master audit criteria: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_AUDIT_CRITERIA_V01.md`
+- Ordered child prompts/criteria: six files `CHATGPT_EXECUTION_PROMPT_V01_CHILD_01.md` through `CHATGPT_EXECUTION_PROMPT_V01_CHILD_06.md` and matching `CHATGPT_AUDIT_CRITERIA_V01_CHILD_*.md`
+- Master log template: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CODEX_LOG_V01.md`
+- Required final marker: `AWAITING_M18_AUDIT_V01`
+
+The complete M18 package is frozen and CODEX is authorized to execute all six ordered children in sequence. No later child may begin after an earlier child fails or is unverified; M19 remains blocked.
 
 - [ ] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
 - [ ] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
