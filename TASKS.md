@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M18
 - Current Sprint: BCM-M18-STARS-MASTERY-REPLAY
-- Current Task: BCM-M18-BATCH-001 complete ordered children in the frozen M18 package.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the complete frozen M18 batch in the six ordered child prompts: star contract, monotonic best score/replay, Sunny Cove cumulative star/reward track, completion-based progression, Island Map replay visibility, and full integration/regression closure. Stop the entire batch on any failed or unverified child and hand off at AWAITING_M18_AUDIT_V01. Do not start M19.
-- Required Actor: CODEX
+- Current Task: BCM-M18-003 — Sunny Cove cumulative star/reward track owner decision.
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner must supply or approve the exact Sunny Cove cumulative-star threshold-to-reward payload in repository truth. Do not start Child 03 implementation or Children 04-06 until that payload is present and a new bounded handoff is issued; preserve the independently audited Child 01/02 results. Do not start M19.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 76 / 101 = 75.25%. M17-001..008 are independently audited PASS at the V05 evidence-correction boundary. M18 is authorized as one complete six-child batch; M19 remains blocked until M18 is independently audited.
+- Progress: 78 / 101 = 77.23%. M17-001..008 are independently audited PASS at the V05 evidence-correction boundary. M18 Child 01/02 are independently audited PASS; Child 03 is OWNER_REQUIRED for the missing approved cumulative-star reward payload, and Children 04-06 remain blocked/unstarted. M19 remains blocked until M18 is independently audited.
 
 ## Tasks
 
@@ -783,9 +783,9 @@ M18 V01 complete ordered milestone-batch package:
 
 The complete M18 package is frozen and CODEX is authorized to execute all six ordered children in sequence. No later child may begin after an earlier child fails or is unverified; M19 remains blocked.
 
-- [ ] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
-- [ ] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
-- [ ] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
+- [x] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
+- [x] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
+- [!] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
 - [ ] BCM-M18-004 — Keep next-level progression based on level completion, not mandatory perfect-star replay.
 - [ ] BCM-M18-005 — Add replay flow from Island Map with previously earned state visible.
 - [ ] BCM-M18-006 — Add tests for star upgrades, worse replay preservation, milestone claims, and 100% island completion.
