@@ -18,6 +18,7 @@ var island_id := ""
 var level_id := 0
 var level_state := STATE_LOCKED
 var earned_stars := 0
+var best_score := 0
 var milestone := false
 var vip_enabled := false
 var _vip_marker: TextureRect
@@ -34,22 +35,24 @@ func _ready() -> void:
 
 func configure(
 		configured_island_id: String,
-		configured_level_id: int,
-		configured_state: String,
+	configured_level_id: int,
+	configured_state: String,
 	configured_stars: int,
 	configured_milestone: bool,
-	configured_vip: bool = false
+	configured_vip: bool = false,
+	configured_best_score: int = 0
 	) -> void:
 	island_id = configured_island_id
 	level_id = configured_level_id
 	level_state = configured_state
 	earned_stars = clampi(configured_stars, 0, 3)
+	best_score = maxi(0, configured_best_score)
 	milestone = configured_milestone
 	vip_enabled = configured_vip
 	disabled = level_state == STATE_LOCKED
 	if _vip_marker != null:
 		_vip_marker.visible = vip_enabled
-	tooltip_text = "Level %d%s" % [level_id, " milestone" if milestone else ""]
+	tooltip_text = "Level %d%s\nBest score: %d" % [level_id, " milestone" if milestone else "", best_score]
 	text = _display_text()
 	_apply_style()
 
@@ -71,6 +74,10 @@ func get_state() -> String:
 
 func get_stars() -> int:
 	return earned_stars
+
+
+func get_best_score() -> int:
+	return best_score
 
 
 func is_milestone() -> bool:
@@ -110,7 +117,7 @@ func _display_text() -> String:
 	for index in range(3):
 		stars += "★" if index < earned_stars else "☆"
 	var marker := "  ◆" if milestone else ""
-	return "L%d%s\n%s\n%s" % [level_id, marker, stars, level_state]
+	return "L%d%s\n%s\nBEST %d\n%s" % [level_id, marker, stars, best_score, level_state]
 
 
 func _apply_style() -> void:

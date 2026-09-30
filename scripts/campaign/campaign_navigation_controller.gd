@@ -219,6 +219,7 @@ func _launch_selected_level(island_id: String, level_id: int) -> bool:
 	var configuration: Dictionary = _session_bridge.start_session(island_id, level_id)
 	if configuration.is_empty():
 		return false
+	_restoration_by_island[island_id] = _island_map.get_restoration_state()
 	_island_map.visible = false
 	_world_map.visible = false
 	current_view = VIEW_GAMEPLAY
@@ -248,6 +249,8 @@ func _on_session_terminal(result: Dictionary) -> void:
 
 
 func _on_session_island_map_requested(island_id: String) -> void:
+	if _island_map != null and not island_id.is_empty():
+		_restoration_by_island[island_id] = _island_map.get_restoration_state()
 	_dispose_gameplay()
 	show_island_map(island_id)
 

@@ -253,7 +253,7 @@ func _refresh_deferred() -> void:
 		var y := 26.0 + float(level_id - 1) * NODE_HEIGHT
 		button.position = Vector2(x, y)
 		button.size = NODE_SIZE
-		button.configure(island_id, level_id, _state_for(level_id), _stars_for(level_id), _milestone_levels.has(level_id), _is_vip_level(level_id))
+		button.configure(island_id, level_id, _state_for(level_id), _stars_for(level_id), _milestone_levels.has(level_id), _is_vip_level(level_id), _best_score_for(level_id))
 		button.level_selected.connect(_on_level_button_selected)
 		_node_layer.add_child(button)
 		_level_buttons[level_id] = button
@@ -354,6 +354,14 @@ func _stars_for(level_id: int) -> int:
 	var state: Dictionary = campaign_manager.get_progression_state()
 	var record: Dictionary = state.get("islands", {}).get(island_id, {}).get("completed_levels", {}).get(str(level_id), {})
 	return clampi(int(record.get("stars", 0)), 0, 3)
+
+
+func _best_score_for(level_id: int) -> int:
+	if campaign_manager == null:
+		return 0
+	var state: Dictionary = campaign_manager.get_progression_state()
+	var record: Dictionary = state.get("islands", {}).get(island_id, {}).get("completed_levels", {}).get(str(level_id), {})
+	return maxi(0, int(record.get("best_score", 0)))
 
 
 func _refresh_milestones(definition: Dictionary) -> void:
