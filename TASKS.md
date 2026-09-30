@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: BCM-M17-008 V07-R03-R02-V03 complete-stdout/equality evidence-handoff remediation.
+- Current Task: BCM-M17-008 V07-R03-R02-V04 capture-compatible evidence-handoff remediation.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the single ordered V07-R03-R02-V03 evidence-closure child under the new locked retry package: preserve the passing R03 runner/report and all historical evidence, capture every locked regression with complete verbatim stdout/stderr, exact exit codes, corrected protected hashes, and equality proof in the child/master logs, publish the terminal final-equality record, and stop at AWAITING_M17_AUDIT_V07_R03_R02. Do not rerun or repair the R03 report; canonical tuning and M18 remain blocked.
+- Next Task/Action: Codex executes the single ordered V07-R03-R02-V04 evidence-closure child under the new locked retry package: first prove a compatible complete-capture wrapper with a harmless local smoke check, then preserve the passing R03 runner/report and all historical evidence, capture every locked regression with complete verbatim stdout/stderr, exact exit codes, corrected protected hashes, and equality proof in the child/master logs, publish the terminal final-equality record, and stop at AWAITING_M17_AUDIT_V07_R03_R02. Do not rerun or repair the R03 report; canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. V07-R03 direct evidence passes. V07-R03-R01 and V07-R03-R02 remain independently CHANGES_REQUIRED; the V07-R03-R02 Attempt 02 stopped at an incomplete M17 run-1 transcript. M17-008 remains active for the V07-R03-R02-V03 evidence closure before any timer/objective tuning.
+- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. V07-R03 direct evidence passes. V07-R03-R01, V07-R03-R02, and V07-R03-R02-V03 remain independently CHANGES_REQUIRED; V03 stopped before the first regression because its capture wrapper could not construct `ProcessStartInfo.ArgumentList`. M17-008 remains active for the V07-R03-R02-V04 evidence closure before any timer/objective tuning.
 
 ## Tasks
 
@@ -732,6 +732,18 @@ V07-R03-R02-V03 retry package:
 - Required final marker: `AWAITING_M17_AUDIT_V07_R03_R02`
 
 The V03 retry is evidence-only and preserves Attempts 01/02. It must not rerun or repair the V07-R03 confirmation report, tune canonical data, or start M18.
+
+V07-R03-R02-V03 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07_R03_R02_V03.md` — **CHANGES_REQUIRED / CAPTURE-WRAPPER-SETUP-FAILURE**.
+
+V07-R03-R02-V04 bounded remediation package:
+- Master remediation prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_V04.md`
+- Master remediation criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07_R03_R02_V04.md`
+- Ordered Child 01 prompt/criteria: `CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_CHILD_01_V04.md` / `CHATGPT_AUDIT_CRITERIA_V07_R03_R02_CHILD_01_V04.md`
+- Required child log / master-log template: `CODEX_LOG_V07_R03_R02_CHILD_01_V04.md` / `CODEX_LOG_V07_R03_R02_V04.md`
+- Required final marker: `AWAITING_M17_AUDIT_V07_R03_R02`
+
+V07-R03-R02-V04 is evidence-only: prove capture-wrapper compatibility before the locked sequence, preserve V07-R03 and all prior attempts, do not rerun or repair the V07-R03 confirmation report, do not tune canonical data, and do not start M18. Only one child exists; any failed or unverified command stops the batch.
 
 V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 remains active for V07 evidence confirmation first; M18 remains blocked.
 
