@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M18
 - Current Sprint: BCM-M18-STARS-MASTERY-REPLAY
-- Current Task: BCM-M18-003..006 — V02 owner-approved continuation from cumulative-star rewards through M18 integration closure.
+- Current Task: BCM-M18-003..006 — V02-R01 bounded remediation for cumulative-reward claim integrity, replay captures, and evidence correction.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes M18 V02 in strict order: implement the owner-approved cumulative-star reward track for BCM-M18-003, then continue BCM-M18-004, BCM-M18-005, and BCM-M18-006 only after each prior child passes and publishes clean equality. Preserve independently audited M18-001/002 and historical V01 blocker evidence. Stop at AWAITING_M18_AUDIT_V02; do not start M19.
+- Next Task/Action: Codex fixes only the economy-unavailable cumulative-star reward claim edge case, adds the locked deferred-grant tests, produces the four mandatory M18 replay-state runtime captures, records the correct Child 05 merge SHA in new evidence, runs the focused V02-R01 regression set, and stops at AWAITING_M18_AUDIT_V02_R01. Preserve historical V01/V02 evidence and root TASKS.md; do not start M19.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 78 / 101 = 77.23%. M17-001..008 are independently audited PASS. M18-001/002 are independently audited PASS. The BCM-M18-003 owner payload is now approved in OWNER_RULING_V02; BCM-M18-003..006 remain implementation/audit work. M19 remains blocked until independent M18 closure.
+- Progress: 78 / 101 = 77.23%. M17-001..008 and M18-001/002 are independently audited PASS. M18 V02 is independently CHANGES_REQUIRED for one cumulative-reward claim edge case, missing Child 05 runtime captures, and one exact-SHA evidence typo. M19 remains blocked until independent M18 closure.
 
 ## Tasks
 
@@ -803,12 +803,23 @@ M18 V02 continuation package:
 
 V02 resumes at BCM-M18-003 only. M18-001/002 must not be reimplemented. BCM-M18-004..006 may execute only in order after each prior child passes and publishes clean equality. M19 remains blocked until independent M18 closure.
 
+M18 V02 independent audit:
+`coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_AUDIT_V02.md` — **CHANGES_REQUIRED / BOUNDED V02-R01 REMEDIATION**.
+
+V02-R01 remediation package:
+- Prompt: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_REMEDIATION_PROMPT_V02_R01.md`
+- Locked criteria: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CHATGPT_AUDIT_CRITERIA_V02_R01.md`
+- Required log: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CODEX_LOG_V02_R01.md`
+- Required final marker: `AWAITING_M18_AUDIT_V02_R01`
+
+The remediation is limited to the economy-unavailable cumulative-star claim edge case, four missing Child 05 replay-state runtime captures, and the exact Child 05 merge-SHA evidence correction. Existing V02 functional behavior outside that scope remains frozen.
+
 - [x] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
 - [x] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
-- [~] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
-- [ ] BCM-M18-004 — Keep next-level progression based on level completion, not mandatory perfect-star replay.
-- [ ] BCM-M18-005 — Add replay flow from Island Map with previously earned state visible.
-- [ ] BCM-M18-006 — Add tests for star upgrades, worse replay preservation, milestone claims, and 100% island completion.
+- [!] BCM-M18-003 — Add Sunny Cove cumulative star/reward track with non-blocking milestone rewards.
+- [~] BCM-M18-004 — Keep next-level progression based on level completion, not mandatory perfect-star replay.
+- [!] BCM-M18-005 — Add replay flow from Island Map with previously earned state visible.
+- [~] BCM-M18-006 — Add tests for star upgrades, worse replay preservation, milestone claims, and 100% island completion.
 
 ### M19 — Multi-island scalability and Tiki Island handoff
 
