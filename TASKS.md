@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M17
 - Current Sprint: BCM-M17-DIFFICULTY-VALIDATION
-- Current Task: BCM-M17-008 V07-R03-R01 evidence-handoff remediation.
+- Current Task: BCM-M17-008 V07-R03-R02 complete-stdout/equality evidence-handoff remediation.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the single ordered V07-R03-R01 evidence-closure child: preserve the passing R03 runner/report and all historical evidence, recapture the locked regression sequence with complete stdout markers and exact exit codes, prove final local/origin/remote equality, and stop at AWAITING_M17_AUDIT_V07_R03_R01. Do not rerun or repair the R03 report; canonical tuning and M18 remain blocked.
+- Next Task/Action: Codex executes the single ordered V07-R03-R02 evidence-closure child: preserve the passing R03 runner/report and all historical evidence, recapture the locked regression sequence with verbatim complete stdout/stderr, exact exit codes, and equality proof in the child/master logs, publish the terminal final-equality record, and stop at AWAITING_M17_AUDIT_V07_R03_R02. Do not rerun or repair the R03 report; canonical tuning and M18 remain blocked.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. V07-R03 direct evidence passes but its handoff is independently CHANGES_REQUIRED for missing exact regression/final-equality proof. M17-008 remains active for V07-R03-R01 evidence closure before any timer/objective tuning.
+- Progress: 75 / 101 = 74.26%. M17-001..007 are independently audited PASS. V06-R02 is independently AUDITED_PASS. V07-R03 direct evidence passes, but V07-R03-R01 is independently CHANGES_REQUIRED because the successful V02 child/master logs omit complete captured stdout and defer post-publication equality to a separate terminal record. M17-008 remains active for V07-R03-R02 evidence closure before any timer/objective tuning.
 
 ## Tasks
 
@@ -708,6 +708,18 @@ V07-R03-R01 bounded evidence-handoff remediation package:
 - Required final marker: `AWAITING_M17_AUDIT_V07_R03_R01`
 
 V07-R03-R01 is evidence-only: preserve the passing R03 runner/report and recapture exact regression exits and final synchronization equality. No R03 direct rerun, report repair, canonical tuning, or M18 work is authorized.
+
+V07-R03-R01 independent audit:
+`coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_V07_R03_R01.md` — **CHANGES_REQUIRED / EVIDENCE-HANDOFF-INCOMPLETE**.
+
+V07-R03-R02 complete-stdout evidence-handoff remediation package:
+- Master remediation prompt: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_REMEDIATION_PROMPT_V07_R03_R02.md`
+- Master remediation criteria: `coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CHATGPT_AUDIT_CRITERIA_V07_R03_R02.md`
+- Ordered Child 01 prompt/criteria: `CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_CHILD_01.md` / `CHATGPT_AUDIT_CRITERIA_V07_R03_R02_CHILD_01.md`
+- Required child/master logs: `CODEX_LOG_V07_R03_R02_CHILD_01.md` / `CODEX_LOG_V07_R03_R02.md`
+- Required final marker: `AWAITING_M17_AUDIT_V07_R03_R02`
+
+V07-R03-R02 is evidence-only: preserve the passing R03 runner/report and all prior evidence, do not rerun the R03 confirmation runner or repair its report, capture verbatim complete regression stdout/stderr with exact exit codes, record equality in the child/master logs, and publish the terminal final-equality record. No canonical tuning or M18 work is authorized.
 
 V01 covers M17-001..006 tooling/evidence only. M17-007 is closed. V05 structural optionality remediation and V06-R02 runner remediation are independently passed. V06 and V06-R01 remain historical `CHANGES_REQUIRED` handoffs. M17-008 remains active for V07 evidence confirmation first; M18 remains blocked.
 
