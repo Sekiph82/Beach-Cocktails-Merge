@@ -781,7 +781,7 @@ M18 V01 complete ordered milestone-batch package:
 - Master log template: `coordination/sessions/BCM-M18-STARS-MASTERY-REPLAY/CODEX_LOG_V01.md`
 - Required final marker: `AWAITING_M18_AUDIT_V01`
 
-The complete M18 package is frozen and CODEX is authorized to execute all six ordered children in sequence. No later child may begin after an earlier child fails or is unverified; M19 remains blocked.
+The complete M18 V01 package was frozen before execution. Child 01/02 are independently audited PASS; Child 03 is OWNER_REQUIRED because the approved cumulative-star reward payload is absent; Children 04-06 are blocked/unstarted. Resume requires a new bounded ChatGPT handoff after the owner decision. No later child may begin after an earlier child fails or is unverified; M19 remains blocked.
 
 - [x] BCM-M18-001 — Define star award contract using completion, VIP completion, and score mastery rather than using stars as the island-unlock gate.
 - [x] BCM-M18-002 — Preserve best score per level and only replace stored stars/score when the replay result is better.
