@@ -1,72 +1,64 @@
-# CODEX Execution Log - BCM-M17 V07-R03-R02-V05
+# CODEX Execution Log - BCM-M17 V07-R03-R02-V05 Child 01
 
 Status: FIRST PUBLICATION - BUILDER EVIDENCE - AWAITING INDEPENDENT AUDIT
 
-Work item: BCM-M17-008 V07-R03-R02-V05 no-rerun evidence-log correction.
+Work item: BCM-M17-008 V07-R03-R02-V05 no-rerun evidence-log correction, Child 01.
 
-Master prompt/criteria: CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_V05.md / CHATGPT_AUDIT_CRITERIA_V07_R03_R02_V05.md.
+Prompt/criteria: CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_CHILD_01_V05.md / CHATGPT_AUDIT_CRITERIA_V07_R03_R02_CHILD_01_V05.md.
 
-This package has exactly one ordered child. Preserve V04 and all earlier evidence. No project command may be rerun.
+This is the single ordered child in the V05 package. It is documentation-only builder evidence; ChatGPT remains the independent auditor and lifecycle owner.
 
-## Governance and preservation
+## Governance and synchronization
 
-- Canonical checkout / branch / remote: C:\Users\sekip\Desktop\Beach Cocktails - Merge / main / origin https://github.com/Sekiph82/Beach-Cocktails-Merge.git
-- Preflight and divergence: clean ## main...origin/main; fetch succeeded; divergence 0 0
+- Canonical checkout: C:\Users\sekip\Desktop\Beach Cocktails - Merge
+- Branch: main
+- Remote: origin https://github.com/Sekiph82/Beach-Cocktails-Merge.git
+- Start preflight: clean ## main...origin/main; fetch succeeded; divergence 0 0
 - Start HEAD/origin/main/remote main: all 9de12e8cca001770602ea2e5a07a9654fc6a42e4
-- Required Actor/status: CODEX / READY_FOR_CODEX
-- Protected hashes and V04 evidence preservation: V07-R03 report/runner and canonical Sunny Cove data were inspected read-only; current hashes are recorded in the child log and the V04 evidence block below. V04 logs and terminal record remain immutable.
-- TASKS.md remained byte-for-byte unchanged; current SHA-256: 1190441A6B0CA7D05F5E65BFCD9DC19BB2BE300E5E6A408ABAEB36CFAF860001
-- No production code, canonical data, runner/report, historical evidence, timer/objective tuning, owner work, or M18 work changed
+- Required Actor: CODEX; live status: READY_FOR_CODEX
+- TASKS.md was read and remained unchanged; current SHA-256: 1190441A6B0CA7D05F5E65BFCD9DC19BB2BE300E5E6A408ABAEB36CFAF860001
 - No destructive synchronization operation used
 - No V07-R03, V04, M17, M16, M15, M14, M02, smoke, regression, or other project command was rerun
 
-## First-publication equality embedded in both V05 logs
+## Protected evidence inspected read-only
 
-- This section will be completed after the first V05 log publication and verification.
-- First publication commit:
-- `git rev-parse HEAD`:
-- `git rev-parse origin/main`:
-- `git ls-remote origin refs/heads/main`:
-- Clean status:
-- `git diff --check`:
+- data/campaign/levels/sunny_cove.json: 9FEABEE63BE44CFBB2B9DB7527A06B1B0E3F072C6859F4E7B8C6B3D7D9F25495
+- tools/campaign/m17_canonical_confirmation_v07_r03.gd: 0250AD26D995C8101F17E4834785746142CE00F511F5DA1929E80A7803A1ADBC
+- M17_CANONICAL_CONFIRMATION_V07_R03.json: 4B07CE2778F9CD001756BE26259B169288D002F385484F94A85A120BF7101C9A
+- M17_CANONICAL_CONFIRMATION_V07_R03.md: 82EA191C7333BEED7DAAFA4639EAE47EAF904B2C3ADE0A9A9390C6ECC1165276
+- V04 child log current SHA-256: 0B7D1D418835ACFBCF42FA80E02EAA22DBF128E76F8D1F95A6CBA8B237FC8C93
+- V04 master log current SHA-256: 26668F08988776DA13191B0A45FCA0466F27E344EE9176FE23EF04E522355916
+- V04 terminal record current SHA-256: 5F6D63093A8103A26FF7E21AE9721A08632E41791078D469541BDE0CBF63EEF9
+- V04 child/master logs and terminal record were inspected read-only and remain immutable.
 
-## Evidence correction
+## Preserved V04 Child 01 evidence
 
-- V04 transcripts preserved without rerun or alteration in the complete block below.
-- V07-R03 report/runner inspected read-only and not rerun.
-- Child 01 log path: coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R03_R02_CHILD_01_V05.md
-- Terminal record path: docs/codex-logs/BCM-M17_V07_R03_R02_V05_FINAL_PUBLICATION_CODEX_LOG.md
+The following block is the complete V04 child log copied without changing captured commands, stdout, stderr, markers, exit codes, protected hashes, or prior-attempt claims.
 
-## Preserved V04 master evidence
-
-The following block is the complete V04 master log copied without changing captured commands, stdout, stderr, markers, exit codes, protected hashes, or prior-attempt claims.
-
---- BEGIN PRESERVED V04 MASTER LOG ---
-# CODEX Execution Log - BCM-M17 V07-R03-R02-V04
+--- BEGIN PRESERVED V04 CHILD 01 LOG ---
+# CODEX Execution Log - BCM-M17 V07-R03-R02-V04 Child 01
 
 Status: COMPLETE - BUILDER EVIDENCE - AWAITING INDEPENDENT AUDIT
 
 Work item: BCM-M17-008 V07-R03-R02-V04 capture-compatible evidence-handoff remediation.
 
-Master prompt/criteria: CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_V04.md / CHATGPT_AUDIT_CRITERIA_V07_R03_R02_V04.md.
+Prompt/criteria: CHATGPT_REMEDIATION_PROMPT_V07_R03_R02_CHILD_01_V04.md / CHATGPT_AUDIT_CRITERIA_V07_R03_R02_CHILD_01_V04.md.
 
-Exact ordered package: exactly one child, Child 01. No later child exists.
+The package contains exactly one ordered child. This is builder evidence only; independent audit remains with ChatGPT.
 
-## Batch result
-
-Child 01 completed the evidence-only retry. The compatible smoke check passed, then the eight-command locked sequence ran exactly once and in order. Every required marker and native exit code passed. The existing V07-R03 direct PASS was inspected read-only and was not rerun or repaired.
-
-## Governance, preservation, and synchronization
+## Governance and synchronization
 
 - Canonical checkout: C:\Users\sekip\Desktop\Beach Cocktails - Merge
-- Branch/remote: main / origin https://github.com/Sekiph82/Beach-Cocktails-Merge.git
-- Preflight: clean ## main...origin/main; fetch succeeded; divergence 0 0
-- Required Actor/status: CODEX / READY_FOR_CODEX
-- TASKS.md was read and remained byte-for-byte unchanged; Codex did not edit it
-- No production code, canonical data, runner/report, historical evidence, timer/objective tuning, or M18 work changed
-- No direct V07-R03 confirmation runner was invoked
+- Branch: main
+- Remote: origin https://github.com/Sekiph82/Beach-Cocktails-Merge.git
+- Preflight: git status --short --branch, git remote -v, git fetch origin main, git rev-list --left-right --count HEAD...origin/main
+- Result: clean ## main...origin/main; fetch succeeded; divergence 0 0
+- Required Actor: CODEX; live status: READY_FOR_CODEX
+- Root README.md absent; README.txt read
+- TASKS.md read and remained byte-for-byte unchanged
+- No destructive synchronization operation used
 
-## Equality and protected hashes
+## Execution-time equality
 
 - Start/execution HEAD: 09505694d1d7f640230cca6bd245ddbe00c8bc3c
 - Start/execution origin/main: 09505694d1d7f640230cca6bd245ddbe00c8bc3c
@@ -77,13 +69,17 @@ Child 01 completed the evidence-only retry. The compatible smoke check passed, t
 - git diff --quiet -- TASKS.md: exit 0
 - git diff --cached --quiet -- TASKS.md: exit 0
 
+## Protected bytes and preserved V07-R03 PASS
+
 - TASKS.md: A5FD6A7717CDB1A335FDE4DACAC51CC788101EF011DA49A67F3DCB7F5F581E59
 - data/campaign/levels/sunny_cove.json: 9FEABEE63BE44CFBB2B9DB7527A06B1B0E3F072C6859F4E7B8C6B3D7D9F25495
 - tools/campaign/m17_canonical_confirmation_v07_r03.gd: 0250AD26D995C8101F17E4834785746142CE00F511F5DA1929E80A7803A1ADBC
 - M17_CANONICAL_CONFIRMATION_V07_R03.json: 4B07CE2778F9CD001756BE26259B169288D002F385484F94A85A120BF7101C9A
 - M17_CANONICAL_CONFIRMATION_V07_R03.md: 82EA191C7333BEED7DAAFA4639EAE47EAF904B2C3ADE0A9A9390C6ECC1165276
 
-## Compatibility gate
+Read-only inspection: R03_REPORT_INSPECTION_RESULT=PASS status=PASS report_version=V07-R03 validation_errors=0. The R03 confirmation runner was not invoked. The R03 runner/report, canonical Sunny Cove data, TASKS.md, and all prior attempts remained unchanged.
+
+## Compatibility smoke check
 
 ```text
 CAPTURE_IMPLEMENTATION=ProcessStartInfo.Arguments plus ReadToEndAsync, WaitForExit, and exact ExitCode; ProcessStartInfo.ArgumentList was not used.
@@ -100,12 +96,7 @@ REPOSITORY_STATUS_BEFORE=CLEAN
 REPOSITORY_STATUS_AFTER=CLEAN
 ```
 
-## Ordered child record
-
-- Child 01: COMPLETE
-- Locked order: V06 analytical -> V05 optionality -> M17 difficulty twice -> M16 -> M15 -> M14 -> M02
-- Complete transcripts, exact commands, native exit codes, and required markers are duplicated below and in the child log
-- git diff --check, TASKS worktree/index freeze checks, and clean status passed
+The native smoke process passed before the locked sequence. The compatible wrapper used ProcessStartInfo.Arguments, asynchronous complete stdout/stderr reads, WaitForExit, and exact native ExitCode. No ProcessStartInfo.ArgumentList API was used.
 
 ## Complete locked regression transcript
 
@@ -1529,27 +1520,35 @@ REQUIRED_MARKER_PRESENT=True
 
 ```
 
-## Limitations and handoff
+## Freeze, scope, and limitations
 
-- Headless-only validation; no owner/native/manual visual acceptance and no independent GPT audit was performed
-- M15 emitted expected HEADLESS_DISPLAY capture-unavailable diagnostics for visual snapshots while its functional probe passed
-- Terminal post-publication equality is recorded in docs/codex-logs/BCM-M17_V07_R03_R02_V04_CAPTURE_COMPATIBLE_CODEX_LOG.md
-- This is builder evidence only; ChatGPT remains the independent auditor and lifecycle owner
+- Eight locked commands ran exactly once: V06 analytical, V05 optionality, M17 difficulty run 01, M17 difficulty run 02, M16, M15, M14, M02.
+- Both M17 runs emitted M17_DIFFICULTY_VALIDATION_RESULT=PASS and exit 0.
+- M15 emitted expected non-fatal M15_CAPTURE_UNAVAILABLE ... HEADLESS_DISPLAY diagnostics; its functional assertions and PASS marker passed.
+- git diff --check and TASKS worktree/index freeze checks passed; final pre-publication status was clean.
+- No production code, canonical data, R03 runner/report, historical evidence, TASKS.md, prompt/audit file, timer/objective tuning, owner/native/manual acceptance, or M18 work changed.
+- The terminal post-publication equality record is in docs/codex-logs/BCM-M17_V07_R03_R02_V04_CAPTURE_COMPATIBLE_CODEX_LOG.md.
 
 ## Evidence URLs
 
 - https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R03_R02_CHILD_01_V04.md
-- https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/CODEX_LOG_V07_R03_R02_V04.md
 - https://github.com/Sekiph82/Beach-Cocktails-Merge/blob/main/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07_R03.md
 
 ## Completion marker
 
+CHILD_01_COMPLETE
+
 AWAITING_M17_AUDIT_V07_R03_R02
 
---- END PRESERVED V04 MASTER LOG ---
+--- END PRESERVED V04 CHILD 01 LOG ---
 
-## Final handoff
+## V05 correction scope
 
-The terminal record will contain the second-publication equality, final clean status, `git diff --check`, TASKS.md immutability, and final marker. The V05 logs end with:
+- This first publication contains only this new V05 child log and the V05 master log.
+- The first-publication equality will be embedded in this log after this first evidence commit is pushed and independently verified.
+- No regression, smoke, V07-R03, V04, report-repair, canonical-data, timer/objective, production-code, M18, owner/native/manual, or acceptance command was run.
+- The V04 terminal record remains historical evidence; the V05 terminal record will describe the second log-publication commit.
+
+## Completion marker
 
 AWAITING_M17_AUDIT_V07_R03_R02
