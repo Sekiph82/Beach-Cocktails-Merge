@@ -365,7 +365,10 @@ func _claim_cumulative_star_rewards(island_id: String) -> Array:
             continue
         if claimed.has(threshold):
             continue
-        var grant := {"ok": true, "granted": false, "duplicate": false, "reason": "ECONOMY_UNAVAILABLE"}
+        # Progression may complete before the economy service is attached, but
+        # a cumulative threshold is only claimed after a real grant attempt
+        # succeeds. This preserves the threshold for later reconciliation.
+        var grant := {"ok": false, "granted": false, "duplicate": false, "reason": "ECONOMY_UNAVAILABLE"}
         if economy != null:
             var reward_id := "cumulative-stars:%s:%d" % [island_id, threshold]
             grant = economy.grant_reward(reward_id, reward)
