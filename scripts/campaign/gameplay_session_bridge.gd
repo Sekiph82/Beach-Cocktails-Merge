@@ -220,6 +220,27 @@ func set_current_score(score: int) -> void:
     _current_score = maxi(0, score)
 
 
+func calculate_stars(completed: bool, vip_completed: bool, score: int, level_definition: Dictionary = {}) -> int:
+    ## Mastery is derived only after normal completion. VIP is optional and
+    ## score thresholds remain data-driven by the detached level definition.
+    if not completed:
+        return 0
+    var stars := 1
+    var vip_enabled := _definition_vip_enabled(level_definition)
+    if vip_enabled and vip_completed:
+        stars = 2
+    var thresholds: Variant = level_definition.get("score_star_thresholds", {})
+    if thresholds is Dictionary:
+        var two_stars: Variant = thresholds.get("two_stars", null)
+        var three_stars: Variant = thresholds.get("three_stars", null)
+        var normalized_score := maxi(0, score)
+        if two_stars != null and normalized_score >= int(two_stars):
+            stars = maxi(stars, 2)
+        if vip_enabled and vip_completed and three_stars != null and normalized_score >= int(three_stars):
+            stars = maxi(stars, 3)
+    return clampi(stars, 1, 3)
+
+
 func record_to_go_delivery(cocktail_level: int, quantity: int = 1, delivery_id: String = "", score: int = -1) -> Dictionary:
     if not is_session_active():
         return {"ok": false, "reason": "NO_ACTIVE_SESSION"}
@@ -458,7 +479,7 @@ func _resolve_terminal(outcome: String, reason: String) -> Dictionary:
         "normal_orders_completed": _normal_completed_by_level.duplicate(true),
         "normal_orders_remaining": _normal_remaining_by_level.duplicate(true),
         "vip_completed": _vip_completed,
-        "stars": _derive_stars(),
+        "stars": calculate_stars(outcome == OUTCOME_WIN, _vip_completed, _current_score, _active_level),
         "retry_available": true,
         "next_level_available": false,
         "island_map_available": true,
@@ -509,17 +530,12 @@ func _submit_progression(result: Dictionary) -> void:
 
 
 func _derive_stars() -> int:
-    var stars := 1
-    if _vip_completed:
-        stars = 2
-    var thresholds: Dictionary = _active_level.get("score_star_thresholds", {})
-    var two_stars = thresholds.get("two_stars", null)
-    var three_stars = thresholds.get("three_stars", null)
-    if two_stars != null and _current_score >= int(two_stars):
-        stars = maxi(stars, 2)
-    if _vip_completed and three_stars != null and _current_score >= int(three_stars):
-        stars = maxi(stars, 3)
-    return clampi(stars, 1, 3)
+    return calculate_stars(true, _vip_completed, _current_score, _active_level)
+
+
+func _definition_vip_enabled(level_definition: Dictionary) -> bool:
+    var vip: Variant = level_definition.get("vip", null)
+    return vip is Dictionary and bool(vip.get("enabled", true))
 
 
 func _deep_read_only(value: Variant):
