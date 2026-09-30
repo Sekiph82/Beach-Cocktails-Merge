@@ -1546,6 +1546,17 @@ AWAITING_M17_AUDIT_V07_R03_R02
 
 - This first publication contains only this new V05 child log and the V05 master log.
 - The first-publication equality will be embedded in this log after this first evidence commit is pushed and independently verified.
+- The first-publication equality was verified after the first evidence commit was pushed:
+
+## First-publication equality embedded after first V05 log publication
+
+- First publication commit: f851cd4d73b5fc87e7e4247329e997303fe71afe
+- `git rev-parse HEAD`: f851cd4d73b5fc87e7e4247329e997303fe71afe
+- `git rev-parse origin/main`: f851cd4d73b5fc87e7e4247329e997303fe71afe
+- `git ls-remote origin refs/heads/main`: f851cd4d73b5fc87e7e4247329e997303fe71afe\trefs/heads/main
+- Clean status: `## main...origin/main`
+- `git diff --check`: exit 0
+
 - No regression, smoke, V07-R03, V04, report-repair, canonical-data, timer/objective, production-code, M18, owner/native/manual, or acceptance command was run.
 - The V04 terminal record remains historical evidence; the V05 terminal record will describe the second log-publication commit.
 

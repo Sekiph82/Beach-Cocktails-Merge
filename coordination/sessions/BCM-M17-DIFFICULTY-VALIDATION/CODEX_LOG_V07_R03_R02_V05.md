@@ -22,13 +22,12 @@ This package has exactly one ordered child. Preserve V04 and all earlier evidenc
 
 ## First-publication equality embedded in both V05 logs
 
-- This section will be completed after the first V05 log publication and verification.
-- First publication commit:
-- `git rev-parse HEAD`:
-- `git rev-parse origin/main`:
-- `git ls-remote origin refs/heads/main`:
-- Clean status:
-- `git diff --check`:
+- First publication commit: f851cd4d73b5fc87e7e4247329e997303fe71afe
+- `git rev-parse HEAD`: f851cd4d73b5fc87e7e4247329e997303fe71afe
+- `git rev-parse origin/main`: f851cd4d73b5fc87e7e4247329e997303fe71afe
+- `git ls-remote origin refs/heads/main`: f851cd4d73b5fc87e7e4247329e997303fe71afe\trefs/heads/main
+- Clean status: `## main...origin/main`
+- `git diff --check`: exit 0
 
 ## Evidence correction
 
