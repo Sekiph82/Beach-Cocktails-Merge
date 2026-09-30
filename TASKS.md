@@ -28,7 +28,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 Detailed canonical task rows for M08+ appear in the roadmap sections below. Each canonical task ID must appear exactly once in this file so the H!veAI parser cannot observe conflicting state.
 
-Legend: `[x]` audited complete, `[~]` active/pending owner closure, `[!]` reopened/changes required, `[ ]` planned.
+Legend:
+- `[x]` audited complete.
+- `[~]` active/pending owner closure.
+- `[!]` reopened/changes required.
+- `[ ]` planned.
 
 ## Governance
 
