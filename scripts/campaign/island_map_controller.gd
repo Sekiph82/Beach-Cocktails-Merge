@@ -399,7 +399,11 @@ func _build_shell() -> void:
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(background)
 
-	var header := PanelContainer.new()
+	# This header contains explicitly positioned title/subtitle/summary controls.
+	# A PanelContainer would relayout those controls into the same container slot
+	# on the lower-map scroll presentation, so use a plain Panel as the visual
+	# surface and preserve their production coordinates.
+	var header := Panel.new()
 	header.name = "IslandMapHeader"
 	header.set_anchors_preset(Control.PRESET_TOP_WIDE)
 	header.offset_bottom = 166.0
