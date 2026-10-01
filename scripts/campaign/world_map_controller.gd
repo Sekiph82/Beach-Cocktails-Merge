@@ -26,6 +26,7 @@ const CARD_SCENE := preload("res://scenes/campaign/IslandEntry.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
+const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 
 var level_database
 var campaign_manager
@@ -41,6 +42,7 @@ var _route_line: Line2D
 var _marker_layer: Control
 var _status_label: Label
 var _selection_label: Label
+var _feedback_overlay
 
 
 func _ready() -> void:
@@ -132,6 +134,10 @@ func is_entry_selectable(island_id: String) -> bool:
 
 func get_locked_feedback() -> Dictionary:
 	return last_locked_feedback.duplicate(true)
+
+
+func get_feedback_overlay():
+	return _feedback_overlay
 
 
 func get_visual_marker_count() -> int:
@@ -365,6 +371,16 @@ func _build_shell() -> void:
 	boat.z_index = 5
 	add_child(boat)
 
+	_feedback_overlay = FEEDBACK_SCENE.new()
+	_feedback_overlay.name = "CampaignFeedbackOverlay"
+	_feedback_overlay.action_requested.connect(_on_feedback_action)
+	add_child(_feedback_overlay)
+
+
+func _on_feedback_action(action: String) -> void:
+	if action == "DISMISS" and _feedback_overlay != null:
+		_feedback_overlay.hide_feedback()
+
 
 func _configure_default_campaign() -> void:
 	level_database = DATABASE_SCRIPT.new()
@@ -400,9 +416,13 @@ func _show_locked_feedback(feedback: Dictionary) -> void:
 	_status_label.modulate = Color("#ffd0c4")
 	_status_label.text = "%s\n%s" % [feedback["reason"], feedback["progress"]]
 	_selection_label.text = "LOCKED DESTINATION  •  Complete the required campaign progress to continue"
+	if _feedback_overlay != null:
+		_feedback_overlay.show_locked_island(str(feedback["reason"]), str(feedback["progress"]))
 
 
 func _show_selection_feedback(island_id: String) -> void:
+	if _feedback_overlay != null:
+		_feedback_overlay.hide_feedback()
 	_status_label.modulate = Color("#fff0c6")
 	var definition: Dictionary = _definitions_by_id.get(island_id, {})
 	_status_label.text = "Selected %s  •  Island Map navigation boundary ready" % str(definition.get("display_name", island_id))

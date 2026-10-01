@@ -21,6 +21,7 @@ const LEVEL_BUTTON_SCENE := preload("res://scenes/campaign/LevelButton.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
+const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 
 var island_id := ""
 var level_database
@@ -41,6 +42,7 @@ var _node_layer: Control
 var _title_label: Label
 var _summary_label: Label
 var _focus_label: Label
+var _feedback_overlay
 
 
 func _ready() -> void:
@@ -102,7 +104,14 @@ func select_level(level_id: int) -> bool:
 	var button = _level_buttons.get(level_id)
 	if button == null:
 		return false
-	return button.try_select()
+	if not button.try_select():
+		_show_locked_level_feedback(level_id)
+		return false
+	return true
+
+
+func get_feedback_overlay():
+	return _feedback_overlay
 
 
 func request_back_to_world_map() -> void:
@@ -295,6 +304,8 @@ func _entry_focus_level(level_count: int) -> int:
 func _on_level_button_selected(level_id: int) -> void:
 	if campaign_manager == null or not campaign_manager.is_level_unlocked(island_id, level_id):
 		return
+	if _feedback_overlay != null:
+		_feedback_overlay.hide_feedback()
 	if not campaign_manager.select_level(island_id, level_id):
 		return
 	selected_level_id = level_id
@@ -481,6 +492,23 @@ func _build_shell() -> void:
 	_focus_label.modulate = Color("#c3e8df")
 	_focus_label.z_index = 5
 	add_child(_focus_label)
+
+	_feedback_overlay = FEEDBACK_SCENE.new()
+	_feedback_overlay.name = "CampaignFeedbackOverlay"
+	_feedback_overlay.action_requested.connect(_on_feedback_action)
+	add_child(_feedback_overlay)
+
+
+func _show_locked_level_feedback(level_id: int) -> void:
+	if _feedback_overlay == null or campaign_manager == null:
+		return
+	var island_state: Dictionary = campaign_manager.get_progression_state().get("islands", {}).get(island_id, {})
+	_feedback_overlay.show_locked_level(level_id, int(island_state.get("highest_unlocked_level", 1)))
+
+
+func _on_feedback_action(action: String) -> void:
+	if action == "DISMISS" and _feedback_overlay != null:
+		_feedback_overlay.hide_feedback()
 
 
 func _configure_default_campaign() -> void:

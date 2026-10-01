@@ -23,6 +23,7 @@ const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
+const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
 
 var level_database
@@ -36,6 +37,7 @@ var _world_map
 var _island_map
 var _gameplay
 var _session_bridge
+var _result_feedback
 var _restoration_by_island: Dictionary = {}
 var _persistence_enabled := false
 
@@ -45,6 +47,7 @@ func _ready() -> void:
 	if level_database == null or campaign_manager == null:
 		_configure_default_campaign()
 	_ensure_map_instances()
+	_ensure_result_feedback()
 
 
 func configure_campaign(database, manager, configured_economy = null) -> bool:
@@ -135,9 +138,14 @@ func get_save_manager():
 	return save_manager
 
 
+func get_result_feedback_overlay():
+	return _result_feedback
+
+
 func retry_level() -> bool:
 	if _session_bridge == null or not _session_bridge.is_terminal():
 		return false
+	_hide_result_feedback()
 	var configuration: Dictionary = _session_bridge.retry_session()
 	if configuration.is_empty():
 		return false
@@ -150,6 +158,7 @@ func retry_level() -> bool:
 func next_level() -> bool:
 	if _session_bridge == null or not _session_bridge.is_terminal():
 		return false
+	_hide_result_feedback()
 	var configuration: Dictionary = _session_bridge.next_level_session()
 	if configuration.is_empty():
 		return false
@@ -162,6 +171,7 @@ func next_level() -> bool:
 func return_to_island_map() -> bool:
 	if _session_bridge == null or not _session_bridge.is_terminal():
 		return false
+	_hide_result_feedback()
 	var result: Dictionary = _session_bridge.return_to_island_map()
 	return bool(result.get("ok", false))
 
@@ -203,6 +213,20 @@ func _ensure_map_instances() -> bool:
 	_world_map.visible = current_view == VIEW_WORLD_MAP
 	_island_map.visible = current_view == VIEW_ISLAND_MAP
 	return true
+
+
+func _ensure_result_feedback() -> void:
+	if _result_feedback != null:
+		return
+	_result_feedback = FEEDBACK_SCENE.new()
+	_result_feedback.name = "CampaignResultFeedback"
+	_result_feedback.action_requested.connect(_on_result_feedback_action)
+	add_child(_result_feedback)
+
+
+func _hide_result_feedback() -> void:
+	if _result_feedback != null:
+		_result_feedback.hide_feedback()
 
 
 func _on_island_map_requested(island_id: String) -> void:
@@ -255,6 +279,21 @@ func _dispose_gameplay() -> void:
 
 func _on_session_terminal(result: Dictionary) -> void:
 	gameplay_session_finished.emit(result)
+	_ensure_result_feedback()
+	_result_feedback.show_result(result)
+
+
+func _on_result_feedback_action(action: String) -> void:
+	match action:
+		"NEXT_LEVEL":
+			next_level()
+		"RETRY":
+			retry_level()
+		"ISLAND_MAP":
+			if _session_bridge != null and _session_bridge.is_terminal():
+				return_to_island_map()
+		"DISMISS":
+			_hide_result_feedback()
 
 
 func _on_session_island_map_requested(island_id: String) -> void:

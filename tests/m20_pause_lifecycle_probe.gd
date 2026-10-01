@@ -72,11 +72,12 @@ func _run() -> void:
     gameplay = navigation.get_node_or_null("CampaignGameplay") as GameManager
     bridge = navigation.get_session_bridge()
     _check("retry remains the same campaign level", gameplay != null and bridge.active_level_id == 1 and bridge.is_session_active())
+    var completion_before_map: bool = navigation.campaign_manager.is_level_completed("sunny_cove", 1)
     gameplay.request_pause()
     _check("Island Map action leaves through bridge boundary", gameplay.request_island_map())
     await process_frame
     await process_frame
-    _check("pause-to-map does not grant progression or duplicate instances", navigation.get_current_view() == navigation.VIEW_ISLAND_MAP and navigation.get_gameplay_instance_count() == 0 and not navigation.campaign_manager.is_level_completed("sunny_cove", 1))
+    _check("pause-to-map does not grant progression or duplicate instances", navigation.get_current_view() == navigation.VIEW_ISLAND_MAP and navigation.get_gameplay_instance_count() == 0 and navigation.campaign_manager.is_level_completed("sunny_cove", 1) == completion_before_map)
     _check("map/session authority remains singular", navigation.get_map_instance_count() == 2)
 
     shell.queue_free()
