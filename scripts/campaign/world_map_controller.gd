@@ -28,21 +28,6 @@ const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 
-# Pixel centers measured against the baked 720x1280 World Map background. The
-# map entries are state/click treatments only; they must not redraw map_asset.
-const BAKED_ISLAND_CENTERS := {
-	"sunset_island": Vector2(180.0, 160.0),
-	"frozen_paradise": Vector2(550.0, 150.0),
-	"tiki_island": Vector2(135.0, 355.0),
-	"sunny_cove": Vector2(455.0, 330.0),
-	"azure_bay": Vector2(560.0, 475.0),
-	"coconut_beach": Vector2(315.0, 625.0),
-	"party_beach": Vector2(135.0, 750.0),
-	"billionaire_island": Vector2(560.0, 785.0),
-	"final_island": Vector2(210.0, 960.0),
-	"volcano_bay": Vector2(555.0, 1040.0),
-}
-
 var level_database
 var campaign_manager
 var selected_island_id := ""
@@ -53,7 +38,6 @@ var _entries: Dictionary = {}
 var _refresh_queued := false
 
 var _map_canvas: Control
-var _route_line: Line2D
 var _marker_layer: Control
 var _status_label: Label
 var _selection_label: Label
@@ -168,6 +152,24 @@ func get_marker_position(island_id: String) -> Vector2:
 	return entry.position if entry != null else Vector2(-1.0, -1.0)
 
 
+func get_hotspot_center_report() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for island_id in _ordered_ids:
+		var definition: Dictionary = _definitions_by_id.get(island_id, {})
+		var entry: Control = _entries.get(island_id) as Control
+		if entry == null:
+			continue
+		var center := entry.position + IslandEntry.MARKER_CENTER
+		result.append({
+			"island_id": island_id,
+			"map_position": definition.get("map_position", []),
+			"map_canvas_center": center,
+			"screen_center": _map_canvas.position + center,
+			"source": "data/campaign/islands.json map_position",
+		})
+	return result
+
+
 func select_island(island_id: String) -> bool:
 	if campaign_manager == null:
 		return false
@@ -248,17 +250,6 @@ func _build_shell() -> void:
 	_map_canvas.offset_bottom = -176.0
 	_map_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_map_canvas)
-
-	_route_line = Line2D.new()
-	_route_line.name = "IslandRoute"
-	_route_line.width = 6.0
-	_route_line.default_color = Color("#ffd166")
-	_route_line.joint_mode = Line2D.LINE_JOINT_ROUND
-	_route_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
-	_route_line.end_cap_mode = Line2D.LINE_CAP_ROUND
-	_route_line.antialiased = true
-	_route_line.z_index = 1
-	_map_canvas.add_child(_route_line)
 
 	_marker_layer = Control.new()
 	_marker_layer.name = "IslandMarkers"
@@ -463,7 +454,6 @@ func _layout_map() -> void:
 	var map_size := _map_canvas.size
 	if map_size.x <= 0.0 or map_size.y <= 0.0:
 		map_size = Vector2(720.0, 924.0)
-	var route_points := PackedVector2Array()
 	for island_id in _ordered_ids:
 		var definition: Dictionary = _definitions_by_id.get(island_id, {})
 		var entry: Control = _entries.get(island_id) as Control
@@ -471,26 +461,19 @@ func _layout_map() -> void:
 			continue
 		var center := _calibrated_center(island_id, definition, int(definition.get("order_index", 1)))
 		entry.position = center - IslandEntry.MARKER_CENTER
-		route_points.append(center)
-	_route_line.points = route_points
 
 
-func _calibrated_center(island_id: String, definition: Dictionary, order_index: int) -> Vector2:
-	var viewport_size := get_viewport_rect().size
-	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
-		viewport_size = Vector2(720.0, 1280.0)
-	var screen_center: Vector2 = BAKED_ISLAND_CENTERS.get(island_id, Vector2.ZERO)
-	if screen_center == Vector2.ZERO:
-		var normalized := _map_position(definition, order_index)
-		screen_center = Vector2(normalized.x * 720.0, normalized.y * 1280.0)
-	var scaled := Vector2(screen_center.x * viewport_size.x / 720.0, screen_center.y * viewport_size.y / 1280.0)
-	return scaled - _map_canvas.position
+func _calibrated_center(_island_id: String, definition: Dictionary, order_index: int) -> Vector2:
+	var map_size := _map_canvas.size
+	if map_size.x <= 0.0 or map_size.y <= 0.0:
+		map_size = Vector2(720.0, 924.0)
+	return _map_position(definition, order_index) * map_size
 
 
 func _map_position(definition: Dictionary, order_index: int) -> Vector2:
 	var raw_position: Variant = definition.get("map_position", [])
 	if raw_position is Array and raw_position.size() == 2:
-		return Vector2(clampf(float(raw_position[0]), 0.10, 0.90), clampf(float(raw_position[1]), 0.10, 0.90))
+		return Vector2(clampf(float(raw_position[0]), 0.0, 1.0), clampf(float(raw_position[1]), 0.0, 1.0))
 	var fallback_x := 0.16 + float((order_index - 1) % 4) * 0.22
 	var fallback_y := 0.18 + float((order_index - 1) / 4) * 0.28
 	return Vector2(fallback_x, fallback_y)

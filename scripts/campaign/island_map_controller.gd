@@ -35,6 +35,8 @@ var _refresh_queued := false
 var _level_buttons: Dictionary = {}
 var _milestone_levels: Array[int] = []
 
+var _background_texture: TextureRect
+var _background_fallback: ColorRect
 var _scroll: ScrollContainer
 var _content: Control
 var _path_line: Line2D
@@ -85,6 +87,7 @@ func configure_island(
 		# unlocked/unfinished state after the configured level count is known.
 		_focus_level_id = 0
 	_refresh_milestones(definition)
+	_set_island_map_background()
 	refresh()
 	return true
 
@@ -112,6 +115,12 @@ func select_level(level_id: int) -> bool:
 
 func get_feedback_overlay():
 	return _feedback_overlay
+
+
+func get_island_map_background_path() -> String:
+	if _background_texture != null and _background_texture.visible and _background_texture.texture != null:
+		return str(_background_texture.texture.resource_path)
+	return ""
 
 
 func request_back_to_world_map() -> void:
@@ -392,12 +401,21 @@ func _refresh_milestones(definition: Dictionary) -> void:
 
 
 func _build_shell() -> void:
-	var background := ColorRect.new()
-	background.name = "IslandMapBackground"
-	background.color = Color("#08283c")
-	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(background)
+	_background_fallback = ColorRect.new()
+	_background_fallback.name = "IslandMapFallbackBackground"
+	_background_fallback.color = Color("#08283c")
+	_background_fallback.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_background_fallback.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(_background_fallback)
+
+	_background_texture = TextureRect.new()
+	_background_texture.name = "IslandMapThemeBackground"
+	_background_texture.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_background_texture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_background_texture.stretch_mode = TextureRect.STRETCH_SCALE
+	_background_texture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_background_texture.visible = false
+	add_child(_background_texture)
 
 	# This header contains explicitly positioned title/subtitle/summary controls.
 	# A PanelContainer would relayout those controls into the same container slot
@@ -501,6 +519,18 @@ func _build_shell() -> void:
 	_feedback_overlay.name = "CampaignFeedbackOverlay"
 	_feedback_overlay.action_requested.connect(_on_feedback_action)
 	add_child(_feedback_overlay)
+
+
+func _set_island_map_background() -> void:
+	if _background_texture == null or _background_fallback == null or level_database == null:
+		return
+	var theme: Dictionary = level_database.get_island_theme(island_id)
+	var path := str(theme.get("island_map_background", ""))
+	var texture := load(path) as Texture2D if not path.is_empty() and ResourceLoader.exists(path) else null
+	var valid := texture != null
+	_background_texture.texture = texture
+	_background_texture.visible = valid
+	_background_fallback.visible = not valid
 
 
 func _show_locked_level_feedback(level_id: int) -> void:

@@ -230,6 +230,47 @@ func get_campaign_session_bridge():
     return campaign_session_bridge
 
 
+func get_visible_texture_inventory() -> Array[Dictionary]:
+    var result: Array[Dictionary] = []
+    _append_visible_texture_inventory(self, result)
+    return result
+
+
+func get_terminal_visual_counts() -> Dictionary:
+    var drinks := 0
+    var effects := 0
+    if world != null:
+        for child in world.get_children():
+            if child is Drink and child.is_visible_in_tree():
+                drinks += 1
+            if child.is_in_group("campaign_transient_world_effect") and child.is_visible_in_tree():
+                effects += 1
+    return {"visible_drink_count": drinks, "visible_transient_world_effect_count": effects}
+
+
+func _append_visible_texture_inventory(root: Node, result: Array[Dictionary]) -> void:
+    for child in root.get_children():
+        if child is CanvasItem and child.is_visible_in_tree() and (child is Sprite2D or child is TextureRect):
+            var texture: Texture2D = child.texture
+            var canvas_layer := 0
+            var ancestor := child.get_parent()
+            while ancestor != null:
+                if ancestor is CanvasLayer:
+                    canvas_layer = ancestor.layer
+                    break
+                ancestor = ancestor.get_parent()
+            result.append({
+                "node_path": str(child.get_path()),
+                "node_name": child.name,
+                "node_type": child.get_class(),
+                "texture_path": texture.resource_path if texture != null else "",
+                "z_index": child.z_index,
+                "canvas_layer": canvas_layer,
+                "visible": child.is_visible_in_tree(),
+            })
+        _append_visible_texture_inventory(child, result)
+
+
 func set_campaign_gameplay_paused(paused: bool) -> bool:
     if campaign_session_bridge == null:
         return false
@@ -673,7 +714,7 @@ func set_next_level(p_level: int) -> void:
 
 
 func _add_score(points: int) -> void:
-    if points <= 0:
+    if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()) or points <= 0:
         return
     score += points
     if score > best_score:
@@ -780,6 +821,7 @@ func _game_over() -> void:
         return
 
     game_over = true
+    _clear_terminal_world_visuals()
     merge_queue.clear()
     shot_controller.stop_shooting()
 
@@ -991,7 +1033,10 @@ func _build_ui() -> void:
     _launch_zone.texture = load("res://assets/ui/launch_zone.png") as Texture2D
     _launch_zone.position = Vector2(board_size.x * 0.5, launch_y)
     _launch_zone.scale = Vector2.ONE * clampf(132.0 / 1254.0, 0.07, 0.12)
-    _launch_zone.z_index = -5
+    # This approved full-viewport theme layer contains scenery as well as the
+    # launch cue. Keep it behind the wooden gameplay table so scenery cannot
+    # cover the playable surface.
+    _launch_zone.z_index = -15
     _launch_zone.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     add_child(_launch_zone)
 
@@ -1435,6 +1480,8 @@ func _collect_merge_target(drink: Drink) -> void:
 
 
 func _finish_target_collection() -> void:
+    if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()):
+        return
     var drink := _target_drink
     var completed_level := _target_level
     _order_sequence += 1
@@ -1492,6 +1539,8 @@ func _collect_vip_target(drink: Drink) -> void:
 
 
 func _finish_vip_target() -> void:
+    if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()):
+        return
     var drink := _vip_target_drink
     var delivered_level := drink.level if is_instance_valid(drink) else _active_vip_level()
     _vip_target_drink = null
@@ -1563,23 +1612,51 @@ func _active_vip_level() -> int:
 
 
 func _on_campaign_session_terminal(result: Dictionary) -> void:
-    if game_over:
-        return
     game_over = true
     if merge_queue != null:
         merge_queue.clear()
     if shot_controller != null:
         shot_controller.stop_shooting()
-    if world != null:
-        for child in world.get_children():
-            if child is Drink:
-                (child as Drink).freeze = true
+        shot_controller.set_input_blocked(true)
+    _clear_terminal_world_visuals()
     _update_launch_zone(false)
     if _pause_layer != null:
         _pause_layer.visible = false
     if _pause_button != null:
         _pause_button.visible = false
     campaign_session_terminal.emit(result)
+
+
+func _clear_terminal_world_visuals() -> void:
+    _target_transition = false
+    _vip_target_transition = false
+    _target_drink = null
+    _vip_target_drink = null
+    for tween in get_tree().get_processed_tweens():
+        tween.kill()
+    if shot_controller != null and is_instance_valid(shot_controller._current_drink):
+        _hide_terminal_drink(shot_controller._current_drink)
+    if world != null:
+        for child in world.get_children():
+            if child is Drink:
+                _hide_terminal_drink(child as Drink)
+            elif child.is_in_group("campaign_transient_world_effect"):
+                child.visible = false
+                child.queue_free()
+    if _to_go_panel != null:
+        var flash := _to_go_panel.get_node_or_null("OrderCompleteFlash")
+        if flash is CanvasItem:
+            flash.visible = false
+            flash.queue_free()
+
+
+func _hide_terminal_drink(drink: Drink) -> void:
+    if not is_instance_valid(drink):
+        return
+    drink.freeze = true
+    drink.collision_layer = 0
+    drink.collision_mask = 0
+    drink.visible = false
 
 
 func _on_campaign_session_paused(reason: String) -> void:
@@ -1617,6 +1694,7 @@ func _spawn_to_go_trail(start: Vector2, target: Vector2, duration: float) -> voi
 
     var trail := Sprite2D.new()
     trail.name = "ToGoDeliveryTrail"
+    trail.add_to_group("campaign_transient_world_effect")
     trail.texture = load(TO_GO_TRAIL_TEXTURE_PATH)
     if trail.texture == null:
         return
@@ -1662,6 +1740,7 @@ func _order_completion_feedback() -> void:
 func _juice_effect(pos: Vector2) -> void:
     var effect_root := Node2D.new()
     effect_root.name = "MergeFeedback"
+    effect_root.add_to_group("campaign_transient_world_effect")
     effect_root.position = pos
     effect_root.z_index = 12
     world.add_child(effect_root)

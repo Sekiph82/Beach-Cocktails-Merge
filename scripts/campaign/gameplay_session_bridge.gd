@@ -227,6 +227,8 @@ func get_economy():
 
 
 func set_current_score(score: int) -> void:
+    if not is_session_active():
+        return
     _current_score = maxi(0, score)
 
 
