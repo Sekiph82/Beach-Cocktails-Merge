@@ -203,10 +203,12 @@ func _run() -> void:
     _check("configured app entry is the reusable application shell", configured_entry == "res://scenes/campaign/ApplicationShellScene.tscn")
     var app_entry_scene := load(configured_entry) as PackedScene
     var shell = app_entry_scene.instantiate()
+    root.add_child(shell)
+    await process_frame
+    await process_frame
     var navigation = shell.get_campaign_navigation()
     _check("configured entry owns the real M13 navigation host", shell is ApplicationShell and navigation is CampaignNavigationController)
     _check("M13 navigation host configures exact fixture campaign", navigation.configure_campaign(database, campaign))
-    root.add_child(shell)
     await process_frame
     await process_frame
     _check("navigation owns one reusable map pair", navigation.get_map_instance_count() == 2)

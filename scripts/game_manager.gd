@@ -119,6 +119,10 @@ var _progression_icons: Array[Sprite2D] = []
 var _chain_label: Label
 var _game_over_layer: Control
 var _final_score_label: Label
+var _pause_layer: Control
+var _pause_button: Button
+var _pause_resume_button: Button
+var _pause_island_map_button: Button
 var _background: Sprite2D
 var _background_scale := 1.0
 var _background_offset := Vector2.ZERO
@@ -190,11 +194,19 @@ func configure_campaign_session(bridge) -> bool:
         campaign_session_bridge.session_terminal.disconnect(_on_campaign_session_terminal)
     if campaign_session_bridge != null and campaign_session_bridge.has_signal("vip_state_changed") and campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
         campaign_session_bridge.vip_state_changed.disconnect(_on_vip_state_changed)
+    if campaign_session_bridge != null and campaign_session_bridge.has_signal("session_paused") and campaign_session_bridge.session_paused.is_connected(_on_campaign_session_paused):
+        campaign_session_bridge.session_paused.disconnect(_on_campaign_session_paused)
+    if campaign_session_bridge != null and campaign_session_bridge.has_signal("session_resumed") and campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
+        campaign_session_bridge.session_resumed.disconnect(_on_campaign_session_resumed)
     campaign_session_bridge = bridge
     if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
         campaign_session_bridge.session_terminal.connect(_on_campaign_session_terminal)
     if campaign_session_bridge.has_signal("vip_state_changed") and not campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
         campaign_session_bridge.vip_state_changed.connect(_on_vip_state_changed)
+    if campaign_session_bridge.has_signal("session_paused") and not campaign_session_bridge.session_paused.is_connected(_on_campaign_session_paused):
+        campaign_session_bridge.session_paused.connect(_on_campaign_session_paused)
+    if campaign_session_bridge.has_signal("session_resumed") and not campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
+        campaign_session_bridge.session_resumed.connect(_on_campaign_session_resumed)
     var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
     if configuration.is_empty():
         return false
@@ -203,6 +215,8 @@ func configure_campaign_session(bridge) -> bool:
         _refresh_merge_target_visual()
         call_deferred("_try_collect_stocked_target")
     campaign_session_bridge.set_current_score(score)
+    if _pause_button != null:
+        _pause_button.visible = true
     return campaign_session_bridge.mark_gameplay_ready()
 
 
@@ -213,7 +227,29 @@ func get_campaign_session_bridge():
 func set_campaign_gameplay_paused(paused: bool) -> bool:
     if campaign_session_bridge == null:
         return false
-    return campaign_session_bridge.set_gameplay_paused(paused)
+    var changed: bool = campaign_session_bridge.set_gameplay_paused(paused)
+    if changed and _pause_layer != null:
+        _pause_layer.visible = paused
+    return changed
+
+
+func request_pause() -> bool:
+    return set_campaign_gameplay_paused(true)
+
+
+func resume_campaign_gameplay() -> bool:
+    return set_campaign_gameplay_paused(false)
+
+
+func request_island_map() -> bool:
+    if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+        return false
+    var result: Dictionary = campaign_session_bridge.return_to_island_map()
+    return bool(result.get("ok", false))
+
+
+func get_pause_overlay_visible() -> bool:
+    return _pause_layer != null and _pause_layer.visible
 
 
 func apply_presentation_settings(state: Dictionary) -> void:
@@ -909,6 +945,66 @@ func _build_ui() -> void:
     restart.pressed.connect(_restart_game)
     _game_over_layer.add_child(restart)
 
+    _pause_button = Button.new()
+    _pause_button.name = "PauseButton"
+    _pause_button.text = "PAUSE"
+    _pause_button.position = Vector2(20.0, 18.0)
+    _pause_button.size = Vector2(116.0, 58.0)
+    _pause_button.add_theme_font_size_override("font_size", 16)
+    _pause_button.add_theme_color_override("font_color", Color("#fff0c6"))
+    _pause_button.add_theme_stylebox_override("normal", _pause_style(Color("#103d52"), Color("#f7d47b")))
+    _pause_button.add_theme_stylebox_override("hover", _pause_style(Color("#185875"), Color("#ffd166")))
+    _pause_button.pressed.connect(request_pause)
+    _pause_button.visible = false
+    canvas.add_child(_pause_button)
+
+    _pause_layer = Control.new()
+    _pause_layer.name = "PauseOverlay"
+    _pause_layer.position = Vector2.ZERO
+    _pause_layer.size = board_size
+    _pause_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+    _pause_layer.visible = false
+    canvas.add_child(_pause_layer)
+
+    var pause_shade := ColorRect.new()
+    pause_shade.name = "PauseShade"
+    pause_shade.color = Color(0.02, 0.025, 0.04, 0.82)
+    pause_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    pause_shade.mouse_filter = Control.MOUSE_FILTER_STOP
+    _pause_layer.add_child(pause_shade)
+
+    var pause_title := _make_label(Vector2(60.0, 330.0), Vector2(board_size.x - 120.0, 90.0), 52, HORIZONTAL_ALIGNMENT_CENTER)
+    pause_title.text = "PAUSED"
+    pause_title.add_theme_color_override("font_color", Color("#fff0c6"))
+    _pause_layer.add_child(pause_title)
+
+    var pause_hint := _make_label(Vector2(70.0, 430.0), Vector2(board_size.x - 140.0, 58.0), 20, HORIZONTAL_ALIGNMENT_CENTER)
+    pause_hint.text = "Your timer is safely frozen"
+    pause_hint.add_theme_color_override("font_color", Color("#73e0d1"))
+    _pause_layer.add_child(pause_hint)
+
+    _pause_resume_button = Button.new()
+    _pause_resume_button.name = "ResumeButton"
+    _pause_resume_button.text = "RESUME"
+    _pause_resume_button.position = Vector2(150.0, 550.0)
+    _pause_resume_button.size = Vector2(board_size.x - 300.0, 78.0)
+    _pause_resume_button.add_theme_font_size_override("font_size", 25)
+    _pause_resume_button.add_theme_stylebox_override("normal", _pause_style(Color("#0e665f"), Color("#ffd166")))
+    _pause_resume_button.add_theme_stylebox_override("hover", _pause_style(Color("#178579"), Color("#fff0c6")))
+    _pause_resume_button.pressed.connect(resume_campaign_gameplay)
+    _pause_layer.add_child(_pause_resume_button)
+
+    _pause_island_map_button = Button.new()
+    _pause_island_map_button.name = "IslandMapButton"
+    _pause_island_map_button.text = "ISLAND MAP"
+    _pause_island_map_button.position = Vector2(150.0, 650.0)
+    _pause_island_map_button.size = Vector2(board_size.x - 300.0, 78.0)
+    _pause_island_map_button.add_theme_font_size_override("font_size", 25)
+    _pause_island_map_button.add_theme_stylebox_override("normal", _pause_style(Color("#12354d"), Color("#73e0d1")))
+    _pause_island_map_button.add_theme_stylebox_override("hover", _pause_style(Color("#185875"), Color("#fff0c6")))
+    _pause_island_map_button.pressed.connect(request_island_map)
+    _pause_layer.add_child(_pause_island_map_button)
+
 
 func _make_panel(panel_name: String, texture_path: String, rect: Rect2) -> Control:
     var panel := Control.new()
@@ -925,6 +1021,17 @@ func _make_panel(panel_name: String, texture_path: String, rect: Rect2) -> Contr
     artwork.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     panel.add_child(artwork)
     return panel
+
+
+func _pause_style(background: Color, border: Color) -> StyleBoxFlat:
+    var style := StyleBoxFlat.new()
+    style.bg_color = background
+    style.border_color = border
+    style.set_border_width_all(2)
+    style.set_corner_radius_all(16)
+    style.shadow_color = Color(0.0, 0.0, 0.0, 0.28)
+    style.shadow_size = 6
+    return style
 
 
 func _panel_source_point(source_point: Vector2, panel_size: Vector2) -> Vector2:
@@ -1375,7 +1482,21 @@ func _on_campaign_session_terminal(result: Dictionary) -> void:
             if child is Drink:
                 (child as Drink).freeze = true
     _update_launch_zone(false)
+    if _pause_layer != null:
+        _pause_layer.visible = false
+    if _pause_button != null:
+        _pause_button.visible = false
     campaign_session_terminal.emit(result)
+
+
+func _on_campaign_session_paused(reason: String) -> void:
+    if reason == "GAME_PAUSE" and _pause_layer != null and not game_over:
+        _pause_layer.visible = true
+
+
+func _on_campaign_session_resumed() -> void:
+    if _pause_layer != null:
+        _pause_layer.visible = false
 
 
 func _make_label(pos: Vector2, size: Vector2, font_size: int, alignment: HorizontalAlignment) -> Label:

@@ -247,6 +247,8 @@ func _instantiate_gameplay(configuration: Dictionary) -> void:
 
 func _dispose_gameplay() -> void:
 	if is_instance_valid(_gameplay):
+		if _gameplay.get_parent() == self:
+			remove_child(_gameplay)
 		_gameplay.queue_free()
 	_gameplay = null
 
