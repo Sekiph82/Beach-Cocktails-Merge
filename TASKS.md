@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M19
 - Current Sprint: BCM-M19-MULTI-ISLAND-SCALABILITY
-- Current Task: BCM-M19-001..006 — Multi-island scalability and Tiki Island handoff.
+- Current Task: BCM-M19-001..006 — V01-R01 ordered verification remediation.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the locked M19 V01 six-child batch in order: multi-island LevelDatabase/shared runtime, Tiki placeholder unlock boundary, Tiki L9 reservation policy, exact 10-island sequence, per-island theme hooks using existing immutable asset families, then data-first scalability closure. Stop at AWAITING_M19_AUDIT_V01; preserve M18 and root TASKS.md; do not start M20.
+- Next Task/Action: Codex performs evidence-only M19 V01-R01 verification in strict order. Product implementation remains frozen. Each child 01→06 must run alone, publish its own R01 child log in a later commit, and prove clean local/origin/remote equality before the next child begins. After Child 06, run the locked regression closure and stop at AWAITING_M19_AUDIT_V01_R01. Do not edit TASKS.md or start M20.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 82 / 101 = 81.19%. M18-001..006 are independently AUDITED_PASS and M18 is closed. M19-001..006 are the active ordered batch. M20 remains blocked until independent M19 closure.
+- Progress: 82 / 101 = 81.19%. M18 is closed. M19 V01 product implementation is technically consistent, but independent audit is CHANGES_REQUIRED because all six child logs/product changes were published together rather than through the locked sequential publication gates. M20 remains blocked until independent M19 closure.
 
 ## Tasks
 
@@ -835,12 +835,24 @@ M19 V01 ordered batch package:
 
 M19 is architecture/data scalability only. Tiki remains a zero-level canonical placeholder; no Tiki production levels or final-island owner name may be invented. Existing approved island asset families under `assets/ui_assets/campaign/islands/<island_id>/` are immutable inputs.
 
-- [~] BCM-M19-001 — Prove the campaign engine can load a second island without duplicating CampaignManager, IslandMap, LevelButton, timer, or save logic.
-- [ ] BCM-M19-002 — Add Tiki Island locked placeholder and unlock it only when Sunny Cove Level 100 is completed.
-- [ ] BCM-M19-003 — Reserve L9 introduction for Tiki Island data and document higher-level progression policy for later islands.
-- [ ] BCM-M19-004 — Define planned island sequence: Sunny Cove, Tiki Island, Azure Bay, Coconut Beach, Sunset Island, Party Beach, Frozen Paradise, Volcano Bay, Billionaire Island, and final island slot/name TBD.
-- [ ] BCM-M19-005 — Define per-island skin/background hooks while keeping the same core table/gameplay engine.
-- [ ] BCM-M19-006 — Add regression proving a new island can be added primarily through data plus map/background assets.
+M19 V01 independent audit:
+`coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CHATGPT_AUDIT_V01.md` — **CHANGES_REQUIRED / ORDERED-PUBLICATION-INTEGRITY FAILURE**.
+
+V01-R01 remediation package:
+- Prompt: `coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CHATGPT_REMEDIATION_PROMPT_V01_R01.md`
+- Locked criteria: `coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CHATGPT_AUDIT_CRITERIA_V01_R01.md`
+- Ordered R01 child logs: `CODEX_LOG_V01_R01_CHILD_01.md` through `CODEX_LOG_V01_R01_CHILD_06.md`
+- Master R01 log: `coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CODEX_LOG_V01_R01.md`
+- Required final marker: `AWAITING_M19_AUDIT_V01_R01`
+
+The existing M19 product implementation is frozen. R01 is evidence/provenance verification only. Each child must publish clean evidence/equality before the next child executes.
+
+- [!] BCM-M19-001 — Prove the campaign engine can load a second island without duplicating CampaignManager, IslandMap, LevelButton, timer, or save logic.
+- [!] BCM-M19-002 — Add Tiki Island locked placeholder and unlock it only when Sunny Cove Level 100 is completed.
+- [!] BCM-M19-003 — Reserve L9 introduction for Tiki Island data and document higher-level progression policy for later islands.
+- [!] BCM-M19-004 — Define planned island sequence: Sunny Cove, Tiki Island, Azure Bay, Coconut Beach, Sunset Island, Party Beach, Frozen Paradise, Volcano Bay, Billionaire Island, and final island slot/name TBD.
+- [!] BCM-M19-005 — Define per-island skin/background hooks while keeping the same core table/gameplay engine.
+- [!] BCM-M19-006 — Add regression proving a new island can be added primarily through data plus map/background assets.
 
 ### M20 — Menus, onboarding, settings, accessibility, and campaign UX polish
 
