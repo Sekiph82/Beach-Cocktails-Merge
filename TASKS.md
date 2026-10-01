@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M21
 - Current Sprint: BCM-M21-RELEASE-CLOSURE
-- Current Task: BCM-M21-001/005/006 — V01-R01 evidence closure, then owner-native final acceptance.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the evidence-only M21 V01-R01 remediation: add a complete supplemental release manifest with Git SHA + save schema, create connector-readable provenance-linked review copies for all 14 unchanged mobile QA captures, prove product/original-evidence/TASKS freeze, and stop at AWAITING_M21_AUDIT_V01_R01. Do not modify product code or claim final v1 release-ready status. After independent R01 PASS, explicit owner-native mobile/release acceptance remains the final gate.
-- Required Actor: CODEX
+- Current Task: BCM-M21-006 — Owner-native final runtime/release acceptance.
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner manually validates the final production runtime in Godot and, where available, on the target mobile/release environment. Verify launch/onboarding/Main Menu, PLAY → World Map → Island Map → gameplay, touch/scroll/buttons, pause/background/resume, Settings persistence, WIN/LOSE/replay, save/restart persistence, visual clipping/readability, performance feel, and installation/export artifact behavior where available. Report PASS/FAIL observations. No further CODEX work is authorized unless owner acceptance finds a defect.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 97 / 101 = 96.04%. M21-002 performance/stability, M21-003 fresh-save L1→L100 progression, and M21-004 accepted regression are independently PASS. M21-001 visual evidence and M21-005 release-manifest completeness require bounded R01 evidence closure. M21-006 remains pending R01 audit plus explicit owner-native acceptance.
+- Progress: 99 / 101 = 98.02%. M21-001 through M21-005 are independently AUDITED_PASS. M21 technical release closure is complete. BCM-M21-006 and final v1 release-ready closure remain pending explicit owner-native acceptance.
 
 ## Tasks
 
@@ -902,11 +902,16 @@ V01-R01 evidence-only remediation package:
 
 R01 is evidence-only. Product/source files and all original M21 V01 evidence/captures are frozen. It must add only a complete supplemental release manifest and audit-readable review copies/provenance for the 14 original mobile QA captures.
 
-- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+M21 V01-R01 independent audit:
+`coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_AUDIT_V01_R01.md` — **AUDITED_PASS / TECHNICAL RELEASE CLOSURE COMPLETE**.
+
+No further CODEX remediation is required. The sole remaining gate is explicit owner-native runtime/release acceptance.
+
+- [x] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
-- [!] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
+- [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
 - [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
