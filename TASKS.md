@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M21
 - Current Sprint: BCM-M21-FINAL-OWNER-RUNTIME-CLOSURE
-- Current Task: BCM-M21-001 + BCM-M21-004 + BCM-M21-006 — final owner-runtime closure after no-timer/playability recovery.
-- Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the single V02 final-closure prompt. Re-verify real mouse/touch playability, untimed campaign behavior, retired +Time, Sunny Cove theme, World Map hotspot alignment, 486×864 debug view, and final gameplay regressions. If any technical defect remains, remediate it inside the same batch. Then publish the owner F5 checklist and stop at AWAITING_OWNER_F5_ACCEPTANCE_V02. Do not claim release-ready without explicit owner PASS.
-- Required Actor: CODEX
+- Current Task: BCM-M21-001 + BCM-M21-006 — owner F5 acceptance and final release closure.
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner runs the prepared Godot F5 checklist on the synchronized final product. Confirm debug-window size, Main Menu → World Map flow, ten hotspot alignment, Sunny Cove theme, at least ten real mouse launches, no countdown/TIME UP, Pause → Resume, timer-free WIN result, and restart persistence. Report PASS/FAIL for all ten checklist items. No further CODEX work is authorized unless owner F5 finds a defect.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: active remaining tasks are BCM-M21-001, BCM-M21-004, and BCM-M21-006. BCM-M21-002, BCM-M21-003, and BCM-M21-005 remain frozen PASS. Final release closure still requires owner F5 acceptance.
+- Progress: BCM-M21-004 is independently TECHNICAL_AUDITED_PASS. BCM-M21-001 and BCM-M21-006 remain pending explicit owner F5 acceptance. Final release closure is blocked only by the owner manual gate.
 
 ## Tasks
 
@@ -920,12 +920,15 @@ Final combined closure V02:
 
 The owner explicitly rejects all gameplay time limits. Final owner F5 acceptance remains mandatory even after technical verification.
 
-- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+Final V02-R01 independent audit:
+`coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_FINAL_OWNER_RUNTIME_CLOSURE_AUDIT_V02_R01.md` — **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**.
+
+- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
-- [!] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
+- [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
 
