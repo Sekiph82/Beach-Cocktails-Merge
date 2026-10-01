@@ -135,7 +135,10 @@ Known builder-only limitations:
 
 ## Publication
 
-The Child 06 implementation and this log are committed and pushed together. The final commit SHA and equality proof are recorded after publication in this log and the master M20 log.
+- Implementation commit: `9c9005bd3b47aec9aa6346a9a387bc7be6858589` (`BCM-M20-006 close migration compatibility`).
+- Publication log commit: recorded separately after this log update.
+- After the implementation publication, local HEAD, `origin/main`, and remote `refs/heads/main` all matched `9c9005bd3b47aec9aa6346a9a387bc7be6858589`.
+- No M21 work was started.
 
 Final successful handoff marker:
 
