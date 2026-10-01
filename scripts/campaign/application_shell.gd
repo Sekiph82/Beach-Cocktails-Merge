@@ -40,6 +40,9 @@ var _status_label: Label
 
 
 func _ready() -> void:
+    # The shell owns menu/onboarding/settings consumption, but must not swallow
+    # unused gameplay pointer events before ShotController can see them.
+    mouse_filter = Control.MOUSE_FILTER_PASS
     set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     _build_menu()
     _build_onboarding()
@@ -498,7 +501,7 @@ func _refresh_onboarding_page() -> void:
     var pages := [
         {"title": "CHOOSE YOUR ISLAND", "body": "World Map shows your campaign route. Choose an island that is unlocked and set your destination."},
         {"title": "CHOOSE A LEVEL", "body": "Island Map lays out the level path. Open levels are ready to play; locked levels unlock through campaign progress."},
-        {"title": "COMPLETE THE ORDER", "body": "Normal To-Go orders are timed. Merge drinks and deliver every listed order before the clock reaches zero."},
+        {"title": "COMPLETE THE ORDER", "body": "Normal To-Go orders are untimed. Merge drinks and deliver every listed order to complete the level."},
         {"title": "VIP IS OPTIONAL", "body": "VIP orders are bonus mastery. Normal completion never requires VIP, and skipping it cannot block your progress."},
         {"title": "EARN, REPLAY, MASTER", "body": "Wins record stars, best score, and rewards. Replay levels to improve mastery while the campaign keeps your progress safe."},
     ]

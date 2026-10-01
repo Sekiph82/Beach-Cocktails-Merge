@@ -116,30 +116,30 @@ func _run() -> void:
     _check("locked level selection is rejected", bridge.start_session(ISLAND_ID, 2).is_empty())
     _check("canonical definition remains unchanged after snapshot", database.get_level(ISLAND_ID, 1) == canonical_before)
 
-    _check("timer starts only after gameplay ready", bridge.session_state == bridge.STATE_READY and is_equal_approx(bridge.timer_remaining_sec, 5.0) and bridge.mark_gameplay_ready() and bridge.session_state == bridge.STATE_ACTIVE)
+    _check("untimed session starts only after gameplay ready", bridge.session_state == bridge.STATE_READY and is_zero_approx(bridge.timer_remaining_sec) and bridge.mark_gameplay_ready() and bridge.session_state == bridge.STATE_ACTIVE)
     bridge.tick(1.25)
-    _check("active timer decrements from one authoritative value", is_equal_approx(bridge.timer_remaining_sec, 3.75))
+    _check("untimed active session keeps zero timer", is_zero_approx(bridge.timer_remaining_sec))
     var paused_time: float = bridge.timer_remaining_sec
-    _check("legitimate pause freezes timer", bridge.pause_session() and bridge.session_state == bridge.STATE_PAUSED)
+    _check("legitimate pause preserves untimed session", bridge.pause_session() and bridge.session_state == bridge.STATE_PAUSED)
     bridge.tick(1.0)
-    _check("paused timer does not drain", is_equal_approx(bridge.timer_remaining_sec, paused_time))
+    _check("paused untimed session remains zero", is_equal_approx(bridge.timer_remaining_sec, paused_time))
     _check("resume restores active timer", bridge.resume_session() and bridge.session_state == bridge.STATE_ACTIVE)
-    _check("background pause freezes timer", bridge.set_background_paused(true) and bridge.session_state == bridge.STATE_PAUSED)
+    _check("background pause preserves untimed session", bridge.set_background_paused(true) and bridge.session_state == bridge.STATE_PAUSED)
     var background_time: float = bridge.timer_remaining_sec
     bridge.tick(2.0)
     _check("background-paused timer does not drain", is_equal_approx(bridge.timer_remaining_sec, background_time))
-    _check("background resume restores timer", bridge.set_background_paused(false) and bridge.session_state == bridge.STATE_ACTIVE)
+    _check("background resume restores untimed session", bridge.set_background_paused(false) and bridge.session_state == bridge.STATE_ACTIVE)
 
     var timeout_bridge = _bridge(database, campaign)
     timeout_bridge.start_session(ISLAND_ID, 1)
     timeout_bridge.mark_gameplay_ready()
     timeout_bridge.tick(6.0)
     var timeout_result: Dictionary = timeout_bridge.get_terminal_result()
-    _check("timeout resolves one deterministic LOSE", timeout_result["outcome"] == "LOSE" and timeout_result["reason"] == "TIMEOUT" and timeout_bridge.session_state == timeout_bridge.STATE_TERMINAL)
+    _check("one simulated hour never resolves an untimed LOSE", timeout_result.is_empty() and timeout_bridge.session_state == timeout_bridge.STATE_ACTIVE)
     var timeout_snapshot := timeout_bridge.get_terminal_result()
     timeout_bridge.tick(10.0)
-    _check("terminal timeout does not repeat or go negative", timeout_bridge.get_terminal_result() == timeout_snapshot and timeout_bridge.timer_remaining_sec == 0.0)
-    _check("timeout does not advance progression", not campaign.is_level_completed(ISLAND_ID, 1))
+    _check("untimed tick remains stable", timeout_bridge.get_terminal_result() == timeout_snapshot and timeout_bridge.timer_remaining_sec == 0.0)
+    _check("untimed session does not advance progression", not campaign.is_level_completed(ISLAND_ID, 1))
 
     var win_bridge = _bridge(database, campaign)
     win_bridge.start_session(ISLAND_ID, 1)
@@ -186,13 +186,13 @@ func _run() -> void:
     _check("plain normal completion earns one star", plain_result["stars"] == 1)
 
     var replay_configuration: Dictionary = win_bridge.retry_session()
-    _check("Retry creates a fresh READY session from original definition", replay_configuration["island_id"] == ISLAND_ID and replay_configuration["level_id"] == 1 and win_bridge.session_state == win_bridge.STATE_READY and is_equal_approx(win_bridge.timer_remaining_sec, 5.0))
+    _check("Retry creates a fresh READY session from original definition", replay_configuration["island_id"] == ISLAND_ID and replay_configuration["level_id"] == 1 and win_bridge.session_state == win_bridge.STATE_READY and is_equal_approx(win_bridge.timer_remaining_sec, 0.0))
     win_bridge.mark_gameplay_ready()
     win_bridge.record_to_go_delivery(6, 2, "replay-l6", 1)
     win_bridge.record_to_go_delivery(7, 1, "replay-l7", 1)
     _check("worse replay cannot lower best score or stars", campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["best_score"] == 300 and campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["stars"] == 2)
     _check("Next Level resolves only an unlocked next level", win_bridge.next_level_session()["level_id"] == 2 and win_bridge.active_level_id == 2)
-    _check("next-level session starts with clean objective/timer state", win_bridge.session_state == win_bridge.STATE_READY and win_bridge.get_objective_state()["normal_remaining"][6] == 1 and is_equal_approx(win_bridge.timer_remaining_sec, 5.0))
+    _check("next-level session starts with clean objective/untimed state", win_bridge.session_state == win_bridge.STATE_READY and win_bridge.get_objective_state()["normal_remaining"][6] == 1 and is_equal_approx(win_bridge.timer_remaining_sec, 0.0))
     win_bridge.mark_gameplay_ready()
     win_bridge.resolve_lose("TEST_LOSE")
     var map_requests: Array[String] = []
@@ -229,7 +229,7 @@ func _run() -> void:
     _check("production gameplay resume hook resumes the active bridge", gameplay != null and gameplay.set_campaign_gameplay_paused(false) and navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_ACTIVE)
     var production_resume_time: float = navigation.get_session_bridge().timer_remaining_sec
     navigation.get_session_bridge().tick(0.5)
-    _check("production gameplay resume hook allows timer progress", navigation.get_session_bridge().timer_remaining_sec < production_resume_time)
+    _check("production gameplay resume hook keeps untimed session stable", is_equal_approx(navigation.get_session_bridge().timer_remaining_sec, production_resume_time))
     var app_background_time: float = navigation.get_session_bridge().timer_remaining_sec
     gameplay._notification(NOTIFICATION_APPLICATION_PAUSED)
     navigation.get_session_bridge().tick(1.0)
@@ -237,7 +237,7 @@ func _run() -> void:
     gameplay._notification(NOTIFICATION_APPLICATION_RESUMED)
     var app_resume_time: float = navigation.get_session_bridge().timer_remaining_sec
     navigation.get_session_bridge().tick(0.5)
-    _check("production application resume notification resumes background-paused gameplay", navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_ACTIVE and navigation.get_session_bridge().timer_remaining_sec < app_resume_time)
+    _check("production application resume notification resumes untimed gameplay", navigation.get_session_bridge().session_state == navigation.get_session_bridge().STATE_ACTIVE and is_equal_approx(navigation.get_session_bridge().timer_remaining_sec, app_resume_time))
     gameplay.set_campaign_gameplay_paused(true)
     gameplay._notification(NOTIFICATION_APPLICATION_PAUSED)
     gameplay._notification(NOTIFICATION_APPLICATION_RESUMED)

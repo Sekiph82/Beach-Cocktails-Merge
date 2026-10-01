@@ -56,7 +56,7 @@ func _run() -> void:
     await process_frame
     var result_overlay = navigation.get_result_feedback_overlay()
     _check("LOSE result uses one reusable overlay", result_overlay.visible and result_overlay.get_feedback_kind() == "RESULT_LOSE" and result_overlay.get_visible_actions() == ["RETRY", "ISLAND_MAP"])
-    _check("LOSE exposes only Retry and Island Map", result_overlay.get_title_text() == "TIME UP" and result_overlay.get_body_text().contains("Level 1"))
+    _check("LOSE exposes only Retry and Island Map", result_overlay.get_title_text() == "LEVEL FAILED" and result_overlay.get_body_text().contains("Level 1"))
     _check("Retry action re-enters one production gameplay session", result_overlay.trigger_action("RETRY"))
     for _frame in range(4):
         await process_frame

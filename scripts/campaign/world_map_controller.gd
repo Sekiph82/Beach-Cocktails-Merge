@@ -28,6 +28,21 @@ const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 
+# Pixel centers measured against the baked 720x1280 World Map background. The
+# map entries are state/click treatments only; they must not redraw map_asset.
+const BAKED_ISLAND_CENTERS := {
+	"sunset_island": Vector2(180.0, 160.0),
+	"frozen_paradise": Vector2(550.0, 150.0),
+	"tiki_island": Vector2(135.0, 355.0),
+	"sunny_cove": Vector2(455.0, 330.0),
+	"azure_bay": Vector2(560.0, 475.0),
+	"coconut_beach": Vector2(315.0, 625.0),
+	"party_beach": Vector2(135.0, 750.0),
+	"billionaire_island": Vector2(560.0, 785.0),
+	"final_island": Vector2(210.0, 960.0),
+	"volcano_bay": Vector2(555.0, 1040.0),
+}
+
 var level_database
 var campaign_manager
 var selected_island_id := ""
@@ -230,7 +245,7 @@ func _build_shell() -> void:
 	_map_canvas.name = "MapCanvas"
 	_map_canvas.set_anchors_preset(Control.PRESET_FULL_RECT)
 	_map_canvas.offset_top = 142.0
-	_map_canvas.offset_bottom = -214.0
+	_map_canvas.offset_bottom = -176.0
 	_map_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_map_canvas)
 
@@ -454,11 +469,22 @@ func _layout_map() -> void:
 		var entry: Control = _entries.get(island_id) as Control
 		if entry == null:
 			continue
-		var normalized := _map_position(definition, int(definition.get("order_index", 1)))
-		var center := Vector2(normalized.x * map_size.x, normalized.y * map_size.y)
-		entry.position = center - entry.size * 0.5
+		var center := _calibrated_center(island_id, definition, int(definition.get("order_index", 1)))
+		entry.position = center - IslandEntry.MARKER_CENTER
 		route_points.append(center)
 	_route_line.points = route_points
+
+
+func _calibrated_center(island_id: String, definition: Dictionary, order_index: int) -> Vector2:
+	var viewport_size := get_viewport_rect().size
+	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+		viewport_size = Vector2(720.0, 1280.0)
+	var screen_center: Vector2 = BAKED_ISLAND_CENTERS.get(island_id, Vector2.ZERO)
+	if screen_center == Vector2.ZERO:
+		var normalized := _map_position(definition, order_index)
+		screen_center = Vector2(normalized.x * 720.0, normalized.y * 1280.0)
+	var scaled := Vector2(screen_center.x * viewport_size.x / 720.0, screen_center.y * viewport_size.y / 1280.0)
+	return scaled - _map_canvas.position
 
 
 func _map_position(definition: Dictionary, order_index: int) -> Vector2:

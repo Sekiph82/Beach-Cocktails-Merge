@@ -43,7 +43,7 @@ func _run() -> void:
         if page_index < first.get_onboarding_page_count() - 1:
             first.next_onboarding_page()
             await process_frame
-    _check("pages cover World Map, Island Map, timed To-Go, optional VIP, and completion/replay", page_text.contains("World Map") and page_text.contains("Island Map") and page_text.contains("To-Go") and page_text.contains("VIP") and page_text.contains("REPLAY"))
+    _check("pages cover World Map, Island Map, untimed To-Go, optional VIP, and completion/replay", page_text.contains("World Map") and page_text.contains("Island Map") and page_text.contains("To-Go") and page_text.contains("VIP") and page_text.contains("REPLAY"))
 
     first.reset_onboarding_state()
     await process_frame

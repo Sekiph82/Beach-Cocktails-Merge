@@ -60,7 +60,7 @@ func _run() -> void:
     _check("background resume auto-resumes only background pause", gameplay.handle_application_resumed() and bridge.session_state == bridge.STATE_ACTIVE)
     var resumed_time: float = bridge.timer_remaining_sec
     bridge.tick(0.25)
-    _check("background resume allows timer progress", bridge.timer_remaining_sec < resumed_time)
+    _check("background resume keeps untimed session stable", is_equal_approx(bridge.timer_remaining_sec, resumed_time))
 
     bridge.resolve_lose("M20_TEST_TERMINAL")
     _check("terminal result hides pause overlay", bridge.is_terminal() and not gameplay.get_pause_overlay_visible() and not gameplay.resume_campaign_gameplay())

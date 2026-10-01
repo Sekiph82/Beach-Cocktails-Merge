@@ -43,6 +43,10 @@ var _persistence_enabled := false
 
 
 func _ready() -> void:
+	# Campaign navigation is a routing container. Its child controls consume map
+	# and result interactions, while unused gameplay pointer events must continue
+	# through the viewport to ShotController._unhandled_input().
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if level_database == null or campaign_manager == null:
 		_configure_default_campaign()

@@ -1,0 +1,19 @@
+{
+  "artifact": "BCM-M21 World Map baked-island hotspot calibration",
+  "source_background": "res://assets/ui_assets/campaign/world_map/world_map_background.png",
+  "source_dimensions": [720, 1280],
+  "method": "deterministic baked-background landmark calibration against the canonical 720x1280 map and the ten canonical map_asset identities; integer pixel centers are used directly by WorldMapController",
+  "duplicate_island_art": false,
+  "hotspots": [
+    {"island_id": "sunny_cove", "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png", "pixel_center": [455, 330], "normalized_center": [0.631944, 0.257813]},
+    {"island_id": "tiki_island", "map_asset": "res://assets/ui_assets/campaign/world_map/tiki_island.png", "pixel_center": [135, 355], "normalized_center": [0.187500, 0.277344]},
+    {"island_id": "azure_bay", "map_asset": "res://assets/ui_assets/campaign/world_map/azure_bay.png", "pixel_center": [560, 475], "normalized_center": [0.777778, 0.371094]},
+    {"island_id": "coconut_beach", "map_asset": "res://assets/ui_assets/campaign/world_map/coconut_beach.png", "pixel_center": [315, 625], "normalized_center": [0.437500, 0.488281]},
+    {"island_id": "sunset_island", "map_asset": "res://assets/ui_assets/campaign/world_map/sunset_island.png", "pixel_center": [180, 160], "normalized_center": [0.250000, 0.125000]},
+    {"island_id": "party_beach", "map_asset": "res://assets/ui_assets/campaign/world_map/party_beach.png", "pixel_center": [135, 750], "normalized_center": [0.187500, 0.585938]},
+    {"island_id": "frozen_paradise", "map_asset": "res://assets/ui_assets/campaign/world_map/frozen_paradise.png", "pixel_center": [550, 150], "normalized_center": [0.763889, 0.117188]},
+    {"island_id": "volcano_bay", "map_asset": "res://assets/ui_assets/campaign/world_map/volcano_bay.png", "pixel_center": [555, 1040], "normalized_center": [0.770833, 0.812500]},
+    {"island_id": "billionaire_island", "map_asset": "res://assets/ui_assets/campaign/world_map/billionaire_island.png", "pixel_center": [560, 785], "normalized_center": [0.777778, 0.613281]},
+    {"island_id": "final_island", "map_asset": "res://assets/ui_assets/campaign/world_map/final_island.png", "pixel_center": [210, 960], "normalized_center": [0.291667, 0.750000]}
+  ]
+}

@@ -1,7 +1,6 @@
 extends SceneTree
 
-## Focused M16 V01 probe for the canonical Sunny Cove normal-content table.
-## The expected signatures and timers mirror the locked V1 progression table.
+## Focused M16 probe for the canonical Sunny Cove untimed normal-content table.
 
 const DATABASE_SCRIPT = preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT = preload("res://scripts/campaign/campaign_manager.gd")
@@ -16,22 +15,13 @@ const VIP_TARGETS: Array = [
     [7, 1], [6, 2], [7, 1], [6, 2], [7, 1],
 ]
 const VIP_REWARD_IDS: Array = [
-    "time", "time", "time", "time", "upgrade", "time", "time", "time", "time", "upgrade",
-    "time", "time", "time", "time", "upgrade", "time", "time", "time", "time", "upgrade",
-    "time", "time", "time", "time", "upgrade",
+    "", "", "", "", "upgrade", "", "", "", "", "upgrade",
+    "", "", "", "", "upgrade", "", "", "", "", "upgrade",
+    "", "", "", "", "upgrade",
 ]
 
 const EXPECTED_TIMERS: Array = [
-    20, 20, 40, 40, 40, 60, 60, 60, 80, 80,
-    60, 80, 80, 80, 100, 80, 100, 100, 100, 120,
-    80, 100, 100, 120, 100, 120, 120, 120, 140, 140,
-    100, 120, 120, 140, 120, 140, 140, 160, 140, 160,
-    120, 140, 160, 140, 160, 160, 180, 160, 180, 180,
-    140, 160, 180, 160, 180, 200, 180, 200, 200, 220,
-    160, 180, 200, 180, 200, 220, 200, 220, 240, 220,
-    180, 200, 220, 200, 220, 240, 220, 240, 260, 240,
-    200, 220, 240, 220, 240, 260, 240, 260, 280, 260,
-    220, 240, 260, 240, 260, 280, 260, 280, 280, 300,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 
 const EXPECTED_COSTS: Array = [
@@ -96,6 +86,8 @@ func _objective_cost(orders: Array) -> int:
 func _reward_matches(reward: Variant, reward_id: String) -> bool:
     if not reward is Dictionary:
         return false
+    if reward_id.is_empty():
+        return reward.is_empty()
     return str(reward.get("type", "")) == "booster" and str(reward.get("id", "")) == reward_id and int(reward.get("quantity", 0)) == 1
 
 
@@ -131,7 +123,7 @@ func _progression_state(highest_unlocked_level: int, completed_levels: Dictionar
 
 
 func _run() -> void:
-    _check("approved expected table contains 100 timers", EXPECTED_TIMERS.size() == 100)
+    _check("approved expected table contains 100 untimed rows", EXPECTED_TIMERS.size() == 100)
     _check("approved expected table contains 100 costs", EXPECTED_COSTS.size() == 100)
     _check("approved expected table contains 100 order rows", EXPECTED_ORDER_SIGNATURES.size() == 100)
 
@@ -160,7 +152,7 @@ func _run() -> void:
         _check("L%d id is sequential" % expected_id, level_id == expected_id)
         _check("L%d island reference is Sunny Cove" % expected_id, str(level.get("island_id", "")) == "sunny_cove")
         _check("L%d matches the approved normal objective row" % expected_id, _order_signature(orders) == EXPECTED_ORDER_SIGNATURES[index])
-        _check("L%d matches the approved timer row" % expected_id, int(level.get("time_limit_sec", 0)) == EXPECTED_TIMERS[index])
+        _check("L%d is untimed" % expected_id, int(level.get("time_limit_sec", -1)) == EXPECTED_TIMERS[index] and not bool(level.get("feature_flags", {}).get("timed", true)))
         _check("L%d matches the approved merge-cost row" % expected_id, _objective_cost(orders) == EXPECTED_COSTS[index])
         _check("L%d normal targets stay within L5-L8" % expected_id, orders.all(func(order: Dictionary) -> bool: return int(order.get("cocktail_level", 0)) >= 5 and int(order.get("cocktail_level", 0)) <= 8))
         var vip: Variant = level.get("vip", null)
@@ -189,13 +181,13 @@ func _run() -> void:
     _check("merge cost L6 is 32", _merge_cost(6) == 32)
     _check("merge cost L7 is 64", _merge_cost(7) == 64)
     _check("merge cost L8 is 128", _merge_cost(8) == 128)
-    _check("Level 1 anchor is 1xL5 at 20 seconds", _objective_cost(levels[0]["orders"]) == 16 and int(levels[0]["time_limit_sec"]) == 20 and _order_signature(levels[0]["orders"]) == "5:1")
-    _check("Level 100 anchor is L8+L7+L6+L5 at 300 seconds", _objective_cost(levels[99]["orders"]) == 240 and int(levels[99]["time_limit_sec"]) == 300 and _order_signature(levels[99]["orders"]) == "8:1,7:1,6:1,5:1")
+    _check("Level 1 anchor is 1xL5 and untimed", _objective_cost(levels[0]["orders"]) == 16 and int(levels[0]["time_limit_sec"]) == 0 and not bool(levels[0]["feature_flags"].get("timed", true)) and _order_signature(levels[0]["orders"]) == "5:1")
+    _check("Level 100 anchor is L8+L7+L6+L5 and untimed", _objective_cost(levels[99]["orders"]) == 240 and int(levels[99]["time_limit_sec"]) == 0 and not bool(levels[99]["feature_flags"].get("timed", true)) and _order_signature(levels[99]["orders"]) == "8:1,7:1,6:1,5:1")
     _check("VIP quantity mix is 15x qty1 and 10x qty2", qty_one == 15 and qty_two == 10)
     _check("Upgrade cadence is exactly VIP levels 20/40/60/80/100", VIP_REWARD_IDS.count("upgrade") == 5 and VIP_LEVELS[4] == 20 and VIP_LEVELS[9] == 40 and VIP_LEVELS[14] == 60 and VIP_LEVELS[19] == 80 and VIP_LEVELS[24] == 100)
-    _check("all other VIP rewards are +Time", VIP_REWARD_IDS.count("time") == 20)
+    _check("all other VIP rewards are unconfigured pending owner policy", VIP_REWARD_IDS.count("") == 20)
     _check("75 Sunny Cove levels remain non-VIP", levels.filter(func(level: Dictionary) -> bool: return level.get("vip", null) == null).size() == 75)
-    _check("VIP cost is excluded from normal timer validation", levels.size() == 100 and EXPECTED_TIMERS.size() == 100)
+    _check("VIP cost is excluded from untimed validation", levels.size() == 100 and EXPECTED_TIMERS.size() == 100)
 
     var campaign = CAMPAIGN_SCRIPT.new()
     _check("CampaignManager configures from the canonical FULL database", campaign.configure(database))
@@ -266,13 +258,13 @@ func _run() -> void:
     var replay_vip_result := replay_bridge.record_vip_delivery(5, 1)
     var replay_terminal: Dictionary = replay_bridge.record_to_go_delivery(6, 1).get("terminal", {})
     _check("replay can complete the missed VIP", bool(replay_vip_result.get("vip_completed", false)) and replay_terminal.get("outcome", "") == "WIN")
-    _check("replay persists VIP completion and grants +Time once", replay_campaign.get_progression_state()["islands"]["sunny_cove"]["completed_levels"]["4"].get("vip_completed", false) and replay_economy.get_booster_count("time") == 1 and replay_economy.has_granted_reward("vip:sunny_cove:4"))
+    _check("replay persists VIP completion without retired +Time", replay_campaign.get_progression_state()["islands"]["sunny_cove"]["completed_levels"]["4"].get("vip_completed", false) and replay_economy.get_booster_count("time") == 0 and not replay_economy.has_granted_reward("vip:sunny_cove:4"))
     _check("replay again is allowed after VIP completion", not replay_bridge.retry_session().is_empty())
     replay_bridge.mark_gameplay_ready()
     replay_bridge.record_vip_delivery(5, 1)
     var replay_again_terminal: Dictionary = replay_bridge.record_to_go_delivery(6, 1).get("terminal", {})
     _check("replay-after-replay keeps VIP completed", replay_again_terminal.get("outcome", "") == "WIN" and replay_campaign.get_progression_state()["islands"]["sunny_cove"]["completed_levels"]["4"].get("vip_completed", false))
-    _check("VIP reward ledger prevents duplicate +Time reward", replay_economy.get_booster_count("time") == 1 and replay_economy.get_ledger_state()["reward_ledger"].count("vip:sunny_cove:4") == 1)
+    _check("unconfigured VIP reward remains absent on replay", replay_economy.get_booster_count("time") == 0 and replay_economy.get_ledger_state()["reward_ledger"].count("vip:sunny_cove:4") == 0)
     _check("normal content signature is unchanged after marker/replay flows", _normal_signature(database.get_levels_for_island("sunny_cove")) == normal_signature_before)
 
     if failures.is_empty():

@@ -11,6 +11,7 @@ var _manager: GameManager
 var _dragging := false
 var _current_drink: Drink
 var _can_shoot := true
+var _input_blocked := false
 var _active_touch_index := -1
 var _next_level := 1
 
@@ -40,6 +41,13 @@ func stop_shooting() -> void:
     _current_drink = null
 
 
+func set_input_blocked(blocked: bool) -> void:
+    _input_blocked = blocked
+    if blocked:
+        _dragging = false
+        _active_touch_index = -1
+
+
 func _spawn_next() -> void:
     if _manager == null or _manager.game_over:
         return
@@ -57,7 +65,7 @@ func _spawn_next() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-    if not _can_shoot or not is_instance_valid(_current_drink):
+    if _input_blocked or not _can_shoot or not is_instance_valid(_current_drink):
         return
 
     if event is InputEventMouseButton:

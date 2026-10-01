@@ -12,6 +12,7 @@ const STATE_CURRENT := "CURRENT"
 const STATE_COMPLETE := "COMPLETE"
 
 const MARKER_SIZE := Vector2(136.0, 164.0)
+const MARKER_CENTER := Vector2(68.0, 58.0)
 const ART_RECT := Rect2(10.0, 0.0, 116.0, 116.0)
 const LOCKED_OVERLAY_PATH := "res://assets/ui_assets/campaign/world_map/island_locked_overlay.png"
 
@@ -118,6 +119,10 @@ func _refresh_visuals() -> void:
 	if asset_path.is_empty():
 		asset_path = "res://assets/ui_assets/campaign/world_map/%s.png" % island_id
 	_island_art.texture = load(asset_path)
+	# The production World Map already bakes all ten island visuals into its
+	# background. Keep this node for compatibility, but never draw a duplicate
+	# displaced thumbnail over the baked island.
+	_island_art.visible = false
 	_name_label.text = display_name
 	_name_label.modulate = Color("#fff5d6") if island_state != STATE_LOCKED else Color("#c4d0d2")
 	_state_label.text = "CURRENT • OPEN" if island_state == STATE_CURRENT else island_state

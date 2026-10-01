@@ -249,8 +249,8 @@ func _validate_level_roots(roots: Array) -> bool:
             var key := _level_key(island_id, level_id)
             if _levels_by_key.has(key):
                 return _fail("duplicate level id: %s/%d" % [island_id, level_id])
-            if float(raw_level["time_limit_sec"]) <= 0.0:
-                return _fail("time_limit_sec must be positive: %s/%d" % [island_id, level_id])
+            if float(raw_level["time_limit_sec"]) < 0.0:
+                return _fail("time_limit_sec cannot be negative: %s/%d" % [island_id, level_id])
             if not _validate_orders(raw_level["orders"], island_id, level_id):
                 return false
             if raw_level["vip"] != null and not raw_level["vip"] is Dictionary:

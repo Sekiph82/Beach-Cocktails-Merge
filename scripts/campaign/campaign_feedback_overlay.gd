@@ -47,7 +47,7 @@ func show_result(result: Dictionary) -> void:
     elif economy is Dictionary and not economy.get("grants", []).is_empty():
         reward_text = "\nREWARD ADDED"
     var level_text := "Level %d" % int(result.get("level_id", 0))
-    var title := "LEVEL COMPLETE" if outcome == "WIN" else "TIME UP"
+    var title := "LEVEL COMPLETE" if outcome == "WIN" else "LEVEL FAILED"
     var body := "%s\n%s\nSCORE %d   %s%s" % [level_text, "Normal order complete" if outcome == "WIN" else "Keep merging and try again", score, star_text, reward_text]
     var actions: Array[String] = []
     if outcome == "WIN":

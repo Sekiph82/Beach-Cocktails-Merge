@@ -46,7 +46,7 @@ func _islands() -> Dictionary:
 				"milestones": [1, 2],
 				"rewards": {
 					"1": {"type": "coins", "quantity": 25},
-					"2": {"type": "booster", "id": "time", "quantity": 1},
+					"2": {"type": "booster", "id": "upgrade", "quantity": 1},
 				},
 			},
 		}],
@@ -57,12 +57,12 @@ func _level(level_id: int, vip: Variant, level_reward: Dictionary) -> Dictionary
 	return {
 		"island_id": ISLAND_ID,
 		"level_id": level_id,
-		"time_limit_sec": 20,
+		"time_limit_sec": 0,
 		"orders": [{"cocktail_level": 6, "quantity": 1}],
 		"vip": vip,
 		"rewards": level_reward,
 		"score_star_thresholds": {"one_star": 0, "two_stars": 100, "three_stars": 200},
-		"feature_flags": {"timed": true, "vip": vip != null, "boosters": true},
+		"feature_flags": {"timed": false, "vip": vip != null, "boosters": true},
 	}
 
 
@@ -76,12 +76,12 @@ func _levels() -> Dictionary:
             {
                 "island_id": ISLAND_ID,
                 "level_id": 3,
-                "time_limit_sec": 20,
+                "time_limit_sec": 0,
                 "orders": [{"cocktail_level": 6, "quantity": 1}, {"cocktail_level": 8, "quantity": 1}],
                 "vip": {"enabled": true, "cocktail_level": 6, "quantity": 1},
 				"rewards": {},
 				"score_star_thresholds": {"one_star": 0, "two_stars": 100, "three_stars": 200},
-				"feature_flags": {"timed": true, "vip": true, "boosters": true},
+				"feature_flags": {"timed": false, "vip": true, "boosters": true},
 			},
 		],
 	}
@@ -213,9 +213,9 @@ func _run() -> void:
 	var base_time := float(config["time_limit_sec"])
 	var before_time: float = bridge.timer_remaining_sec
 	var time_result: Dictionary = bridge.apply_time_booster(5.0)
-	_check("+Time applies positive extension and consumes one item", time_result.get("ok", false) and is_equal_approx(bridge.timer_remaining_sec, before_time + 5.0) and economy.get_booster_count("time") == 0 and is_equal_approx(float(config["time_limit_sec"]), base_time))
+	_check("retired +Time is rejected without consuming legacy inventory", not time_result.get("ok", false) and time_result.get("reason", "") == "TIME_BOOSTER_RETIRED" and is_equal_approx(bridge.timer_remaining_sec, before_time) and economy.get_booster_count("time") == 1 and is_equal_approx(float(config["time_limit_sec"]), base_time))
 	var failed_time: Dictionary = bridge.apply_time_booster(5.0)
-	_check("+Time with empty inventory does not consume or extend", not failed_time.get("ok", false) and is_equal_approx(bridge.timer_remaining_sec, before_time + 5.0))
+	_check("retired +Time remains rejected and does not extend", not failed_time.get("ok", false) and failed_time.get("reason", "") == "TIME_BOOSTER_RETIRED" and is_equal_approx(bridge.timer_remaining_sec, before_time) and economy.get_booster_count("time") == 1)
 	var mismatched_vip := bridge.record_vip_delivery(7, 1)
 	var nonpositive_vip := bridge.record_vip_delivery(8, 0)
 	_check("mismatched and nonpositive VIP deliveries pay zero", not mismatched_vip.get("ok", false) and not nonpositive_vip.get("ok", false) and bridge.get_vip_state()["delivered"] == 0)
@@ -245,7 +245,7 @@ func _run() -> void:
 	_check("eligible milestone grants once and records claim", milestone_one.get("changed", false) and milestone_one.get("reward", {}).get("granted", false) and milestone_one_duplicate.get("duplicate", false) and campaign.is_milestone_claimed(ISLAND_ID, 1))
 	var completed_level_two := campaign.mark_level_completed(ISLAND_ID, 2, {"stars": 1, "score": 1})
 	var milestone_two := campaign.claim_milestone(ISLAND_ID, 2)
-	_check("milestone reward dispatch preserves progression independence", completed_level_two.get("ok", false) and milestone_two.get("reward", {}).get("granted", false) and economy.get_booster_count("time") == 1)
+	_check("milestone reward dispatch preserves progression independence", completed_level_two.get("ok", false) and milestone_two.get("reward", {}).get("granted", false) and economy.get_booster_count("upgrade") == 1)
 
 	var navigation_scene := load("res://scenes/campaign/CampaignNavigationScene.tscn") as PackedScene
 	var navigation = navigation_scene.instantiate()
@@ -324,7 +324,7 @@ func _run() -> void:
 	_check("normal L6 delivery remains 1x payout", gameplay.score == normal_score_before_delivery + Drink.order_reward(6))
 	_check("normal progress reflects authoritative completed/required state", gameplay._to_go_progress_label.text == "1/1")
 	_check("terminal result score includes VIP bonuses", vip_win.get("score", -1) == gameplay.score)
-	_check("normal WIN follows VIP completion and grants reward once", vip_win.get("outcome", "") == "WIN" and vip_win.get("vip_completed", false) and economy.get_booster_count("upgrade") == 1 and economy.has_granted_reward("vip:%s:1" % ISLAND_ID))
+	_check("normal WIN follows VIP completion and grants the configured upgrade once", vip_win.get("outcome", "") == "WIN" and vip_win.get("vip_completed", false) and economy.get_booster_count("upgrade") == 2 and economy.has_granted_reward("vip:%s:1" % ISLAND_ID))
 	var upgrade_count_after_win := economy.get_booster_count("upgrade")
 	var repeated_terminal: Dictionary = navigation.get_session_bridge().resolve_win()
 	_check("repeated WIN resolution does not duplicate reward", repeated_terminal.get("outcome", "") == "WIN" and economy.get_booster_count("upgrade") == upgrade_count_after_win)

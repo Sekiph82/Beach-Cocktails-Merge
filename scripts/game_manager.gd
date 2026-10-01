@@ -12,6 +12,7 @@ static var instance: GameManager
 
 const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
+const CANONICAL_VIEWPORT_SIZE := Vector2(720.0, 1280.0)
 
 # R10-V05 owner annotation measurement from the attached runtime screenshot.
 # The white three-sided envelope is the playable boundary: its rear line is
@@ -129,6 +130,10 @@ var _background_offset := Vector2.ZERO
 var _ui_scale := 1.0
 var _launch_zone: Sprite2D
 var _danger_line: Sprite2D
+var _theme_table_shadow: Sprite2D
+var _theme_table: Sprite2D
+var _theme_edge_overlay: Sprite2D
+var _active_theme_paths: Dictionary = {}
 
 # Active merge objective shown above the table.
 var _target_level := 6
@@ -210,6 +215,7 @@ func configure_campaign_session(bridge) -> bool:
     var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
     if configuration.is_empty():
         return false
+    _apply_campaign_theme(configuration.get("island_theme", {}))
     _target_level = campaign_session_bridge.get_next_required_order_level()
     if _target_level > 0:
         _refresh_merge_target_visual()
@@ -230,6 +236,8 @@ func set_campaign_gameplay_paused(paused: bool) -> bool:
     var changed: bool = campaign_session_bridge.set_gameplay_paused(paused)
     if changed and _pause_layer != null:
         _pause_layer.visible = paused
+        if shot_controller != null:
+            shot_controller.set_input_blocked(paused)
     return changed
 
 
@@ -323,6 +331,87 @@ func _build_background() -> void:
     _background.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     _background.z_index = -100
     add_child(_background)
+
+    _theme_table_shadow = _make_theme_layer("CampaignTableShadow", -90)
+    _theme_table = _make_theme_layer("CampaignTable", -10)
+    _theme_edge_overlay = _make_theme_layer("CampaignTableEdgeOverlay", 5)
+
+
+func _make_theme_layer(layer_name: String, layer_z: int) -> Sprite2D:
+    var layer := Sprite2D.new()
+    layer.name = layer_name
+    layer.position = get_board_size() * 0.5
+    layer.z_index = layer_z
+    layer.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+    layer.visible = false
+    add_child(layer)
+    return layer
+
+
+func _apply_campaign_theme(theme: Variant) -> void:
+    var resolved: Dictionary = theme if theme is Dictionary else {}
+    var background_path := str(resolved.get("gameplay_background", BACKGROUND_PATH))
+    var table_path := str(resolved.get("gameplay_table", ""))
+    var shadow_path := str(resolved.get("gameplay_table_shadow", ""))
+    var edge_path := str(resolved.get("table_edge_overlay", ""))
+    var launch_path := str(resolved.get("launch_zone", ""))
+    _active_theme_paths = {
+        "gameplay_background": background_path,
+        "gameplay_table": table_path,
+        "gameplay_table_shadow": shadow_path,
+        "table_edge_overlay": edge_path,
+        "launch_zone": launch_path,
+    }
+
+    var campaign_background := load(background_path) as Texture2D
+    if campaign_background != null and _background != null:
+        _background.texture = campaign_background
+        _position_theme_layer(_background)
+    _set_theme_texture(_theme_table_shadow, shadow_path)
+    _set_theme_texture(_theme_table, table_path)
+    _set_theme_texture(_theme_edge_overlay, edge_path)
+    if _launch_zone != null and not launch_path.is_empty():
+        _set_full_viewport_texture(_launch_zone, launch_path)
+        _launch_zone.visible = not game_over
+
+
+func _set_theme_texture(layer: Sprite2D, texture_path: String) -> void:
+    if layer == null or texture_path.is_empty():
+        return
+    var texture := load(texture_path) as Texture2D
+    if texture == null:
+        return
+    layer.texture = texture
+    _set_full_viewport_texture(layer, texture_path)
+    layer.visible = true
+
+
+func _set_full_viewport_texture(layer: Sprite2D, texture_path: String) -> void:
+    if layer == null:
+        return
+    var texture := load(texture_path) as Texture2D
+    if texture == null:
+        return
+    layer.texture = texture
+    layer.position = get_board_size() * 0.5
+    layer.scale = Vector2(
+        get_board_size().x / float(texture.get_width()),
+        get_board_size().y / float(texture.get_height())
+    )
+
+
+func _position_theme_layer(layer: Sprite2D) -> void:
+    if layer == null or layer.texture == null:
+        return
+    layer.position = get_board_size() * 0.5
+    layer.scale = Vector2(
+        get_board_size().x / float(layer.texture.get_width()),
+        get_board_size().y / float(layer.texture.get_height())
+    )
+
+
+func get_active_theme_paths() -> Dictionary:
+    return _active_theme_paths.duplicate(true)
 
 
 func get_table_rail_bounds_at_y(y_pos: float) -> Vector2:
@@ -902,7 +991,7 @@ func _build_ui() -> void:
     _launch_zone.texture = load("res://assets/ui/launch_zone.png") as Texture2D
     _launch_zone.position = Vector2(board_size.x * 0.5, launch_y)
     _launch_zone.scale = Vector2.ONE * clampf(132.0 / 1254.0, 0.07, 0.12)
-    _launch_zone.z_index = 1
+    _launch_zone.z_index = -5
     _launch_zone.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
     add_child(_launch_zone)
 
@@ -979,7 +1068,8 @@ func _build_ui() -> void:
     _pause_layer.add_child(pause_title)
 
     var pause_hint := _make_label(Vector2(70.0, 430.0), Vector2(board_size.x - 140.0, 58.0), 20, HORIZONTAL_ALIGNMENT_CENTER)
-    pause_hint.text = "Your timer is safely frozen"
+    pause_hint.name = "PauseHint"
+    pause_hint.text = "Gameplay is safely paused"
     pause_hint.add_theme_color_override("font_color", Color("#73e0d1"))
     _pause_layer.add_child(pause_hint)
 
@@ -1160,9 +1250,12 @@ func _update_launch_zone(visible: bool) -> void:
     if _launch_zone == null:
         return
     var held := shot_controller._current_drink if shot_controller != null else null
-    _launch_zone.visible = visible and is_instance_valid(held)
-    if _launch_zone.visible:
-        _launch_zone.position = held.position
+    if _active_theme_paths.get("launch_zone", "").is_empty():
+        _launch_zone.visible = visible and is_instance_valid(held)
+        if _launch_zone.visible:
+            _launch_zone.position = held.position
+        return
+    _launch_zone.visible = visible and not game_over
 
 
 func _build_merge_target() -> void:

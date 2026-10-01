@@ -363,6 +363,10 @@ func _claim_cumulative_star_rewards(island_id: String) -> Array:
         var reward: Variant = entry.get("reward", {})
         if threshold <= 0 or threshold > cumulative_stars or not reward is Dictionary:
             continue
+        # Former +Time slots are intentionally unconfigured. Leave them
+        # unclaimed and readable until the owner defines a replacement reward.
+        if reward.is_empty():
+            continue
         if claimed.has(threshold):
             continue
         # Progression may complete before the economy service is attached, but

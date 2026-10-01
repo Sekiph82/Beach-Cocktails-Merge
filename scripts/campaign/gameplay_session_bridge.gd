@@ -90,7 +90,9 @@ func start_session(island_id: String, level_id: int) -> Dictionary:
     vip_state_changed.emit(get_vip_state())
     _current_score = 0
     _background_paused = false
-    timer_remaining_sec = float(_active_level.get("time_limit_sec", 0.0))
+    # Campaign gameplay is untimed. Keep the legacy field readable in saved
+    # definitions, but never copy it into active session state.
+    timer_remaining_sec = 0.0
     _configure_objectives(_active_level.get("orders", []))
     _session_configuration = _build_session_configuration()
     session_state = STATE_READY
@@ -115,8 +117,7 @@ func mark_gameplay_ready() -> bool:
     if session_state != STATE_READY:
         return false
     session_state = STATE_ACTIVE
-    timer_remaining_sec = float(_active_level.get("time_limit_sec", 0.0))
-    timer_started.emit(timer_remaining_sec)
+    timer_remaining_sec = 0.0
     timer_updated.emit(timer_remaining_sec)
     return true
 
@@ -128,7 +129,9 @@ func start_timer() -> bool:
 func tick(delta_sec: float) -> void:
     if session_state != STATE_ACTIVE or _background_paused:
         return
-    if delta_sec <= 0.0:
+    # Retain tick() as the lifecycle boundary for callers, but do not run a
+    # countdown or resolve a timeout in any production campaign session.
+    if delta_sec <= 0.0 or not _is_timed_session():
         return
     timer_remaining_sec = maxf(0.0, timer_remaining_sec - delta_sec)
     timer_updated.emit(timer_remaining_sec)
@@ -314,19 +317,9 @@ func set_vip_completed(completed: bool) -> bool:
 
 
 func apply_time_booster(extension_sec: float, booster_id: String = "time") -> Dictionary:
-    if economy == null:
-        return {"ok": false, "reason": "ECONOMY_NOT_CONFIGURED", "consumed": false}
-    if (session_state != STATE_ACTIVE and session_state != STATE_PAUSED) or timer_remaining_sec <= 0.0:
-        return {"ok": false, "reason": "SESSION_NOT_TIMED_ACTIVE", "consumed": false}
-    if extension_sec <= 0.0:
-        return {"ok": false, "reason": "EXTENSION_MUST_BE_POSITIVE", "consumed": false}
-    var consumed: Dictionary = economy.consume_booster(booster_id, 1)
-    if not bool(consumed.get("ok", false)):
-        return {"ok": false, "reason": str(consumed.get("reason", "BOOSTER_NOT_CONSUMED")), "consumed": false}
-    timer_remaining_sec += extension_sec
-    timer_updated.emit(timer_remaining_sec)
-    economy_changed.emit(economy.export_state())
-    return {"ok": true, "consumed": true, "extension_sec": extension_sec, "remaining_time_sec": timer_remaining_sec}
+    # Legacy save inventories remain readable, but +Time cannot affect an
+    # untimed production session and is never consumed.
+    return {"ok": false, "reason": "TIME_BOOSTER_RETIRED", "consumed": false, "booster_id": booster_id, "extension_sec": extension_sec}
 
 
 func resolve_win(score: int = -1) -> Dictionary:
@@ -442,14 +435,15 @@ func _build_session_configuration() -> Dictionary:
         "island_id": active_island_id,
         "level_id": active_level_id,
         "island_theme": island_theme,
-        "time_limit_sec": float(_active_level.get("time_limit_sec", 0.0)),
+        "time_limit_sec": 0.0,
         "orders": _active_level.get("orders", []).duplicate(true),
         "vip": _active_level.get("vip", null),
         "rewards": _active_level.get("rewards", {}).duplicate(true),
         "score_star_thresholds": _active_level.get("score_star_thresholds", {}).duplicate(true),
-        "feature_flags": _active_level.get("feature_flags", {}).duplicate(true),
+        "feature_flags": _untimed_feature_flags(),
         "level_definition": _active_level.duplicate(true),
         "timer_configured": false,
+        "timed": false,
         "vip_runtime_configured": false,
     }
     return _deep_read_only(configuration)
@@ -462,6 +456,17 @@ func _all_normal_orders_complete() -> bool:
         if int(_normal_remaining_by_level.get(level, 0)) > 0:
             return false
     return true
+
+
+func _is_timed_session() -> bool:
+    return false
+
+
+func _untimed_feature_flags() -> Dictionary:
+    var flags: Variant = _active_level.get("feature_flags", {})
+    var normalized: Dictionary = flags.duplicate(true) if flags is Dictionary else {}
+    normalized["timed"] = false
+    return normalized
 
 
 func _vip_enabled() -> bool:

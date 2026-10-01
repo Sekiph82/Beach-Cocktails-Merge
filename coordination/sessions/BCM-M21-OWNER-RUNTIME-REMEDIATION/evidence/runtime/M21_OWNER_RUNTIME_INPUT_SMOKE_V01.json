@@ -1,0 +1,53 @@
+{
+	"captures": [
+		{
+			"height": 1280,
+			"name": "01_world_map_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/01_world_map_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "02_sunny_cove_island_map_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/02_sunny_cove_island_map_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "03_sunny_cove_gameplay_before_shots_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/03_sunny_cove_gameplay_before_shots_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "04_sunny_cove_gameplay_after_10_mouse_shots_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/04_sunny_cove_gameplay_after_10_mouse_shots_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "05_sunny_cove_untimed_after_one_hour_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/05_sunny_cove_untimed_after_one_hour_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "06_pause_untimed_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/06_pause_untimed_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "07_win_untimed_no_timer_language_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/07_win_untimed_no_timer_language_720x1280.png",
+			"width": 720
+		}
+	],
+	"checks_failed": [],
+	"direct_shot_controller_launch_method_calls": 0,
+	"mouse_shots_fired": 10,
+	"physical_device_acceptance": "DEFERRED_TO_OWNER_NATIVE_REAUDIT",
+	"production_path": "ApplicationShellScene -> CampaignNavigationController -> IslandMap -> GameManager",
+	"touch_shots_fired": 10,
+	"work_item": "BCM-M21 owner-runtime remediation V01"
+}
