@@ -1,0 +1,54 @@
+{
+  "work_item": "BCM-M21 V01-R01",
+  "release_candidate_source_sha": "8d8cf5453f484647b37dd59c374c5327855b9eda",
+  "release_candidate_source_sha_verification": {
+    "command": "git rev-parse 8d8cf5453f484647b37dd59c374c5327855b9eda; git cat-file -t 8d8cf5453f484647b37dd59c374c5327855b9eda",
+    "observed": "8d8cf5453f484647b37dd59c374c5327855b9eda; commit"
+  },
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "campaign_save_schema_version": 2,
+  "campaign_save_schema_verification": {
+    "source": "scripts/campaign/save_manager.gd:7",
+    "symbol": "SCHEMA_VERSION",
+    "command": "rg -n \"SCHEMA_VERSION|schema_version\" scripts/campaign/save_manager.gd",
+    "observed": "7:const SCHEMA_VERSION := 2"
+  },
+  "production_main_scene": "res://scenes/campaign/ApplicationShellScene.tscn",
+  "canonical_viewport": "720x1280 portrait",
+  "export_preset_status": {
+    "export_presets_cfg": "ABSENT",
+    "windows_release_probe": {
+      "command": "godot_console.exe --headless --path . --export-release Windows Desktop <temporary-output>",
+      "exit_code": 1,
+      "status": "UNAVAILABLE_OWNER_ENVIRONMENT",
+      "reason": "No export_presets.cfg exists at repository root"
+    }
+  },
+  "available_toolchain_status": {
+    "godot_console": "AVAILABLE",
+    "adb": "UNAVAILABLE",
+    "gradle": "UNAVAILABLE",
+    "xcodebuild": "UNAVAILABLE",
+    "keytool": "UNAVAILABLE",
+    "jarsigner": "UNAVAILABLE",
+    "apksigner": "UNAVAILABLE"
+  },
+  "generated_distributables": [],
+  "generated_distributable_sha256": [],
+  "persistence_smoke": {
+    "command": "godot_console.exe --headless --path . --script res://tests/m21_release_persistence_probe.gd",
+    "exit_code": 0,
+    "marker": "M21_RELEASE_PERSISTENCE_RESULT=PASS"
+  },
+  "import_editor_smoke": {
+    "command": "godot_console.exe --headless --path . --editor --quit",
+    "exit_code": 0
+  },
+  "known_limitations": [
+    "No export preset or distributable was generated on this machine.",
+    "Android/iOS export, signing, store packaging, and physical-device acceptance remain UNVERIFIED_OWNER_ENVIRONMENT.",
+    "The nested res://original_reference/project.godot is ignored by the Godot editor scan."
+  ],
+  "owner_native_gate_status": "PENDING_OWNER_NATIVE_ACCEPTANCE",
+  "r01_scope_statement": "R01 adds evidence manifests and audit transport derivatives only; it does not alter release-candidate product bytes, project.godot, campaign data, canonical assets, or original M21 V01 evidence."
+}
