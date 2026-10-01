@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M21
 - Current Sprint: BCM-M21-RELEASE-CLOSURE
-- Current Task: BCM-M21-001..006 — Mobile QA, performance, full progression, final regression, export/release configuration, and v1 closure package.
+- Current Task: BCM-M21-001/005/006 — V01-R01 evidence closure, then owner-native final acceptance.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the locked M21 V01 six-child release-closure batch in strict order with separate publication/equality after every child. Start with mobile layout/touch proxy QA, then performance/stability profiling, fresh-save L1→L100 progression, full accepted regression, export/release configuration, and the final technical release-readiness package. Stop at AWAITING_M21_AUDIT_V01. Do not edit TASKS.md. Final v1 release-ready acceptance still requires independent ChatGPT audit plus explicit owner-native mobile acceptance.
+- Next Task/Action: Codex executes the evidence-only M21 V01-R01 remediation: add a complete supplemental release manifest with Git SHA + save schema, create connector-readable provenance-linked review copies for all 14 unchanged mobile QA captures, prove product/original-evidence/TASKS freeze, and stop at AWAITING_M21_AUDIT_V01_R01. Do not modify product code or claim final v1 release-ready status. After independent R01 PASS, explicit owner-native mobile/release acceptance remains the final gate.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 94 / 101 = 93.07%. M20-001..006 are independently AUDITED_PASS and M20 is closed. M21-001..006 are the active final release-closure batch. Final release acceptance remains gated by independent audit and owner-native runtime acceptance.
+- Progress: 97 / 101 = 96.04%. M21-002 performance/stability, M21-003 fresh-save L1→L100 progression, and M21-004 accepted regression are independently PASS. M21-001 visual evidence and M21-005 release-manifest completeness require bounded R01 evidence closure. M21-006 remains pending R01 audit plus explicit owner-native acceptance.
 
 ## Tasks
 
@@ -891,12 +891,23 @@ M21 V01 ordered release-closure package:
 
 M21 is release validation/packaging only. It must not invent physical-device, signed-store, or platform-toolchain PASS results that were not actually produced. Final v1 release-ready closure requires independent ChatGPT audit plus explicit owner-native mobile acceptance.
 
-- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
-- [ ] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
-- [ ] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
-- [ ] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
-- [ ] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [ ] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+M21 V01 independent audit:
+`coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_AUDIT_V01.md` — **CHANGES_REQUIRED / EVIDENCE-CLOSURE-INCOMPLETE**.
+
+V01-R01 evidence-only remediation package:
+- Prompt: `coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_REMEDIATION_PROMPT_V01_R01.md`
+- Locked criteria: `coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_AUDIT_CRITERIA_V01_R01.md`
+- Required log: `coordination/sessions/BCM-M21-RELEASE-CLOSURE/CODEX_LOG_V01_R01.md`
+- Required marker: `AWAITING_M21_AUDIT_V01_R01`
+
+R01 is evidence-only. Product/source files and all original M21 V01 evidence/captures are frozen. It must add only a complete supplemental release manifest and audit-readable review copies/provenance for the 14 original mobile QA captures.
+
+- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
+- [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
+- [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
+- [!] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
+- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
 
