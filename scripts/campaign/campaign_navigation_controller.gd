@@ -6,6 +6,7 @@ extends Control
 ## existing gameplay scene at a time.
 
 signal world_map_entered
+signal main_menu_requested
 signal island_map_entered(island_id: String)
 signal level_selected(island_id: String, level_id: int)
 signal gameplay_session_started(configuration: Dictionary)
@@ -188,7 +189,7 @@ func _ensure_map_instances() -> bool:
 		_world_map.level_database = level_database
 		_world_map.campaign_manager = campaign_manager
 		_world_map.island_map_requested.connect(_on_island_map_requested)
-		_world_map.return_requested.connect(show_world_map)
+		_world_map.return_requested.connect(_on_world_map_return_requested)
 		add_child(_world_map)
 	else:
 		_world_map.configure_campaign(level_database, campaign_manager)
@@ -206,6 +207,12 @@ func _ensure_map_instances() -> bool:
 
 func _on_island_map_requested(island_id: String) -> void:
 	show_island_map(island_id)
+
+
+func _on_world_map_return_requested() -> void:
+	## The application shell owns the menu boundary. The campaign router emits
+	## this signal without creating another navigation or save authority.
+	main_menu_requested.emit()
 
 
 func _on_level_selected(island_id: String, level_id: int) -> void:

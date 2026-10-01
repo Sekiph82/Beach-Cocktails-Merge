@@ -99,7 +99,7 @@ func _remove(path: String) -> void:
 
 func _run() -> void:
     var project_text := FileAccess.get_file_as_string("res://project.godot").to_lower()
-    _check("normal startup uses campaign shell and excludes historical probe scripts", project_text.contains("run/main_scene=\"res://scenes/campaign/campaignnavigationscene.tscn\"") and not project_text.contains("tests/"))
+    _check("normal startup uses application shell and excludes historical probe scripts", project_text.contains("run/main_scene=\"res://scenes/campaign/applicationshellscene.tscn\"") and not project_text.contains("tests/"))
     var database = _database(_two_island_data(), [_level("sunny_cove", 1), _level("sunny_cove", 2)])
     var campaign = _fresh_campaign(database)
     var world_map = await _mount(database, campaign)

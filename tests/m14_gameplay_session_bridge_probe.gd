@@ -8,6 +8,7 @@ const ISLAND_ID := "m14_fixture"
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
+const APPLICATION_SHELL_SCENE := preload("res://scenes/campaign/ApplicationShellScene.tscn")
 
 var failures: Array[String] = []
 
@@ -199,12 +200,13 @@ func _run() -> void:
     _check("Island Map return preserves exact island boundary", win_bridge.return_to_island_map()["ok"] and map_requests == [ISLAND_ID] and win_bridge.session_state == win_bridge.STATE_IDLE)
 
     var configured_entry: String = str(ProjectSettings.get_setting("application/run/main_scene", ""))
-    _check("configured app entry is campaign shell", configured_entry == "res://scenes/campaign/CampaignNavigationScene.tscn")
+    _check("configured app entry is the reusable application shell", configured_entry == "res://scenes/campaign/ApplicationShellScene.tscn")
     var app_entry_scene := load(configured_entry) as PackedScene
-    var navigation = app_entry_scene.instantiate()
-    _check("configured entry instantiates the real M13 navigation host", navigation is CampaignNavigationController)
+    var shell = app_entry_scene.instantiate()
+    var navigation = shell.get_campaign_navigation()
+    _check("configured entry owns the real M13 navigation host", shell is ApplicationShell and navigation is CampaignNavigationController)
     _check("M13 navigation host configures exact fixture campaign", navigation.configure_campaign(database, campaign))
-    root.add_child(navigation)
+    root.add_child(shell)
     await process_frame
     await process_frame
     _check("navigation owns one reusable map pair", navigation.get_map_instance_count() == 2)
@@ -254,7 +256,7 @@ func _run() -> void:
     _check("Island Map return has no duplicate gameplay instance", navigation.get_current_view() == navigation.VIEW_ISLAND_MAP and navigation.get_gameplay_instance_count() == 0 and navigation.get_map_instance_count() == 2)
 
     _check("final canonical definition remains unchanged", database.get_level(ISLAND_ID, 1) == canonical_before)
-    navigation.queue_free()
+    shell.queue_free()
     await process_frame
 
     if failures.is_empty():
