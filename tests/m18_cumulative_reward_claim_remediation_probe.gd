@@ -36,9 +36,9 @@ func _database():
 
 func _records() -> Dictionary:
     var completed := {}
-    for level_id in range(1, 10):
+    for level_id in range(1, 50):
         completed[str(level_id)] = {"completed": true, "stars": 3, "best_score": level_id * 100}
-    completed["10"] = {"completed": true, "stars": 2, "best_score": 200}
+    completed["50"] = {"completed": true, "stars": 2, "best_score": 200}
     return completed
 
 
@@ -78,42 +78,42 @@ func _run() -> void:
     # The level completion and cumulative progression are successful, but the
     # reward must remain pending while no economy authority is attached.
     var pending_campaign = _campaign(database, _state())
-    var pending: Dictionary = pending_campaign.mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
+    var pending: Dictionary = pending_campaign.mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350})
     var pending_state: Dictionary = pending_campaign.get_progression_state()
-    _check("29 to 30 completes without economy", pending.get("ok", false) and pending.get("cumulative_stars", 0) == 30 and pending.get("cumulative_rewards", []).is_empty())
+    _check("149 to 150 completes without economy", pending.get("ok", false) and pending.get("cumulative_stars", 0) == 150 and pending.get("cumulative_rewards", []).is_empty())
     _check("economy-unavailable threshold remains unclaimed", pending_state["islands"][ISLAND_ID]["claimed_star_rewards"].is_empty())
-    _check("level completion still advances progression without reward authority", pending_campaign.is_level_completed(ISLAND_ID, 10) and pending_campaign.is_level_unlocked(ISLAND_ID, 11))
+    _check("level completion still advances progression without reward authority", pending_campaign.is_level_completed(ISLAND_ID, 50) and pending_campaign.is_level_unlocked(ISLAND_ID, 51))
 
     # Attaching the real economy later reconciles the pending threshold once.
     var late_economy = ECONOMY_SCRIPT.new()
     _check("late economy attaches from pending state", late_economy.configure_from_state(pending_state).get("ok", false))
     pending_campaign.set_economy(late_economy)
-    var reconciled: Dictionary = pending_campaign.mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
-    _check("late economy retry claims threshold", reconciled.get("cumulative_rewards", []).size() == 1 and reconciled["cumulative_rewards"][0].get("threshold", 0) == 30)
-    _check("late economy grants exactly one time booster", late_economy.get_booster_count("time") == 1 and pending_campaign.get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"] == [30])
+    var reconciled: Dictionary = pending_campaign.mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350})
+    _check("late economy retry claims the 150-star threshold", reconciled.get("cumulative_rewards", []).size() == 1 and reconciled["cumulative_rewards"][0].get("threshold", 0) == 150)
+    _check("late economy grants exactly one upgrade and no +Time", late_economy.get_booster_count("upgrade") == 1 and late_economy.get_booster_count("time") == 0 and pending_campaign.get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"] == [150])
 
     # A failed grant must not consume the threshold or mutate progression
     # ownership. A later successful economy can still reconcile it.
     var failed_campaign = _campaign(database, _state())
-    var failed_crossing: Dictionary = failed_campaign.mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
+    var failed_crossing: Dictionary = failed_campaign.mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350})
     var failing_economy = FAILING_ECONOMY_SCRIPT.new()
     failed_campaign.set_economy(failing_economy)
-    var failed_retry: Dictionary = failed_campaign.mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
+    var failed_retry: Dictionary = failed_campaign.mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350})
     _check("forced failed grant leaves threshold unclaimed", failed_crossing.get("cumulative_rewards", []).is_empty() and failed_retry.get("cumulative_rewards", []).is_empty() and failed_campaign.get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"].is_empty() and failing_economy.grant_calls == 1)
 
     # A persisted reward ledger is an idempotent grant success: the threshold
     # becomes claimed, but inventory is not incremented a second time.
-    var reward_id := "cumulative-stars:%s:30" % ISLAND_ID
+    var reward_id := "cumulative-stars:%s:150" % ISLAND_ID
     var duplicate_campaign = _campaign(database, _state([reward_id]))
     var duplicate_economy = ECONOMY_SCRIPT.new()
     _check("duplicate-ledger economy configures", duplicate_economy.configure_from_state(duplicate_campaign.get_progression_state()).get("ok", false))
     duplicate_campaign.set_economy(duplicate_economy)
-    var duplicate: Dictionary = duplicate_campaign.mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
-    var duplicate_again: Dictionary = duplicate_campaign.mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
-    _check("duplicate ledger claims state without duplicate inventory", duplicate.get("cumulative_rewards", []).size() == 1 and not duplicate["cumulative_rewards"][0]["grant"].get("granted", true) and duplicate_economy.get_booster_count("time") == 0 and duplicate_again.get("cumulative_rewards", []).is_empty())
-    _check("duplicate ledger leaves claim consistent", duplicate_campaign.get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"] == [30])
+    var duplicate: Dictionary = duplicate_campaign.mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350})
+    var duplicate_again: Dictionary = duplicate_campaign.mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350})
+    _check("duplicate ledger claims approved upgrade without duplicate inventory", duplicate.get("cumulative_rewards", []).size() == 1 and not duplicate["cumulative_rewards"][0]["grant"].get("granted", true) and duplicate_economy.get_booster_count("upgrade") == 0 and duplicate_economy.get_booster_count("time") == 0 and duplicate_again.get("cumulative_rewards", []).is_empty())
+    _check("duplicate ledger leaves claim consistent", duplicate_campaign.get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"] == [150])
 
-    # Save/reload keeps the normal 29->30 grant and remains duplicate-safe.
+    # Save/reload keeps the approved upgrade grant and remains duplicate-safe.
     _remove(SAVE_PATH)
     _remove(BACKUP_PATH)
     var save := SAVE_SCRIPT.new()
@@ -125,9 +125,9 @@ func _run() -> void:
     var loaded: Dictionary = save.read_state(SAVE_PATH, BACKUP_PATH, "user://m18_v02_r01_legacy.cfg")
     var reloaded_economy = ECONOMY_SCRIPT.new()
     var reloaded_campaign = CAMPAIGN_SCRIPT.new()
-    _check("normal 29 to 30 reward state saves and reloads", written.get("ok", false) and loaded.get("ok", false) and reloaded_economy.configure_from_state(loaded["state"]).get("ok", false) and reloaded_campaign.configure(database, loaded["state"], reloaded_economy))
-    var reload_replay: Dictionary = reloaded_campaign.mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
-    _check("save/reload replay does not duplicate reward", reload_replay.get("cumulative_rewards", []).is_empty() and reloaded_economy.get_booster_count("time") == 1 and loaded["state"]["islands"][ISLAND_ID]["claimed_star_rewards"] == [30])
+    _check("149 to 150 upgrade state saves and reloads", written.get("ok", false) and loaded.get("ok", false) and reloaded_economy.configure_from_state(loaded["state"]).get("ok", false) and reloaded_campaign.configure(database, loaded["state"], reloaded_economy))
+    var reload_replay: Dictionary = reloaded_campaign.mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350})
+    _check("save/reload replay does not duplicate upgrade or grant +Time", reload_replay.get("cumulative_rewards", []).is_empty() and reloaded_economy.get_booster_count("upgrade") == 1 and reloaded_economy.get_booster_count("time") == 0 and loaded["state"]["islands"][ISLAND_ID]["claimed_star_rewards"] == [150])
 
     _remove(SAVE_PATH)
     _remove(BACKUP_PATH)

@@ -65,10 +65,10 @@ func _run() -> void:
     for level_id in range(2, 101):
         var result: Dictionary = campaign.mark_level_completed(ISLAND_ID, level_id, {"stars": 1, "score": level_id * 10})
         reward_crossed = reward_crossed or not result.get("cumulative_rewards", []).is_empty()
-    _check("integration crosses and claims cumulative rewards", reward_crossed and campaign.get_cumulative_stars(ISLAND_ID) == 102 and economy.get_booster_count("time") >= 1)
-    var time_before_replay := economy.get_booster_count("time")
+    _check("102 cumulative stars do not grant retired +Time", not reward_crossed and campaign.get_cumulative_stars(ISLAND_ID) == 102 and economy.get_booster_count("time") == 0)
+    var retired_time_before_replay := economy.get_booster_count("time")
     var idempotent: Dictionary = campaign.mark_level_completed(ISLAND_ID, 30, {"stars": 1, "score": 300})
-    _check("integration cumulative claims are idempotent", idempotent.get("cumulative_rewards", []).is_empty() and economy.get_booster_count("time") == time_before_replay)
+    _check("retired +Time remains absent after replay", idempotent.get("cumulative_rewards", []).is_empty() and economy.get_booster_count("time") == retired_time_before_replay)
     _check("integration completes Sunny Cove and unlocks Tiki", campaign.is_island_complete(ISLAND_ID) and campaign.is_island_unlocked(TIKI_ID) and campaign.get_next_island(ISLAND_ID).get("island_id", "") == TIKI_ID)
 
     var progression_state: Dictionary = campaign.get_progression_state()
@@ -80,7 +80,7 @@ func _run() -> void:
     var loaded: Dictionary = save.read_state(SAVE_PATH, BACKUP_PATH, "user://m18_integration_probe_legacy.cfg")
     var reloaded_economy = ECONOMY_SCRIPT.new()
     var reloaded_campaign = CAMPAIGN_SCRIPT.new()
-    _check("integration reload preserves star/reward state", loaded.get("ok", false) and reloaded_economy.configure_from_state(loaded["state"])["ok"] and reloaded_campaign.configure(database, loaded["state"], reloaded_economy) and reloaded_campaign.get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"].size() >= 1 and reloaded_campaign.is_island_unlocked(TIKI_ID))
+    _check("integration reload preserves star state without claiming empty +Time slots", loaded.get("ok", false) and reloaded_economy.configure_from_state(loaded["state"])["ok"] and reloaded_campaign.configure(database, loaded["state"], reloaded_economy) and reloaded_campaign.get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"].is_empty() and reloaded_economy.get_booster_count("time") == 0 and reloaded_campaign.is_island_unlocked(TIKI_ID))
 
     var navigation = NAVIGATION_SCENE.instantiate()
     _check("integration navigation configures from reloaded authority", navigation.configure_campaign(database, reloaded_campaign, reloaded_economy))

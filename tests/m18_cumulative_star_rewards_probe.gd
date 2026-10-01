@@ -95,54 +95,59 @@ func _run() -> void:
     var track: Array = database.get_island(ISLAND_ID).get("reward_track", {}).get("cumulative_star_rewards", [])
     var expected_thresholds := [30, 60, 90, 120, 150, 180, 210, 240, 270, 300]
     _check("canonical reward track contains the exact ten thresholds", _thresholds({"cumulative_rewards": track}) == expected_thresholds)
-    var expected_boosters := ["time", "time", "time", "time", "upgrade", "time", "time", "time", "time", "upgrade"]
+    var expected_boosters := ["", "", "", "", "upgrade", "", "", "", "", "upgrade"]
     var payload_exact := track.size() == expected_thresholds.size()
     for index in range(mini(track.size(), expected_thresholds.size())):
         var entry: Dictionary = track[index]
         var reward: Dictionary = entry.get("reward", {})
-        payload_exact = payload_exact and int(entry.get("threshold", 0)) == expected_thresholds[index] and reward.get("type", "") == "booster" and reward.get("id", "") == expected_boosters[index] and int(reward.get("quantity", 0)) == 1
-    _check("canonical reward track has the exact approved booster payload and no coins", payload_exact)
+        if expected_boosters[index].is_empty():
+            payload_exact = payload_exact and reward.is_empty()
+        else:
+            payload_exact = payload_exact and reward.get("type", "") == "booster" and reward.get("id", "") == expected_boosters[index] and int(reward.get("quantity", 0)) == 1
+    _check("canonical reward track leaves retired +Time slots empty and preserves approved upgrades", payload_exact)
 
     var partial_bundle = _campaign(database, _state(_records({1: 3, 2: 3, 3: 1})))
     _check("partial cumulative progress is deterministic", partial_bundle["campaign"].get_cumulative_stars(ISLAND_ID) == 7)
 
     var crossing_bundle = _campaign(database, _state(_records({1: 3, 2: 3, 3: 3, 4: 3, 5: 3, 6: 3, 7: 3, 8: 3, 9: 3, 10: 2})))
     var crossing: Dictionary = crossing_bundle["campaign"].mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
-    _check("29 to 30 crosses the first threshold", crossing["cumulative_stars"] == 30 and _thresholds(crossing) == [30])
-    _check("30-star reward grants one time booster", crossing_bundle["economy"].get_booster_count("time") == 1)
+    _check("29 to 30 preserves cumulative progress without a retired reward", crossing["cumulative_stars"] == 30 and _thresholds(crossing).is_empty() and crossing_bundle["economy"].get_booster_count("time") == 0 and not crossing_bundle["campaign"].get_progression_state()["islands"][ISLAND_ID]["claimed_star_rewards"].has(30))
     var worse: Dictionary = crossing_bundle["campaign"].mark_level_completed(ISLAND_ID, 10, {"stars": 1, "score": 1})
-    _check("worse replay with no new best is idempotent", not worse["changed"] and worse["cumulative_rewards"].is_empty() and crossing_bundle["economy"].get_booster_count("time") == 1)
+    _check("worse replay leaves retired reward slots unclaimed", not worse["changed"] and worse["cumulative_rewards"].is_empty() and crossing_bundle["economy"].get_booster_count("time") == 0)
 
     var catchup_bundle = _campaign(database, _state(_records(_all_stars(50, 3))))
     var catchup: Dictionary = catchup_bundle["campaign"].mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 300})
-    _check("multiple unclaimed thresholds catch up in order", _thresholds(catchup) == [30, 60, 90, 120, 150])
-    _check("catch-up grants four time and one upgrade booster", catchup_bundle["economy"].get_booster_count("time") == 4 and catchup_bundle["economy"].get_booster_count("upgrade") == 1)
+    _check("catch-up claims only the configured 150-star upgrade", _thresholds(catchup) == [150])
+    _check("catch-up grants one upgrade and no retired +Time", catchup_bundle["economy"].get_booster_count("time") == 0 and catchup_bundle["economy"].get_booster_count("upgrade") == 1)
 
-    var upgrade_bundle = _campaign(database, _state(_records(_all_stars(49, 3)).merged({50: 2})))
+    var upgrade_records := _all_stars(49, 3)
+    upgrade_records[50] = 2
+    var upgrade_bundle = _campaign(database, _state(_records(upgrade_records)))
     var upgrade: Dictionary = upgrade_bundle["campaign"].mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 300})
-    _check("149 to 150 grants the approved upgrade reward", _thresholds(upgrade) == [30, 60, 90, 120, 150] and upgrade_bundle["economy"].get_booster_count("upgrade") == 1)
+    _check("149 to 150 grants the approved upgrade reward", _thresholds(upgrade) == [150] and upgrade_bundle["economy"].get_booster_count("upgrade") == 1 and upgrade_bundle["economy"].get_booster_count("time") == 0)
 
     var final_records := _all_stars(99, 3)
     final_records[100] = 2
     var final_bundle = _campaign(database, _state(_records(final_records)))
     var final_upgrade: Dictionary = final_bundle["campaign"].mark_level_completed(ISLAND_ID, 100, {"stars": 3, "score": 300})
-    _check("299 to 300 grants the final approved upgrade", _thresholds(final_upgrade) == expected_thresholds and final_upgrade["cumulative_stars"] == 300 and final_bundle["economy"].get_booster_count("upgrade") == 2)
+    _check("299 to 300 grants only the two approved upgrades", _thresholds(final_upgrade) == [150, 300] and final_upgrade["cumulative_stars"] == 300 and final_bundle["economy"].get_booster_count("upgrade") == 2 and final_bundle["economy"].get_booster_count("time") == 0)
     var duplicate_final: Dictionary = final_bundle["campaign"].mark_level_completed(ISLAND_ID, 100, {"stars": 3, "score": 300})
-    _check("final threshold claim remains duplicate-safe", duplicate_final["cumulative_rewards"].is_empty() and final_bundle["economy"].get_booster_count("upgrade") == 2)
+    _check("final threshold claim remains duplicate-safe", duplicate_final["cumulative_rewards"].is_empty() and final_bundle["economy"].get_booster_count("upgrade") == 2 and final_bundle["economy"].get_booster_count("time") == 0)
 
     _remove(SAVE_PATH)
     _remove(BACKUP_PATH)
     var save := SAVE_SCRIPT.new()
-    var saved_state: Dictionary = crossing_bundle["campaign"].get_progression_state()
-    var economy_state: Dictionary = crossing_bundle["economy"].export_state()
+    var saved_state: Dictionary = upgrade_bundle["campaign"].get_progression_state()
+    var economy_state: Dictionary = upgrade_bundle["economy"].export_state()
     saved_state["boosters"] = economy_state["boosters"]
     saved_state["reward_ledger"] = economy_state["reward_ledger"]
-    _check("claimed threshold state saves", save.write_state(saved_state, SAVE_PATH, BACKUP_PATH)["ok"])
+    var saved_result: Dictionary = save.write_state(saved_state, SAVE_PATH, BACKUP_PATH)
+    _check("claimed threshold state saves", saved_result.get("ok", false))
     var loaded: Dictionary = save.read_state(SAVE_PATH, BACKUP_PATH, "user://m18_cumulative_star_rewards_probe_legacy.cfg")
     var reloaded_bundle = _campaign(database, loaded["state"])
-    _check("claimed threshold persists across save/reload", loaded["ok"] and loaded["state"]["islands"][ISLAND_ID]["claimed_star_rewards"] == [30] and reloaded_bundle["economy"].get_booster_count("time") == 1)
-    var reload_replay: Dictionary = reloaded_bundle["campaign"].mark_level_completed(ISLAND_ID, 10, {"stars": 3, "score": 350})
-    _check("replay after reload does not duplicate the claimed reward", reload_replay["cumulative_rewards"].is_empty() and reloaded_bundle["economy"].get_booster_count("time") == 1)
+    _check("approved upgrade claim persists across save/reload", loaded["ok"] and loaded["state"]["islands"][ISLAND_ID]["claimed_star_rewards"] == [150] and reloaded_bundle["economy"].get_booster_count("upgrade") == 1 and reloaded_bundle["economy"].get_booster_count("time") == 0)
+    var reload_replay: Dictionary = reloaded_bundle["campaign"].mark_level_completed(ISLAND_ID, 50, {"stars": 3, "score": 350}) if loaded.get("ok", false) else {}
+    _check("replay after reload does not duplicate a reward", loaded.get("ok", false) and reload_replay.get("cumulative_rewards", []).is_empty() and reloaded_bundle["economy"].get_booster_count("upgrade") == 1 and reloaded_bundle["economy"].get_booster_count("time") == 0)
 
     var progression_bundle = _campaign(database, _state({}, 1))
     var progression: Dictionary = progression_bundle["campaign"].mark_level_completed(ISLAND_ID, 1, {"stars": 1, "score": 0})
