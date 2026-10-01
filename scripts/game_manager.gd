@@ -136,6 +136,8 @@ var _vip_target_drink: Drink
 var _startup_target_index := 0
 var _order_sequence := 0
 var campaign_session_bridge
+var presentation_reduced_motion := false
+var presentation_high_contrast := false
 
 
 func _ready() -> void:
@@ -212,6 +214,13 @@ func set_campaign_gameplay_paused(paused: bool) -> bool:
     if campaign_session_bridge == null:
         return false
     return campaign_session_bridge.set_gameplay_paused(paused)
+
+
+func apply_presentation_settings(state: Dictionary) -> void:
+    presentation_reduced_motion = bool(state.get("reduced_motion", false))
+    presentation_high_contrast = bool(state.get("high_contrast", false))
+    if feedback_service != null:
+        feedback_service.set_haptics_enabled(bool(state.get("haptics_enabled", true)))
 
 
 func handle_application_backgrounded() -> bool:

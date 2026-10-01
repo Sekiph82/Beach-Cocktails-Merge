@@ -10,17 +10,24 @@ signal settings_requested
 signal main_menu_entered
 signal onboarding_shown
 signal onboarding_dismissed
+signal settings_closed
 
 const NAVIGATION_SCENE := preload("res://scenes/campaign/CampaignNavigationScene.tscn")
+const SETTINGS_SCRIPT := preload("res://scripts/campaign/user_settings.gd")
+const DEFAULT_SETTINGS_STORAGE_PATH := "user://user_settings.json"
 const ONBOARDING_SCHEMA_VERSION := 1
 const DEFAULT_ONBOARDING_STORAGE_PATH := "user://onboarding_state.json"
 
 var campaign_navigation: CampaignNavigationController
 var current_view := "MAIN_MENU"
 var onboarding_storage_path := DEFAULT_ONBOARDING_STORAGE_PATH
+var settings_storage_path := DEFAULT_SETTINGS_STORAGE_PATH
 var onboarding_state: Dictionary = {}
+var user_settings
 
 var _menu_layer: Control
+var _settings_layer: Control
+var _settings_controls: Dictionary = {}
 var _onboarding_layer: Control
 var _onboarding_title: Label
 var _onboarding_body: Label
@@ -36,9 +43,15 @@ func _ready() -> void:
     set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     _build_menu()
     _build_onboarding()
+    _build_settings()
+    user_settings = SETTINGS_SCRIPT.new()
+    user_settings.load_settings(settings_storage_path)
+    user_settings.changed.connect(_on_setting_changed)
+    user_settings.presentation_changed.connect(_on_presentation_changed)
     campaign_navigation = NAVIGATION_SCENE.instantiate() as CampaignNavigationController
     campaign_navigation.name = "CampaignNavigation"
     campaign_navigation.main_menu_requested.connect(_on_navigation_main_menu_requested)
+    campaign_navigation.gameplay_session_started.connect(_on_gameplay_session_started)
     add_child(campaign_navigation)
     campaign_navigation.visible = false
     onboarding_state = _read_onboarding_state()
@@ -46,6 +59,8 @@ func _ready() -> void:
         show_onboarding()
     else:
         show_main_menu()
+    for key in _settings_controls:
+        _refresh_setting_control(str(key))
 
 
 func get_campaign_navigation() -> CampaignNavigationController:
@@ -66,6 +81,42 @@ func is_onboarding_visible() -> bool:
 
 func get_onboarding_page_count() -> int:
     return 5
+
+
+func get_user_settings():
+    return user_settings
+
+
+func get_presentation_state() -> Dictionary:
+    return user_settings.get_presentation_state() if user_settings != null else {}
+
+
+func is_settings_visible() -> bool:
+    return _settings_layer != null and _settings_layer.visible
+
+
+func show_settings() -> bool:
+    if _settings_layer == null or is_onboarding_visible():
+        return false
+    _menu_layer.visible = false
+    _settings_layer.visible = true
+    current_view = "SETTINGS"
+    settings_requested.emit()
+    return true
+
+
+func close_settings() -> bool:
+    if not is_settings_visible():
+        return false
+    _settings_layer.visible = false
+    _menu_layer.visible = true
+    current_view = "MAIN_MENU"
+    settings_closed.emit()
+    return true
+
+
+func set_setting(key: String, value: Variant) -> bool:
+    return user_settings != null and user_settings.set_value(key, value)
 
 
 func get_onboarding_state() -> Dictionary:
@@ -229,7 +280,7 @@ func _build_menu() -> void:
 
     _menu_settings_button = _make_menu_button("SETTINGS", Color("#12354d"), Color("#73e0d1"))
     _menu_settings_button.name = "SettingsButton"
-    _menu_settings_button.pressed.connect(request_settings)
+    _menu_settings_button.pressed.connect(show_settings)
     column.add_child(_menu_settings_button)
 
     _status_label = Label.new()
@@ -327,6 +378,120 @@ func _build_onboarding() -> void:
     skip.flat = true
     skip.pressed.connect(skip_onboarding)
     _onboarding_layer.add_child(skip)
+
+
+func _build_settings() -> void:
+    _settings_layer = Control.new()
+    _settings_layer.name = "Settings"
+    _settings_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    _settings_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+    _settings_layer.visible = false
+    add_child(_settings_layer)
+
+    var background := ColorRect.new()
+    background.color = Color("#08283c")
+    background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    _settings_layer.add_child(background)
+
+    var header := Label.new()
+    header.text = "SETTINGS"
+    header.position = Vector2(42.0, 82.0)
+    header.size = Vector2(636.0, 70.0)
+    header.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    header.add_theme_font_size_override("font_size", 38)
+    header.add_theme_color_override("font_color", Color("#fff0c6"))
+    _settings_layer.add_child(header)
+
+    var panel := PanelContainer.new()
+    panel.name = "SettingsPanel"
+    panel.position = Vector2(42.0, 190.0)
+    panel.size = Vector2(636.0, 830.0)
+    panel.add_theme_stylebox_override("panel", _panel_style(Color("#103d52"), Color("#4bb3a8"), 0.97))
+    _settings_layer.add_child(panel)
+
+    var column := VBoxContainer.new()
+    column.position = Vector2(78.0, 230.0)
+    column.size = Vector2(564.0, 745.0)
+    column.add_theme_constant_override("separation", 12)
+    _settings_layer.add_child(column)
+
+    _add_slider_setting(column, "MASTER AUDIO", "master_volume")
+    _add_toggle_setting(column, "MASTER MUTE", "master_muted")
+    _add_slider_setting(column, "MUSIC LEVEL", "music_volume")
+    _add_toggle_setting(column, "MUSIC MUTE", "music_muted")
+    _add_slider_setting(column, "SFX LEVEL", "sfx_volume")
+    _add_toggle_setting(column, "SFX MUTE", "sfx_muted")
+    _add_toggle_setting(column, "HAPTICS", "haptics_enabled")
+    _add_toggle_setting(column, "REDUCED MOTION", "reduced_motion")
+    _add_toggle_setting(column, "HIGH CONTRAST", "high_contrast")
+
+    var close := _make_menu_button("BACK TO MENU", Color("#12354d"), Color("#73e0d1"))
+    close.name = "CloseSettingsButton"
+    close.position = Vector2(180.0, 1080.0)
+    close.size = Vector2(360.0, 78.0)
+    close.pressed.connect(close_settings)
+    _settings_layer.add_child(close)
+
+
+func _add_slider_setting(parent: VBoxContainer, label_text: String, key: String) -> void:
+    var label := Label.new()
+    label.text = label_text
+    label.add_theme_font_size_override("font_size", 16)
+    label.add_theme_color_override("font_color", Color("#f7d47b"))
+    parent.add_child(label)
+    var slider := HSlider.new()
+    slider.name = key
+    slider.min_value = 0.0
+    slider.max_value = 1.0
+    slider.step = 0.05
+    slider.value = float(user_settings.get_value(key, 1.0)) if user_settings != null else 1.0
+    slider.custom_minimum_size = Vector2(0.0, 30.0)
+    slider.value_changed.connect(func(value: float) -> void: set_setting(key, value))
+    _settings_controls[key] = slider
+    parent.add_child(slider)
+
+
+func _add_toggle_setting(parent: VBoxContainer, label_text: String, key: String) -> void:
+    var toggle := Button.new()
+    toggle.name = key
+    toggle.custom_minimum_size = Vector2(0.0, 46.0)
+    toggle.add_theme_font_size_override("font_size", 17)
+    toggle.pressed.connect(func() -> void:
+        set_setting(key, not bool(user_settings.get_value(key, false)))
+        _refresh_setting_control(key)
+    )
+    _settings_controls[key] = toggle
+    parent.add_child(toggle)
+    _refresh_setting_control(key)
+
+
+func _refresh_setting_control(key: String) -> void:
+    var control = _settings_controls.get(key)
+    if control is Button and user_settings != null:
+        var enabled := bool(user_settings.get_value(key, false))
+        control.text = "%s  •  %s" % [key.replace("_", " ").to_upper(), "ON" if enabled else "OFF"]
+        control.add_theme_color_override("font_color", Color("#fff0c6") if enabled else Color("#9dbdb8"))
+
+
+func _on_setting_changed(key: String, _value: Variant) -> void:
+    _refresh_setting_control(key)
+    _apply_settings_to_gameplay()
+
+
+func _on_presentation_changed(_state: Dictionary) -> void:
+    if _settings_layer != null:
+        _settings_layer.modulate = Color("#ffffff") if not bool(user_settings.get_value("high_contrast", false)) else Color("#ffffff")
+
+
+func _on_gameplay_session_started(_configuration: Dictionary) -> void:
+    _apply_settings_to_gameplay()
+
+
+func _apply_settings_to_gameplay() -> void:
+    if user_settings == null or campaign_navigation == null:
+        return
+    user_settings.apply_to_gameplay(campaign_navigation.get_node_or_null("CampaignGameplay"))
 
 
 func _refresh_onboarding_page() -> void:
