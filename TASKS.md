@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: M20
-- Current Sprint: BCM-M20-CAMPAIGN-UX-POLISH
-- Current Task: BCM-M20-001..006 — Menus, onboarding, settings, accessibility, pause/lifecycle, campaign UX, and migration closure.
+- Current Milestone: M21
+- Current Sprint: BCM-M21-RELEASE-CLOSURE
+- Current Task: BCM-M21-001..006 — Mobile QA, performance, full progression, final regression, export/release configuration, and v1 closure package.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex executes the locked M20 V01 six-child batch in strict order. Each child must publish its own commit/log and clean local/origin/remote equality before the next child begins. Start with App Shell/Main Menu, then onboarding, settings/accessibility, pause/lifecycle, concise locked/milestone/result UX with seven 720×1280 captures, and backward-compatibility closure. Stop at AWAITING_M20_AUDIT_V01; do not edit TASKS.md or start M21.
+- Next Task/Action: Codex executes the locked M21 V01 six-child release-closure batch in strict order with separate publication/equality after every child. Start with mobile layout/touch proxy QA, then performance/stability profiling, fresh-save L1→L100 progression, full accepted regression, export/release configuration, and the final technical release-readiness package. Stop at AWAITING_M21_AUDIT_V01. Do not edit TASKS.md. Final v1 release-ready acceptance still requires independent ChatGPT audit plus explicit owner-native mobile acceptance.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 88 / 101 = 87.13%. M19-001..006 are independently AUDITED_PASS and M19 is closed. M20-001..006 are the active ordered batch. M21 remains blocked until independent M20 closure.
+- Progress: 94 / 101 = 93.07%. M20-001..006 are independently AUDITED_PASS and M20 is closed. M21-001..006 are the active final release-closure batch. Final release acceptance remains gated by independent audit and owner-native runtime acceptance.
 
 ## Tasks
 
@@ -869,16 +869,29 @@ M20 V01 ordered batch package:
 
 M20 adds application/menu/UX/settings layers around the accepted campaign engine. It must not fork progression, timer, save, gameplay physics, scoring, VIP, reward, or multi-island authorities. Every child requires separate publication/equality before the next child starts.
 
-- [~] BCM-M20-001 — Integrate campaign entry into main menu/start flow.
-- [ ] BCM-M20-002 — Add minimal first-run onboarding for World Map, Island Map, timed order objective, VIP optionality, and level completion.
-- [ ] BCM-M20-003 — Add settings for audio, haptics, accessibility-relevant feedback, and other release-required toggles.
-- [ ] BCM-M20-004 — Add pause/resume and app-lifecycle behavior that cannot consume campaign time while legitimately paused/backgrounded.
-- [ ] BCM-M20-005 — Add concise locked/unlocked/milestone/result UX without adding character systems or animation-heavy meta gameplay.
-- [ ] BCM-M20-006 — Complete save migration and backward-compatibility verification for existing players.
+M20 V01 independent audit:
+`coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/CHATGPT_AUDIT_V01.md` — **AUDITED_PASS / M20 CLOSED**.
+
+- [x] BCM-M20-001 — Integrate campaign entry into main menu/start flow.
+- [x] BCM-M20-002 — Add minimal first-run onboarding for World Map, Island Map, timed order objective, VIP optionality, and level completion.
+- [x] BCM-M20-003 — Add settings for audio, haptics, accessibility-relevant feedback, and other release-required toggles.
+- [x] BCM-M20-004 — Add pause/resume and app-lifecycle behavior that cannot consume campaign time while legitimately paused/backgrounded.
+- [x] BCM-M20-005 — Add concise locked/unlocked/milestone/result UX without adding character systems or animation-heavy meta gameplay.
+- [x] BCM-M20-006 — Complete save migration and backward-compatibility verification for existing players.
 
 ### M21 — Mobile QA, final regression, packaging, and v1 campaign release closure
 
-- [ ] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+M21 V01 ordered release-closure package:
+- Master prompt: `coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_EXECUTION_PROMPT_V01.md`
+- Master locked criteria: `coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_AUDIT_CRITERIA_V01.md`
+- Ordered child prompts/criteria: `CHATGPT_EXECUTION_PROMPT_V01_CHILD_01.md` through `CHATGPT_EXECUTION_PROMPT_V01_CHILD_06.md` and matching locked child criteria.
+- Ordered child logs: `CODEX_LOG_V01_CHILD_01.md` through `CODEX_LOG_V01_CHILD_06.md`
+- Master log: `coordination/sessions/BCM-M21-RELEASE-CLOSURE/CODEX_LOG_V01.md`
+- Required builder marker: `AWAITING_M21_AUDIT_V01`
+
+M21 is release validation/packaging only. It must not invent physical-device, signed-store, or platform-toolchain PASS results that were not actually produced. Final v1 release-ready closure requires independent ChatGPT audit plus explicit owner-native mobile acceptance.
+
+- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [ ] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [ ] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [ ] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
