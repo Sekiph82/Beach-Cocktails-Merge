@@ -69,7 +69,9 @@ func _run() -> void:
 
     var navigation = shell.get_campaign_navigation()
     _check("shell owns exactly one campaign navigation instance", navigation != null and shell.get_children().filter(func(child): return child is CampaignNavigationController).size() == 1)
-    _check("shell starts in Main Menu", shell.is_main_menu_visible() and shell.get_current_view() == "MAIN_MENU" and not navigation.visible)
+    if shell.is_onboarding_visible():
+        _check("first-run onboarding can be skipped before menu", shell.skip_onboarding() and shell.is_main_menu_visible())
+    _check("shell exposes Main Menu after first-run boundary", shell.is_main_menu_visible() and shell.get_current_view() == "MAIN_MENU" and not navigation.visible)
 
     var database = _database()
     var campaign = CAMPAIGN_SCRIPT.new()
