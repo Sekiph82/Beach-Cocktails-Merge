@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: M19
-- Current Sprint: BCM-M19-MULTI-ISLAND-SCALABILITY
-- Current Task: BCM-M19-001..006 — V01-R01 ordered verification remediation.
+- Current Milestone: M20
+- Current Sprint: BCM-M20-CAMPAIGN-UX-POLISH
+- Current Task: BCM-M20-001..006 — Menus, onboarding, settings, accessibility, pause/lifecycle, campaign UX, and migration closure.
 - Current Task Status: READY_FOR_CODEX
-- Next Task/Action: Codex performs evidence-only M19 V01-R01 verification in strict order. Product implementation remains frozen. Each child 01→06 must run alone, publish its own R01 child log in a later commit, and prove clean local/origin/remote equality before the next child begins. After Child 06, run the locked regression closure and stop at AWAITING_M19_AUDIT_V01_R01. Do not edit TASKS.md or start M20.
+- Next Task/Action: Codex executes the locked M20 V01 six-child batch in strict order. Each child must publish its own commit/log and clean local/origin/remote equality before the next child begins. Start with App Shell/Main Menu, then onboarding, settings/accessibility, pause/lifecycle, concise locked/milestone/result UX with seven 720×1280 captures, and backward-compatibility closure. Stop at AWAITING_M20_AUDIT_V01; do not edit TASKS.md or start M21.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 82 / 101 = 81.19%. M18 is closed. M19 V01 product implementation is technically consistent, but independent audit is CHANGES_REQUIRED because all six child logs/product changes were published together rather than through the locked sequential publication gates. M20 remains blocked until independent M19 closure.
+- Progress: 88 / 101 = 87.13%. M19-001..006 are independently AUDITED_PASS and M19 is closed. M20-001..006 are the active ordered batch. M21 remains blocked until independent M20 closure.
 
 ## Tasks
 
@@ -847,16 +847,29 @@ V01-R01 remediation package:
 
 The existing M19 product implementation is frozen. R01 is evidence/provenance verification only. Each child must publish clean evidence/equality before the next child executes.
 
-- [!] BCM-M19-001 — Prove the campaign engine can load a second island without duplicating CampaignManager, IslandMap, LevelButton, timer, or save logic.
-- [!] BCM-M19-002 — Add Tiki Island locked placeholder and unlock it only when Sunny Cove Level 100 is completed.
-- [!] BCM-M19-003 — Reserve L9 introduction for Tiki Island data and document higher-level progression policy for later islands.
-- [!] BCM-M19-004 — Define planned island sequence: Sunny Cove, Tiki Island, Azure Bay, Coconut Beach, Sunset Island, Party Beach, Frozen Paradise, Volcano Bay, Billionaire Island, and final island slot/name TBD.
-- [!] BCM-M19-005 — Define per-island skin/background hooks while keeping the same core table/gameplay engine.
-- [!] BCM-M19-006 — Add regression proving a new island can be added primarily through data plus map/background assets.
+M19 V01-R01 independent audit:
+`coordination/sessions/BCM-M19-MULTI-ISLAND-SCALABILITY/CHATGPT_AUDIT_V01_R01.md` — **AUDITED_PASS / M19 CLOSED**.
+
+- [x] BCM-M19-001 — Prove the campaign engine can load a second island without duplicating CampaignManager, IslandMap, LevelButton, timer, or save logic.
+- [x] BCM-M19-002 — Add Tiki Island locked placeholder and unlock it only when Sunny Cove Level 100 is completed.
+- [x] BCM-M19-003 — Reserve L9 introduction for Tiki Island data and document higher-level progression policy for later islands.
+- [x] BCM-M19-004 — Define planned island sequence: Sunny Cove, Tiki Island, Azure Bay, Coconut Beach, Sunset Island, Party Beach, Frozen Paradise, Volcano Bay, Billionaire Island, and final island slot/name TBD.
+- [x] BCM-M19-005 — Define per-island skin/background hooks while keeping the same core table/gameplay engine.
+- [x] BCM-M19-006 — Add regression proving a new island can be added primarily through data plus map/background assets.
 
 ### M20 — Menus, onboarding, settings, accessibility, and campaign UX polish
 
-- [ ] BCM-M20-001 — Integrate campaign entry into main menu/start flow.
+M20 V01 ordered batch package:
+- Master prompt: `coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/CHATGPT_EXECUTION_PROMPT_V01.md`
+- Master locked criteria: `coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/CHATGPT_AUDIT_CRITERIA_V01.md`
+- Ordered child prompts/criteria: `CHATGPT_EXECUTION_PROMPT_V01_CHILD_01.md` through `CHATGPT_EXECUTION_PROMPT_V01_CHILD_06.md` and matching locked child criteria.
+- Ordered child logs: `CODEX_LOG_V01_CHILD_01.md` through `CODEX_LOG_V01_CHILD_06.md`
+- Master log: `coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/CODEX_LOG_V01.md`
+- Required final marker: `AWAITING_M20_AUDIT_V01`
+
+M20 adds application/menu/UX/settings layers around the accepted campaign engine. It must not fork progression, timer, save, gameplay physics, scoring, VIP, reward, or multi-island authorities. Every child requires separate publication/equality before the next child starts.
+
+- [~] BCM-M20-001 — Integrate campaign entry into main menu/start flow.
 - [ ] BCM-M20-002 — Add minimal first-run onboarding for World Map, Island Map, timed order objective, VIP optionality, and level completion.
 - [ ] BCM-M20-003 — Add settings for audio, haptics, accessibility-relevant feedback, and other release-required toggles.
 - [ ] BCM-M20-004 — Add pause/resume and app-lifecycle behavior that cannot consume campaign time while legitimately paused/backgrounded.
