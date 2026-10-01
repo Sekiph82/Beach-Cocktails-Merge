@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-RUNTIME-REMEDIATION
-- Current Task: BCM-M21 owner-runtime remediation — restore real gameplay input, remove all timers, restore Sunny Cove theme, realign World Map hotspots, enlarge Godot debug view.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes the locked owner-runtime remediation. Real mouse/touch must launch cocktails through the production F5 path; Sunny Cove and future campaign gameplay must be untimed; +Time is retired pending owner replacement policy; Sunny Cove must render its canonical island theme; World Map hotspots must sit on the baked ten islands; desktop debug override becomes 486×864. Stop at AWAITING_OWNER_RUNTIME_REAUDIT_V01. Final PASS still requires owner manual F5 replay.
+- Current Sprint: BCM-M21-FINAL-OWNER-RUNTIME-CLOSURE
+- Current Task: BCM-M21-001 + BCM-M21-004 + BCM-M21-006 — final owner-runtime closure after no-timer/playability recovery.
+- Current Task Status: READY_FOR_CODEX
+- Next Task/Action: Codex executes the single V02 final-closure prompt. Re-verify real mouse/touch playability, untimed campaign behavior, retired +Time, Sunny Cove theme, World Map hotspot alignment, 486×864 debug view, and final gameplay regressions. If any technical defect remains, remediate it inside the same batch. Then publish the owner F5 checklist and stop at AWAITING_OWNER_F5_ACCEPTANCE_V02. Do not claim release-ready without explicit owner PASS.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: release closure REOPENED by owner runtime FAIL. Prior automated technical PASS is historical only for the affected surfaces; owner runtime evidence is authoritative.
+- Progress: active remaining tasks are BCM-M21-001, BCM-M21-004, and BCM-M21-006. BCM-M21-002, BCM-M21-003, and BCM-M21-005 remain frozen PASS. Final release closure still requires owner F5 acceptance.
 
 ## Tasks
 
@@ -909,13 +909,16 @@ Owner runtime FAIL:
 - `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_RUNTIME_AUDIT_V01.md`
 - `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_RULING_V01.md`
 
-Active remediation:
-- Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_REMEDIATION_PROMPT_V01.md`
-- Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_AUDIT_CRITERIA_V01.md`
-- Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_RUNTIME_REMEDIATION_V01.md`
-- Required marker: `AWAITING_OWNER_RUNTIME_REAUDIT_V01`
+Owner-runtime remediation V01 was implemented at handoff `814198440dc5c13792087b351a151241bd2664a5`.
 
-The owner explicitly rejects all gameplay time limits. Real input playability, correct Sunny Cove theme and correctly aligned World Map hotspots are release blockers.
+Final combined closure V02:
+- Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_FINAL_OWNER_RUNTIME_CLOSURE_PROMPT_V02.md`
+- Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_FINAL_OWNER_RUNTIME_CLOSURE_CRITERIA_V02.md`
+- Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_FINAL_OWNER_RUNTIME_CLOSURE_V02.md`
+- Active task IDs: `BCM-M21-001`, `BCM-M21-004`, `BCM-M21-006`
+- Successful technical marker: `AWAITING_OWNER_F5_ACCEPTANCE_V02`
+
+The owner explicitly rejects all gameplay time limits. Final owner F5 acceptance remains mandatory even after technical verification.
 
 - [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
