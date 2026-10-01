@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-RELEASE-CLOSURE
-- Current Task: BCM-M21-006 — Owner-native final runtime/release acceptance.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner manually validates the final production runtime in Godot and, where available, on the target mobile/release environment. Verify launch/onboarding/Main Menu, PLAY → World Map → Island Map → gameplay, touch/scroll/buttons, pause/background/resume, Settings persistence, WIN/LOSE/replay, save/restart persistence, visual clipping/readability, performance feel, and installation/export artifact behavior where available. Report PASS/FAIL observations. No further CODEX work is authorized unless owner acceptance finds a defect.
-- Required Actor: OWNER
+- Current Sprint: BCM-M21-OWNER-RUNTIME-REMEDIATION
+- Current Task: BCM-M21 owner-runtime remediation — restore real gameplay input, remove all timers, restore Sunny Cove theme, realign World Map hotspots, enlarge Godot debug view.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes the locked owner-runtime remediation. Real mouse/touch must launch cocktails through the production F5 path; Sunny Cove and future campaign gameplay must be untimed; +Time is retired pending owner replacement policy; Sunny Cove must render its canonical island theme; World Map hotspots must sit on the baked ten islands; desktop debug override becomes 486×864. Stop at AWAITING_OWNER_RUNTIME_REAUDIT_V01. Final PASS still requires owner manual F5 replay.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 99 / 101 = 98.02%. M21-001 through M21-005 are independently AUDITED_PASS. M21 technical release closure is complete. BCM-M21-006 and final v1 release-ready closure remain pending explicit owner-native acceptance.
+- Progress: release closure REOPENED by owner runtime FAIL. Prior automated technical PASS is historical only for the affected surfaces; owner runtime evidence is authoritative.
 
 ## Tasks
 
@@ -903,20 +903,30 @@ V01-R01 evidence-only remediation package:
 R01 is evidence-only. Product/source files and all original M21 V01 evidence/captures are frozen. It must add only a complete supplemental release manifest and audit-readable review copies/provenance for the 14 original mobile QA captures.
 
 M21 V01-R01 independent audit:
-`coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_AUDIT_V01_R01.md` — **AUDITED_PASS / TECHNICAL RELEASE CLOSURE COMPLETE**.
+`coordination/sessions/BCM-M21-RELEASE-CLOSURE/CHATGPT_AUDIT_V01_R01.md` — historical **TECHNICAL PASS**, superseded for final release acceptance by later owner runtime evidence.
 
-No further CODEX remediation is required. The sole remaining gate is explicit owner-native runtime/release acceptance.
+Owner runtime FAIL:
+- `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_RUNTIME_AUDIT_V01.md`
+- `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_RULING_V01.md`
 
-- [x] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+Active remediation:
+- Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_REMEDIATION_PROMPT_V01.md`
+- Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_AUDIT_CRITERIA_V01.md`
+- Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_RUNTIME_REMEDIATION_V01.md`
+- Required marker: `AWAITING_OWNER_RUNTIME_REAUDIT_V01`
+
+The owner explicitly rejects all gameplay time limits. Real input playability, correct Sunny Cove theme and correctly aligned World Map hotspots are release blockers.
+
+- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
-- [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
+- [!] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+- [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
 
 - Technical architecture: `docs/CAMPAIGN_MODULE_TECHNICAL_DESIGN.md`.
-- Sunny Cove content/timer contract: `docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md`.
+- Sunny Cove historical progression spec: `docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md` — **timer portions superseded by 2026-10-01 OWNER_RULING_V01; no gameplay time limits are permitted.**
 
 M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
