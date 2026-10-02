@@ -40,6 +40,10 @@ var _session_bridge
 var _result_canvas_layer: CanvasLayer
 var _result_canvas_root: Control
 var _result_feedback
+var _result_feedback_creation_queued := false
+var _pending_terminal_result: Dictionary = {}
+var _terminal_result_handled := false
+var _result_presentation_count := 0
 var _restoration_by_island: Dictionary = {}
 var _persistence_enabled := false
 
@@ -160,6 +164,7 @@ func retry_level() -> bool:
 	var configuration: Dictionary = _session_bridge.retry_session()
 	if configuration.is_empty():
 		return false
+	_terminal_result_handled = false
 	_dispose_gameplay()
 	current_view = VIEW_GAMEPLAY
 	call_deferred("_instantiate_gameplay", configuration)
@@ -173,6 +178,7 @@ func next_level() -> bool:
 	var configuration: Dictionary = _session_bridge.next_level_session()
 	if configuration.is_empty():
 		return false
+	_terminal_result_handled = false
 	_dispose_gameplay()
 	current_view = VIEW_GAMEPLAY
 	call_deferred("_instantiate_gameplay", configuration)
@@ -227,12 +233,20 @@ func _ensure_map_instances() -> bool:
 
 
 func _ensure_result_feedback() -> void:
-	if _result_feedback != null:
+	if is_instance_valid(_result_feedback) or _result_feedback_creation_queued:
+		return
+	_result_feedback_creation_queued = true
+	call_deferred("_create_result_feedback")
+
+
+func _create_result_feedback() -> void:
+	_result_feedback_creation_queued = false
+	if is_instance_valid(_result_feedback) or not is_inside_tree():
 		return
 	_result_canvas_layer = CanvasLayer.new()
 	_result_canvas_layer.name = "CampaignResultCanvasLayer"
 	_result_canvas_layer.layer = 2
-	get_tree().root.add_child(_result_canvas_layer)
+	add_child(_result_canvas_layer)
 	_result_canvas_root = Control.new()
 	_result_canvas_root.name = "CampaignResultCanvasRoot"
 	_result_canvas_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -242,6 +256,7 @@ func _ensure_result_feedback() -> void:
 	_result_feedback.name = "CampaignResultFeedback"
 	_result_feedback.action_requested.connect(_on_result_feedback_action)
 	_result_canvas_root.add_child(_result_feedback)
+	call_deferred("_present_pending_terminal_result")
 
 
 func _hide_result_feedback() -> void:
@@ -270,6 +285,8 @@ func _launch_selected_level(island_id: String, level_id: int) -> bool:
 	var configuration: Dictionary = _session_bridge.start_session(island_id, level_id)
 	if configuration.is_empty():
 		return false
+	_terminal_result_handled = false
+	_pending_terminal_result.clear()
 	_restoration_by_island[island_id] = _island_map.get_restoration_state()
 	_island_map.visible = false
 	_world_map.visible = false
@@ -298,9 +315,28 @@ func _dispose_gameplay() -> void:
 
 
 func _on_session_terminal(result: Dictionary) -> void:
+	if _terminal_result_handled:
+		return
+	_terminal_result_handled = true
+	_pending_terminal_result = result.duplicate(true)
 	gameplay_session_finished.emit(result)
 	_ensure_result_feedback()
+	call_deferred("_present_pending_terminal_result")
+
+
+func _present_pending_terminal_result() -> void:
+	if _pending_terminal_result.is_empty():
+		return
+	if not is_instance_valid(_result_feedback):
+		_ensure_result_feedback()
+		return
+	if not _result_feedback.is_node_ready():
+		call_deferred("_present_pending_terminal_result")
+		return
+	var result := _pending_terminal_result.duplicate(true)
+	_pending_terminal_result.clear()
 	_result_feedback.show_result(result)
+	_result_presentation_count += 1
 
 
 func _on_result_feedback_action(action: String) -> void:

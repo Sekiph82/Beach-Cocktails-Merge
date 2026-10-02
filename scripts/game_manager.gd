@@ -26,22 +26,22 @@ const ACTUAL_REAR_TABLE_SOURCE_Y := 478.0
 # two samples blend back into the already accepted near-table perspective so
 # the rear/side inset does not shrink the launch or danger area.
 const TABLE_LEFT_EDGE_SOURCE_POINTS := [
-    Vector2(199.0, 478.0),
-    Vector2(149.0, 587.0),
-    Vector2(124.0, 644.0),
-    Vector2(85.0, 734.0),
-    Vector2(60.0, 800.0),
-    Vector2(20.0, 1000.0),
-    Vector2(8.0, 1186.0),
+	Vector2(199.0, 478.0),
+	Vector2(149.0, 587.0),
+	Vector2(124.0, 644.0),
+	Vector2(85.0, 734.0),
+	Vector2(60.0, 800.0),
+	Vector2(20.0, 1000.0),
+	Vector2(8.0, 1186.0),
 ]
 const TABLE_RIGHT_EDGE_SOURCE_POINTS := [
-    Vector2(833.0, 478.0),
-    Vector2(880.0, 587.0),
-    Vector2(905.0, 644.0),
-    Vector2(942.0, 734.0),
-    Vector2(964.0, 800.0),
-    Vector2(1002.0, 1000.0),
-    Vector2(1016.0, 1186.0),
+	Vector2(833.0, 478.0),
+	Vector2(880.0, 587.0),
+	Vector2(905.0, 644.0),
+	Vector2(942.0, 734.0),
+	Vector2(964.0, 800.0),
+	Vector2(1002.0, 1000.0),
+	Vector2(1016.0, 1186.0),
 ]
 const DANGER_SOURCE_Y := 1080.0
 const LAUNCH_SOURCE_Y := 1136.0
@@ -129,6 +129,7 @@ var _background_scale := 1.0
 var _background_offset := Vector2.ZERO
 var _ui_scale := 1.0
 var _launch_zone: Sprite2D
+var _launch_indicator: Line2D
 var _danger_line: Sprite2D
 var _theme_table_shadow: Sprite2D
 var _theme_table: Sprite2D
@@ -147,1625 +148,1659 @@ var _order_sequence := 0
 var campaign_session_bridge
 var presentation_reduced_motion := false
 var presentation_high_contrast := false
+var _table_y_offset_canonical := 0.0
 
 
 func _ready() -> void:
-    instance = self
-    randomize()
+	instance = self
+	randomize()
 
-    if not Drink.load_data():
-        push_error("Drink verisi yuklenemedi. Oyun baslatilamiyor.")
-        return
+	if not Drink.load_data():
+		push_error("Drink verisi yuklenemedi. Oyun baslatilamiyor.")
+		return
 
-    _configure_board_layout()
-    _build_background()
+	_configure_board_layout()
+	_build_background()
 
-    world = Node2D.new()
-    world.name = "World"
-    add_child(world)
+	world = Node2D.new()
+	world.name = "World"
+	add_child(world)
 
-    merge_queue = MergeQueue.new()
-    merge_queue.name = "MergeQueue"
-    add_child(merge_queue)
+	merge_queue = MergeQueue.new()
+	merge_queue.name = "MergeQueue"
+	add_child(merge_queue)
 
-    feedback_service = FEEDBACK_SERVICE_SCRIPT.new()
-    feedback_service.name = "FeedbackService"
-    add_child(feedback_service)
+	feedback_service = FEEDBACK_SERVICE_SCRIPT.new()
+	feedback_service.name = "FeedbackService"
+	add_child(feedback_service)
 
-    _build_walls()
-    _build_ui()
-    _build_merge_target()
-    _choose_next_target(true)
-    _load_best_score()
-    _refresh_hud()
+	_build_walls()
+	_build_ui()
+	_build_merge_target()
+	_choose_next_target(true)
+	_load_best_score()
+	_refresh_hud()
 
-    shot_controller = ShotController.new()
-    shot_controller.name = "ShotController"
-    shot_controller.setup(self)
-    add_child(shot_controller)
+	shot_controller = ShotController.new()
+	shot_controller.name = "ShotController"
+	shot_controller.setup(self)
+	add_child(shot_controller)
 
-    queue_redraw()
+	queue_redraw()
 
 
 func _exit_tree() -> void:
-    if instance == self:
-        instance = null
+	if instance == self:
+		instance = null
 
 
 func configure_campaign_session(bridge) -> bool:
-    if bridge == null or not bridge.is_session_active():
-        return false
-    if campaign_session_bridge != null and campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
-        campaign_session_bridge.session_terminal.disconnect(_on_campaign_session_terminal)
-    if campaign_session_bridge != null and campaign_session_bridge.has_signal("vip_state_changed") and campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
-        campaign_session_bridge.vip_state_changed.disconnect(_on_vip_state_changed)
-    if campaign_session_bridge != null and campaign_session_bridge.has_signal("session_paused") and campaign_session_bridge.session_paused.is_connected(_on_campaign_session_paused):
-        campaign_session_bridge.session_paused.disconnect(_on_campaign_session_paused)
-    if campaign_session_bridge != null and campaign_session_bridge.has_signal("session_resumed") and campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
-        campaign_session_bridge.session_resumed.disconnect(_on_campaign_session_resumed)
-    campaign_session_bridge = bridge
-    if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
-        campaign_session_bridge.session_terminal.connect(_on_campaign_session_terminal)
-    if campaign_session_bridge.has_signal("vip_state_changed") and not campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
-        campaign_session_bridge.vip_state_changed.connect(_on_vip_state_changed)
-    if campaign_session_bridge.has_signal("session_paused") and not campaign_session_bridge.session_paused.is_connected(_on_campaign_session_paused):
-        campaign_session_bridge.session_paused.connect(_on_campaign_session_paused)
-    if campaign_session_bridge.has_signal("session_resumed") and not campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
-        campaign_session_bridge.session_resumed.connect(_on_campaign_session_resumed)
-    var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
-    if configuration.is_empty():
-        return false
-    _apply_campaign_theme(configuration.get("island_theme", {}))
-    _target_level = campaign_session_bridge.get_next_required_order_level()
-    if _target_level > 0:
-        _refresh_merge_target_visual()
-        call_deferred("_try_collect_stocked_target")
-    campaign_session_bridge.set_current_score(score)
-    if _pause_button != null:
-        _pause_button.visible = true
-    return campaign_session_bridge.mark_gameplay_ready()
+	if bridge == null or not bridge.is_session_active():
+		return false
+	if campaign_session_bridge != null and campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
+		campaign_session_bridge.session_terminal.disconnect(_on_campaign_session_terminal)
+	if campaign_session_bridge != null and campaign_session_bridge.has_signal("vip_state_changed") and campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
+		campaign_session_bridge.vip_state_changed.disconnect(_on_vip_state_changed)
+	if campaign_session_bridge != null and campaign_session_bridge.has_signal("session_paused") and campaign_session_bridge.session_paused.is_connected(_on_campaign_session_paused):
+		campaign_session_bridge.session_paused.disconnect(_on_campaign_session_paused)
+	if campaign_session_bridge != null and campaign_session_bridge.has_signal("session_resumed") and campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
+		campaign_session_bridge.session_resumed.disconnect(_on_campaign_session_resumed)
+	campaign_session_bridge = bridge
+	if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
+		campaign_session_bridge.session_terminal.connect(_on_campaign_session_terminal)
+	if campaign_session_bridge.has_signal("vip_state_changed") and not campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
+		campaign_session_bridge.vip_state_changed.connect(_on_vip_state_changed)
+	if campaign_session_bridge.has_signal("session_paused") and not campaign_session_bridge.session_paused.is_connected(_on_campaign_session_paused):
+		campaign_session_bridge.session_paused.connect(_on_campaign_session_paused)
+	if campaign_session_bridge.has_signal("session_resumed") and not campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
+		campaign_session_bridge.session_resumed.connect(_on_campaign_session_resumed)
+	var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
+	if configuration.is_empty():
+		return false
+	_apply_campaign_theme(configuration.get("island_theme", {}))
+	_target_level = campaign_session_bridge.get_next_required_order_level()
+	if _target_level > 0:
+		_refresh_merge_target_visual()
+		call_deferred("_try_collect_stocked_target")
+	campaign_session_bridge.set_current_score(score)
+	if _pause_button != null:
+		_pause_button.visible = true
+	return campaign_session_bridge.mark_gameplay_ready()
 
 
 func get_campaign_session_bridge():
-    return campaign_session_bridge
+	return campaign_session_bridge
 
 
 func get_visible_texture_inventory() -> Array[Dictionary]:
-    var result: Array[Dictionary] = []
-    _append_visible_texture_inventory(self, result)
-    return result
+	var result: Array[Dictionary] = []
+	_append_visible_texture_inventory(self, result)
+	return result
 
 
 func get_terminal_visual_counts() -> Dictionary:
-    var drinks := 0
-    var effects := 0
-    if world != null:
-        for child in world.get_children():
-            if child is Drink and child.is_visible_in_tree():
-                drinks += 1
-            if child.is_in_group("campaign_transient_world_effect") and child.is_visible_in_tree():
-                effects += 1
-    return {"visible_drink_count": drinks, "visible_transient_world_effect_count": effects}
+	var drinks := 0
+	var effects := 0
+	if world != null:
+		for child in world.get_children():
+			if child is Drink and child.is_visible_in_tree():
+				drinks += 1
+			if child.is_in_group("campaign_transient_world_effect") and child.is_visible_in_tree():
+				effects += 1
+	return {"visible_drink_count": drinks, "visible_transient_world_effect_count": effects}
 
 
 func _append_visible_texture_inventory(root: Node, result: Array[Dictionary]) -> void:
-    for child in root.get_children():
-        if child is CanvasItem and child.is_visible_in_tree() and (child is Sprite2D or child is TextureRect):
-            var texture: Texture2D = child.texture
-            var canvas_layer := 0
-            var ancestor := child.get_parent()
-            while ancestor != null:
-                if ancestor is CanvasLayer:
-                    canvas_layer = ancestor.layer
-                    break
-                ancestor = ancestor.get_parent()
-            result.append({
-                "node_path": str(child.get_path()),
-                "node_name": child.name,
-                "node_type": child.get_class(),
-                "texture_path": texture.resource_path if texture != null else "",
-                "z_index": child.z_index,
-                "canvas_layer": canvas_layer,
-                "visible": child.is_visible_in_tree(),
-            })
-        _append_visible_texture_inventory(child, result)
+	for child in root.get_children():
+		if child is CanvasItem and child.is_visible_in_tree() and (child is Sprite2D or child is TextureRect):
+			var texture: Texture2D = child.texture
+			var canvas_layer := 0
+			var ancestor := child.get_parent()
+			while ancestor != null:
+				if ancestor is CanvasLayer:
+					canvas_layer = ancestor.layer
+					break
+				ancestor = ancestor.get_parent()
+			result.append({
+				"node_path": str(child.get_path()),
+				"node_name": child.name,
+				"node_type": child.get_class(),
+				"texture_path": texture.resource_path if texture != null else "",
+				"z_index": child.z_index,
+				"canvas_layer": canvas_layer,
+				"visible": child.is_visible_in_tree(),
+			})
+		_append_visible_texture_inventory(child, result)
 
 
 func set_campaign_gameplay_paused(paused: bool) -> bool:
-    if campaign_session_bridge == null:
-        return false
-    var changed: bool = campaign_session_bridge.set_gameplay_paused(paused)
-    if changed and _pause_layer != null:
-        _pause_layer.visible = paused
-        if shot_controller != null:
-            shot_controller.set_input_blocked(paused)
-    return changed
+	if campaign_session_bridge == null:
+		return false
+	var changed: bool = campaign_session_bridge.set_gameplay_paused(paused)
+	if changed and _pause_layer != null:
+		_pause_layer.visible = paused
+		if shot_controller != null:
+			shot_controller.set_input_blocked(paused)
+	return changed
 
 
 func request_pause() -> bool:
-    return set_campaign_gameplay_paused(true)
+	return set_campaign_gameplay_paused(true)
 
 
 func resume_campaign_gameplay() -> bool:
-    return set_campaign_gameplay_paused(false)
+	return set_campaign_gameplay_paused(false)
 
 
 func request_island_map() -> bool:
-    if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-        return false
-    var result: Dictionary = campaign_session_bridge.return_to_island_map()
-    return bool(result.get("ok", false))
+	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		return false
+	var result: Dictionary = campaign_session_bridge.return_to_island_map()
+	return bool(result.get("ok", false))
 
 
 func get_pause_overlay_visible() -> bool:
-    return _pause_layer != null and _pause_layer.visible
+	return _pause_layer != null and _pause_layer.visible
 
 
 func apply_presentation_settings(state: Dictionary) -> void:
-    presentation_reduced_motion = bool(state.get("reduced_motion", false))
-    presentation_high_contrast = bool(state.get("high_contrast", false))
-    if feedback_service != null:
-        feedback_service.set_haptics_enabled(bool(state.get("haptics_enabled", true)))
+	presentation_reduced_motion = bool(state.get("reduced_motion", false))
+	presentation_high_contrast = bool(state.get("high_contrast", false))
+	if feedback_service != null:
+		feedback_service.set_haptics_enabled(bool(state.get("haptics_enabled", true)))
 
 
 func handle_application_backgrounded() -> bool:
-    if campaign_session_bridge == null:
-        return false
-    return campaign_session_bridge.set_background_paused(true)
+	if campaign_session_bridge == null:
+		return false
+	return campaign_session_bridge.set_background_paused(true)
 
 
 func handle_application_resumed() -> bool:
-    if campaign_session_bridge == null:
-        return false
-    return campaign_session_bridge.set_background_paused(false)
+	if campaign_session_bridge == null:
+		return false
+	return campaign_session_bridge.set_background_paused(false)
 
 
 func _notification(what: int) -> void:
-    if what == NOTIFICATION_APPLICATION_PAUSED:
-        handle_application_backgrounded()
-    elif what == NOTIFICATION_APPLICATION_RESUMED:
-        handle_application_resumed()
+	if what == NOTIFICATION_APPLICATION_PAUSED:
+		handle_application_backgrounded()
+	elif what == NOTIFICATION_APPLICATION_RESUMED:
+		handle_application_resumed()
 
 
 func get_board_size() -> Vector2:
-    return get_viewport_rect().size
+	return get_viewport_rect().size
 
 
 static func background_scale_for_viewport(viewport_size: Vector2) -> float:
-    return maxf(viewport_size.x / BACKGROUND_SOURCE_SIZE.x, viewport_size.y / BACKGROUND_SOURCE_SIZE.y)
+	return maxf(viewport_size.x / BACKGROUND_SOURCE_SIZE.x, viewport_size.y / BACKGROUND_SOURCE_SIZE.y)
 
 
 static func background_offset_for_viewport(viewport_size: Vector2) -> Vector2:
-    var scale := background_scale_for_viewport(viewport_size)
-    return (viewport_size - BACKGROUND_SOURCE_SIZE * scale) * 0.5
+	var scale := background_scale_for_viewport(viewport_size)
+	return (viewport_size - BACKGROUND_SOURCE_SIZE * scale) * 0.5
 
 
 static func source_to_viewport(source_point: Vector2, viewport_size: Vector2) -> Vector2:
-    return background_offset_for_viewport(viewport_size) + source_point * background_scale_for_viewport(viewport_size)
+	return background_offset_for_viewport(viewport_size) + source_point * background_scale_for_viewport(viewport_size)
 
 
 func _configure_board_layout() -> void:
-    var size := get_board_size()
-    _background_scale = background_scale_for_viewport(size)
-    _background_offset = background_offset_for_viewport(size)
+	var size := get_board_size()
+	_background_scale = background_scale_for_viewport(size)
+	_background_offset = background_offset_for_viewport(size)
 
-    var far_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS[0], size)
-    var near_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS.back(), size)
-    var actual_rear_table := source_to_viewport(Vector2(0.0, ACTUAL_REAR_TABLE_SOURCE_Y), size)
-    table_top_y = actual_rear_table.y
-    rear_table_y = actual_rear_table.y
-    table_bottom_y = near_left.y
-    # These exported values remain legacy diagnostics. Boundary queries and
-    # wall construction use the complete source-space polylines below.
-    table_top_inset = far_left.x
-    table_bottom_inset = near_left.x
-    death_line_y = source_to_viewport(Vector2(0.0, DANGER_SOURCE_Y), size).y
-    launch_y = source_to_viewport(Vector2(0.0, LAUNCH_SOURCE_Y), size).y
+	var far_left := _table_source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS[0], size)
+	var near_left := _table_source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS.back(), size)
+	var actual_rear_table := _table_source_to_viewport(Vector2(0.0, ACTUAL_REAR_TABLE_SOURCE_Y), size)
+	table_top_y = actual_rear_table.y
+	rear_table_y = actual_rear_table.y
+	table_bottom_y = near_left.y
+	# These exported values remain legacy diagnostics. Boundary queries and
+	# wall construction use the complete source-space polylines below.
+	table_top_inset = far_left.x
+	table_bottom_inset = near_left.x
+	death_line_y = _table_source_to_viewport(Vector2(0.0, DANGER_SOURCE_Y), size).y
+	launch_y = _table_source_to_viewport(Vector2(0.0, LAUNCH_SOURCE_Y), size).y
+
+
+func _table_y_offset_viewport(size: Vector2 = Vector2.ZERO) -> float:
+	var target_size := size if size.x > 0.0 and size.y > 0.0 else get_board_size()
+	return _table_y_offset_canonical * target_size.y / CANONICAL_VIEWPORT_SIZE.y
+
+
+func _table_source_to_viewport(source_point: Vector2, viewport_size: Vector2) -> Vector2:
+	return source_to_viewport(source_point, viewport_size) + Vector2(0.0, _table_y_offset_viewport(viewport_size))
 
 
 func _build_background() -> void:
-    _background = Sprite2D.new()
-    _background.name = "GameBoardBackground"
-    _background.texture = load(BACKGROUND_PATH) as Texture2D
-    _background.position = get_board_size() * 0.5
-    _background.scale = Vector2.ONE * _background_scale
-    _background.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    _background.z_index = -100
-    add_child(_background)
+	_background = Sprite2D.new()
+	_background.name = "GameBoardBackground"
+	_background.texture = load(BACKGROUND_PATH) as Texture2D
+	_background.position = get_board_size() * 0.5
+	_background.scale = Vector2.ONE * _background_scale
+	_background.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	_background.z_index = -100
+	add_child(_background)
 
-    _theme_table_shadow = _make_theme_layer("CampaignTableShadow", -90)
-    _theme_table = _make_theme_layer("CampaignTable", -10)
-    _theme_edge_overlay = _make_theme_layer("CampaignTableEdgeOverlay", 5)
+	_theme_table_shadow = _make_theme_layer("CampaignTableShadow", -90)
+	_theme_table = _make_theme_layer("CampaignTable", -10)
+	_theme_edge_overlay = _make_theme_layer("CampaignTableEdgeOverlay", 5)
 
 
 func _make_theme_layer(layer_name: String, layer_z: int) -> Sprite2D:
-    var layer := Sprite2D.new()
-    layer.name = layer_name
-    layer.position = get_board_size() * 0.5
-    layer.z_index = layer_z
-    layer.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    layer.visible = false
-    add_child(layer)
-    return layer
+	var layer := Sprite2D.new()
+	layer.name = layer_name
+	layer.position = get_board_size() * 0.5
+	layer.z_index = layer_z
+	layer.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	layer.visible = false
+	add_child(layer)
+	return layer
 
 
 func _apply_campaign_theme(theme: Variant) -> void:
-    var resolved: Dictionary = theme if theme is Dictionary else {}
-    var background_path := str(resolved.get("gameplay_background", BACKGROUND_PATH))
-    var table_path := str(resolved.get("gameplay_table", ""))
-    var shadow_path := str(resolved.get("gameplay_table_shadow", ""))
-    var edge_path := str(resolved.get("table_edge_overlay", ""))
-    var launch_path := str(resolved.get("launch_zone", ""))
-    _active_theme_paths = {
-        "gameplay_background": background_path,
-        "gameplay_table": table_path,
-        "gameplay_table_shadow": shadow_path,
-        "table_edge_overlay": edge_path,
-        "launch_zone": launch_path,
-    }
+	var resolved: Dictionary = theme if theme is Dictionary else {}
+	var background_path := str(resolved.get("gameplay_background", BACKGROUND_PATH))
+	var table_path := str(resolved.get("gameplay_table", ""))
+	var shadow_path := str(resolved.get("gameplay_table_shadow", ""))
+	var edge_path := str(resolved.get("table_edge_overlay", ""))
+	var launch_path := str(resolved.get("launch_zone", ""))
+	var previous_launch_y := launch_y
+	var requested_table_offset := float(resolved.get("table_y_offset_canonical", 0.0))
+	_table_y_offset_canonical = requested_table_offset
+	_active_theme_paths = {
+		"gameplay_background": background_path,
+		"gameplay_table": table_path,
+		"gameplay_table_shadow": shadow_path,
+		"table_edge_overlay": edge_path,
+		"launch_zone": launch_path,
+		"table_y_offset_canonical": _table_y_offset_canonical,
+	}
+	_configure_board_layout()
+	var table_translation := launch_y - previous_launch_y
+	if not is_zero_approx(table_translation):
+		_translate_existing_table_system(table_translation)
 
-    var campaign_background := load(background_path) as Texture2D
-    if campaign_background != null and _background != null:
-        _background.texture = campaign_background
-        _position_theme_layer(_background)
-    _set_theme_texture(_theme_table_shadow, shadow_path)
-    _set_theme_texture(_theme_table, table_path)
-    _set_theme_texture(_theme_edge_overlay, edge_path)
-    if _launch_zone != null and not launch_path.is_empty():
-        _set_full_viewport_texture(_launch_zone, launch_path)
-        _launch_zone.visible = not game_over
+	var campaign_background := load(background_path) as Texture2D
+	if campaign_background != null and _background != null:
+		_background.texture = campaign_background
+		_position_theme_layer(_background)
+	_set_theme_texture(_theme_table_shadow, shadow_path)
+	_set_theme_texture(_theme_table, table_path)
+	_set_theme_texture(_theme_edge_overlay, edge_path)
+	var table_visual_offset := Vector2(0.0, _table_y_offset_viewport())
+	for layer in [_theme_table_shadow, _theme_table, _theme_edge_overlay]:
+		if layer != null:
+			layer.position = get_board_size() * 0.5 + table_visual_offset
+	_layout_danger_line()
+	_layout_launch_indicator()
+	if is_instance_valid(_target_root):
+		_target_root.position.y += table_translation
+
+
+func _translate_existing_table_system(delta_y: float) -> void:
+	if world != null:
+		for child in world.get_children():
+			if child is Node2D:
+				(child as Node2D).position.y += delta_y
+	for child in get_children():
+		if child is Node2D and (str(child.name).begins_with("LeftRail") or str(child.name).begins_with("RightRail") or str(child.name) in ["TopRail", "BottomRail"]):
+			(child as Node2D).position.y += delta_y
 
 
 func _set_theme_texture(layer: Sprite2D, texture_path: String) -> void:
-    if layer == null or texture_path.is_empty():
-        return
-    var texture := load(texture_path) as Texture2D
-    if texture == null:
-        return
-    layer.texture = texture
-    _set_full_viewport_texture(layer, texture_path)
-    layer.visible = true
+	if layer == null or texture_path.is_empty():
+		return
+	var texture := load(texture_path) as Texture2D
+	if texture == null:
+		return
+	layer.texture = texture
+	_set_full_viewport_texture(layer, texture_path)
+	layer.visible = true
 
 
 func _set_full_viewport_texture(layer: Sprite2D, texture_path: String) -> void:
-    if layer == null:
-        return
-    var texture := load(texture_path) as Texture2D
-    if texture == null:
-        return
-    layer.texture = texture
-    layer.position = get_board_size() * 0.5
-    layer.scale = Vector2(
-        get_board_size().x / float(texture.get_width()),
-        get_board_size().y / float(texture.get_height())
-    )
+	if layer == null:
+		return
+	var texture := load(texture_path) as Texture2D
+	if texture == null:
+		return
+	layer.texture = texture
+	layer.position = get_board_size() * 0.5
+	layer.scale = Vector2(
+		get_board_size().x / float(texture.get_width()),
+		get_board_size().y / float(texture.get_height())
+	)
 
 
 func _position_theme_layer(layer: Sprite2D) -> void:
-    if layer == null or layer.texture == null:
-        return
-    layer.position = get_board_size() * 0.5
-    layer.scale = Vector2(
-        get_board_size().x / float(layer.texture.get_width()),
-        get_board_size().y / float(layer.texture.get_height())
-    )
+	if layer == null or layer.texture == null:
+		return
+	layer.position = get_board_size() * 0.5
+	layer.scale = Vector2(
+		get_board_size().x / float(layer.texture.get_width()),
+		get_board_size().y / float(layer.texture.get_height())
+	)
 
 
 func get_active_theme_paths() -> Dictionary:
-    return _active_theme_paths.duplicate(true)
+	return _active_theme_paths.duplicate(true)
 
 
 func get_table_rail_bounds_at_y(y_pos: float) -> Vector2:
-    var size := get_board_size()
-    var clamped_y := clampf(y_pos, table_top_y, table_bottom_y)
-    var source_y := (clamped_y - _background_offset.y) / _background_scale
-    var left_source_x := _piecewise_source_x(TABLE_LEFT_EDGE_SOURCE_POINTS, source_y)
-    var right_source_x := _piecewise_source_x(TABLE_RIGHT_EDGE_SOURCE_POINTS, source_y)
-    return Vector2(
-        clampf(source_to_viewport(Vector2(left_source_x, source_y), size).x, 0.0, size.x),
-        clampf(source_to_viewport(Vector2(right_source_x, source_y), size).x, 0.0, size.x)
-    )
+	var size := get_board_size()
+	var clamped_y := clampf(y_pos, table_top_y, table_bottom_y)
+	var source_y := (clamped_y - _table_y_offset_viewport(size) - _background_offset.y) / _background_scale
+	var left_source_x := _piecewise_source_x(TABLE_LEFT_EDGE_SOURCE_POINTS, source_y)
+	var right_source_x := _piecewise_source_x(TABLE_RIGHT_EDGE_SOURCE_POINTS, source_y)
+	return Vector2(
+		clampf(source_to_viewport(Vector2(left_source_x, source_y), size).x, 0.0, size.x),
+		clampf(source_to_viewport(Vector2(right_source_x, source_y), size).x, 0.0, size.x)
+	)
 
 
 func _piecewise_source_x(points: Array, source_y: float) -> float:
-    if points.is_empty():
-        return 0.0
-    if source_y <= float(points[0].y):
-        return float(points[0].x)
-    for index in range(points.size() - 1):
-        var a: Vector2 = points[index]
-        var b: Vector2 = points[index + 1]
-        if source_y <= b.y:
-            return lerpf(a.x, b.x, inverse_lerp(a.y, b.y, source_y))
-    return float(points.back().x)
+	if points.is_empty():
+		return 0.0
+	if source_y <= float(points[0].y):
+		return float(points[0].x)
+	for index in range(points.size() - 1):
+		var a: Vector2 = points[index]
+		var b: Vector2 = points[index + 1]
+		if source_y <= b.y:
+			return lerpf(a.x, b.x, inverse_lerp(a.y, b.y, source_y))
+	return float(points.back().x)
 
 
 func _make_boundary_edge(a: Vector2, b: Vector2, interior_point: Vector2, edge_name: String) -> Dictionary:
-    var tangent := (b - a).normalized()
-    var inward_normal := Vector2(-tangent.y, tangent.x)
-    if inward_normal.dot(interior_point - a) < 0.0:
-        inward_normal = -inward_normal
-    return {
-        "name": edge_name,
-        "a": a,
-        "b": b,
-        "inward_normal": inward_normal,
-    }
+	var tangent := (b - a).normalized()
+	var inward_normal := Vector2(-tangent.y, tangent.x)
+	if inward_normal.dot(interior_point - a) < 0.0:
+		inward_normal = -inward_normal
+	return {
+		"name": edge_name,
+		"a": a,
+		"b": b,
+		"inward_normal": inward_normal,
+	}
 
 
 func get_playable_boundary_edges() -> Array[Dictionary]:
-    var size := get_board_size()
-    var interior_point := Vector2(size.x * 0.5, (rear_table_y + table_bottom_y) * 0.5)
-    var edges: Array[Dictionary] = []
+	var size := get_board_size()
+	var interior_point := Vector2(size.x * 0.5, (rear_table_y + table_bottom_y) * 0.5)
+	var edges: Array[Dictionary] = []
 
-    var left_points := PackedVector2Array()
-    for point in TABLE_LEFT_EDGE_SOURCE_POINTS:
-        left_points.append(source_to_viewport(point, size))
-    for index in range(left_points.size() - 1):
-        edges.append(_make_boundary_edge(left_points[index], left_points[index + 1], interior_point, "LeftRail_%d" % index))
+	var left_points := PackedVector2Array()
+	for point in TABLE_LEFT_EDGE_SOURCE_POINTS:
+		left_points.append(_table_source_to_viewport(point, size))
+	for index in range(left_points.size() - 1):
+		edges.append(_make_boundary_edge(left_points[index], left_points[index + 1], interior_point, "LeftRail_%d" % index))
 
-    var right_points := PackedVector2Array()
-    for point in TABLE_RIGHT_EDGE_SOURCE_POINTS:
-        right_points.append(source_to_viewport(point, size))
-    for index in range(right_points.size() - 1):
-        edges.append(_make_boundary_edge(right_points[index], right_points[index + 1], interior_point, "RightRail_%d" % index))
+	var right_points := PackedVector2Array()
+	for point in TABLE_RIGHT_EDGE_SOURCE_POINTS:
+		right_points.append(_table_source_to_viewport(point, size))
+	for index in range(right_points.size() - 1):
+		edges.append(_make_boundary_edge(right_points[index], right_points[index + 1], interior_point, "RightRail_%d" % index))
 
-    edges.append(_make_boundary_edge(left_points[0], right_points[0], interior_point, "RearRail"))
-    return edges
+	edges.append(_make_boundary_edge(left_points[0], right_points[0], interior_point, "RearRail"))
+	return edges
 
 
 func _edge_signed_distance(point: Vector2, edge: Dictionary) -> float:
-    return edge["inward_normal"].dot(point - edge["a"])
+	return edge["inward_normal"].dot(point - edge["a"])
 
 
 func _project_hull_against_convex_envelope(
-    corrected_transform: Transform2D,
-    local_hull: PackedVector2Array,
-    velocity: Vector2,
-    edges: Array[Dictionary],
-    contacts: Array[String]
+	corrected_transform: Transform2D,
+	local_hull: PackedVector2Array,
+	velocity: Vector2,
+	edges: Array[Dictionary],
+	contacts: Array[String]
 ) -> Dictionary:
-    var corrected := false
-    var corrected_velocity := velocity
-    # The frozen rear/left/right vertices form a convex perspective envelope.
-    # In that mathematically justified case, every edge half-plane is part of
-    # the polygon and its infinite supporting line is not an unrelated
-    # segment extension. Applying all active polygon constraints lets a drink
-    # slide into a rear corner instead of being pushed down by one side only.
-    for edge in edges:
-        var minimum_distance := INF
-        for local_point in local_hull:
-            var world_point: Vector2 = corrected_transform * local_point
-            minimum_distance = minf(minimum_distance, _edge_signed_distance(world_point, edge))
-        if minimum_distance >= 0.0:
-            continue
-        var normal: Vector2 = edge["inward_normal"]
-        corrected_transform.origin += normal * (-minimum_distance + TABLE_SOLVER_EPSILON)
-        var normal_velocity: float = corrected_velocity.dot(normal)
-        if normal_velocity < 0.0:
-            corrected_velocity -= normal * normal_velocity
-        var edge_name := String(edge["name"])
-        if not contacts.has(edge_name):
-            contacts.append(edge_name)
-        corrected = true
-    return {
-        "transform": corrected_transform,
-        "velocity": corrected_velocity,
-        "corrected": corrected,
-    }
+	var corrected := false
+	var corrected_velocity := velocity
+	# The frozen rear/left/right vertices form a convex perspective envelope.
+	# In that mathematically justified case, every edge half-plane is part of
+	# the polygon and its infinite supporting line is not an unrelated
+	# segment extension. Applying all active polygon constraints lets a drink
+	# slide into a rear corner instead of being pushed down by one side only.
+	for edge in edges:
+		var minimum_distance := INF
+		for local_point in local_hull:
+			var world_point: Vector2 = corrected_transform * local_point
+			minimum_distance = minf(minimum_distance, _edge_signed_distance(world_point, edge))
+		if minimum_distance >= 0.0:
+			continue
+		var normal: Vector2 = edge["inward_normal"]
+		corrected_transform.origin += normal * (-minimum_distance + TABLE_SOLVER_EPSILON)
+		var normal_velocity: float = corrected_velocity.dot(normal)
+		if normal_velocity < 0.0:
+			corrected_velocity -= normal * normal_velocity
+		var edge_name := String(edge["name"])
+		if not contacts.has(edge_name):
+			contacts.append(edge_name)
+		corrected = true
+	return {
+		"transform": corrected_transform,
+		"velocity": corrected_velocity,
+		"corrected": corrected,
+	}
 func project_footprint_inside_table(
-    body_transform: Transform2D,
-    footprint: PackedVector2Array,
-    velocity: Vector2
+	body_transform: Transform2D,
+	footprint: PackedVector2Array,
+	velocity: Vector2
 ) -> Dictionary:
-    ## Authoritative table-boundary response.
-    ## The rails are lines on the table plane, so only the glass FOOTPRINT --
-    ## the zero-height segment along the bottom of the glass -- is constrained
-    ## by them. The silhouette above the plane is free to overhang the drawn
-    ## edge, which is what correct perspective looks like and what makes the
-    ## visible clearance exactly zero and identical at every level.
-    var origin := body_transform.origin
-    var corrected_velocity := velocity
-    var contacts: Array[String] = []
-    if footprint.is_empty():
-        return {
-            "transform": body_transform,
-            "velocity": corrected_velocity,
-            "corrected": false,
-            "contacts": contacts,
-        }
+	## Authoritative table-boundary response.
+	## The rails are lines on the table plane, so only the glass FOOTPRINT --
+	## the zero-height segment along the bottom of the glass -- is constrained
+	## by them. The silhouette above the plane is free to overhang the drawn
+	## edge, which is what correct perspective looks like and what makes the
+	## visible clearance exactly zero and identical at every level.
+	var origin := body_transform.origin
+	var corrected_velocity := velocity
+	var contacts: Array[String] = []
+	if footprint.is_empty():
+		return {
+			"transform": body_transform,
+			"velocity": corrected_velocity,
+			"corrected": false,
+			"contacts": contacts,
+		}
 
-    var edges := get_playable_boundary_edges()
+	var edges := get_playable_boundary_edges()
 
-    # The frozen rear/left/right vertices form a convex perspective envelope, so
-    # every edge half-plane is a genuine polygon constraint. The footprint is
-    # two points, so this converges in one or two passes instead of eight.
-    for _iteration in range(4):
-        var moved := false
-        for edge in edges:
-            var normal: Vector2 = edge["inward_normal"]
-            var distance := INF
-            for local_point in footprint:
-                distance = minf(distance, normal.dot(origin + local_point - edge["a"]))
-            if String(edge["name"]) == "RearRail":
-                distance -= REAR_EDGE_MARGIN
-            if distance >= 0.0:
-                continue
-            # Exact tangency, no per-edge epsilon: the retired hull solver added
-            # TABLE_SOLVER_EPSILON once per violated edge per iteration, which
-            # accumulated inward drift in the rear corners.
-            origin += normal * -distance
-            var normal_velocity: float = corrected_velocity.dot(normal)
-            if normal_velocity < 0.0:
-                corrected_velocity -= normal * normal_velocity
-            var edge_name := String(edge["name"])
-            if not contacts.has(edge_name):
-                contacts.append(edge_name)
-            moved = true
-        if not moved:
-            break
+	# The frozen rear/left/right vertices form a convex perspective envelope, so
+	# every edge half-plane is a genuine polygon constraint. The footprint is
+	# two points, so this converges in one or two passes instead of eight.
+	for _iteration in range(4):
+		var moved := false
+		for edge in edges:
+			var normal: Vector2 = edge["inward_normal"]
+			var distance := INF
+			for local_point in footprint:
+				distance = minf(distance, normal.dot(origin + local_point - edge["a"]))
+			if String(edge["name"]) == "RearRail":
+				distance -= REAR_EDGE_MARGIN
+			if distance >= 0.0:
+				continue
+			# Exact tangency, no per-edge epsilon: the retired hull solver added
+			# TABLE_SOLVER_EPSILON once per violated edge per iteration, which
+			# accumulated inward drift in the rear corners.
+			origin += normal * -distance
+			var normal_velocity: float = corrected_velocity.dot(normal)
+			if normal_velocity < 0.0:
+				corrected_velocity -= normal * normal_velocity
+			var edge_name := String(edge["name"])
+			if not contacts.has(edge_name):
+				contacts.append(edge_name)
+			moved = true
+		if not moved:
+			break
 
-    body_transform.origin = origin
-    return {
-        "transform": body_transform,
-        "velocity": corrected_velocity,
-        "corrected": not contacts.is_empty(),
-        "contacts": contacts,
-    }
+	body_transform.origin = origin
+	return {
+		"transform": body_transform,
+		"velocity": corrected_velocity,
+		"corrected": not contacts.is_empty(),
+		"contacts": contacts,
+	}
 
 
 ## Retired as the live boundary response in R11; the visible silhouette is now
 ## cosmetic only. Kept because the M06/R08/R09 geometry overlays and tangency
 ## probes still render and assert against the measured hull.
 func project_visual_hull_inside_table(
-    body_transform: Transform2D,
-    local_hull: PackedVector2Array,
-    velocity: Vector2
+	body_transform: Transform2D,
+	local_hull: PackedVector2Array,
+	velocity: Vector2
 ) -> Dictionary:
-    var corrected_transform := body_transform
-    var corrected_velocity := velocity
-    var contacts: Array[String] = []
-    if local_hull.is_empty():
-        return {
-            "transform": corrected_transform,
-            "velocity": corrected_velocity,
-            "corrected": false,
-            "contacts": contacts,
-        }
+	var corrected_transform := body_transform
+	var corrected_velocity := velocity
+	var contacts: Array[String] = []
+	if local_hull.is_empty():
+		return {
+			"transform": corrected_transform,
+			"velocity": corrected_velocity,
+			"corrected": false,
+			"contacts": contacts,
+		}
 
-    var edges := get_playable_boundary_edges()
-    var corrected_any := false
-    # First settle the authoritative glass/container body against the convex
-    # frozen envelope. This phase must converge before garnish-only lateral
-    # safety is considered, otherwise a rear-corner side correction can keep
-    # reintroducing a false rear gap.
-    for _iteration in range(8):
-        var body_projection := _project_hull_against_convex_envelope(
-            corrected_transform,
-            local_hull,
-            corrected_velocity,
-            edges,
-            contacts
-        )
-        corrected_transform = body_projection["transform"]
-        corrected_velocity = body_projection["velocity"]
-        var corrected := bool(body_projection["corrected"])
-        corrected_any = corrected_any or corrected
-        if not corrected:
-            break
+	var edges := get_playable_boundary_edges()
+	var corrected_any := false
+	# First settle the authoritative glass/container body against the convex
+	# frozen envelope. This phase must converge before garnish-only lateral
+	# safety is considered, otherwise a rear-corner side correction can keep
+	# reintroducing a false rear gap.
+	for _iteration in range(8):
+		var body_projection := _project_hull_against_convex_envelope(
+			corrected_transform,
+			local_hull,
+			corrected_velocity,
+			edges,
+			contacts
+		)
+		corrected_transform = body_projection["transform"]
+		corrected_velocity = body_projection["velocity"]
+		var corrected := bool(body_projection["corrected"])
+		corrected_any = corrected_any or corrected
+		if not corrected:
+			break
 
-    # A later finite-segment/corner projection can introduce a small outward
-    # component against an earlier rail. Remove only that outward component;
-    # tangent velocity and merge momentum remain untouched.
-    for edge in edges:
-        var final_min_distance := INF
-        for local_point in local_hull:
-            var final_world_point: Vector2 = corrected_transform * local_point
-            var final_distance: float = edge["inward_normal"].dot(final_world_point - edge["a"])
-            final_min_distance = minf(final_min_distance, final_distance)
-        if final_min_distance <= TABLE_SOLVER_EPSILON:
-            var final_normal_velocity: float = corrected_velocity.dot(edge["inward_normal"])
-            if final_normal_velocity < 0.0:
-                corrected_velocity -= edge["inward_normal"] * final_normal_velocity
-    return {
-        "transform": corrected_transform,
-        "velocity": corrected_velocity,
-            "corrected": corrected_any or not contacts.is_empty(),
-        "contacts": contacts,
-    }
+	# A later finite-segment/corner projection can introduce a small outward
+	# component against an earlier rail. Remove only that outward component;
+	# tangent velocity and merge momentum remain untouched.
+	for edge in edges:
+		var final_min_distance := INF
+		for local_point in local_hull:
+			var final_world_point: Vector2 = corrected_transform * local_point
+			var final_distance: float = edge["inward_normal"].dot(final_world_point - edge["a"])
+			final_min_distance = minf(final_min_distance, final_distance)
+		if final_min_distance <= TABLE_SOLVER_EPSILON:
+			var final_normal_velocity: float = corrected_velocity.dot(edge["inward_normal"])
+			if final_normal_velocity < 0.0:
+				corrected_velocity -= edge["inward_normal"] * final_normal_velocity
+	return {
+		"transform": corrected_transform,
+		"velocity": corrected_velocity,
+			"corrected": corrected_any or not contacts.is_empty(),
+		"contacts": contacts,
+	}
 
 
 func get_launch_position(x_pos: float, _radius: float = 20.0, _level: int = 0) -> Vector2:
-    return Vector2(clampf(x_pos, 0.0, get_board_size().x), launch_y)
+	return Vector2(clampf(x_pos, 0.0, get_board_size().x), launch_y)
 
 
 func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
-    if world == null or game_over:
-        return null
+	if world == null or game_over:
+		return null
 
-    var drink := Drink.create(p_level)
-    if drink == null:
-        return null
+	var drink := Drink.create(p_level)
+	if drink == null:
+		return null
 
-    # Spawn placement uses the same visual hull projection as live physics.
-    # Held previews first use the accepted launch Y, then receive the same
-    # boundary treatment after their level-specific hull exists.
-    pos = get_launch_position(pos.x, drink.radius, drink.level) if held else pos
-    var projected := project_footprint_inside_table(
-        Transform2D(0.0, pos),
-        drink.get_table_footprint_local(),
-        Vector2.ZERO
-    )
-    pos = projected["transform"].origin
-    drink.position = pos
-    drink.merged.connect(merge_queue.request_merge)
-    world.add_child(drink)
+	# Spawn placement uses the same visual hull projection as live physics.
+	# Held previews first use the accepted launch Y, then receive the same
+	# boundary treatment after their level-specific hull exists.
+	pos = get_launch_position(pos.x, drink.radius, drink.level) if held else pos
+	var projected := project_footprint_inside_table(
+		Transform2D(0.0, pos),
+		drink.get_table_footprint_local(),
+		Vector2.ZERO
+	)
+	pos = projected["transform"].origin
+	drink.position = pos
+	drink.merged.connect(merge_queue.request_merge)
+	world.add_child(drink)
 
-    if held:
-        drink.set_held()
-    else:
-        drink.set_settled()
+	if held:
+		drink.set_held()
+	else:
+		drink.set_settled()
 
-    return drink
+	return drink
 
 
 func set_next_level(p_level: int) -> void:
-    _refresh_next_visual(p_level)
+	_refresh_next_visual(p_level)
 
 
 func _add_score(points: int) -> void:
-    if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()) or points <= 0:
-        return
-    score += points
-    if score > best_score:
-        best_score = score
+	if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()) or points <= 0:
+		return
+	score += points
+	if score > best_score:
+		best_score = score
 
 
 func on_merged(new_level: int, merged_drink: Drink) -> void:
-    if game_over or new_level < 1 or new_level > Drink.drinks_data.size():
-        return
-    if not is_instance_valid(merged_drink):
-        return
+	if game_over or new_level < 1 or new_level > Drink.drinks_data.size():
+		return
+	if not is_instance_valid(merged_drink):
+		return
 
-    # Combo is time-based. Every merge refreshes the 1.5 s window. The bonus
-    # grows by +25% of the base merge score per combo step and caps at x6.
-    chain = mini(chain + 1, MAX_COMBO)
-    chain_timer = COMBO_WINDOW
+	# Combo is time-based. Every merge refreshes the 1.5 s window. The bonus
+	# grows by +25% of the base merge score per combo step and caps at x6.
+	chain = mini(chain + 1, MAX_COMBO)
+	chain_timer = COMBO_WINDOW
 
-    var base := Drink.merge_score(new_level)
-    var combo_bonus := int(round(float(base) * 0.25 * float(chain - 1)))
-    var gained := base + combo_bonus
-    _add_score(gained)
+	var base := Drink.merge_score(new_level)
+	var combo_bonus := int(round(float(base) * 0.25 * float(chain - 1)))
+	var gained := base + combo_bonus
+	_add_score(gained)
 
-    _refresh_hud()
-    _juice_effect(merged_drink.position)
-    feedback_service.emit_merge(merged_drink)
+	_refresh_hud()
+	_juice_effect(merged_drink.position)
+	feedback_service.emit_merge(merged_drink)
 
-    print("MERGE L%d +%d  COMBO x%d +%d  (toplam: %d)" % [new_level, base, chain, combo_bonus, score])
+	print("MERGE L%d +%d  COMBO x%d +%d  (toplam: %d)" % [new_level, base, chain, combo_bonus, score])
 
-    # The mandatory normal To-Go objective always wins when both objectives
-    # name the same level. A distinct VIP level uses its optional capture
-    # route; merge points are paid once above and VIP capture adds no duplicate
-    # merge/combo reward.
-    if not _target_transition and not _vip_target_transition and new_level == _target_level:
-        _collect_merge_target(merged_drink)
-    elif not _target_transition and not _vip_target_transition and _active_vip_level() == new_level and _vip_candidate_is_surplus(merged_drink):
-        _collect_vip_target(merged_drink)
+	# The mandatory normal To-Go objective always wins when both objectives
+	# name the same level. A distinct VIP level uses its optional capture
+	# route; merge points are paid once above and VIP capture adds no duplicate
+	# merge/combo reward.
+	if not _target_transition and not _vip_target_transition and new_level == _target_level:
+		_collect_merge_target(merged_drink)
+	elif not _target_transition and not _vip_target_transition and _active_vip_level() == new_level and _vip_candidate_is_surplus(merged_drink):
+		_collect_vip_target(merged_drink)
 
 
 func _process(delta: float) -> void:
-    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
-        campaign_session_bridge.set_current_score(score)
-        campaign_session_bridge.tick(delta)
-    if game_over:
-        _update_launch_zone(false)
-        return
+	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+		campaign_session_bridge.set_current_score(score)
+		campaign_session_bridge.tick(delta)
+	if game_over:
+		_update_launch_zone(false)
+		return
 
-    if chain > 0:
-        chain_timer -= delta
-        if chain_timer <= 0.0:
-            chain = 0
-            chain_timer = 0.0
-            _refresh_hud()
+	if chain > 0:
+		chain_timer -= delta
+		if chain_timer <= 0.0:
+			chain = 0
+			chain_timer = 0.0
+			_refresh_hud()
 
-    _update_death_line(delta)
-    _update_launch_zone(true)
+	_update_death_line(delta)
+	_update_launch_zone(true)
 
 
 func _update_death_line(delta: float) -> void:
-    var danger := false
+	var danger := false
 
-    for child in world.get_children():
-        if child is Drink:
-            var drink := child as Drink
-            if drink.is_settled() and not drink.is_queued_for_deletion():
-                if drink.position.y + drink.radius > death_line_y:
-                    danger = true
-                    break
+	for child in world.get_children():
+		if child is Drink:
+			var drink := child as Drink
+			if drink.is_settled() and not drink.is_queued_for_deletion():
+				if drink.position.y + drink.radius > death_line_y:
+					danger = true
+					break
 
-    _line_timer = _line_timer + delta if danger else 0.0
+	_line_timer = _line_timer + delta if danger else 0.0
 
-    if _line_timer >= death_tolerance:
-        _game_over()
+	if _line_timer >= death_tolerance:
+		_game_over()
 
 
 func try_chain_merge(source: Drink) -> void:
-    if game_over or not is_instance_valid(source) or source.is_queued_for_deletion():
-        return
-    if not source.is_settled() or source.level >= Drink.max_level():
-        return
+	if game_over or not is_instance_valid(source) or source.is_queued_for_deletion():
+		return
+	if not source.is_settled() or source.level >= Drink.max_level():
+		return
 
-    var best: Drink = null
-    var best_distance := INF
+	var best: Drink = null
+	var best_distance := INF
 
-    for child in world.get_children():
-        if not (child is Drink) or child == source:
-            continue
+	for child in world.get_children():
+		if not (child is Drink) or child == source:
+			continue
 
-        var other := child as Drink
-        if not other.is_settled() or other.level != source.level or other.is_queued_for_deletion():
-            continue
+		var other := child as Drink
+		if not other.is_settled() or other.level != source.level or other.is_queued_for_deletion():
+			continue
 
-        var distance := source.position.distance_to(other.position)
-        var touching_distance := source.radius + other.radius + 4.0
-        if distance <= touching_distance and distance < best_distance:
-            best = other
-            best_distance = distance
+		var distance := source.position.distance_to(other.position)
+		var touching_distance := source.radius + other.radius + 4.0
+		if distance <= touching_distance and distance < best_distance:
+			best = other
+			best_distance = distance
 
-    if best != null:
-        merge_queue.request_merge(source, best, source.level + 1)
+	if best != null:
+		merge_queue.request_merge(source, best, source.level + 1)
 
 
 func _game_over() -> void:
-    if game_over:
-        return
+	if game_over:
+		return
 
-    game_over = true
-    _clear_terminal_world_visuals()
-    merge_queue.clear()
-    shot_controller.stop_shooting()
+	game_over = true
+	_clear_terminal_world_visuals()
+	merge_queue.clear()
+	shot_controller.stop_shooting()
 
-    for child in world.get_children():
-        if child is Drink:
-            var drink := child as Drink
-            drink.freeze = true
+	for child in world.get_children():
+		if child is Drink:
+			var drink := child as Drink
+			drink.freeze = true
 
-    # best_score is updated live by _add_score(), so compare-and-save here
-    # would miss every new record. Persist the current best at the terminal
-    # state; restart then reloads the same record from user://.
-    _save_best_score()
-    feedback_service.emit_game_fail()
+	# best_score is updated live by _add_score(), so compare-and-save here
+	# would miss every new record. Persist the current best at the terminal
+	# state; restart then reloads the same record from user://.
+	_save_best_score()
+	feedback_service.emit_game_fail()
 
-    _refresh_hud()
-    _final_score_label.text = "SKOR  %d\nREKOR  %d" % [score, best_score]
-    _game_over_layer.visible = true
+	_refresh_hud()
+	_final_score_label.text = "SKOR  %d\nREKOR  %d" % [score, best_score]
+	_game_over_layer.visible = true
 
-    print("OYUN BITTI - Skor: %d" % score)
+	print("OYUN BITTI - Skor: %d" % score)
 
-    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
-        campaign_session_bridge.resolve_lose("TABLE_DANGER", score)
+	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+		campaign_session_bridge.resolve_lose("TABLE_DANGER", score)
 
 
 func _restart_game() -> void:
-    get_tree().reload_current_scene()
+	get_tree().reload_current_scene()
 
 
 func _load_best_score() -> void:
-    var cfg := ConfigFile.new()
-    var err := cfg.load("user://save.cfg")
-    if err == OK:
-        best_score = int(cfg.get_value("records", "best", 0))
-    else:
-        best_score = 0
+	var cfg := ConfigFile.new()
+	var err := cfg.load("user://save.cfg")
+	if err == OK:
+		best_score = int(cfg.get_value("records", "best", 0))
+	else:
+		best_score = 0
 
 
 func _save_best_score() -> void:
-    var cfg := ConfigFile.new()
-    cfg.load("user://save.cfg")
-    cfg.set_value("records", "best", best_score)
-    var err := cfg.save("user://save.cfg")
-    if err != OK:
-        push_warning("Rekor kaydedilemedi. Hata kodu: %d" % err)
+	var cfg := ConfigFile.new()
+	cfg.load("user://save.cfg")
+	cfg.set_value("records", "best", best_score)
+	var err := cfg.save("user://save.cfg")
+	if err != OK:
+		push_warning("Rekor kaydedilemedi. Hata kodu: %d" % err)
 
 
 func _refresh_hud() -> void:
-    if _score_value != null:
-        _score_value.text = _score_display_text(score)
-        _center_panel_value(_score_value)
-    if _best_value != null:
-        _best_value.text = _score_display_text(best_score)
-        _center_panel_value(_best_value)
-    if _chain_label != null:
-        _chain_label.visible = chain > 1
-        _chain_label.text = "COMBO x%d" % chain
-    _refresh_vip_panel()
+	if _score_value != null:
+		_score_value.text = _score_display_text(score)
+		_center_panel_value(_score_value)
+	if _best_value != null:
+		_best_value.text = _score_display_text(best_score)
+		_center_panel_value(_best_value)
+	if _chain_label != null:
+		_chain_label.visible = chain > 1
+		_chain_label.text = "COMBO x%d" % chain
+	_refresh_vip_panel()
 
 
 func _build_walls() -> void:
-    var size := get_board_size()
-    var left_points := PackedVector2Array()
-    var right_points := PackedVector2Array()
-    for point in TABLE_LEFT_EDGE_SOURCE_POINTS:
-        left_points.append(source_to_viewport(point, size))
-    for point in TABLE_RIGHT_EDGE_SOURCE_POINTS:
-        right_points.append(source_to_viewport(point, size))
+	var size := get_board_size()
+	var left_points := PackedVector2Array()
+	var right_points := PackedVector2Array()
+	for point in TABLE_LEFT_EDGE_SOURCE_POINTS:
+		left_points.append(_table_source_to_viewport(point, size))
+	for point in TABLE_RIGHT_EDGE_SOURCE_POINTS:
+		right_points.append(_table_source_to_viewport(point, size))
 
-    # These wall bodies remain diagnostics/reference geometry only. Drink
-    # circles are layer 1/mask 1; the walls are layer 2/mask 2. The visual hull
-    # solver below is the sole authoritative table-boundary response.
-    for index in range(left_points.size() - 1):
-        var a := left_points[index]
-        var b := left_points[index + 1]
-        _add_wall_segment(a, b, wall_thickness, "LeftRail" if index == 0 else "LeftRail_%d" % index, 0.0)
-    for index in range(right_points.size() - 1):
-        var a := right_points[index]
-        var b := right_points[index + 1]
-        _add_wall_segment(a, b, wall_thickness, "RightRail" if index == 0 else "RightRail_%d" % index, 0.0)
+	# These wall bodies remain diagnostics/reference geometry only. Drink
+	# circles are layer 1/mask 1; the walls are layer 2/mask 2. The visual hull
+	# solver below is the sole authoritative table-boundary response.
+	for index in range(left_points.size() - 1):
+		var a := left_points[index]
+		var b := left_points[index + 1]
+		_add_wall_segment(a, b, wall_thickness, "LeftRail" if index == 0 else "LeftRail_%d" % index, 0.0)
+	for index in range(right_points.size() - 1):
+		var a := right_points[index]
+		var b := right_points[index + 1]
+		_add_wall_segment(a, b, wall_thickness, "RightRail" if index == 0 else "RightRail_%d" % index, 0.0)
 
-    # The diagnostic rear wall lies geometrically on the accepted rear line.
-    var top_left := source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS[0], size)
-    var top_right := source_to_viewport(TABLE_RIGHT_EDGE_SOURCE_POINTS[0], size)
-    var bottom_left: Vector2 = left_points[left_points.size() - 1]
-    var bottom_right: Vector2 = right_points[right_points.size() - 1]
-    _add_wall_segment(top_left, top_right, wall_thickness, "TopRail", 0.0)
-    _add_wall_segment(bottom_left + Vector2(0.0, wall_thickness * 0.5), bottom_right + Vector2(0.0, wall_thickness * 0.5), wall_thickness, "BottomRail", 0.0)
+	# The diagnostic rear wall lies geometrically on the accepted rear line.
+	var top_left := _table_source_to_viewport(TABLE_LEFT_EDGE_SOURCE_POINTS[0], size)
+	var top_right := _table_source_to_viewport(TABLE_RIGHT_EDGE_SOURCE_POINTS[0], size)
+	var bottom_left: Vector2 = left_points[left_points.size() - 1]
+	var bottom_right: Vector2 = right_points[right_points.size() - 1]
+	_add_wall_segment(top_left, top_right, wall_thickness, "TopRail", 0.0)
+	_add_wall_segment(bottom_left + Vector2(0.0, wall_thickness * 0.5), bottom_right + Vector2(0.0, wall_thickness * 0.5), wall_thickness, "BottomRail", 0.0)
 
 
 func _add_wall_segment(a: Vector2, b: Vector2, thickness: float, wall_name: String, bounce: float) -> void:
-    var wall := StaticBody2D.new()
-    wall.name = wall_name
-    wall.position = (a + b) * 0.5
-    wall.rotation = (b - a).angle()
-    wall.collision_layer = 2
-    wall.collision_mask = 2
+	var wall := StaticBody2D.new()
+	wall.name = wall_name
+	wall.position = (a + b) * 0.5
+	wall.rotation = (b - a).angle()
+	wall.collision_layer = 2
+	wall.collision_mask = 2
 
-    var collision := CollisionShape2D.new()
-    var rect := RectangleShape2D.new()
-    rect.size = Vector2(a.distance_to(b) + thickness, thickness)
-    collision.shape = rect
-    wall.add_child(collision)
+	var collision := CollisionShape2D.new()
+	var rect := RectangleShape2D.new()
+	rect.size = Vector2(a.distance_to(b) + thickness, thickness)
+	collision.shape = rect
+	wall.add_child(collision)
 
-    var mat := PhysicsMaterial.new()
-    mat.friction = 0.10
-    mat.bounce = bounce
-    wall.physics_material_override = mat
+	var mat := PhysicsMaterial.new()
+	mat.friction = 0.10
+	mat.bounce = bounce
+	wall.physics_material_override = mat
 
-    world.add_child(wall)
+	world.add_child(wall)
 
 
 func _build_ui() -> void:
-    var board_size := get_board_size()
-    # Keep the approved portrait HUD footprint stable on wider phones; the
-    # playfield itself remains aspect-preserving and responsive under M06.
-    var ui_scale := clampf(board_size.x / 720.0, 0.94, 1.0)
-    _ui_scale = ui_scale
-    var canvas := CanvasLayer.new()
-    canvas.name = "UI"
-    add_child(canvas)
+	var board_size := get_board_size()
+	# Keep the approved portrait HUD footprint stable on wider phones; the
+	# playfield itself remains aspect-preserving and responsive under M06.
+	var ui_scale := clampf(board_size.x / 720.0, 0.94, 1.0)
+	_ui_scale = ui_scale
+	var canvas := CanvasLayer.new()
+	canvas.name = "UI"
+	add_child(canvas)
 
-    _hud = Control.new()
-    _hud.name = "HUD"
-    _hud.position = Vector2.ZERO
-    _hud.size = board_size
-    _hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    canvas.add_child(_hud)
+	_hud = Control.new()
+	_hud.name = "HUD"
+	_hud.position = Vector2.ZERO
+	_hud.size = board_size
+	_hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	canvas.add_child(_hud)
 
-    var best_width := 205.0 * ui_scale
-    var best_height := best_width * 941.0 / 1671.0
-    # Keep the left stack compact and above the tabletop accumulation area.
-    # R10 modestly increases the logo while preserving the source aspect ratio.
-    var logo_width := 210.0 * ui_scale
-    var logo_height := logo_width * 1024.0 / 1536.0
-    var score_rect := Rect2(board_size.x - best_width - 12.0 * ui_scale, 205.0 * ui_scale, best_width, best_height)
-    var score_visual_bounds := _visible_artwork_bounds("res://assets/ui/panel_score.png", score_rect)
-    var best_rect := Rect2(16.0 * ui_scale, 140.0 * ui_scale, best_width, best_height)
-    var best_measurement := _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect)
-    best_rect.position.y += score_visual_bounds.end.y - best_measurement.end.y
-    _best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", best_rect)
-    _hud.add_child(_best_panel)
-    _best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
+	var best_width := 205.0 * ui_scale
+	var best_height := best_width * 941.0 / 1671.0
+	# Keep the left stack compact and above the tabletop accumulation area.
+	# R10 modestly increases the logo while preserving the source aspect ratio.
+	var logo_width := 210.0 * ui_scale
+	var logo_height := logo_width * 1024.0 / 1536.0
+	var score_rect := Rect2(board_size.x - best_width - 12.0 * ui_scale, 205.0 * ui_scale, best_width, best_height)
+	var score_visual_bounds := _visible_artwork_bounds("res://assets/ui/panel_score.png", score_rect)
+	var best_rect := Rect2(16.0 * ui_scale, 140.0 * ui_scale, best_width, best_height)
+	var best_measurement := _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect)
+	best_rect.position.y += score_visual_bounds.end.y - best_measurement.end.y
+	_best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", best_rect)
+	_hud.add_child(_best_panel)
+	_best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
 
-    # SCORE follows the owner-approved right-side composition, below/near the
-    # NEXT panel. It remains a HUD-only node and never enters board geometry.
-    _score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", score_rect)
-    _hud.add_child(_score_panel)
-    _score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
+	# SCORE follows the owner-approved right-side composition, below/near the
+	# NEXT panel. It remains a HUD-only node and never enters board geometry.
+	_score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", score_rect)
+	_hud.add_child(_score_panel)
+	_score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
 
-    var logo_rect := Rect2(12.0 * ui_scale, 6.0 * ui_scale, logo_width, logo_height)
-    var logo_measurement := _visible_artwork_bounds("res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
-    logo_rect.position.x += _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect).get_center().x - logo_measurement.get_center().x
-    var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
-    _hud.add_child(logo)
+	var logo_rect := Rect2(12.0 * ui_scale, 6.0 * ui_scale, logo_width, logo_height)
+	var logo_measurement := _visible_artwork_bounds("res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
+	logo_rect.position.x += _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect).get_center().x - logo_measurement.get_center().x
+	var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
+	_hud.add_child(logo)
 
-    var to_go_width := 210.0 * ui_scale
-    var to_go_height := to_go_width * TO_GO_PANEL_SOURCE_SIZE.y / TO_GO_PANEL_SOURCE_SIZE.x
-    # The supplied asset already contains its hanging artwork. Its alpha
-    # bounds reach the source-image top, so placing the unchanged panel at y=0
-    # makes that artwork touch the viewport ceiling without runtime additions.
-    var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 0.0, to_go_width, to_go_height)
-    _to_go_panel = _make_panel("ToGoOrdersPanel", TO_GO_PANEL_TEXTURE_PATH, to_go_rect)
-    _hud.add_child(_to_go_panel)
+	var to_go_width := 210.0 * ui_scale
+	var to_go_height := to_go_width * TO_GO_PANEL_SOURCE_SIZE.y / TO_GO_PANEL_SOURCE_SIZE.x
+	# The supplied asset already contains its hanging artwork. Its alpha
+	# bounds reach the source-image top, so placing the unchanged panel at y=0
+	# makes that artwork touch the viewport ceiling without runtime additions.
+	var to_go_rect := Rect2((board_size.x - to_go_width) * 0.5, 0.0, to_go_width, to_go_height)
+	_to_go_panel = _make_panel("ToGoOrdersPanel", TO_GO_PANEL_TEXTURE_PATH, to_go_rect)
+	_hud.add_child(_to_go_panel)
 
-    _to_go_target_sprite = Sprite2D.new()
-    _to_go_target_sprite.name = "TargetCocktail"
-    _to_go_target_sprite.position = _panel_source_point(TO_GO_NORMAL_TARGET_CENTER_SOURCE, to_go_rect.size)
-    _to_go_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    _to_go_target_sprite.z_index = 2
-    _to_go_panel.add_child(_to_go_target_sprite)
+	_to_go_target_sprite = Sprite2D.new()
+	_to_go_target_sprite.name = "TargetCocktail"
+	_to_go_target_sprite.position = _panel_source_point(TO_GO_NORMAL_TARGET_CENTER_SOURCE, to_go_rect.size)
+	_to_go_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	_to_go_target_sprite.z_index = 2
+	_to_go_panel.add_child(_to_go_target_sprite)
 
-    _to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 520.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
-    _to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 700.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
+	_to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 520.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+	_to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 700.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
 
-    _vip_target_sprite = Sprite2D.new()
-    _vip_target_sprite.name = "VipTargetCocktail"
-    _vip_target_sprite.position = _panel_source_point(TO_GO_VIP_TARGET_CENTER_SOURCE, to_go_rect.size)
-    _vip_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    _vip_target_sprite.z_index = 2
-    _to_go_panel.add_child(_vip_target_sprite)
-    _vip_target_sprite.visible = false
-    _vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 1100.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
-    _vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 1295.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
+	_vip_target_sprite = Sprite2D.new()
+	_vip_target_sprite.name = "VipTargetCocktail"
+	_vip_target_sprite.position = _panel_source_point(TO_GO_VIP_TARGET_CENTER_SOURCE, to_go_rect.size)
+	_vip_target_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	_vip_target_sprite.z_index = 2
+	_to_go_panel.add_child(_vip_target_sprite)
+	_vip_target_sprite.visible = false
+	_vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 1100.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+	_vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 1295.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
 
-    var next_width := 145.0 * ui_scale
-    var next_height := next_width * 1426.0 / 1103.0
-    var next_rect := Rect2(board_size.x - next_width - 12.0 * ui_scale, 10.0 * ui_scale, next_width, next_height)
-    var next_measurement := _visible_artwork_bounds("res://assets/ui/panel_next.png", next_rect)
-    next_rect.position.x += score_visual_bounds.get_center().x - next_measurement.get_center().x
-    _next_panel = _make_panel("NextPanel", "res://assets/ui/panel_next.png", next_rect)
-    _hud.add_child(_next_panel)
-    _next_sprite = Sprite2D.new()
-    _next_sprite.name = "NextCocktail"
-    _next_sprite.position = Vector2(next_width * 0.5, next_height * 0.60)
-    _next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    _next_panel.add_child(_next_sprite)
+	var next_width := 145.0 * ui_scale
+	var next_height := next_width * 1426.0 / 1103.0
+	var next_rect := Rect2(board_size.x - next_width - 12.0 * ui_scale, 10.0 * ui_scale, next_width, next_height)
+	var next_measurement := _visible_artwork_bounds("res://assets/ui/panel_next.png", next_rect)
+	next_rect.position.x += score_visual_bounds.get_center().x - next_measurement.get_center().x
+	_next_panel = _make_panel("NextPanel", "res://assets/ui/panel_next.png", next_rect)
+	_hud.add_child(_next_panel)
+	_next_sprite = Sprite2D.new()
+	_next_sprite.name = "NextCocktail"
+	_next_sprite.position = Vector2(next_width * 0.5, next_height * 0.60)
+	_next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	_next_panel.add_child(_next_sprite)
 
-    var strip_margin := 12.0 * ui_scale
-    var strip_width := board_size.x - strip_margin * 2.0
-    var strip_height := strip_width * 725.0 / 2170.0
-    _progression_strip = _make_panel("ProgressionStrip", "res://assets/ui/progression_strip.png", Rect2(strip_margin, board_size.y - strip_height - 8.0 * ui_scale, strip_width, strip_height))
-    _hud.add_child(_progression_strip)
-    _build_progression_icons(_progression_strip)
+	var strip_margin := 12.0 * ui_scale
+	var strip_width := board_size.x - strip_margin * 2.0
+	var strip_height := strip_width * 725.0 / 2170.0
+	_progression_strip = _make_panel("ProgressionStrip", "res://assets/ui/progression_strip.png", Rect2(strip_margin, board_size.y - strip_height - 8.0 * ui_scale, strip_width, strip_height))
+	_hud.add_child(_progression_strip)
+	_build_progression_icons(_progression_strip)
 
-    # World-space overlays stay independent from HUD layout but follow the
-    # accepted M06 launch/death coordinates. They have no collision/input.
-    _launch_zone = Sprite2D.new()
-    _launch_zone.name = "LaunchZone"
-    _launch_zone.texture = load("res://assets/ui/launch_zone.png") as Texture2D
-    _launch_zone.position = Vector2(board_size.x * 0.5, launch_y)
-    _launch_zone.scale = Vector2.ONE * clampf(132.0 / 1254.0, 0.07, 0.12)
-    # This approved full-viewport theme layer contains scenery as well as the
-    # launch cue. Keep it behind the wooden gameplay table so scenery cannot
-    # cover the playable surface.
-    _launch_zone.z_index = -15
-    _launch_zone.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    add_child(_launch_zone)
+	# The launch cue is a narrow programmatic line. The theme's full-screen
+	# launch_zone artwork contains foreground scenery and is not rendered.
+	_launch_indicator = Line2D.new()
+	_launch_indicator.name = "LaunchIndicator"
+	_launch_indicator.width = 3.0
+	_launch_indicator.default_color = Color(1.0, 0.82, 0.42, 0.8)
+	_launch_indicator.z_index = 6
+	add_child(_launch_indicator)
+	_layout_launch_indicator()
 
-    _danger_line = Sprite2D.new()
-    _danger_line.name = "DangerLine"
-    _danger_line.texture = load("res://assets/ui/danger_line.png") as Texture2D
-    _danger_line.z_index = 1
-    _danger_line.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    add_child(_danger_line)
-    _layout_danger_line()
+	_danger_line = Sprite2D.new()
+	_danger_line.name = "DangerLine"
+	_danger_line.texture = load("res://assets/ui/danger_line.png") as Texture2D
+	_danger_line.z_index = 1
+	_danger_line.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	add_child(_danger_line)
+	_layout_danger_line()
 
-    _game_over_layer = Control.new()
-    _game_over_layer.name = "GameOver"
-    _game_over_layer.position = Vector2.ZERO
-    _game_over_layer.size = board_size
-    _game_over_layer.mouse_filter = Control.MOUSE_FILTER_STOP
-    _game_over_layer.visible = false
-    canvas.add_child(_game_over_layer)
+	_game_over_layer = Control.new()
+	_game_over_layer.name = "GameOver"
+	_game_over_layer.position = Vector2.ZERO
+	_game_over_layer.size = board_size
+	_game_over_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	_game_over_layer.visible = false
+	canvas.add_child(_game_over_layer)
 
-    var shade := ColorRect.new()
-    shade.color = Color(0.02, 0.025, 0.04, 0.86)
-    shade.position = Vector2.ZERO
-    shade.size = board_size
-    shade.mouse_filter = Control.MOUSE_FILTER_STOP
-    _game_over_layer.add_child(shade)
+	var shade := ColorRect.new()
+	shade.color = Color(0.02, 0.025, 0.04, 0.86)
+	shade.position = Vector2.ZERO
+	shade.size = board_size
+	shade.mouse_filter = Control.MOUSE_FILTER_STOP
+	_game_over_layer.add_child(shade)
 
-    var title := _make_label(Vector2(70, 360), Vector2(board_size.x - 140, 90), 52, HORIZONTAL_ALIGNMENT_CENTER)
-    title.text = "OYUN BITTI"
-    title.add_theme_color_override("font_color", Color(1.0, 0.45, 0.42, 1.0))
-    _game_over_layer.add_child(title)
+	var title := _make_label(Vector2(70, 360), Vector2(board_size.x - 140, 90), 52, HORIZONTAL_ALIGNMENT_CENTER)
+	title.text = "OYUN BITTI"
+	title.add_theme_color_override("font_color", Color(1.0, 0.45, 0.42, 1.0))
+	_game_over_layer.add_child(title)
 
-    _final_score_label = _make_label(Vector2(70, 465), Vector2(board_size.x - 140, 120), 30, HORIZONTAL_ALIGNMENT_CENTER)
-    _game_over_layer.add_child(_final_score_label)
+	_final_score_label = _make_label(Vector2(70, 465), Vector2(board_size.x - 140, 120), 30, HORIZONTAL_ALIGNMENT_CENTER)
+	_game_over_layer.add_child(_final_score_label)
 
-    var restart := Button.new()
-    restart.text = "TEKRAR OYNA"
-    restart.position = Vector2(170, 620)
-    restart.size = Vector2(board_size.x - 340, 82)
-    restart.add_theme_font_size_override("font_size", 27)
-    restart.pressed.connect(_restart_game)
-    _game_over_layer.add_child(restart)
+	var restart := Button.new()
+	restart.text = "TEKRAR OYNA"
+	restart.position = Vector2(170, 620)
+	restart.size = Vector2(board_size.x - 340, 82)
+	restart.add_theme_font_size_override("font_size", 27)
+	restart.pressed.connect(_restart_game)
+	_game_over_layer.add_child(restart)
 
-    _pause_button = Button.new()
-    _pause_button.name = "PauseButton"
-    _pause_button.text = "PAUSE"
-    _pause_button.position = Vector2(20.0, 18.0)
-    _pause_button.size = Vector2(116.0, 58.0)
-    _pause_button.add_theme_font_size_override("font_size", 16)
-    _pause_button.add_theme_color_override("font_color", Color("#fff0c6"))
-    _pause_button.add_theme_stylebox_override("normal", _pause_style(Color("#103d52"), Color("#f7d47b")))
-    _pause_button.add_theme_stylebox_override("hover", _pause_style(Color("#185875"), Color("#ffd166")))
-    _pause_button.pressed.connect(request_pause)
-    _pause_button.visible = false
-    canvas.add_child(_pause_button)
+	_pause_button = Button.new()
+	_pause_button.name = "PauseButton"
+	_pause_button.text = "PAUSE"
+	_pause_button.position = Vector2(20.0, 18.0)
+	_pause_button.size = Vector2(116.0, 58.0)
+	_pause_button.add_theme_font_size_override("font_size", 16)
+	_pause_button.add_theme_color_override("font_color", Color("#fff0c6"))
+	_pause_button.add_theme_stylebox_override("normal", _pause_style(Color("#103d52"), Color("#f7d47b")))
+	_pause_button.add_theme_stylebox_override("hover", _pause_style(Color("#185875"), Color("#ffd166")))
+	_pause_button.pressed.connect(request_pause)
+	_pause_button.visible = false
+	canvas.add_child(_pause_button)
 
-    _pause_layer = Control.new()
-    _pause_layer.name = "PauseOverlay"
-    _pause_layer.position = Vector2.ZERO
-    _pause_layer.size = board_size
-    _pause_layer.mouse_filter = Control.MOUSE_FILTER_STOP
-    _pause_layer.visible = false
-    canvas.add_child(_pause_layer)
+	_pause_layer = Control.new()
+	_pause_layer.name = "PauseOverlay"
+	_pause_layer.position = Vector2.ZERO
+	_pause_layer.size = board_size
+	_pause_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+	_pause_layer.visible = false
+	canvas.add_child(_pause_layer)
 
-    var pause_shade := ColorRect.new()
-    pause_shade.name = "PauseShade"
-    pause_shade.color = Color(0.02, 0.025, 0.04, 0.82)
-    pause_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    pause_shade.mouse_filter = Control.MOUSE_FILTER_STOP
-    _pause_layer.add_child(pause_shade)
+	var pause_shade := ColorRect.new()
+	pause_shade.name = "PauseShade"
+	pause_shade.color = Color(0.02, 0.025, 0.04, 0.82)
+	pause_shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	pause_shade.mouse_filter = Control.MOUSE_FILTER_STOP
+	_pause_layer.add_child(pause_shade)
 
-    var pause_title := _make_label(Vector2(60.0, 330.0), Vector2(board_size.x - 120.0, 90.0), 52, HORIZONTAL_ALIGNMENT_CENTER)
-    pause_title.text = "PAUSED"
-    pause_title.add_theme_color_override("font_color", Color("#fff0c6"))
-    _pause_layer.add_child(pause_title)
+	var pause_title := _make_label(Vector2(60.0, 330.0), Vector2(board_size.x - 120.0, 90.0), 52, HORIZONTAL_ALIGNMENT_CENTER)
+	pause_title.text = "PAUSED"
+	pause_title.add_theme_color_override("font_color", Color("#fff0c6"))
+	_pause_layer.add_child(pause_title)
 
-    var pause_hint := _make_label(Vector2(70.0, 430.0), Vector2(board_size.x - 140.0, 58.0), 20, HORIZONTAL_ALIGNMENT_CENTER)
-    pause_hint.name = "PauseHint"
-    pause_hint.text = "Gameplay is safely paused"
-    pause_hint.add_theme_color_override("font_color", Color("#73e0d1"))
-    _pause_layer.add_child(pause_hint)
+	var pause_hint := _make_label(Vector2(70.0, 430.0), Vector2(board_size.x - 140.0, 58.0), 20, HORIZONTAL_ALIGNMENT_CENTER)
+	pause_hint.name = "PauseHint"
+	pause_hint.text = "Gameplay is safely paused"
+	pause_hint.add_theme_color_override("font_color", Color("#73e0d1"))
+	_pause_layer.add_child(pause_hint)
 
-    _pause_resume_button = Button.new()
-    _pause_resume_button.name = "ResumeButton"
-    _pause_resume_button.text = "RESUME"
-    _pause_resume_button.position = Vector2(150.0, 550.0)
-    _pause_resume_button.size = Vector2(board_size.x - 300.0, 78.0)
-    _pause_resume_button.add_theme_font_size_override("font_size", 25)
-    _pause_resume_button.add_theme_stylebox_override("normal", _pause_style(Color("#0e665f"), Color("#ffd166")))
-    _pause_resume_button.add_theme_stylebox_override("hover", _pause_style(Color("#178579"), Color("#fff0c6")))
-    _pause_resume_button.pressed.connect(resume_campaign_gameplay)
-    _pause_layer.add_child(_pause_resume_button)
+	_pause_resume_button = Button.new()
+	_pause_resume_button.name = "ResumeButton"
+	_pause_resume_button.text = "RESUME"
+	_pause_resume_button.position = Vector2(150.0, 550.0)
+	_pause_resume_button.size = Vector2(board_size.x - 300.0, 78.0)
+	_pause_resume_button.add_theme_font_size_override("font_size", 25)
+	_pause_resume_button.add_theme_stylebox_override("normal", _pause_style(Color("#0e665f"), Color("#ffd166")))
+	_pause_resume_button.add_theme_stylebox_override("hover", _pause_style(Color("#178579"), Color("#fff0c6")))
+	_pause_resume_button.pressed.connect(resume_campaign_gameplay)
+	_pause_layer.add_child(_pause_resume_button)
 
-    _pause_island_map_button = Button.new()
-    _pause_island_map_button.name = "IslandMapButton"
-    _pause_island_map_button.text = "ISLAND MAP"
-    _pause_island_map_button.position = Vector2(150.0, 650.0)
-    _pause_island_map_button.size = Vector2(board_size.x - 300.0, 78.0)
-    _pause_island_map_button.add_theme_font_size_override("font_size", 25)
-    _pause_island_map_button.add_theme_stylebox_override("normal", _pause_style(Color("#12354d"), Color("#73e0d1")))
-    _pause_island_map_button.add_theme_stylebox_override("hover", _pause_style(Color("#185875"), Color("#fff0c6")))
-    _pause_island_map_button.pressed.connect(request_island_map)
-    _pause_layer.add_child(_pause_island_map_button)
+	_pause_island_map_button = Button.new()
+	_pause_island_map_button.name = "IslandMapButton"
+	_pause_island_map_button.text = "ISLAND MAP"
+	_pause_island_map_button.position = Vector2(150.0, 650.0)
+	_pause_island_map_button.size = Vector2(board_size.x - 300.0, 78.0)
+	_pause_island_map_button.add_theme_font_size_override("font_size", 25)
+	_pause_island_map_button.add_theme_stylebox_override("normal", _pause_style(Color("#12354d"), Color("#73e0d1")))
+	_pause_island_map_button.add_theme_stylebox_override("hover", _pause_style(Color("#185875"), Color("#fff0c6")))
+	_pause_island_map_button.pressed.connect(request_island_map)
+	_pause_layer.add_child(_pause_island_map_button)
 
 
 func _make_panel(panel_name: String, texture_path: String, rect: Rect2) -> Control:
-    var panel := Control.new()
-    panel.name = panel_name
-    panel.position = rect.position
-    panel.size = rect.size
-    panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    var artwork := Sprite2D.new()
-    artwork.name = "Artwork"
-    artwork.texture = load(texture_path) as Texture2D
-    artwork.position = rect.size * 0.5
-    if artwork.texture != null:
-        artwork.scale = Vector2.ONE * minf(rect.size.x / float(artwork.texture.get_width()), rect.size.y / float(artwork.texture.get_height()))
-    artwork.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-    panel.add_child(artwork)
-    return panel
+	var panel := Control.new()
+	panel.name = panel_name
+	panel.position = rect.position
+	panel.size = rect.size
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var artwork := Sprite2D.new()
+	artwork.name = "Artwork"
+	artwork.texture = load(texture_path) as Texture2D
+	artwork.position = rect.size * 0.5
+	if artwork.texture != null:
+		artwork.scale = Vector2.ONE * minf(rect.size.x / float(artwork.texture.get_width()), rect.size.y / float(artwork.texture.get_height()))
+	artwork.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	panel.add_child(artwork)
+	return panel
 
 
 func _pause_style(background: Color, border: Color) -> StyleBoxFlat:
-    var style := StyleBoxFlat.new()
-    style.bg_color = background
-    style.border_color = border
-    style.set_border_width_all(2)
-    style.set_corner_radius_all(16)
-    style.shadow_color = Color(0.0, 0.0, 0.0, 0.28)
-    style.shadow_size = 6
-    return style
+	var style := StyleBoxFlat.new()
+	style.bg_color = background
+	style.border_color = border
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(16)
+	style.shadow_color = Color(0.0, 0.0, 0.0, 0.28)
+	style.shadow_size = 6
+	return style
 
 
 func _panel_source_point(source_point: Vector2, panel_size: Vector2) -> Vector2:
-    return Vector2(source_point.x * panel_size.x / TO_GO_PANEL_SOURCE_SIZE.x, source_point.y * panel_size.y / TO_GO_PANEL_SOURCE_SIZE.y)
+	return Vector2(source_point.x * panel_size.x / TO_GO_PANEL_SOURCE_SIZE.x, source_point.y * panel_size.y / TO_GO_PANEL_SOURCE_SIZE.y)
 
 
 func _panel_source_rect(source_position: Vector2, source_size: Vector2, panel_size: Vector2) -> Rect2:
-    return Rect2(_panel_source_point(source_position, panel_size), _panel_source_point(source_size, panel_size))
+	return Rect2(_panel_source_point(source_position, panel_size), _panel_source_point(source_size, panel_size))
 
 
 func _to_go_cocktail_scale(level: int) -> float:
-    return _hud_icon_scale(level, TO_GO_COCKTAIL_MAX_DIMENSION * _ui_scale)
+	return _hud_icon_scale(level, TO_GO_COCKTAIL_MAX_DIMENSION * _ui_scale)
 
 
 func _make_panel_value(panel: Control, value: String, font_size: int, y_ratio: float) -> Label:
-    var label := _make_panel_text(panel, value, Rect2(), font_size, Color(1.0, 0.93, 0.76, 1.0))
-    label.add_theme_color_override("font_shadow_color", Color(0.18, 0.06, 0.02, 0.8))
-    label.add_theme_constant_override("shadow_offset_x", 2)
-    label.add_theme_constant_override("shadow_offset_y", 2)
-    _center_panel_value(label)
-    return label
+	var label := _make_panel_text(panel, value, Rect2(), font_size, Color(1.0, 0.93, 0.76, 1.0))
+	label.add_theme_color_override("font_shadow_color", Color(0.18, 0.06, 0.02, 0.8))
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
+	_center_panel_value(label)
+	return label
 
 
 func _center_panel_value(label: Label) -> void:
-    if label == null or label.get_parent() == null:
-        return
-    var panel := label.get_parent() as Control
-    var font := label.get_theme_font("font")
-    var font_size := label.get_theme_font_size("font_size")
-    var measured := font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1.0, font_size)
-    # These are the independently measured dark/gold-framed value recesses at
-    # the normalized production panel size (205 x 115.45). The rendered glyph
-    # bounds, including the fixed shadow, are centered in the appropriate
-    # actual recess every time the number changes; font size never changes.
-    var window_size := Vector2(panel.size.x * 116.0 / 205.0, panel.size.y * 52.0 / 115.45)
-    var center_y := SCORE_VALUE_RECESS_CENTER_Y_PX if label == _score_value else BEST_VALUE_RECESS_CENTER_Y_PX
-    var window_center := Vector2(panel.size.x * 103.0 / 205.0, panel.size.y * center_y / 115.45)
-    var window := Rect2(Vector2(panel.size.x * 45.0 / 205.0, window_center.y - window_size.y * 0.5), window_size)
-    var shadow := Vector2(float(label.get_theme_constant("shadow_offset_x")), float(label.get_theme_constant("shadow_offset_y")))
-    var visible_size := measured + Vector2(maxf(shadow.x, 0.0), maxf(shadow.y, 0.0))
-    label.position = window.position + (window.size - visible_size) * 0.5
-    label.size = measured
+	if label == null or label.get_parent() == null:
+		return
+	var panel := label.get_parent() as Control
+	var font := label.get_theme_font("font")
+	var font_size := label.get_theme_font_size("font_size")
+	var measured := font.get_string_size(label.text, HORIZONTAL_ALIGNMENT_LEFT, -1.0, font_size)
+	# These are the independently measured dark/gold-framed value recesses at
+	# the normalized production panel size (205 x 115.45). The rendered glyph
+	# bounds, including the fixed shadow, are centered in the appropriate
+	# actual recess every time the number changes; font size never changes.
+	var window_size := Vector2(panel.size.x * 116.0 / 205.0, panel.size.y * 52.0 / 115.45)
+	var center_y := SCORE_VALUE_RECESS_CENTER_Y_PX if label == _score_value else BEST_VALUE_RECESS_CENTER_Y_PX
+	var window_center := Vector2(panel.size.x * 103.0 / 205.0, panel.size.y * center_y / 115.45)
+	var window := Rect2(Vector2(panel.size.x * 45.0 / 205.0, window_center.y - window_size.y * 0.5), window_size)
+	var shadow := Vector2(float(label.get_theme_constant("shadow_offset_x")), float(label.get_theme_constant("shadow_offset_y")))
+	var visible_size := measured + Vector2(maxf(shadow.x, 0.0), maxf(shadow.y, 0.0))
+	label.position = window.position + (window.size - visible_size) * 0.5
+	label.size = measured
 
 
 func _visible_artwork_bounds(texture_path: String, rect: Rect2) -> Rect2:
-    # Alignment is based on the displayed non-transparent pixels of the
-    # canonical PNG, not the Control origin or the dynamic label bounds.
-    var texture := load(texture_path) as Texture2D
-    if texture == null:
-        return Rect2(rect.position, rect.size)
-    var image := texture.get_image()
-    var used := image.get_used_rect()
-    var source_size := Vector2(texture.get_width(), texture.get_height())
-    var artwork_scale := minf(rect.size.x / source_size.x, rect.size.y / source_size.y)
-    var artwork_origin := rect.position + rect.size * 0.5 - source_size * artwork_scale * 0.5
-    return Rect2(artwork_origin + Vector2(used.position) * artwork_scale, Vector2(used.size) * artwork_scale)
+	# Alignment is based on the displayed non-transparent pixels of the
+	# canonical PNG, not the Control origin or the dynamic label bounds.
+	var texture := load(texture_path) as Texture2D
+	if texture == null:
+		return Rect2(rect.position, rect.size)
+	var image := texture.get_image()
+	var used := image.get_used_rect()
+	var source_size := Vector2(texture.get_width(), texture.get_height())
+	var artwork_scale := minf(rect.size.x / source_size.x, rect.size.y / source_size.y)
+	var artwork_origin := rect.position + rect.size * 0.5 - source_size * artwork_scale * 0.5
+	return Rect2(artwork_origin + Vector2(used.position) * artwork_scale, Vector2(used.size) * artwork_scale)
 
 
 func _score_display_text(value: int) -> String:
-    # The score contract is seven digits maximum. Values beyond that contract
-    # are visibly clamped; the fixed font is never shrunk per digit count.
-    return "%d" % clampi(value, 0, SCORE_DISPLAY_MAX_VALUE)
+	# The score contract is seven digits maximum. Values beyond that contract
+	# are visibly clamped; the fixed font is never shrunk per digit count.
+	return "%d" % clampi(value, 0, SCORE_DISPLAY_MAX_VALUE)
 
 
 func _make_panel_text(panel: Control, text_value: String, rect: Rect2, font_size: int, color: Color) -> Label:
-    var label := Label.new()
-    label.text = text_value
-    label.position = rect.position
-    label.size = rect.size
-    label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-    label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    label.add_theme_font_size_override("font_size", font_size)
-    label.add_theme_color_override("font_color", color)
-    panel.add_child(label)
-    return label
+	var label := Label.new()
+	label.text = text_value
+	label.position = rect.position
+	label.size = rect.size
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", color)
+	panel.add_child(label)
+	return label
 
 
 func _build_progression_icons(strip: Control) -> void:
-    _progression_icons.clear()
-    # The approved strip artwork is the complete frame. It contains twelve
-    # baked interiors; runtime contributes cocktail sprites only.
-    var slot_centers_x := [578.5, 780.5, 981.0, 1181.5, 1382.5, 1586.0]
-    var slot_centers_y := [264.5, 458.0]
-    var source_scale := strip.size.x / 2170.0
-    for row in range(2):
-        for column in range(6):
-            var level := column + 7 if row == 0 else column + 1
-            var icon := Sprite2D.new()
-            icon.name = "ProgressionIconL%02d" % level
-            icon.texture = Drink.texture_for_level(level)
-            icon.position = Vector2(slot_centers_x[column] * source_scale, slot_centers_y[row] * source_scale)
-            icon.scale = Vector2.ONE * _hud_icon_scale(level, 55.0)
-            icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-            icon.z_index = 2
-            strip.add_child(icon)
-            _progression_icons.append(icon)
+	_progression_icons.clear()
+	# The approved strip artwork is the complete frame. It contains twelve
+	# baked interiors; runtime contributes cocktail sprites only.
+	var slot_centers_x := [578.5, 780.5, 981.0, 1181.5, 1382.5, 1586.0]
+	var slot_centers_y := [264.5, 458.0]
+	var source_scale := strip.size.x / 2170.0
+	for row in range(2):
+		for column in range(6):
+			var level := column + 7 if row == 0 else column + 1
+			var icon := Sprite2D.new()
+			icon.name = "ProgressionIconL%02d" % level
+			icon.texture = Drink.texture_for_level(level)
+			icon.position = Vector2(slot_centers_x[column] * source_scale, slot_centers_y[row] * source_scale)
+			icon.scale = Vector2.ONE * _hud_icon_scale(level, 55.0)
+			icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+			icon.z_index = 2
+			strip.add_child(icon)
+			_progression_icons.append(icon)
 
 
 func _hud_icon_scale(level: int, max_dimension: float) -> float:
-    var texture := Drink.texture_for_level(level)
-    if texture == null:
-        return 0.0
-    var source_dimension := float(maxi(texture.get_width(), texture.get_height()))
-    return minf(Drink.visual_scale_for_level(level), max_dimension / source_dimension)
+	var texture := Drink.texture_for_level(level)
+	if texture == null:
+		return 0.0
+	var source_dimension := float(maxi(texture.get_width(), texture.get_height()))
+	return minf(Drink.visual_scale_for_level(level), max_dimension / source_dimension)
 
 
 func _refresh_next_visual(level: int) -> void:
-    if _next_sprite == null:
-        return
-    _next_sprite.texture = Drink.texture_for_level(level)
-    _next_sprite.scale = Vector2.ONE * _hud_icon_scale(level, 92.0)
+	if _next_sprite == null:
+		return
+	_next_sprite.texture = Drink.texture_for_level(level)
+	_next_sprite.scale = Vector2.ONE * _hud_icon_scale(level, 92.0)
 
 
 func _layout_danger_line() -> void:
-    if _danger_line == null:
-        return
-    var bounds := get_table_rail_bounds_at_y(death_line_y)
-    var width := maxf(bounds.y - bounds.x - wall_thickness * 2.0, 120.0)
-    var texture := _danger_line.texture
-    _danger_line.position = Vector2((bounds.x + bounds.y) * 0.5, death_line_y)
-    _danger_line.scale = Vector2.ONE * (width / float(texture.get_width()) if texture != null else 0.25)
+	if _danger_line == null:
+		return
+	var bounds := get_table_rail_bounds_at_y(death_line_y)
+	var width := maxf(bounds.y - bounds.x - wall_thickness * 2.0, 120.0)
+	var texture := _danger_line.texture
+	_danger_line.position = Vector2((bounds.x + bounds.y) * 0.5, death_line_y)
+	_danger_line.scale = Vector2.ONE * (width / float(texture.get_width()) if texture != null else 0.25)
+
+
+func _layout_launch_indicator() -> void:
+	if _launch_indicator == null:
+		return
+	var bounds := get_table_rail_bounds_at_y(launch_y)
+	_launch_indicator.points = PackedVector2Array([
+		Vector2(bounds.x + wall_thickness, launch_y),
+		Vector2(bounds.y - wall_thickness, launch_y),
+	])
 
 
 func _update_launch_zone(visible: bool) -> void:
-    if _launch_zone == null:
-        return
-    var held := shot_controller._current_drink if shot_controller != null else null
-    if _active_theme_paths.get("launch_zone", "").is_empty():
-        _launch_zone.visible = visible and is_instance_valid(held)
-        if _launch_zone.visible:
-            _launch_zone.position = held.position
-        return
-    _launch_zone.visible = visible and not game_over
+	if _launch_indicator == null:
+		return
+	_launch_indicator.visible = visible and not game_over
+	_layout_launch_indicator()
 
 
 func _build_merge_target() -> void:
-    _target_root = Node2D.new()
-    _target_root.name = "ToGoTargetDestination"
-    _target_root.position = _to_go_target_sprite.global_position
-    _target_root.visible = false
-    add_child(_target_root)
+	_target_root = Node2D.new()
+	_target_root.name = "ToGoTargetDestination"
+	_target_root.position = _to_go_target_sprite.global_position
+	_target_root.visible = false
+	add_child(_target_root)
 
 
 func _choose_next_target(initial: bool = false) -> void:
-    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
-        _target_level = campaign_session_bridge.get_next_required_order_level()
-        if _target_level <= 0:
-            return
-        _refresh_merge_target_visual()
-        call_deferred("_try_collect_stocked_target")
-        return
+	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+		_target_level = campaign_session_bridge.get_next_required_order_level()
+		if _target_level <= 0:
+			return
+		_refresh_merge_target_visual()
+		call_deferred("_try_collect_stocked_target")
+		return
 
-    # Owner-directed verification sequence: L5 -> L6 -> L7. Once those three
-    # live orders are complete, return to the existing L6-L12 selection rule.
-    if initial:
-        _startup_target_index = 0
-    var max_level := Drink.max_level()
-    var target_min := mini(6, max_level)
-    var target_max := mini(12, max_level)
+	# Owner-directed verification sequence: L5 -> L6 -> L7. Once those three
+	# live orders are complete, return to the existing L6-L12 selection rule.
+	if initial:
+		_startup_target_index = 0
+	var max_level := Drink.max_level()
+	var target_min := mini(6, max_level)
+	var target_max := mini(12, max_level)
 
-    if target_max < 1:
-        _target_level = 1
-    elif _startup_target_index < STARTUP_TO_GO_TARGETS.size():
-        _target_level = mini(int(STARTUP_TO_GO_TARGETS[_startup_target_index]), max_level)
-        _startup_target_index += 1
-    elif target_min >= target_max:
-        _target_level = target_max
-    elif initial:
-        _target_level = target_min
-    else:
-        var previous := _target_level
-        _target_level = randi_range(target_min, target_max)
-        if _target_level == previous:
-            _target_level += 1
-            if _target_level > target_max:
-                _target_level = target_min
+	if target_max < 1:
+		_target_level = 1
+	elif _startup_target_index < STARTUP_TO_GO_TARGETS.size():
+		_target_level = mini(int(STARTUP_TO_GO_TARGETS[_startup_target_index]), max_level)
+		_startup_target_index += 1
+	elif target_min >= target_max:
+		_target_level = target_max
+	elif initial:
+		_target_level = target_min
+	else:
+		var previous := _target_level
+		_target_level = randi_range(target_min, target_max)
+		if _target_level == previous:
+			_target_level += 1
+			if _target_level > target_max:
+				_target_level = target_min
 
-    _refresh_merge_target_visual()
+	_refresh_merge_target_visual()
 
-    # Every new order first checks the table inventory. If a matching
-    # eligible drink was produced earlier,
-    # drink was produced earlier, one existing drink is delivered immediately.
-    # Only one drink fulfils one order.
-    call_deferred("_try_collect_stocked_target")
+	# Every new order first checks the table inventory. If a matching
+	# eligible drink was produced earlier,
+	# drink was produced earlier, one existing drink is delivered immediately.
+	# Only one drink fulfils one order.
+	call_deferred("_try_collect_stocked_target")
 
 
 func _try_collect_stocked_target() -> void:
-    if game_over or _target_transition or _vip_target_transition or world == null:
-        return
+	if game_over or _target_transition or _vip_target_transition or world == null:
+		return
 
-    var candidate: Drink = null
-    var best_distance := INF
+	var candidate: Drink = null
+	var best_distance := INF
 
-    for child in world.get_children():
-        if not (child is Drink):
-            continue
-        var drink := child as Drink
-        if drink.level != _target_level or drink.is_queued_for_deletion():
-            continue
-        if drink.motion_state == Drink.MotionState.HELD:
-            continue
-        if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
-            continue
+	for child in world.get_children():
+		if not (child is Drink):
+			continue
+		var drink := child as Drink
+		if drink.level != _target_level or drink.is_queued_for_deletion():
+			continue
+		if drink.motion_state == Drink.MotionState.HELD:
+			continue
+		if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
+			continue
 
-        var distance := drink.position.distance_to(_target_root.position)
-        if distance < best_distance:
-            candidate = drink
-            best_distance = distance
+		var distance := drink.position.distance_to(_target_root.position)
+		if distance < best_distance:
+			candidate = drink
+			best_distance = distance
 
-    if candidate != null:
-        _collect_merge_target(candidate)
-        return
+	if candidate != null:
+		_collect_merge_target(candidate)
+		return
 
-    # Stored VIP drinks are independently deliverable when the mandatory
-    # normal target is different. If both objectives share a level, normal
-    # delivery remains the deterministic first claim while it is pending.
-    var vip_level := _active_vip_level()
-    var normal_pending: bool = campaign_session_bridge != null and campaign_session_bridge.is_session_active() and campaign_session_bridge.get_next_required_order_level() > 0
-    if vip_level <= 0 or (normal_pending and vip_level == _target_level):
-        return
-    var vip_candidate: Drink = null
-    var vip_distance := INF
-    for child in world.get_children():
-        if not (child is Drink):
-            continue
-        var drink := child as Drink
-        if drink.level != vip_level or drink.is_queued_for_deletion():
-            continue
-        if drink.motion_state == Drink.MotionState.HELD:
-            continue
-        if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
-            continue
-        var distance := drink.position.distance_to(_target_root.position)
-        if distance < vip_distance:
-            vip_candidate = drink
-            vip_distance = distance
+	# Stored VIP drinks are independently deliverable when the mandatory
+	# normal target is different. If both objectives share a level, normal
+	# delivery remains the deterministic first claim while it is pending.
+	var vip_level := _active_vip_level()
+	var normal_pending: bool = campaign_session_bridge != null and campaign_session_bridge.is_session_active() and campaign_session_bridge.get_next_required_order_level() > 0
+	if vip_level <= 0 or (normal_pending and vip_level == _target_level):
+		return
+	var vip_candidate: Drink = null
+	var vip_distance := INF
+	for child in world.get_children():
+		if not (child is Drink):
+			continue
+		var drink := child as Drink
+		if drink.level != vip_level or drink.is_queued_for_deletion():
+			continue
+		if drink.motion_state == Drink.MotionState.HELD:
+			continue
+		if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
+			continue
+		var distance := drink.position.distance_to(_target_root.position)
+		if distance < vip_distance:
+			vip_candidate = drink
+			vip_distance = distance
 
-    if vip_candidate != null and _vip_candidate_is_surplus(vip_candidate):
-        _collect_vip_target(vip_candidate)
+	if vip_candidate != null and _vip_candidate_is_surplus(vip_candidate):
+		_collect_vip_target(vip_candidate)
 
 
 func _vip_candidate_is_surplus(candidate: Drink) -> bool:
-    if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-        return false
-    if not is_instance_valid(candidate) or candidate.is_queued_for_deletion():
-        return false
-    var objective_state: Dictionary = campaign_session_bridge.get_objective_state()
-    var normal_remaining: Variant = objective_state.get("normal_remaining", {})
-    if not normal_remaining is Dictionary:
-        return false
-    var board_levels: Array[int] = []
-    if world != null:
-        for child in world.get_children():
-            if not (child is Drink):
-                continue
-            var drink := child as Drink
-            if drink.is_queued_for_deletion() or drink.motion_state == Drink.MotionState.HELD:
-                continue
-            if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
-                continue
-            board_levels.append(drink.level)
-    return VIP_OPTIONALITY_MODEL.candidate_is_surplus(normal_remaining, board_levels, candidate.level)
+	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		return false
+	if not is_instance_valid(candidate) or candidate.is_queued_for_deletion():
+		return false
+	var objective_state: Dictionary = campaign_session_bridge.get_objective_state()
+	var normal_remaining: Variant = objective_state.get("normal_remaining", {})
+	if not normal_remaining is Dictionary:
+		return false
+	var board_levels: Array[int] = []
+	if world != null:
+		for child in world.get_children():
+			if not (child is Drink):
+				continue
+			var drink := child as Drink
+			if drink.is_queued_for_deletion() or drink.motion_state == Drink.MotionState.HELD:
+				continue
+			if drink.motion_state == Drink.MotionState.MERGING or drink.motion_state == Drink.MotionState.TARGET_CAPTURE:
+				continue
+			board_levels.append(drink.level)
+	return VIP_OPTIONALITY_MODEL.candidate_is_surplus(normal_remaining, board_levels, candidate.level)
 
 
 func _refresh_merge_target_visual() -> void:
-    if _to_go_panel == null or _to_go_target_sprite == null:
-        return
+	if _to_go_panel == null or _to_go_target_sprite == null:
+		return
 
-    _to_go_panel.visible = true
-    _to_go_panel.modulate = Color.WHITE
-    _to_go_target_sprite.visible = true
-    _to_go_target_sprite.modulate = Color.WHITE
-    _to_go_target_sprite.texture = Drink.texture_for_level(_target_level)
-    _to_go_target_sprite.scale = Vector2.ONE * _to_go_cocktail_scale(_target_level)
-    _to_go_progress_label.text = _normal_progress_text(_target_level)
-    _to_go_reward_label.text = "%d" % Drink.order_reward(_target_level)
-    _refresh_vip_panel()
-    if _target_root != null:
-        _target_root.position = _to_go_target_sprite.global_position
+	_to_go_panel.visible = true
+	_to_go_panel.modulate = Color.WHITE
+	_to_go_target_sprite.visible = true
+	_to_go_target_sprite.modulate = Color.WHITE
+	_to_go_target_sprite.texture = Drink.texture_for_level(_target_level)
+	_to_go_target_sprite.scale = Vector2.ONE * _to_go_cocktail_scale(_target_level)
+	_to_go_progress_label.text = _normal_progress_text(_target_level)
+	_to_go_reward_label.text = "%d" % Drink.order_reward(_target_level)
+	_refresh_vip_panel()
+	if _target_root != null:
+		_target_root.position = _to_go_target_sprite.global_position
 
-    var pulse := create_tween()
-    pulse.tween_property(_to_go_target_sprite, "modulate", Color(1.18, 1.18, 1.18, 1.0), 0.12)
-    pulse.tween_property(_to_go_target_sprite, "modulate", Color.WHITE, 0.18)
+	var pulse := create_tween()
+	pulse.tween_property(_to_go_target_sprite, "modulate", Color(1.18, 1.18, 1.18, 1.0), 0.12)
+	pulse.tween_property(_to_go_target_sprite, "modulate", Color.WHITE, 0.18)
 
 
 func _collect_merge_target(drink: Drink) -> void:
-    if game_over or _target_transition or _vip_target_transition:
-        return
-    if not is_instance_valid(drink) or drink.is_queued_for_deletion():
-        return
-    if drink.level != _target_level:
-        return
+	if game_over or _target_transition or _vip_target_transition:
+		return
+	if not is_instance_valid(drink) or drink.is_queued_for_deletion():
+		return
+	if drink.level != _target_level:
+		return
 
-    _target_transition = true
-    _target_drink = drink
-    drink.begin_target_capture()
-    _spawn_to_go_trail(drink.global_position, _target_root.global_position, TO_GO_DELIVERY_DURATION)
+	_target_transition = true
+	_target_drink = drink
+	drink.begin_target_capture()
+	_spawn_to_go_trail(drink.global_position, _target_root.global_position, TO_GO_DELIVERY_DURATION)
 
-    # The target drink physically leaves the table and flies into the objective.
-    var tween := create_tween()
-    tween.set_parallel(true)
-    tween.set_trans(Tween.TRANS_QUAD)
-    tween.set_ease(Tween.EASE_IN)
-    tween.tween_property(drink, "position", _target_root.position, TO_GO_DELIVERY_DURATION)
-    tween.tween_property(drink, "scale", Vector2(0.42, 0.42), TO_GO_DELIVERY_DURATION)
-    tween.tween_property(drink, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
-    tween.tween_property(_to_go_target_sprite, "scale", _to_go_target_sprite.scale * 1.18, TO_GO_DELIVERY_DURATION)
-    tween.tween_property(_to_go_target_sprite, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
-    tween.finished.connect(_finish_target_collection, CONNECT_ONE_SHOT)
+	# The target drink physically leaves the table and flies into the objective.
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(drink, "position", _target_root.position, TO_GO_DELIVERY_DURATION)
+	tween.tween_property(drink, "scale", Vector2(0.42, 0.42), TO_GO_DELIVERY_DURATION)
+	tween.tween_property(drink, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
+	tween.tween_property(_to_go_target_sprite, "scale", _to_go_target_sprite.scale * 1.18, TO_GO_DELIVERY_DURATION)
+	tween.tween_property(_to_go_target_sprite, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
+	tween.finished.connect(_finish_target_collection, CONNECT_ONE_SHOT)
 
 
 func _finish_target_collection() -> void:
-    if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()):
-        return
-    var drink := _target_drink
-    var completed_level := _target_level
-    _order_sequence += 1
-    _target_drink = null
-    if is_instance_valid(drink):
-        drink.queue_free()
+	if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()):
+		return
+	var drink := _target_drink
+	var completed_level := _target_level
+	_order_sequence += 1
+	_target_drink = null
+	if is_instance_valid(drink):
+		drink.queue_free()
 
-    _to_go_panel.visible = true
-    _order_completion_feedback()
-    feedback_service.emit_order_complete(_order_sequence, completed_level)
+	_to_go_panel.visible = true
+	_order_completion_feedback()
+	feedback_service.emit_order_complete(_order_sequence, completed_level)
 
-    # A delivered stock drink never receives merge/combo points a second time.
-    # Only the currently requested To-Go reward is paid here.
-    var order_bonus := Drink.order_reward(completed_level)
-    _add_score(order_bonus)
-    _refresh_hud()
-    print("TO-GO ORDER L%d +%d  (toplam: %d)" % [completed_level, order_bonus, score])
+	# A delivered stock drink never receives merge/combo points a second time.
+	# Only the currently requested To-Go reward is paid here.
+	var order_bonus := Drink.order_reward(completed_level)
+	_add_score(order_bonus)
+	_refresh_hud()
+	print("TO-GO ORDER L%d +%d  (toplam: %d)" % [completed_level, order_bonus, score])
 
-    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
-        campaign_session_bridge.set_current_score(score)
-        var delivery_id := "gameplay-order-%d" % _order_sequence
-        campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
-        _to_go_progress_label.text = _normal_progress_text(completed_level)
-        campaign_order_completed.emit(completed_level, 1)
-        if campaign_session_bridge.is_terminal():
-            return
+	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+		campaign_session_bridge.set_current_score(score)
+		var delivery_id := "gameplay-order-%d" % _order_sequence
+		campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
+		_to_go_progress_label.text = _normal_progress_text(completed_level)
+		campaign_order_completed.emit(completed_level, 1)
+		if campaign_session_bridge.is_terminal():
+			return
 
-    _target_transition = false
-    _choose_next_target(false)
+	_target_transition = false
+	_choose_next_target(false)
 
 
 func _collect_vip_target(drink: Drink) -> void:
-    if game_over or _target_transition or _vip_target_transition:
-        return
-    if not is_instance_valid(drink) or drink.is_queued_for_deletion():
-        return
-    if drink.level != _active_vip_level():
-        return
+	if game_over or _target_transition or _vip_target_transition:
+		return
+	if not is_instance_valid(drink) or drink.is_queued_for_deletion():
+		return
+	if drink.level != _active_vip_level():
+		return
 
-    _vip_target_transition = true
-    _vip_target_drink = drink
-    drink.begin_target_capture()
-    _spawn_to_go_trail(drink.global_position, _target_root.global_position, TO_GO_DELIVERY_DURATION)
+	_vip_target_transition = true
+	_vip_target_drink = drink
+	drink.begin_target_capture()
+	_spawn_to_go_trail(drink.global_position, _target_root.global_position, TO_GO_DELIVERY_DURATION)
 
-    # VIP delivery reuses the existing To-Go destination and trail so no new
-    # HUD/table geometry is introduced. It never fades the normal target icon.
-    var tween := create_tween()
-    tween.set_parallel(true)
-    tween.set_trans(Tween.TRANS_QUAD)
-    tween.set_ease(Tween.EASE_IN)
-    tween.tween_property(drink, "position", _target_root.position, TO_GO_DELIVERY_DURATION)
-    tween.tween_property(drink, "scale", Vector2(0.42, 0.42), TO_GO_DELIVERY_DURATION)
-    tween.tween_property(drink, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
-    tween.finished.connect(_finish_vip_target, CONNECT_ONE_SHOT)
+	# VIP delivery reuses the existing To-Go destination and trail so no new
+	# HUD/table geometry is introduced. It never fades the normal target icon.
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_IN)
+	tween.tween_property(drink, "position", _target_root.position, TO_GO_DELIVERY_DURATION)
+	tween.tween_property(drink, "scale", Vector2(0.42, 0.42), TO_GO_DELIVERY_DURATION)
+	tween.tween_property(drink, "modulate:a", 0.0, TO_GO_DELIVERY_DURATION)
+	tween.finished.connect(_finish_vip_target, CONNECT_ONE_SHOT)
 
 
 func _finish_vip_target() -> void:
-    if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()):
-        return
-    var drink := _vip_target_drink
-    var delivered_level := drink.level if is_instance_valid(drink) else _active_vip_level()
-    _vip_target_drink = null
-    if is_instance_valid(drink):
-        drink.queue_free()
+	if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()):
+		return
+	var drink := _vip_target_drink
+	var delivered_level := drink.level if is_instance_valid(drink) else _active_vip_level()
+	_vip_target_drink = null
+	if is_instance_valid(drink):
+		drink.queue_free()
 
-    if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
-        # Record acceptance before paying the premium. This keeps rejected,
-        # mismatched, paused, and already-completed attempts score-neutral.
-        var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
-        var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
-        var vip_bonus := VIP_DELIVERY_MULTIPLIER * Drink.order_reward(delivered_level) * accepted
-        if vip_bonus > 0:
-            _add_score(vip_bonus)
-            _refresh_hud()
-        # The bridge must receive the post-premium score so terminal stars and
-        # the campaign result use the same authoritative total.
-        campaign_session_bridge.set_current_score(score)
-        print("VIP DELIVERY L%d +%d/%d BONUS %d (toplam: %d)" % [delivered_level, int(result.get("delivered", 0)), int(result.get("required", result.get("delivered", 0) + result.get("remaining", 0))), vip_bonus, score])
+	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
+		# Record acceptance before paying the premium. This keeps rejected,
+		# mismatched, paused, and already-completed attempts score-neutral.
+		var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
+		var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
+		var vip_bonus := VIP_DELIVERY_MULTIPLIER * Drink.order_reward(delivered_level) * accepted
+		if vip_bonus > 0:
+			_add_score(vip_bonus)
+			_refresh_hud()
+		# The bridge must receive the post-premium score so terminal stars and
+		# the campaign result use the same authoritative total.
+		campaign_session_bridge.set_current_score(score)
+		print("VIP DELIVERY L%d +%d/%d BONUS %d (toplam: %d)" % [delivered_level, int(result.get("delivered", 0)), int(result.get("required", result.get("delivered", 0) + result.get("remaining", 0))), vip_bonus, score])
 
-    _vip_target_transition = false
-    call_deferred("_try_collect_stocked_target")
+	_vip_target_transition = false
+	call_deferred("_try_collect_stocked_target")
 
 
 func _on_vip_state_changed(_state: Dictionary) -> void:
-    _refresh_vip_panel()
+	_refresh_vip_panel()
 
 
 func _normal_progress_text(level: int) -> String:
-    if campaign_session_bridge != null and (campaign_session_bridge.is_session_active() or campaign_session_bridge.is_terminal()):
-        var objective_state: Dictionary = campaign_session_bridge.get_objective_state()
-        var totals: Dictionary = objective_state.get("normal_totals", {})
-        var completed: Dictionary = objective_state.get("normal_completed", {})
-        var required := int(totals.get(level, 0))
-        if required > 0:
-            return "%d/%d" % [int(completed.get(level, 0)), required]
-    return "0/1"
+	if campaign_session_bridge != null and (campaign_session_bridge.is_session_active() or campaign_session_bridge.is_terminal()):
+		var objective_state: Dictionary = campaign_session_bridge.get_objective_state()
+		var totals: Dictionary = objective_state.get("normal_totals", {})
+		var completed: Dictionary = objective_state.get("normal_completed", {})
+		var required := int(totals.get(level, 0))
+		if required > 0:
+			return "%d/%d" % [int(completed.get(level, 0)), required]
+	return "0/1"
 
 
 func _refresh_vip_panel() -> void:
-    if _to_go_panel == null:
-        return
-    _to_go_panel.visible = true
-    _vip_target_sprite.visible = false
-    _vip_progress_label.text = "0/0"
-    _vip_reward_label.text = ""
-    if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-        return
-    var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
-    if not bool(vip_state.get("enabled", false)):
-        return
-    var vip_level := int(vip_state.get("cocktail_level", 0))
-    var required := int(vip_state.get("required", vip_state.get("quantity", 1)))
-    var delivered := int(vip_state.get("delivered", 0))
-    _vip_target_sprite.texture = Drink.texture_for_level(vip_level)
-    _vip_target_sprite.scale = Vector2.ONE * _to_go_cocktail_scale(vip_level)
-    _vip_target_sprite.visible = true
-    _vip_progress_label.text = "✓" if bool(vip_state.get("completed", false)) else "%d/%d" % [delivered, required]
-    _vip_reward_label.text = "%d" % (VIP_DELIVERY_MULTIPLIER * Drink.order_reward(vip_level))
+	if _to_go_panel == null:
+		return
+	_to_go_panel.visible = true
+	_vip_target_sprite.visible = false
+	_vip_progress_label.text = "0/0"
+	_vip_reward_label.text = ""
+	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		return
+	var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
+	if not bool(vip_state.get("enabled", false)):
+		return
+	var vip_level := int(vip_state.get("cocktail_level", 0))
+	var required := int(vip_state.get("required", vip_state.get("quantity", 1)))
+	var delivered := int(vip_state.get("delivered", 0))
+	_vip_target_sprite.texture = Drink.texture_for_level(vip_level)
+	_vip_target_sprite.scale = Vector2.ONE * _to_go_cocktail_scale(vip_level)
+	_vip_target_sprite.visible = true
+	_vip_progress_label.text = "✓" if bool(vip_state.get("completed", false)) else "%d/%d" % [delivered, required]
+	_vip_reward_label.text = "%d" % (VIP_DELIVERY_MULTIPLIER * Drink.order_reward(vip_level))
 
 
 func _active_vip_level() -> int:
-    if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-        return 0
-    var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
-    if not bool(vip_state.get("enabled", false)) or int(vip_state.get("remaining", 0)) <= 0:
-        return 0
-    return int(vip_state.get("cocktail_level", 0))
+	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		return 0
+	var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
+	if not bool(vip_state.get("enabled", false)) or int(vip_state.get("remaining", 0)) <= 0:
+		return 0
+	return int(vip_state.get("cocktail_level", 0))
 
 
 func _on_campaign_session_terminal(result: Dictionary) -> void:
-    game_over = true
-    if merge_queue != null:
-        merge_queue.clear()
-    if shot_controller != null:
-        shot_controller.stop_shooting()
-        shot_controller.set_input_blocked(true)
-    _clear_terminal_world_visuals()
-    _update_launch_zone(false)
-    if _pause_layer != null:
-        _pause_layer.visible = false
-    if _pause_button != null:
-        _pause_button.visible = false
-    campaign_session_terminal.emit(result)
+	game_over = true
+	if merge_queue != null:
+		merge_queue.clear()
+	if shot_controller != null:
+		shot_controller.stop_shooting()
+		shot_controller.set_input_blocked(true)
+	_clear_terminal_world_visuals()
+	_update_launch_zone(false)
+	if _pause_layer != null:
+		_pause_layer.visible = false
+	if _pause_button != null:
+		_pause_button.visible = false
+	campaign_session_terminal.emit(result)
 
 
 func _clear_terminal_world_visuals() -> void:
-    _target_transition = false
-    _vip_target_transition = false
-    _target_drink = null
-    _vip_target_drink = null
-    for tween in get_tree().get_processed_tweens():
-        tween.kill()
-    if shot_controller != null and is_instance_valid(shot_controller._current_drink):
-        _hide_terminal_drink(shot_controller._current_drink)
-    if world != null:
-        for child in world.get_children():
-            if child is Drink:
-                _hide_terminal_drink(child as Drink)
-            elif child.is_in_group("campaign_transient_world_effect"):
-                child.visible = false
-                child.queue_free()
-    if _to_go_panel != null:
-        var flash := _to_go_panel.get_node_or_null("OrderCompleteFlash")
-        if flash is CanvasItem:
-            flash.visible = false
-            flash.queue_free()
+	_target_transition = false
+	_vip_target_transition = false
+	_target_drink = null
+	_vip_target_drink = null
+	for tween in get_tree().get_processed_tweens():
+		tween.kill()
+	if shot_controller != null and is_instance_valid(shot_controller._current_drink):
+		_hide_terminal_drink(shot_controller._current_drink)
+	if world != null:
+		for child in world.get_children():
+			if child is Drink:
+				_hide_terminal_drink(child as Drink)
+			elif child.is_in_group("campaign_transient_world_effect"):
+				child.visible = false
+				child.queue_free()
+	if _to_go_panel != null:
+		var flash := _to_go_panel.get_node_or_null("OrderCompleteFlash")
+		if flash is CanvasItem:
+			flash.visible = false
+			flash.queue_free()
 
 
 func _hide_terminal_drink(drink: Drink) -> void:
-    if not is_instance_valid(drink):
-        return
-    drink.freeze = true
-    drink.collision_layer = 0
-    drink.collision_mask = 0
-    drink.visible = false
+	if not is_instance_valid(drink):
+		return
+	drink.freeze = true
+	drink.collision_layer = 0
+	drink.collision_mask = 0
+	drink.visible = false
 
 
 func _on_campaign_session_paused(reason: String) -> void:
-    if reason == "GAME_PAUSE" and _pause_layer != null and not game_over:
-        _pause_layer.visible = true
+	if reason == "GAME_PAUSE" and _pause_layer != null and not game_over:
+		_pause_layer.visible = true
 
 
 func _on_campaign_session_resumed() -> void:
-    if _pause_layer != null:
-        _pause_layer.visible = false
+	if _pause_layer != null:
+		_pause_layer.visible = false
 
 
 func _make_label(pos: Vector2, size: Vector2, font_size: int, alignment: HorizontalAlignment) -> Label:
-    var label := Label.new()
-    label.position = pos
-    label.size = size
-    label.horizontal_alignment = alignment
-    label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-    label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    label.add_theme_font_size_override("font_size", font_size)
-    label.add_theme_color_override("font_color", Color(0.94, 0.96, 1.0, 1.0))
-    label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.65))
-    label.add_theme_constant_override("shadow_offset_x", 2)
-    label.add_theme_constant_override("shadow_offset_y", 2)
-    return label
+	var label := Label.new()
+	label.position = pos
+	label.size = size
+	label.horizontal_alignment = alignment
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", Color(0.94, 0.96, 1.0, 1.0))
+	label.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.65))
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
+	return label
 
 
 func _spawn_to_go_trail(start: Vector2, target: Vector2, duration: float) -> void:
-    if world == null:
-        return
-    var direction := target - start
-    var distance := direction.length()
-    if distance <= 1.0:
-        return
+	if world == null:
+		return
+	var direction := target - start
+	var distance := direction.length()
+	if distance <= 1.0:
+		return
 
-    var trail := Sprite2D.new()
-    trail.name = "ToGoDeliveryTrail"
-    trail.add_to_group("campaign_transient_world_effect")
-    trail.texture = load(TO_GO_TRAIL_TEXTURE_PATH)
-    if trail.texture == null:
-        return
-    trail.position = (start + target) * 0.5
-    trail.rotation = direction.angle()
-    trail.scale = Vector2(distance / float(trail.texture.get_width()), 0.055)
-    trail.modulate = Color(1.0, 0.88, 0.35, 0.0)
-    trail.z_index = 12
-    world.add_child(trail)
+	var trail := Sprite2D.new()
+	trail.name = "ToGoDeliveryTrail"
+	trail.add_to_group("campaign_transient_world_effect")
+	trail.texture = load(TO_GO_TRAIL_TEXTURE_PATH)
+	if trail.texture == null:
+		return
+	trail.position = (start + target) * 0.5
+	trail.rotation = direction.angle()
+	trail.scale = Vector2(distance / float(trail.texture.get_width()), 0.055)
+	trail.modulate = Color(1.0, 0.88, 0.35, 0.0)
+	trail.z_index = 12
+	world.add_child(trail)
 
-    var fade_time := maxf(0.08, duration - 0.08)
-    var tween := create_tween()
-    tween.set_parallel(true)
-    tween.tween_property(trail, "modulate:a", 0.55, 0.08)
-    tween.tween_property(trail, "modulate:a", 0.0, fade_time).set_delay(0.08)
-    tween.tween_property(trail, "scale:y", 0.0, fade_time).set_delay(0.08)
-    tween.chain().tween_callback(trail.queue_free)
+	var fade_time := maxf(0.08, duration - 0.08)
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(trail, "modulate:a", 0.55, 0.08)
+	tween.tween_property(trail, "modulate:a", 0.0, fade_time).set_delay(0.08)
+	tween.tween_property(trail, "scale:y", 0.0, fade_time).set_delay(0.08)
+	tween.chain().tween_callback(trail.queue_free)
 
 
 func _order_completion_feedback() -> void:
-    if _to_go_panel == null:
-        return
-    var previous := _to_go_panel.get_node_or_null("OrderCompleteFlash")
-    if previous != null:
-        previous.queue_free()
+	if _to_go_panel == null:
+		return
+	var previous := _to_go_panel.get_node_or_null("OrderCompleteFlash")
+	if previous != null:
+		previous.queue_free()
 
-    var flash := ColorRect.new()
-    flash.name = "OrderCompleteFlash"
-    flash.position = Vector2.ZERO
-    flash.size = _to_go_panel.size
-    flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    flash.color = Color(1.0, 0.78, 0.28, 0.0)
-    # Keep the flash above the panel artwork but below unrelated HUD siblings.
-    flash.z_index = 1
-    _to_go_panel.add_child(flash)
+	var flash := ColorRect.new()
+	flash.name = "OrderCompleteFlash"
+	flash.position = Vector2.ZERO
+	flash.size = _to_go_panel.size
+	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	flash.color = Color(1.0, 0.78, 0.28, 0.0)
+	# Keep the flash above the panel artwork but below unrelated HUD siblings.
+	flash.z_index = 1
+	_to_go_panel.add_child(flash)
 
-    var tween := create_tween()
-    tween.tween_property(flash, "color:a", 0.42, 0.08)
-    tween.tween_property(flash, "color:a", 0.0, 0.24)
-    tween.tween_callback(flash.queue_free)
+	var tween := create_tween()
+	tween.tween_property(flash, "color:a", 0.42, 0.08)
+	tween.tween_property(flash, "color:a", 0.0, 0.24)
+	tween.tween_callback(flash.queue_free)
 
 
 func _juice_effect(pos: Vector2) -> void:
-    var effect_root := Node2D.new()
-    effect_root.name = "MergeFeedback"
-    effect_root.add_to_group("campaign_transient_world_effect")
-    effect_root.position = pos
-    effect_root.z_index = 12
-    world.add_child(effect_root)
+	var effect_root := Node2D.new()
+	effect_root.name = "MergeFeedback"
+	effect_root.add_to_group("campaign_transient_world_effect")
+	effect_root.position = pos
+	effect_root.z_index = 12
+	world.add_child(effect_root)
 
-    var glow := Sprite2D.new()
-    glow.name = "MergeGlow"
-    glow.texture = load(MERGE_GLOW_TEXTURE_PATH)
-    glow.scale = Vector2.ONE * 0.055
-    glow.modulate = Color(1.0, 0.82, 0.35, 0.58)
-    effect_root.add_child(glow)
+	var glow := Sprite2D.new()
+	glow.name = "MergeGlow"
+	glow.texture = load(MERGE_GLOW_TEXTURE_PATH)
+	glow.scale = Vector2.ONE * 0.055
+	glow.modulate = Color(1.0, 0.82, 0.35, 0.58)
+	effect_root.add_child(glow)
 
-    var flash := Polygon2D.new()
-    flash.polygon = Drink._circle_points(28.0, 20)
-    flash.color = Color(1.0, 0.92, 0.45, 0.8)
-    effect_root.add_child(flash)
+	var flash := Polygon2D.new()
+	flash.polygon = Drink._circle_points(28.0, 20)
+	flash.color = Color(1.0, 0.92, 0.45, 0.8)
+	effect_root.add_child(flash)
 
-    var tween := create_tween()
-    tween.set_parallel(true)
-    tween.tween_property(glow, "scale", Vector2.ONE * 0.13, 0.22)
-    tween.tween_property(glow, "modulate:a", 0.0, 0.22)
-    tween.tween_property(flash, "scale", Vector2(2.4, 1.8), 0.22)
-    tween.tween_property(flash, "modulate:a", 0.0, 0.22)
-    tween.chain().tween_callback(effect_root.queue_free)
+	var tween := create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(glow, "scale", Vector2.ONE * 0.13, 0.22)
+	tween.tween_property(glow, "modulate:a", 0.0, 0.22)
+	tween.tween_property(flash, "scale", Vector2(2.4, 1.8), 0.22)
+	tween.tween_property(flash, "modulate:a", 0.0, 0.22)
+	tween.chain().tween_callback(effect_root.queue_free)
 
 
 func _draw() -> void:
-    # All table/HUD-facing artwork is supplied by canonical V7 assets.
-    pass
+	# All table/HUD-facing artwork is supplied by canonical V7 assets.
+	pass

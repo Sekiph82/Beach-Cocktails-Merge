@@ -1,0 +1,271 @@
+Focused render/order regressions | Godot 4.7.2 | 2026-10-02T14:31:38.9059149+03:00
+
+=== GUI res://tests/m07_r06_owner_layout_probe.gd ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+M07_R06_PROBE PASS: M07-R06 main scene loads
+M07_R06_PROBE PASS: canonical_720x1280 HUD panels exist
+M07_R06_PROBE PASS: canonical_720x1280 BEST remains left and SCORE is right below NEXT
+M07_R06_PROBE PASS: canonical_720x1280 score panel remains above tabletop and on-screen
+M07_R06_SCORE label=canonical_720x1280 value=0 best_bounds=[96.00,60.50,14.00,30.00] score_bounds=[96.00,58.00,14.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=canonical_720x1280 value=321 best_bounds=[84.50,60.50,37.00,30.00] score_bounds=[84.50,58.00,37.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=canonical_720x1280 value=24380 best_bounds=[73.00,60.50,60.00,30.00] score_bounds=[73.00,58.00,60.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=canonical_720x1280 value=999999 best_bounds=[67.50,60.50,71.00,30.00] score_bounds=[67.50,58.00,71.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=canonical_720x1280 value=9999999 best_bounds=[61.50,60.50,83.00,30.00] score_bounds=[61.50,58.00,83.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_PROBE PASS: canonical_720x1280 fixed-size score glyphs center inside both recessed windows
+M07_R06_PROBE PASS: canonical_720x1280 To-Go L6 target+reward fit inside cream board
+M07_R06_TO_GO label=canonical_720x1280 level=L6 target=[39.52,94.90,54.21,57.03] reward=1000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: canonical_720x1280 To-Go L7 target+reward fit inside cream board
+M07_R06_TO_GO label=canonical_720x1280 level=L7 target=[36.41,94.37,58.85,57.85] reward=1800 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: canonical_720x1280 To-Go L8 target+reward fit inside cream board
+M07_R06_TO_GO label=canonical_720x1280 level=L8 target=[38.38,94.47,57.08,58.90] reward=3000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: canonical_720x1280 To-Go L9 target+reward fit inside cream board
+M07_R06_TO_GO label=canonical_720x1280 level=L9 target=[38.47,93.51,56.79,59.86] reward=5000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: canonical_720x1280 To-Go L10 target+reward fit inside cream board
+M07_R06_TO_GO label=canonical_720x1280 level=L10 target=[41.05,94.27,53.88,56.89] reward=8000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: canonical_720x1280 To-Go L11 target+reward fit inside cream board
+M07_R06_TO_GO label=canonical_720x1280 level=L11 target=[36.41,94.27,59.14,59.09] reward=12000 reward_bounds=[122.44,129.86,53.00,27.00]
+M07_R06_PROBE PASS: canonical_720x1280 To-Go L12 target+reward fit inside cream board
+M07_R06_TO_GO label=canonical_720x1280 level=L12 target=[39.43,95.61,55.07,54.40] reward=18000 reward_bounds=[122.44,129.86,53.00,27.00]
+M07_R06_PROBE PASS: canonical_720x1280 combined To-Go/VIP asset touches viewport top without runtime rope
+M07_R08_TO_GO_TOP label=canonical_720x1280 panel_y=0.000 asset_top_y=0.000 no_runtime_rope=true
+M07_R06_PROBE PASS: canonical_720x1280 NEXT L01-L12 remains contained
+M07_R06_PROBE PASS: canonical_720x1280 baked 2x6 progression remains frame-free
+M07_R06_PROBE PASS: canonical_720x1280 M06 danger/launch coordinates and no guide line remain
+M07_R06_HELD label=canonical_720x1280 level=L1 body_center_x=360.000 halo_x=360.000 x_delta=-0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=canonical_720x1280 level=L2 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=canonical_720x1280 level=L3 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=canonical_720x1280 level=L4 body_center_x=360.000 halo_x=360.000 x_delta=-0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=canonical_720x1280 level=L5 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=canonical_720x1280 level=L6 body_center_x=360.000 halo_x=360.000 x_delta=-0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=canonical_720x1280 level=L7 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=canonical_720x1280 level=L8 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=canonical_720x1280 level=L9 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=canonical_720x1280 level=L10 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=canonical_720x1280 level=L11 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=canonical_720x1280 level=L12 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_PROBE PASS: canonical_720x1280 held glass bodies center on halo X and share launch baseline Y
+M07_R06_HELD_SUMMARY label=canonical_720x1280 max_x_delta=0.000 max_y_delta=0.000
+M07_R06_PROBE PASS: canonical_720x1280 screenshot saved
+M07_R06_CAPTURE label=canonical_720x1280 dimensions=720x1280 path=res://docs/evidence/m07_r08/canonical_720x1280.png error=0
+M07_R06_PROBE PASS: taller_720x1440 HUD panels exist
+M07_R06_PROBE PASS: taller_720x1440 BEST remains left and SCORE is right below NEXT
+M07_R06_PROBE PASS: taller_720x1440 score panel remains above tabletop and on-screen
+M07_R06_SCORE label=taller_720x1440 value=0 best_bounds=[96.00,60.50,14.00,30.00] score_bounds=[96.00,58.00,14.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=taller_720x1440 value=321 best_bounds=[84.50,60.50,37.00,30.00] score_bounds=[84.50,58.00,37.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=taller_720x1440 value=24380 best_bounds=[73.00,60.50,60.00,30.00] score_bounds=[73.00,58.00,60.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=taller_720x1440 value=999999 best_bounds=[67.50,60.50,71.00,30.00] score_bounds=[67.50,58.00,71.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=taller_720x1440 value=9999999 best_bounds=[61.50,60.50,83.00,30.00] score_bounds=[61.50,58.00,83.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_PROBE PASS: taller_720x1440 fixed-size score glyphs center inside both recessed windows
+M07_R06_PROBE PASS: taller_720x1440 To-Go L6 target+reward fit inside cream board
+M07_R06_TO_GO label=taller_720x1440 level=L6 target=[39.52,94.90,54.21,57.03] reward=1000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: taller_720x1440 To-Go L7 target+reward fit inside cream board
+M07_R06_TO_GO label=taller_720x1440 level=L7 target=[36.41,94.37,58.85,57.85] reward=1800 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: taller_720x1440 To-Go L8 target+reward fit inside cream board
+M07_R06_TO_GO label=taller_720x1440 level=L8 target=[38.38,94.47,57.08,58.90] reward=3000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: taller_720x1440 To-Go L9 target+reward fit inside cream board
+M07_R06_TO_GO label=taller_720x1440 level=L9 target=[38.47,93.51,56.79,59.86] reward=5000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: taller_720x1440 To-Go L10 target+reward fit inside cream board
+M07_R06_TO_GO label=taller_720x1440 level=L10 target=[41.05,94.27,53.88,56.89] reward=8000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: taller_720x1440 To-Go L11 target+reward fit inside cream board
+M07_R06_TO_GO label=taller_720x1440 level=L11 target=[36.41,94.27,59.14,59.09] reward=12000 reward_bounds=[122.44,129.86,53.00,27.00]
+M07_R06_PROBE PASS: taller_720x1440 To-Go L12 target+reward fit inside cream board
+M07_R06_TO_GO label=taller_720x1440 level=L12 target=[39.43,95.61,55.07,54.40] reward=18000 reward_bounds=[122.44,129.86,53.00,27.00]
+M07_R06_PROBE PASS: taller_720x1440 combined To-Go/VIP asset touches viewport top without runtime rope
+M07_R08_TO_GO_TOP label=taller_720x1440 panel_y=0.000 asset_top_y=0.000 no_runtime_rope=true
+M07_R06_PROBE PASS: taller_720x1440 NEXT L01-L12 remains contained
+M07_R06_PROBE PASS: taller_720x1440 baked 2x6 progression remains frame-free
+M07_R06_PROBE PASS: taller_720x1440 M06 danger/launch coordinates and no guide line remain
+M07_R06_HELD label=taller_720x1440 level=L1 body_center_x=360.000 halo_x=360.000 x_delta=-0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=0.000
+M07_R06_HELD label=taller_720x1440 level=L2 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=-0.000
+M07_R06_HELD label=taller_720x1440 level=L3 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=0.000
+M07_R06_HELD label=taller_720x1440 level=L4 body_center_x=360.000 halo_x=360.000 x_delta=-0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=-0.000
+M07_R06_HELD label=taller_720x1440 level=L5 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=-0.000
+M07_R06_HELD label=taller_720x1440 level=L6 body_center_x=360.000 halo_x=360.000 x_delta=-0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=-0.000
+M07_R06_HELD label=taller_720x1440 level=L7 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=0.000
+M07_R06_HELD label=taller_720x1440 level=L8 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=0.000
+M07_R06_HELD label=taller_720x1440 level=L9 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=0.000
+M07_R06_HELD label=taller_720x1440 level=L10 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=-0.000
+M07_R06_HELD label=taller_720x1440 level=L11 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=-0.000
+M07_R06_HELD label=taller_720x1440 level=L12 body_center_x=360.000 halo_x=360.000 x_delta=0.000 body_bottom_y=1068.000 target_y=1068.000 y_delta=-0.000
+M07_R06_PROBE PASS: taller_720x1440 held glass bodies center on halo X and share launch baseline Y
+M07_R06_HELD_SUMMARY label=taller_720x1440 max_x_delta=0.000 max_y_delta=0.000
+M07_R06_PROBE PASS: taller_720x1440 screenshot saved
+M07_R06_CAPTURE label=taller_720x1440 dimensions=720x1440 path=res://docs/evidence/m07_r08/taller_720x1440.png error=0
+M07_R06_PROBE PASS: shorter_wider_800x1280 HUD panels exist
+M07_R06_PROBE PASS: shorter_wider_800x1280 BEST remains left and SCORE is right below NEXT
+M07_R06_PROBE PASS: shorter_wider_800x1280 score panel remains above tabletop and on-screen
+M07_R06_SCORE label=shorter_wider_800x1280 value=0 best_bounds=[96.00,60.50,14.00,30.00] score_bounds=[96.00,58.00,14.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=shorter_wider_800x1280 value=321 best_bounds=[84.50,60.50,37.00,30.00] score_bounds=[84.50,58.00,37.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=shorter_wider_800x1280 value=24380 best_bounds=[73.00,60.50,60.00,30.00] score_bounds=[73.00,58.00,60.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=shorter_wider_800x1280 value=999999 best_bounds=[67.50,60.50,71.00,30.00] score_bounds=[67.50,58.00,71.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_SCORE label=shorter_wider_800x1280 value=9999999 best_bounds=[61.50,60.50,83.00,30.00] score_bounds=[61.50,58.00,83.00,30.00] best_center_delta=0.005 score_center_delta=0.005
+M07_R06_PROBE PASS: shorter_wider_800x1280 fixed-size score glyphs center inside both recessed windows
+M07_R06_PROBE PASS: shorter_wider_800x1280 To-Go L6 target+reward fit inside cream board
+M07_R06_TO_GO label=shorter_wider_800x1280 level=L6 target=[39.52,94.90,54.21,57.03] reward=1000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: shorter_wider_800x1280 To-Go L7 target+reward fit inside cream board
+M07_R06_TO_GO label=shorter_wider_800x1280 level=L7 target=[36.41,94.37,58.85,57.85] reward=1800 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: shorter_wider_800x1280 To-Go L8 target+reward fit inside cream board
+M07_R06_TO_GO label=shorter_wider_800x1280 level=L8 target=[38.38,94.47,57.08,58.90] reward=3000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: shorter_wider_800x1280 To-Go L9 target+reward fit inside cream board
+M07_R06_TO_GO label=shorter_wider_800x1280 level=L9 target=[38.47,93.51,56.79,59.86] reward=5000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: shorter_wider_800x1280 To-Go L10 target+reward fit inside cream board
+M07_R06_TO_GO label=shorter_wider_800x1280 level=L10 target=[41.05,94.27,53.88,56.89] reward=8000 reward_bounds=[122.44,129.86,43.00,27.00]
+M07_R06_PROBE PASS: shorter_wider_800x1280 To-Go L11 target+reward fit inside cream board
+M07_R06_TO_GO label=shorter_wider_800x1280 level=L11 target=[36.41,94.27,59.14,59.09] reward=12000 reward_bounds=[122.44,129.86,53.00,27.00]
+M07_R06_PROBE PASS: shorter_wider_800x1280 To-Go L12 target+reward fit inside cream board
+M07_R06_TO_GO label=shorter_wider_800x1280 level=L12 target=[39.43,95.61,55.07,54.40] reward=18000 reward_bounds=[122.44,129.86,53.00,27.00]
+M07_R06_PROBE PASS: shorter_wider_800x1280 combined To-Go/VIP asset touches viewport top without runtime rope
+M07_R08_TO_GO_TOP label=shorter_wider_800x1280 panel_y=0.000 asset_top_y=0.000 no_runtime_rope=true
+M07_R06_PROBE PASS: shorter_wider_800x1280 NEXT L01-L12 remains contained
+M07_R06_PROBE PASS: shorter_wider_800x1280 baked 2x6 progression remains frame-free
+M07_R06_PROBE PASS: shorter_wider_800x1280 M06 danger/launch coordinates and no guide line remain
+M07_R06_HELD label=shorter_wider_800x1280 level=L1 body_center_x=400.000 halo_x=400.000 x_delta=-0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L2 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L3 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L4 body_center_x=400.000 halo_x=400.000 x_delta=-0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L5 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L6 body_center_x=400.000 halo_x=400.000 x_delta=-0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L7 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L8 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L9 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L10 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L11 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_HELD label=shorter_wider_800x1280 level=L12 body_center_x=400.000 halo_x=400.000 x_delta=0.000 body_bottom_y=949.667 target_y=949.667 y_delta=-0.000
+M07_R06_PROBE PASS: shorter_wider_800x1280 held glass bodies center on halo X and share launch baseline Y
+M07_R06_HELD_SUMMARY label=shorter_wider_800x1280 max_x_delta=0.000 max_y_delta=0.000
+M07_R06_PROBE PASS: shorter_wider_800x1280 screenshot saved
+M07_R06_CAPTURE label=shorter_wider_800x1280 dimensions=800x1280 path=res://docs/evidence/m07_r08/shorter_wider_800x1280.png error=0
+M07_R06_PROBE_RESULT=PASS
+EXIT_CODE=0
+
+=== GUI res://tests/m08_to_go_delivery_probe.gd ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+M08_PROBE PASS: main scene loads
+M08_PROBE PASS: runtime manager and To-Go target are ready
+M08_PROBE PASS: merge feedback node is created
+M08_PROBE PASS: capture saved merge_feedback_720x1280.png
+M08_CAPTURE path=res://docs/evidence/m08/merge_feedback_720x1280.png dimensions=720x1280 error=0
+M08_PROBE PASS: merge feedback self-cleans
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+M08_PROBE PASS: merge feedback preserves merge level and raw position
+M08_PROBE PASS: merge feedback preserves inherited momentum
+M08_PROBE PASS: matching To-Go drink enters target capture once
+M08_PROBE PASS: delivery trail is created
+M08_PROBE PASS: capture saved delivery_in_progress_720x1280.png
+M08_CAPTURE path=res://docs/evidence/m08/delivery_in_progress_720x1280.png dimensions=720x1280 error=0
+TO-GO ORDER L6 +1000  (toplam: 1000)
+M08_PROBE PASS: matching drink is removed exactly once
+M08_PROBE PASS: To-Go reward is added exactly once
+M08_PROBE PASS: target transition returns to idle and chooses next target
+M08_PROBE PASS: stored delivery does not add merge/combo score
+M08_PROBE PASS: completion feedback is created
+M08_STATE completion panels best_visible=true score_visible=true hud_visible=true best_modulate=(1.0, 1.0, 1.0, 1.0) score_modulate=(1.0, 1.0, 1.0, 1.0)
+M08_PROBE PASS: capture saved order_completion_feedback_720x1280.png
+M08_CAPTURE path=res://docs/evidence/m08/order_completion_feedback_720x1280.png dimensions=720x1280 error=0
+M08_PROBE PASS: delivery trail self-cleans
+M08_PROBE PASS: completion feedback self-cleans
+TO-GO ORDER L6 +1000  (toplam: 1000)
+M08_PROBE PASS: duplicate collection request pays one reward
+M08_TO_GO_DELIVERY_RESULT=PASS
+EXIT_CODE=0
+
+=== GUI res://tests/m20_runtime_capture_probe.gd ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+M20_CAPTURE PASS: production first-run onboarding is visible
+M20_CAPTURE name=onboarding path=res://coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/evidence/captures/01_onboarding.png dimensions=720x1280 error=0
+M20_CAPTURE PASS: production Main Menu is visible
+M20_CAPTURE name=main_menu path=res://coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/evidence/captures/02_main_menu.png dimensions=720x1280 error=0
+M20_CAPTURE PASS: production Settings surface opens
+M20_CAPTURE name=settings path=res://coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/evidence/captures/03_settings.png dimensions=720x1280 error=0
+M20_CAPTURE PASS: production World Map rejects and presents locked island
+M20_CAPTURE name=locked_feedback path=res://coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/evidence/captures/04_locked_feedback.png dimensions=720x1280 error=0
+M20_CAPTURE PASS: production level selection enters gameplay
+M20_CAPTURE PASS: production pause overlay opens
+M20_CAPTURE name=pause path=res://coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/evidence/captures/05_pause.png dimensions=720x1280 error=0
+M20_CAPTURE PASS: production LOSE result overlay opens
+M20_CAPTURE name=lose_result path=res://coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/evidence/captures/06_lose_result.png dimensions=720x1280 error=0
+M20_CAPTURE PASS: production WIN result overlay opens
+M20_CAPTURE name=win_result path=res://coordination/sessions/BCM-M20-CAMPAIGN-UX-POLISH/evidence/captures/07_win_result.png dimensions=720x1280 error=0
+M20_RUNTIME_CAPTURE_RESULT=PASS captures=7
+EXIT_CODE=0
+
+=== headless m19_r01_ordered_verification_probe.gd --child=1 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+M19_R01_CHILD_01 PASS: multi-root load succeeds
+M19_R01_CHILD_01 PASS: both fixture islands are loaded
+M19_R01_CHILD_01 PASS: single-root API remains backward compatible
+M19_R01_CHILD_01 PASS: duplicate roots are rejected
+M19_R01_CHILD_01 PASS: cross-island rows are rejected
+M19_R01_CHILD_01 PASS: positive declared-count mismatch is rejected
+M19_R01_CHILD_01 PASS: zero-level placeholder remains valid
+M19_R01_CHILD_01 PASS: one campaign and save authority configure
+M19_R01_CHILD_01 PASS: one reusable map pair configures
+M19_R01_CHILD_01 PASS: one reusable map pair exists
+M19_R01_CHILD_01 PASS: one session bridge runs both islands
+M19_R01_CHILD_01_RESULT=PASS
+EXIT_CODE=0
+
+=== headless m19_r01_ordered_verification_probe.gd --child=2 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+M19_R01_CHILD_02 PASS: canonical database loads in FULL mode
+M19_R01_CHILD_02 PASS: fresh save keeps Tiki locked
+M19_R01_CHILD_02 PASS: Sunny L99 keeps Tiki locked
+M19_R01_CHILD_02 PASS: one-star Sunny L100 completion unlocks Tiki
+M19_R01_CHILD_02 PASS: Tiki remains zero-level and unplayable
+M19_R01_CHILD_02 PASS: Tiki cannot start a gameplay session
+M19_R01_CHILD_02 PASS: reload preserves unlock
+M19_R01_CHILD_02 PASS: unlock is idempotent
+M19_R01_CHILD_02_RESULT=PASS
+EXIT_CODE=0
+
+=== headless m19_r01_ordered_verification_probe.gd --child=3 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+M19_R01_CHILD_03 PASS: canonical database loads in FULL mode
+M19_R01_CHILD_03 PASS: Sunny policy is L5-L8
+M19_R01_CHILD_03 PASS: Sunny content has no L9
+M19_R01_CHILD_03 PASS: Tiki is first declarative L9 island
+M19_R01_CHILD_03 PASS: Tiki has no production levels or exact L9 level
+M19_R01_CHILD_03 PASS: policy is data-first and L1-L12 bounded
+M19_R01_CHILD_03 PASS: runtime has no Tiki-specific branch
+M19_R01_CHILD_03_RESULT=PASS
+EXIT_CODE=0
+
+=== headless m19_r01_ordered_verification_probe.gd --child=4 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+M19_R01_CHILD_04 PASS: canonical database loads in FULL mode
+M19_R01_CHILD_04 PASS: canonical order has exactly ten ids
+M19_R01_CHILD_04 PASS: order indices are unique and contiguous
+M19_R01_CHILD_04 PASS: next-island chain and terminal slot are exact
+M19_R01_CHILD_04 PASS: final public name remains TBD
+M19_R01_CHILD_04_RESULT=PASS
+EXIT_CODE=0
+
+=== headless m19_r01_ordered_verification_probe.gd --child=5 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+M19_R01_CHILD_05 PASS: canonical database loads in FULL mode
+M19_R01_CHILD_05 PASS: all ten theme hooks are immutable and existing
+M19_R01_CHILD_05 PASS: session bridge exposes immutable theme
+M19_R01_CHILD_05 PASS: theme-less legacy fixture falls back safely
+M19_R01_CHILD_05_RESULT=PASS
+EXIT_CODE=0
+
+=== headless m19_r01_ordered_verification_probe.gd --child=6 ===
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+M19_R01_CHILD_06 PASS: third fixture island loads from data only
+M19_R01_CHILD_06 PASS: same reusable navigation pair configures
+M19_R01_CHILD_06 PASS: same map pair reaches Gamma
+M19_R01_CHILD_06 PASS: same bridge runs old and new fixture islands
+M19_R01_CHILD_06_RESULT=PASS
+EXIT_CODE=0

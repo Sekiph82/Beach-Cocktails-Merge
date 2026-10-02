@@ -11,7 +11,7 @@ const STATE_LOCKED := "LOCKED"
 const STATE_CURRENT := "CURRENT"
 const STATE_COMPLETE := "COMPLETE"
 
-const MARKER_SIZE := Vector2(136.0, 164.0)
+const MARKER_SIZE := Vector2(136.0, 116.0)
 const MARKER_CENTER := Vector2(68.0, 58.0)
 const ART_RECT := Rect2(10.0, 0.0, 116.0, 116.0)
 const LOCKED_OVERLAY_PATH := "res://assets/ui_assets/campaign/world_map/island_locked_overlay.png"
@@ -65,7 +65,7 @@ func is_selectable() -> bool:
 func _build_content() -> void:
 	_selection_ring = Panel.new()
 	_selection_ring.name = "SelectionRing"
-	_selection_ring.position = Vector2(2.0, 2.0)
+	_selection_ring.position = Vector2(2.0, -8.0)
 	_selection_ring.size = Vector2(132.0, 132.0)
 	_selection_ring.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_selection_ring)
@@ -81,7 +81,7 @@ func _build_content() -> void:
 
 	_lock_overlay = TextureRect.new()
 	_lock_overlay.name = "LockOverlay"
-	_lock_overlay.position = Vector2(24.0, 34.0)
+	_lock_overlay.position = Vector2(24.0, 32.0)
 	_lock_overlay.size = Vector2(88.0, 52.0)
 	_lock_overlay.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	_lock_overlay.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -127,7 +127,10 @@ func _refresh_visuals() -> void:
 	_name_label.modulate = Color("#fff5d6") if island_state != STATE_LOCKED else Color("#c4d0d2")
 	_state_label.text = "CURRENT • OPEN" if island_state == STATE_CURRENT else island_state
 	_state_label.modulate = _state_color()
-	_lock_overlay.visible = island_state == STATE_LOCKED
+	# The locked-overlay texture contains a full island thumbnail. The canonical
+	# World Map already bakes each island body into its background, so retain the
+	# lock state in the ring/label without drawing that duplicate island art.
+	_lock_overlay.visible = false
 	_island_art.modulate = Color("#596f78") if island_state == STATE_LOCKED else Color.WHITE
 	disabled = false
 	_apply_style()

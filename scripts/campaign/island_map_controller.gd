@@ -34,6 +34,8 @@ var _restored_scroll_vertical := -1
 var _refresh_queued := false
 var _level_buttons: Dictionary = {}
 var _milestone_levels: Array[int] = []
+var _page_backgrounds: Array[TextureRect] = []
+var _active_layout: Dictionary = {}
 
 var _background_texture: TextureRect
 var _background_fallback: ColorRect
@@ -120,6 +122,9 @@ func get_feedback_overlay():
 func get_island_map_background_path() -> String:
 	if _background_texture != null and _background_texture.visible and _background_texture.texture != null:
 		return str(_background_texture.texture.resource_path)
+	for background in _page_backgrounds:
+		if is_instance_valid(background) and background.texture != null:
+			return str(background.texture.resource_path)
 	return ""
 
 
@@ -228,6 +233,8 @@ func get_summary() -> Dictionary:
 
 
 func get_layout_report(reference_size: Vector2 = Vector2(720.0, 1280.0)) -> Dictionary:
+	var page_size := maxi(1, int(_active_layout.get("page_size", 1)))
+	var page_count := ceili(float(_level_buttons.size()) / float(page_size)) if not _active_layout.is_empty() else 1
 	var report := {
 		"reference_size": reference_size,
 		"node_count": _level_buttons.size(),
@@ -235,6 +242,10 @@ func get_layout_report(reference_size: Vector2 = Vector2(720.0, 1280.0)) -> Dict
 		"horizontal_clipping": false,
 		"vertical_scrollable": false,
 		"duplicate_nodes": _node_layer != null and _node_layer.get_child_count() != _level_buttons.size(),
+		"page_size": int(_active_layout.get("page_size", 0)),
+		"page_count": page_count,
+		"connector_lines": _path_line != null and _path_line.visible,
+		"page_background_count": _page_backgrounds.size(),
 		"content_width": MAP_WIDTH,
 		"content_height": _content.size.y if _content != null else 0.0,
 	}
@@ -257,26 +268,34 @@ func _refresh_deferred() -> void:
 		_node_layer.remove_child(child)
 		child.queue_free()
 	_level_buttons.clear()
-	_path_line.clear_points()
 
 	var definition: Dictionary = level_database.get_island(island_id)
 	var level_count := maxi(0, int(definition.get("level_count", 0)))
-	_content.custom_minimum_size = Vector2(MAP_WIDTH, 164.0 + float(level_count) * NODE_HEIGHT)
+	_active_layout = _layout_metadata(definition)
+	var page_size := maxi(1, int(_active_layout.get("page_size", level_count)))
+	var page_height := maxf(1.0, float(_active_layout.get("page_height", 164.0 + float(page_size) * NODE_HEIGHT)))
+	var page_count := ceili(float(level_count) / float(page_size)) if level_count > 0 else 0
+	var content_height := 164.0 + float(level_count) * NODE_HEIGHT
+	if not _active_layout.is_empty():
+		content_height = maxf(page_height * float(page_count), 1.0)
+	_content.custom_minimum_size = Vector2(MAP_WIDTH, content_height)
 	_content.size = _content.custom_minimum_size
 	_node_layer.size = _content.size
+	_rebuild_page_backgrounds(definition, page_count, page_height)
+	_ensure_path_line(bool(_active_layout.get("connector_lines", true)))
 	var points := PackedVector2Array()
 	for level_id in range(1, level_count + 1):
 		var button = LEVEL_BUTTON_SCENE.instantiate()
-		var x := 92.0 if level_id % 2 == 1 else 512.0
-		var y := 26.0 + float(level_id - 1) * NODE_HEIGHT
-		button.position = Vector2(x, y)
+		var center := _level_center_for(level_id, _active_layout, page_size, page_height)
+		button.position = center - NODE_SIZE * 0.5
 		button.size = NODE_SIZE
 		button.configure(island_id, level_id, _state_for(level_id), _stars_for(level_id), _milestone_levels.has(level_id), _is_vip_level(level_id), _best_score_for(level_id))
 		button.level_selected.connect(_on_level_button_selected)
 		_node_layer.add_child(button)
 		_level_buttons[level_id] = button
-		points.append(Vector2(x + NODE_SIZE.x * 0.5, y + NODE_SIZE.y * 0.5))
-	_path_line.points = points
+		points.append(center)
+	if _path_line != null:
+		_path_line.points = points
 	_update_summary()
 	if not _has_restoration_state:
 		_focus_level_id = _entry_focus_level(level_count)
@@ -338,7 +357,15 @@ func _apply_focus() -> void:
 		viewport_height = 1030.0
 	var target := int(button.position.y + button.size.y * 0.5 - viewport_height * 0.5)
 	var max_scroll := maxi(0, int(_content.size.y - viewport_height))
-	if _has_restoration_state and _restored_scroll_vertical >= 0:
+	if not _active_layout.is_empty():
+		var page_size := maxi(1, int(_active_layout.get("page_size", 1)))
+		var page_height := maxf(1.0, float(_active_layout.get("page_height", 1.0)))
+		var page_top := int(floor(float(_focus_level_id - 1) / float(page_size)) * page_height)
+		target = page_top
+		if _has_restoration_state and _restored_scroll_vertical >= 0 and int(floor(float(_restored_scroll_vertical) / page_height)) == int(floor(float(page_top) / page_height)):
+			target = _restored_scroll_vertical
+		_scroll.scroll_vertical = clampi(target, 0, max_scroll)
+	elif _has_restoration_state and _restored_scroll_vertical >= 0:
 		_scroll.scroll_vertical = clampi(_restored_scroll_vertical, 0, max_scroll)
 	else:
 		_scroll.scroll_vertical = clampi(target, 0, max_scroll)
@@ -484,16 +511,6 @@ func _build_shell() -> void:
 	_content.size = _content.custom_minimum_size
 	_scroll.add_child(_content)
 
-	_path_line = Line2D.new()
-	_path_line.name = "DeterministicLevelPath"
-	_path_line.width = 8.0
-	_path_line.default_color = Color("#d9a957")
-	_path_line.joint_mode = Line2D.LINE_JOINT_ROUND
-	_path_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
-	_path_line.end_cap_mode = Line2D.LINE_CAP_ROUND
-	_path_line.z_index = 0
-	_content.add_child(_path_line)
-
 	_node_layer = Control.new()
 	_node_layer.name = "LevelNodes"
 	_node_layer.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
@@ -529,8 +546,80 @@ func _set_island_map_background() -> void:
 	var texture := load(path) as Texture2D if not path.is_empty() and ResourceLoader.exists(path) else null
 	var valid := texture != null
 	_background_texture.texture = texture
-	_background_texture.visible = valid
-	_background_fallback.visible = not valid
+	var layout := _layout_metadata(level_database.get_island(island_id))
+	var paged := not layout.is_empty() and bool(layout.get("repeat_background_per_page", true))
+	_background_texture.visible = valid and not paged
+	_background_fallback.visible = not valid and not paged
+
+
+func _layout_metadata(definition: Dictionary) -> Dictionary:
+	var value: Variant = definition.get("island_map_layout", {})
+	return value.duplicate(true) if value is Dictionary else {}
+
+
+func _level_center_for(level_id: int, layout: Dictionary, page_size: int, page_height: float) -> Vector2:
+	if layout.is_empty():
+		var x := 92.0 if level_id % 2 == 1 else 512.0
+		var y := 26.0 + float(level_id - 1) * NODE_HEIGHT
+		return Vector2(x + NODE_SIZE.x * 0.5, y + NODE_SIZE.y * 0.5)
+	var landmarks: Variant = layout.get("landmark_centers", [])
+	if not landmarks is Array or landmarks.is_empty():
+		return Vector2(MAP_WIDTH * 0.5, float(level_id - 1) * NODE_HEIGHT + NODE_HEIGHT * 0.5)
+	var slot := (level_id - 1) % page_size
+	var page := int(floor(float(level_id - 1) / float(page_size)))
+	var raw: Variant = landmarks[slot % landmarks.size()]
+	if not raw is Array or raw.size() != 2:
+		return Vector2(MAP_WIDTH * 0.5, float(page) * page_height + NODE_HEIGHT * 0.5)
+	return Vector2(float(raw[0]), float(page) * page_height + float(raw[1]))
+
+
+func _rebuild_page_backgrounds(definition: Dictionary, page_count: int, page_height: float) -> void:
+	for background in _page_backgrounds:
+		if is_instance_valid(background):
+			background.queue_free()
+	_page_backgrounds.clear()
+	if _active_layout.is_empty() or not bool(_active_layout.get("repeat_background_per_page", true)):
+		return
+	var theme: Dictionary = level_database.get_island_theme(island_id)
+	var path := str(theme.get("island_map_background", ""))
+	var texture := load(path) as Texture2D if not path.is_empty() and ResourceLoader.exists(path) else null
+	if texture == null:
+		return
+	var origin_y := float(_active_layout.get("background_origin_y", -178.0))
+	for page in range(page_count):
+		var background := TextureRect.new()
+		background.name = "IslandMapPageBackground_%02d" % (page + 1)
+		background.texture = texture
+		background.position = Vector2(0.0, float(page) * page_height + origin_y)
+		background.size = Vector2(MAP_WIDTH, 1280.0)
+		background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		background.stretch_mode = TextureRect.STRETCH_SCALE
+		background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_content.add_child(background)
+		_content.move_child(background, 0)
+		_page_backgrounds.append(background)
+
+
+func _ensure_path_line(enabled: bool) -> void:
+	if not enabled:
+		if _path_line != null and is_instance_valid(_path_line):
+			_content.remove_child(_path_line)
+			_path_line.queue_free()
+		_path_line = null
+		return
+	if _path_line != null and is_instance_valid(_path_line):
+		_path_line.clear_points()
+		return
+	_path_line = Line2D.new()
+	_path_line.name = "DeterministicLevelPath"
+	_path_line.width = 8.0
+	_path_line.default_color = Color("#d9a957")
+	_path_line.joint_mode = Line2D.LINE_JOINT_ROUND
+	_path_line.begin_cap_mode = Line2D.LINE_CAP_ROUND
+	_path_line.end_cap_mode = Line2D.LINE_CAP_ROUND
+	_path_line.z_index = 0
+	_content.add_child(_path_line)
+	_content.move_child(_path_line, 0)
 
 
 func _show_locked_level_feedback(level_id: int) -> void:

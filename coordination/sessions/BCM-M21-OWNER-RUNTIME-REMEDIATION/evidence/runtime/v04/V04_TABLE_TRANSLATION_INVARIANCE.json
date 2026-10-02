@@ -1,0 +1,10 @@
+{
+	"canonical_px": 150.0,
+	"death_y": 1050.0,
+	"launch_y": 1096.66662597656,
+	"max_physics_wall_position_error": 0.0,
+	"max_rail_query_error": 0.0,
+	"max_rail_shape_error": 0.00006103515625,
+	"max_source_point_error": 0.0,
+	"viewport_px": 150.0
+}

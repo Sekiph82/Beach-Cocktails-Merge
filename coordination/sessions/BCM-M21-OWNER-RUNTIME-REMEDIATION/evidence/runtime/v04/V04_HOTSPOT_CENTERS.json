@@ -1,0 +1,188 @@
+{
+	"calibrated_map_positions": {
+		"azure_bay": [
+			0.665,
+			0.82
+		],
+		"billionaire_island": [
+			0.61,
+			0.19
+		],
+		"coconut_beach": [
+			0.305,
+			0.54
+		],
+		"final_island": [
+			0.795,
+			0.347
+		],
+		"frozen_paradise": [
+			0.775,
+			0.02
+		],
+		"party_beach": [
+			0.835,
+			0.615
+		],
+		"sunny_cove": [
+			0.17,
+			0.88
+		],
+		"sunset_island": [
+			0.5,
+			0.52
+		],
+		"tiki_island": [
+			0.14,
+			0.665
+		],
+		"volcano_bay": [
+			0.23,
+			0.015
+		]
+	},
+	"centers": [
+		{
+			"island_id": "sunny_cove",
+			"map_canvas_center": "(122.4, 846.56)",
+			"map_position": [
+				0.17,
+				0.88
+			],
+			"screen_center": "(122.4, 988.56)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "tiki_island",
+			"map_canvas_center": "(100.8, 639.73)",
+			"map_position": [
+				0.14,
+				0.665
+			],
+			"screen_center": "(100.8, 781.73)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "azure_bay",
+			"map_canvas_center": "(478.8, 788.84)",
+			"map_position": [
+				0.665,
+				0.82
+			],
+			"screen_center": "(478.8, 930.84)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "coconut_beach",
+			"map_canvas_center": "(219.6, 519.48)",
+			"map_position": [
+				0.305,
+				0.54
+			],
+			"screen_center": "(219.6, 661.48)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "sunset_island",
+			"map_canvas_center": "(360.0, 500.24)",
+			"map_position": [
+				0.5,
+				0.52
+			],
+			"screen_center": "(360.0, 642.24)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "party_beach",
+			"map_canvas_center": "(601.2, 591.63)",
+			"map_position": [
+				0.835,
+				0.615
+			],
+			"screen_center": "(601.2, 733.63)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "frozen_paradise",
+			"map_canvas_center": "(558.0, 19.24)",
+			"map_position": [
+				0.775,
+				0.02
+			],
+			"screen_center": "(558.0, 161.24)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "volcano_bay",
+			"map_canvas_center": "(165.6, 14.43)",
+			"map_position": [
+				0.23,
+				0.015
+			],
+			"screen_center": "(165.6, 156.43)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "billionaire_island",
+			"map_canvas_center": "(439.2, 182.78)",
+			"map_position": [
+				0.61,
+				0.19
+			],
+			"screen_center": "(439.2, 324.78)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "final_island",
+			"map_canvas_center": "(572.4, 333.814)",
+			"map_position": [
+				0.795,
+				0.347
+			],
+			"screen_center": "(572.4, 475.814)",
+			"source": "data/campaign/islands.json map_position"
+		}
+	],
+	"owner_seed_coordinates": {
+		"azure_bay": [
+			0.64,
+			0.8
+		],
+		"billionaire_island": [
+			0.61,
+			0.19
+		],
+		"coconut_beach": [
+			0.28,
+			0.52
+		],
+		"final_island": [
+			0.82,
+			0.36
+		],
+		"frozen_paradise": [
+			0.75,
+			0.03
+		],
+		"party_beach": [
+			0.81,
+			0.59
+		],
+		"sunny_cove": [
+			0.15,
+			0.88
+		],
+		"sunset_island": [
+			0.5,
+			0.52
+		],
+		"tiki_island": [
+			0.12,
+			0.65
+		],
+		"volcano_bay": [
+			0.23,
+			0.04
+		]
+	}
+}
