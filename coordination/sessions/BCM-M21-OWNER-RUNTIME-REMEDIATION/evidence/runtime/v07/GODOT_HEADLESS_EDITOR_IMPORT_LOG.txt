@@ -1,0 +1,122 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+WARNING: Detected another project.godot at res://original_reference. The folder will be ignored.
+   at: _should_skip_directory (editor/file_system/editor_file_system.cpp:3497)
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+MCP | plugin disabled in headless mode
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (33 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | gameplay_table_shadow.png[39m[0m
+[   2% ] [90m[1m_update_scan_actions[22m | 01_main_menu_before_play.png[39m[0m
+[   5% ] [90m[1m_update_scan_actions[22m | 01_world_map_calibrated_720x1280.png[39m[0m
+[   8% ] [90m[1m_update_scan_actions[22m | 02_sunny_cove_page01_landmarks_720x1280.png[39m[0m
+[  11% ] [90m[1m_update_scan_actions[22m | 02_world_map_after_play.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | 03_settings_after_click.png[39m[0m
+[  17% ] [90m[1m_update_scan_actions[22m | 03_sunny_cove_page06_landmarks_720x1280.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | 04_main_menu_after_settings.png[39m[0m
+[  23% ] [90m[1m_update_scan_actions[22m | 05_win_result_visible.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | 06_main_menu_after_result.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | 06_sunny_cove_untimed_after_one_hour_720x1280.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | 07_pause_untimed_720x1280.png[39m[0m
+[  35% ] [90m[1m_update_scan_actions[22m | SC-01_single_flattened_surface_720x1280.png[39m[0m
+[  38% ] [90m[1m_update_scan_actions[22m | SC-02_clear_central_tabletop_720x1280.png[39m[0m
+[  41% ] [90m[1m_update_scan_actions[22m | SC-03_held_spawn_in_front_720x1280.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | SC-04_after_10_real_mouse_launches_720x1280.png[39m[0m
+[  47% ] [90m[1m_update_scan_actions[22m | SC-05_twelve_glass_crowded_runtime_720x1280.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | SC-06_left_rail_contact_runtime_720x1280.png[39m[0m
+[  52% ] [90m[1m_update_scan_actions[22m | SC-06_rear_rail_contact_runtime_720x1280.png[39m[0m
+[  55% ] [90m[1m_update_scan_actions[22m | SC-06_right_rail_contact_runtime_720x1280.png[39m[0m
+[  58% ] [90m[1m_update_scan_actions[22m | SC-06_side_rail_contact_runtime_720x1280.png[39m[0m
+[  61% ] [90m[1m_update_scan_actions[22m | SC-07_hud_and_progression_clearance_720x1280.png[39m[0m
+[  64% ] [90m[1m_update_scan_actions[22m | SC-08_win_result_clear_720x1280.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | WM-01_sunny_cove_runtime_crop.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | WM-02_tiki_island_runtime_crop.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | WM-03_azure_bay_runtime_crop.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | WM-04_coconut_beach_runtime_crop.png[39m[0m
+[  79% ] [90m[1m_update_scan_actions[22m | WM-05_sunset_island_runtime_crop.png[39m[0m
+[  82% ] [90m[1m_update_scan_actions[22m | WM-06_party_beach_runtime_crop.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | WM-07_frozen_paradise_runtime_crop.png[39m[0m
+[  88% ] [90m[1m_update_scan_actions[22m | WM-08_volcano_bay_runtime_crop.png[39m[0m
+[  91% ] [90m[1m_update_scan_actions[22m | WM-09_billionaire_island_runtime_crop.png[39m[0m
+[  94% ] [90m[1m_update_scan_actions[22m | WM-10_final_island_runtime_crop.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (27 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   3% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   7% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  10% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  14% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  17% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  21% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  28% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  32% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  35% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  39% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  42% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  57% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  60% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  64% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  67% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  71% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  78% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  82% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  85% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  89% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  92% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | WM-10_final_island_runtime_crop.png[39m[0m
+[   3% ] [90m[1mreimport[22m | WM-09_billionaire_island_runtime_crop.png[39m[0m
+[   7% ] [90m[1mreimport[22m | WM-08_volcano_bay_runtime_crop.png[39m[0m
+[  10% ] [90m[1mreimport[22m | WM-07_frozen_paradise_runtime_crop.png[39m[0m
+[  14% ] [90m[1mreimport[22m | WM-06_party_beach_runtime_crop.png[39m[0m
+[  17% ] [90m[1mreimport[22m | WM-05_sunset_island_runtime_crop.png[39m[0m
+[  21% ] [90m[1mreimport[22m | WM-04_coconut_beach_runtime_crop.png[39m[0m
+[  25% ] [90m[1mreimport[22m | WM-03_azure_bay_runtime_crop.png[39m[0m
+[  28% ] [90m[1mreimport[22m | WM-02_tiki_island_runtime_crop.png[39m[0m
+[  32% ] [90m[1mreimport[22m | WM-01_sunny_cove_runtime_crop.png[39m[0m
+[  35% ] [90m[1mreimport[22m | SC-08_win_result_clear_720x1280.png[39m[0m
+[  39% ] [90m[1mreimport[22m | SC-07_hud_and_progression_clearance_720x1280.png[39m[0m
+[  42% ] [90m[1mreimport[22m | SC-06_side_rail_contact_runtime_720x1280.png[39m[0m
+[  46% ] [90m[1mreimport[22m | SC-06_right_rail_contact_runtime_720x1280.png[39m[0m
+[  50% ] [90m[1mreimport[22m | SC-06_rear_rail_contact_runtime_720x1280.png[39m[0m
+[  53% ] [90m[1mreimport[22m | SC-06_left_rail_contact_runtime_720x1280.png[39m[0m
+[  57% ] [90m[1mreimport[22m | SC-05_twelve_glass_crowded_runtime_720x1280.png[39m[0m
+[  60% ] [90m[1mreimport[22m | SC-04_after_10_real_mouse_launches_720x1280.png[39m[0m
+[  64% ] [90m[1mreimport[22m | SC-03_held_spawn_in_front_720x1280.png[39m[0m
+[  67% ] [90m[1mreimport[22m | SC-02_clear_central_tabletop_720x1280.png[39m[0m
+[  71% ] [90m[1mreimport[22m | SC-01_single_flattened_surface_720x1280.png[39m[0m
+[  75% ] [90m[1mreimport[22m | 07_pause_untimed_720x1280.png[39m[0m
+[  78% ] [90m[1mreimport[22m | 06_sunny_cove_untimed_after_one_hour_720x1280.png[39m[0m
+[  82% ] [90m[1mreimport[22m | 05_win_result_visible.png[39m[0m
+[  85% ] [90m[1mreimport[22m | 03_sunny_cove_page06_landmarks_720x1280.png[39m[0m
+[  89% ] [90m[1mreimport[22m | 02_sunny_cove_page01_landmarks_720x1280.png[39m[0m
+[  92% ] [90m[1mreimport[22m | 01_world_map_calibrated_720x1280.png[39m[0m
+[  96% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (27 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | Reopening scenes...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | Loading central editor layout...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | Loading plugin window layout...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | Editor layout ready.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m

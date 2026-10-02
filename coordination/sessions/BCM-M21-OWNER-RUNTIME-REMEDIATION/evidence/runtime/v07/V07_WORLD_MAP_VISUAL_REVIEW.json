@@ -1,0 +1,161 @@
+{
+  "source_screenshot": "02_world_map_after_play.png",
+  "source_dimensions": [
+    720,
+    1280
+  ],
+  "route_line_check": "PASS: no runtime IslandRoute node; pale dotted routes are baked map artwork",
+  "duplicate_thumbnail_check": "PASS: no dynamic island/lock thumbnail duplicates",
+  "marker_reviews": [
+    {
+      "criterion": "WM-01",
+      "island_id": "sunny_cove",
+      "result": "PASS",
+      "screenshot": "WM-01_sunny_cove_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        240,
+        150,
+        500,
+        410
+      ],
+      "visual_reason": "Gold ring and Sunny Cove label are centered over the lagoon island body; OPEN marker state is on the same center.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-02",
+      "island_id": "tiki_island",
+      "result": "PASS",
+      "screenshot": "WM-02_tiki_island_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        12,
+        259,
+        272,
+        519
+      ],
+      "visual_reason": "Ring center sits on the Tiki Island village and statue; label and lock state share the marker center.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-03",
+      "island_id": "azure_bay",
+      "result": "PASS",
+      "screenshot": "WM-03_azure_bay_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        464,
+        336,
+        720,
+        596
+      ],
+      "visual_reason": "Ring center sits on the Azure Bay marina and island body; label and lock are centered.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-04",
+      "island_id": "coconut_beach",
+      "result": "PASS",
+      "screenshot": "WM-04_coconut_beach_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        242,
+        526,
+        502,
+        786
+      ],
+      "visual_reason": "Ring center sits on the Coconut Beach lagoon/islet body; label and lock are centered.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-05",
+      "island_id": "sunset_island",
+      "result": "PASS",
+      "screenshot": "WM-05_sunset_island_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        0,
+        846,
+        258,
+        1106
+      ],
+      "visual_reason": "Ring center sits on the Sunset Island shore and palms; label and lock share its center.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-06",
+      "island_id": "party_beach",
+      "result": "PASS",
+      "screenshot": "WM-06_party_beach_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        0,
+        637,
+        254,
+        897
+      ],
+      "visual_reason": "Ring center sits over the Party Beach venue/island; label and lock share the marker center.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-07",
+      "island_id": "frozen_paradise",
+      "result": "PASS",
+      "screenshot": "WM-07_frozen_paradise_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        470,
+        16,
+        720,
+        276
+      ],
+      "visual_reason": "Ring center sits on the Frozen Paradise snowy island body; label and lock are centered.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-08",
+      "island_id": "volcano_bay",
+      "result": "PASS",
+      "screenshot": "WM-08_volcano_bay_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        13,
+        35,
+        273,
+        295
+      ],
+      "visual_reason": "Ring center sits on the Volcano Bay volcanic island body; label and lock are centered.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-09",
+      "island_id": "billionaire_island",
+      "result": "PASS",
+      "screenshot": "WM-09_billionaire_island_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        465,
+        642,
+        720,
+        902
+      ],
+      "visual_reason": "Ring center sits on Billionaire Island resort body; label and lock share the center.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    },
+    {
+      "criterion": "WM-10",
+      "island_id": "final_island",
+      "result": "PASS",
+      "screenshot": "WM-10_final_island_runtime_crop.png",
+      "source_screenshot": "02_world_map_after_play.png",
+      "crop_box": [
+        463,
+        877,
+        720,
+        1137
+      ],
+      "visual_reason": "Ring center sits on the Final Island rock formation; label and lock are centered.",
+      "iteration": "final runtime capture after marker-anchor calibration"
+    }
+  ]
+}

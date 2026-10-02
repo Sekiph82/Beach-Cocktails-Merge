@@ -1,0 +1,177 @@
+{
+  "format": "sunny-cove-image-locked-geometry-v07",
+  "surface_path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07.png",
+  "surface_sha256_frozen_before_geometry": "d68bd5456802ee04c15a66559780652a1d18ab1a3d0e8c9e21da68da3620b8bd",
+  "canonical_dimensions": [
+    720,
+    1280
+  ],
+  "playable_mask_path": "assets/ui_assets/tables/table_playable_surface_mask_v2.png",
+  "playable_mask_sha256": "9917d23ec190700f315943a995926d19c7b93bfd322193ae6e8b207fa702b8ad",
+  "authority": "V2/R11 playable master traced against final frozen V07 surface",
+  "geometry": {
+    "playable_polygon": [
+      [
+        99,
+        398
+      ],
+      [
+        628,
+        398
+      ],
+      [
+        667,
+        489
+      ],
+      [
+        688,
+        537
+      ],
+      [
+        719,
+        613
+      ],
+      [
+        719,
+        988
+      ],
+      [
+        0,
+        988
+      ],
+      [
+        0,
+        627
+      ],
+      [
+        4,
+        612
+      ],
+      [
+        37,
+        537
+      ],
+      [
+        58,
+        489
+      ]
+    ],
+    "launch_y": 947,
+    "spawn_y": 968,
+    "death_y": 900
+  },
+  "stress_placements": [
+    {
+      "level": 12,
+      "center": [
+        180,
+        510
+      ],
+      "collider_footprint_radius": 90,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 11,
+      "center": [
+        360,
+        510
+      ],
+      "collider_footprint_radius": 80,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 10,
+      "center": [
+        540,
+        510
+      ],
+      "collider_footprint_radius": 72,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 9,
+      "center": [
+        140,
+        675
+      ],
+      "collider_footprint_radius": 64,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 8,
+      "center": [
+        360,
+        675
+      ],
+      "collider_footprint_radius": 56,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 7,
+      "center": [
+        580,
+        675
+      ],
+      "collider_footprint_radius": 49,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 6,
+      "center": [
+        160,
+        805
+      ],
+      "collider_footprint_radius": 42,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 5,
+      "center": [
+        360,
+        805
+      ],
+      "collider_footprint_radius": 36,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 4,
+      "center": [
+        560,
+        805
+      ],
+      "collider_footprint_radius": 31,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 3,
+      "center": [
+        130,
+        900
+      ],
+      "collider_footprint_radius": 27,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 2,
+      "center": [
+        360,
+        900
+      ],
+      "collider_footprint_radius": 23,
+      "sampled_outline_inside_visible_v2_surface": true
+    },
+    {
+      "level": 1,
+      "center": [
+        590,
+        900
+      ],
+      "collider_footprint_radius": 20,
+      "sampled_outline_inside_visible_v2_surface": true
+    }
+  ],
+  "debug_overlay_path": "assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_debug_v07.png",
+  "stress_overlay_path": "assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_12_glass_stress_v07.png",
+  "old_v06_table_y_offset_removed": true,
+  "method": "canonical V2/R11 rail sample clipping checked against the exact playable-surface alpha mask; surface SHA frozen before writing geometry"
+}

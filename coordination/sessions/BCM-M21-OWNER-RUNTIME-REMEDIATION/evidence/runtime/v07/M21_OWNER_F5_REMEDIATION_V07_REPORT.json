@@ -1,0 +1,390 @@
+{
+	"captures": [
+		{
+			"height": 1280,
+			"name": "01_world_map_calibrated_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/01_world_map_calibrated_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "02_sunny_cove_page01_landmarks_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/02_sunny_cove_page01_landmarks_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "03_sunny_cove_page06_landmarks_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/03_sunny_cove_page06_landmarks_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-01_single_flattened_surface_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-01_single_flattened_surface_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-02_clear_central_tabletop_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-02_clear_central_tabletop_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-03_held_spawn_in_front_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-03_held_spawn_in_front_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-07_hud_and_progression_clearance_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-07_hud_and_progression_clearance_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-05_twelve_glass_crowded_runtime_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-05_twelve_glass_crowded_runtime_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-06_left_rail_contact_runtime_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-06_left_rail_contact_runtime_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-06_right_rail_contact_runtime_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-06_right_rail_contact_runtime_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-06_rear_rail_contact_runtime_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-06_rear_rail_contact_runtime_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-04_after_10_real_mouse_launches_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-04_after_10_real_mouse_launches_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "06_sunny_cove_untimed_after_one_hour_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/06_sunny_cove_untimed_after_one_hour_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "07_pause_untimed_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/07_pause_untimed_720x1280.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "SC-08_win_result_clear_720x1280",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07/SC-08_win_result_clear_720x1280.png",
+			"width": 720
+		}
+	],
+	"checks_failed": [],
+	"direct_shot_controller_launch_method_calls": 0,
+	"hotspot_centers": [
+		{
+			"island_id": "sunny_cove",
+			"map_canvas_center": "(370.0001, 137.9999)",
+			"map_position": [
+				0.513889,
+				0.143451
+			],
+			"screen_center": "(370.0001, 279.9999)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "tiki_island",
+			"map_canvas_center": "(141.9998, 247.0002)",
+			"map_position": [
+				0.197222,
+				0.256757
+			],
+			"screen_center": "(141.9998, 389.0002)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "azure_bay",
+			"map_canvas_center": "(594.0, 324.0016)",
+			"map_position": [
+				0.825,
+				0.3368
+			],
+			"screen_center": "(594.0, 466.0016)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "coconut_beach",
+			"map_canvas_center": "(372.0002, 514.0005)",
+			"map_position": [
+				0.516667,
+				0.534304
+			],
+			"screen_center": "(372.0002, 656.0005)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "sunset_island",
+			"map_canvas_center": "(128.0002, 834.0001)",
+			"map_position": [
+				0.177778,
+				0.866944
+			],
+			"screen_center": "(128.0002, 976.0001)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "party_beach",
+			"map_canvas_center": "(123.9998, 624.9999)",
+			"map_position": [
+				0.172222,
+				0.649688
+			],
+			"screen_center": "(123.9998, 766.9999)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "frozen_paradise",
+			"map_canvas_center": "(599.9998, 3.999996)",
+			"map_position": [
+				0.833333,
+				0.004158
+			],
+			"screen_center": "(599.9998, 146.0)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "volcano_bay",
+			"map_canvas_center": "(142.9999, 22.9995)",
+			"map_position": [
+				0.198611,
+				0.023908
+			],
+			"screen_center": "(142.9999, 164.9995)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "billionaire_island",
+			"map_canvas_center": "(595.0001, 630.0004)",
+			"map_position": [
+				0.826389,
+				0.654886
+			],
+			"screen_center": "(595.0001, 772.0004)",
+			"source": "data/campaign/islands.json map_position"
+		},
+		{
+			"island_id": "final_island",
+			"map_canvas_center": "(592.9999, 864.9996)",
+			"map_position": [
+				0.823611,
+				0.899168
+			],
+			"screen_center": "(592.9999, 1007.0)",
+			"source": "data/campaign/islands.json map_position"
+		}
+	],
+	"landmark_mappings": [
+		{
+			"center": "(353.0, 94.0)",
+			"level_id": 1,
+			"page": 1,
+			"slot": 1
+		},
+		{
+			"center": "(647.0, 149.0)",
+			"level_id": 2,
+			"page": 1,
+			"slot": 2
+		},
+		{
+			"center": "(169.0, 249.0)",
+			"level_id": 3,
+			"page": 1,
+			"slot": 3
+		},
+		{
+			"center": "(402.0, 308.0)",
+			"level_id": 4,
+			"page": 1,
+			"slot": 4
+		},
+		{
+			"center": "(616.0, 408.0)",
+			"level_id": 5,
+			"page": 1,
+			"slot": 5
+		},
+		{
+			"center": "(66.0, 486.0)",
+			"level_id": 6,
+			"page": 1,
+			"slot": 6
+		},
+		{
+			"center": "(642.0, 611.0)",
+			"level_id": 7,
+			"page": 1,
+			"slot": 7
+		},
+		{
+			"center": "(386.0, 661.0)",
+			"level_id": 8,
+			"page": 1,
+			"slot": 8
+		},
+		{
+			"center": "(162.0, 764.0)",
+			"level_id": 9,
+			"page": 1,
+			"slot": 9
+		},
+		{
+			"center": "(553.0, 900.0)",
+			"level_id": 10,
+			"page": 1,
+			"slot": 10
+		},
+		{
+			"center": "(353.0, 5594.0)",
+			"level_id": 51,
+			"page": 6,
+			"slot": 1
+		},
+		{
+			"center": "(647.0, 5649.0)",
+			"level_id": 52,
+			"page": 6,
+			"slot": 2
+		},
+		{
+			"center": "(169.0, 5749.0)",
+			"level_id": 53,
+			"page": 6,
+			"slot": 3
+		},
+		{
+			"center": "(402.0, 5808.0)",
+			"level_id": 54,
+			"page": 6,
+			"slot": 4
+		},
+		{
+			"center": "(616.0, 5908.0)",
+			"level_id": 55,
+			"page": 6,
+			"slot": 5
+		},
+		{
+			"center": "(66.0, 5986.0)",
+			"level_id": 56,
+			"page": 6,
+			"slot": 6
+		},
+		{
+			"center": "(642.0, 6111.0)",
+			"level_id": 57,
+			"page": 6,
+			"slot": 7
+		},
+		{
+			"center": "(386.0, 6161.0)",
+			"level_id": 58,
+			"page": 6,
+			"slot": 8
+		},
+		{
+			"center": "(162.0, 6264.0)",
+			"level_id": 59,
+			"page": 6,
+			"slot": 9
+		},
+		{
+			"center": "(553.0, 6400.0)",
+			"level_id": 60,
+			"page": 6,
+			"slot": 10
+		}
+	],
+	"mouse_shots_fired": 10,
+	"physical_device_acceptance": "DEFERRED_TO_OWNER_NATIVE_REAUDIT",
+	"production_path": "ApplicationShellScene -> CampaignNavigationController -> IslandMap -> GameManager",
+	"result_presentation_count": 1,
+	"table_translation": {},
+	"terminal_visual_counts": {
+		"visible_drink_count": 0,
+		"visible_transient_world_effect_count": 0
+	},
+	"theme_layer_isolation": [
+		{
+			"geometry": {
+				"death_y": 900.0,
+				"launch_y": 947.0,
+				"playable_polygon": [
+					[
+						99.0,
+						398.0
+					],
+					[
+						628.0,
+						398.0
+					],
+					[
+						667.0,
+						489.0
+					],
+					[
+						688.0,
+						537.0
+					],
+					[
+						719.0,
+						613.0
+					],
+					[
+						719.0,
+						988.0
+					],
+					[
+						0.0,
+						988.0
+					],
+					[
+						0.0,
+						627.0
+					],
+					[
+						4.0,
+						612.0
+					],
+					[
+						37.0,
+						537.0
+					],
+					[
+						58.0,
+						489.0
+					]
+				],
+				"spawn_y": 968.0
+			},
+			"legacy_layers_instanced": false,
+			"static_visual": "GameplaySurface",
+			"table_y_offset_canonical": 0.0,
+			"texture_path": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07.png"
+		}
+	],
+	"touch_shots_fired": 10,
+	"work_item": "BCM-M21 owner F5 remediation V07"
+}

@@ -1,0 +1,33 @@
+{
+  "work_item": "BCM-M21-001 + BCM-M21-006 Owner F5 Remediation V07",
+  "status": "BUILDER_PASS_ALL_ITEMS",
+  "authority_note": "Builder evidence only; owner F5 acceptance and independent ChatGPT audit remain pending.",
+  "gameplay_surface_sha256": "d68bd5456802ee04c15a66559780652a1d18ab1a3d0e8c9e21da68da3620b8bd",
+  "criteria": [
+    {"id":"SC-01","result":"PASS","screenshots":["evidence/runtime/v07/SC-01_single_flattened_surface_720x1280.png"],"visual_reason":"One coherent Sunny Cove surface; runtime inventory has one static gameplay texture and no separately instanced Sunny Cove table, shadow, or edge layer.","iteration":"Final V07 surface and production capture."},
+    {"id":"SC-02","result":"PASS","screenshots":["evidence/runtime/v07/SC-02_clear_central_tabletop_720x1280.png"],"visual_reason":"The tabletop fills the central play region with the rear taper and retains clear HUD and lower apron/progression regions.","iteration":"Final V07 geometry calibration."},
+    {"id":"SC-03","result":"PASS","screenshots":["evidence/runtime/v07/SC-03_held_spawn_in_front_720x1280.png"],"visual_reason":"The held cocktail is visibly in front of the table at the launch area and clear of apron/UI art.","iteration":"Final V07 geometry calibration."},
+    {"id":"SC-04","result":"PASS","screenshots":["evidence/runtime/v07/SC-04_after_10_real_mouse_launches_720x1280.png"],"visual_reason":"Ten real viewport mouse launches remain visibly on the tabletop.","iteration":"Final production-input capture."},
+    {"id":"SC-05","result":"PASS","screenshots":["evidence/runtime/v07/SC-05_twelve_glass_crowded_runtime_720x1280.png","assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_12_glass_stress_v07.png"],"visual_reason":"All twelve cocktail levels are visible on the tabletop without a glass hidden behind or below the frame; calibrated footprints stay inside the V2 playable mask.","iteration":"Final crowded-state layout and runtime capture."},
+    {"id":"SC-06","result":"PASS","screenshots":["evidence/runtime/v07/SC-06_left_rail_contact_runtime_720x1280.png","evidence/runtime/v07/SC-06_right_rail_contact_runtime_720x1280.png","evidence/runtime/v07/SC-06_rear_rail_contact_runtime_720x1280.png"],"visual_reason":"Left, right, and rear launch trajectories meet their image-locked boundaries; the rear capture shows wood behind the glass base and no drink escape.","iteration":"Final recapture after side-contact timing correction and isolated rear shot."},
+    {"id":"SC-07","result":"PASS","screenshots":["evidence/runtime/v07/SC-07_hud_and_progression_clearance_720x1280.png"],"visual_reason":"HUD stays above the tabletop and progression stays below it between the legs without covering active drinks.","iteration":"Final V07 surface and HUD capture."},
+    {"id":"SC-08","result":"PASS","screenshots":["evidence/runtime/v07/SC-08_win_result_clear_720x1280.png","evidence/runtime/v07/V07_TERMINAL_VISIBLE_COUNTS.json"],"visual_reason":"WIN result surface is readable and topmost; terminal cleanup count is zero visible drinks and zero transient world effects.","iteration":"Final production result capture."},
+    {"id":"WM-01","island":"sunny_cove","result":"PASS","screenshots":["evidence/runtime/v07/WM-01_sunny_cove_runtime_crop.png"],"visual_reason":"Ring and label center on lagoon island body; OPEN state shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-02","island":"tiki_island","result":"PASS","screenshots":["evidence/runtime/v07/WM-02_tiki_island_runtime_crop.png"],"visual_reason":"Ring and label center on village/statue island body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-03","island":"azure_bay","result":"PASS","screenshots":["evidence/runtime/v07/WM-03_azure_bay_runtime_crop.png"],"visual_reason":"Ring and label center on marina/resort island body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-04","island":"coconut_beach","result":"PASS","screenshots":["evidence/runtime/v07/WM-04_coconut_beach_runtime_crop.png"],"visual_reason":"Ring and label center on lagoon/islet body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-05","island":"sunset_island","result":"PASS","screenshots":["evidence/runtime/v07/WM-05_sunset_island_runtime_crop.png"],"visual_reason":"Ring and label center on shore/palm island body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-06","island":"party_beach","result":"PASS","screenshots":["evidence/runtime/v07/WM-06_party_beach_runtime_crop.png"],"visual_reason":"Ring and label center on venue/island body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-07","island":"frozen_paradise","result":"PASS","screenshots":["evidence/runtime/v07/WM-07_frozen_paradise_runtime_crop.png"],"visual_reason":"Ring and label center on snowy island body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-08","island":"volcano_bay","result":"PASS","screenshots":["evidence/runtime/v07/WM-08_volcano_bay_runtime_crop.png"],"visual_reason":"Ring and label center on volcanic island body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-09","island":"billionaire_island","result":"PASS","screenshots":["evidence/runtime/v07/WM-09_billionaire_island_runtime_crop.png"],"visual_reason":"Ring and label center on resort island body; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."},
+    {"id":"WM-10","island":"final_island","result":"PASS","screenshots":["evidence/runtime/v07/WM-10_final_island_runtime_crop.png"],"visual_reason":"Ring and label center on rock formation; lock shares the marker center.","iteration":"Final capture after marker-anchor calibration."}
+  ],
+  "map_checks": {
+    "full_map_screenshots": ["evidence/runtime/v07/01_world_map_calibrated_720x1280.png", "evidence/runtime/v07/02_world_map_after_play.png"],
+    "runtime_route_overlay": "PASS: no IslandRoute node; dotted route artwork is baked into map background",
+    "duplicate_island_or_lock_thumbnails": "PASS: absent"
+  },
+  "owner_native_f5_acceptance": "PENDING",
+  "independent_chatgpt_audit": "PENDING"
+}
