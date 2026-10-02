@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V04
-- Current Task: BCM-M21-001 + BCM-M21-006 — owner F5 acceptance after V04-R01 technical remediation.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner runs the V04 F5 checklist in Godot. Verify calibrated World Map markers, Sunny Cove landmark pages with no connector lines, the +150 px lowered table/playable geometry, cleaned launch/decor presentation, WIN/LOSE result lifecycle and quick retained regressions. Report PASS/FAIL. No further CODEX work is authorized unless the owner finds a defect.
-- Required Actor: OWNER
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V05
+- Current Task: BCM-M21-001 + BCM-M21-006 — restore Main Menu GUI input after result-layer lifecycle regression.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes V05. Make the result CanvasLayer hidden/input-inactive unless a WIN/LOSE card is actually visible, synchronize it with CampaignNavigation visibility, and prove PLAY / CONTINUE, SETTINGS, BACK TO MENU and post-result menu navigation using real viewport-dispatched mouse events. Preserve all V04 visual/runtime PASS behavior. Stop at AWAITING_OWNER_F5_ACCEPTANCE_V05.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: V04-R01 is independently TECHNICAL_AUDITED_PASS. BCM-M21-004 is closed again. BCM-M21-001 and BCM-M21-006 remain pending explicit owner F5 acceptance.
+- Progress: owner F5 V04 found a release blocker: Main Menu renders but buttons do not respond because the hidden result CanvasLayer remains above the menu. BCM-M21-004 stays closed; BCM-M21-001 and BCM-M21-006 are reopened.
 
 ## Tasks
 
@@ -929,6 +929,13 @@ Owner F5 V03 ruling:
 - Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V03.md`
 - Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V03.md` — historical **TECHNICAL PASS**, superseded by owner F5 V04 findings.
 
+Owner F5 V05 active remediation:
+- Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V05.md`
+- Owner audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_AUDIT_V05.md`
+- Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V05.md`
+- Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V05.md`
+- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V05`
+
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
 - Owner audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_AUDIT_V04.md`
@@ -940,12 +947,12 @@ Owner F5 V04 active remediation:
 - Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
 
-- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+- [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
 
