@@ -55,9 +55,9 @@ Godot runtime: `4.7.2.stable.official.ed1daf0bf`, Compatibility renderer.
 ## Final repository state
 
 - Start HEAD: `a9c45764883340d3a977c42d23f238b862656c4e`.
-- End HEAD: pending V05 commit.
-- V05 commit SHA: pending publication.
-- Required final equality: local `HEAD` = `origin/main` = `git ls-remote origin refs/heads/main`; pending push and verification.
+- V05 implementation/evidence commit: `7b97e5c58329280c0c2c2c80c02d93f7ea84f38b`.
+- After pushing that commit and fetching `origin main`, verified local `HEAD` = `origin/main` = `git ls-remote origin refs/heads/main` = `7b97e5c58329280c0c2c2c80c02d93f7ea84f38b`.
+- The execution-log closeout records this publication result; its commit contains only the finalized log text and does not alter implementation or runtime evidence.
 - `TASKS.md` was not modified. The 14 `.translation` sidecars remain untracked and untouched. The existing preservation stash remains retained.
 - Verified `git hash-object TASKS.md` equals `git rev-parse HEAD:TASKS.md` (`18fbdddd6fcd8d1b9b13069cbe6c1e54a079ea5e`) before V05 commit preparation.
 
