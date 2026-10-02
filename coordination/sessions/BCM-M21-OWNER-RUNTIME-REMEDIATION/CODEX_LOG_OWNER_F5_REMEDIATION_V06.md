@@ -73,7 +73,11 @@ Godot runtime: `4.7.2.stable.official.ed1daf0bf`, Compatibility renderer.
 ## Publication and final repository state
 
 - Start HEAD: `ccecf1d6d61577b0bbadcad9611975c364663822`.
-- Implementation commit and final publication SHA: **pending commit/push and remote equality verification**.
-- The V06 implementation/log/evidence will be committed and pushed to `origin/main`. Final verification must compare `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main`.
-- End `TASKS.md` blob must remain `5a9b56e3e61a995b3de938b2e7cb4ddc371c822b`.
+- Implementation/evidence commit: `1315ed60b332a8115562f53412dec082fe2265d5` (`BCM-M21 V06 composite surface and map calibration`), pushed to `origin/main`.
+- After `git fetch origin main`, exact pre-log-closeout equality was verified:
+  - `git rev-parse HEAD`: `1315ed60b332a8115562f53412dec082fe2265d5`
+  - `git rev-parse origin/main`: `1315ed60b332a8115562f53412dec082fe2265d5`
+  - `git ls-remote origin refs/heads/main`: `1315ed60b332a8115562f53412dec082fe2265d5`
+- End `TASKS.md` blob remained `5a9b56e3e61a995b3de938b2e7cb4ddc371c822b`, equal to the start blob. `TASKS.md` was not modified.
+- A follow-up log-only closeout commit will publish these final verification details in both V06 Codex log copies; post-closeout branch equality will be verified again.
 - Handoff marker: `AWAITING_OWNER_F5_ACCEPTANCE_V06`.
