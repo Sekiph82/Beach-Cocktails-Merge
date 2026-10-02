@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V06
-- Current Task: BCM-M21-001 + BCM-M21-006 — owner F5 acceptance after V06 technical remediation.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner runs the V06 F5 checklist. Visually verify all ten World Map markers sit on the actual island bodies, Sunny Cove uses the one composite gameplay surface, crowded/12-glass gameplay remains visibly on the table, and retained menu/result/input/no-timer/persistence behavior remains correct. Report PASS/FAIL. No further CODEX work is authorized unless owner F5 finds a defect.
-- Required Actor: OWNER
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07
+- Current Task: BCM-M21-001 + BCM-M21-006 — fresh Sunny Cove single-surface redesign plus mandatory builder visual acceptance loop.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes V07. Redesign Sunny Cove from a blank 720×1280 canvas as one flattened gameplay surface; freeze the final art before deriving playable geometry; then open Godot GUI through the production path, capture the required runtime screenshots, self-audit every SC-01..SC-08 and WM-01..WM-10 visual question, iterate on any FAIL/UNCERTAIN result, and hand off only when every builder visual item is PASS. Preserve the accepted Sunny Cove Island Map layout and all V05 menu/result/input/no-timer/persistence behavior.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: V06 is independently TECHNICAL_AUDITED_PASS. Sunny Cove now uses one composite gameplay surface plus image-locked playable geometry. BCM-M21-004 remains closed. BCM-M21-001 and BCM-M21-006 remain pending explicit owner F5 visual/runtime acceptance.
+- Progress: owner rejected relying on post-hoc manual owner review for builder-visible issues. From V07 onward visual/runtime tasks require builder GUI screenshot self-acceptance before handoff. V06 composite method is superseded for Sunny Cove by a fresh gameplay-first redesign.
 
 ## Tasks
 
@@ -940,8 +940,14 @@ Owner F5 V06 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V06.md`
 - Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V06.md`
 - Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V06.md`
-- Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V06.md` — **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**
-- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V06`
+- Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V06.md` — historical **TECHNICAL PASS**, superseded by owner V07 process/art ruling.
+
+Owner F5 V07 active remediation:
+- Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V07.md`
+- Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07.md`
+- Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07.md`
+- Builder self-audit required: `BUILDER_SELF_VISUAL_AUDIT_V07.md` + `BUILDER_SELF_VISUAL_AUDIT_V07.json`
+- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V07`
 
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
@@ -954,12 +960,12 @@ Owner F5 V04 active remediation:
 - Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
 
-- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+- [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
 
