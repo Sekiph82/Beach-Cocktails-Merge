@@ -1,0 +1,319 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+M21_OWNER_RUNTIME_PROBE PASS: production shell boots
+M21_OWNER_RUNTIME_PROBE PASS: production World Map has ten entries
+M21_OWNER_RUNTIME_PROBE PASS: World Map duplicate island thumbnails are hidden
+M21_OWNER_RUNTIME_PROBE PASS: runtime yellow IslandRoute is absent
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: sunny_cove
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: sunny_cove
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: sunny_cove
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: tiki_island
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: tiki_island
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: tiki_island
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: azure_bay
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: azure_bay
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: azure_bay
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: coconut_beach
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: coconut_beach
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: coconut_beach
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: sunset_island
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: sunset_island
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: sunset_island
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: party_beach
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: party_beach
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: party_beach
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: frozen_paradise
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: frozen_paradise
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: frozen_paradise
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: volcano_bay
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: volcano_bay
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: volcano_bay
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: billionaire_island
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: billionaire_island
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: billionaire_island
+M21_OWNER_RUNTIME_PROBE PASS: hotspot uses calibrated map_position within owner tolerance: final_island
+M21_OWNER_RUNTIME_PROBE PASS: marker state and click control share calibrated center: final_island
+M21_OWNER_RUNTIME_PROBE PASS: duplicate island and lock thumbnails stay hidden: final_island
+M21_OWNER_RUNTIME_PROBE PASS: debug override is 800x1422 with 720x1280 viewport
+M21_OWNER_RUNTIME_PROBE PASS: viewport stretch mode remains unchanged
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 01_world_map_calibrated_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=01_world_map_calibrated_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/01_world_map_calibrated_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove Island Map entry opens
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove Island Map uses its theme background
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove uses ten 10-level landmark pages
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove has no connector path node
+M21_OWNER_RUNTIME_PROBE PASS: L1 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L2 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L3 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L4 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L5 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L6 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L7 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L8 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L9 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L10 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L11 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L12 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L13 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L14 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L15 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L16 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L17 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L18 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L19 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L20 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L21 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L22 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L23 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L24 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L25 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L26 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L27 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L28 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L29 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L30 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L31 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L32 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L33 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L34 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L35 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L36 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L37 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L38 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L39 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L40 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L41 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L42 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L43 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L44 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L45 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L46 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L47 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L48 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L49 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L50 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L51 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L52 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L53 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L54 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L55 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L56 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L57 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L58 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L59 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L60 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L61 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L62 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L63 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L64 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L65 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L66 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L67 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L68 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L69 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L70 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L71 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L72 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L73 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L74 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L75 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L76 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L77 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L78 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L79 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L80 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L81 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L82 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L83 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L84 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L85 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L86 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L87 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L88 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L89 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L90 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: L91 maps to repeated landmark slot 1
+M21_OWNER_RUNTIME_PROBE PASS: L92 maps to repeated landmark slot 2
+M21_OWNER_RUNTIME_PROBE PASS: L93 maps to repeated landmark slot 3
+M21_OWNER_RUNTIME_PROBE PASS: L94 maps to repeated landmark slot 4
+M21_OWNER_RUNTIME_PROBE PASS: L95 maps to repeated landmark slot 5
+M21_OWNER_RUNTIME_PROBE PASS: L96 maps to repeated landmark slot 6
+M21_OWNER_RUNTIME_PROBE PASS: L97 maps to repeated landmark slot 7
+M21_OWNER_RUNTIME_PROBE PASS: L98 maps to repeated landmark slot 8
+M21_OWNER_RUNTIME_PROBE PASS: L99 maps to repeated landmark slot 9
+M21_OWNER_RUNTIME_PROBE PASS: L100 maps to repeated landmark slot 10
+M21_OWNER_RUNTIME_PROBE PASS: selected level opens its containing page
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 02_sunny_cove_page01_landmarks_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=02_sunny_cove_page01_landmarks_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/02_sunny_cove_page01_landmarks_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: focus L51 opens page six
+M21_OWNER_RUNTIME_PROBE PASS: vertical paging reaches L100
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 03_sunny_cove_page06_landmarks_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=03_sunny_cove_page06_landmarks_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/03_sunny_cove_page06_landmarks_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: production Level 1 gameplay opens
+M21_OWNER_RUNTIME_PROBE PASS: visible texture inventory has no island decor assets
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove gameplay table texture is active
+M21_OWNER_RUNTIME_PROBE PASS: full-screen launch-zone art is absent
+M21_OWNER_RUNTIME_PROBE PASS: programmatic launch line follows translated launch Y
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove applies +150 canonical table offset
+M21_OWNER_RUNTIME_PROBE PASS: all R11 points, rails and queries translate +150 without shape change
+M21_OWNER_RUNTIME_PROBE PASS: launch/death Y translate by the same viewport-scaled amount
+M21_OWNER_RUNTIME_PROBE PASS: wood table, shadow and edge overlay share the translated origin
+M21_OWNER_RUNTIME_PROBE PASS: result feedback uses dedicated topmost CanvasLayer
+M21_OWNER_RUNTIME_PROBE PASS: result CanvasLayer is owned by campaign navigation and ready
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 04_sunny_cove_gameplay_shifted_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=04_sunny_cove_gameplay_shifted_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/04_sunny_cove_gameplay_shifted_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove theme paths resolve
+M21_OWNER_RUNTIME_PROBE PASS: session is explicitly untimed
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+M21_OWNER_RUNTIME_PROBE PASS: 10/10 real mouse launches
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 05_sunny_cove_gameplay_after_10_mouse_shots_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=05_sunny_cove_gameplay_after_10_mouse_shots_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/05_sunny_cove_gameplay_after_10_mouse_shots_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: untimed gameplay survives one simulated hour
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 06_sunny_cove_untimed_after_one_hour_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=06_sunny_cove_untimed_after_one_hour_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/06_sunny_cove_untimed_after_one_hour_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: pause overlay opens without timer copy
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 07_pause_untimed_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=07_pause_untimed_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/07_pause_untimed_720x1280.png dimensions=720x1280 error=0
+MERGE L2 +20  COMBO x2 +5  (toplam: 125)
+M21_OWNER_RUNTIME_PROBE PASS: pause overlay blocks mouse shots
+MERGE L2 +20  COMBO x3 +10  (toplam: 155)
+MERGE L4 +100  COMBO x4 +75  (toplam: 330)
+M21_OWNER_RUNTIME_PROBE PASS: 10/10 real touch launches
+M21_OWNER_RUNTIME_PROBE PASS: direct launch method calls remain zero
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 1 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 2 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 3 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 4 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 5 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 6 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 7 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 8 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 9 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 10 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 11 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 12 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 13 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 14 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 15 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 16 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 17 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 18 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 19 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 20 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 21 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 22 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 23 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 24 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 25 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 26 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 27 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 28 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 29 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 30 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 31 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 32 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 33 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 34 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 35 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 36 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 37 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 38 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 39 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 40 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 41 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 42 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 43 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 44 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 45 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 46 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 47 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 48 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 49 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 50 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 51 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 52 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 53 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 54 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 55 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 56 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 57 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 58 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 59 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 60 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 61 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 62 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 63 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 64 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 65 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 66 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 67 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 68 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 69 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 70 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 71 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 72 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 73 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 74 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 75 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 76 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 77 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 78 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 79 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 80 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 81 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 82 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 83 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 84 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 85 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 86 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 87 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 88 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 89 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 90 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 91 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 92 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 93 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 94 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 95 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 96 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 97 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 98 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 99 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: Sunny Cove level 100 is untimed
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: production cumulative reward does not grant +Time
+M21_OWNER_RUNTIME_PROBE PASS: WIN result opens without timer wording
+M21_OWNER_RUNTIME_PROBE PASS: WIN result overlay is visible in the viewport canvas
+M21_OWNER_RUNTIME_PROBE PASS: first WIN is presented exactly once
+M21_OWNER_RUNTIME_PROBE PASS: duplicate terminal signal does not duplicate the result surface
+M21_OWNER_RUNTIME_PROBE PASS: terminal WIN hides every active Drink
+M21_OWNER_RUNTIME_PROBE PASS: terminal WIN clears transient world effects
+M21_OWNER_RUNTIME_PROBE PASS: result modal CanvasLayer is above gameplay HUD
+M21_OWNER_RUNTIME_PROBE PASS: score and delivery state stay frozen after terminal
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 08_win_result_visible_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=08_win_result_visible_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/08_win_result_visible_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: result overlay blocks mouse and touch shots
+M21_OWNER_RUNTIME_PROBE PASS: Next Level action remains available
+M21_OWNER_RUNTIME_PROBE PASS: Next Level action starts the next production level
+M21_OWNER_RUNTIME_PROBE PASS: second WIN result appears after ready-safe re-use
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 09_second_win_result_visible_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=09_second_win_result_visible_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/09_second_win_result_visible_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: Island Map action is available after second WIN
+M21_OWNER_RUNTIME_PROBE PASS: Island Map action returns through production navigation
+M21_OWNER_RUNTIME_PROBE PASS: level 3 unlock remains authoritative after L2 completion
+M21_OWNER_RUNTIME_PROBE PASS: production L3 retry fixture starts
+M21_OWNER_RUNTIME_PROBE PASS: LOSE result and actions appear
+M21_OWNER_RUNTIME_PROBE PASS: 720x1280 capture: 10_lose_result_visible_720x1280
+M21_OWNER_RUNTIME_CAPTURE name=10_lose_result_visible_720x1280 path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v04/10_lose_result_visible_720x1280.png dimensions=720x1280 error=0
+M21_OWNER_RUNTIME_PROBE PASS: Retry action is available
+M21_OWNER_RUNTIME_PROBE PASS: Retry restarts same level with one live gameplay instance
+M21_OWNER_F5_REMEDIATION_V04_RESULT=PASS mouse=10/10 touch=10/10 drinks=0 effects=0 captures=10

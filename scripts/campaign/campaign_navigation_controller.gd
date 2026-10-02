@@ -54,6 +54,8 @@ func _ready() -> void:
 	# through the viewport to ShotController._unhandled_input().
 	mouse_filter = Control.MOUSE_FILTER_PASS
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	if not visibility_changed.is_connected(_on_campaign_navigation_visibility_changed):
+		visibility_changed.connect(_on_campaign_navigation_visibility_changed)
 	if level_database == null or campaign_manager == null:
 		_configure_default_campaign()
 	_ensure_map_instances()
@@ -93,6 +95,7 @@ func show_island_map(island_id: String) -> bool:
 		return false
 	if level_database.get_island(island_id).is_empty():
 		return false
+	_hide_result_feedback()
 	var restoration: Dictionary = _restoration_by_island.get(island_id, {})
 	if not _island_map.configure_island(island_id, level_database, campaign_manager, restoration):
 		return false
@@ -107,6 +110,7 @@ func show_island_map(island_id: String) -> bool:
 func show_world_map() -> bool:
 	if not _ensure_map_instances():
 		return false
+	_hide_result_feedback()
 	if current_view == VIEW_ISLAND_MAP and not active_island_id.is_empty():
 		_restoration_by_island[active_island_id] = _island_map.get_restoration_state()
 	if current_view == VIEW_GAMEPLAY:
@@ -246,22 +250,42 @@ func _create_result_feedback() -> void:
 	_result_canvas_layer = CanvasLayer.new()
 	_result_canvas_layer.name = "CampaignResultCanvasLayer"
 	_result_canvas_layer.layer = 2
+	_result_canvas_layer.visible = false
 	add_child(_result_canvas_layer)
 	_result_canvas_root = Control.new()
 	_result_canvas_root.name = "CampaignResultCanvasRoot"
 	_result_canvas_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_result_canvas_root.mouse_filter = Control.MOUSE_FILTER_PASS
+	_result_canvas_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_result_canvas_layer.add_child(_result_canvas_root)
 	_result_feedback = FEEDBACK_SCENE.new()
 	_result_feedback.name = "CampaignResultFeedback"
 	_result_feedback.action_requested.connect(_on_result_feedback_action)
+	_result_feedback.visible = false
 	_result_canvas_root.add_child(_result_feedback)
 	call_deferred("_present_pending_terminal_result")
 
 
 func _hide_result_feedback() -> void:
+	_pending_terminal_result.clear()
 	if _result_feedback != null:
 		_result_feedback.hide_feedback()
+	if is_instance_valid(_result_canvas_layer):
+		_result_canvas_layer.visible = false
+
+
+func _on_campaign_navigation_visibility_changed() -> void:
+	if not visible:
+		_hide_result_feedback()
+		return
+	_sync_result_canvas_visibility()
+	if not _pending_terminal_result.is_empty():
+		call_deferred("_present_pending_terminal_result")
+
+
+func _sync_result_canvas_visibility() -> void:
+	if not is_instance_valid(_result_canvas_layer):
+		return
+	_result_canvas_layer.visible = visible and is_instance_valid(_result_feedback) and _result_feedback.visible
 
 
 func _on_island_map_requested(island_id: String) -> void:
@@ -333,8 +357,12 @@ func _present_pending_terminal_result() -> void:
 	if not _result_feedback.is_node_ready():
 		call_deferred("_present_pending_terminal_result")
 		return
+	if not visible:
+		_result_canvas_layer.visible = false
+		return
 	var result := _pending_terminal_result.duplicate(true)
 	_pending_terminal_result.clear()
+	_result_canvas_layer.visible = true
 	_result_feedback.show_result(result)
 	_result_presentation_count += 1
 

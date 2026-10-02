@@ -1,0 +1,47 @@
+{
+	"captures": [
+		{
+			"height": 1280,
+			"name": "01_main_menu_before_play",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v05/01_main_menu_before_play.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "02_world_map_after_play",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v05/02_world_map_after_play.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "03_settings_after_click",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v05/03_settings_after_click.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "04_main_menu_after_settings",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v05/04_main_menu_after_settings.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "05_win_result_visible",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v05/05_win_result_visible.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "06_main_menu_after_result",
+			"path": "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v05/06_main_menu_after_result.png",
+			"width": 720
+		}
+	],
+	"checks_failed": [],
+	"gui_click_count": 15,
+	"physical_device_acceptance": "DEFERRED_TO_OWNER_NATIVE_F5_REVIEW",
+	"production_path": "ApplicationShellScene -> CampaignNavigationController -> WorldMap -> IslandMap -> GameManager",
+	"result_layer_visible_at_finish": false,
+	"result_root_mouse_filter": 2,
+	"work_item": "BCM-M21-001 + BCM-M21-006 Owner F5 Remediation V05"
+}
