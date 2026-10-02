@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V03
-- Current Task: BCM-M21-001 + BCM-M21-006 — owner F5 acceptance after V03 technical remediation.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: Owner runs OWNER_F5_ACCEPTANCE_CHECKLIST_V03 in Godot F5. Verify 800×1422 debug view, no yellow runtime World Map routes, Sunny Cove lower-left, Sunny Cove Island Map background, unobscured wooden table, clean topmost WIN/LOSE modal, and the quick regression confirmations. Report PASS/FAIL. No further CODEX work is authorized unless owner F5 finds a defect.
-- Required Actor: OWNER
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V04
+- Current Task: BCM-M21-001 + BCM-M21-004 + BCM-M21-006 — owner F5 remediation V04 for map calibration, landmark level layout, lower table geometry, decor cleanup, and result lifecycle.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: Codex executes the locked V04 owner remediation. Recalibrate all ten World Map markers onto the actual baked island visuals; replace Sunny Cove zigzag/connector lines with the owner-marked 10-slot paged layout; translate the Sunny Cove table/playable system +150 px Y as a rigid unit; remove full-screen launch-zone/decor foreground; and fix the broken WIN/LOSE result lifecycle so result cards/actions appear with zero red Godot runtime errors. Preserve current input/no-timer/pause/persistence PASS behavior. Stop at AWAITING_OWNER_F5_ACCEPTANCE_V04.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: V03 remediation is independently TECHNICAL_AUDITED_PASS. BCM-M21-004 is closed again. BCM-M21-001 and BCM-M21-006 remain pending explicit owner F5 acceptance.
+- Progress: owner F5 V03 retained PASS for debug size, playability, no-timer, pause and persistence, but release remains blocked by World Map hotspot alignment, Island Map level layout, table vertical placement/decor, and broken terminal result presentation.
 
 ## Tasks
 
@@ -927,15 +927,22 @@ Owner F5 V03 ruling:
 - `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V03.md`
 - Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V03.md`
 - Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V03.md`
-- Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V03.md` — **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**
-- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V03`
+- Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V03.md` — historical **TECHNICAL PASS**, superseded by owner F5 V04 findings.
 
-- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+Owner F5 V04 active remediation:
+- Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
+- Owner audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_AUDIT_V04.md`
+- Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V04.md`
+- Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V04.md`
+- Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
+- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
+
+- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
-- [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
+- [!] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+- [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
 
