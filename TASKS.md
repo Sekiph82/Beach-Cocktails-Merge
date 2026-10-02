@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: M21
 - Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V06
-- Current Task: BCM-M21-001 + BCM-M21-006 — migrate Sunny Cove to one composite gameplay surface with image-locked playable geometry, and fix World Map marker alignment.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes V06. Create one 720×1280 Sunny Cove gameplay_surface.png and a matching data-driven playable_geometry profile measured from that exact image; remove Sunny Cove dependence on independently positioned table/shadow/edge/launch layers and table Y offset; recalibrate all ten World Map marker centers against the actual baked island visuals; preserve the currently accepted Sunny Cove Island Map layout and all V05 menu/result/input/no-timer behavior. Stop at AWAITING_OWNER_F5_ACCEPTANCE_V06.
-- Required Actor: CODEX
+- Current Task: BCM-M21-001 + BCM-M21-006 — owner F5 acceptance after V06 technical remediation.
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: Owner runs the V06 F5 checklist. Visually verify all ten World Map markers sit on the actual island bodies, Sunny Cove uses the one composite gameplay surface, crowded/12-glass gameplay remains visibly on the table, and retained menu/result/input/no-timer/persistence behavior remains correct. Report PASS/FAIL. No further CODEX work is authorized unless owner F5 finds a defect.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: owner F5 V05 accepted menu/result/input/no-timer/persistence behavior and accepted the current Sunny Cove Island Map layout, but release remains blocked by World Map marker alignment and mismatch between Sunny Cove visual table and playable physics geometry.
+- Progress: V06 is independently TECHNICAL_AUDITED_PASS. Sunny Cove now uses one composite gameplay surface plus image-locked playable geometry. BCM-M21-004 remains closed. BCM-M21-001 and BCM-M21-006 remain pending explicit owner F5 visual/runtime acceptance.
 
 ## Tasks
 
@@ -940,6 +940,7 @@ Owner F5 V06 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V06.md`
 - Prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V06.md`
 - Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V06.md`
+- Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V06.md` — **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V06`
 
 Owner F5 V04 active remediation:
@@ -953,12 +954,12 @@ Owner F5 V04 active remediation:
 - Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
 
-- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 
 ## Campaign design references
 
