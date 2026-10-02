@@ -1,0 +1,56 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+M21_OWNER_F5_V06_GUI PASS: isolated campaign fixture configured
+M21_OWNER_F5_V06_GUI PASS: production shell launches directly to Main Menu
+M21_OWNER_F5_V06_GUI PASS: hidden result layer is inactive at menu launch
+M21_OWNER_F5_V06_GUI PASS: 720x1280 capture: 01_main_menu_before_play
+M21_OWNER_F5_V06_CAPTURE name=01_main_menu_before_play path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v06/01_main_menu_before_play.png dimensions=720x1280 error=0
+M21_OWNER_F5_V06_GUI_CLICK label=main_menu_play_initial position=(360.0, 603.0) count=1
+M21_OWNER_F5_V06_GUI PASS: real PLAY click opens visible World Map
+M21_OWNER_F5_V06_GUI PASS: result layer remains inactive over World Map
+M21_OWNER_F5_V06_GUI PASS: 720x1280 capture: 02_world_map_after_play
+M21_OWNER_F5_V06_CAPTURE name=02_world_map_after_play path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v06/02_world_map_after_play.png dimensions=720x1280 error=0
+M21_OWNER_F5_V06_GUI_CLICK label=world_map_back_to_main_menu position=(54.0, 60.0) count=2
+M21_OWNER_F5_V06_GUI PASS: World Map Back uses production route to Main Menu
+M21_OWNER_F5_V06_GUI_CLICK label=main_menu_settings position=(360.0, 707.0) count=3
+M21_OWNER_F5_V06_GUI PASS: real SETTINGS click opens Settings
+M21_OWNER_F5_V06_GUI PASS: 720x1280 capture: 03_settings_after_click
+M21_OWNER_F5_V06_CAPTURE name=03_settings_after_click path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v06/03_settings_after_click.png dimensions=720x1280 error=0
+M21_OWNER_F5_V06_GUI_CLICK label=settings_back_to_menu position=(360.0, 1121.0) count=4
+M21_OWNER_F5_V06_GUI PASS: real BACK TO MENU click returns to Main Menu
+M21_OWNER_F5_V06_GUI PASS: 720x1280 capture: 04_main_menu_after_settings
+M21_OWNER_F5_V06_CAPTURE name=04_main_menu_after_settings path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v06/04_main_menu_after_settings.png dimensions=720x1280 error=0
+M21_OWNER_F5_V06_GUI_CLICK label=main_menu_play_second position=(360.0, 603.0) count=5
+M21_OWNER_F5_V06_GUI PASS: second real PLAY click opens World Map
+M21_OWNER_F5_V06_GUI_CLICK label=world_map_sunny_cove position=(309.0002, 351.9998) count=6
+M21_OWNER_F5_V06_GUI PASS: real Sunny Cove click opens Island Map
+M21_OWNER_F5_V06_GUI_CLICK label=island_map_level_1 position=(353.0, 272.0) count=7
+M21_OWNER_F5_V06_GUI PASS: real Level 1 click opens gameplay
+M21_OWNER_F5_V06_GUI PASS: campaign session is untimed
+M21_OWNER_F5_V06_GUI PASS: production objective delivery accepted: level 5
+M21_OWNER_F5_V06_GUI PASS: WIN result card and canvas are active
+M21_OWNER_F5_V06_GUI PASS: result root remains input-ignored
+M21_OWNER_F5_V06_GUI PASS: 720x1280 capture: 05_win_result_visible
+M21_OWNER_F5_V06_CAPTURE name=05_win_result_visible path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v06/05_win_result_visible.png dimensions=720x1280 error=0
+M21_OWNER_F5_V06_GUI_CLICK label=result_next_level position=(360.0, 784.0) count=8
+M21_OWNER_F5_V06_GUI PASS: real Next Level click starts Level 2
+M21_OWNER_F5_V06_GUI PASS: result layer is inactive after Next Level
+M21_OWNER_F5_V06_GUI PASS: production objective delivery accepted: level 5
+M21_OWNER_F5_V06_GUI PASS: reused result surface presents the next level WIN
+M21_OWNER_F5_V06_GUI_CLICK label=result_island_map_after_next_win position=(360.0, 866.0) count=9
+M21_OWNER_F5_V06_GUI PASS: real result Island Map click returns to map and hides result layer
+M21_OWNER_F5_V06_GUI_CLICK label=island_map_back_to_world_map_after_result position=(49.0, 55.0) count=10
+M21_OWNER_F5_V06_GUI PASS: production Island Map Back returns to World Map
+M21_OWNER_F5_V06_GUI_CLICK label=world_map_back_after_result position=(54.0, 60.0) count=11
+M21_OWNER_F5_V06_GUI PASS: production map Back returns to Main Menu after result
+M21_OWNER_F5_V06_GUI PASS: 720x1280 capture: 06_main_menu_after_result
+M21_OWNER_F5_V06_CAPTURE name=06_main_menu_after_result path=res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v06/06_main_menu_after_result.png dimensions=720x1280 error=0
+M21_OWNER_F5_V06_GUI_CLICK label=main_menu_play_after_result position=(360.0, 603.0) count=12
+M21_OWNER_F5_V06_GUI PASS: PLAY remains clickable after result
+M21_OWNER_F5_V06_GUI_CLICK label=world_map_back_after_result_validation position=(54.0, 60.0) count=13
+M21_OWNER_F5_V06_GUI_CLICK label=main_menu_settings_after_result position=(360.0, 707.0) count=14
+M21_OWNER_F5_V06_GUI PASS: SETTINGS remains clickable after result
+M21_OWNER_F5_V06_GUI_CLICK label=settings_back_after_result_validation position=(360.0, 1121.0) count=15
+M21_OWNER_F5_V06_GUI PASS: BACK TO MENU remains clickable after result
+M21_OWNER_F5_REMEDIATION_V06_GUI_RESULT=PASS clicks=15 captures=6

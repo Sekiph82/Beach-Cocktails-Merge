@@ -431,7 +431,11 @@ func _configure_objectives(orders: Variant) -> void:
 
 
 func _build_session_configuration() -> Dictionary:
-    var island_theme: Dictionary = level_database.get_island_theme(active_island_id) if level_database.has_method("get_island_theme") else {}
+    var island_theme: Dictionary = level_database.get_island_theme(active_island_id).duplicate(true) if level_database.has_method("get_island_theme") else {}
+    var island_definition: Dictionary = level_database.get_island(active_island_id) if level_database.has_method("get_island") else {}
+    if island_definition.has("playable_geometry"):
+        island_theme["playable_geometry"] = island_definition["playable_geometry"].duplicate(true)
+    island_theme["island_id"] = active_island_id
     var configuration := {
         "session_serial": _session_serial,
         "island_id": active_island_id,

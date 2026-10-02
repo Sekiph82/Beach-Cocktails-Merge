@@ -206,6 +206,8 @@ func _validate_island_root(root: Variant) -> bool:
             return false
         if raw_island.has("theme") and not _validate_theme(raw_island["theme"], island_id):
             return false
+        if raw_island.has("playable_geometry") and not _validate_playable_geometry(raw_island["playable_geometry"], island_id):
+            return false
         _islands_by_id[island_id] = raw_island.duplicate(true)
 
     for island_id in _islands_by_id:
@@ -371,6 +373,32 @@ func _validate_theme(theme: Variant, island_id: String) -> bool:
             return _fail("theme path is outside island asset family: %s/%s" % [island_id, key])
         if not FileAccess.file_exists(path):
             return _fail("theme asset does not exist: %s" % path)
+    if theme.has("gameplay_surface"):
+        var surface_path := str(theme["gameplay_surface"])
+        if not surface_path.begins_with(family_prefix) or not FileAccess.file_exists(surface_path):
+            return _fail("gameplay_surface asset is missing or outside island asset family: %s" % island_id)
+    return true
+
+
+func _validate_playable_geometry(geometry: Variant, island_id: String) -> bool:
+    if not geometry is Dictionary or not geometry.has_all(["playable_polygon", "launch_y", "spawn_y", "death_y"]):
+        return _fail("playable_geometry requires polygon and launch/spawn/death y: %s" % island_id)
+    var polygon: Variant = geometry["playable_polygon"]
+    if not polygon is Array or polygon.size() < 3:
+        return _fail("playable_polygon requires at least three points: %s" % island_id)
+    for point in polygon:
+        if not point is Array or point.size() != 2:
+            return _fail("playable_polygon points must be canonical pixel pairs: %s" % island_id)
+        for index in range(point.size()):
+            var coordinate: Variant = point[index]
+            if typeof(coordinate) != TYPE_INT and typeof(coordinate) != TYPE_FLOAT:
+                return _fail("playable_polygon coordinates must be numeric: %s" % island_id)
+            var maximum := 720.0 if index == 0 else 1280.0
+            if float(coordinate) < 0.0 or float(coordinate) > maximum:
+                return _fail("playable_polygon coordinate is outside canonical viewport: %s" % island_id)
+    for key in ["launch_y", "spawn_y", "death_y"]:
+        if (typeof(geometry[key]) != TYPE_INT and typeof(geometry[key]) != TYPE_FLOAT) or float(geometry[key]) < 0.0 or float(geometry[key]) > 1280.0:
+            return _fail("playable_geometry %s is outside canonical viewport: %s" % [key, island_id])
     return true
 
 

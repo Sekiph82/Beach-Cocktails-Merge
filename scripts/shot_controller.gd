@@ -57,7 +57,7 @@ func _spawn_next() -> void:
     _manager.set_next_level(_next_level)
 
     var board_size := _manager.get_board_size()
-    var spawn_pos := _manager.get_launch_position(board_size.x * 0.5)
+    var spawn_pos := _manager.get_spawn_position(board_size.x * 0.5)
     _current_drink = _manager.spawn_drink(current_level, spawn_pos, true)
 
     if _current_drink == null:

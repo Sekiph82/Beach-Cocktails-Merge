@@ -1,0 +1,80 @@
+{
+  "format": "sunny-cove-gameplay-surface-provenance-v1",
+  "canonical_dimensions": [
+    720,
+    1280
+  ],
+  "output_path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png",
+  "output_sha256": "b8c4fdbeb43e34f823eb56e3d35fb6b769090efcb5749ec2bc020cace9891af0",
+  "builder_path": "tools/build_sunny_cove_gameplay_surface.py",
+  "composition": {
+    "layer_order_back_to_front": [
+      "gameplay_background",
+      "gameplay_table_shadow",
+      "gameplay_table",
+      "table_edge_overlay"
+    ],
+    "background_fit": "exact 720x1280 identity placement",
+    "table_layer_fit": "exact 720x1280 identity placement, translated by (0,150) canonical pixels and clipped to canvas",
+    "blend": "Pillow RGBA alpha_composite in listed order; final RGB PNG",
+    "sources": [
+      {
+        "theme_key": "gameplay_background",
+        "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png",
+        "sha256": "4236f0edc72066a7083c232004766077d1c6a80daf13cf2c9edc289714207605",
+        "source_dimensions": [
+          720,
+          1280
+        ],
+        "transform": {
+          "operation": "identity"
+        }
+      },
+      {
+        "theme_key": "gameplay_table_shadow",
+        "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png",
+        "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5",
+        "source_dimensions": [
+          720,
+          1280
+        ],
+        "transform": {
+          "operation": "translate_pixels",
+          "x": 0,
+          "y": 150,
+          "clip": "720x1280 canvas"
+        }
+      },
+      {
+        "theme_key": "gameplay_table",
+        "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png",
+        "sha256": "2512c54f58669c7daff7986e7ab9d1288a2416ec4e7a15de792aa04df181238d",
+        "source_dimensions": [
+          720,
+          1280
+        ],
+        "transform": {
+          "operation": "translate_pixels",
+          "x": 0,
+          "y": 150,
+          "clip": "720x1280 canvas"
+        }
+      },
+      {
+        "theme_key": "table_edge_overlay",
+        "path": "assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png",
+        "sha256": "48b385f535cf63af1c097d1df59756ca13f5c9138e5b59fc916d1369d58ffc32",
+        "source_dimensions": [
+          720,
+          1280
+        ],
+        "transform": {
+          "operation": "translate_pixels",
+          "x": 0,
+          "y": 150,
+          "clip": "720x1280 canvas"
+        }
+      }
+    ]
+  }
+}

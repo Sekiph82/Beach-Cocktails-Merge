@@ -134,6 +134,8 @@ var _danger_line: Sprite2D
 var _theme_table_shadow: Sprite2D
 var _theme_table: Sprite2D
 var _theme_edge_overlay: Sprite2D
+var _active_playable_geometry: Dictionary = {}
+var _gameplay_surface_path := ""
 var _active_theme_paths: Dictionary = {}
 
 # Active merge objective shown above the table.
@@ -348,6 +350,21 @@ static func source_to_viewport(source_point: Vector2, viewport_size: Vector2) ->
 
 func _configure_board_layout() -> void:
 	var size := get_board_size()
+	if not _active_playable_geometry.is_empty():
+		var points := _geometry_points_for_viewport(size)
+		if points.size() >= 3:
+			table_top_y = points[0].y
+			rear_table_y = points[0].y
+			table_bottom_y = points[0].y
+			for point in points:
+				table_top_y = minf(table_top_y, point.y)
+				table_bottom_y = maxf(table_bottom_y, point.y)
+			rear_table_y = table_top_y
+			table_top_inset = points[0].x
+			table_bottom_inset = points[points.size() - 1].x
+			death_line_y = _geometry_y_to_viewport(float(_active_playable_geometry.get("death_y", 0.0)), size)
+			launch_y = _geometry_y_to_viewport(float(_active_playable_geometry.get("launch_y", 0.0)), size)
+			return
 	_background_scale = background_scale_for_viewport(size)
 	_background_offset = background_offset_for_viewport(size)
 
@@ -374,6 +391,20 @@ func _table_source_to_viewport(source_point: Vector2, viewport_size: Vector2) ->
 	return source_to_viewport(source_point, viewport_size) + Vector2(0.0, _table_y_offset_viewport(viewport_size))
 
 
+func _geometry_points_for_viewport(size: Vector2) -> PackedVector2Array:
+	var points := PackedVector2Array()
+	var raw: Variant = _active_playable_geometry.get("playable_polygon", [])
+	for point in raw:
+		if point is Array and point.size() == 2:
+			points.append(Vector2(float(point[0]) * size.x / CANONICAL_VIEWPORT_SIZE.x, float(point[1]) * size.y / CANONICAL_VIEWPORT_SIZE.y))
+	return points
+
+
+func _geometry_y_to_viewport(canonical_y: float, size: Vector2 = Vector2.ZERO) -> float:
+	var target_size := size if size.x > 0.0 and size.y > 0.0 else get_board_size()
+	return canonical_y * target_size.y / CANONICAL_VIEWPORT_SIZE.y
+
+
 func _build_background() -> void:
 	_background = Sprite2D.new()
 	_background.name = "GameBoardBackground"
@@ -384,9 +415,15 @@ func _build_background() -> void:
 	_background.z_index = -100
 	add_child(_background)
 
-	_theme_table_shadow = _make_theme_layer("CampaignTableShadow", -90)
-	_theme_table = _make_theme_layer("CampaignTable", -10)
-	_theme_edge_overlay = _make_theme_layer("CampaignTableEdgeOverlay", 5)
+
+
+func _ensure_theme_layers() -> void:
+	if _theme_table_shadow == null:
+		_theme_table_shadow = _make_theme_layer("CampaignTableShadow", -90)
+	if _theme_table == null:
+		_theme_table = _make_theme_layer("CampaignTable", -10)
+	if _theme_edge_overlay == null:
+		_theme_edge_overlay = _make_theme_layer("CampaignTableEdgeOverlay", 5)
 
 
 func _make_theme_layer(layer_name: String, layer_z: int) -> Sprite2D:
@@ -402,6 +439,36 @@ func _make_theme_layer(layer_name: String, layer_z: int) -> Sprite2D:
 
 func _apply_campaign_theme(theme: Variant) -> void:
 	var resolved: Dictionary = theme if theme is Dictionary else {}
+	var surface_path := str(resolved.get("gameplay_surface", ""))
+	var geometry: Variant = resolved.get("playable_geometry", {})
+	if not surface_path.is_empty() and geometry is Dictionary and not geometry.is_empty():
+		_active_playable_geometry = geometry.duplicate(true)
+		_gameplay_surface_path = surface_path
+		_table_y_offset_canonical = 0.0
+		_active_theme_paths = {
+			"gameplay_surface": surface_path,
+			"playable_geometry": _active_playable_geometry.duplicate(true),
+		}
+		_configure_board_layout()
+		var texture := load(surface_path) as Texture2D
+		if texture == null:
+			push_error("Sunny Cove gameplay surface failed to load: %s" % surface_path)
+			return
+		_background.name = "GameplaySurface"
+		_background.texture = texture
+		_background.z_index = -100
+		_background.position = get_board_size() * 0.5
+		_background.scale = Vector2(get_board_size().x / float(texture.get_width()), get_board_size().y / float(texture.get_height()))
+		_background.visible = true
+		_remove_legacy_walls()
+		_build_walls()
+		_align_held_preview_to_active_geometry()
+		_layout_danger_line()
+		_layout_launch_indicator()
+		return
+	_active_playable_geometry.clear()
+	_gameplay_surface_path = ""
+	_ensure_theme_layers()
 	var background_path := str(resolved.get("gameplay_background", BACKGROUND_PATH))
 	var table_path := str(resolved.get("gameplay_table", ""))
 	var shadow_path := str(resolved.get("gameplay_table_shadow", ""))
@@ -410,6 +477,7 @@ func _apply_campaign_theme(theme: Variant) -> void:
 	var previous_launch_y := launch_y
 	var requested_table_offset := float(resolved.get("table_y_offset_canonical", 0.0))
 	_table_y_offset_canonical = requested_table_offset
+	_background.name = "GameBoardBackground"
 	_active_theme_paths = {
 		"gameplay_background": background_path,
 		"gameplay_table": table_path,
@@ -438,6 +506,27 @@ func _apply_campaign_theme(theme: Variant) -> void:
 	_layout_launch_indicator()
 	if is_instance_valid(_target_root):
 		_target_root.position.y += table_translation
+	_remove_legacy_walls()
+	_build_walls()
+
+
+func _remove_legacy_walls() -> void:
+	for child in get_children():
+		var node_name := str(child.name)
+		if node_name.begins_with("LeftRail") or node_name.begins_with("RightRail") or node_name.begins_with("ProfileRail") or node_name in ["TopRail", "BottomRail"]:
+			remove_child(child)
+			child.free()
+
+
+func _align_held_preview_to_active_geometry() -> void:
+	if shot_controller == null or not is_instance_valid(shot_controller._current_drink):
+		return
+	var drink: Drink = shot_controller._current_drink
+	if drink.motion_state != Drink.MotionState.HELD:
+		return
+	var target := get_spawn_position(drink.position.x)
+	var projected := project_footprint_inside_table(Transform2D(0.0, target), drink.get_table_footprint_local(), Vector2.ZERO)
+	drink.position = projected["transform"].origin
 
 
 func _translate_existing_table_system(delta_y: float) -> void:
@@ -491,6 +580,25 @@ func get_active_theme_paths() -> Dictionary:
 
 func get_table_rail_bounds_at_y(y_pos: float) -> Vector2:
 	var size := get_board_size()
+	if not _active_playable_geometry.is_empty():
+		var points := _geometry_points_for_viewport(size)
+		var min_y := table_top_y
+		var max_y := table_bottom_y
+		var sample_y := clampf(y_pos, min_y, max_y)
+		var intersections: Array[float] = []
+		for index in range(points.size()):
+			var a: Vector2 = points[index]
+			var b: Vector2 = points[(index + 1) % points.size()]
+			if is_equal_approx(a.y, b.y):
+				if is_equal_approx(sample_y, a.y):
+					intersections.append(a.x)
+					intersections.append(b.x)
+			elif sample_y >= minf(a.y, b.y) and sample_y <= maxf(a.y, b.y):
+				intersections.append(lerpf(a.x, b.x, (sample_y - a.y) / (b.y - a.y)))
+		if intersections.size() >= 2:
+			intersections.sort()
+			return Vector2(intersections[0], intersections[intersections.size() - 1])
+		return Vector2.ZERO
 	var clamped_y := clampf(y_pos, table_top_y, table_bottom_y)
 	var source_y := (clamped_y - _table_y_offset_viewport(size) - _background_offset.y) / _background_scale
 	var left_source_x := _piecewise_source_x(TABLE_LEFT_EDGE_SOURCE_POINTS, source_y)
@@ -529,6 +637,17 @@ func _make_boundary_edge(a: Vector2, b: Vector2, interior_point: Vector2, edge_n
 
 func get_playable_boundary_edges() -> Array[Dictionary]:
 	var size := get_board_size()
+	if not _active_playable_geometry.is_empty():
+		var polygon := _geometry_points_for_viewport(size)
+		var interior_point := Vector2.ZERO
+		for point in polygon:
+			interior_point += point
+		if not polygon.is_empty():
+			interior_point /= float(polygon.size())
+		var profile_edges: Array[Dictionary] = []
+		for index in range(polygon.size()):
+			profile_edges.append(_make_boundary_edge(polygon[index], polygon[(index + 1) % polygon.size()], interior_point, "PlayableRail_%d" % index))
+		return profile_edges
 	var interior_point := Vector2(size.x * 0.5, (rear_table_y + table_bottom_y) * 0.5)
 	var edges: Array[Dictionary] = []
 
@@ -713,6 +832,12 @@ func get_launch_position(x_pos: float, _radius: float = 20.0, _level: int = 0) -
 	return Vector2(clampf(x_pos, 0.0, get_board_size().x), launch_y)
 
 
+func get_spawn_position(x_pos: float) -> Vector2:
+	if _active_playable_geometry.is_empty():
+		return Vector2(clampf(x_pos, 0.0, get_board_size().x), launch_y)
+	return Vector2(clampf(x_pos, 0.0, get_board_size().x), _geometry_y_to_viewport(float(_active_playable_geometry.get("spawn_y", _active_playable_geometry.get("launch_y", 0.0)))))
+
+
 func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
 	if world == null or game_over:
 		return null
@@ -724,7 +849,10 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
 	# Spawn placement uses the same visual hull projection as live physics.
 	# Held previews first use the accepted launch Y, then receive the same
 	# boundary treatment after their level-specific hull exists.
-	pos = get_launch_position(pos.x, drink.radius, drink.level) if held else pos
+	if held:
+		pos = get_spawn_position(pos.x)
+	elif _active_playable_geometry.size() > 0 and pos.is_zero_approx():
+		pos = get_spawn_position(get_board_size().x * 0.5)
 	var projected := project_footprint_inside_table(
 		Transform2D(0.0, pos),
 		drink.get_table_footprint_local(),
@@ -917,6 +1045,11 @@ func _refresh_hud() -> void:
 
 func _build_walls() -> void:
 	var size := get_board_size()
+	if not _active_playable_geometry.is_empty():
+		var polygon := _geometry_points_for_viewport(size)
+		for index in range(polygon.size()):
+			_add_wall_segment(polygon[index], polygon[(index + 1) % polygon.size()], wall_thickness, "ProfileRail_%d" % index, 0.0)
+		return
 	var left_points := PackedVector2Array()
 	var right_points := PackedVector2Array()
 	for point in TABLE_LEFT_EDGE_SOURCE_POINTS:

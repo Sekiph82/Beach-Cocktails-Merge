@@ -17,7 +17,14 @@
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
-                "table_y_offset_canonical": 150.0
+                "table_y_offset_canonical": 150.0,
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[78, 576], [642, 576], [656, 642], [682, 748], [703, 860], [718, 966], [719, 1004], [1, 1004], [3, 965], [17, 858], [38, 747], [62, 642]],
+                "launch_y": 950,
+                "spawn_y": 968,
+                "death_y": 1008
             },
             "island_map_layout": {
                 "page_size": 10,
@@ -37,7 +44,7 @@
                     [553.0, 900.0]
                 ]
             },
-            "map_position": [0.17, 0.88],
+            "map_position": [0.429167, 0.218295],
             "target_policy": {"min_level": 5, "max_level": 8},
             "reward_track": {
                 "milestones": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
@@ -74,7 +81,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/tiki_island/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 9},
-            "map_position": [0.14, 0.665],
+            "map_position": [0.272222, 0.233888],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -95,7 +102,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/azure_bay/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.665, 0.82],
+            "map_position": [0.748611, 0.361746],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -116,7 +123,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/coconut_beach/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.305, 0.54],
+            "map_position": [0.505556, 0.497921],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -137,7 +144,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/sunset_island/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.50, 0.52],
+            "map_position": [0.284722, 0.875260],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -158,7 +165,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/party_beach/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.835, 0.615],
+            "map_position": [0.276389, 0.668399],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -179,7 +186,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/frozen_paradise/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.775, 0.02],
+            "map_position": [0.743056, 0.011435],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -200,7 +207,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/volcano_bay/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.23, 0.015],
+            "map_position": [0.279167, 0.009356],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -221,7 +228,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/billionaire_island/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.61, 0.19],
+            "map_position": [0.752778, 0.680873],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         },
         {
@@ -242,7 +249,7 @@
                 "island_map_background": "res://assets/ui_assets/campaign/islands/final_island/map_background.png"
             },
             "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.795, 0.347],
+            "map_position": [0.731944, 0.902287],
             "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
         }
     ]

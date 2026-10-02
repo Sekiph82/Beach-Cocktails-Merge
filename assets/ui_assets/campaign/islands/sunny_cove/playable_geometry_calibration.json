@@ -1,0 +1,162 @@
+{
+  "format": "sunny-cove-playable-geometry-calibration-v1",
+  "composite_path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png",
+  "composite_sha256": "b8c4fdbeb43e34f823eb56e3d35fb6b769090efcb5749ec2bc020cace9891af0",
+  "canonical_dimensions": [
+    720,
+    1280
+  ],
+  "playable_polygon": [
+    [
+      78,
+      576
+    ],
+    [
+      642,
+      576
+    ],
+    [
+      656,
+      642
+    ],
+    [
+      682,
+      748
+    ],
+    [
+      703,
+      860
+    ],
+    [
+      718,
+      966
+    ],
+    [
+      719,
+      1004
+    ],
+    [
+      1,
+      1004
+    ],
+    [
+      3,
+      965
+    ],
+    [
+      17,
+      858
+    ],
+    [
+      38,
+      747
+    ],
+    [
+      62,
+      642
+    ]
+  ],
+  "launch_y": 950,
+  "spawn_y": 968,
+  "death_y": 1008,
+  "stress_placements": [
+    {
+      "level": 1,
+      "center": [
+        130,
+        690
+      ],
+      "collider_footprint_radius": 20
+    },
+    {
+      "level": 2,
+      "center": [
+        222,
+        690
+      ],
+      "collider_footprint_radius": 23
+    },
+    {
+      "level": 3,
+      "center": [
+        314,
+        690
+      ],
+      "collider_footprint_radius": 27
+    },
+    {
+      "level": 4,
+      "center": [
+        406,
+        690
+      ],
+      "collider_footprint_radius": 31
+    },
+    {
+      "level": 5,
+      "center": [
+        498,
+        690
+      ],
+      "collider_footprint_radius": 36
+    },
+    {
+      "level": 6,
+      "center": [
+        590,
+        690
+      ],
+      "collider_footprint_radius": 42
+    },
+    {
+      "level": 7,
+      "center": [
+        130,
+        850
+      ],
+      "collider_footprint_radius": 49
+    },
+    {
+      "level": 8,
+      "center": [
+        222,
+        850
+      ],
+      "collider_footprint_radius": 56
+    },
+    {
+      "level": 9,
+      "center": [
+        314,
+        850
+      ],
+      "collider_footprint_radius": 64
+    },
+    {
+      "level": 10,
+      "center": [
+        406,
+        850
+      ],
+      "collider_footprint_radius": 72
+    },
+    {
+      "level": 11,
+      "center": [
+        498,
+        850
+      ],
+      "collider_footprint_radius": 80
+    },
+    {
+      "level": 12,
+      "center": [
+        590,
+        850
+      ],
+      "collider_footprint_radius": 90
+    }
+  ],
+  "debug_overlay_path": "assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_debug.png",
+  "method": "manual pixel tracing on the committed composite; coordinates are canonical image pixels"
+}

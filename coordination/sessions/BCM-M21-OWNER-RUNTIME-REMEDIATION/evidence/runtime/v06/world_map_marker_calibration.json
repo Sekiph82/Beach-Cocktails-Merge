@@ -1,0 +1,230 @@
+{
+  "format": "world-map-marker-calibration-v06",
+  "canonical_map_path": "assets/ui_assets/campaign/world_map/world_map_background.png",
+  "canonical_map_dimensions": [
+    720,
+    1280
+  ],
+  "canonical_map_sha256": "09e26c73359615892a126be872164e2c07c34a2b0b0f6093011a9fde08438306",
+  "marker_canvas_geometry": {
+    "top_offset_px": 142.0,
+    "bottom_inset_px": 176.0,
+    "width_px": 720,
+    "height_px": 962.0
+  },
+  "template_matching_note": "Per-island assets are identity references/portraits, not pixel-identical baked-map crops; normalized RGB template matching is not applicable. Manual refinement is documented for every anchor.",
+  "records": [
+    {
+      "island_id": "sunny_cove",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
+      "island_asset_sha256": "fbeb1b5b6955c86f442d36ca8cbf26ab467164a8bcc08f11e398c7e61e5f4540",
+      "anchor_pixel_center": [
+        309,
+        352
+      ],
+      "marker_map_canvas_center": [
+        309,
+        210.0
+      ],
+      "normalized_center": [
+        0.429167,
+        0.218295
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "tiki_island",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/tiki_island.png",
+      "island_asset_sha256": "1aaf47e2cafe5babdc624721da0653af5de62c1869c31182cda64441fdb9dab9",
+      "anchor_pixel_center": [
+        196,
+        367
+      ],
+      "marker_map_canvas_center": [
+        196,
+        225.0
+      ],
+      "normalized_center": [
+        0.272222,
+        0.233888
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "azure_bay",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/azure_bay.png",
+      "island_asset_sha256": "73a3b03c8766a3b68f3af3e1242562e68b9592e348c0a18517fbc75c4f22a6ea",
+      "anchor_pixel_center": [
+        539,
+        490
+      ],
+      "marker_map_canvas_center": [
+        539,
+        348.0
+      ],
+      "normalized_center": [
+        0.748611,
+        0.361746
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "coconut_beach",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/coconut_beach.png",
+      "island_asset_sha256": "331695fea1e1fbb1191ad1422870a4cd1793c2337356e9569d4ec298f9d07fae",
+      "anchor_pixel_center": [
+        364,
+        621
+      ],
+      "marker_map_canvas_center": [
+        364,
+        479.0
+      ],
+      "normalized_center": [
+        0.505556,
+        0.497921
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "sunset_island",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/sunset_island.png",
+      "island_asset_sha256": "2a8a8b28e33d69f2d93d6799c5ae1e7ee26eb065b33e95fb268dc9f193a5823b",
+      "anchor_pixel_center": [
+        205,
+        984
+      ],
+      "marker_map_canvas_center": [
+        205,
+        842.0
+      ],
+      "normalized_center": [
+        0.284722,
+        0.87526
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "party_beach",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/party_beach.png",
+      "island_asset_sha256": "b993a3e65fe609836629178b4b59daea0fa3fac0198e10978cc3879b8965258e",
+      "anchor_pixel_center": [
+        199,
+        785
+      ],
+      "marker_map_canvas_center": [
+        199,
+        643.0
+      ],
+      "normalized_center": [
+        0.276389,
+        0.668399
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "frozen_paradise",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/frozen_paradise.png",
+      "island_asset_sha256": "e0c172d203fbcc0fc59628954b4e938344339cf192384e7dcedf159700bd528f",
+      "anchor_pixel_center": [
+        535,
+        153
+      ],
+      "marker_map_canvas_center": [
+        535,
+        11.0
+      ],
+      "normalized_center": [
+        0.743056,
+        0.011435
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "volcano_bay",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/volcano_bay.png",
+      "island_asset_sha256": "34492701a0c0a78c964ddf974d3f4e7320f19b064aa57a1f46a632b90152599c",
+      "anchor_pixel_center": [
+        201,
+        151
+      ],
+      "marker_map_canvas_center": [
+        201,
+        9.0
+      ],
+      "normalized_center": [
+        0.279167,
+        0.009356
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "billionaire_island",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/billionaire_island.png",
+      "island_asset_sha256": "892a738160d71c474dfb782814735c357e2a61ae0cf3eb691bf401d04fe98785",
+      "anchor_pixel_center": [
+        542,
+        797
+      ],
+      "marker_map_canvas_center": [
+        542,
+        655.0
+      ],
+      "normalized_center": [
+        0.752778,
+        0.680873
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    },
+    {
+      "island_id": "final_island",
+      "island_asset": "res://assets/ui_assets/campaign/world_map/final_island.png",
+      "island_asset_sha256": "7c9484795d31a3f0f06b877f0978b079ec37ae93e247c76079ceb70717f1dbd8",
+      "anchor_pixel_center": [
+        527,
+        1010
+      ],
+      "marker_map_canvas_center": [
+        527,
+        868.0
+      ],
+      "normalized_center": [
+        0.731944,
+        0.902287
+      ],
+      "method": "manual anchor on canonical baked map, identified with per-island visual asset",
+      "confidence": "manual visual anchor; estimated uncertainty <= 12 canonical px",
+      "residual_px": 0.0,
+      "target_alignment": "marker ring center, IslandEntry button center, IslandArt center, and lock overlay center share this map_position"
+    }
+  ],
+  "route_lines": "none rendered by WorldMapController",
+  "duplicate_island_thumbnails": "none; IslandEntry island art and lock thumbnail are hidden over the baked map"
+}
