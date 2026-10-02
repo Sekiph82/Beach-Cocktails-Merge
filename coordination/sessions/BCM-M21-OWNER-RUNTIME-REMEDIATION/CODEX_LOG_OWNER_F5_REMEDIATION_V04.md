@@ -48,11 +48,11 @@ Remote: `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge.git`)
 ## Final repository state
 
 - Start HEAD for V04 work: `b61a6e351c610511a5032bc61459699614a86c70`.
-- End HEAD: pending commit.
-- Final commit SHA: pending.
-- Local `HEAD`: pending final publication verification.
-- `origin/main`: pending final publication verification.
-- `git ls-remote origin refs/heads/main`: pending final publication verification.
+- End HEAD after implementation/evidence commit: `544d8126cd4eb8ccc9f02fe12c87395c484e7bac`.
+- Final implementation/evidence commit SHA: `544d8126cd4eb8ccc9f02fe12c87395c484e7bac`.
+- Publication equality verified after push and fresh fetch: local `HEAD` = `origin/main` = `git ls-remote origin refs/heads/main` = `544d8126cd4eb8ccc9f02fe12c87395c484e7bac`.
+- `git status --short --branch` reports `main...origin/main`; the only worktree entries are the 14 preserved untracked translation sidecars.
+- The preservation stash remains `stash@{0}` (`pre-v04-owner-local-preserve`); no stash drop was performed.
 - `TASKS.md`: byte-identical to synchronized HEAD; not modified.
 - Preservation stash: retained; do not drop until the final commit/push/equality and retained-hunk checks are recorded.
 
