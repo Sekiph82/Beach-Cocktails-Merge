@@ -1,0 +1,350 @@
+{
+  "work_item": "BCM-M21-001 + BCM-M21-006",
+  "prompt_version": "V07-R03-R01",
+  "status": "READY_FOR_OWNER_VISUAL_SELECTION",
+  "required_handoff_marker": "AWAITING_OWNER_VISUAL_SELECTION_V07_R03",
+  "resolution": [
+    720,
+    1280
+  ],
+  "owner_acceptance": "PENDING",
+  "production_changes": false,
+  "geometry_or_binding_promoted": false,
+  "references_used": [
+    {
+      "path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/runtime/v07-r02/SC-01_single_flattened_surface_720x1280_REVIEW.jpg",
+      "role": "negative composition reference; reviewed to avoid repeating rejected distant-table layout; excluded from final image-generation conditioning"
+    },
+    {
+      "path": "assets/ui/panel_next.png",
+      "role": "positive visual-style reference for image generation"
+    },
+    {
+      "path": "assets/ui/logo_beach_cocktails_merge.png",
+      "role": "production logo asset in all review composites"
+    },
+    {
+      "path": "assets/ui/panel_best_score.png",
+      "role": "production Best Score panel in all review composites"
+    },
+    {
+      "path": "assets/ui/panel_score.png",
+      "role": "production Score panel in all review composites"
+    },
+    {
+      "path": "assets/ui/panel_to_go_orders.png",
+      "role": "production To-Go Orders panel in all review composites"
+    },
+    {
+      "path": "assets/ui/panel_next.png",
+      "role": "production Next panel in all review composites"
+    },
+    {
+      "path": "assets/ui/progression_strip.png",
+      "role": "production L1-L12 progression frame in all review composites"
+    },
+    {
+      "path": "assets/cocktails/L01.png through assets/cocktails/L12.png",
+      "role": "production cocktail art for held, target, next, and progression previews"
+    }
+  ],
+  "candidate_gate": {
+    "exactly_three": true,
+    "all_720x1280": true,
+    "shared_gameplay_architecture": true,
+    "three_clean_surfaces": true,
+    "three_full_frame_review_composites": true,
+    "all_review_criteria_pass_builder_visual_check": true,
+    "production_runtime_capture": false,
+    "owner_visual_selection": "PENDING"
+  },
+  "candidates": {
+    "a": {
+      "candidate": "A",
+      "resolution": [
+        720,
+        1280
+      ],
+      "surface_file": "sunny_cove_candidate_a_surface_720x1280.png",
+      "review_composite_file": "sunny_cove_candidate_a_review_720x1280.png",
+      "surface_sha256": "15593fe34c5b234dd8554484568667ea0f2b1dd5992365e50c8d61c7ee8fca70",
+      "review_sha256": "282285edd2ae982bff7078053ab26aff6761b443f183fd4e6b0605c5c17b96e9",
+      "measurements": {
+        "rear_tabletop_edge_y_px": 357,
+        "rear_tabletop_width_px": 495,
+        "player_facing_tabletop_edge_y_px": 880,
+        "player_facing_tabletop_width_px": 700,
+        "visible_tabletop_depth_px": 523,
+        "deadline_y_px": 752,
+        "current_cocktail_center_px": [
+          360,
+          814
+        ],
+        "progression_panel_bbox_px": {
+          "x": 140,
+          "y": 1022,
+          "width": 440,
+          "height": 147
+        },
+        "left_leg_bbox_px": {
+          "x": 0,
+          "y": 950,
+          "width": 125,
+          "height": 330
+        },
+        "right_leg_bbox_px": {
+          "x": 590,
+          "y": 950,
+          "width": 130,
+          "height": 330
+        },
+        "upper_ui_boxes_px": {
+          "logo": {
+            "x": 137,
+            "y": 6,
+            "width": 135,
+            "height": 90
+          },
+          "best_score": {
+            "x": 14,
+            "y": 166,
+            "width": 190,
+            "height": 107
+          },
+          "score": {
+            "x": 518,
+            "y": 198,
+            "width": 190,
+            "height": 107
+          },
+          "to_go_orders": {
+            "x": 277,
+            "y": 0,
+            "width": 170,
+            "height": 210
+          },
+          "next": {
+            "x": 564,
+            "y": 6,
+            "width": 140,
+            "height": 181
+          },
+          "pause": {
+            "x": 20,
+            "y": 18,
+            "width": 116,
+            "height": 58
+          }
+        },
+        "upper_ui_clearance": {
+          "logo": true,
+          "pause": true,
+          "to_go_orders": true,
+          "next": true,
+          "best_score": true,
+          "score": true,
+          "all_non_overlapping": true
+        },
+        "progression_between_legs": true,
+        "deadline_on_tabletop_and_behind_cocktail": true,
+        "no_extra_gameplay_markings": true,
+        "review_source": "static review composite using current production HUD, panel and cocktail PNGs with representative values; not a production runtime capture",
+        "runtime_binding_or_geometry_changed": false
+      },
+      "art_source_path": "C:\\Users\\sekip\\.codex\\generated_images\\01a10277-429d-7cd2-8915-79b88e1cdb51\\exec-c2117dfe-cabb-44c3-b896-d346b417b0a0.png"
+    },
+    "b": {
+      "candidate": "B",
+      "resolution": [
+        720,
+        1280
+      ],
+      "surface_file": "sunny_cove_candidate_b_surface_720x1280.png",
+      "review_composite_file": "sunny_cove_candidate_b_review_720x1280.png",
+      "surface_sha256": "d786d398d5ed6a666be29de8157513b5a825aa8c33d07c622c46b839f64a231d",
+      "review_sha256": "7de1818963be5aa3662849aa4c22ac3938403c91dbb87f37ffc79d263f5749e2",
+      "measurements": {
+        "rear_tabletop_edge_y_px": 357,
+        "rear_tabletop_width_px": 495,
+        "player_facing_tabletop_edge_y_px": 880,
+        "player_facing_tabletop_width_px": 700,
+        "visible_tabletop_depth_px": 523,
+        "deadline_y_px": 752,
+        "current_cocktail_center_px": [
+          360,
+          814
+        ],
+        "progression_panel_bbox_px": {
+          "x": 140,
+          "y": 1022,
+          "width": 440,
+          "height": 147
+        },
+        "left_leg_bbox_px": {
+          "x": 0,
+          "y": 950,
+          "width": 125,
+          "height": 330
+        },
+        "right_leg_bbox_px": {
+          "x": 590,
+          "y": 950,
+          "width": 130,
+          "height": 330
+        },
+        "upper_ui_boxes_px": {
+          "logo": {
+            "x": 137,
+            "y": 6,
+            "width": 135,
+            "height": 90
+          },
+          "best_score": {
+            "x": 14,
+            "y": 166,
+            "width": 190,
+            "height": 107
+          },
+          "score": {
+            "x": 518,
+            "y": 198,
+            "width": 190,
+            "height": 107
+          },
+          "to_go_orders": {
+            "x": 277,
+            "y": 0,
+            "width": 170,
+            "height": 210
+          },
+          "next": {
+            "x": 564,
+            "y": 6,
+            "width": 140,
+            "height": 181
+          },
+          "pause": {
+            "x": 20,
+            "y": 18,
+            "width": 116,
+            "height": 58
+          }
+        },
+        "upper_ui_clearance": {
+          "logo": true,
+          "pause": true,
+          "to_go_orders": true,
+          "next": true,
+          "best_score": true,
+          "score": true,
+          "all_non_overlapping": true
+        },
+        "progression_between_legs": true,
+        "deadline_on_tabletop_and_behind_cocktail": true,
+        "no_extra_gameplay_markings": true,
+        "review_source": "static review composite using current production HUD, panel and cocktail PNGs with representative values; not a production runtime capture",
+        "runtime_binding_or_geometry_changed": false
+      },
+      "art_source_path": "C:\\Users\\sekip\\.codex\\generated_images\\01a10277-429d-7cd2-8915-79b88e1cdb51\\exec-89cb4fdb-65ae-440b-9b20-33390ccca523.png"
+    },
+    "c": {
+      "candidate": "C",
+      "resolution": [
+        720,
+        1280
+      ],
+      "surface_file": "sunny_cove_candidate_c_surface_720x1280.png",
+      "review_composite_file": "sunny_cove_candidate_c_review_720x1280.png",
+      "surface_sha256": "dccbac2f73580e176145a79e7d6566c2e6cf45b126763c1167565e959c1e5b6c",
+      "review_sha256": "d614205ba63cbf3e17dc8c85f9f8f1ed6f7312012ba306725ea90469d12cd349",
+      "measurements": {
+        "rear_tabletop_edge_y_px": 357,
+        "rear_tabletop_width_px": 468,
+        "player_facing_tabletop_edge_y_px": 880,
+        "player_facing_tabletop_width_px": 700,
+        "visible_tabletop_depth_px": 523,
+        "deadline_y_px": 752,
+        "current_cocktail_center_px": [
+          360,
+          814
+        ],
+        "progression_panel_bbox_px": {
+          "x": 140,
+          "y": 1022,
+          "width": 440,
+          "height": 147
+        },
+        "left_leg_bbox_px": {
+          "x": 0,
+          "y": 950,
+          "width": 125,
+          "height": 330
+        },
+        "right_leg_bbox_px": {
+          "x": 590,
+          "y": 950,
+          "width": 130,
+          "height": 330
+        },
+        "upper_ui_boxes_px": {
+          "logo": {
+            "x": 137,
+            "y": 6,
+            "width": 135,
+            "height": 90
+          },
+          "best_score": {
+            "x": 14,
+            "y": 166,
+            "width": 190,
+            "height": 107
+          },
+          "score": {
+            "x": 518,
+            "y": 198,
+            "width": 190,
+            "height": 107
+          },
+          "to_go_orders": {
+            "x": 277,
+            "y": 0,
+            "width": 170,
+            "height": 210
+          },
+          "next": {
+            "x": 564,
+            "y": 6,
+            "width": 140,
+            "height": 181
+          },
+          "pause": {
+            "x": 20,
+            "y": 18,
+            "width": 116,
+            "height": 58
+          }
+        },
+        "upper_ui_clearance": {
+          "logo": true,
+          "pause": true,
+          "to_go_orders": true,
+          "next": true,
+          "best_score": true,
+          "score": true,
+          "all_non_overlapping": true
+        },
+        "progression_between_legs": true,
+        "deadline_on_tabletop_and_behind_cocktail": true,
+        "no_extra_gameplay_markings": true,
+        "review_source": "static review composite using current production HUD, panel and cocktail PNGs with representative values; not a production runtime capture",
+        "runtime_binding_or_geometry_changed": false
+      },
+      "art_source_path": "C:\\Users\\sekip\\.codex\\generated_images\\01a10277-429d-7cd2-8915-79b88e1cdb51\\exec-16d9487e-fca9-406c-9768-a794f0cc6cea.png"
+    }
+  },
+  "visual_check_limitations": [
+    "Static review composites use production art assets and representative values; they are not production runtime screenshots.",
+    "Measurements are visual pixel estimates from the final candidate images, not collision geometry calibration.",
+    "Production runtime layout, gameplay binding, physics, and owner acceptance remain unverified and unchanged."
+  ]
+}
