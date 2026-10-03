@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07
-- Current Task: BCM-M21-001 + BCM-M21-006 — fresh Sunny Cove single-surface redesign plus mandatory builder visual acceptance loop.
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R02
+- Current Task: BCM-M21-001 + BCM-M21-006 — true art-first Sunny Cove redesign plus semantic World Map marker remediation.
 - Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes V07. Redesign Sunny Cove from a blank 720×1280 canvas as one flattened gameplay surface; freeze the final art before deriving playable geometry; then open Godot GUI through the production path, capture the required runtime screenshots, self-audit every SC-01..SC-08 and WM-01..WM-10 visual question, iterate on any FAIL/UNCERTAIN result, and hand off only when every builder visual item is PASS. Preserve the accepted Sunny Cove Island Map layout and all V05 menu/result/input/no-timer/persistence behavior.
+- Next Task/Action: Codex executes V07-R02. Rebuild Sunny Cove from a blank 720×1280 canvas without using V2/R11 table geometry masks as shape authority; freeze/hash final art before deriving geometry; restore World Map island identities to the owner-approved V04 semantic regions with Sunny Cove lower-left; publish connector-readable review copies for large screenshots; run the full GUI screenshot self-audit loop and hand off only with all SC/WM/process checks PASS. Preserve accepted Island Map, menu/result/input/no-timer/persistence behavior.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: owner rejected relying on post-hoc manual owner review for builder-visible issues. From V07 onward visual/runtime tasks require builder GUI screenshot self-acceptance before handoff. V06 composite method is superseded for Sunny Cove by a fresh gameplay-first redesign.
+- Progress: independent V07 visual/source audit rejected the builder 18/18 PASS. Sunny Cove gameplay presentation is directionally improved, but the V07 table silhouette is still controlled by V2/R11 master masks, and World Map semantic identity was globally remapped in conflict with prior owner rulings, including Sunny Cove moving away from the locked lower-left region.
 
 ## Tasks
 
@@ -942,14 +942,14 @@ Owner F5 V06 active remediation:
 - Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V06.md`
 - Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V06.md` — historical **TECHNICAL PASS**, superseded by owner V07 process/art ruling.
 
-Owner F5 V07 active remediation:
+Owner F5 V07 history and active R02 remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V07.md`
-- Active sync-preserve prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R01.md`
-- Active sync-preserve criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R01.md`
-- Base prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07.md`
-- Base criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07.md`
-- Builder self-audit required: `BUILDER_SELF_VISUAL_AUDIT_V07.md` + `BUILDER_SELF_VISUAL_AUDIT_V07.json`
-- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V07`
+- Historical sync-preserve prompt/criteria: `CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R01.md` / `CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R01.md`
+- Historical builder self-audit: `BUILDER_SELF_VISUAL_AUDIT_V07.md` + `BUILDER_SELF_VISUAL_AUDIT_V07.json` — builder PASS, **not independently accepted**
+- Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V07.md` — **CHANGES_REQUIRED / BUILDER_VISUAL_SELF-AUDIT_NOT_ACCEPTED**
+- Active V07-R02 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R02.md`
+- Active V07-R02 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R02.md`
+- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V07_R02`
 
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
