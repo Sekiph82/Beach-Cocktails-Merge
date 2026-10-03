@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R03-OWNER-SELECTION
-- Current Task: BCM-M21-001 + BCM-M21-006 — Sunny Cove player-facing table composition owner visual candidate remediation.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: OWNER selects one V07-R03 Sunny Cove candidate (A, B, or C). No candidate is promoted yet. After explicit owner selection, Codex may integrate only the selected surface, freeze/hash that art, derive playable geometry from the frozen image, and run the required real Godot GUI/runtime SC/WM acceptance loop before any production acceptance claim. Preserve accepted Island Map, menu/result/input/no-timer/persistence behavior. M22+ remains blocked behind M21.
-- Required Actor: OWNER
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R04-MASTER-LOCKED
+- Current Task: BCM-M21-001 + BCM-M21-006 — Sunny Cove master-locked gameplay composition remediation.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: CODEX executes V07-R04 master-locked visual remediation. Reject A/B/C. Preserve the CURRENT-design logo, To-Go Orders, Best Score, Score, and Next exactly; do not use the master versions of those five HUD elements. Rebuild the rest of the gameplay scene to the owner master structure: close board, much deeper tabletop, no required legs, full-width L1-L12 strip directly under the front edge, one horizontal deadline, and no vertical dotted/arrow cocktail guide. Visual gate only; no production geometry/binding yet. M22+ remains blocked behind M21.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: V07-R03 candidate package independently AUDITED_PASS. All six GitHub-hosted candidate PNGs (A/B/C clean surfaces + review composites) were opened and visually inspected one by one; all three candidates satisfy the locked close-table composition gate. Static composites are not production runtime captures, so owner selection plus selected-art production integration and real SC/WM runtime acceptance remain pending.
+- Progress: V07-R03 A/B/C were directly visually audited but subsequently **all rejected by the owner**. The earlier between-leg progression concept is superseded. V07-R04 now locks the owner master as the composition authority for everything except five preserved CURRENT-design HUD elements: logo, To-Go Orders, Best Score, Score, Next. The master HUD versions are explicitly forbidden. R04 remains a static visual gate before any production geometry/runtime promotion.
 
 ## Tasks
 
@@ -954,7 +954,11 @@ Owner F5 V07 history and active R03 remediation:
 - Active V07-R03-R01 sync-preserve continuation: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R03_R01.md`
 - Active V07-R03 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R03.md`
 - Required marker: `AWAITING_OWNER_VISUAL_SELECTION_V07_R03`
-- Independent V07-R03 candidate audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V07_R03.md` — **AUDITED_PASS / OWNER_VISUAL_SELECTION_REQUIRED**; includes direct visual inspection of all six GitHub-hosted candidate PNGs.
+- Independent V07-R03 candidate audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V07_R03.md` — historical candidate-gate PASS, later **SUPERSEDED_BY_OWNER / REJECT_ALL / CHANGES_REQUIRED**.
+- V07-R04 owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V07_R04.md`
+- Active V07-R04 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R04.md`
+- Active V07-R04 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R04.md`
+- Required marker: `AWAITING_OWNER_VISUAL_ACCEPTANCE_V07_R04`.
 
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
