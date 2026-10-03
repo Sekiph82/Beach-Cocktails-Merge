@@ -263,6 +263,34 @@ Desktop checkout with the current `origin/main`. ChatGPT may have updated
 `TASKS.md`, prompts, audit criteria, audits, or other coordination files after
 the prior task.
 
+### Standing owner-local godot_ai sync exception
+
+The following exact dirty-state combination is an authorized, recurring owner-local development integration and MUST NOT block synchronization by itself:
+
+- modified tracked `project.godot` containing the owner-local godot_ai/autoload integration;
+- untracked `addons/godot_ai/`;
+- exactly 14 known generated untracked `.translation` sidecars.
+
+When ALL of the following are true:
+
+1. local `main` is behind-only relative to `origin/main`;
+2. the only local dirty paths are the three known owner-local categories above;
+3. the incoming diff from local `HEAD` to `origin/main` does not touch `project.godot`, `addons/godot_ai/**`, or any of those translation sidecars;
+
+Codex is explicitly owner-authorized to reconcile the checkout **before reading the active task prompt** using this exact procedure:
+
+1. create a tracked-only named stash containing exactly `project.godot`:
+   `git stash push -m "owner-local-godot-ai-sync-preserve" -- project.godot`
+2. do **not** use `-u`; leave `addons/godot_ai/` and the 14 translation sidecars untouched and untracked;
+3. `git fetch origin main`;
+4. re-verify the incoming diff excludes the protected owner-local paths;
+5. `git merge --ff-only origin/main`;
+6. locate the stash by message and `git stash apply` it without dropping it;
+7. verify the restored dirty state contains only the intended `project.godot` owner-local diff plus the untouched plugin folder and 14 sidecars;
+8. continue with the now-synchronized `AGENTS.md`, `TASKS.md`, and active prompt.
+
+This is a standing owner authorization. **Do not stop merely because this exact known owner-local state exists.** Stop only if the dirty set contains anything else, the branch is not behind-only, the incoming diff touches a protected owner-local path, stash/apply conflicts, or any other ambiguity appears.
+
 1. From `C:\Users\sekip\Desktop\Beach Cocktails - Merge`, run:
    - `git status --short --branch`
    - `git remote -v`
