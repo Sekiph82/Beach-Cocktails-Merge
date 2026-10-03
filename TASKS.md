@@ -979,3 +979,22 @@ Owner F5 V04 active remediation:
 - Sunny Cove historical progression spec: `docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md` — **timer portions superseded by 2026-10-01 OWNER_RULING_V01; no gameplay time limits are permitted.**
 
 M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
+ 
+## M22-M27 — Planned GameFeelFlow + Saltmire Spark presentation program
+
+**Planning state:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 Sunny Cove/table-composition remediation. The current M21 owner sequence, status, and next action remain authoritative. This presentation program begins only after the relevant gameplay/table/result/map visuals are owner-accepted and the current M21 closure sequence permits progression.
+
+**Presentation-only constitution:**
+- Gameplay/campaign truth remains owned by the existing authorities: `Drink`, `ShotController`, `GameManager`, `GameplaySessionBridge`, `CampaignManager`, `GameEconomy`, `SaveManager`, level data, and accepted table geometry. Presentation can observe finalized facts but can never decide or alter physics, launch velocity, collision resolution, merge eligibility, scoring, combo math, To-Go/VIP acceptance, timers, stars, unlocks, rewards, persistence, or result outcome.
+- `FeedbackService` remains the preferred semantic feedback boundary. A single presentation adapter/bridge may translate semantic feedback into plugin calls, but it must not become a second gameplay/progression event authority and direct plugin calls must not be scattered across gameplay code.
+- Plugin absence, disablement, runtime error, missing preset, or unsupported target must degrade to a no-op presentation path. The exact authoritative game result must remain identical with both plugins disabled.
+- Do NOT add effects to physics authority, drag/launch calculations, collision decisions, scoring calculations, timer/progression/save logic, every generic button, or any presentation that makes cocktail/table boundaries harder to read.
+- Never use GameFeelFlow `impulse` or `velocity` on gameplay bodies. Do not use `freeze_frame` or `time_scale` for Beach Cocktails gameplay. Full-screen flash is forbidden. Camera/screen shake is off by default and may only be considered as a tiny owner-approved presentation-layer impulse after portrait-mobile review; no gameplay camera/physics transform may be modified.
+- Transform effects target presentation children only, such as `Drink/Visual` or `Drink/Visual/CocktailSprite`, HUD panels, result controls, level buttons, and map presentation nodes. Never punch/scale/move a `RigidBody2D`, collision body, rail, or authoritative gameplay root.
+- Saltmire Spark particles must never obscure the deadline, cocktail footprints, table rails, To-Go targets, or result actions. Gameplay bursts stay local and short; celebrations stay outside critical input/readability zones.
+- Existing custom tweens/effects are migration inputs, not additive duplicates. When a plugin effect replaces `_juice_effect()`, `_order_completion_feedback()`, delivery emphasis, or similar presentation tweening, remove/retire the superseded visual path only after behavioral and visual parity is proven. Never stack old and new effects accidentally.
+
+**Verified upstream API planning baseline, subject to mandatory local-install verification in M22-001:** current GitHub `main` does not contain the owner's locally installed plugin folders, so exact local plugin bytes/version are not repository-verifiable yet. The public v1.0.0 sources expose:
+- GameFeelFlow autoload `GameFeelFlow`: `play(effect, target, params)`, `play_combo(combo, target, params)`, `play_global(effect, params)`, `stop/stop_all`, built-in presentation effects including punch/scale/flash/camera/particles, and dictionary-compatible `GFFParams`; its physics/time effects are forbidden for this program.
+- Saltmire Spark autoload `Spark`: `burst(global_position, preset_or_overrides)`, `at(node, preset_or_overrides)`, `clear()`, with `spark`, `hit`, `explode`, `pickup`, `dust`, and `confetti` presets plus bounded custom dictionaries.
+- Before implementation, Codex must inspect the exact installed `addons/game_feel_flow
