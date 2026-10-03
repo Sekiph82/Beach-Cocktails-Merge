@@ -4,7 +4,27 @@ Date: 2026-10-03
 Scope: BCM-M21-001 + BCM-M21-006, V07-R03 visual-candidate gate only  
 Audited product commit: `743eb18773f33bee763539b2da59e7b130386812`  
 Audited handoff HEAD: `4c943b2e7ed856163d4cd824b0591fe75c39654b`  
-Verdict: **AUDITED_PASS / OWNER_VISUAL_SELECTION_REQUIRED**
+Historical independent gate verdict: **AUDITED_PASS**  
+Current owner disposition: **SUPERSEDED_BY_OWNER / REJECT_ALL / CHANGES_REQUIRED**
+
+## Later owner visual disposition — authoritative
+
+After reviewing the candidate package, the owner explicitly rejected **A, B, and C**. No V07-R03 candidate may be selected or promoted.
+
+This later owner decision supersedes the audit's earlier `OWNER_VISUAL_SELECTION_REQUIRED` handoff. The direct visual inspection above remains valid historical evidence about compliance with the old R03 criteria, but it is **not owner acceptance** and does not authorize production integration.
+
+New authoritative direction:
+- preserve the five HUD elements from the **current Beach Cocktails Merge design**: current logo, current To-Go Orders, current Best Score, current Score, current Next;
+- do **not** use the master reference's designs for those five elements;
+- redesign the rest of the gameplay scene to follow the owner master composition;
+- replace the rejected between-leg L1-L12 panel with a wide full-width progression strip directly under the table front;
+- table legs are not required;
+- do not include the master's vertical dotted/arrow cocktail guide line.
+
+See:
+- `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V07_R04.md`
+- `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R04.md`
+- `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R04.md`
 
 ## Audit boundary
 
@@ -61,13 +81,11 @@ Those values are internally consistent with the direct visual inspection and sat
 
 ## Independent verdict
 
-**AUDITED_PASS / OWNER_VISUAL_SELECTION_REQUIRED**
+**SUPERSEDED_BY_OWNER / REJECT_ALL / CHANGES_REQUIRED**
 
-V07-R03 successfully clears the independent candidate-quality gate, including direct visual inspection of all six generated GitHub images.
+The independent R03 gate inspection remains historical evidence, but the owner has rejected all three candidates. No A/B/C selection or production promotion is permitted.
 
-No candidate may be promoted automatically. The owner must explicitly select **A, B, or C**. Production geometry/binding and the real runtime SC/WM acceptance loop remain blocked until that selection.
+Required next actor: **CODEX**  
+Required next action: execute the V07-R04 master-locked single-composition remediation, preserving the five CURRENT-design HUD elements and rebuilding the rest of the scene from the owner master structure.
 
-Required next actor: **OWNER**  
-Required next action: select one V07-R03 candidate; then prepare a bounded production-integration/runtime-validation task for only the selected art.
-
-Marker: `AWAITING_OWNER_VISUAL_SELECTION_V07_R03`
+Marker: `AWAITING_OWNER_VISUAL_ACCEPTANCE_V07_R04`
