@@ -5,7 +5,7 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R03
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R03-R01
 - Current Task: BCM-M21-001 + BCM-M21-006 — Sunny Cove player-facing table composition owner visual candidate remediation.
 - Current Task Status: CHANGES_REQUIRED
 - Next Task/Action: Codex executes V07-R02. Rebuild Sunny Cove from a blank 720×1280 canvas without using V2/R11 table geometry masks as shape authority; freeze/hash final art before deriving geometry; restore World Map island identities to the owner-approved V04 semantic regions with Sunny Cove lower-left; publish connector-readable review copies for large screenshots; run the full GUI screenshot self-audit loop and hand off only with all SC/WM/process checks PASS. Preserve accepted Island Map, menu/result/input/no-timer/persistence behavior.
@@ -950,7 +950,8 @@ Owner F5 V07 history and active R03 remediation:
 - Historical V07-R02 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R02.md`
 - Historical V07-R02 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R02.md`
 - V07-R02 owner visual audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V07_R02.md` — **CHANGES_REQUIRED / GAMEPLAY_TABLE_COMPOSITION_REJECTED**
-- Active V07-R03 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R03.md`
+- Base V07-R03 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R03.md`
+- Active V07-R03-R01 sync-preserve continuation: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R03_R01.md`
 - Active V07-R03 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R03.md`
 - Required marker: `AWAITING_OWNER_VISUAL_SELECTION_V07_R03`
 
