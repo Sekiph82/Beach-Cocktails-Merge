@@ -1,0 +1,51 @@
+{
+  "work_item": "BCM-M21-001 + BCM-M21-006",
+  "prompt_version": "V07-R02",
+  "iteration": 2,
+  "builder_visual_result": "PASS",
+  "production_gui": true,
+  "viewport": [720, 1280],
+  "runtime_error_count": 0,
+  "checks": [
+    {"id":"SC-01","criterion":"The gameplay screen is one coherent static scene with no independently drifting table or decor layers.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/SC-01_single_flattened_surface_720x1280.png","reason":"Production texture inventory shows the single gameplay_surface_v07_r02 scene as the table/background surface; legacy theme layers are absent.","iteration":2},
+    {"id":"SC-02","criterion":"The visible tabletop occupies the intended central gameplay region without being too high or too low.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/SC-02_clear_central_tabletop_720x1280.png","reason":"The traced clear tabletop is centered between the top HUD and lower progression strip.","iteration":2},
+    {"id":"SC-03","criterion":"The held/spawn cocktail is visible in front of the table/launch area, not behind table or UI art.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/SC-03_held_spawn_in_front_720x1280.png","reason":"The held glass is visible on the lower launch area above the static scene and below the HUD.","iteration":2},
+    {"id":"SC-04","criterion":"After at least 10 real launches, cocktails remain visibly on the table plane.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/SC-04_after_10_real_mouse_launches_720x1280.png","reason":"The production viewport probe dispatched and counted 10/10 mouse launches; the full-frame capture shows the drinks within the visible tabletop.","iteration":2},
+    {"id":"SC-05","criterion":"In a 12-glass crowded state, all 12 cocktail visual footprints remain inside the visible tabletop and none is hidden behind or below the frame.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/SC-05_twelve_glass_crowded_runtime_720x1280.png","reason":"All 12 runtime drinks instantiate and each footprint projection stays within the traced tabletop polygon; the full frame shows all drinks above the front rim.","iteration":2},
+    {"id":"SC-06","criterion":"Side and rear collisions occur at the drawn table boundaries without an obvious invisible-wall gap or visual escape.","result":"PASS","screenshot_path":["evidence/runtime/v07-r02/SC-06_left_rail_contact_runtime_720x1280.png","evidence/runtime/v07-r02/SC-06_right_rail_contact_runtime_720x1280.png","evidence/runtime/v07-r02/SC-06_rear_rail_contact_runtime_720x1280.png"],"reason":"Production mouse launches contact the traced left, right, and rear edges; the capture triplet and contact telemetry were visually inspected.","iteration":2},
+    {"id":"SC-07","criterion":"HUD, supply, and progression UI remain outside the physical play area and avoid covering active drinks.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/SC-07_hud_and_progression_clearance_720x1280.png","reason":"The top HUD clears the tabletop, and the 12-slot progression strip remains below the apron and legs.","iteration":2},
+    {"id":"SC-08","criterion":"WIN appears cleanly with no gameplay drink or effect visible above it.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/SC-08_win_result_clear_720x1280.png","reason":"The terminal WIN card is topmost and readable; terminal visual counts report zero visible drinks and transient world effects.","iteration":2},
+    {"id":"WM-01","criterion":"Sunny Cove marker/ring/label/lock/click target centers on its baked island body in the lower-left semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"Sunny Cove remains lower-left; visual body, marker and label are aligned, and runtime center checks agree.","iteration":2},
+    {"id":"WM-02","criterion":"Tiki Island marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker is centered on the Tiki destination body; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"WM-03","criterion":"Azure Bay marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker is on the lower-right Azure Bay island edge/body; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"WM-04","criterion":"Coconut Beach marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker is centered on the central lagoon beach body; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"WM-05","criterion":"Sunset Island marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker remains in its V04 middle-map neighborhood on the Sunset Island body; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"WM-06","criterion":"Party Beach marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker is centered on the right-side Party Beach body; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"WM-07","criterion":"Frozen Paradise marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker sits on the upper-right frozen island; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"WM-08","criterion":"Volcano Bay marker/ring/label/lock/click target centers on the volcanic/lava focal body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker is centered on the upper-left volcanic mass and the lava/eruption body is within its ring; its center was refined toward the volcano within the V04 tolerance.","iteration":2},
+    {"id":"WM-09","criterion":"Billionaire Island marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker is centered on the waterfall island body in its V04 neighborhood; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"WM-10","criterion":"Final Island marker/ring/label/lock/click target centers on its baked island body in the V04 semantic region.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The marker is centered on the marina island body in its V04 neighborhood; runtime marker and click target share the calibrated center.","iteration":2},
+    {"id":"PROC-01","criterion":"No old geometry or mask controls the V07-R02 table shape.","result":"PASS","screenshot_path":"assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r02.provenance.json","reason":"Provenance lists only the newly authored scene as the table-shape control input; the calibration script reads the frozen image and its traced pixels only.","iteration":2},
+    {"id":"PROC-02","criterion":"The final art hash predates the final geometry file.","result":"PASS","screenshot_path":"assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_calibration_v07_r02.json","reason":"The frozen image file timestamp is 2026-10-03T13:25:23.3290131Z; the geometry file timestamp is 2026-10-03T13:29:00.9334674Z, and the profile records the same art SHA-256.","iteration":2},
+    {"id":"MAP-SEM-01","criterion":"All ten island IDs remain within their V04 semantic seed regions.","result":"PASS","screenshot_path":"evidence/runtime/v07-r02/02_world_map_after_play.png","reason":"The final data positions stay within ±0.025 per normalized axis of all V04 anchors; runtime marker identity is data-driven with no global remapping.","iteration":2}
+  ],
+  "semantic_positions": {
+    "sunny_cove": {"seed":[0.15,0.88],"final":[0.175,0.88]},
+    "tiki_island": {"seed":[0.12,0.65],"final":[0.12,0.625]},
+    "azure_bay": {"seed":[0.64,0.80],"final":[0.665,0.825]},
+    "coconut_beach": {"seed":[0.28,0.52],"final":[0.29,0.502]},
+    "sunset_island": {"seed":[0.50,0.52],"final":[0.50,0.52]},
+    "party_beach": {"seed":[0.81,0.59],"final":[0.81,0.615]},
+    "frozen_paradise": {"seed":[0.75,0.03],"final":[0.75,0.005]},
+    "volcano_bay": {"seed":[0.23,0.04],"final":[0.255,0.015]},
+    "billionaire_island": {"seed":[0.61,0.19],"final":[0.635,0.165]},
+    "final_island": {"seed":[0.82,0.36],"final":[0.795,0.36]}
+  },
+  "runtime_runs": {
+    "gui_navigation": "M21_OWNER_F5_REMEDIATION_V07_R02_GUI_RESULT=PASS clicks=15 captures=6",
+    "gameplay": "M21_OWNER_F5_REMEDIATION_V07_R02_RESULT=PASS mouse=10/10 touch=10/10 drinks=0 effects=0 captures=17",
+    "persistence": "M21_RELEASE_PERSISTENCE_RESULT=PASS in isolated project-name/user-data namespace",
+    "godot_errors": 0,
+    "physical_device_acceptance": "PENDING_OWNER_F5"
+  }
+}

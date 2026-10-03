@@ -1,0 +1,212 @@
+{
+	"before_first_shot": true,
+	"texture_nodes": [
+		{
+			"canvas_layer": 0,
+			"node_name": "GameplaySurface",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/GameplaySurface",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r02.png",
+			"visible": true,
+			"z_index": -100
+		},
+		{
+			"canvas_layer": 0,
+			"node_name": "CocktailSprite",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L03/Visual/CocktailSprite",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L03.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "Artwork",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/BestScorePanel/Artwork",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui/panel_best_score.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "Artwork",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ScorePanel/Artwork",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui/panel_score.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "Artwork",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/Logo/Artwork",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui/logo_beach_cocktails_merge.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "Artwork",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ToGoOrdersPanel/Artwork",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui/panel_to_go_vip_orders.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "TargetCocktail",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ToGoOrdersPanel/TargetCocktail",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L05.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "Artwork",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/NextPanel/Artwork",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui/panel_next.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "NextCocktail",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/NextPanel/NextCocktail",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L02.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "Artwork",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/Artwork",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui/progression_strip.png",
+			"visible": true,
+			"z_index": 0
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL07",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL07",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L07.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL08",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL08",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L08.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL09",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL09",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L09.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL10",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL10",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L10.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL11",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL11",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L11.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL12",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL12",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L12.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL01",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL01",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L01.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL02",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL02",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L02.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL03",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL03",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L03.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL04",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL04",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L04.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL05",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL05",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L05.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 1,
+			"node_name": "ProgressionIconL06",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ProgressionStrip/ProgressionIconL06",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/cocktails/L06.png",
+			"visible": true,
+			"z_index": 2
+		},
+		{
+			"canvas_layer": 0,
+			"node_name": "DangerLine",
+			"node_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/DangerLine",
+			"node_type": "Sprite2D",
+			"texture_path": "res://assets/ui/danger_line.png",
+			"visible": true,
+			"z_index": 1
+		}
+	]
+}
