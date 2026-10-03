@@ -982,19 +982,264 @@ M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
  
 ## M22-M27 — Planned GameFeelFlow + Saltmire Spark presentation program
 
-**Planning state:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 Sunny Cove/table-composition remediation. The current M21 owner sequence, status, and next action remain authoritative. This presentation program begins only after the relevant gameplay/table/result/map visuals are owner-accepted and the current M21 closure sequence permits progression.
+**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 Sunny Cove/table-composition remediation. The current M21 milestone, sprint, task, status, next action, actor, and owner sequence remain unchanged. Start this program only after the relevant gameplay/table/result/map visuals are owner-accepted and M21 permits progression.
 
-**Presentation-only constitution:**
-- Gameplay/campaign truth remains owned by the existing authorities: `Drink`, `ShotController`, `GameManager`, `GameplaySessionBridge`, `CampaignManager`, `GameEconomy`, `SaveManager`, level data, and accepted table geometry. Presentation can observe finalized facts but can never decide or alter physics, launch velocity, collision resolution, merge eligibility, scoring, combo math, To-Go/VIP acceptance, timers, stars, unlocks, rewards, persistence, or result outcome.
-- `FeedbackService` remains the preferred semantic feedback boundary. A single presentation adapter/bridge may translate semantic feedback into plugin calls, but it must not become a second gameplay/progression event authority and direct plugin calls must not be scattered across gameplay code.
-- Plugin absence, disablement, runtime error, missing preset, or unsupported target must degrade to a no-op presentation path. The exact authoritative game result must remain identical with both plugins disabled.
-- Do NOT add effects to physics authority, drag/launch calculations, collision decisions, scoring calculations, timer/progression/save logic, every generic button, or any presentation that makes cocktail/table boundaries harder to read.
-- Never use GameFeelFlow `impulse` or `velocity` on gameplay bodies. Do not use `freeze_frame` or `time_scale` for Beach Cocktails gameplay. Full-screen flash is forbidden. Camera/screen shake is off by default and may only be considered as a tiny owner-approved presentation-layer impulse after portrait-mobile review; no gameplay camera/physics transform may be modified.
-- Transform effects target presentation children only, such as `Drink/Visual` or `Drink/Visual/CocktailSprite`, HUD panels, result controls, level buttons, and map presentation nodes. Never punch/scale/move a `RigidBody2D`, collision body, rail, or authoritative gameplay root.
-- Saltmire Spark particles must never obscure the deadline, cocktail footprints, table rails, To-Go targets, or result actions. Gameplay bursts stay local and short; celebrations stay outside critical input/readability zones.
-- Existing custom tweens/effects are migration inputs, not additive duplicates. When a plugin effect replaces `_juice_effect()`, `_order_completion_feedback()`, delivery emphasis, or similar presentation tweening, remove/retire the superseded visual path only after behavioral and visual parity is proven. Never stack old and new effects accidentally.
+**Presentation-only constitution**
+- Gameplay/campaign truth stays with `Drink`, `ShotController`, `GameManager`, `GameplaySessionBridge`, `CampaignManager`, `GameEconomy`, `SaveManager`, canonical level data, and accepted table geometry. Presentation observes finalized facts only.
+- `FeedbackService` is the preferred semantic feedback boundary. A single presentation bridge/adapter is the only layer allowed to call the two plugins. It must never become a second gameplay/progression authority.
+- Plugin absence, disablement, missing preset/API, or runtime failure must degrade to a presentation no-op. Physics, score, To-Go/VIP acceptance, stars, rewards, unlocks, saves, and result outcome must remain identical.
+- Never add effects to physics authority, drag/launch calculations, collision decisions, merge eligibility, scoring calculations, timers, progression/save logic, every generic button, or anything that reduces cocktail/table/deadline readability.
+- GameFeelFlow `impulse`, `velocity`, `freeze_frame`, and `time_scale` are forbidden. Full-screen flash is forbidden. Camera/screen shake is off by default and may only be considered later as a tiny owner-approved presentation-layer impulse; never transform gameplay bodies/rails/camera authority.
+- Transform effects may target presentation children only, e.g. `Drink/Visual`, `Drink/Visual/CocktailSprite`, HUD panels, result controls, map entries, and `LevelButton`. Never scale/move a `RigidBody2D` or collision root.
+- Existing `_juice_effect()`, `_order_completion_feedback()`, delivery tweens/trails, and other presentation tweens are migration inputs. If replaced, retire the superseded visual path after parity instead of stacking effects.
 
-**Verified upstream API planning baseline, subject to mandatory local-install verification in M22-001:** current GitHub `main` does not contain the owner's locally installed plugin folders, so exact local plugin bytes/version are not repository-verifiable yet. The public v1.0.0 sources expose:
-- GameFeelFlow autoload `GameFeelFlow`: `play(effect, target, params)`, `play_combo(combo, target, params)`, `play_global(effect, params)`, `stop/stop_all`, built-in presentation effects including punch/scale/flash/camera/particles, and dictionary-compatible `GFFParams`; its physics/time effects are forbidden for this program.
-- Saltmire Spark autoload `Spark`: `burst(global_position, preset_or_overrides)`, `at(node, preset_or_overrides)`, `clear()`, with `spark`, `hit`, `explode`, `pickup`, `dust`, and `confetti` presets plus bounded custom dictionaries.
-- Before implementation, Codex must inspect the exact installed `addons/game_feel_flow
+**Plugin API planning baseline**
+- Current GitHub `main` does not contain the owner's local plugin folders, so exact local plugin bytes/version are not remotely verifiable yet. M22-001 must inspect the installed copies before any effect implementation.
+- Public GameFeelFlow v1.0.0 exposes autoload `GameFeelFlow`, including `play(effect,target,params)`, `play_combo(combo,target,params)`, `play_global(effect,params)`, `stop/stop_all`, effect registries, punch/scale/flash/camera/particle effects, and dictionary-compatible params. Physics/time effects remain forbidden here.
+- Public Saltmire Spark v1.0.0 exposes autoload `Spark`, including `burst(position,preset_or_overrides)`, `at(node,preset_or_overrides)`, `clear()`, presets `spark`, `hit`, `explode`, `pickup`, `dust`, `confetti`, and bounded custom override dictionaries.
+- Before coding, inspect exact local `addons/game_feel_flow` and `addons/saltmire_spark`, both `plugin.cfg` files, autoloads, method signatures, effect registry, and Spark presets. Installed source overrides this planning shorthand if different.
+
+**Beach Cocktails effect language**
+- `MICRO`: launch, restrained table contact, whitelisted primary CTA.
+- `MERGE`: merge feedback; combo bands BASE = chain 1-2, SURGE = 3-4, PEAK = 5-6. PEAK is the hard cap.
+- `ORDER`: accepted To-Go progress/completion.
+- `VIP`: premium delivery/completion distinct from ORDER.
+- `WIN`: ordinary level completion.
+- `MASTERY`: three-star, meaningful first-clear, or major reward.
+- `ISLAND_UNLOCK`: island completion/new-island reveal, the largest allowed tier.
+These are presentation tiers only and never influence gameplay values.
+
+**FULL / REDUCED contract**
+- FULL may use short local punch/spring/scale, local color emphasis, bounded Spark particles, and restrained reveal sequencing.
+- REDUCED removes shake, camera/screen movement, squash/stretch, spring/position travel, large confetti, and rapid sequential motion. Use immediate state changes plus brief low-contrast alpha/color emphasis; MICRO/table-contact particles = 0; important tiers use at most ~25% of FULL particles with lower speed/lifetime.
+- Both modes show identical semantic information, stars, rewards, unlocks, actions, and gameplay/campaign truth.
+
+**Initial mobile ceilings, to be tightened by evidence rather than expanded:** MICRO <=5 particles / 0.16 s; MERGE <=10 / 0.30 s; MERGE PEAK <=18 / 0.35 s; ORDER <=16 / 0.45 s; VIP <=24 / 0.65 s; WIN <=48 live / 1.20 s; MASTERY <=64 / 1.50 s; ISLAND_UNLOCK <=72 / 1.60 s. Gameplay live-particle ceiling = 48; result/meta ceiling = 96; max one large celebration at once.
+
+### M22 — Presentation architecture, plugin contract, semantic bridge, and settings
+
+- [ ] BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
+  - Purpose: inspect exact local GameFeelFlow/Saltmire Spark versions/autoloads/APIs and establish release-safe optional dependency behavior before effect coding.
+  - Existing seam: `project.godot` plus installed `addons/game_feel_flow` and `addons/saltmire_spark`.
+  - Semantic trigger: none; dependency gate.
+  - Plugin responsibility: verify callable methods/registries; future bridge must dynamically resolve `/root/GameFeelFlow` and `/root/Spark` and capability-check before calls.
+  - Reduced Motion: verify plugins can remain loaded while motion-heavy categories are centrally disabled.
+  - One-shot/idempotency: inspect/cache once per presentation host; no duplicate listeners/autoloads.
+  - Mobile/performance budget: zero effects/particles; no per-frame API discovery.
+  - Automated regression: both present, each missing, both missing, bad preset/effect, and export-start cases preserve identical game initialization/state.
+  - Godot AI evidence: autoload/plugin inventory, method/preset probe, production boot screenshot, clean logs.
+  - Owner acceptance: technical audit only; no visual sign-off required.
+
+- [ ] BCM-M22-002 — Make FeedbackService the semantic presentation bus and add one sole plugin-calling presentation bridge.
+  - Purpose: centralize semantic presentation requests without duplicate event authority.
+  - Existing seam: `GameManager.feedback_service`; `FeedbackService.feedback_emitted/emit_merge/emit_order_complete/emit_game_success/emit_game_fail/emit_ui_tap`; `ShotController.shot_fired`; `CampaignNavigationController.gameplay_session_finished/_on_session_terminal`; `CampaignManager.progression_changed`; `UserSettings.presentation_changed`.
+  - Semantic trigger: structured `cocktail_launch`, `table_contact`, `merge`, `order_progress`, `order_complete`, `vip_delivery`, `vip_complete`, `score_mastery`, `game_success`, `game_fail`, `level_unlock`, `island_milestone`, `island_complete`, `island_unlock`, `reward_granted`, and whitelisted `ui_primary`.
+  - Plugin responsibility: one `PresentationFeedbackBridge`/equivalent translates semantics to GameFeelFlow UI/visual transforms and Spark bursts; no direct plugin API calls elsewhere.
+  - Reduced Motion: bridge centrally maps every semantic event to FULL/REDUCED.
+  - One-shot/idempotency: non-MICRO requests carry stable event/token IDs; preserve existing merge-source and order-token dedupe.
+  - Mobile/performance budget: event-driven only, no polling; zero effects during this architecture task.
+  - Automated regression: exact-one semantic dispatch, duplicate suppression, immutable result/state payloads, plugin failure cannot alter score/progression/save hashes.
+  - Godot AI evidence: live wiring/event telemetry, duplicate probes, plugin-on/off runs, clean logs.
+  - Owner acceptance: architecture audit, no visual sign-off.
+
+- [ ] BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
+  - Purpose: turn MICRO/MERGE/ORDER/VIP/WIN/MASTERY/ISLAND_UNLOCK into executable presentation policy before production effects.
+  - Existing seam: `UserSettings.get_presentation_state()/presentation_changed`, `GameManager.apply_presentation_settings`, `CampaignFeedbackOverlay`, HUD, `Drink/Visual`, `LevelButton`, World Map entries, Island Map nodes.
+  - Semantic trigger: tier lookup only.
+  - Plugin responsibility: map only locally verified GameFeelFlow effects/combos and Spark presets/overrides; blacklist physics/time effects, full-screen flash, heavy stock combos containing freeze/shake, and authoritative-root transforms.
+  - Reduced Motion: complete alternative for every tier; cancellation on view/session changes.
+  - One-shot/idempotency: stable key scheme; one large celebration maximum; lifecycle cancellation cannot affect gameplay state.
+  - Mobile/performance budget: codify the ceilings above; zero production particles in this task.
+  - Automated regression: every semantic kind mapped in both modes; forbidden effects/targets rejected; unknown event safely no-ops.
+  - Godot AI evidence: live settings toggle/config inspection and clean logs.
+  - Owner acceptance: owner approves the effect-language matrix before M23.
+
+### M23 — Gameplay MICRO, merge, combo, and meaningful score feedback
+
+- [ ] BCM-M23-001 — Add restrained launch and table-contact MICRO feedback without touching launch/collision authority.
+  - Purpose: tactile launch/contact while preserving aiming, table/rail readability, and accepted physics.
+  - Existing seam: `ShotController.shot_fired(drink,velocity)` after launch velocity is committed; table-contact notification may be emitted only after `Drink._integrate_forces()` applies `GameManager.project_footprint_inside_table()` and after existing `_on_body_entered()` rail handling.
+  - Semantic trigger: one `cocktail_launch` per shot; `table_contact` only for meaningful contact, never settle jitter or merge contact.
+  - Plugin responsibility: GameFeelFlow may affect only `Drink/Visual`/`CocktailSprite`; Spark tiny local `spark` accent. No root/body transform.
+  - Reduced Motion: no transform punch, zero particles; optional <=0.10 s local alpha/color cue.
+  - One-shot/idempotency: shot identity; contact cooldown >=120 ms per drink/contact class.
+  - Mobile/performance budget: launch <=4 particles/0.14 s; contact <=5/0.16 s; one GFF visual effect maximum.
+  - Automated regression: identical launch velocity/trajectory/rail projection with presentation on/off; collider/root transforms unchanged; contact-spam tests.
+  - Godot AI evidence: portrait launch/contact captures, rail-readability comparison, telemetry, clean logs.
+  - Owner acceptance: FULL and REDUCED required.
+
+- [ ] BCM-M23-002 — Replace legacy merge juice with one coherent MERGE Spark burst plus visual-only cocktail punch.
+  - Purpose: crisp merge pop without duplicate legacy effects.
+  - Existing seam: `GameManager.on_merged(new_level,merged_drink)` after score/combo update; current `_juice_effect()` + `feedback_service.emit_merge()`; target `merged_drink/Visual`/`CocktailSprite`.
+  - Semantic trigger: `merge` once with new level and current chain context.
+  - Plugin responsibility: Spark custom `pickup`/`spark`; GameFeelFlow local scale punch/elastic effect. Retire `_juice_effect()` after parity rather than stack.
+  - Reduced Motion: no squash/punch; <=4 low-speed particles/<=0.18 s or local color cue.
+  - One-shot/idempotency: preserve merge-source dedupe; one event per merged result.
+  - Mobile/performance budget: BASE <=10 particles/0.28 s + one GFF effect; no global flash/shake/freeze.
+  - Automated regression: merge result, score, combo, physics, collider size, terminal cleanup identical with effects disabled.
+  - Godot AI evidence: low/high-level merges, transient counts, boundary readability, REDUCED, clean logs.
+  - Owner acceptance: required.
+
+- [ ] BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
+  - Purpose: escalating but calm chain feel and feedback only for meaningful score milestones.
+  - Existing seam: `GameManager.chain` 1..6, `COMBO_WINDOW`, `_chain_label`, score/best panels, `_refresh_hud()`, active level `score_star_thresholds`.
+  - Semantic trigger: BASE 1-2, SURGE 3-4, PEAK 5-6; score UI only on first session crossing of prior best score and configured 2-star/3-star score thresholds.
+  - Plugin responsibility: GameFeelFlow local chain/score/panel emphasis; Spark only scales the merge burst within caps. Camera movement remains off by default even at PEAK.
+  - Reduced Motion: static label/state + <=0.10 s color cue; no scale/spring or extra particles beyond reduced merge allowance.
+  - One-shot/idempotency: threshold/band crossing once per session; same-band merges add only normal merge feedback.
+  - Mobile/performance budget: SURGE <=14 particles; PEAK <=18/0.35 s; score emphasis = zero particles.
+  - Automated regression: combo/bonus math unchanged; exact-once threshold tests; repeated/worse score updates do not retrigger or alter persistence.
+  - Godot AI evidence: chain 1→6, best-score and mastery crossings, REDUCED, clean logs.
+  - Owner acceptance: BASE/SURGE/PEAK intensity required.
+
+### M24 — To-Go and VIP presentation
+
+- [ ] BCM-M24-001 — Add accepted To-Go delivery/progress feedback at the existing destination.
+  - Purpose: make accepted progress clear without celebrating every HUD refresh.
+  - Existing seam: `GameManager._collect_merge_target()/_finish_target_collection()`, existing delivery tween/trail, `_to_go_panel`, and `GameplaySessionBridge.record_to_go_delivery()` response.
+  - Semantic trigger: `order_progress` only for `ok && accepted > 0`; terminal final delivery yields to Results WIN instead of double-celebrating.
+  - Plugin responsibility: GameFeelFlow small target/panel emphasis; Spark small destination pickup sparkle; keep existing travel tween unless later proven redundant.
+  - Reduced Motion: immediate progress update; no added travel/punch; <=3 low-speed particles/0.16 s or zero.
+  - One-shot/idempotency: bridge delivery ID + accepted result; duplicates/rejections silent.
+  - Mobile/performance budget: <=8 particles/0.25 s + one panel effect.
+  - Automated regression: paused/rejected/duplicate = no effect; accepted quantities/rewards unchanged; terminal precedence tested.
+  - Godot AI evidence: accepted progress, duplicate suppression, terminal transition, REDUCED, clean logs/screenshots.
+  - Owner acceptance: required.
+
+- [ ] BCM-M24-002 — Add ORDER-complete panel emphasis and reward flourish without stacking the current flash.
+  - Purpose: distinguish requirement completion from ordinary progress.
+  - Existing seam: `FeedbackService.emit_order_complete()`, `_order_completion_feedback()`, `_to_go_panel`, progress/reward labels, and authoritative delivery response.
+  - Semantic trigger: `order_complete` only on authoritative incomplete→complete; suppress when immediate WIN owns the celebration.
+  - Plugin responsibility: Spark bounded panel sparkle; GameFeelFlow short panel emphasis; replace/retire `_order_completion_feedback()` after parity.
+  - Reduced Motion: brief color/alpha cue + <=4 low-speed particles; no spring.
+  - One-shot/idempotency: completion token is dedupe key.
+  - Mobile/performance budget: <=16 particles/0.45 s; no camera/full-screen effect.
+  - Automated regression: token dedupe, final-order precedence, score/reward/panel parity, terminal cleanup.
+  - Godot AI evidence: progress→complete, duplicate token, final-order result handoff, REDUCED, clean logs.
+  - Owner acceptance: required.
+
+- [ ] BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
+  - Purpose: premium optional mastery distinct from ordinary To-Go without implying VIP is mandatory.
+  - Existing seam: `GameManager._collect_vip_target()/_finish_vip_target()`, `GameplaySessionBridge.record_vip_delivery()` fields `accepted/vip_completed/delivered/remaining`, `vip_state_changed`, VIP target/progress/reward controls.
+  - Semantic trigger: `vip_delivery` for accepted >0; `vip_complete` only false→true. Rejected/mismatch/duplicate silent.
+  - Plugin responsibility: Spark premium custom pickup/burst; GameFeelFlow VIP panel/emblem/target emphasis only.
+  - Reduced Motion: immediate progress/check state; no spring/travel; <=6 low-speed particles for completion only.
+  - One-shot/idempotency: accepted state delta; VIP complete once/session.
+  - Mobile/performance budget: delivery <=12 particles/0.35 s; complete <=24/0.65 s; one VIP celebration at a time.
+  - Automated regression: optionality, premium score, normal-order precedence, mismatch/duplicate, stars identical with plugins disabled.
+  - Godot AI evidence: ordinary vs VIP, multi-quantity progress, VIP complete, REDUCED, clean logs.
+  - Owner acceptance: required.
+
+### M25 — Results presentation and celebration hierarchy
+
+- [ ] BCM-M25-001 — Add presentation-only Results choreography for panel entrance, title, stars, score, and rewards.
+  - Purpose: polish Results while keeping `CampaignFeedbackOverlay` a pure view over immutable terminal truth.
+  - Existing seam: `CampaignNavigationController._on_session_terminal()` exact-once guard, `_present_pending_terminal_result()`, `_result_presentation_count`, `CampaignFeedbackOverlay.show_result()`, FeedbackCard/title/body/actions.
+  - Semantic trigger: exactly one `game_success` or `game_fail` from terminal result; stars/rewards read supplied result only.
+  - Plugin responsibility: GameFeelFlow panel entrance/title/score/reward emphasis and star reveal; no Spark yet.
+  - Reduced Motion: immediate or <=0.12 s alpha entry; stars together/minimal alpha; no spring/position motion.
+  - One-shot/idempotency: existing terminal guards; presentation cannot recompute/grant anything.
+  - Mobile/performance budget: zero particles; choreography <=0.75 s; actions remain safely usable.
+  - Automated regression: WIN/LOSE actions and result data unchanged; one presentation; navigation/cancellation safe.
+  - Godot AI evidence: WIN/LOSE reveal captures, node state before/after, REDUCED, clean logs.
+  - Owner acceptance: required before particle celebrations.
+
+- [ ] BCM-M25-002 — Add tiered WIN, three-star MASTERY, first-clear, and meaningful reward celebrations.
+  - Purpose: ordinary win satisfying; mastery/first-clear/major reward clearly stronger without noise.
+  - Existing seam: terminal result/progression/economy fields from `GameplaySessionBridge` + `CampaignManager.mark_level_completed()` (`record`, stars, `cumulative_rewards`, `next_level`, `next_island`, `island_complete`, grants). Presentation may snapshot pre/post state only to classify first-clear/unlock.
+  - Semantic trigger: `game_success` every WIN; `mastery` at 3 stars; `first_clear` only first incomplete→complete; `reward_granted` only newly granted non-duplicate entries. Stronger tier subsumes weaker duplicate flourishes.
+  - Plugin responsibility: evaluate Spark confetti/celebration/reward particles; GameFeelFlow title/panel/star/score punch/spring. M22 must verify Spark result CanvasLayer visibility; do not hack plugin internals if local API lacks layer/parent support.
+  - Reduced Motion: no confetti rain/shake/spring/stagger; static stars/reward + brief color/alpha; <=8 low-speed particles only for major MASTERY/reward if accepted.
+  - One-shot/idempotency: terminal ID + reward ledger + first-clear transition; one large celebration maximum.
+  - Mobile/performance budget: WIN <=48 live/1.20 s; MASTERY <=64/1.50 s; combined first-clear/reward <=72 live.
+  - Automated regression: 1/2/3-star, replay, duplicate reward, no-particle fallback, plugin-off parity, action hitbox/readability.
+  - Godot AI evidence: normal WIN, mastery, first clear, reward, replay, FULL/REDUCED, clean logs.
+  - Owner acceptance: mandatory.
+
+- [ ] BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
+  - Purpose: clear failure and calm retry flow.
+  - Existing seam: `FeedbackService.emit_game_fail()`, `GameplaySessionBridge.resolve_lose()`, navigation terminal handler, `CampaignFeedbackOverlay.show_result()` LOSE branch.
+  - Semantic trigger: `game_fail` once per terminal loss.
+  - Plugin responsibility: GameFeelFlow local card/title settle or alpha/color emphasis only; Spark not used.
+  - Reduced Motion: immediate static result or <=0.10 s alpha only.
+  - One-shot/idempotency: FeedbackService one-shot + terminal guard; retry clears presentation.
+  - Mobile/performance budget: zero particles; <=0.25 s; no shake/flash/freeze/screen impulse.
+  - Automated regression: no Spark emitter, retry/island actions usable, outcome/reason unchanged, repeat/retry clean.
+  - Godot AI evidence: LOSE FULL/REDUCED, zero-particle proof, retry transition, clean logs.
+  - Owner acceptance: required for tone.
+
+### M26 — Campaign/map unlocks, island milestones, rewards, and selective UI
+
+- [ ] BCM-M26-001 — Add level-unlock and Island Map milestone presentation from authoritative progression.
+  - Purpose: highlight genuinely new level/milestone states without animating every refresh.
+  - Existing seam: `CampaignManager.progression_changed`, `mark_level_completed()` return `next_level/cumulative_rewards`, `IslandMapController.refresh()/_state_for()`, `LevelButton`, milestone list, summary.
+  - Semantic trigger: `level_unlock` only locked→open; `island_milestone` only newly reached/claimed configured threshold.
+  - Plugin responsibility: GameFeelFlow affected LevelButton/milestone emphasis; Spark small local unlock/reward burst.
+  - Reduced Motion: immediate state; color/outline cue, <=4 low-speed milestone particles only.
+  - One-shot/idempotency: authoritative pre/post snapshot; refresh/re-entry cannot replay.
+  - Mobile/performance budget: level unlock <=10 particles/0.35 s; milestone <=18/0.55 s; only affected node.
+  - Automated regression: refresh/restart no replay; CampaignManager remains unlock authority; button layout/hitboxes unchanged.
+  - Godot AI evidence: next-level unlock, milestone, refresh/re-entry, REDUCED, clean logs.
+  - Owner acceptance: required.
+
+- [ ] BCM-M26-002 — Add island-completion and new-island-unlock celebration on Island/World Maps.
+  - Purpose: campaign-scale celebration without changing unlock rules or map geometry.
+  - Existing seam: `CampaignManager.is_island_complete()/resolve_next_island()/_refresh_island_unlocks()`, terminal `island_complete/next_island`, `WorldMapController.refresh()/_state_for()`, map entry nodes, navigation view transitions.
+  - Semantic trigger: `island_complete` first transition; `island_unlock` first locked→unlocked transition.
+  - Plugin responsibility: Spark bounded campaign burst where layering is verified; GameFeelFlow completed-island summary/new World Map entry emphasis. Never move marker/click centers.
+  - Reduced Motion: immediate unlock + brief color/alpha; <=10 low-speed particles only for new island if accepted; no pan/shake.
+  - One-shot/idempotency: save/pre-post state prevents replay on restart/refresh/navigation.
+  - Mobile/performance budget: island complete <=40 particles/1.10 s; island unlock <=72/1.60 s; serialize large meta celebrations.
+  - Automated regression: unlock rules/coordinates unchanged; old unlocks do not replay; locked islands remain non-selectable; plugin-off navigation identical.
+  - Godot AI evidence: final-level→map→new-island sequence, marker geometry comparison, REDUCED, clean logs.
+  - Owner acceptance: mandatory.
+
+- [ ] BCM-M26-003 — Add campaign/reward notification emphasis and narrowly whitelisted primary-CTA feedback.
+  - Purpose: polish real rewards and primary actions without animating every generic button.
+  - Existing seam: terminal `cumulative_rewards`/economy grants, `CampaignFeedbackOverlay` reward/actions, ApplicationShell primary PLAY, Results primary NEXT/RETRY, `FeedbackService.emit_ui_tap()`.
+  - Semantic trigger: `reward_granted` only newly granted ledger entry; `ui_primary` only explicit PLAY/NEXT/RETRY whitelist, not back/settings/toggles/map nodes/every button.
+  - Plugin responsibility: GameFeelFlow notification/button emphasis; Spark small reward burst only, never tap particles.
+  - Reduced Motion: immediate color/alpha; CTA zero particles; important reward <=5 low-speed particles.
+  - One-shot/idempotency: reward ID dedupe; CTA effect cannot delay/double navigation.
+  - Mobile/performance budget: CTA <=0.10 s/zero particles; reward <=20/0.55 s.
+  - Automated regression: whitelist enforcement, generic-button negative tests, exactly one action invocation, duplicate reward suppression, plugin-off parity.
+  - Godot AI evidence: PLAY/NEXT/RETRY examples, generic negative evidence, reward, REDUCED, clean logs.
+  - Owner acceptance: required for restraint.
+
+### M27 — Performance, Reduced Motion, failure-mode, and runtime visual closure
+
+- [ ] BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
+  - Purpose: prove rapid merges/deliveries/navigation do not leak or overwhelm portrait mobile.
+  - Existing seam: presentation-bridge telemetry, `GameManager.get_terminal_visual_counts()`, `campaign_transient_world_effect`, session/view lifecycle, Spark live pool, GameFeelFlow active effects/`stop_all`.
+  - Semantic trigger: stress replay of existing semantic catalog only.
+  - Plugin responsibility: cap live effects/emitters, cancel presentation on terminal/view disposal, prevent stale effects crossing Results/maps.
+  - Reduced Motion: same stress suite with stricter caps.
+  - One-shot/idempotency: no duplicate listeners after retry/map loops; event tokens exact-once.
+  - Mobile/performance budget: hard <=48 live gameplay particles, <=96 result/meta, one large celebration, no unbounded nodes; lower counts if target device requires.
+  - Automated regression: rapid combo, repeated To-Go/VIP, WIN/LOSE, retry xN, map loops, mid-effect cancellation, leak/listener checks, zero terminal world effects.
+  - Godot AI evidence: particle/node telemetry, terminal screenshots, performance logs, zero errors.
+  - Owner acceptance: feeds M27 final review.
+
+- [ ] BCM-M27-002 — Audit every category in FULL and REDUCED and prove accessibility behavior is complete.
+  - Purpose: Reduced Motion becomes a coherent alternative mode, not scattered exceptions.
+  - Existing seam: `UserSettings.reduced_motion/presentation_changed`, ApplicationShell settings propagation, `GameManager.apply_presentation_settings()`, shared bridge, gameplay, Results, maps, rewards/CTA.
+  - Semantic trigger: complete M22 semantic catalog.
+  - Plugin responsibility: verify FULL/REDUCED mapping category by category.
+  - Reduced Motion: runtime toggles safely; no motion-heavy replay, MICRO/table particles zero, important particles <=25% FULL, no camera movement.
+  - One-shot/idempotency: mode changes never replay consumed events or duplicate listeners.
+  - Mobile/performance budget: REDUCED strictly cheaper than FULL.
+  - Automated regression: all semantic kinds, runtime toggle, restart persistence, high-contrast compatibility, identical score/progression/save outputs.
+  - Godot AI evidence: paired FULL/REDUCED frames for launch, contact, merge/combo, ORDER, VIP, WIN, MASTERY, LOSE, level/island unlock, reward, CTA; clean logs.
+  - Owner acceptance: mandatory paired-matrix review.
+
+- [ ] BCM-M27-003 — Close presentation with authority regression, plugin-failure fallback, Godot AI evidence, and owner-native visual acceptance.
+  - Purpose: prove GameFeelFlow/Spark remain removable presentation layers and close only after production-flow owner acceptance.
+  - Existing seam: full regression suite, FeedbackService telemetry, presentation bridge, GameplaySessionBridge results, CampaignManager state, SaveManager output, Results/maps/settings, plugin/autoload presence.
+  - Semantic trigger: representative end-to-end flows across all tiers.
+  - Plugin responsibility: test both plugins, GameFeelFlow only, Spark only, neither plugin; authoritative outputs must match.
+  - Reduced Motion: FULL + REDUCED end-to-end passes and persistence.
+  - One-shot/idempotency: event-ledger comparison across replay/restart/navigation; historical reward/unlock/result feedback never replays without a new authoritative event.
+  - Mobile/performance budget: all M27-001 ceilings pass target-device evidence; breaches reduce effects rather than relax limits.
+  - Automated regression: physics/trajectory/merge/scoring/To-Go/VIP/no-timer/stars/rewards/unlocks/persistence parity with presentation disabled; injected plugin failure no-op; zero red Godot errors.
+  - Godot AI evidence: complete production navigation captures, representative effect frames, clean logs, plugin-failure runs, cleanup reports, owner-native mobile package.
+  - Owner acceptance: mandatory; builder self-audit cannot close M27.
