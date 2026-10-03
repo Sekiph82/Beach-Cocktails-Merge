@@ -5,8 +5,8 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R02
-- Current Task: BCM-M21-001 + BCM-M21-006 — true art-first Sunny Cove redesign plus semantic World Map marker remediation.
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R03
+- Current Task: BCM-M21-001 + BCM-M21-006 — Sunny Cove player-facing table composition owner visual candidate remediation.
 - Current Task Status: CHANGES_REQUIRED
 - Next Task/Action: Codex executes V07-R02. Rebuild Sunny Cove from a blank 720×1280 canvas without using V2/R11 table geometry masks as shape authority; freeze/hash final art before deriving geometry; restore World Map island identities to the owner-approved V04 semantic regions with Sunny Cove lower-left; publish connector-readable review copies for large screenshots; run the full GUI screenshot self-audit loop and hand off only with all SC/WM/process checks PASS. Preserve accepted Island Map, menu/result/input/no-timer/persistence behavior.
 - Required Actor: CODEX
@@ -942,14 +942,17 @@ Owner F5 V06 active remediation:
 - Locked criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V06.md`
 - Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V06.md` — historical **TECHNICAL PASS**, superseded by owner V07 process/art ruling.
 
-Owner F5 V07 history and active R02 remediation:
+Owner F5 V07 history and active R03 remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V07.md`
 - Historical sync-preserve prompt/criteria: `CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R01.md` / `CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R01.md`
 - Historical builder self-audit: `BUILDER_SELF_VISUAL_AUDIT_V07.md` + `BUILDER_SELF_VISUAL_AUDIT_V07.json` — builder PASS, **not independently accepted**
 - Independent audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V07.md` — **CHANGES_REQUIRED / BUILDER_VISUAL_SELF-AUDIT_NOT_ACCEPTED**
-- Active V07-R02 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R02.md`
-- Active V07-R02 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R02.md`
-- Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V07_R02`
+- Historical V07-R02 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R02.md`
+- Historical V07-R02 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R02.md`
+- V07-R02 owner visual audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V07_R02.md` — **CHANGES_REQUIRED / GAMEPLAY_TABLE_COMPOSITION_REJECTED**
+- Active V07-R03 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R03.md`
+- Active V07-R03 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R03.md`
+- Required marker: `AWAITING_OWNER_VISUAL_SELECTION_V07_R03`
 
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
