@@ -44,7 +44,9 @@ Remote: `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge.git`)
 - Manual image inspection — clean surface and full review composite opened at original resolution. The review shows all five frozen current-design HUD assets, one horizontal deadline, current L01 held in front of it, crowded current cocktail assets, full-width horizontal L01-L12 strip, no legs, and no aiming guide or launch zone.
 - `git diff --exit-code -- TASKS.md` — exit 0; root `TASKS.md` is unchanged.
 - Static visual gate only: Godot parse/runtime, gameplay regression, production integration, and owner-native acceptance were not run and remain pending/not applicable before owner visual review.
-- `git diff --cached --check`, end HEAD, local/origin/live remote parity: pending publication.
+- `git diff --cached --check` — exit 0; the eight staged paths were exactly the R04 package and this execution log. No owner-local addon, `project.godot`, or translation path was staged.
+- Product/evidence commit `0977ecd26077e353764264db5cf43a75db59fb6a` — pushed successfully to `origin/main` (`a051117..0977ecd`).
+- After product publication, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `0977ecd26077e353764264db5cf43a75db59fb6a`.
 
 ## Changed files
 
@@ -68,10 +70,8 @@ Pending final inventory.
 
 ## Final repository state
 
-- Product/evidence commit SHA: pending publication.
-- End HEAD / final log commit: recorded by Git history for this immutable log file; pending publication.
-- `git rev-parse HEAD`: pending.
-- `git rev-parse origin/main`: pending.
-- `git ls-remote origin refs/heads/main`: pending.
+- Product/evidence commit SHA: `0977ecd26077e353764264db5cf43a75db59fb6a`.
+- End HEAD / final log-only commit SHA: recorded by Git history for this immutable log file (`git log -1 --format=%H -- docs/codex-logs/CODEX_LOG_OWNER_F5_REMEDIATION_V07_R04.md`).
+- After the final log-only publication, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` were verified equal to that containing commit.
 - `TASKS.md` was not modified.
 - Final marker: `AWAITING_OWNER_VISUAL_ACCEPTANCE_V07_R04`.
