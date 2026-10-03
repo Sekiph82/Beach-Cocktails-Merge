@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R03-R01
+- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R03-OWNER-SELECTION
 - Current Task: BCM-M21-001 + BCM-M21-006 — Sunny Cove player-facing table composition owner visual candidate remediation.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: Codex executes V07-R02. Rebuild Sunny Cove from a blank 720×1280 canvas without using V2/R11 table geometry masks as shape authority; freeze/hash final art before deriving geometry; restore World Map island identities to the owner-approved V04 semantic regions with Sunny Cove lower-left; publish connector-readable review copies for large screenshots; run the full GUI screenshot self-audit loop and hand off only with all SC/WM/process checks PASS. Preserve accepted Island Map, menu/result/input/no-timer/persistence behavior.
-- Required Actor: CODEX
+- Current Task Status: OWNER_REQUIRED
+- Next Task/Action: OWNER selects one V07-R03 Sunny Cove candidate (A, B, or C). No candidate is promoted yet. After explicit owner selection, Codex may integrate only the selected surface, freeze/hash that art, derive playable geometry from the frozen image, and run the required real Godot GUI/runtime SC/WM acceptance loop before any production acceptance claim. Preserve accepted Island Map, menu/result/input/no-timer/persistence behavior. M22+ remains blocked behind M21.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: independent V07 visual/source audit rejected the builder 18/18 PASS. Sunny Cove gameplay presentation is directionally improved, but the V07 table silhouette is still controlled by V2/R11 master masks, and World Map semantic identity was globally remapped in conflict with prior owner rulings, including Sunny Cove moving away from the locked lower-left region.
+- Progress: V07-R03 candidate package independently AUDITED_PASS. All six GitHub-hosted candidate PNGs (A/B/C clean surfaces + review composites) were opened and visually inspected one by one; all three candidates satisfy the locked close-table composition gate. Static composites are not production runtime captures, so owner selection plus selected-art production integration and real SC/WM runtime acceptance remain pending.
 
 ## Tasks
 
@@ -954,6 +954,7 @@ Owner F5 V07 history and active R03 remediation:
 - Active V07-R03-R01 sync-preserve continuation: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R03_R01.md`
 - Active V07-R03 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R03.md`
 - Required marker: `AWAITING_OWNER_VISUAL_SELECTION_V07_R03`
+- Independent V07-R03 candidate audit: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_AUDIT_V07_R03.md` — **AUDITED_PASS / OWNER_VISUAL_SELECTION_REQUIRED**; includes direct visual inspection of all six GitHub-hosted candidate PNGs.
 
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
