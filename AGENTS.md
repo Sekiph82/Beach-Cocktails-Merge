@@ -212,6 +212,22 @@ Do not regenerate or redesign owner-approved assets during integration unless th
 
 `guide_line` is not part of the current asset plan and must not be introduced unless the owner later asks for it.
 
+## Active M21 V07-R04 owner visual override
+
+For the active Sunny Cove V07-R04 remediation, the latest owner ruling under
+`coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V07_R04.md`
+supersedes older table **visual-composition** rules that require a complete freestanding table, exactly two visible legs, or an L01-L12 progression panel between those legs.
+
+Current visual authority for V07-R04:
+- preserve the CURRENT-design Beach Cocktails Merge logo, To-Go Orders, Best Score, Score, and Next; the master reference does not control those five HUD designs;
+- for the rest of the gameplay scene, follow the owner master composition: close player-facing board, deep tabletop, strong perspective, near edge close to the player, no mandatory visible legs, and a wide L01-L12 progression strip directly below the front edge;
+- keep one horizontal deadline on the tabletop;
+- do not introduce the master's vertical dotted/arrow aiming guide or any substitute trajectory/guide line.
+
+This override changes visual composition only. Accepted R11 gameplay physics, collision/rail authority, scoring, To-Go/VIP behavior, progression, persistence, input behavior, and the owner's no-timer ruling remain frozen unless a later explicit owner ruling changes them.
+
+V07-R04 is still a visual gate. New production geometry or runtime binding must not be promoted before owner visual acceptance.
+
 ## Table geometry constitution V2
 
 Table visuals obey `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md` and `assets/ui_assets/tables/table_geometry_v2.json`.
@@ -263,33 +279,43 @@ Desktop checkout with the current `origin/main`. ChatGPT may have updated
 `TASKS.md`, prompts, audit criteria, audits, or other coordination files after
 the prior task.
 
-### Standing owner-local godot_ai sync exception
+### Standing owner-local plugin sync exception
 
-The following exact dirty-state combination is an authorized, recurring owner-local development integration and MUST NOT block synchronization by itself:
+The following exact dirty-state combination is an authorized, recurring owner-local development setup and MUST NOT block synchronization by itself:
 
-- modified tracked `project.godot` containing the owner-local godot_ai/autoload integration;
+- modified tracked `project.godot` containing owner-local plugin/autoload integration;
 - untracked `addons/godot_ai/`;
+- untracked `addons/game_feel_flow/`;
+- untracked `addons/saltmire_spark/`;
 - exactly 14 known generated untracked `.translation` sidecars.
+
+The three addon directories above are deliberate owner-installed local integrations. During M21 they are protected owner-local content: do not delete, clean, reset, stash with `-u`, stage, commit, or rewrite them.
 
 When ALL of the following are true:
 
 1. local `main` is behind-only relative to `origin/main`;
-2. the only local dirty paths are the three known owner-local categories above;
-3. the incoming diff from local `HEAD` to `origin/main` does not touch `project.godot`, `addons/godot_ai/**`, or any of those translation sidecars;
+2. the only local dirty paths are the authorized categories above;
+3. the incoming diff from local `HEAD` to `origin/main` does not touch `project.godot`, `addons/godot_ai/**`, `addons/game_feel_flow/**`, `addons/saltmire_spark/**`, or any of the 14 translation sidecars;
 
-Codex is explicitly owner-authorized to reconcile the checkout **before reading the active task prompt** using this exact procedure:
+Codex is explicitly owner-authorized to reconcile the checkout **before reading the active task prompt**.
 
-1. create a tracked-only named stash containing exactly `project.godot`:
-   `git stash push -m "owner-local-godot-ai-sync-preserve" -- project.godot`
-2. do **not** use `-u`; leave `addons/godot_ai/` and the 14 translation sidecars untouched and untracked;
-3. `git fetch origin main`;
-4. re-verify the incoming diff excludes the protected owner-local paths;
-5. `git merge --ff-only origin/main`;
-6. locate the stash by message and `git stash apply` it without dropping it;
-7. verify the restored dirty state contains only the intended `project.godot` owner-local diff plus the untouched plugin folder and 14 sidecars;
-8. continue with the now-synchronized `AGENTS.md`, `TASKS.md`, and active prompt.
+Use this procedure:
 
-This is a standing owner authorization. **Do not stop merely because this exact known owner-local state exists.** Stop only if the dirty set contains anything else, the branch is not behind-only, the incoming diff touches a protected owner-local path, stash/apply conflicts, or any other ambiguity appears.
+1. record the current pre-sync HEAD short SHA:
+   `$preSync = git rev-parse --short=12 HEAD`
+2. create a NEW tracked-only stash containing exactly `project.godot`, with a message unique to that pre-sync HEAD:
+   `git stash push -m "owner-local-plugin-sync-preserve-$preSync" -- project.godot`
+3. do **not** use `-u`; leave all three untracked addon directories and the 14 sidecars untouched;
+4. `git fetch origin main`;
+5. re-verify that the incoming diff excludes every protected owner-local path;
+6. `git merge --ff-only origin/main`;
+7. locate and apply only the NEW stash whose exact message contains the recorded `$preSync`; do not apply an older similarly named stash and do not drop any preservation stash;
+8. verify the restored dirty state consists only of the intended `project.godot` diff plus the three untouched addon directories and 14 sidecars;
+9. continue with the synchronized `AGENTS.md`, `TASKS.md`, and active prompt.
+
+Existing older preservation stashes may remain. Their mere existence is not a blocker and they must not be applied blindly.
+
+This is a standing owner authorization. **Do not stop merely because this exact known owner-local plugin state exists.** Stop only if the dirty set contains anything else, the branch is not behind-only, the incoming diff touches a protected owner-local path, the newly created stash cannot be applied cleanly, or another genuine ambiguity appears.
 
 1. From `C:\Users\sekip\Desktop\Beach Cocktails - Merge`, run:
    - `git status --short --branch`
