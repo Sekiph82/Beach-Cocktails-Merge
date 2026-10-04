@@ -34,12 +34,14 @@
 
 - `987df2210bb876019b2cc63982d7e6b73764410c` — superseded visual/evidence files, retired table metadata, probes/helpers, and pre-deletion inventory.
 - `7fee497fed269ad80386fb0cdb63f44ae4dc0f09` — R04 runtime/schema/rules, asset validation, and current campaign/gameplay test fixtures.
-- Final evidence/log commit: pending.
+- `2d3cada3233ff3078397e8bd241a5d30048e40af` — final deletion manifest, path-reference audit, and execution log.
 
 ## Acceptance and limitations
 
 - Builder evidence only; no independent acceptance verdict is assigned here.
 - No owner-native visual F5 acceptance was performed. Headless captures are not visual proof.
 - The M12 720x1280 map overlap/clipping assertion remains the only failed test result in the selected regression set.
-- Final implementation commit SHA: `7fee497fed269ad80386fb0cdb63f44ae4dc0f09`. Final evidence/log commit SHA, push SHA, and equality of local HEAD, `origin/main`, and remote `main`: pending.
+- Final implementation commit SHA: `7fee497fed269ad80386fb0cdb63f44ae4dc0f09`.
+- At final task publication, `git fetch origin main`, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all identified `2d3cada3233ff3078397e8bd241a5d30048e40af`; `git rev-list --left-right --count HEAD...origin/main` returned `0 0`.
+- Owner-local state after publication remains modified `project.godot`, modified `scenes/main.tscn`, untracked `addons/`, and the 14 translation sidecars. No owner-local paths were staged.
 - Explicit confirmation: root `TASKS.md` was not modified.
