@@ -69,4 +69,14 @@ Global cocktail, HUD, effect, and non-gameplay screen assets remain governed by 
 
 ## 6. Regression and cleanup
 
-R04-specific tests validate surface/profile identity and geometry. Accepted gameplay regression checks remain in place; tests whose only purpose was asserting retired split-layer paths are removed or replaced. Historical logs, audits, and prompts remain immutable evidence and may mention retired filenames. Their historical references do not make those images runtime dependencies.
+R04-specific tests validate surface/profile identity and geometry. Accepted gameplay regression checks remain in place; tests whose only purpose was asserting retired split-layer paths are removed or replaced.
+
+Owner ruling 2026-10-04 authorizes a repository-hygiene pass after owner acceptance of all ten R04 gameplay surfaces/geometries. During that explicit cleanup task:
+- superseded visual evidence, rejected candidate renders, retired split-table assets, stale fixtures/scripts, obsolete JSON/provenance/calibration records, and generated/orphaned `*.import` files may be deleted after repository-wide reference analysis;
+- old rules/tests that conflict with the R04 authority must be updated, replaced, or retired;
+- current asset manifests/dimension catalogs must be rebuilt from the retained current set;
+- the ten R04 source/runtime/profile triples plus the five retained island map/completion assets remain protected;
+- historical text references alone do not make a retired binary/evidence file a current dependency;
+- active TASKS/current contracts/tests must not be left with broken required references.
+
+The cleanup must end with all current R04 validation and gameplay/campaign regressions passing.
