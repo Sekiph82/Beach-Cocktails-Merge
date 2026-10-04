@@ -68,6 +68,7 @@ const TO_GO_DELIVERY_DURATION := 0.34
 const VIP_DELIVERY_MULTIPLIER := 2
 const TO_GO_PANEL_TEXTURE_PATH := "res://assets/ui/panel_to_go_vip_orders.png"
 const TO_GO_PANEL_SOURCE_SIZE := Vector2(1132.0, 1698.0)
+const LAUNCH_ZONE_TEXTURE_PATH := "res://assets/ui/launch_zone.png"
 const TO_GO_NORMAL_TARGET_CENTER_SOURCE := Vector2(358.0, 665.0)
 const TO_GO_VIP_TARGET_CENTER_SOURCE := Vector2(358.0, 1254.0)
 const TO_GO_COCKTAIL_MAX_DIMENSION := 60.0
@@ -128,8 +129,7 @@ var _background: Sprite2D
 var _background_scale := 1.0
 var _background_offset := Vector2.ZERO
 var _ui_scale := 1.0
-var _launch_zone: Sprite2D
-var _launch_indicator: Line2D
+var _launch_indicator: Sprite2D
 var _danger_line: Sprite2D
 var _theme_table_shadow: Sprite2D
 var _theme_table: Sprite2D
@@ -646,7 +646,9 @@ func get_playable_boundary_edges() -> Array[Dictionary]:
 			interior_point /= float(polygon.size())
 		var profile_edges: Array[Dictionary] = []
 		for index in range(polygon.size()):
-			profile_edges.append(_make_boundary_edge(polygon[index], polygon[(index + 1) % polygon.size()], interior_point, "PlayableRail_%d" % index))
+			var next_point: Vector2 = polygon[(index + 1) % polygon.size()]
+			var edge_name := "RearRail" if index == 0 and is_equal_approx(polygon[index].y, next_point.y) else "PlayableRail_%d" % index
+			profile_edges.append(_make_boundary_edge(polygon[index], next_point, interior_point, edge_name))
 		return profile_edges
 	var interior_point := Vector2(size.x * 0.5, (rear_table_y + table_bottom_y) * 0.5)
 	var edges: Array[Dictionary] = []
@@ -1117,17 +1119,16 @@ func _build_ui() -> void:
 	_hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	canvas.add_child(_hud)
 
-	var best_width := 205.0 * ui_scale
+	var best_width := 190.0 * ui_scale
 	var best_height := best_width * 941.0 / 1671.0
-	# Keep the left stack compact and above the tabletop accumulation area.
-	# R10 modestly increases the logo while preserving the source aspect ratio.
-	var logo_width := 210.0 * ui_scale
-	var logo_height := logo_width * 1024.0 / 1536.0
-	var score_rect := Rect2(board_size.x - best_width - 12.0 * ui_scale, 205.0 * ui_scale, best_width, best_height)
+	# The owner-approved HUD uses two aligned columns. Both score panels share
+	# one vertical center; each header above it shares its panel's horizontal
+	# center.
+	var score_rect := Rect2(board_size.x - best_width - 12.0 * ui_scale, 190.0 * ui_scale, best_width, best_height)
 	var score_visual_bounds := _visible_artwork_bounds("res://assets/ui/panel_score.png", score_rect)
-	var best_rect := Rect2(16.0 * ui_scale, 140.0 * ui_scale, best_width, best_height)
+	var best_rect := Rect2(14.0 * ui_scale, 190.0 * ui_scale, best_width, best_height)
 	var best_measurement := _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect)
-	best_rect.position.y += score_visual_bounds.end.y - best_measurement.end.y
+	best_rect.position.y += score_visual_bounds.get_center().y - best_measurement.get_center().y
 	_best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", best_rect)
 	_hud.add_child(_best_panel)
 	_best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
@@ -1138,13 +1139,14 @@ func _build_ui() -> void:
 	_hud.add_child(_score_panel)
 	_score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
 
-	var logo_rect := Rect2(12.0 * ui_scale, 6.0 * ui_scale, logo_width, logo_height)
-	var logo_measurement := _visible_artwork_bounds("res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
+	var logo_rect := Rect2(20.0 * ui_scale, 0.0, 136.0 * ui_scale, 188.0 * ui_scale)
+	var logo_path := "res://assets/ui_assets/brand/logo_beach_cocktails_merge.png"
+	var logo_measurement := _visible_artwork_bounds(logo_path, logo_rect)
 	logo_rect.position.x += _visible_artwork_bounds("res://assets/ui/panel_best_score.png", best_rect).get_center().x - logo_measurement.get_center().x
-	var logo := _make_panel("Logo", "res://assets/ui/logo_beach_cocktails_merge.png", logo_rect)
+	var logo := _make_panel("Logo", logo_path, logo_rect)
 	_hud.add_child(logo)
 
-	var to_go_width := 210.0 * ui_scale
+	var to_go_width := 170.0 * ui_scale
 	var to_go_height := to_go_width * TO_GO_PANEL_SOURCE_SIZE.y / TO_GO_PANEL_SOURCE_SIZE.x
 	# The supplied asset already contains its hanging artwork. Its alpha
 	# bounds reach the source-image top, so placing the unchanged panel at y=0
@@ -1173,9 +1175,10 @@ func _build_ui() -> void:
 	_vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 1100.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
 	_vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 1295.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
 
-	var next_width := 145.0 * ui_scale
+	var next_width := 140.0 * ui_scale
 	var next_height := next_width * 1426.0 / 1103.0
-	var next_rect := Rect2(board_size.x - next_width - 12.0 * ui_scale, 10.0 * ui_scale, next_width, next_height)
+	var score_center_x := score_rect.get_center().x
+	var next_rect := Rect2(Vector2(score_center_x - next_width * 0.5, 0.0), Vector2(next_width, next_height))
 	var next_measurement := _visible_artwork_bounds("res://assets/ui/panel_next.png", next_rect)
 	next_rect.position.x += score_visual_bounds.get_center().x - next_measurement.get_center().x
 	_next_panel = _make_panel("NextPanel", "res://assets/ui/panel_next.png", next_rect)
@@ -1186,20 +1189,22 @@ func _build_ui() -> void:
 	_next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_next_panel.add_child(_next_sprite)
 
-	var strip_margin := 12.0 * ui_scale
-	var strip_width := board_size.x - strip_margin * 2.0
-	var strip_height := strip_width * 725.0 / 2170.0
-	_progression_strip = _make_panel("ProgressionStrip", "res://assets/ui/progression_strip.png", Rect2(strip_margin, board_size.y - strip_height - 8.0 * ui_scale, strip_width, strip_height))
+	var strip_width := board_size.x
+	var strip_height := strip_width * 724.0 / 2172.0
+	_progression_strip = _make_panel("ProgressionStrip", "res://assets/ui/progression_strip.png", Rect2(0.0, board_size.y - strip_height - 28.0 * ui_scale, strip_width, strip_height))
 	_hud.add_child(_progression_strip)
 	_build_progression_icons(_progression_strip)
 
-	# The launch cue is a narrow programmatic line. The theme's full-screen
-	# launch_zone artwork contains foreground scenery and is not rendered.
-	_launch_indicator = Line2D.new()
-	_launch_indicator.name = "LaunchIndicator"
-	_launch_indicator.width = 3.0
-	_launch_indicator.default_color = Color(1.0, 0.82, 0.42, 0.8)
+	# A small gold contact halo sits directly beneath the held drink. This is a
+	# local marker only; it does not draw a trajectory or horizontal launch line.
+	_launch_indicator = Sprite2D.new()
+	_launch_indicator.name = "HeldDrinkLaunchZone"
+	_launch_indicator.texture = load(LAUNCH_ZONE_TEXTURE_PATH) as Texture2D
+	_launch_indicator.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	if _launch_indicator.texture != null:
+		_launch_indicator.scale = Vector2.ONE * (76.0 * ui_scale / float(_launch_indicator.texture.get_width()))
 	_launch_indicator.z_index = 6
+	_launch_indicator.visible = false
 	add_child(_launch_indicator)
 	_layout_launch_indicator()
 
@@ -1245,8 +1250,8 @@ func _build_ui() -> void:
 	_pause_button = Button.new()
 	_pause_button.name = "PauseButton"
 	_pause_button.text = "PAUSE"
-	_pause_button.position = Vector2(20.0, 18.0)
-	_pause_button.size = Vector2(116.0, 58.0)
+	_pause_button.position = Vector2(14.0 * ui_scale, board_size.y - 72.0 * ui_scale)
+	_pause_button.size = Vector2(112.0 * ui_scale, 58.0 * ui_scale)
 	_pause_button.add_theme_font_size_override("font_size", 16)
 	_pause_button.add_theme_color_override("font_color", Color("#fff0c6"))
 	_pause_button.add_theme_stylebox_override("normal", _pause_style(Color("#103d52"), Color("#f7d47b")))
@@ -1410,23 +1415,21 @@ func _make_panel_text(panel: Control, text_value: String, rect: Rect2, font_size
 
 func _build_progression_icons(strip: Control) -> void:
 	_progression_icons.clear()
-	# The approved strip artwork is the complete frame. It contains twelve
-	# baked interiors; runtime contributes cocktail sprites only.
-	var slot_centers_x := [578.5, 780.5, 981.0, 1181.5, 1382.5, 1586.0]
-	var slot_centers_y := [264.5, 458.0]
-	var source_scale := strip.size.x / 2170.0
-	for row in range(2):
-		for column in range(6):
-			var level := column + 7 if row == 0 else column + 1
-			var icon := Sprite2D.new()
-			icon.name = "ProgressionIconL%02d" % level
-			icon.texture = Drink.texture_for_level(level)
-			icon.position = Vector2(slot_centers_x[column] * source_scale, slot_centers_y[row] * source_scale)
-			icon.scale = Vector2.ONE * _hud_icon_scale(level, 55.0)
-			icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-			icon.z_index = 2
-			strip.add_child(icon)
-			_progression_icons.append(icon)
+	# These twelve centers are measured from the approved 2172x724 frame's
+	# actual cream recesses. Runtime contributes only the canonical cocktails.
+	var slot_centers_x := [232.5, 389.0, 544.5, 699.5, 854.5, 1009.5, 1163.5, 1318.5, 1473.5, 1628.5, 1784.0, 1941.0]
+	var source_scale := strip.size.x / 2172.0
+	var slot_center_y := 340.0 * strip.size.y / 724.0
+	for level in range(1, 13):
+		var icon := Sprite2D.new()
+		icon.name = "ProgressionIconL%02d" % level
+		icon.texture = Drink.texture_for_level(level)
+		icon.position = Vector2(slot_centers_x[level - 1] * source_scale, slot_center_y)
+		icon.scale = Vector2.ONE * _hud_icon_scale(level, 44.0 * _ui_scale)
+		icon.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		icon.z_index = 2
+		strip.add_child(icon)
+		_progression_icons.append(icon)
 
 
 func _hud_icon_scale(level: int, max_dimension: float) -> float:
@@ -1457,18 +1460,21 @@ func _layout_danger_line() -> void:
 func _layout_launch_indicator() -> void:
 	if _launch_indicator == null:
 		return
-	var bounds := get_table_rail_bounds_at_y(launch_y)
-	_launch_indicator.points = PackedVector2Array([
-		Vector2(bounds.x + wall_thickness, launch_y),
-		Vector2(bounds.y - wall_thickness, launch_y),
-	])
+	if shot_controller == null or not is_instance_valid(shot_controller._current_drink):
+		_launch_indicator.visible = false
+		return
+	var held_drink: Drink = shot_controller._current_drink
+	if held_drink.motion_state != Drink.MotionState.HELD:
+		_launch_indicator.visible = false
+		return
+	_launch_indicator.position = held_drink.position + Vector2(0.0, 6.0)
 
 
 func _update_launch_zone(visible: bool) -> void:
 	if _launch_indicator == null:
 		return
-	_launch_indicator.visible = visible and not game_over
 	_layout_launch_indicator()
+	_launch_indicator.visible = visible and not game_over and shot_controller != null and is_instance_valid(shot_controller._current_drink) and shot_controller._current_drink.motion_state == Drink.MotionState.HELD
 
 
 func _build_merge_target() -> void:

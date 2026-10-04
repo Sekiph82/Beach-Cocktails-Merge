@@ -17,13 +17,13 @@
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r02.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png"
             },
             "playable_geometry": {
-                "playable_polygon": [[130,390],[590,390],[617,404],[640,451],[658,512],[673,590],[687,680],[699,775],[684,802],[36,802],[21,775],[33,680],[47,590],[62,512],[80,451],[103,404]],
-                "launch_y": 770,
-                "spawn_y": 790,
-                "death_y": 850
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "island_map_layout": {
                 "page_size": 10,
@@ -77,7 +77,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/tiki_island/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/tiki_island/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/tiki_island/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/tiki_island/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 9},
             "map_position": [0.12, 0.625],
@@ -98,7 +105,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/azure_bay/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/azure_bay/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/azure_bay/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/azure_bay/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.665, 0.825],
@@ -119,7 +133,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/coconut_beach/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/coconut_beach/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.29, 0.502],
@@ -140,7 +161,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/sunset_island/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/sunset_island/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/sunset_island/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunset_island/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.50, 0.52],
@@ -161,7 +189,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/party_beach/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/party_beach/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/party_beach/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/party_beach/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.81, 0.615],
@@ -182,7 +217,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/frozen_paradise/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/frozen_paradise/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.75, 0.005],
@@ -203,7 +245,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/volcano_bay/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/volcano_bay/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.255, 0.015],
@@ -224,7 +273,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/billionaire_island/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/billionaire_island/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.635, 0.165],
@@ -245,7 +301,14 @@
                 "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png",
                 "table_edge_overlay": "res://assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png",
                 "launch_zone": "res://assets/ui_assets/campaign/islands/final_island/launch_zone.png",
-                "island_map_background": "res://assets/ui_assets/campaign/islands/final_island/map_background.png"
+                "island_map_background": "res://assets/ui_assets/campaign/islands/final_island/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/final_island/gameplay_surface_v07_r04.png"
+            },
+            "playable_geometry": {
+                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
+                "launch_y": 963,
+                "spawn_y": 963,
+                "death_y": 846
             },
             "target_policy": {"min_level": 5, "max_level": 12},
             "map_position": [0.795, 0.36],
