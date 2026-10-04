@@ -1,0 +1,233 @@
+{
+  "task": "BCM-M21-001 + BCM-M21-006 V07-R04-R03",
+  "resolution_px": [
+    720,
+    1280
+  ],
+  "review_type": "asset-composited review matching the production layout; not a Godot engine capture",
+  "islands": [
+    {
+      "id": "sunny_cove",
+      "name": "Sunny Cove",
+      "file": "sunny_cove_runtime_review_v07_r04_r03.png",
+      "sha256": "e586824b9df34d2a9b8264191b45110fde59dabb424561910587f7bda8fa58cc",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "tiki_island",
+      "name": "Tiki Island",
+      "file": "tiki_island_runtime_review_v07_r04_r03.png",
+      "sha256": "1842cf7e8cc643afeecaf28610641ffa9132d94a6dd64a985d0dc961fc3c3810",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "azure_bay",
+      "name": "Azure Bay",
+      "file": "azure_bay_runtime_review_v07_r04_r03.png",
+      "sha256": "717b6b92dc7e71054f9189ad7367e53109aa335647cc32a421b5f4c9de295397",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "coconut_beach",
+      "name": "Coconut Beach",
+      "file": "coconut_beach_runtime_review_v07_r04_r03.png",
+      "sha256": "9a2d598254c69abeda352d2c0b42e3fa7bd05c2270612674fd7fdf54e8a1df9e",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "sunset_island",
+      "name": "Sunset Island",
+      "file": "sunset_island_runtime_review_v07_r04_r03.png",
+      "sha256": "d52cb118713a69ac6a505767fd05864f1d25302c7bffb282bd5bc9934e620b52",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "party_beach",
+      "name": "Party Beach",
+      "file": "party_beach_runtime_review_v07_r04_r03.png",
+      "sha256": "01b27ce14111e4e20c359e4afce2b68345d98c856fcdb82d18c16823e483a631",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "frozen_paradise",
+      "name": "Frozen Paradise",
+      "file": "frozen_paradise_runtime_review_v07_r04_r03.png",
+      "sha256": "18e8006e8e8b4ffcf8b3265bfeddf46552395fad0a9afdee55b5bd238242f91a",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "volcano_bay",
+      "name": "Volcano Bay",
+      "file": "volcano_bay_runtime_review_v07_r04_r03.png",
+      "sha256": "7cb663644c262bd82a7871fe28a5d44d26dbebcab9bb011416b043f3f1656245",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "billionaire_island",
+      "name": "Billionaire Island",
+      "file": "billionaire_island_runtime_review_v07_r04_r03.png",
+      "sha256": "9143b736c7ca153adaeb93d551988e2f43dfae3cf3a3e56dd6ca9b6e9486cf2d",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    },
+    {
+      "id": "final_island",
+      "name": "Final Island",
+      "file": "final_island_runtime_review_v07_r04_r03.png",
+      "sha256": "95b201bfb75cd45f42c48efa439eaef72ed7d1a4b1cfe1da45e534ff06ebfbd6",
+      "dimensions_px": [
+        720,
+        1280
+      ]
+    }
+  ],
+  "approved_ui_assets": {
+    "assets/ui_assets/brand/logo_beach_cocktails_merge.png": "a6cc39ca90c62cd8f2782167a55f5da351d6e94aa8b3e571c20f98e12eabdf13",
+    "assets/ui/panel_best_score.png": "94ce6aeac7847834e91273dc6d32cb9bfd4a273ca459ed387c91624905f71157",
+    "assets/ui/panel_score.png": "3e20ed0266c65b75fc0724d3d7c239adef113e0f9d4f0a693eb64adc8b7104e2",
+    "assets/ui/panel_to_go_vip_orders.png": "acd600d05b316a01b5d39006cf845afa9674cfaaf0385c4f3aecda539d53539b",
+    "assets/ui/panel_next.png": "36396f70b14c58a543bcfe79f2b7bdf3da4e18f31767acf3d8260b23580da56d",
+    "assets/ui/progression_strip.png": "0475a91875631541ad2beac705b1097cc1ab1818aa38b548ce9123e6d4f759ac",
+    "assets/ui/launch_zone.png": "ea8506f0ae3f5f633f47c3aa6e7ce8bd64ca2cc055d076c4f65b4fca17ccc72c",
+    "assets/ui/danger_line.png": "90ed7e9757ef64ac7c13dcd6f1d1366460f8b69d8623495070f91ab1da11c5fa"
+  },
+  "contact_sheet": {
+    "file": "all_islands_runtime_contact_v07_r04_r03.png",
+    "sha256": "ab3571fe09243ad8c22ef061d552c3f05007c4945fed2e55eb4bd0b4cd0ea3f0",
+    "dimensions_px": [
+      950,
+      700
+    ]
+  },
+  "shared_gameplay_geometry_px": [
+    [
+      192,
+      392
+    ],
+    [
+      528,
+      392
+    ],
+    [
+      541,
+      413
+    ],
+    [
+      554,
+      445
+    ],
+    [
+      573,
+      490
+    ],
+    [
+      592,
+      545
+    ],
+    [
+      612,
+      610
+    ],
+    [
+      632,
+      680
+    ],
+    [
+      653,
+      755
+    ],
+    [
+      674,
+      832
+    ],
+    [
+      694,
+      914
+    ],
+    [
+      706,
+      960
+    ],
+    [
+      706,
+      978
+    ],
+    [
+      14,
+      978
+    ],
+    [
+      14,
+      960
+    ],
+    [
+      26,
+      914
+    ],
+    [
+      46,
+      832
+    ],
+    [
+      67,
+      755
+    ],
+    [
+      88,
+      680
+    ],
+    [
+      108,
+      610
+    ],
+    [
+      128,
+      545
+    ],
+    [
+      147,
+      490
+    ],
+    [
+      166,
+      445
+    ],
+    [
+      179,
+      413
+    ]
+  ],
+  "gameplay_markers": {
+    "death_line_y": 846,
+    "held_spawn_y": 963,
+    "progression_image_top": 1012,
+    "progression_cell_center_y": 1125
+  },
+  "geometry_fit": "shared playable polygon follows the visible inner tabletop rails in all ten same-format island surfaces; rear footprint inset is 12 px and side footprint clearance remains zero"
+}
