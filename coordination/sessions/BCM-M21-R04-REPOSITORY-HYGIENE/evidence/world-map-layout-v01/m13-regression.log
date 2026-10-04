@@ -1,0 +1,66 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+M13_PROBE PASS: reusable IslandMapScene resource exists
+M13_PROBE PASS: reusable LevelButton resource exists
+M13_PROBE PASS: 100-level fixture loads in FULL validation
+M13_PROBE PASS: fixture campaign configures from progression state
+M13_PROBE PASS: generic IslandMapScene accepts island_id
+M13_PROBE PASS: 100-level fixture renders 100 reusable nodes
+M13_PROBE PASS: path is vertically scrollable at 720x1280
+M13_PROBE PASS: path has no horizontal clipping at 720x1280
+M13_PROBE PASS: path uses one reusable button scene
+M13_PROBE PASS: state COMPLETE is rendered
+M13_PROBE PASS: state OPEN is rendered
+M13_PROBE PASS: state CURRENT is rendered
+M13_PROBE PASS: state LOCKED is rendered
+M13_PROBE PASS: 0 stars are preserved
+M13_PROBE PASS: 1 star is preserved
+M13_PROBE PASS: 2 stars are preserved
+M13_PROBE PASS: 3 stars are preserved
+M13_PROBE PASS: milestones are present at every tenth level
+M13_PROBE PASS: focus chooses highest unlocked unfinished level
+M13_PROBE PASS: locked level selection is rejected
+M13_PROBE PASS: selectable level emits bounded selection event
+M13_PROBE PASS: selection remains a boundary and does not launch gameplay
+M13_PROBE PASS: repeated refresh has no duplicate level nodes
+M13_PROBE PASS: summary exposes display name
+M13_PROBE PASS: summary exposes completed/configured counts
+M13_PROBE PASS: summary exposes earned stars
+M13_PROBE PASS: summary exposes next milestone
+M13_PROBE PASS: summary exposes incomplete state
+M13_PROBE PASS: manual scroll position differs from automatic focus
+M13_PROBE PASS: generic IslandMapScene accepts island_id
+M13_PROBE PASS: selected level restores safely on re-entry
+M13_PROBE PASS: scroll focus restores safely on re-entry
+M13_PROBE PASS: actual scroll position restores exactly
+M13_PROBE PASS: back navigation emits World Map boundary
+M13_PROBE PASS: fixture campaign configures from progression state
+M13_PROBE PASS: campaign selection is deliberately lower before first entry
+M13_PROBE PASS: generic IslandMapScene accepts island_id
+M13_PROBE PASS: first-entry focus ignores lower campaign selection
+M13_PROBE PASS: fixture campaign configures from progression state
+M13_PROBE PASS: navigation campaign selection is lower before first entry
+M13_PROBE PASS: campaign navigation host accepts canonical campaign authority
+M13_PROBE PASS: navigation host owns one World Map and one Island Map
+M13_PROBE PASS: first host entry computes highest unfinished focus
+M13_PROBE PASS: actual M12 signal opens M13
+M13_PROBE PASS: M12 signal passes exact island id
+M13_PROBE PASS: actual scroll survives M12 re-entry
+M13_PROBE PASS: selected/focus restoration survives M12 re-entry
+M13_PROBE PASS: M13 back returns to M12 World Map
+M13_PROBE PASS: repeated M12-M13 transitions do not duplicate map instances
+M13_PROBE PASS: fixture campaign configures from progression state
+M13_PROBE PASS: generic IslandMapScene accepts island_id
+M13_PROBE PASS: save/progression reload preserves completion
+M13_PROBE PASS: save/progression reload preserves stars
+M13_PROBE PASS: fixture campaign configures from progression state
+M13_PROBE PASS: generic IslandMapScene accepts island_id
+M13_PROBE PASS: all-complete map keeps 100 nodes
+M13_PROBE PASS: all-complete map focuses final configured level
+M13_PROBE PASS: all-complete summary reports completion
+M13_ISLAND_MAP_RESULT=PASS

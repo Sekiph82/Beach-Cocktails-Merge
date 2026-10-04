@@ -119,8 +119,8 @@ func _run() -> void:
     await process_frame
 
     var layout: Dictionary = world_map.get_layout_report(Vector2(720, 1280))
-    _check("720x1280 layout has no horizontal clipping", not bool(layout["horizontal_clipping"]) and bool(layout["entries_fit_width"]))
-    _check("720x1280 layout has no entry overlap", not bool(layout["overlap"]) and not bool(layout["navigation_overlap"]))
+    _check("720x1280 fixture has no horizontal or vertical viewport clipping", not bool(layout["horizontal_clipping"]) and not bool(layout["vertical_clipping"]) and bool(layout["entries_fit_width"]))
+    _check("720x1280 fixture markers clear header and navigation", not bool(layout["header_overlap"]) and bool(layout["header_controls_fit"]) and not bool(layout["overlap"]) and not bool(layout["navigation_overlap"]))
     _check("visual map creates spatial markers", world_map.get_visual_marker_count() == 2 and world_map.get_marker_position("sunny_cove") != world_map.get_marker_position("tiki_island"))
     world_map.queue_free()
     await process_frame
@@ -146,7 +146,8 @@ func _run() -> void:
     var repeated_layout: Dictionary = canonical_map.get_layout_report(Vector2(720, 1280))
     _check("repeated selection leaves no duplicate markers", canonical_map.get_map_node_count() == canonical_map.get_entry_count() and not bool(repeated_layout["duplicate_nodes"]))
     _check("repeated selection emits one boundary per selection", repeated_navigation == ["sunny_cove", "sunny_cove", "sunny_cove"])
-    _check("visual map 720x1280 geometry remains clean", not bool(repeated_layout["horizontal_clipping"]) and not bool(repeated_layout["overlap"]))
+    _check("visual map 720x1280 has no viewport clipping", not bool(repeated_layout["horizontal_clipping"]) and not bool(repeated_layout["vertical_clipping"]) and bool(repeated_layout["entries_fit_width"]))
+    _check("visual map markers clear header and navigation", not bool(repeated_layout["header_overlap"]) and bool(repeated_layout["header_controls_fit"]) and not bool(repeated_layout["overlap"]) and not bool(repeated_layout["navigation_overlap"]))
     canonical_map.queue_free()
     await process_frame
 

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M21-001",
+  "viewport": [720, 1280],
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "diagnosis": {
+    "m12_failure_predates_cleanup": true,
+    "cleanup_baseline_controller_blob": "0fa46a41e2983ad9eebc64ed6bff12d0055bacb7",
+    "pre_task_handoff_controller_blob": "0fa46a41e2983ad9eebc64ed6bff12d0055bacb7",
+    "canonical_map_positions_changed": false,
+    "pre_fix_m12_exit_code": 1,
+    "post_fix_m12_exit_codes": [0, 0],
+    "renderer_visual_overlap_confirmed": [
+      "Frozen Paradise and Volcano Bay selection rings intersected the title header",
+      "The native-size MapBoat covered Sunny Cove marker content"
+    ]
+  },
+  "repair": {
+    "semantic_map_positions_changed": false,
+    "gameplay_assets_or_physics_changed": false,
+    "header_rect": {"position": [0, 0], "size": [720, 76]},
+    "title_panel_rect": {"position": [138, 0], "size": [444, 76]},
+    "compass_rect": {"position": [624, 3], "size": [70, 70]},
+    "map_boat_rect": {"position": [205, 1030], "size": [86, 62]},
+    "map_boat_draws_behind_markers": true
+  },
+  "checks": {
+    "clean_import_parse_boot": {"result": "PASS", "exit_code": 0},
+    "m12_run_1": {"result": "PASS", "exit_code": 0},
+    "m12_run_2_consecutive": {"result": "PASS", "exit_code": 0},
+    "renderer_capture_and_layout_report": {"result": "PASS", "exit_code": 0},
+    "godot_ai_live_runtime_inspection": {"result": "PASS", "stale_frame": false},
+    "m10": {"result": "PASS", "exit_code": 0},
+    "m11": {"result": "PASS", "exit_code": 0},
+    "m13": {"result": "PASS", "exit_code": 0},
+    "m14": {"result": "PASS", "exit_code": 0},
+    "m20_app_shell_navigation": {"result": "PASS", "exit_code": 0},
+    "r04_surface_profile_authority": {"result": "PASS", "exit_code": 0, "islands": 10, "checks": 71},
+    "asset_validator": {"result": "PASS", "exit_code": 0, "manifest_checksums": "356/356", "r04_families": "10/10", "invalid_semantic_duplicates": 0},
+    "git_diff_check": {"result": "PASS", "exit_code": 0},
+    "root_tasks_md_modified": false
+  },
+  "screenshots": {
+    "pre_fix": [
+      "pre-fix-full-fresh-720x1280.png",
+      "pre-fix-top-area-720x360.png",
+      "pre-fix-bottom-area-720x360.png",
+      "pre-fix-locked-selection-720x1280.png",
+      "pre-fix-selected-current-720x1280.png"
+    ],
+    "post_fix": [
+      "post-fix-full-fresh-720x1280.png",
+      "post-fix-top-area-720x360.png",
+      "post-fix-bottom-area-720x360.png",
+      "post-fix-locked-selection-720x1280.png",
+      "post-fix-selected-current-720x1280.png"
+    ]
+  }
+}

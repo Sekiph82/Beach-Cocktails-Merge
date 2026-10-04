@@ -201,7 +201,12 @@ func get_layout_report(reference_size: Vector2 = Vector2(720, 1280)) -> Dictiona
 		"entry_count": _entries.size(),
 		"visual_marker_count": _entries.size(),
 		"horizontal_clipping": false,
+		"vertical_clipping": false,
 		"overlap": false,
+		"header_overlap": false,
+		"header_controls_fit": true,
+		"status_overlap": false,
+		"selection_boundary_overlap": false,
 		"navigation_overlap": false,
 		"entries_fit_width": true,
 		"map_fills_viewport": _map_canvas != null,
@@ -209,20 +214,49 @@ func get_layout_report(reference_size: Vector2 = Vector2(720, 1280)) -> Dictiona
 	}
 	if _map_canvas == null or _entries.is_empty():
 		return report
-	var map_size := _map_canvas.size
+	var viewport_rect := Rect2(Vector2.ZERO, reference_size)
+	var header_rect: Rect2 = (get_node("Header") as Control).get_global_rect()
+	var status_rect: Rect2 = (get_node("StatusPanel") as Control).get_global_rect()
+	var selection_rect: Rect2 = _selection_label.get_global_rect() if _selection_label != null else Rect2()
+	var header: Control = get_node("Header") as Control
+	for control_name in ["BackButton", "TitlePanel", "Compass"]:
+		var header_control: Control = header.get_node(control_name) as Control
+		var header_control_rect := header_control.get_global_rect()
+		if not header_rect.encloses(header_control_rect):
+			report["header_controls_fit"] = false
 	var previous: Array[Rect2] = []
 	for island_id in get_entry_ids():
 		var entry: Control = _entries[island_id] as Control
-		var rect := Rect2(entry.position, entry.size)
-		if rect.position.x < 0.0 or rect.end.x > map_size.x or rect.position.y < 0.0 or rect.end.y > map_size.y:
+		var hit_rect := entry.get_global_rect()
+		if hit_rect.position.x < viewport_rect.position.x or hit_rect.end.x > viewport_rect.end.x:
 			report["horizontal_clipping"] = true
 			report["entries_fit_width"] = false
+		if hit_rect.position.y < viewport_rect.position.y or hit_rect.end.y > viewport_rect.end.y:
+			report["vertical_clipping"] = true
 		for other in previous:
-			if rect.intersects(other):
+			if hit_rect.intersects(other):
 				report["overlap"] = true
-		previous.append(rect)
-	if _selection_label != null and _selection_label.get_global_rect().intersects(_map_canvas.get_global_rect()):
-		report["navigation_overlap"] = true
+		previous.append(hit_rect)
+		var marker_visuals: Array[Control] = [
+			entry.get_node("SelectionRing"),
+			entry.get_node("IslandName"),
+			entry.get_node("IslandState"),
+		]
+		for visual in marker_visuals:
+			if not visual.is_visible_in_tree():
+				continue
+			var visual_rect := visual.get_global_rect()
+			if visual_rect.position.x < viewport_rect.position.x or visual_rect.end.x > viewport_rect.end.x:
+				report["horizontal_clipping"] = true
+			if visual_rect.position.y < viewport_rect.position.y or visual_rect.end.y > viewport_rect.end.y:
+				report["vertical_clipping"] = true
+			if visual_rect.intersects(header_rect):
+				report["header_overlap"] = true
+			if visual_rect.intersects(status_rect):
+				report["status_overlap"] = true
+			if _selection_label != null and visual_rect.intersects(selection_rect):
+				report["selection_boundary_overlap"] = true
+	report["navigation_overlap"] = bool(report["status_overlap"]) or bool(report["selection_boundary_overlap"])
 	return report
 
 
@@ -272,7 +306,7 @@ func _build_shell() -> void:
 	var header := Control.new()
 	header.name = "Header"
 	header.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
-	header.offset_bottom = 138.0
+	header.offset_bottom = 76.0
 	header.mouse_filter = Control.MOUSE_FILTER_PASS
 	header.z_index = 8
 	add_child(header)
@@ -280,7 +314,7 @@ func _build_shell() -> void:
 	var back := Button.new()
 	back.name = "BackButton"
 	back.text = "‹"
-	back.position = Vector2(22.0, 28.0)
+	back.position = Vector2(22.0, 6.0)
 	back.size = Vector2(64.0, 64.0)
 	back.add_theme_font_size_override("font_size", 42)
 	back.tooltip_text = "Return"
@@ -291,17 +325,21 @@ func _build_shell() -> void:
 	var title_panel := TextureRect.new()
 	title_panel.name = "TitlePanel"
 	title_panel.texture = TITLE_PANEL
-	title_panel.position = Vector2(138.0, 22.0)
-	title_panel.size = Vector2(444.0, 86.0)
+	title_panel.position = Vector2(138.0, 0.0)
+	title_panel.size = Vector2(444.0, 76.0)
 	title_panel.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	title_panel.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	title_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(title_panel)
+	# TextureRect applies the newly assigned texture's minimum size when it
+	# enters the tree; reapply the authored fit after parenting so its frame
+	# stays inside the safe header band.
+	title_panel.size = Vector2(444.0, 76.0)
 
 	var eyebrow := Label.new()
 	eyebrow.text = "CAMPAIGN NAVIGATION"
-	eyebrow.position = Vector2(170.0, 32.0)
-	eyebrow.size = Vector2(380.0, 22.0)
+	eyebrow.position = Vector2(170.0, 4.0)
+	eyebrow.size = Vector2(380.0, 18.0)
 	eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	eyebrow.add_theme_font_size_override("font_size", 13)
 	eyebrow.modulate = Color("#73e0d1")
@@ -310,7 +348,7 @@ func _build_shell() -> void:
 
 	var title := Label.new()
 	title.text = "WORLD MAP"
-	title.position = Vector2(170.0, 52.0)
+	title.position = Vector2(170.0, 21.0)
 	title.size = Vector2(380.0, 42.0)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	title.add_theme_font_size_override("font_size", 30)
@@ -321,12 +359,13 @@ func _build_shell() -> void:
 	var compass := TextureRect.new()
 	compass.name = "Compass"
 	compass.texture = COMPASS
-	compass.position = Vector2(624.0, 28.0)
+	compass.position = Vector2(624.0, 3.0)
 	compass.size = Vector2(70.0, 70.0)
 	compass.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	compass.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	compass.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(compass)
+	compass.size = Vector2(70.0, 70.0)
 
 	var status_panel := PanelContainer.new()
 	status_panel.name = "StatusPanel"
@@ -369,13 +408,14 @@ func _build_shell() -> void:
 	var boat := TextureRect.new()
 	boat.name = "MapBoat"
 	boat.texture = BOAT
-	boat.position = Vector2(38.0, 1030.0)
+	boat.position = Vector2(205.0, 1030.0)
 	boat.size = Vector2(86.0, 62.0)
 	boat.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	boat.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	boat.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	boat.z_index = 5
+	boat.z_index = 1
 	add_child(boat)
+	boat.size = Vector2(86.0, 62.0)
 
 	_feedback_overlay = FEEDBACK_SCENE.new()
 	_feedback_overlay.name = "CampaignFeedbackOverlay"

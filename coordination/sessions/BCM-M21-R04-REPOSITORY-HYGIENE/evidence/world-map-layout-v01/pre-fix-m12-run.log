@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+M12_PROBE PASS: normal startup uses application shell and excludes historical probe scripts
+M12_PROBE PASS: fixture campaign definitions load
+M12_PROBE PASS: fresh campaign configures
+M12_PROBE PASS: WorldMapScene loads
+M12_PROBE PASS: entries are generated from LevelDatabase
+M12_PROBE PASS: Sunny Cove is selectable on fresh state
+M12_PROBE PASS: Tiki Island is locked on fresh state
+M12_PROBE PASS: locked Tiki selection is rejected
+M12_PROBE PASS: locked feedback exposes reason and progress
+M12_PROBE PASS: Sunny Cove selection emits id and navigation boundary
+M12_PROBE PASS: 720x1280 layout has no horizontal clipping
+M12_PROBE PASS: 720x1280 layout has no entry overlap
+M12_PROBE PASS: visual map creates spatial markers
+M12_PROBE PASS: canonical visual map definitions load
+M12_PROBE PASS: fresh campaign configures
+M12_PROBE PASS: canonical map displays ten planned destinations
+M12_PROBE PASS: Sunny Cove is the only fresh selectable destination
+M12_PROBE PASS: repeated Sunny Cove selection remains accepted
+M12_PROBE PASS: repeated Sunny Cove selection remains accepted
+M12_PROBE PASS: repeated Sunny Cove selection remains accepted
+M12_PROBE PASS: repeated selection leaves no duplicate markers
+M12_PROBE PASS: repeated selection emits one boundary per selection
+M12_PROBE FAIL: visual map 720x1280 geometry remains clean
+M12_PROBE PASS: fixture campaign definitions load
+M12_PROBE PASS: fresh campaign configures
+M12_PROBE PASS: same entry/layout architecture handles ten islands
+M12_PROBE PASS: fresh campaign configures
+M12_PROBE PASS: COMPLETE state is derived from CampaignManager
+M12_PROBE PASS: unlocked next island is rendered open
+M12_PROBE PASS: CURRENT state follows campaign island selection
+M12_PROBE PASS: World Map state survives isolated SaveManager round-trip
+M12_WORLD_MAP_RESULT=FAIL failures=["visual map 720x1280 geometry remains clean"]

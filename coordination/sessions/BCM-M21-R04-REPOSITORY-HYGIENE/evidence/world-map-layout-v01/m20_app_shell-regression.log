@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+M20_CHILD_01_PROBE PASS: project boots to the application shell
+M20_CHILD_01_PROBE PASS: shell owns exactly one campaign navigation instance
+M20_CHILD_01_PROBE PASS: shell exposes Main Menu after first-run boundary
+M20_CHILD_01_PROBE PASS: fixture campaign data loads
+M20_CHILD_01_PROBE PASS: fixture campaign configures at existing router boundary
+M20_CHILD_01_PROBE PASS: shell PLAY/CONTINUE enters World Map
+M20_CHILD_01_PROBE PASS: campaign World Map is live after PLAY
+M20_CHILD_01_PROBE PASS: World Map return uses the app-level menu signal
+M20_CHILD_01_PROBE PASS: campaign progression survives menu transition
+M20_CHILD_01_PROBE PASS: no duplicate map or gameplay authority is created
+M20_CHILD_01_RESULT=PASS

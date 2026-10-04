@@ -1,0 +1,59 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+M11_PROBE PASS: first boot returns a fresh default
+M11_PROBE PASS: valid write/read round trip
+M11_PROBE PASS: first persistence write succeeds
+M11_PROBE PASS: second persistence write succeeds
+M11_PROBE PASS: backup contains the last known good primary
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _read_candidate (res://scripts/campaign/save_manager.gd:277)
+       [1] load_state (res://scripts/campaign/save_manager.gd:118)
+       [2] read_state (res://scripts/campaign/save_manager.gd:109)
+       [3] _run (res://tests/m11_save_migration_progression_probe.gd:111)
+ERROR: Parse JSON failed. Error at line 0: Expected '}'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _raw_file_is_recoverable (res://scripts/campaign/save_manager.gd:304)
+       [1] write_state (res://scripts/campaign/save_manager.gd:198)
+       [2] load_state (res://scripts/campaign/save_manager.gd:165)
+       [3] read_state (res://scripts/campaign/save_manager.gd:109)
+       [4] _run (res://tests/m11_save_migration_progression_probe.gd:111)
+M11_PROBE PASS: malformed primary recovers valid backup
+ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', got 'partial'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _read_candidate (res://scripts/campaign/save_manager.gd:277)
+       [1] load_state (res://scripts/campaign/save_manager.gd:118)
+       [2] read_state (res://scripts/campaign/save_manager.gd:109)
+       [3] _run (res://tests/m11_save_migration_progression_probe.gd:119)
+ERROR: Parse JSON failed. Error at line 0: Expected 'true', 'false', or 'null', got 'also'
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _read_candidate (res://scripts/campaign/save_manager.gd:277)
+       [1] load_state (res://scripts/campaign/save_manager.gd:132)
+       [2] read_state (res://scripts/campaign/save_manager.gd:109)
+       [3] _run (res://tests/m11_save_migration_progression_probe.gd:119)
+M11_PROBE PASS: malformed primary and backup use safe fallback
+M11_PROBE PASS: future schema is surfaced as unsupported
+M11_PROBE PASS: older schema uses the migration entry point
+M11_PROBE PASS: legacy best score migrates without rewriting legacy save
+M11_PROBE PASS: higher campaign best is preserved over repeated legacy migration
+M11_PROBE PASS: baseline for failed write is stored
+M11_PROBE PASS: invalid write does not destroy previous valid state
+M11_PROBE PASS: test campaign definitions load in FULL mode
+M11_PROBE PASS: CampaignManager configures from loaded state
+M11_PROBE PASS: completion unlocks next level
+M11_PROBE PASS: worse replay preserves best stars and score without state change
+M11_PROBE PASS: better replay upgrades stars and score
+M11_PROBE PASS: final level unlocks next island by canonical rule
+M11_PROBE PASS: milestone claim is one-time and idempotent
+M11_PROBE PASS: progression state persists
+M11_PROBE PASS: persisted progression reloads identically
+M11_SAVE_MIGRATION_PROGRESSION_RESULT=PASS
