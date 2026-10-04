@@ -173,5 +173,7 @@
   "debug_overlay_path": "assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_debug_v07.png",
   "stress_overlay_path": "assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_12_glass_stress_v07.png",
   "old_v06_table_y_offset_removed": true,
-  "method": "canonical V2/R11 rail sample clipping checked against the exact playable-surface alpha mask; surface SHA frozen before writing geometry"
+  "method": "canonical V2/R11 rail sample clipping checked against the exact playable-surface alpha mask; surface SHA frozen before writing geometry",
+  "historical_status": "HISTORICAL_SUPERSEDED_BY_GAMEPLAY_SURFACE_V07_R04",
+  "current_authority": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png and playable_geometry_r04.json"
 }

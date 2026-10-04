@@ -158,5 +158,7 @@
     }
   ],
   "debug_overlay_path": "assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_debug.png",
-  "method": "manual pixel tracing on the committed composite; coordinates are canonical image pixels"
+  "method": "manual pixel tracing on the committed composite; coordinates are canonical image pixels",
+  "historical_status": "HISTORICAL_SUPERSEDED_BY_GAMEPLAY_SURFACE_V07_R04",
+  "current_authority": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png and playable_geometry_r04.json"
 }

@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "profile_id": "frozen_paradise_gameplay_surface_v07_r04",
+  "island_id": "frozen_paradise",
+  "surface_path": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png",
+  "surface_sha256": "dd8f0e538b7b5f6ed99cd07c2eac2ac843de19216e48584936382a73f3bfd476",
+  "r04_source_path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface_v07_r04.png",
+  "r04_source_sha256": "dd8f0e538b7b5f6ed99cd07c2eac2ac843de19216e48584936382a73f3bfd476",
+  "viewport_px": [
+    720,
+    1280
+  ],
+  "geometry": {
+    "playable_polygon": [
+      [
+        192,
+        392
+      ],
+      [
+        528,
+        392
+      ],
+      [
+        541,
+        413
+      ],
+      [
+        554,
+        445
+      ],
+      [
+        573,
+        490
+      ],
+      [
+        592,
+        545
+      ],
+      [
+        612,
+        610
+      ],
+      [
+        632,
+        680
+      ],
+      [
+        653,
+        755
+      ],
+      [
+        674,
+        832
+      ],
+      [
+        694,
+        914
+      ],
+      [
+        706,
+        960
+      ],
+      [
+        706,
+        978
+      ],
+      [
+        14,
+        978
+      ],
+      [
+        14,
+        960
+      ],
+      [
+        26,
+        914
+      ],
+      [
+        46,
+        832
+      ],
+      [
+        67,
+        755
+      ],
+      [
+        88,
+        680
+      ],
+      [
+        108,
+        610
+      ],
+      [
+        128,
+        545
+      ],
+      [
+        147,
+        490
+      ],
+      [
+        166,
+        445
+      ],
+      [
+        179,
+        413
+      ]
+    ],
+    "launch_y": 963,
+    "spawn_y": 963,
+    "death_y": 846,
+    "surface_sha256": "dd8f0e538b7b5f6ed99cd07c2eac2ac843de19216e48584936382a73f3bfd476"
+  },
+  "measurements_px": {
+    "playable_point_count": 24,
+    "playable_bounds": {
+      "left": 14,
+      "top": 392,
+      "right": 706,
+      "bottom": 978
+    },
+    "launch_y": 963,
+    "spawn_y": 963,
+    "death_y": 846,
+    "cocktail_collider_radii_level_1_to_12": [
+      20,
+      23,
+      27,
+      31,
+      36,
+      42,
+      49,
+      56,
+      64,
+      72,
+      80,
+      90
+    ],
+    "cocktail_fit_centers_level_xy": [
+      [
+        1,
+        180,
+        520
+      ],
+      [
+        2,
+        360,
+        520
+      ],
+      [
+        3,
+        540,
+        520
+      ],
+      [
+        4,
+        180,
+        630
+      ],
+      [
+        5,
+        360,
+        630
+      ],
+      [
+        6,
+        540,
+        630
+      ],
+      [
+        7,
+        180,
+        740
+      ],
+      [
+        8,
+        360,
+        740
+      ],
+      [
+        9,
+        540,
+        740
+      ],
+      [
+        10,
+        180,
+        850
+      ],
+      [
+        11,
+        360,
+        850
+      ],
+      [
+        12,
+        540,
+        850
+      ]
+    ],
+    "calibration_surface_sha256": "dd8f0e538b7b5f6ed99cd07c2eac2ac843de19216e48584936382a73f3bfd476"
+  },
+  "calibration_method": "The shared accepted R11 gameplay boundary and all twelve existing collider radii are overlaid on the exact per-island R04 surface; physics is unchanged.",
+  "debug_overlay_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/frozen_paradise_geometry_debug_r04.png",
+  "debug_overlay_sha256": "ff3d1abce5df40e29973a5f9d7cc5f29a2a82344134e58687fd2e0df3d0dd5e2",
+  "cocktail_fit_proof_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/frozen_paradise_cocktail_footprint_fit_r04.png",
+  "cocktail_fit_proof_sha256": "a59e79360fedec6c858eda2aaf76966dc885d3524d6cc7b151b1773f4ad85338",
+  "embedded_shadow_identity_proof_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/frozen_paradise_embedded_shadow_identity_r04.png",
+  "embedded_shadow_identity_proof_sha256": "cc5a4afef75a4d6191c3c81ce401c528ed5d3e363b9e38fcf711b88554401383",
+  "embedded_table_shadow": {
+    "separate_shadow_asset": false,
+    "surface_sha256": "dd8f0e538b7b5f6ed99cd07c2eac2ac843de19216e48584936382a73f3bfd476",
+    "validation": "table contact shadows are baked into this exact R04 surface; no independent shadow image or alignment transform exists"
+  }
+}

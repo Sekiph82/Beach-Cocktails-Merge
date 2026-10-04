@@ -53,7 +53,7 @@ GROUPS = {
     "screens/social": "leaderboard_panel rank_badge_1 rank_badge_2 rank_badge_3 player_avatar_frame friend_icon share_icon",
 }
 
-ISLAND_FILES = "map_background map_title world_icon gameplay_background gameplay_table gameplay_table_shadow launch_zone table_edge_overlay decor_left decor_right decor_back theme_badge complete_badge".split()
+ISLAND_FILES = "map_background map_title world_icon theme_badge complete_badge".split()
 
 
 def rgb(hex_color: str) -> tuple[int, int, int]:
@@ -422,6 +422,8 @@ def build_asset_catalog():
 
 def render(rel: str, group: str, stem: str, island_id: str | None):
     theme = THEMES.get(island_id or "sunny_cove", THEMES["sunny_cove"])
+    if island_id and stem in {"gameplay_background", "gameplay_table", "gameplay_table_shadow", "table_edge_overlay", "launch_zone", "decor_left", "decor_right", "decor_back"}:
+        raise ValueError(f"Retired split gameplay asset cannot be regenerated: {rel}")
     size = dimensions_for(stem, group)
     if stem in {"app_icon", "splash_logo", "logo_beach_cocktails_merge", "brand_wordmark_small", "legal_logo_mark"}:
         return owner_logo_variant(stem)
@@ -457,14 +459,15 @@ This branch-only library is generated for the `ui-assets` visual-production stre
 - `campaign/`: world-map, reusable progression UI, and ten island packs.
 - `screens/`: splash, menu, pre-level, results, shop, settings, tutorial, and social screens.
 - `effects/`: restrained feedback overlays.
-- `tables/`: frozen common geometry JSON, silhouette mask, and edge overlay masters.
+- `campaign/islands/<island>/`: five island-map/completion images and the owner-selected R04 gameplay surface source/runtime pair.
+- `tables/`: retired split-table pipeline artifacts; not generated or consumed by the current gameplay screen.
 - `source/`: generator provenance and style-reference notes only, including the generated remediation direction board.
 
 ## Generation and export
 
-`tools/ui_assets/generate_assets.py` creates original raster art with Pillow using explicit semantic pictogram, island landmark, material-skin, screen-composition, and effect renderers. The owner-supplied logo is copied from the local source after checkerboard-background removal only; no logo artwork is regenerated. The table skins are rasterized from one shared 720x1280 alpha polygon defined by `tables/table_geometry_v1.json`; only the clipped material treatment changes per island.
+`tools/ui_assets/generate_assets.py` creates original raster art with Pillow using explicit semantic pictogram, island landmark, screen-composition, and effect renderers. The owner-supplied logo is copied from the local source after checkerboard-background removal only; no logo artwork is regenerated. Per-island `gameplay_surface.png` is copied byte-for-byte from its frozen `gameplay_surface_v07_r04.png`; the matching geometry profile is maintained by `tools/ui_assets/prepare_gameplay_surface_r04.py`.
 
-`tools/ui_assets/validate_assets.py` checks manifest coverage, PNG decoding, dimensions, alpha expectations, table canvas/mask equality, preserved logo/mask/geometry blobs, front-corner/rear-width geometry, untouched protected paths, and remediation scope restrictions.
+`tools/ui_assets/validate_assets.py` checks exact manifest coverage, PNG decoding, dimensions, alpha expectations, the ten R04 source/runtime/profile identities, geometry and fit evidence binding, semantic duplicates, and absence of retired split gameplay art from island runtime packs.
 
 The global, island, table, screen, semantic-icon, and major-screen contact sheets are audit evidence, not runtime integration. `source/style_reference_board*.png` are visual direction references only. Runtime table/play-area and logo replacement remain deferred to UIA-M14.
 """
@@ -552,33 +555,22 @@ def write_stateful_report():
 def generate():
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "source").mkdir(parents=True, exist_ok=True)
-    (OUT / "tables").mkdir(parents=True, exist_ok=True)
-    geometry = make_geometry()
-    save(Image.new("RGBA", (720, 1280), (255, 255, 255, 0)), OUT / "tables" / "table_silhouette_mask.png")
-    mask = table_mask()
-    save(mask.convert("RGBA"), OUT / "tables" / "table_silhouette_mask.png")
-    save(edge_overlay(THEMES["sunny_cove"]), OUT / "tables" / "table_edge_overlay_master.png")
-    (OUT / "tables" / "table_geometry_v1.json").write_text(json.dumps(geometry, indent=2) + "\n", encoding="utf-8")
     (OUT / "source" / "generation_method.txt").write_text("Deterministic Pillow generation with explicit semantic pictograms, island landmarks, major-screen compositions, differentiated effects, and clipped island material skins. Canonical logo is owner-supplied with technical checkerboard alpha cleanup only. style_reference_board*.png are imagegen visual-direction references and are not runtime assets.\n", encoding="utf-8")
 
     catalog = build_asset_catalog()
     for rel, group, stem, island_id in catalog:
         save(render(rel, group, stem, island_id), OUT / rel)
+    for island_id in THEMES:
+        base = OUT / "campaign" / "islands" / island_id
+        source = base / "gameplay_surface_v07_r04.png"
+        if not source.is_file():
+            raise FileNotFoundError(f"Owner-selected R04 gameplay surface is required: {source}")
+        (base / "gameplay_surface.png").write_bytes(source.read_bytes())
     write_readme()
 
-    table_items = []
     island_items = []
     for island_id, theme in THEMES.items():
-        table_items.append((theme["name"], Image.open(OUT / "campaign" / "islands" / island_id / "gameplay_table.png")))
         island_items.append((theme["name"], Image.open(OUT / "campaign" / "islands" / island_id / "world_icon.png")))
-    proof = Image.new("RGBA", (W, H), "#10283d")
-    proof_draw = ImageDraw.Draw(proof)
-    proof_draw.polygon([(0, H), (W, H), (590, 398), (130, 398)], outline="#f7e9bd", width=12)
-    proof_draw.ellipse((116, 384, 144, 412), fill="#ffcf64")
-    proof_draw.ellipse((576, 384, 604, 412), fill="#ffcf64")
-    proof_draw.text((W // 2, 700), "10 TABLES\nONE MASK", fill="#f7e9bd", font=font(34, True), anchor="mm", align="center")
-    table_items.append(("Shared mask proof", proof))
-    make_contact_sheet("CONTACT_SHEET_TABLES.png", table_items, 5, (220, 360))
     make_contact_sheet("CONTACT_SHEET_ISLANDS.png", island_items, 5, (220, 240))
     global_items = []
     for rel in ["brand/logo_beach_cocktails_merge.png", "ui/global/button_primary.png", "ui/global/panel_generic_large.png", "ui/rewards/coin_icon.png", "ui/rewards/big_chest_open.png", "ui/boosters/booster_hammer.png", "ui/global/current_badge.png", "effects/merge_flash.png"]:
@@ -607,7 +599,7 @@ def generate():
         "screens/splash/splash_background.png", "screens/main_menu/main_menu_background.png",
         "campaign/world_map/world_map_background.png", "screens/shop/shop_background.png",
         "screens/daily_reward/daily_reward_background.png", "campaign/islands/sunny_cove/map_background.png",
-        "campaign/islands/sunny_cove/gameplay_background.png",
+        "campaign/islands/sunny_cove/gameplay_surface.png",
     ]:
         major_screen_items.append((Path(rel).stem.replace("_", " ").title(), Image.open(OUT / rel)))
     make_contact_sheet("CONTACT_SHEET_MAJOR_SCREENS.png", major_screen_items, 4, (220, 270))
@@ -625,7 +617,6 @@ def generate():
         rel = path.relative_to(ROOT).as_posix()
         image = Image.open(path)
         island = next((key for key in THEMES if f"/islands/{key}/" in f"/{rel}"), None)
-        is_table = path.name in {"gameplay_table.png", "gameplay_table_shadow.png", "table_edge_overlay.png"} or "table_" in path.name
         source_reference = path.parent.relative_to(OUT).as_posix() == "source"
         manifest.append({
             "path": rel,
@@ -634,7 +625,7 @@ def generate():
             "dimensions": {"width": image.width, "height": image.height},
             "alpha_expected": image.mode in {"RGBA", "LA"},
             "island_id": island,
-            "table_geometry_version": 1 if is_table else None,
+            "table_geometry_version": None,
             "generation_source_method": "owner-supplied canonical logo with technical alpha cleanup and proportional size variant only" if path.name in {"app_icon.png", "splash_logo.png", "logo_beach_cocktails_merge.png", "brand_wordmark_small.png", "legal_logo_mark.png"} else ("imagegen visual direction reference; not a runtime asset" if path.name.startswith("style_reference_board") else "deterministic original Pillow procedural generation"),
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         })
@@ -1427,6 +1418,8 @@ def remediated_misc(theme, stem: str, size) -> Image.Image:
 
 def render(rel: str, group: str, stem: str, island_id: str | None):
     theme = THEMES.get(island_id or "sunny_cove", THEMES["sunny_cove"])
+    if island_id and stem in {"gameplay_background", "gameplay_table", "gameplay_table_shadow", "table_edge_overlay", "launch_zone", "decor_left", "decor_right", "decor_back"}:
+        raise ValueError(f"Retired split gameplay asset cannot be regenerated: {rel}")
     size = dimensions_for(stem, group)
     if stem in {"app_icon", "splash_logo", "logo_beach_cocktails_merge", "brand_wordmark_small", "legal_logo_mark"}:
         return owner_logo_variant(stem)

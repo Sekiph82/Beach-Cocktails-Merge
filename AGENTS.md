@@ -206,6 +206,10 @@ assets/
     danger_line.png
   effects/
     to_go_trail.png
+  ui_assets/campaign/islands/<island>/
+    gameplay_surface_v07_r04.png  # island-specific frozen source
+    gameplay_surface.png          # byte-identical runtime authority
+    playable_geometry_r04.json    # profile bound to the surface SHA-256
 ```
 
 Do not regenerate or redesign owner-approved assets during integration unless the owner explicitly requests it. Use dynamic Godot labels/sprites over blank panel areas rather than baking changing score/order content into static images.
@@ -224,41 +228,23 @@ Current visual authority for V07-R04:
 - keep one horizontal deadline on the tabletop;
 - do not introduce the master's vertical dotted/arrow aiming guide or any substitute trajectory/guide line.
 
-This override changes visual composition only. Accepted R11 gameplay physics, collision/rail authority, scoring, To-Go/VIP behavior, progression, persistence, input behavior, and the owner's no-timer ruling remain frozen unless a later explicit owner ruling changes them.
+This override changes visual composition only. Accepted gameplay physics, collision behavior, scoring, To-Go/VIP behavior, progression, persistence, input behavior, and the owner's no-timer ruling remain frozen.
 
-V07-R04 is still a visual gate. New production geometry or runtime binding must not be promoted before owner visual acceptance.
+## R04 gameplay-surface technical authority — owner-directed 2026-10-04
 
-## Table geometry constitution V2
+The owner explicitly authorizes the island-specific `gameplay_surface_v07_r04.png` files as the new gameplay-screen art authority and replaces the former split `gameplay_background` + `gameplay_table` + `table_edge_overlay` + `gameplay_table_shadow` production model for this screen.
 
-Table visuals obey `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md` and `assets/ui_assets/tables/table_geometry_v2.json`.
+Read and obey `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`.
 
-This is a constitutional project rule:
-- accepted R11 runtime rails remain the gameplay geometry authority;
-- V1 bottom-corner geometry and `table_silhouette_mask.png` are legacy and must not be used as authority for new table art;
-- `gameplay_table.png` is a 720x1280 transparent FULL TABLE asset;
-- playable/tabletop art follows the R11 envelope and transitions to non-playable front structure at approximately y=988.333 on the canonical viewport;
-- the lower region contains front apron/thickness and exactly two visible front legs;
-- the existing L01-L12 progression UI remains between the legs and must not be occluded;
-- Azure Bay V2 is the owner-approved structural master. Canonical technical masters under `assets/ui_assets/tables/` are `table_playable_surface_mask_v2.png`, `table_structure_mask_v2.png`, `table_edge_extraction_mask_v2.png`, and `table_shadow_master_v2.png`;
-- every V2-converted island must use those exact masters for playable geometry, lower structure, overlay extraction, and shadow;
-- island skins may change materials/colors/trim only, never geometry;
-- do not retune R11 physics merely to fit AI-generated artwork.
+- Each island's `gameplay_surface_v07_r04.png` is its frozen source image.
+- Each island's runtime `gameplay_surface.png` must be byte-identical to that same island's R04 source; never substitute Sunny Cove art for another island.
+- Each island has a `playable_geometry_r04.json` record bound to the canonical surface SHA-256. Runtime geometry and asset validation must reject a missing/mismatched surface/profile pair.
+- Calibration and measurements use that exact canonical surface. Geometry-debug and crowded-drink proofs are derived overlays of it and belong under remediation evidence, not under runtime assets.
+- The former independent table-fit and table-shadow proof chain is retired for R04; the surface/profile overlay proof replaces it.
+- The five island-map/completion files `complete_badge.png`, `map_background.png`, `map_title.png`, `theme_badge.png`, and `world_icon.png` remain separate island assets.
+- Do not retune accepted gameplay physics to fit artwork. Keep the shared gameplay boundary consistent across islands and validate visible drink footprints against each island's R04 surface.
 
-Any prompt, historical log, V1 contract, mask, or old asset instruction that conflicts with V2 is superseded.
-
-## Table asset production rulechain V2
-
-For every island table family, Codex/ChatGPT MUST read and obey:
-- `docs/ui-assets/TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md`
-
-Mandatory sequence:
-1. final V2-fitted `gameplay_table.png`;
-2. derive `table_edge_overlay.png` from that exact final table;
-3. create `gameplay_table_shadow.png` using the fixed deterministic V2 shadow recipe.
-
-Independent AI generation of table-edge overlay geometry or scenic table shadows is forbidden.
-
-Azure Bay is the V2 structural master. The remaining nine islands must use the same geometry, apron/leg relationship, progression clearance, overlay derivation method, and shadow recipe. Only island art/material language may vary.
+`TABLE_GEOMETRY_CONTRACT_V2.md` and `TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md` are historical evidence only for the retired split-table visual pipeline. They do not authorize new R04 split table layers or masks.
 
 ## Repository hygiene and Desktop worktree policy
 

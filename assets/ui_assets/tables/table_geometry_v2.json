@@ -1,6 +1,6 @@
 {
   "geometry_version": 2,
-  "status": "OWNER_CONSTITUTIONAL",
+  "status": "HISTORICAL_VISUAL_PRODUCTION_ONLY",
   "supersedes": "assets/ui_assets/tables/table_geometry_v1.json",
   "viewport": {
     "width": 720,
@@ -263,5 +263,7 @@
     "edge_extraction_mask": "assets/ui_assets/tables/table_edge_extraction_mask_v2.png",
     "shadow_master": "assets/ui_assets/tables/table_shadow_master_v2.png"
   },
-  "shadow_rule": "use table_shadow_master_v2.png exactly for every island; deterministic recipe remains the reproducibility authority"
+  "shadow_rule": "use table_shadow_master_v2.png exactly for every island; deterministic recipe remains the reproducibility authority",
+  "superseded_by": "docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md",
+  "current_runtime_physics_authority": "scripts/game_manager.gd R11 remains unchanged"
 }

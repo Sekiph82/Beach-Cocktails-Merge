@@ -8,17 +8,18 @@ This branch-only library is generated for the M12 V05 visual-production stream. 
 - `campaign/`: world-map, reusable progression UI, and ten island packs.
 - `screens/`: splash, menu, pre-level, results, shop, settings, tutorial, and social screens.
 - `effects/`: restrained feedback overlays.
-- `tables/`: V2 geometry JSON plus canonical playable-surface, lower-structure, edge-extraction, and shadow masters. Legacy V1 mask/edge-master files are retained only for history.
+- `campaign/islands/<island>/`: five map/completion PNGs plus an island-specific R04 source and byte-identical runtime gameplay surface.
+- `tables/`: historical V1/V2 geometry JSON only; the split-table PNG masters were retired when R04 became the gameplay-screen authority.
 - `source/`: generator provenance and style-reference notes only, including the generated remediation direction board.
 
 ## Generation and export
 
-V05 production uses the accepted V04 visual masters plus Codex image-generation source atlases for the new visual families. Technical post-processing is limited to crops, resizes, alpha masks, composites, metadata, contact sheets, and evidence assembly; Pillow/procedural primitives are not used as final primary artwork. The owner-supplied logo and mandatory reference boards remain protected. Table production is governed by `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md` and `tables/table_geometry_v2.json`. V2 separates the accepted R11 playable tabletop from the lower non-playable apron/leg/progression region. The legacy V1 JSON/mask are historical only and must not be used to clip new full-table artwork.
+The owner-selected R04 gameplay surface for each island is the single gameplay-screen art authority. The generic runtime image is a byte-identical copy of that island's `gameplay_surface_v07_r04.png`; each image is SHA-bound to its `playable_geometry_r04.json`. The former V2 split-table production contract is historical for this screen.
 
-`V05_ASSET_REGEN_STATUS.csv` records one validation row for each of the 398 manifest assets. `v05_sources/` contains the three visual source atlases used for technical extraction, while the contact sheets and `docs/evidence/m12/v05/` provide builder evidence.
+`V05_ASSET_REGEN_STATUS.csv` is historical V05 evidence. `v05_sources/` contains visual source atlases used for technical extraction, while retained contact sheets and `docs/evidence/m12/v05/` provide historical builder evidence.
 
 `tools/ui_assets/generate_assets.py` is retained as historical tooling and is not the V05 final-art generator.
 
-`tools/ui_assets/validate_assets.py` now validates the V2 geometry data, 720x1280 table canvas, R11 rail constants, y≈988.333 tabletop-front transition contract, and presence of lower apron/leg structure. Azure Bay V2 is owner-approved and frozen as the structural master. The validator enforces canonical V2 structure/overlay/shadow masters for islands listed in `v2_converted_islands`.
+Run `tools/ui_assets/prepare_gameplay_surface_r04.py`, `tools/ui_assets/rebuild_asset_catalog_r04.py`, and `tools/ui_assets/validate_assets.py` to prepare and verify the R04 image/profile/evidence set. The validator requires the per-island R04 source/runtime pair, profile hashes, shared gameplay boundary, measurement/debug/footprint evidence, and an island image inventory without retired split gameplay layers.
 
-The global, island, table, screen, semantic-icon, and major-screen contact sheets are audit evidence, not runtime integration. `source/style_reference_board*.png` are visual direction references only. Runtime table/play-area and logo replacement remain deferred to UIA-M14.
+The global, island, screen, semantic-icon, and major-screen contact sheets are historical audit evidence, not runtime integration. `source/style_reference_board*.png` are visual direction references only.

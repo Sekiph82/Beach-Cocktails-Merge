@@ -1,5 +1,7 @@
 # Beach Cocktails Merge — Table Asset Production Rulechain V2
 
+> **HISTORICAL / SUPERSEDED FOR GAMEPLAY ART BY OWNER DIRECTIVE (2026-10-04).** The R04 single gameplay-surface contract now governs gameplay visuals. This V2 split-asset rulechain is retained as history only and must not be used to generate active gameplay assets.
+
 Status: **MANDATORY / CONSTITUTIONAL PRODUCTION PROCEDURE**
 Applies to: Azure Bay master and the remaining 9 island table families
 Geometry authority:

@@ -16,11 +16,8 @@ const DEFAULT_LEVELS_PATH := "res://data/campaign/levels/sunny_cove.json"
 const MIN_COCKTAIL_LEVEL := 1
 const MAX_COCKTAIL_LEVEL := 12
 const REQUIRED_THEME_KEYS := [
-    "gameplay_background",
-    "gameplay_table",
-    "gameplay_table_shadow",
-    "table_edge_overlay",
-    "launch_zone",
+    "gameplay_surface",
+    "playable_geometry_profile",
     "island_map_background",
 ]
 
@@ -204,9 +201,17 @@ func _validate_island_root(root: Variant) -> bool:
             return _fail("island reward_track must be an object: %s" % island_id)
         if raw_island.has("target_policy") and not _validate_target_policy(raw_island["target_policy"], island_id):
             return false
-        if raw_island.has("theme") and not _validate_theme(raw_island["theme"], island_id):
-            return false
-        if raw_island.has("playable_geometry") and not _validate_playable_geometry(raw_island["playable_geometry"], island_id):
+        if raw_island.has("theme"):
+            if not _validate_theme(raw_island["theme"], island_id):
+                return false
+            var profile_path := str(raw_island["theme"].get("playable_geometry_profile", ""))
+            var profile: Variant = _read_json(profile_path, "R04 playable geometry profile")
+            if profile == null or not profile is Dictionary or not _validate_surface_profile(profile, island_id, str(raw_island["theme"]["gameplay_surface"])):
+                return false
+            raw_island["playable_geometry"] = profile["geometry"].duplicate(true)
+            if not _validate_playable_geometry(raw_island["playable_geometry"], island_id):
+                return false
+        elif raw_island.has("playable_geometry") and not _validate_playable_geometry(raw_island["playable_geometry"], island_id):
             return false
         _islands_by_id[island_id] = raw_island.duplicate(true)
 
@@ -373,11 +378,47 @@ func _validate_theme(theme: Variant, island_id: String) -> bool:
             return _fail("theme path is outside island asset family: %s/%s" % [island_id, key])
         if not FileAccess.file_exists(path):
             return _fail("theme asset does not exist: %s" % path)
-    if theme.has("gameplay_surface"):
-        var surface_path := str(theme["gameplay_surface"])
-        if not surface_path.begins_with(family_prefix) or not FileAccess.file_exists(surface_path):
-            return _fail("gameplay_surface asset is missing or outside island asset family: %s" % island_id)
+    var surface_path := str(theme["gameplay_surface"])
+    if not surface_path.begins_with(family_prefix) or not FileAccess.file_exists(surface_path):
+        return _fail("gameplay_surface asset is missing or outside island asset family: %s" % island_id)
     return true
+
+
+func _validate_surface_profile(profile: Dictionary, island_id: String, expected_surface_path: String) -> bool:
+    if not profile.has_all(["schema_version", "island_id", "surface_path", "surface_sha256", "r04_source_path", "r04_source_sha256", "viewport_px", "geometry"]):
+        return _fail("R04 surface profile is incomplete: %s" % island_id)
+    if int(profile["schema_version"]) != 1 or str(profile["island_id"]) != island_id:
+        return _fail("R04 surface profile identity mismatch: %s" % island_id)
+    if str(profile["surface_path"]) != expected_surface_path:
+        return _fail("R04 profile surface path mismatch: %s" % island_id)
+    if not profile["viewport_px"] is Array or profile["viewport_px"].size() != 2 or int(profile["viewport_px"][0]) != 720 or int(profile["viewport_px"][1]) != 1280:
+        return _fail("R04 surface viewport must be 720x1280: %s" % island_id)
+    var source_path := str(profile["r04_source_path"])
+    if not source_path.begins_with("assets/ui_assets/campaign/islands/%s/" % island_id) or not source_path.ends_with("/gameplay_surface_v07_r04.png"):
+        return _fail("R04 source path is outside its island family: %s" % island_id)
+    var source_res_path := "res://" + source_path
+    if not FileAccess.file_exists(source_res_path):
+        return _fail("R04 source asset is missing: %s" % island_id)
+    var surface_bytes := FileAccess.get_file_as_bytes(expected_surface_path)
+    var source_bytes := FileAccess.get_file_as_bytes(source_res_path)
+    if surface_bytes.is_empty() or source_bytes.is_empty():
+        return _fail("R04 source or runtime surface is unreadable: %s" % island_id)
+    var surface_hash := _sha256(surface_bytes)
+    if surface_hash != str(profile["surface_sha256"]) or surface_hash != str(profile["r04_source_sha256"]):
+        return _fail("R04 surface/profile SHA-256 mismatch: %s" % island_id)
+    if surface_bytes != source_bytes:
+        return _fail("runtime surface is not byte-identical to the island R04 source: %s" % island_id)
+    var surface_texture := load(expected_surface_path) as Texture2D
+    if surface_texture == null or surface_texture.get_width() != 720 or surface_texture.get_height() != 1280:
+        return _fail("R04 runtime surface must decode at 720x1280: %s" % island_id)
+    return _validate_playable_geometry(profile["geometry"], island_id)
+
+
+func _sha256(bytes: PackedByteArray) -> String:
+    var context := HashingContext.new()
+    if context.start(HashingContext.HASH_SHA256) != OK or context.update(bytes) != OK:
+        return ""
+    return context.finish().hex_encode()
 
 
 func _validate_playable_geometry(geometry: Variant, island_id: String) -> bool:

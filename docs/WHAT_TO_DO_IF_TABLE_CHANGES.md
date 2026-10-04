@@ -1,94 +1,21 @@
-# What to Do If the Table Artwork Changes — V2
+# What to Do If the Gameplay Surface Changes — V07-R04
 
-**Constitutional authority:** `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V2.md`
-**Machine-readable authority:** `assets/ui_assets/tables/table_geometry_v2.json`
-**Runtime baseline:** accepted R11 table-edge behavior in `scripts/game_manager.gd`
+**Current technical authority:** `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`
 
-## Default rule: geometry first, artwork second
+**Per-island machine-readable authority:** `assets/ui_assets/campaign/islands/<island>/playable_geometry_r04.json`
 
-Do **not** measure an arbitrary newly generated table and then retune gameplay to fit it.
+**Runtime boundary and physics:** accepted R11 implementation in `scripts/game_manager.gd` and `scripts/drink.gd`
 
-The default workflow is the opposite:
+## Current workflow
 
-1. preserve the accepted R11 playable rails;
-2. generate/fit the new table artwork to V2;
-3. preserve the canonical 720x1280 composition;
-4. keep the tabletop/front-art transition near y=988.333;
-5. reserve the lower region for front apron/thickness + two visible legs;
-6. keep the existing L01-L12 progression content visible between the legs.
+1. Keep the owner's frozen `gameplay_surface_v07_r04.png` for each island.
+2. Derive that island's `gameplay_surface.png` as a byte-identical copy; never reuse another island's art.
+3. Calibrate and measure against the exact image SHA-256 at 720x1280.
+4. Record the per-island measurements and unchanged shared playable boundary in `playable_geometry_r04.json`.
+5. Generate the geometry-debug and twelve-level collider-footprint overlays from that exact image.
+6. Run `python tools/ui_assets/prepare_gameplay_surface_r04.py`, `python tools/ui_assets/rebuild_asset_catalog_r04.py`, `python tools/ui_assets/validate_assets.py`, and the focused R04 Godot probe.
+7. Preserve the accepted rear-edge safety margin, zero added side clearance, R11 rails, collider radii, physics, scoring, and progression behavior.
 
-The legacy V1 bottom-corner polygon, V1 JSON, and `table_silhouette_mask.png` are not authority for new table art.
+The table, its edge treatment, and contact shadows are integrated into the R04 surface. There is no separate table, overlay, or shadow asset to align. The five independent island-map/completion images remain `complete_badge.png`, `map_background.png`, `map_title.png`, `theme_badge.png`, and `world_icon.png`.
 
-## Runtime geometry frozen by default
-
-Current source-space values in `scripts/game_manager.gd`:
-- `ACTUAL_REAR_TABLE_SOURCE_Y = 478`;
-- left rail = (199,478), (149,587), (124,644), (85,734), (60,800), (20,1000), (8,1186);
-- right rail = (833,478), (880,587), (905,644), (942,734), (964,800), (1002,1000), (1016,1186);
-- `DANGER_SOURCE_Y = 1080`;
-- `LAUNCH_SOURCE_Y = 1136`;
-- `REAR_EDGE_MARGIN = 12`.
-
-At 720x1280 these map approximately to:
-- rear Y = 398.333;
-- danger Y = 900;
-- launch Y = 946.667;
-- front tabletop art transition / last rail sample Y = 988.333.
-
-Do not change these values for visual-production convenience.
-
-## Full table artwork
-
-`gameplay_table.png` is a full 720x1280 transparent table asset.
-
-It contains:
-- the V2-aligned tabletop;
-- front apron/table thickness below the tabletop;
-- exactly two visible front legs/supports.
-
-The region below y≈988.333 is non-playable visual structure.
-
-The two legs must frame, not cover, the existing progression UI.
-
-## Progression area
-
-At 720x1280 the current progression panel is approximately:
-- x = 12..708;
-- y = 1039.465..1272.
-
-Runtime L01-L12 icon centers are approximately:
-- X = 197.547, 262.335, 326.643, 390.951, 455.419, 520.689;
-- Y = 1124.300 and 1186.363.
-
-No opaque leg/apron art may cover those icon centers.
-
-Exact leg X placement is frozen only after owner approval of the Azure Bay V2 master, then reused for all islands.
-
-## What not to touch for a normal island skin
-
-Do not change:
-- `scripts/game_manager.gd` rail points;
-- R11 footprint projection;
-- `REAR_EDGE_MARGIN`;
-- drink collider radii;
-- merge momentum;
-- launch speed/deceleration;
-- progression runtime logic.
-
-Only the art skin changes.
-
-## If the owner explicitly changes gameplay geometry
-
-A physics/geometry change is a separate owner-authorized task.
-
-Then:
-1. update `scripts/game_manager.gd` rail/rear/danger/launch values;
-2. update `TABLE_GEOMETRY_CONTRACT_V2.md`;
-3. update `table_geometry_v2.json`;
-4. re-run all R11 table-edge/footprint regression checks;
-5. verify L12 rear fit;
-6. verify danger and launch placement;
-7. verify progression/leg composition;
-8. require owner runtime approval.
-
-Never silently change gameplay geometry to rescue a generated image.
+The superseded V2 split-table documents and calibration scripts are historical evidence only. They must not be used to generate, validate, or bind current gameplay artwork.

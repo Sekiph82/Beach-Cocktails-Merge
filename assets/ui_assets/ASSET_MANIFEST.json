@@ -76,6 +76,48 @@
       "sha256": "a6cc39ca90c62cd8f2782167a55f5da351d6e94aa8b3e571c20f98e12eabdf13"
     },
     {
+      "path": "assets/ui_assets/brand/logo_concept_v01.png",
+      "category": "brand",
+      "intended_screen_use": "logo concept v01",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9fc444bacec9be5668d660c6ebd08b2acf28aa2210b7155ece7f41ac29c23022"
+    },
+    {
+      "path": "assets/ui_assets/brand/logo_concept_v02.png",
+      "category": "brand",
+      "intended_screen_use": "logo concept v02",
+      "dimensions": {
+        "width": 1230,
+        "height": 1278
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "01df1d29babcab24fc70ee2fa64f482cec210575a03f9adc183b0187d7e524e6"
+    },
+    {
+      "path": "assets/ui_assets/brand/logo_concept_v03.png",
+      "category": "brand",
+      "intended_screen_use": "logo concept v03",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9e78c2b36fed466a9be1c186b8069af94cd291c23bd220cffc671f88f692f552"
+    },
+    {
       "path": "assets/ui_assets/brand/splash_logo.png",
       "category": "brand",
       "intended_screen_use": "splash logo",
@@ -342,102 +384,32 @@
       "sha256": "d9b39e2deab660554ce894fe4b3c75badb974e90786e14f35e3b335ab4b33173"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_surface.png",
       "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "azure_bay",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "b22a3f1a8cfcb45b6bad2225b4cff21db3fc74be08df5513b831bb8a07d89411"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/decor_left.png",
-      "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "azure_bay",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "31cd92686647acbfe9903d7fbe0dc52424ae32537771748eafa9fb6f2edb543d"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/decor_right.png",
-      "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "azure_bay",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "817bb1d5bc5938a830e36efde71c96d91d82eaca5026459058f3830bea30c150"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_background.png",
-      "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "azure_bay",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "e9c8a775cfbe20a6d45463419a68add500387937219719d0ddedc3519c501bf1"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "1e5f0934bb2755885aa9d20c620877441f1de4f74b439abc94f94321b2f1f472"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "azure_bay",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "dd088f1586afdc51be1eb877e653ed9d1301e0ee4eb85ffe8d62a7895ecad971"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png",
-      "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "azure_bay",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/launch_zone.png",
-      "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "azure_bay",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "035fbc12d79ba4c87c2c0afe265bc5d12cc53927e8ae862e2e95b43338ef9474"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "1e5f0934bb2755885aa9d20c620877441f1de4f74b439abc94f94321b2f1f472"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/map_background.png",
@@ -466,20 +438,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "7b551fd0dcc3ca2e3cf3be692ea2142a2de409df6f8309231d9ef94a3aaf9d4e"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png",
-      "category": "campaign/islands/azure_bay",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "azure_bay",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "4a2c0276e53ecf61ee855d3d472d3d13297be3be24bcc92ce470027aa982d48f"
     },
     {
       "path": "assets/ui_assets/campaign/islands/azure_bay/theme_badge.png",
@@ -524,102 +482,32 @@
       "sha256": "0dc40cbb7f04ea4800a032791365473b8f042f0fad39cf8b014efde48b6ca005"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png",
       "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "billionaire_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "cc63eab61c06920727f8941b4dab6fc833a26aef945b88b6e4c78cef1a3c97d7"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/decor_left.png",
-      "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "billionaire_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "b1ce6526135907313e914adce882790b9a39f517d4b0afa87ea0337ce01df91f"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/decor_right.png",
-      "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "billionaire_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "c57eb9b851905511f867f1de4bdff5cc5def9166d06ab45a438cf0f4af7b513c"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_background.png",
-      "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "billionaire_island",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "4a632cd409446ae34353a8ac8b1cd819347a674f115980ed0829e89d1e8ae50e"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "31e2175ffefdfac52fcdb678f25e342245113faeae8de3cf99f2419f4336a42f"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "billionaire_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "60506cca0bc898078e51902120d764635b34da564bb8b44f2d981813a7842002"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png",
-      "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "billionaire_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png",
-      "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "billionaire_island",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "b906ea4d979590b3db0dd5a66144d112fbac2d694e54d1de0053e6f210716607"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "31e2175ffefdfac52fcdb678f25e342245113faeae8de3cf99f2419f4336a42f"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/map_background.png",
@@ -648,20 +536,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "8413845ac5b4f657baee8a5c96aba7a2002ec04fe5e66a663fbf72ad4c77aabd"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png",
-      "category": "campaign/islands/billionaire_island",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "billionaire_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "26b1897659b20676dca7b442d4c8e027693df6c0783f119200fd4b9fd0c2d4c7"
     },
     {
       "path": "assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png",
@@ -706,102 +580,32 @@
       "sha256": "6a2bb91c778e98da4c9453e08f791950291e4676b57c3e3f25ea97b8d38cc1ff"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface.png",
       "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "coconut_beach",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "06776456b768310986a1adef9fb23573f8ea52e3ec2fb4c6b93e94b58e467308"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/decor_left.png",
-      "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "coconut_beach",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "29f53afcf9ae2895d003ba6497fd184f0fa68e81ad97c247eb158f92a4ad8f94"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/decor_right.png",
-      "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "coconut_beach",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "7b625fbfcad1b6759a030f8fbb8afb42ba2d5936e781ff196792fded5e2d1e21"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_background.png",
-      "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "coconut_beach",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "97de89f8f50a8ffdfee123be723c49666740e920947d71194796d6364a6d630a"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "8d252e703324c921a69f404241545c4017abec307fc305dd8d74d20cf5e77900"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "coconut_beach",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "7586ac0f28d21cba4e84b2a02b88273fb2c8e842226ee8b3846241d24b742217"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png",
-      "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "coconut_beach",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png",
-      "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "coconut_beach",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "ba79218239881cfbd47ad9d5ff32e651bedcb72e5c6adc5725e5757974af0967"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "8d252e703324c921a69f404241545c4017abec307fc305dd8d74d20cf5e77900"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/map_background.png",
@@ -830,20 +634,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "e46d70e8e700ab5e83baab614f6d96dfa28a946cc5ca0027a9ab173eb2399c30"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png",
-      "category": "campaign/islands/coconut_beach",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "coconut_beach",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "68e32368d3df4bac09b03dea6c9456d89f36cb096631574806add35f2a95c725"
     },
     {
       "path": "assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png",
@@ -888,102 +678,32 @@
       "sha256": "f5ebdc75476b0198769c6e87a4e77a3f681772f6a3470dc98914e1e62ab819d8"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/final_island/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/final_island/gameplay_surface.png",
       "category": "campaign/islands/final_island",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "final_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "4a4abeb879ca1c2bb2f7fdfa46e45f747e65964466a2d4ab91e2a418db7d89a1"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/final_island/decor_left.png",
-      "category": "campaign/islands/final_island",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "final_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "ad507fb2fdbf077e8e2ab56be4543fea05601a99e1567fd0a623ca1473e012ad"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/final_island/decor_right.png",
-      "category": "campaign/islands/final_island",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "final_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "aa68e2a221703b1e6efbd86f9c65a1fcefb615160bd8be032e589e7888a27937"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/final_island/gameplay_background.png",
-      "category": "campaign/islands/final_island",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "final_island",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "53553d94264ca8d410933fe2adf4123e8d558ec8689994ae18375df77544aef0"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "96b29e22913649df4e315860f9bc265007c83b58356e7b503c3b8d5d28b2156d"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/final_island/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/final_island/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/final_island",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "final_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "5c78cbe6535d16c726aa72dcbc87eab23886b3cbeaf10b525f6dd4c4306cb911"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png",
-      "category": "campaign/islands/final_island",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "final_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/final_island/launch_zone.png",
-      "category": "campaign/islands/final_island",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "final_island",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "b5da9d46d2e3a05fb205b573b95c0fc6bc9aebf7ba40f95d780c0129e70d4054"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "96b29e22913649df4e315860f9bc265007c83b58356e7b503c3b8d5d28b2156d"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/map_background.png",
@@ -1012,20 +732,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "97ab5fd532d025c551f3f170f7219fa4473102522eeb6fe7693b986d11e8483a"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png",
-      "category": "campaign/islands/final_island",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "final_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "2cee6b7ab1f4b324837bf95a0cc4c497f95c6afc33f1b2416b61cff38c93c545"
     },
     {
       "path": "assets/ui_assets/campaign/islands/final_island/theme_badge.png",
@@ -1070,102 +776,32 @@
       "sha256": "e042971c7cd1e769dbed35a04a1075861155ff0377e70bb781f3aa4fcd7dc070"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png",
       "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "frozen_paradise",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "f758fc3a4fe4009397419fb6e900235d816c68ea6f88152eeaf7c78b585b06de"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/decor_left.png",
-      "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "frozen_paradise",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "0d2e3e0c7dd052b86b7b99bdd1f5ff7dc68115b703152d3d8e3a61e4d222e0c5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/decor_right.png",
-      "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "frozen_paradise",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "80cb3c94fb799b902d5bb8253a0fbea54945495cbea882945891869854bb6124"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_background.png",
-      "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "61cdd26a8e7f49fd66bec49beafde24a1cdb8d266c6202fbb7f39b7abe182467"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "dd8f0e538b7b5f6ed99cd07c2eac2ac843de19216e48584936382a73f3bfd476"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "frozen_paradise",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "a2f94008d8495160da37caa015e1f4a260db9d8cd4268166f73bd6b1c89cbea6"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png",
-      "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "frozen_paradise",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png",
-      "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "frozen_paradise",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "8049c7addffb6baaf7f9dd4e42cf5e74bf899897012be3428676b868096c3a46"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "dd8f0e538b7b5f6ed99cd07c2eac2ac843de19216e48584936382a73f3bfd476"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/map_background.png",
@@ -1194,20 +830,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "5bdaed2ad8efcd572dc0373bf4b98e1053d4274daa0b02258bb9953e9fd6abc3"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png",
-      "category": "campaign/islands/frozen_paradise",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "frozen_paradise",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "67cac03dc52480091b8bf892201ff680ea3d3529c89b07d0b799b142080de965"
     },
     {
       "path": "assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png",
@@ -1252,102 +874,32 @@
       "sha256": "551577ca535dfa044962903bc2b0fad5e02b59e40f72583ca57646e4a3629739"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/party_beach/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_surface.png",
       "category": "campaign/islands/party_beach",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "party_beach",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "3de2ad94efaf7a6e691f33ef8bb1ca729fb7bb0e02960d4118a2288ec2a1f34c"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/party_beach/decor_left.png",
-      "category": "campaign/islands/party_beach",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "party_beach",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "adb7a5e26536e2e4f5fa517f3b9698416752b21a114968748690d04d9c1f3c36"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/party_beach/decor_right.png",
-      "category": "campaign/islands/party_beach",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "party_beach",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "61b36a01bf7604df57102ec0e355f1c04542fe36e3e13fed55fca9708cc4ec0c"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_background.png",
-      "category": "campaign/islands/party_beach",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "party_beach",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "7d976627b9c5258027f57c9ed5edb70e374b03bf82df7ff47de92c5c26658046"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "b30c3f8c2c96c782cb9fc6a8ec40ebd771785ae9b15e4b1f9cc305eddf660366"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/party_beach",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "party_beach",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "08788da337fb629e1afbb373651d8e166f1a56168b16c2c12f01063090eb1f4b"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png",
-      "category": "campaign/islands/party_beach",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "party_beach",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/party_beach/launch_zone.png",
-      "category": "campaign/islands/party_beach",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "party_beach",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "b590c707cc36b1adc9fa452b424a1f75fc70a082465fdc79ad933b0a3a6f2f6c"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "b30c3f8c2c96c782cb9fc6a8ec40ebd771785ae9b15e4b1f9cc305eddf660366"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/map_background.png",
@@ -1376,20 +928,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "d3e473f34c50e36ea1af581333453daa2a4375726ad883828fc5463dfae62069"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png",
-      "category": "campaign/islands/party_beach",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "party_beach",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "166ffadbf92513a5e0c5ddec3f9ae48afc08e720adc3169b2f8aefe8156872c1"
     },
     {
       "path": "assets/ui_assets/campaign/islands/party_beach/theme_badge.png",
@@ -1434,102 +972,32 @@
       "sha256": "a051cd709f87218d11caaea73ce80a6cd3013cfe69274e7ac6642c7013b54d42"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png",
       "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "sunny_cove",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "38ca7d5630dffd9624bea28adf22a82c91c075d18d8564df706690d0c5380dea"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/decor_left.png",
-      "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "sunny_cove",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "aa5db2e11a7eeb2a270355ebb3224349fed3308ee0e49504adf7706da8e2dff9"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/decor_right.png",
-      "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "sunny_cove",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "f441656f342fd9dae56cd122b9261f302933bd8e291a92dd57c501ed22692bd3"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png",
-      "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "sunny_cove",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "4236f0edc72066a7083c232004766077d1c6a80daf13cf2c9edc289714207605"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "1eb7ace77a4713d896c5f48e9c34a3406a5ed319da387ce2ca940117f14a53b0"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "sunny_cove",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "2512c54f58669c7daff7986e7ab9d1288a2416ec4e7a15de792aa04df181238d"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png",
-      "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "sunny_cove",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png",
-      "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "sunny_cove",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "db4e7f96958397bfbca124fcd51e680d89ba59fd55e2a8c5cbbf9d67df471ab7"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "1eb7ace77a4713d896c5f48e9c34a3406a5ed319da387ce2ca940117f14a53b0"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
@@ -1558,20 +1026,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "c820734172ae81139920e3d60be53e2e8f662a9cba5e4a0f37feecac967c8815"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png",
-      "category": "campaign/islands/sunny_cove",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "sunny_cove",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "48b385f535cf63af1c097d1df59756ca13f5c9138e5b59fc916d1369d58ffc32"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png",
@@ -1616,102 +1070,32 @@
       "sha256": "782cf3d7d24e33caffd6101f16761b201d33b0a6fb74ecdafbec7ac256401433"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_surface.png",
       "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "sunset_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "2df52159e9a13eaefdc111a567ed8055bf2dc09f4f2eafecfe9015d4c5dbb4cd"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/decor_left.png",
-      "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "sunset_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "be154cf4203eedca786cec1e2c6d02e102721f988b6813b252814036f4e9c19a"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/decor_right.png",
-      "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "sunset_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "a383463c67bcfdb21c12365f34fe573826a28ffeb80adf16ff540813c651ce5d"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_background.png",
-      "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "sunset_island",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "ed404eea538549e18515e2ae65cb414799c8c3c89801bb034db8259f1a99cb52"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "e274b9047abe662e75442575f957c22b713927f08cb96dc3cd8cf5bf6048c35e"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "sunset_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "fc7718c08956a9caf9eff1567bff73aa599b616c55561798fe2432b8443d7bf3"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png",
-      "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "sunset_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/launch_zone.png",
-      "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "sunset_island",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "7d11b9a0d0c1eff43b6e1273ff5f4974c63a74c171e82c4bf91e7ad5fa154e40"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "e274b9047abe662e75442575f957c22b713927f08cb96dc3cd8cf5bf6048c35e"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/map_background.png",
@@ -1740,20 +1124,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "bf517dd54ec8a0ff552303c125e8d124c3d42843230e35d44db543ca6374cda9"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png",
-      "category": "campaign/islands/sunset_island",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "sunset_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "2b761d97e863ce981bdbb37f762632677f2692ce6b237d93df96c15e067e3eb6"
     },
     {
       "path": "assets/ui_assets/campaign/islands/sunset_island/theme_badge.png",
@@ -1798,102 +1168,32 @@
       "sha256": "f9ccec75eb077455ddc9ac4b2ceb768f1b10299338a89c96f755567f3be3e758"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_surface.png",
       "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "tiki_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "991944a153018d08a91d5a99bef0e1ad21f67fd52d874d2152d0139f423a298c"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/decor_left.png",
-      "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "tiki_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "28033355ae129ce36cacdd5e28255a3801e05bc41c0d68f8d6803121406adff2"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/decor_right.png",
-      "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "tiki_island",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "ea976c886b449a6e2ee14ed8c000eb6b9fc1e3d02ca8bec6b8f4af41afa78433"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_background.png",
-      "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "tiki_island",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "31fa7a846b2eff7a7886d6e334ed3adec1f6aa9f291997e5c76d165270ae7b4a"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "f50843237560a7ce261169925d6b726aca322477aa71b910397f6e731db9d1c4"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "tiki_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "6d56b607227c86b446acf60eefdc90e58daf330e869b7a932e9f557f3c3090cb"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png",
-      "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "tiki_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/launch_zone.png",
-      "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "tiki_island",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "e10e674e136d4c0a45c43e2bf98c40d6c4a4c6b1c848a4019989bf54035a8cd9"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "f50843237560a7ce261169925d6b726aca322477aa71b910397f6e731db9d1c4"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/map_background.png",
@@ -1922,20 +1222,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "f333436fc83bc6d9192f72c97f5b40b7a115b05220c72a0d9cc8ebb679333cea"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png",
-      "category": "campaign/islands/tiki_island",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "tiki_island",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "e70f5bdfcf5bd99f4e1b5a7632970f38ef6cb89b5e303fc29b36f72e5f2f23f0"
     },
     {
       "path": "assets/ui_assets/campaign/islands/tiki_island/theme_badge.png",
@@ -1980,102 +1266,32 @@
       "sha256": "d45d97b27769a40bab7f33d3ea509c60e0a69721e13c417b32c578acc42728c2"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/decor_back.png",
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface.png",
       "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "decor back",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "volcano_bay",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-crop",
-      "sha256": "a152acf147160558a2fb4af58bee24c2ef35012d0440de4412dedea556d53b0e"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/decor_left.png",
-      "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "decor left",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "volcano_bay",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "b31d308cffbadff1e956bf2f550c37c47c8b0a89cf526eb7b7578ef84b2123ff"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/decor_right.png",
-      "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "decor right",
-      "dimensions": {
-        "width": 300,
-        "height": 380
-      },
-      "alpha_expected": true,
-      "island_id": "volcano_bay",
-      "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-decor-crop",
-      "sha256": "fa1a738afb051739bb5eed0bd150f77735ab820c16d2813975b49dfd0bc8b7a8"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_background.png",
-      "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "gameplay background",
+      "intended_screen_use": "canonical runtime copy of island R04 gameplay surface",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "volcano_bay",
       "table_geometry_version": null,
-      "generation_source_method": "V04-island-master-resize",
-      "sha256": "9d43e39f645168dbfe23be3765cb2c3e29cebe97a613a5e66ba88fe1f260f32b"
+      "generation_source_method": "byte-identical copy of owner-selected per-island gameplay_surface_v07_r04.png",
+      "sha256": "0e7f953c4fe3b9b9e46234a8a924ed6f730a656eea520cc81e3078f692590e5b"
     },
     {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png",
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface_v07_r04.png",
       "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "gameplay table",
+      "intended_screen_use": "gameplay surface v07 r04",
       "dimensions": {
         "width": 720,
         "height": 1280
       },
-      "alpha_expected": true,
-      "island_id": "volcano_bay",
-      "table_geometry_version": 2,
-      "generation_source_method": "canonical-v2-structural-table-material",
-      "sha256": "e3bbd0772f93225a57cf9219905c126aff2c1c04551f5a77c9d3d72ad5ce1d7b"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png",
-      "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "gameplay table shadow",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "volcano_bay",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-shadow-master-copy",
-      "sha256": "20af07627eea30cc81c9b0be7d02947d8b15c521fdaa9ab5698fd1b47babe8b5"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png",
-      "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "launch zone",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
+      "alpha_expected": false,
       "island_id": "volcano_bay",
       "table_geometry_version": null,
-      "generation_source_method": "AI-UI-atlas-technical-composite",
-      "sha256": "6a3e99c72b3e57760cfd67cf9a81ee1a1579610b7196fc6a2a74fe73d626170c"
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "0e7f953c4fe3b9b9e46234a8a924ed6f730a656eea520cc81e3078f692590e5b"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/map_background.png",
@@ -2104,20 +1320,6 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "70f3fdc7eadc0a39cefa3c6bbf0d265aa06ad888bc5cf28ef5ab33c7b85801bd"
-    },
-    {
-      "path": "assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png",
-      "category": "campaign/islands/volcano_bay",
-      "intended_screen_use": "table edge overlay",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": "volcano_bay",
-      "table_geometry_version": 2,
-      "generation_source_method": "deterministic-v2-edge-extraction-from-final-table",
-      "sha256": "22a4c1fa72951dc722b140d80bfd2b37f96d4f2d358b9e66d6715db012cccf35"
     },
     {
       "path": "assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png",
@@ -2552,6 +1754,20 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "9d613c629e5be62999f8d64056946531bcb4ba2bc2defa9de0cf54859e9d53ff"
+    },
+    {
+      "path": "assets/ui_assets/CONTACT_SHEET_WORLD_MAP.png",
+      "category": ".",
+      "intended_screen_use": "CONTACT SHEET WORLD MAP",
+      "dimensions": {
+        "width": 1208,
+        "height": 1296
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "be6cf053f6bf83448c71f51518d700577f9716702dd8553f2549da2ffafc0a95"
     },
     {
       "path": "assets/ui_assets/effects/combo_badge.png",
@@ -4486,34 +3702,6 @@
       "sha256": "566d0dbef7c31dd02eec3ae56c3a5a77936943576f85aa39630210d9a9dbfbe8"
     },
     {
-      "path": "assets/ui_assets/tables/table_edge_overlay_master.png",
-      "category": "tables",
-      "intended_screen_use": "table edge overlay master",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": null,
-      "table_geometry_version": 1,
-      "generation_source_method": "technical-table-mask-edge-composite",
-      "sha256": "6cffe041d3b2774b3e97fe50f787d8afe4fa043d4a6924015b5519e9fb9929b8"
-    },
-    {
-      "path": "assets/ui_assets/tables/table_silhouette_mask.png",
-      "category": "tables",
-      "intended_screen_use": "table silhouette mask",
-      "dimensions": {
-        "width": 720,
-        "height": 1280
-      },
-      "alpha_expected": true,
-      "island_id": null,
-      "table_geometry_version": 1,
-      "generation_source_method": "protected-preserved",
-      "sha256": "4dab7493e55b6195cad79cf4671276df85085179d2e5a44c83715756450bbe5d"
-    },
-    {
       "path": "assets/ui_assets/ui/boosters/booster_count_badge.png",
       "category": "ui/boosters",
       "intended_screen_use": "booster count badge",
@@ -5576,6 +4764,230 @@
       "table_geometry_version": null,
       "generation_source_method": "AI-UI-atlas-crop",
       "sha256": "fd15db1ba7ad49d649f3613a859e53fe6e8e472749837606e2ff0c491d4dc006"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/azure_bay_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "azure bay master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "dc6c1091a09564b9f2d7ae3ec2cdde7575ec8a4e2ec4518e6bb353bd8ff91bb8"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/billionaire_island_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "billionaire island master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "2d53d95288b87748136d45ce4c09a5d29966e1b4fd86b10017c7bb0771bbf444"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/coconut_beach_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "coconut beach master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "2d5029ef07ececc38518a550ecaf6549497227e8552e064b3fd199c8fa40b71e"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/CONTACT_SHEET_V04.png",
+      "category": "v04_masters",
+      "intended_screen_use": "CONTACT SHEET V04",
+      "dimensions": {
+        "width": 1200,
+        "height": 1806
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "0ccd7d6fddba3fde0ba1411a139dedf38a532738d06b517597e391f95e01afe5"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/final_island_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "final island master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "dc5be24cc3bd7a04eb7012e37d867c7c7bc1917f2380ee1757ecb3e600e8cdf1"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/frozen_paradise_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "frozen paradise master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "a97a0b34ca662c81b051277b1813f1dbac907e79d604d257ea835cbca93ec31f"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/main_menu_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "main menu master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "a427253201ac35d1eba00ca9eaf6fcc4c0c32d1aff9a16ae7cfe19cc3ec79a8d"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/party_beach_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "party beach master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "233ef3d873829913a38cc3540e958ec8512af915348be3f3bec74e9167436eb9"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/sunny_cove_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "sunny cove master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9cb9cf8490a9e1fb760a89a07a929577e08fa60ca020a46b26ecf2d8f1d29d5b"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/sunset_island_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "sunset island master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "b923bca73b0d46eee349f1614c059c969fb5098399c3295dfcbb2e0fd04c18c4"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/tiki_island_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "tiki island master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9dc9fa847b50be402e5c11b1a9f5eaf475f67f9678ee36ce3d43eeff41b0ca58"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/volcano_bay_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "volcano bay master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "d4a514648037ad0fbbab2c63c29381a63e6517466111fc2f58dcd74df283c4c5"
+    },
+    {
+      "path": "assets/ui_assets/v04_masters/world_map_master.png",
+      "category": "v04_masters",
+      "intended_screen_use": "world map master",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9160ed46a05169c64e98b8eb65a75bce884474370c3766ca7f18e6f04841f233"
+    },
+    {
+      "path": "assets/ui_assets/v05_sources/effects_atlas.png",
+      "category": "v05_sources",
+      "intended_screen_use": "effects atlas",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "8b33e7ff0b724c418f490869672bf2daf132cce0f9dd629a0b79f098a17a2f80"
+    },
+    {
+      "path": "assets/ui_assets/v05_sources/screen_atlas.png",
+      "category": "v05_sources",
+      "intended_screen_use": "screen atlas",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "e61e31f9f63383a4794ff0899e2905a4348603dc0788f0290a3bb07b9f346607"
+    },
+    {
+      "path": "assets/ui_assets/v05_sources/ui_atlas.png",
+      "category": "v05_sources",
+      "intended_screen_use": "ui atlas",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "e22d0566e574860c5a261d3e90a0a5a0c587b903f9f5805bded04585511232f7"
     }
   ]
 }

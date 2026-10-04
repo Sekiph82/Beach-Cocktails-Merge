@@ -6,24 +6,16 @@
             "display_name": "Sunny Cove",
             "order_index": 1,
             "level_count": 100,
-            "unlock_rule": {"type": "default_open"},
+            "unlock_rule": {
+                "type": "default_open"
+            },
             "next_island_id": "tiki_island",
             "map_background": "res://assets/environment/game_board_background.png",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/sunny_cove/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/sunny_cove/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png"
-            },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json"
             },
             "island_map_layout": {
                 "page_size": 10,
@@ -31,288 +23,430 @@
                 "background_origin_y": -178.0,
                 "connector_lines": false,
                 "landmark_centers": [
-                    [353.0, 94.0],
-                    [647.0, 149.0],
-                    [169.0, 249.0],
-                    [402.0, 308.0],
-                    [616.0, 408.0],
-                    [66.0, 486.0],
-                    [642.0, 611.0],
-                    [386.0, 661.0],
-                    [162.0, 764.0],
-                    [553.0, 900.0]
+                    [
+                        353.0,
+                        94.0
+                    ],
+                    [
+                        647.0,
+                        149.0
+                    ],
+                    [
+                        169.0,
+                        249.0
+                    ],
+                    [
+                        402.0,
+                        308.0
+                    ],
+                    [
+                        616.0,
+                        408.0
+                    ],
+                    [
+                        66.0,
+                        486.0
+                    ],
+                    [
+                        642.0,
+                        611.0
+                    ],
+                    [
+                        386.0,
+                        661.0
+                    ],
+                    [
+                        162.0,
+                        764.0
+                    ],
+                    [
+                        553.0,
+                        900.0
+                    ]
                 ]
             },
-            "map_position": [0.175, 0.88],
-            "target_policy": {"min_level": 5, "max_level": 8},
+            "map_position": [
+                0.175,
+                0.88
+            ],
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 8
+            },
             "reward_track": {
-                "milestones": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
-                "cumulative_star_rewards": [
-                    {"threshold": 30, "reward": {}},
-                    {"threshold": 60, "reward": {}},
-                    {"threshold": 90, "reward": {}},
-                    {"threshold": 120, "reward": {}},
-                    {"threshold": 150, "reward": {"type": "booster", "id": "upgrade", "quantity": 1}},
-                    {"threshold": 180, "reward": {}},
-                    {"threshold": 210, "reward": {}},
-                    {"threshold": 240, "reward": {}},
-                    {"threshold": 270, "reward": {}},
-                    {"threshold": 300, "reward": {"type": "booster", "id": "upgrade", "quantity": 1}}
+                "milestones": [
+                    10,
+                    20,
+                    30,
+                    40,
+                    50,
+                    60,
+                    70,
+                    80,
+                    90,
+                    100
                 ],
-                "metadata": {"source": "sunny_cove_progression_v1"}
-            }
+                "cumulative_star_rewards": [
+                    {
+                        "threshold": 30,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 60,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 90,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 120,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 150,
+                        "reward": {
+                            "type": "booster",
+                            "id": "upgrade",
+                            "quantity": 1
+                        }
+                    },
+                    {
+                        "threshold": 180,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 210,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 240,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 270,
+                        "reward": {}
+                    },
+                    {
+                        "threshold": 300,
+                        "reward": {
+                            "type": "booster",
+                            "id": "upgrade",
+                            "quantity": 1
+                        }
+                    }
+                ],
+                "metadata": {
+                    "source": "sunny_cove_progression_v1"
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json"
         },
         {
             "id": "tiki_island",
             "display_name": "Tiki Island",
             "order_index": 2,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "sunny_cove",
+                "level_id": 100
+            },
             "next_island_id": "azure_bay",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/tiki_island.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/tiki_island/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/tiki_island/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/tiki_island/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/tiki_island/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/tiki_island/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/tiki_island/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/tiki_island/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/tiki_island/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/tiki_island/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 9
             },
-            "target_policy": {"min_level": 5, "max_level": 9},
-            "map_position": [0.12, 0.625],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.12,
+                0.625
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/tiki_island/playable_geometry_r04.json"
         },
         {
             "id": "azure_bay",
             "display_name": "Azure Bay",
             "order_index": 3,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "tiki_island", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "tiki_island",
+                "level_id": 100
+            },
             "next_island_id": "coconut_beach",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/azure_bay.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/azure_bay/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/azure_bay/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/azure_bay/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/azure_bay/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/azure_bay/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/azure_bay/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/azure_bay/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/azure_bay/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/azure_bay/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.665, 0.825],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.665,
+                0.825
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/azure_bay/playable_geometry_r04.json"
         },
         {
             "id": "coconut_beach",
             "display_name": "Coconut Beach",
             "order_index": 4,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "azure_bay", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "azure_bay",
+                "level_id": 100
+            },
             "next_island_id": "sunset_island",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/coconut_beach.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/coconut_beach/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/coconut_beach/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/coconut_beach/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/coconut_beach/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.29, 0.502],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.29,
+                0.502
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/coconut_beach/playable_geometry_r04.json"
         },
         {
             "id": "sunset_island",
             "display_name": "Sunset Island",
             "order_index": 5,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "coconut_beach", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "coconut_beach",
+                "level_id": 100
+            },
             "next_island_id": "party_beach",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunset_island.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/sunset_island/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/sunset_island/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/sunset_island/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/sunset_island/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/sunset_island/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/sunset_island/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunset_island/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunset_island/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunset_island/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.50, 0.52],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.5,
+                0.52
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunset_island/playable_geometry_r04.json"
         },
         {
             "id": "party_beach",
             "display_name": "Party Beach",
             "order_index": 6,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "sunset_island", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "sunset_island",
+                "level_id": 100
+            },
             "next_island_id": "frozen_paradise",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/party_beach.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/party_beach/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/party_beach/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/party_beach/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/party_beach/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/party_beach/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/party_beach/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/party_beach/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/party_beach/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/party_beach/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.81, 0.615],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.81,
+                0.615
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/party_beach/playable_geometry_r04.json"
         },
         {
             "id": "frozen_paradise",
             "display_name": "Frozen Paradise",
             "order_index": 7,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "party_beach", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "party_beach",
+                "level_id": 100
+            },
             "next_island_id": "volcano_bay",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/frozen_paradise.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/frozen_paradise/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/frozen_paradise/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/frozen_paradise/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/frozen_paradise/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.75, 0.005],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.75,
+                0.005
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/frozen_paradise/playable_geometry_r04.json"
         },
         {
             "id": "volcano_bay",
             "display_name": "Volcano Bay",
             "order_index": 8,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "frozen_paradise", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "frozen_paradise",
+                "level_id": 100
+            },
             "next_island_id": "billionaire_island",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/volcano_bay.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/volcano_bay/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/volcano_bay/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/volcano_bay/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/volcano_bay/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.255, 0.015],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.255,
+                0.015
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/volcano_bay/playable_geometry_r04.json"
         },
         {
             "id": "billionaire_island",
             "display_name": "Billionaire Island",
             "order_index": 9,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "volcano_bay", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "volcano_bay",
+                "level_id": 100
+            },
             "next_island_id": "final_island",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/billionaire_island.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/billionaire_island/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/billionaire_island/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/billionaire_island/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/billionaire_island/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.635, 0.165],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.635,
+                0.165
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/billionaire_island/playable_geometry_r04.json"
         },
         {
             "id": "final_island",
             "display_name": "Final Island (TBD)",
             "order_index": 10,
             "level_count": 0,
-            "unlock_rule": {"type": "requires_island_completion", "island_id": "billionaire_island", "level_id": 100},
+            "unlock_rule": {
+                "type": "requires_island_completion",
+                "island_id": "billionaire_island",
+                "level_id": 100
+            },
             "next_island_id": "",
             "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/final_island.png",
             "theme": {
-                "gameplay_background": "res://assets/ui_assets/campaign/islands/final_island/gameplay_background.png",
-                "gameplay_table": "res://assets/ui_assets/campaign/islands/final_island/gameplay_table.png",
-                "gameplay_table_shadow": "res://assets/ui_assets/campaign/islands/final_island/gameplay_table_shadow.png",
-                "table_edge_overlay": "res://assets/ui_assets/campaign/islands/final_island/table_edge_overlay.png",
-                "launch_zone": "res://assets/ui_assets/campaign/islands/final_island/launch_zone.png",
                 "island_map_background": "res://assets/ui_assets/campaign/islands/final_island/map_background.png",
-                "gameplay_surface": "res://assets/ui_assets/campaign/islands/final_island/gameplay_surface_v07_r04.png"
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/final_island/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/final_island/playable_geometry_r04.json"
             },
-            "playable_geometry": {
-                "playable_polygon": [[192,392],[528,392],[541,413],[554,445],[573,490],[592,545],[612,610],[632,680],[653,755],[674,832],[694,914],[706,960],[706,978],[14,978],[14,960],[26,914],[46,832],[67,755],[88,680],[108,610],[128,545],[147,490],[166,445],[179,413]],
-                "launch_y": 963,
-                "spawn_y": 963,
-                "death_y": 846
+            "target_policy": {
+                "min_level": 5,
+                "max_level": 12
             },
-            "target_policy": {"min_level": 5, "max_level": 12},
-            "map_position": [0.795, 0.36],
-            "reward_track": {"milestones": [], "metadata": {"placeholder": true}}
+            "map_position": [
+                0.795,
+                0.36
+            ],
+            "reward_track": {
+                "milestones": [],
+                "metadata": {
+                    "placeholder": true
+                }
+            },
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/final_island/playable_geometry_r04.json"
         }
     ]
 }

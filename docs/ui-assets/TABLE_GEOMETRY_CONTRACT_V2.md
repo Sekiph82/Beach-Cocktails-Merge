@@ -1,5 +1,7 @@
 # Beach Cocktails Merge — Canonical Table Geometry Contract V2
 
+> **HISTORICAL / SUPERSEDED FOR GAMEPLAY ART BY OWNER DIRECTIVE (2026-10-04).** Current gameplay-screen authority: `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`. Keep this file only as evidence for the retired split-table pipeline.
+
 Status: **OWNER-DIRECTED CONSTITUTIONAL GEOMETRY CONTRACT**
 Supersedes: `docs/ui-assets/TABLE_GEOMETRY_CONTRACT_V1.md`
 Runtime baseline: accepted R11 table-edge behavior on `main`

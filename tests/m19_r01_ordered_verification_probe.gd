@@ -15,8 +15,7 @@ const CANONICAL_ORDER := [
     "party_beach", "frozen_paradise", "volcano_bay", "billionaire_island", "final_island",
 ]
 const THEME_KEYS := [
-    "gameplay_background", "gameplay_table", "gameplay_table_shadow",
-    "table_edge_overlay", "launch_zone", "island_map_background",
+    "gameplay_surface", "playable_geometry_profile", "island_map_background",
 ]
 
 var child_id := 0
@@ -265,7 +264,7 @@ func _child_05() -> void:
     var bridge = BRIDGE_SCRIPT.new()
     bridge.configure(database, manager)
     var session: Dictionary = bridge.start_session("sunny_cove", 1)
-    _check("session bridge exposes immutable theme", not session.is_empty() and session.get("island_theme", {}).get("gameplay_table", "").contains("sunny_cove/gameplay_table.png") and bridge.get_active_island_theme().is_read_only())
+    _check("session bridge exposes immutable R04 surface/profile", not session.is_empty() and session.get("island_theme", {}).get("gameplay_surface", "").contains("sunny_cove/gameplay_surface.png") and session.get("island_theme", {}).get("playable_geometry", {}).has("surface_sha256") and bridge.get_active_island_theme().is_read_only())
     bridge.resolve_lose("R01_CHILD_05")
     var fixture_database = DATABASE_SCRIPT.new()
     fixture_database.load_from_data(_fixture_islands(), {"schema_version": 1, "island_id": "fixture_alpha", "levels": [_level("fixture_alpha", 1)]}, DATABASE_SCRIPT.ValidationMode.FULL)

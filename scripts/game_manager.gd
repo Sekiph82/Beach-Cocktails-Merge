@@ -441,73 +441,44 @@ func _apply_campaign_theme(theme: Variant) -> void:
 	var resolved: Dictionary = theme if theme is Dictionary else {}
 	var surface_path := str(resolved.get("gameplay_surface", ""))
 	var geometry: Variant = resolved.get("playable_geometry", {})
-	if not surface_path.is_empty() and geometry is Dictionary and not geometry.is_empty():
-		_active_playable_geometry = geometry.duplicate(true)
-		_gameplay_surface_path = surface_path
-		_table_y_offset_canonical = 0.0
-		_active_theme_paths = {
-			"gameplay_surface": surface_path,
-			"playable_geometry": _active_playable_geometry.duplicate(true),
-		}
-		_configure_board_layout()
-		var texture := load(surface_path) as Texture2D
-		if texture == null:
-			push_error("Sunny Cove gameplay surface failed to load: %s" % surface_path)
-			return
-		_background.name = "GameplaySurface"
-		_background.texture = texture
-		_background.z_index = -100
-		_background.position = get_board_size() * 0.5
-		_background.scale = Vector2(get_board_size().x / float(texture.get_width()), get_board_size().y / float(texture.get_height()))
-		_background.visible = true
-		_remove_legacy_walls()
-		_build_walls()
-		_align_held_preview_to_active_geometry()
-		_layout_danger_line()
-		_layout_launch_indicator()
+	if surface_path.is_empty() or not geometry is Dictionary or geometry.is_empty():
+		push_error("R04 gameplay surface/profile missing; split-table fallback is retired.")
 		return
-	_active_playable_geometry.clear()
-	_gameplay_surface_path = ""
-	_ensure_theme_layers()
-	var background_path := str(resolved.get("gameplay_background", BACKGROUND_PATH))
-	var table_path := str(resolved.get("gameplay_table", ""))
-	var shadow_path := str(resolved.get("gameplay_table_shadow", ""))
-	var edge_path := str(resolved.get("table_edge_overlay", ""))
-	var launch_path := str(resolved.get("launch_zone", ""))
-	var previous_launch_y := launch_y
-	var requested_table_offset := float(resolved.get("table_y_offset_canonical", 0.0))
-	_table_y_offset_canonical = requested_table_offset
-	_background.name = "GameBoardBackground"
+	var surface_bytes := FileAccess.get_file_as_bytes(surface_path)
+	var expected_surface_hash := str(geometry.get("surface_sha256", ""))
+	if surface_bytes.is_empty() or _sha256_bytes(surface_bytes) != expected_surface_hash:
+		push_error("R04 gameplay surface/profile SHA-256 mismatch: %s" % surface_path)
+		return
+	var texture := load(surface_path) as Texture2D
+	if texture == null or texture.get_width() != 720 or texture.get_height() != 1280:
+		push_error("R04 gameplay surface must load at 720x1280: %s" % surface_path)
+		return
+	_active_playable_geometry = geometry.duplicate(true)
+	_gameplay_surface_path = surface_path
+	_table_y_offset_canonical = 0.0
 	_active_theme_paths = {
-		"gameplay_background": background_path,
-		"gameplay_table": table_path,
-		"gameplay_table_shadow": shadow_path,
-		"table_edge_overlay": edge_path,
-		"launch_zone": launch_path,
-		"table_y_offset_canonical": _table_y_offset_canonical,
+		"gameplay_surface": surface_path,
+		"playable_geometry": _active_playable_geometry.duplicate(true),
 	}
 	_configure_board_layout()
-	var table_translation := launch_y - previous_launch_y
-	if not is_zero_approx(table_translation):
-		_translate_existing_table_system(table_translation)
-
-	var campaign_background := load(background_path) as Texture2D
-	if campaign_background != null and _background != null:
-		_background.texture = campaign_background
-		_position_theme_layer(_background)
-	_set_theme_texture(_theme_table_shadow, shadow_path)
-	_set_theme_texture(_theme_table, table_path)
-	_set_theme_texture(_theme_edge_overlay, edge_path)
-	var table_visual_offset := Vector2(0.0, _table_y_offset_viewport())
-	for layer in [_theme_table_shadow, _theme_table, _theme_edge_overlay]:
-		if layer != null:
-			layer.position = get_board_size() * 0.5 + table_visual_offset
-	_layout_danger_line()
-	_layout_launch_indicator()
-	if is_instance_valid(_target_root):
-		_target_root.position.y += table_translation
+	_background.name = "GameplaySurface"
+	_background.texture = texture
+	_background.z_index = -100
+	_background.position = get_board_size() * 0.5
+	_background.scale = Vector2(get_board_size().x / float(texture.get_width()), get_board_size().y / float(texture.get_height()))
+	_background.visible = true
 	_remove_legacy_walls()
 	_build_walls()
+	_align_held_preview_to_active_geometry()
+	_layout_danger_line()
+	_layout_launch_indicator()
+
+
+func _sha256_bytes(bytes: PackedByteArray) -> String:
+	var context := HashingContext.new()
+	if context.start(HashingContext.HASH_SHA256) != OK or context.update(bytes) != OK:
+		return ""
+	return context.finish().hex_encode()
 
 
 func _remove_legacy_walls() -> void:

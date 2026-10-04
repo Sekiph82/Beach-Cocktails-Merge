@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "profile_id": "final_island_gameplay_surface_v07_r04",
+  "island_id": "final_island",
+  "surface_path": "res://assets/ui_assets/campaign/islands/final_island/gameplay_surface.png",
+  "surface_sha256": "96b29e22913649df4e315860f9bc265007c83b58356e7b503c3b8d5d28b2156d",
+  "r04_source_path": "assets/ui_assets/campaign/islands/final_island/gameplay_surface_v07_r04.png",
+  "r04_source_sha256": "96b29e22913649df4e315860f9bc265007c83b58356e7b503c3b8d5d28b2156d",
+  "viewport_px": [
+    720,
+    1280
+  ],
+  "geometry": {
+    "playable_polygon": [
+      [
+        192,
+        392
+      ],
+      [
+        528,
+        392
+      ],
+      [
+        541,
+        413
+      ],
+      [
+        554,
+        445
+      ],
+      [
+        573,
+        490
+      ],
+      [
+        592,
+        545
+      ],
+      [
+        612,
+        610
+      ],
+      [
+        632,
+        680
+      ],
+      [
+        653,
+        755
+      ],
+      [
+        674,
+        832
+      ],
+      [
+        694,
+        914
+      ],
+      [
+        706,
+        960
+      ],
+      [
+        706,
+        978
+      ],
+      [
+        14,
+        978
+      ],
+      [
+        14,
+        960
+      ],
+      [
+        26,
+        914
+      ],
+      [
+        46,
+        832
+      ],
+      [
+        67,
+        755
+      ],
+      [
+        88,
+        680
+      ],
+      [
+        108,
+        610
+      ],
+      [
+        128,
+        545
+      ],
+      [
+        147,
+        490
+      ],
+      [
+        166,
+        445
+      ],
+      [
+        179,
+        413
+      ]
+    ],
+    "launch_y": 963,
+    "spawn_y": 963,
+    "death_y": 846,
+    "surface_sha256": "96b29e22913649df4e315860f9bc265007c83b58356e7b503c3b8d5d28b2156d"
+  },
+  "measurements_px": {
+    "playable_point_count": 24,
+    "playable_bounds": {
+      "left": 14,
+      "top": 392,
+      "right": 706,
+      "bottom": 978
+    },
+    "launch_y": 963,
+    "spawn_y": 963,
+    "death_y": 846,
+    "cocktail_collider_radii_level_1_to_12": [
+      20,
+      23,
+      27,
+      31,
+      36,
+      42,
+      49,
+      56,
+      64,
+      72,
+      80,
+      90
+    ],
+    "cocktail_fit_centers_level_xy": [
+      [
+        1,
+        180,
+        520
+      ],
+      [
+        2,
+        360,
+        520
+      ],
+      [
+        3,
+        540,
+        520
+      ],
+      [
+        4,
+        180,
+        630
+      ],
+      [
+        5,
+        360,
+        630
+      ],
+      [
+        6,
+        540,
+        630
+      ],
+      [
+        7,
+        180,
+        740
+      ],
+      [
+        8,
+        360,
+        740
+      ],
+      [
+        9,
+        540,
+        740
+      ],
+      [
+        10,
+        180,
+        850
+      ],
+      [
+        11,
+        360,
+        850
+      ],
+      [
+        12,
+        540,
+        850
+      ]
+    ],
+    "calibration_surface_sha256": "96b29e22913649df4e315860f9bc265007c83b58356e7b503c3b8d5d28b2156d"
+  },
+  "calibration_method": "The shared accepted R11 gameplay boundary and all twelve existing collider radii are overlaid on the exact per-island R04 surface; physics is unchanged.",
+  "debug_overlay_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/final_island_geometry_debug_r04.png",
+  "debug_overlay_sha256": "b01d2030054b4ea8e0fc85a773c1494dcbc5ef1de200068ded0830b825e6bac3",
+  "cocktail_fit_proof_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/final_island_cocktail_footprint_fit_r04.png",
+  "cocktail_fit_proof_sha256": "1caa306cd8b7417dce2776d30b726d577c99231d4da174d35e9a131ec8ba30e2",
+  "embedded_shadow_identity_proof_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/final_island_embedded_shadow_identity_r04.png",
+  "embedded_shadow_identity_proof_sha256": "4e8bf74e5c120bbb1419d0da3b70cfb06560ddd6932c90d3afe81d71bd1b1c8e",
+  "embedded_table_shadow": {
+    "separate_shadow_asset": false,
+    "surface_sha256": "96b29e22913649df4e315860f9bc265007c83b58356e7b503c3b8d5d28b2156d",
+    "validation": "table contact shadows are baked into this exact R04 surface; no independent shadow image or alignment transform exists"
+  }
+}

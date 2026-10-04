@@ -1,7 +1,10 @@
 {
   "schema_version": 1,
   "artifact": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r02.png",
-  "dimensions": [720, 1280],
+  "dimensions": [
+    720,
+    1280
+  ],
   "sha256": "cdd60a2169a8a859a3b412c4cb023bae1da1324272115237e773e522dd48d8d1",
   "art_frozen_utc": "2026-10-03T13:25:23.3290131Z",
   "generation_method": "New blank-canvas scene generated from text description, then resized to the canonical 720x1280 viewport.",
@@ -26,5 +29,7 @@
       "manually traced visible tabletop inner rim"
     ],
     "legacy_geometry_or_mask_inputs_used": []
-  }
+  },
+  "historical_status": "HISTORICAL_SUPERSEDED_BY_GAMEPLAY_SURFACE_V07_R04",
+  "current_authority": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png and playable_geometry_r04.json"
 }

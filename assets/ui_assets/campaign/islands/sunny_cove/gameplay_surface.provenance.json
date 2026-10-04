@@ -76,5 +76,7 @@
         }
       }
     ]
-  }
+  },
+  "historical_status": "HISTORICAL_SUPERSEDED_BY_GAMEPLAY_SURFACE_V07_R04",
+  "current_authority": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png and playable_geometry_r04.json"
 }

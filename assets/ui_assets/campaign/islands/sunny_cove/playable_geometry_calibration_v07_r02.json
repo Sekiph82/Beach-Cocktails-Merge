@@ -79,7 +79,7 @@
     "surface_path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r02.png",
     "surface_sha256": "cdd60a2169a8a859a3b412c4cb023bae1da1324272115237e773e522dd48d8d1",
     "surface_frozen_before_geometry": true,
-    "geometry_created_utc": "2026-10-03T13:28:59+00:00",
+    "geometry_created_utc": "2026-10-03T16:28:59+03:00",
     "shape_control_inputs": [
       "frozen gameplay_surface_v07_r02.png",
       "PLAYABLE_POLYGON pixel trace in this calibration source"
@@ -87,5 +87,7 @@
     "legacy_geometry_or_mask_inputs_used": [],
     "debug_overlay_sha256": "0da2498a6529bd190a25af585e3c524a82b280ea36dc10cd58685439df68ba21",
     "illustrative_stress_overlay_sha256": "625e75f44aa99603e16ca9799bfd5318e3a781d856965a3c5152357700ba36ae"
-  }
+  },
+  "historical_status": "HISTORICAL_SUPERSEDED_BY_GAMEPLAY_SURFACE_V07_R04",
+  "current_authority": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png and playable_geometry_r04.json"
 }

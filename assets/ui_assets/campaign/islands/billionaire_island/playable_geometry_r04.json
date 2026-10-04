@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "profile_id": "billionaire_island_gameplay_surface_v07_r04",
+  "island_id": "billionaire_island",
+  "surface_path": "res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png",
+  "surface_sha256": "31e2175ffefdfac52fcdb678f25e342245113faeae8de3cf99f2419f4336a42f",
+  "r04_source_path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface_v07_r04.png",
+  "r04_source_sha256": "31e2175ffefdfac52fcdb678f25e342245113faeae8de3cf99f2419f4336a42f",
+  "viewport_px": [
+    720,
+    1280
+  ],
+  "geometry": {
+    "playable_polygon": [
+      [
+        192,
+        392
+      ],
+      [
+        528,
+        392
+      ],
+      [
+        541,
+        413
+      ],
+      [
+        554,
+        445
+      ],
+      [
+        573,
+        490
+      ],
+      [
+        592,
+        545
+      ],
+      [
+        612,
+        610
+      ],
+      [
+        632,
+        680
+      ],
+      [
+        653,
+        755
+      ],
+      [
+        674,
+        832
+      ],
+      [
+        694,
+        914
+      ],
+      [
+        706,
+        960
+      ],
+      [
+        706,
+        978
+      ],
+      [
+        14,
+        978
+      ],
+      [
+        14,
+        960
+      ],
+      [
+        26,
+        914
+      ],
+      [
+        46,
+        832
+      ],
+      [
+        67,
+        755
+      ],
+      [
+        88,
+        680
+      ],
+      [
+        108,
+        610
+      ],
+      [
+        128,
+        545
+      ],
+      [
+        147,
+        490
+      ],
+      [
+        166,
+        445
+      ],
+      [
+        179,
+        413
+      ]
+    ],
+    "launch_y": 963,
+    "spawn_y": 963,
+    "death_y": 846,
+    "surface_sha256": "31e2175ffefdfac52fcdb678f25e342245113faeae8de3cf99f2419f4336a42f"
+  },
+  "measurements_px": {
+    "playable_point_count": 24,
+    "playable_bounds": {
+      "left": 14,
+      "top": 392,
+      "right": 706,
+      "bottom": 978
+    },
+    "launch_y": 963,
+    "spawn_y": 963,
+    "death_y": 846,
+    "cocktail_collider_radii_level_1_to_12": [
+      20,
+      23,
+      27,
+      31,
+      36,
+      42,
+      49,
+      56,
+      64,
+      72,
+      80,
+      90
+    ],
+    "cocktail_fit_centers_level_xy": [
+      [
+        1,
+        180,
+        520
+      ],
+      [
+        2,
+        360,
+        520
+      ],
+      [
+        3,
+        540,
+        520
+      ],
+      [
+        4,
+        180,
+        630
+      ],
+      [
+        5,
+        360,
+        630
+      ],
+      [
+        6,
+        540,
+        630
+      ],
+      [
+        7,
+        180,
+        740
+      ],
+      [
+        8,
+        360,
+        740
+      ],
+      [
+        9,
+        540,
+        740
+      ],
+      [
+        10,
+        180,
+        850
+      ],
+      [
+        11,
+        360,
+        850
+      ],
+      [
+        12,
+        540,
+        850
+      ]
+    ],
+    "calibration_surface_sha256": "31e2175ffefdfac52fcdb678f25e342245113faeae8de3cf99f2419f4336a42f"
+  },
+  "calibration_method": "The shared accepted R11 gameplay boundary and all twelve existing collider radii are overlaid on the exact per-island R04 surface; physics is unchanged.",
+  "debug_overlay_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/billionaire_island_geometry_debug_r04.png",
+  "debug_overlay_sha256": "92d643fd30247a97681e8d50bed20ed9f09c85b40d8437c85ff5c9a4b2bdffa4",
+  "cocktail_fit_proof_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/billionaire_island_cocktail_footprint_fit_r04.png",
+  "cocktail_fit_proof_sha256": "d3920cee922fe9df10794978152fa2dbe14b8e74d92acc9e031da4579ba369e4",
+  "embedded_shadow_identity_proof_path": "coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/evidence/visual-candidates/r04-technical-validation/billionaire_island_embedded_shadow_identity_r04.png",
+  "embedded_shadow_identity_proof_sha256": "04a1c3361adb83cd658864bd81f45dd927b9d9ee3bd290a4611e758c596540a7",
+  "embedded_table_shadow": {
+    "separate_shadow_asset": false,
+    "surface_sha256": "31e2175ffefdfac52fcdb678f25e342245113faeae8de3cf99f2419f4336a42f",
+    "validation": "table contact shadows are baked into this exact R04 surface; no independent shadow image or alignment transform exists"
+  }
+}

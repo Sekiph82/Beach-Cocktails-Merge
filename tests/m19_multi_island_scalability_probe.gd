@@ -22,11 +22,8 @@ const CANONICAL_ORDER := [
     "final_island",
 ]
 const THEME_KEYS := [
-    "gameplay_background",
-    "gameplay_table",
-    "gameplay_table_shadow",
-    "table_edge_overlay",
-    "launch_zone",
+    "gameplay_surface",
+    "playable_geometry_profile",
     "island_map_background",
 ]
 
@@ -231,7 +228,7 @@ func _run_child_05(database) -> void:
     var bridge = BRIDGE_SCRIPT.new()
     bridge.configure(database, manager)
     var configuration: Dictionary = bridge.start_session("sunny_cove", 1)
-    _check("Child 05 session bridge exposes resolved island theme", not configuration.is_empty() and configuration.get("island_theme", {}).get("gameplay_table", "").contains("sunny_cove/gameplay_table.png") and bridge.get_active_island_theme().is_read_only())
+    _check("Child 05 session bridge exposes resolved R04 surface and profile", not configuration.is_empty() and configuration.get("island_theme", {}).get("gameplay_surface", "").contains("sunny_cove/gameplay_surface.png") and configuration.get("island_theme", {}).get("playable_geometry", {}).has("surface_sha256") and bridge.get_active_island_theme().is_read_only())
     bridge.resolve_lose("CHILD_05")
     var fixture_db = DATABASE_SCRIPT.new()
     fixture_db.load_from_data(_fixture_islands(), {"schema_version": 1, "island_id": "fixture_alpha", "levels": [_level("fixture_alpha", 1)]}, DATABASE_SCRIPT.ValidationMode.FULL)

@@ -214,7 +214,7 @@ func _run() -> void:
 	var theme_paths: Dictionary = gameplay.get_active_theme_paths()
 	var geometry: Dictionary = theme_paths.get("playable_geometry", {})
 	var expected_geometry: Dictionary = navigation.get_session_bridge().level_database.get_island("sunny_cove").get("playable_geometry", {})
-	_check("Sunny Cove renders one gameplay composite", theme_paths.get("gameplay_surface", "") == "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r02.png" and gameplay._background.name == "GameplaySurface" and gameplay._theme_table == null and gameplay._theme_table_shadow == null and gameplay._theme_edge_overlay == null)
+	_check("Sunny Cove renders one gameplay composite", theme_paths.get("gameplay_surface", "") == "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png" and gameplay._background.name == "GameplaySurface" and gameplay._theme_table == null and gameplay._theme_table_shadow == null and gameplay._theme_edge_overlay == null)
 	_check("Sunny Cove legacy Y offset is absent from active runtime", not theme_paths.has("table_y_offset_canonical") and is_zero_approx(gameplay._table_y_offset_canonical))
 	_check("active geometry equals island playable_geometry", geometry == expected_geometry and geometry.has_all(["playable_polygon", "launch_y", "spawn_y", "death_y"]))
 	_check("held launch glass spawns on image-locked spawn_y", gameplay.shot_controller._current_drink != null and is_equal_approx(gameplay.shot_controller._current_drink.position.y, float(geometry.get("spawn_y", -1.0))))
@@ -229,7 +229,7 @@ func _run() -> void:
 	_capture("SC-02_clear_central_tabletop_720x1280")
 	_capture("SC-03_held_spawn_in_front_720x1280")
 	_capture("SC-07_hud_and_progression_clearance_720x1280")
-	_check("Sunny Cove theme resolves the composite image", gameplay.get_active_theme_paths().get("gameplay_surface", "").ends_with("sunny_cove/gameplay_surface_v07_r02.png"))
+	_check("Sunny Cove theme resolves the composite image", gameplay.get_active_theme_paths().get("gameplay_surface", "").ends_with("sunny_cove/gameplay_surface.png"))
 	var bridge = navigation.get_session_bridge()
 	_check("session is explicitly untimed", not bool(bridge.get_session_configuration().get("timed", true)) and float(bridge.get_session_configuration().get("time_limit_sec", -1.0)) == 0.0)
 	var before_pause_shots := mouse_shots

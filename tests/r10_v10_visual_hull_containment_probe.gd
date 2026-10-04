@@ -99,10 +99,10 @@ func _check_side_crowd(manager: GameManager, level: int, edge: Dictionary, side:
     for drink in [target, attacker_a, attacker_b]:
         if not is_instance_valid(drink):
             continue
-        safe = safe and _hull_inside_all(manager, drink)
-        edge_distance = minf(edge_distance, _min_distance(drink.global_transform, drink.get_boundary_contact_hull_local(), edge))
-    print("R10_V10_SIDE_STRESS side=%s level=L%02d min_edge_distance=%.3f inside_all=%s" % [side, level, edge_distance, safe])
-    _check("%s crowded glass bodies never escape accepted rails" % side, safe and edge_distance >= -1.0)
+        safe = safe and _footprint_inside_all(manager, drink)
+        edge_distance = minf(edge_distance, _min_distance(drink.global_transform, drink.get_table_footprint_local(), edge))
+    print("R10_V10_SIDE_STRESS side=%s level=L%02d min_edge_distance=%.3f footprint_inside_all=%s" % [side, level, edge_distance, safe])
+    _check("%s crowded tabletop contact footprints stay inside accepted rails" % side, safe and edge_distance >= -1.0)
     for drink in [target, attacker_a, attacker_b]:
         if is_instance_valid(drink):
             drink.queue_free()
@@ -122,13 +122,13 @@ func _check_rear_accumulation(manager: GameManager) -> void:
         drink.start_sliding(Vector2(0.0, -700.0))
         for _i in range(180):
             await physics_frame
-        var gap := _min_distance(drink.global_transform, drink.get_boundary_contact_hull_local(), rear)
+        var gap := _min_distance(drink.global_transform, drink.get_table_footprint_local(), rear)
         max_gap = maxf(max_gap, gap)
-        safe = safe and _hull_inside_all(manager, drink) and gap >= -1.0 and gap <= 1.0
-        print("R10_V10_REAR_STRESS fraction=%.2f center=%s body_rear_distance=%.3f" % [fraction, drink.position, gap])
+        safe = safe and _footprint_inside_all(manager, drink) and absf(gap - GameManager.REAR_EDGE_MARGIN) <= 1.0
+        print("R10_V10_REAR_STRESS fraction=%.2f center=%s contact_footprint_rear_margin=%.3f" % [fraction, drink.position, gap])
         drink.queue_free()
         await process_frame
-    _check("rear accumulation reaches the same rear rail without a body gap", safe and max_gap <= 1.0)
+    _check("rear accumulation preserves the fixed accepted contact-footprint safety margin", safe and absf(max_gap - GameManager.REAR_EDGE_MARGIN) <= 1.0)
 
 
 func _check_merge_stress(manager: GameManager, edge: Dictionary, side: String) -> void:
@@ -147,7 +147,7 @@ func _check_merge_stress(manager: GameManager, edge: Dictionary, side: String) -
         if child is Drink and child.level == 2 and not child.is_queued_for_deletion():
             result = child
             break
-    var valid := is_instance_valid(result) and _hull_inside_all(manager, result)
+    var valid := is_instance_valid(result) and _footprint_inside_all(manager, result)
     print("R10_V10_MERGE_STRESS side=%s valid=%s position=%s" % [side, valid, result.position if is_instance_valid(result) else Vector2.INF])
     _check("%s merge result remains inside the same authoritative solver" % side, valid)
     if is_instance_valid(result):
@@ -155,9 +155,9 @@ func _check_merge_stress(manager: GameManager, edge: Dictionary, side: String) -
     await process_frame
 
 
-func _hull_inside_all(manager: GameManager, drink: Drink) -> bool:
+func _footprint_inside_all(manager: GameManager, drink: Drink) -> bool:
     for edge in manager.get_playable_boundary_edges():
-        if _min_distance(drink.global_transform, drink.get_boundary_contact_hull_local(), edge) < -1.0:
+        if _min_distance(drink.global_transform, drink.get_table_footprint_local(), edge) < -1.0:
             return false
     return true
 
