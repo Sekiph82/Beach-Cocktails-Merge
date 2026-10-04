@@ -15,12 +15,13 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "docs" / "evidence" / "m04"
 COCKTAILS = [Path("assets/cocktails") / f"L{level:02d}.png" for level in range(1, 13)]
-ENVIRONMENT = [Path("assets/environment/game_board_background.png")]
+ENVIRONMENT: list[Path] = []
 UI = [
     Path("assets/ui/logo_beach_cocktails_merge.png"),
     Path("assets/ui/panel_best_score.png"),
     Path("assets/ui/panel_score.png"),
     Path("assets/ui/panel_to_go_orders.png"),
+    Path("assets/ui/panel_to_go_vip_orders.png"),
     Path("assets/ui/panel_next.png"),
     Path("assets/ui/progression_strip.png"),
     Path("assets/ui/launch_zone.png"),
@@ -43,7 +44,6 @@ EFFECT_CLASSIFICATION = {
 EVIDENCE_SHEETS = {
     "cocktails": "cocktails_contact_sheet.png",
     "ui": "ui_contact_sheet.png",
-    "environment": "environment_reference.png",
     "effects": "effects_contact_sheet.png",
 }
 
@@ -176,7 +176,6 @@ def make_references() -> None:
     contact_sheet(COCKTAILS, EVIDENCE / "cocktails_contact_sheet.png", 4, (320, 330))
     contact_sheet(UI, EVIDENCE / "ui_contact_sheet.png", 2, (640, 390))
     contact_sheet(EFFECTS, EVIDENCE / "effects_contact_sheet.png", 2, (700, 390))
-    shutil.copyfile(ROOT / ENVIRONMENT[0], EVIDENCE / "environment_reference.png")
     shutil.copyfile(ROOT / "b75ee426-9568-4ed6-b35e-140600a7c995.png", EVIDENCE / "master_reference.png")
     slots = make_progression_evidence(
         Path("assets/ui/progression_strip.png"),
@@ -266,7 +265,7 @@ def main() -> int:
         delta = [best["dimensions"][0] - score["dimensions"][0], best["dimensions"][1] - score["dimensions"][1]]
         print(f"M04_PANEL_DIMENSIONS best={best['dimensions'][0]}x{best['dimensions'][1]} score={score['dimensions'][0]}x{score['dimensions'][1]} match={delta == [0, 0]} delta={delta}")
     slots = make_references()
-    print(f"M04_VISUAL_EVIDENCE generated=7 progression_slots_annotated={len(slots)} classification=MANUAL_VISUAL_EVIDENCE")
+    print(f"M04_VISUAL_EVIDENCE generated=6 progression_slots_annotated={len(slots)} classification=MANUAL_VISUAL_EVIDENCE")
 
     for path, sheet in EVIDENCE_SHEETS.items():
         pass
@@ -277,7 +276,6 @@ def main() -> int:
         "evidence": {
             "cocktails_contact_sheet.png": {"source_paths": [p.as_posix() for p in COCKTAILS], "classification": "MANUAL_VISUAL_EVIDENCE"},
             "ui_contact_sheet.png": {"source_paths": [p.as_posix() for p in UI], "classification": "MANUAL_VISUAL_EVIDENCE"},
-            "environment_reference.png": {"source_paths": [p.as_posix() for p in ENVIRONMENT], "classification": "MANUAL_VISUAL_EVIDENCE"},
             "effects_contact_sheet.png": {"source_paths": [p.as_posix() for p in EFFECTS], "classification": "MANUAL_VISUAL_EVIDENCE"},
             "master_reference.png": {"source_paths": ["b75ee426-9568-4ed6-b35e-140600a7c995.png"], "classification": "OWNER_MASTER_REFERENCE"},
             "progression_strip_12_slots.png": {"source_paths": ["assets/ui/progression_strip.png"], "slots": slots, "classification": "MANUAL_VISUAL_EVIDENCE"},

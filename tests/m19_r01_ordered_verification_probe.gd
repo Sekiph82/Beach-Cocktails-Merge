@@ -52,7 +52,6 @@ func _island(island_id: String, order_index: int, level_count: int, next_id: Str
         "level_count": level_count,
         "unlock_rule": {"type": "default_open"},
         "next_island_id": next_id,
-        "map_background": "",
         "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
         "reward_track": {"milestones": []},
     }

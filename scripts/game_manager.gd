@@ -10,7 +10,6 @@ signal campaign_order_completed(level: int, quantity: int)
 
 static var instance: GameManager
 
-const BACKGROUND_PATH := "res://assets/environment/game_board_background.png"
 const BACKGROUND_SOURCE_SIZE := Vector2(1024.0, 1536.0)
 const CANONICAL_VIEWPORT_SIZE := Vector2(720.0, 1280.0)
 
@@ -407,8 +406,7 @@ func _geometry_y_to_viewport(canonical_y: float, size: Vector2 = Vector2.ZERO) -
 
 func _build_background() -> void:
 	_background = Sprite2D.new()
-	_background.name = "GameBoardBackground"
-	_background.texture = load(BACKGROUND_PATH) as Texture2D
+	_background.name = "GameplaySurface"
 	_background.position = get_board_size() * 0.5
 	_background.scale = Vector2.ONE * _background_scale
 	_background.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS

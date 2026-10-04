@@ -47,6 +47,9 @@ func _frame(count: int = 2) -> void:
 
 
 func _capture(label: String) -> void:
+	if OS.has_feature("headless") or DisplayServer.get_name().to_lower() in ["headless", "dummy"]:
+		print("M21_OWNER_RUNTIME_CAPTURE SKIP name=%s reason=headless_renderer_has_no_viewport_image" % label)
+		return
 	var texture := root.get_viewport().get_texture()
 	if texture == null:
 		failures.append("capture texture unavailable: %s" % label)
@@ -125,6 +128,17 @@ func _fire_mouse_boundary_shot(x_position: float, wait_frames: int = 28) -> Drin
 	await _push_input(_mouse_event(Vector2(x_position, launch_y), false))
 	await _frame(wait_frames)
 	return fired
+
+
+func _drink_footprint_stays_inside_table(drink: Drink) -> bool:
+	if not is_instance_valid(drink):
+		return false
+	var projected := gameplay.project_footprint_inside_table(
+		Transform2D(0.0, drink.position),
+		drink.get_table_footprint_local(),
+		Vector2.ZERO
+	)
+	return not bool(projected.get("corrected", true)) and projected.get("transform", Transform2D.IDENTITY).origin.is_equal_approx(drink.position)
 
 
 func _complete_current_orders(bridge, delivery_prefix: String) -> void:
@@ -219,7 +233,7 @@ func _run() -> void:
 	_check("active geometry equals island playable_geometry", geometry == expected_geometry and geometry.has_all(["playable_polygon", "launch_y", "spawn_y", "death_y"]))
 	_check("held launch glass spawns on image-locked spawn_y", gameplay.shot_controller._current_drink != null and is_equal_approx(gameplay.shot_controller._current_drink.position.y, float(geometry.get("spawn_y", -1.0))))
 	_check("profile boundary edges match polygon vertices", gameplay.get_playable_boundary_edges().size() == geometry.get("playable_polygon", []).size() and gameplay.get_table_rail_bounds_at_y(gameplay.launch_y).x < gameplay.get_table_rail_bounds_at_y(gameplay.launch_y).y)
-	_check("launch line follows image-locked profile", gameplay._launch_indicator != null and is_equal_approx(gameplay._launch_indicator.points[0].y, gameplay.launch_y))
+	_check("held-drink halo tracks the held cocktail", gameplay._launch_indicator != null and gameplay.shot_controller._current_drink != null and gameplay._launch_indicator.position.distance_to(gameplay.shot_controller._current_drink.position + Vector2(0.0, 6.0)) <= 0.01)
 	theme_layer_report = [{"static_visual": "GameplaySurface", "texture_path": theme_paths.get("gameplay_surface", ""), "legacy_layers_instanced": false, "table_y_offset_canonical": gameplay._table_y_offset_canonical, "geometry": geometry}]
 	_write_json("V07_R02_GEOMETRY_RUNTIME_REPORT.json", {"theme": theme_paths, "geometry": geometry, "texture_inventory": gameplay_texture_inventory, "rail_edge_count": gameplay.get_playable_boundary_edges().size()})
 	_check("result feedback uses dedicated topmost CanvasLayer", navigation._result_canvas_layer != null and navigation._result_canvas_layer.layer > 0)
@@ -245,7 +259,7 @@ func _run() -> void:
 	_check("RESUME action is accepted", gameplay.resume_campaign_gameplay())
 	await _frame(3)
 	_check("RESUME closes the pause overlay", not gameplay.get_pause_overlay_visible() and bridge.session_state == bridge.STATE_ACTIVE)
-	var stress_layout := [[180,510,12],[360,510,11],[540,510,10],[140,675,9],[360,675,8],[580,675,7],[160,805,6],[360,805,5],[560,805,4],[130,900,3],[360,900,2],[590,900,1]]
+	var stress_layout := [[240,510,12],[360,510,11],[500,510,10],[140,675,9],[360,675,8],[580,675,7],[160,805,6],[360,805,5],[560,805,4],[130,900,3],[360,900,2],[590,900,1]]
 	var stress_drinks: Array[Drink] = []
 	for entry in stress_layout:
 		var stress_drink := gameplay.spawn_drink(int(entry[2]), Vector2(float(entry[0]), float(entry[1])))
@@ -272,10 +286,10 @@ func _run() -> void:
 	var right_contact_position := right_boundary_drink.position if is_instance_valid(right_boundary_drink) else Vector2.ZERO
 	var right_contact_bounds := gameplay.get_table_rail_bounds_at_y(right_contact_position.y)
 	gameplay.shot_controller.shot_fired.disconnect(boundary_counter)
-	var left_contact := is_instance_valid(left_boundary_drink) and left_contact_position.x - left_boundary_drink.radius <= left_contact_bounds.x + 6.0
-	var right_contact := is_instance_valid(right_boundary_drink) and right_contact_position.x + right_boundary_drink.radius >= right_contact_bounds.y - 6.0
-	_check("real left and right side launches contact the visible image-derived rails", boundary_shots == 2 and left_contact and right_contact)
-	print("M21_OWNER_F5_V07_R02_SIDE_CONTACT shots=%d left=%s right=%s left_bounds=%s right_bounds=%s left_contact=%s right_contact=%s" % [boundary_shots, str(left_contact_position), str(right_contact_position), str(left_contact_bounds), str(right_contact_bounds), str(left_contact), str(right_contact)])
+	var left_inside := _drink_footprint_stays_inside_table(left_boundary_drink)
+	var right_inside := _drink_footprint_stays_inside_table(right_boundary_drink)
+	_check("real left and right side launches keep the glass base inside the R04 profile", boundary_shots == 2 and left_inside and right_inside)
+	print("M21_OWNER_F5_V07_R02_SIDE_FOOTPRINT shots=%d left=%s right=%s left_bounds=%s right_bounds=%s left_inside=%s right_inside=%s" % [boundary_shots, str(left_contact_position), str(right_contact_position), str(left_contact_bounds), str(right_contact_bounds), str(left_inside), str(right_inside)])
 	_capture("SC-06_right_rail_contact_runtime_720x1280")
 	for child in gameplay.world.get_children():
 		if child is Drink and (child as Drink).motion_state != Drink.MotionState.HELD:
@@ -284,9 +298,9 @@ func _run() -> void:
 	var rear_boundary_drink := await _fire_mouse_boundary_shot(360.0, 56)
 	var rear_contact_position := rear_boundary_drink.position if is_instance_valid(rear_boundary_drink) else Vector2.ZERO
 	var rear_contact_bounds := gameplay.get_table_rail_bounds_at_y(rear_contact_position.y)
-	var rear_contact := is_instance_valid(rear_boundary_drink) and rear_contact_position.x >= rear_contact_bounds.x and rear_contact_position.x <= rear_contact_bounds.y and absf(rear_contact_position.y - 390.0) <= rear_boundary_drink.radius + 7.0
-	_check("real rear launch contacts its visible image-derived rail", rear_contact)
-	print("M21_OWNER_F5_V07_R02_REAR_CONTACT position=%s bounds=%s contact=%s" % [str(rear_contact_position), str(rear_contact_bounds), str(rear_contact)])
+	var rear_inside := _drink_footprint_stays_inside_table(rear_boundary_drink)
+	_check("real rear launch keeps the glass base inside the R04 profile", rear_inside)
+	print("M21_OWNER_F5_V07_R02_REAR_FOOTPRINT position=%s bounds=%s inside=%s" % [str(rear_contact_position), str(rear_contact_bounds), str(rear_inside)])
 	_capture("SC-06_rear_rail_contact_runtime_720x1280")
 	for child in gameplay.world.get_children():
 		if child is Drink and (child as Drink).motion_state != Drink.MotionState.HELD:

@@ -182,7 +182,7 @@ func _validate_island_root(root: Variant) -> bool:
     for raw_island in root["islands"]:
         if not raw_island is Dictionary:
             return _fail("island entry must be an object")
-        if not _has_required(raw_island, ["id", "display_name", "order_index", "level_count", "unlock_rule", "next_island_id", "map_background", "reward_track"]):
+        if not _has_required(raw_island, ["id", "display_name", "order_index", "level_count", "unlock_rule", "next_island_id", "reward_track"]):
             return false
         var island_id := str(raw_island["id"])
         if island_id.is_empty():

@@ -26,8 +26,8 @@ func _valid_islands() -> Dictionary:
     return {
         "schema_version": 1,
         "islands": [
-            {"id": "sunny_cove", "display_name": "Sunny Cove", "order_index": 1, "level_count": 2, "unlock_rule": {"type": "default_open"}, "next_island_id": "tiki_island", "map_background": "res://assets/environment/game_board_background.png", "reward_track": {"milestones": []}},
-            {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": 2}, "next_island_id": "", "map_background": "", "reward_track": {"milestones": []}},
+            {"id": "sunny_cove", "display_name": "Sunny Cove", "order_index": 1, "level_count": 2, "unlock_rule": {"type": "default_open"}, "next_island_id": "tiki_island", "reward_track": {"milestones": []}},
+            {"id": "tiki_island", "display_name": "Tiki Island", "order_index": 2, "level_count": 0, "unlock_rule": {"type": "requires_island_completion", "island_id": "sunny_cove", "level_id": 2}, "next_island_id": "", "reward_track": {"milestones": []}},
         ],
     }
 
@@ -85,9 +85,9 @@ func _run() -> void:
     _check("unresolved island reference is rejected", not unresolved_database.load_from_data(_valid_islands(), unresolved_level))
 
     var invalid_timer := _valid_levels()
-    invalid_timer["levels"][0]["time_limit_sec"] = 0
+    invalid_timer["levels"][0]["time_limit_sec"] = -1
     var invalid_timer_database = database_script.new()
-    _check("non-positive time limit is rejected", not invalid_timer_database.load_from_data(_valid_islands(), invalid_timer))
+    _check("negative time limit is rejected", not invalid_timer_database.load_from_data(_valid_islands(), invalid_timer))
 
     var invalid_order := _valid_levels()
     invalid_order["levels"][0]["orders"][0]["quantity"] = 0

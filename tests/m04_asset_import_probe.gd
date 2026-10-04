@@ -15,11 +15,11 @@ const CANONICAL := [
     "res://assets/cocktails/L10.png",
     "res://assets/cocktails/L11.png",
     "res://assets/cocktails/L12.png",
-    "res://assets/environment/game_board_background.png",
     "res://assets/ui/logo_beach_cocktails_merge.png",
     "res://assets/ui/panel_best_score.png",
     "res://assets/ui/panel_score.png",
     "res://assets/ui/panel_to_go_orders.png",
+    "res://assets/ui/panel_to_go_vip_orders.png",
     "res://assets/ui/panel_next.png",
     "res://assets/ui/progression_strip.png",
     "res://assets/ui/launch_zone.png",
@@ -44,7 +44,7 @@ func _run() -> void:
     var effects_count := _png_count("res://assets/effects")
     var observed_required := cocktail_count + environment_count + ui_count + effects_count
     print("M04_GODOT_ASSET_COUNT expected=25 observed=%d cocktails=%d environment=%d ui=%d effects=%d" % [observed_required, cocktail_count, environment_count, ui_count, effects_count])
-    _check("repository PNG directory counts match canonical scopes", cocktail_count == 12 and environment_count == 1 and ui_count == 8 and effects_count == 4)
+    _check("repository PNG directory counts match canonical scopes", cocktail_count == 12 and environment_count == 0 and ui_count == 9 and effects_count == 4)
     _check("effects PNG directory exact set has four approved assets", _png_names("res://assets/effects") == ["merge_glow.png", "sparkle.png", "splash.png", "to_go_trail.png"])
     for path in CANONICAL:
         var texture := load(path) as Texture2D

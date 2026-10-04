@@ -37,7 +37,6 @@ func _islands() -> Dictionary:
 			"level_count": 100,
 			"unlock_rule": {"type": "default_open"},
 			"next_island_id": "",
-			"map_background": "",
 			"map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
 			"map_position": [0.50, 0.50],
 			"reward_track": {"milestones": [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]},

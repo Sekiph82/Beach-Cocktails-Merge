@@ -34,7 +34,6 @@ func _database():
             "level_count": 1,
             "unlock_rule": {"type": "default_open"},
             "next_island_id": "",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
             "map_position": [0.5, 0.5],
             "reward_track": {"milestones": [1]},

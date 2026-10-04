@@ -10,7 +10,6 @@
                 "type": "default_open"
             },
             "next_island_id": "tiki_island",
-            "map_background": "res://assets/environment/game_board_background.png",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
@@ -153,7 +152,6 @@
                 "level_id": 100
             },
             "next_island_id": "azure_bay",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/tiki_island.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/tiki_island/map_background.png",
@@ -187,7 +185,6 @@
                 "level_id": 100
             },
             "next_island_id": "coconut_beach",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/azure_bay.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/azure_bay/map_background.png",
@@ -221,7 +218,6 @@
                 "level_id": 100
             },
             "next_island_id": "sunset_island",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/coconut_beach.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/coconut_beach/map_background.png",
@@ -255,7 +251,6 @@
                 "level_id": 100
             },
             "next_island_id": "party_beach",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunset_island.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/sunset_island/map_background.png",
@@ -289,7 +284,6 @@
                 "level_id": 100
             },
             "next_island_id": "frozen_paradise",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/party_beach.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/party_beach/map_background.png",
@@ -323,7 +317,6 @@
                 "level_id": 100
             },
             "next_island_id": "volcano_bay",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/frozen_paradise.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/frozen_paradise/map_background.png",
@@ -357,7 +350,6 @@
                 "level_id": 100
             },
             "next_island_id": "billionaire_island",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/volcano_bay.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/volcano_bay/map_background.png",
@@ -391,7 +383,6 @@
                 "level_id": 100
             },
             "next_island_id": "final_island",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/billionaire_island.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/billionaire_island/map_background.png",
@@ -425,7 +416,6 @@
                 "level_id": 100
             },
             "next_island_id": "",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/final_island.png",
             "theme": {
                 "island_map_background": "res://assets/ui_assets/campaign/islands/final_island/map_background.png",

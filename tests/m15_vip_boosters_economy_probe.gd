@@ -4,7 +4,7 @@ extends SceneTree
 ## seams with deterministic in-memory campaign data and writes inspectable
 ## runtime evidence under the committed M15 session evidence folder.
 
-const ISLAND_ID := "m15_fixture"
+const ISLAND_ID := "sunny_cove"
 const TEST_ROOT := "user://m15_economy_probe"
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
@@ -38,10 +38,14 @@ func _islands() -> Dictionary:
 			"level_count": 3,
 			"unlock_rule": {"type": "default_open"},
 			"next_island_id": "",
-			"map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
             "map_position": [0.5, 0.5],
             "target_policy": {"min_level": 5, "max_level": 8},
+            "theme": {
+                "island_map_background": "res://assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json",
+            },
             "reward_track": {
 				"milestones": [1, 2],
 				"rewards": {
@@ -266,7 +270,7 @@ func _run() -> void:
 	var vip_state_before_delivery: Dictionary = navigation.get_session_bridge().get_vip_state()
 	var to_go_artwork := to_go_panel.get_node("Artwork") as Sprite2D if to_go_panel != null else null
 	_check("combined owner-approved V06 HUD asset is active", to_go_artwork != null and to_go_artwork.texture.resource_path == "res://assets/ui/panel_to_go_vip_orders.png" and to_go_artwork.texture.get_width() == 1132 and to_go_artwork.texture.get_height() == 1698)
-	_check("combined HUD keeps width and derives the tall V06 height", to_go_panel != null and is_equal_approx(to_go_panel.size.x, 210.0 * gameplay._ui_scale) and is_equal_approx(to_go_panel.size.y, 210.0 * gameplay._ui_scale * 1698.0 / 1132.0) and is_equal_approx(to_go_panel.position.x, (gameplay.get_board_size().x - to_go_panel.size.x) * 0.5) and is_equal_approx(to_go_panel.position.y, 0.0))
+	_check("combined R04 HUD keeps its calibrated width and source aspect ratio", to_go_panel != null and is_equal_approx(to_go_panel.size.x, 170.0 * gameplay._ui_scale) and is_equal_approx(to_go_panel.size.y, 170.0 * gameplay._ui_scale * 1698.0 / 1132.0) and is_equal_approx(to_go_panel.position.x, (gameplay.get_board_size().x - to_go_panel.size.x) * 0.5) and is_equal_approx(to_go_panel.position.y, 0.0))
 	_check("obsolete procedural VIP card is absent", gameplay != null and gameplay.get_node_or_null("UI/HUD/VipCard") == null)
 	_check("normal target uses canonical cocktail and authoritative 0/1 progress", gameplay != null and gameplay._to_go_target_sprite.texture == Drink.texture_for_level(6) and gameplay._to_go_progress_label.text == "0/1")
 	_check("normal reward remains Drink.order_reward", gameplay != null and gameplay._to_go_reward_label.text == "%d" % Drink.order_reward(6))

@@ -4,7 +4,7 @@ extends SceneTree
 ## selected/scroll context restoration through the production map/navigation
 ## boundary without creating duplicate map or gameplay instances.
 
-const ISLAND_ID := "m18_replay_map_fixture"
+const ISLAND_ID := "sunny_cove"
 const NAVIGATION_SCENE := preload("res://scenes/campaign/CampaignNavigationScene.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
@@ -35,9 +35,13 @@ func _database():
             "level_count": 100,
             "unlock_rule": {"type": "default_open"},
             "next_island_id": "",
-            "map_background": "",
             "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
             "map_position": [0.5, 0.5],
+            "theme": {
+                "island_map_background": "res://assets/ui_assets/campaign/islands/sunny_cove/map_background.png",
+                "gameplay_surface": "res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png",
+                "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json",
+            },
             "reward_track": {"milestones": []},
         }],
     }

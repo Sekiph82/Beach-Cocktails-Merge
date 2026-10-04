@@ -47,7 +47,6 @@ func _database():
             "level_count": 2,
             "unlock_rule": {"type": "default_open"},
             "next_island_id": "",
-            "map_background": "",
             "map_asset": "",
             "map_position": [0.5, 0.5],
             "reward_track": {"milestones": []},

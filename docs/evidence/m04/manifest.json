@@ -326,33 +326,6 @@
       "alpha_policy": "transparent-required",
       "alpha_result": "PASS"
     },
-    "assets/environment/game_board_background.png": {
-      "bytes": 2327735,
-      "sha256": "bf9ef25bfe27b78805c487410601a9fef16b36f83c97b9bc6f3bf70670dfd17a",
-      "dimensions": [
-        1024,
-        1536
-      ],
-      "mode": "RGB",
-      "png_color_type": 2,
-      "alpha": "absent",
-      "transparent_pixels": 0,
-      "transparent_percent": 0.0,
-      "nontransparent_pixels": 1572864,
-      "nontransparent_percent": 100.0,
-      "opaque_pixels": 1572864,
-      "semi_transparent_pixels": 0,
-      "alpha_bbox": [
-        0,
-        0,
-        1024,
-        1536
-      ],
-      "fully_opaque": true,
-      "path": "assets/environment/game_board_background.png",
-      "alpha_policy": "opaque-allowed",
-      "alpha_result": "PASS"
-    },
     "assets/ui/logo_beach_cocktails_merge.png": {
       "bytes": 2401659,
       "sha256": "e65d7eedcc60aedd7522d6415411e39b3ed2798eedf06318d321bd43de63b3c9",
@@ -461,6 +434,33 @@
       "alpha_policy": "transparent-required",
       "alpha_result": "PASS"
     },
+    "assets/ui/panel_to_go_vip_orders.png": {
+      "bytes": 2032728,
+      "sha256": "acd600d05b316a01b5d39006cf845afa9674cfaaf0385c4f3aecda539d53539b",
+      "dimensions": [
+        1132,
+        1698
+      ],
+      "mode": "RGBA",
+      "png_color_type": 6,
+      "alpha": "present",
+      "transparent_pixels": 524523,
+      "transparent_percent": 27.2885,
+      "nontransparent_pixels": 1397613,
+      "nontransparent_percent": 72.7115,
+      "opaque_pixels": 1369518,
+      "semi_transparent_pixels": 28095,
+      "alpha_bbox": [
+        6,
+        0,
+        1129,
+        1544
+      ],
+      "fully_opaque": false,
+      "path": "assets/ui/panel_to_go_vip_orders.png",
+      "alpha_policy": "transparent-required",
+      "alpha_result": "PASS"
+    },
     "assets/ui/panel_next.png": {
       "bytes": 1915829,
       "sha256": "36396f70b14c58a543bcfe79f2b7bdf3da4e18f31767acf3d8260b23580da56d",
@@ -489,26 +489,26 @@
       "alpha_result": "PASS"
     },
     "assets/ui/progression_strip.png": {
-      "bytes": 1648604,
-      "sha256": "6354b44cf1d4152c952802fb0f26d03e387b70f37001c75dbb1d886b6eac611c",
+      "bytes": 1250298,
+      "sha256": "0475a91875631541ad2beac705b1097cc1ab1818aa38b548ce9123e6d4f759ac",
       "dimensions": [
-        2170,
-        725
+        2172,
+        724
       ],
       "mode": "RGBA",
       "png_color_type": 6,
       "alpha": "present",
-      "transparent_pixels": 619016,
-      "transparent_percent": 39.3463,
-      "nontransparent_pixels": 954234,
-      "nontransparent_percent": 60.6537,
-      "opaque_pixels": 30,
-      "semi_transparent_pixels": 954204,
+      "transparent_pixels": 1001267,
+      "transparent_percent": 63.6724,
+      "nontransparent_pixels": 571261,
+      "nontransparent_percent": 36.3276,
+      "opaque_pixels": 649,
+      "semi_transparent_pixels": 570612,
       "alpha_bbox": [
-        55,
         0,
-        2108,
-        725
+        9,
+        2172,
+        700
       ],
       "fully_opaque": false,
       "path": "assets/ui/progression_strip.png",
@@ -706,16 +706,11 @@
         "assets/ui/panel_best_score.png",
         "assets/ui/panel_score.png",
         "assets/ui/panel_to_go_orders.png",
+        "assets/ui/panel_to_go_vip_orders.png",
         "assets/ui/panel_next.png",
         "assets/ui/progression_strip.png",
         "assets/ui/launch_zone.png",
         "assets/ui/danger_line.png"
-      ],
-      "classification": "MANUAL_VISUAL_EVIDENCE"
-    },
-    "environment_reference.png": {
-      "source_paths": [
-        "assets/environment/game_board_background.png"
       ],
       "classification": "MANUAL_VISUAL_EVIDENCE"
     },
@@ -747,9 +742,9 @@
           ],
           "annotation_box": [
             18,
-            149,
+            150,
             162,
-            575
+            574
           ]
         },
         {
@@ -760,9 +755,9 @@
           ],
           "annotation_box": [
             199,
-            149,
+            150,
             343,
-            575
+            574
           ]
         },
         {
@@ -773,126 +768,126 @@
           ],
           "annotation_box": [
             380,
-            149,
+            150,
             524,
-            575
+            574
           ]
         },
         {
           "slot": 4,
           "center": [
-            632,
+            633,
             362
           ],
           "annotation_box": [
-            560,
-            149,
-            704,
-            575
+            561,
+            150,
+            705,
+            574
           ]
         },
         {
           "slot": 5,
           "center": [
-            813,
+            814,
             362
           ],
           "annotation_box": [
-            741,
-            149,
-            885,
-            575
+            742,
+            150,
+            886,
+            574
           ]
         },
         {
           "slot": 6,
           "center": [
-            994,
+            995,
             362
           ],
           "annotation_box": [
-            922,
-            149,
-            1066,
-            575
+            923,
+            150,
+            1067,
+            574
           ]
         },
         {
           "slot": 7,
           "center": [
-            1175,
+            1176,
             362
           ],
           "annotation_box": [
-            1103,
-            149,
-            1247,
-            575
+            1104,
+            150,
+            1248,
+            574
           ]
         },
         {
           "slot": 8,
           "center": [
-            1356,
+            1357,
             362
           ],
           "annotation_box": [
-            1284,
-            149,
-            1428,
-            575
+            1285,
+            150,
+            1429,
+            574
           ]
         },
         {
           "slot": 9,
           "center": [
-            1537,
+            1538,
             362
           ],
           "annotation_box": [
-            1465,
-            149,
-            1609,
-            575
+            1466,
+            150,
+            1610,
+            574
           ]
         },
         {
           "slot": 10,
           "center": [
-            1717,
+            1719,
             362
           ],
           "annotation_box": [
-            1645,
-            149,
-            1789,
-            575
+            1647,
+            150,
+            1791,
+            574
           ]
         },
         {
           "slot": 11,
           "center": [
-            1898,
+            1900,
             362
           ],
           "annotation_box": [
-            1826,
-            149,
-            1970,
-            575
+            1828,
+            150,
+            1972,
+            574
           ]
         },
         {
           "slot": 12,
           "center": [
-            2079,
+            2081,
             362
           ],
           "annotation_box": [
-            2007,
-            149,
-            2151,
-            575
+            2009,
+            150,
+            2153,
+            574
           ]
         }
       ],

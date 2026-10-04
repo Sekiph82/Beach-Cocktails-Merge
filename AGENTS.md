@@ -195,8 +195,6 @@ Canonical asset structure:
 assets/
   cocktails/
     L01.png ... L12.png
-  environment/
-    game_board_background.png
   ui/
     logo_beach_cocktails_merge.png
     panel_best_score.png
@@ -302,7 +300,7 @@ During the authorized cleanup, Codex may delete tracked or untracked files that 
 
 ### Current owner-deleted legacy background
 
-`assets/environment/game_board_background.png` is currently an owner-local deletion candidate. Do not restore it merely because an old field still references it. First determine whether any current screen still truly needs that file. If the reference is obsolete under the R04/current island-map architecture, update the authoritative data/schema/tests safely and keep the deletion. If it is genuinely still required by a current accepted screen, stop and report that conflict rather than silently restoring/replacing it.
+`assets/environment/game_board_background.png` is retired by the R04 gameplay-surface authority and current Island Map theme architecture. Gameplay renders each island's `gameplay_surface.png`; Island Map backgrounds resolve from `theme.island_map_background`. The old generic image and top-level `map_background` field are not runtime dependencies.
 
 ## Repository hygiene and Desktop worktree policy
 
