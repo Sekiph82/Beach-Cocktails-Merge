@@ -120,7 +120,9 @@ Each log must include:
 - proof that local HEAD, `origin/main`, and remote main match;
 - explicit confirmation that `TASKS.md` was not modified.
 
-Historical logs are immutable. Corrections go in a new versioned log.
+Historical logs are immutable during ordinary implementation work. Corrections go in a new versioned log.
+
+**Owner-authorized repository-hygiene exception:** when root `TASKS.md` explicitly activates a cleanup/hygiene task and the matching owner ruling + locked cleanup criteria authorize deletion, Codex may delete superseded historical logs/prompts/audits/evidence/derived assets that are explicitly classified as obsolete by that cleanup. This exception does not permit deletion of the active/current acceptance chain, canonical tracker, current contracts, current owner-approved assets, or any file still needed by runtime/tests/future planned work.
 
 ## Independent audit ownership
 
@@ -245,6 +247,62 @@ Read and obey `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`.
 - Do not retune accepted gameplay physics to fit artwork. Keep the shared gameplay boundary consistent across islands and validate visible drink footprints against each island's R04 surface.
 
 `TABLE_GEOMETRY_CONTRACT_V2.md` and `TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md` are historical evidence only for the retired split-table visual pipeline. They do not authorize new R04 split table layers or masks.
+
+## Owner-authorized R04 repository cleanup authority — 2026-10-04
+
+The owner has explicitly approved the current R04 gameplay backgrounds/playable areas for all ten islands and explicitly authorizes a dedicated repository cleanup task to remove superseded, unused, orphaned, and no-longer-planned files.
+
+This section removes any **repository-level** prohibition on deleting files during that cleanup task. It does not override external tool/runtime safety policy. If a shell deletion command is rejected by the execution environment, use another ordinary file-delete/edit mechanism exposed and permitted by that environment; do not attempt to bypass platform safeguards. If no allowed deletion mechanism exists, stop with the exact deletion manifest and blocker.
+
+### Protected current authority — never delete in cleanup
+
+For each of the ten island folders under `assets/ui_assets/campaign/islands/<island>/`, preserve:
+- `gameplay_surface_v07_r04.png` — owner-approved frozen R04 source;
+- `gameplay_surface.png` — byte-identical runtime authority;
+- `playable_geometry_r04.json` — current gameplay geometry/profile;
+- `complete_badge.png`;
+- `map_background.png`;
+- `map_title.png`;
+- `theme_badge.png`;
+- `world_icon.png`.
+
+Also preserve unless a newer owner ruling explicitly replaces them:
+- current L01-L12 cocktail assets;
+- current logo, To-Go Orders, Best Score, Score, Next, progression, held-marker/danger-line assets actually used by current runtime;
+- current World Map and Island Map assets actually referenced by data/runtime;
+- `data/campaign/islands.json`, current level/campaign/economy/save data;
+- `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`;
+- active R04 runtime/validation tests and the code that loads/validates the R04 surface/profile pair;
+- owner-local `project.godot`, `addons/godot_ai/`, `addons/game_feel_flow/`, `addons/saltmire_spark/`, and the known translation sidecars during synchronization.
+
+### Explicitly deletable after proof
+
+During the authorized cleanup, Codex may delete tracked or untracked files that are proven obsolete by repository-wide reference analysis and validation, including:
+- orphaned or legacy Godot `*.import` sidecars; these are ignored/generated metadata and may be removed when current sources remain intact and Godot clean-import/boot validation passes;
+- PNG/JPG/WebP/SVG assets belonging only to rejected/superseded gameplay-table/background/split-layer/candidate pipelines;
+- derived review/contact-sheet/debug/calibration images for superseded visual iterations that are no longer part of the current R04 acceptance chain;
+- obsolete provenance/calibration/measurement/manifests JSON files and stale asset-catalog entries;
+- retired table masks, table layers, overlays, shadows, fit proofs, and V1/V2 visual-pipeline artifacts if no current runtime/test/future task still depends on them;
+- stale test fixtures and tests whose only purpose is asserting deleted/superseded paths, provided they are replaced by current R04 tests where equivalent coverage is still required;
+- obsolete helper scripts used only to generate deleted superseded assets/evidence;
+- obsolete historical coordination/evidence files when they are not part of the retained current acceptance chain and their removal does not leave an active contract/test/TASKS reference broken;
+- any other file with zero current runtime/config/test/current-contract/future-roadmap references and no owner-stated future use.
+
+### Required cleanup method
+
+1. Build a machine-readable inventory of candidate deletions with path, type, size, why obsolete, all references found, replacement/current authority, and disposition.
+2. Classify each path as `KEEP`, `DELETE`, or `REVIEW`. Default ambiguity to `KEEP`.
+3. Search **source, scenes, data, tests, tools, current contracts, current prompts/criteria, and root TASKS.md** before deleting a tracked path.
+4. Historical text mentioning a retired filename does not by itself make the retired binary/derived evidence a current dependency, but active TASKS/contracts/tests must not be left with broken required references.
+5. For old tests/rules that conflict with R04, update or retire them in the same cleanup commit set so current truth has one coherent contract.
+6. Rebuild current asset manifests/dimension catalogs/reports after deletions so they list only retained current assets.
+7. Run focused R04 surface/profile validation, clean Godot import/parse/boot, gameplay/campaign regressions, and `git diff --check` before handoff.
+8. Verify all ten owner-approved R04 surface/profile families still hash/load correctly and all current planned-use images remain present.
+9. Never edit root `TASKS.md`; ChatGPT remains its sole writer.
+
+### Current owner-deleted legacy background
+
+`assets/environment/game_board_background.png` is currently an owner-local deletion candidate. Do not restore it merely because an old field still references it. First determine whether any current screen still truly needs that file. If the reference is obsolete under the R04/current island-map architecture, update the authoritative data/schema/tests safely and keep the deletion. If it is genuinely still required by a current accepted screen, stop and report that conflict rather than silently restoring/replacing it.
 
 ## Repository hygiene and Desktop worktree policy
 
