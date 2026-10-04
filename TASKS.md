@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-OWNER-F5-REMEDIATION-V07-R04-MASTER-LOCKED
-- Current Task: BCM-M21-001 + BCM-M21-006 — Sunny Cove master-locked gameplay composition remediation.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: CODEX executes V07-R04 master-locked visual remediation. Reject A/B/C. Preserve the CURRENT-design logo, To-Go Orders, Best Score, Score, and Next exactly; do not use the master versions of those five HUD elements. Rebuild the rest of the gameplay scene to the owner master structure: close board, much deeper tabletop, no required legs, full-width L1-L12 strip directly under the front edge, one horizontal deadline, and no vertical dotted/arrow cocktail guide. Visual gate only; no production geometry/binding yet. M22+ remains blocked behind M21.
+- Current Sprint: BCM-M21-R04-REPOSITORY-HYGIENE-V01
+- Current Task: BCM-M21-007 — R04 repository hygiene, obsolete asset/evidence/import cleanup, and current-authority normalization.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: CODEX executes BCM-M21-007 using the locked R04 repository-hygiene prompt. Inventory the repository first, protect all owner-approved current/planned assets, delete only proven obsolete/orphan/generated material, reconcile tests/rules/manifests to current R04 authority, resolve the owner-deleted legacy game_board_background.png reference safely, run full focused/regression validation, push evidence/log, then stop for independent GPT audit. M22+ remains blocked behind M21.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: V07-R03 A/B/C were directly visually audited but subsequently **all rejected by the owner**. The earlier between-leg progression concept is superseded. V07-R04 now locks the owner master as the composition authority for everything except five preserved CURRENT-design HUD elements: logo, To-Go Orders, Best Score, Score, Next. The master HUD versions are explicitly forbidden. R04 remains a static visual gate before any production geometry/runtime promotion.
+- Progress: The OWNER has now personally approved the current R04 gameplay background/playable-area design and playable geometry for all ten islands. Each island's protected authority is gameplay_surface_v07_r04.png + byte-identical gameplay_surface.png + playable_geometry_r04.json, with current map/completion assets retained. Six obsolete Sunny Cove JSON records were already removed; the prior cleanup log still reports 100 orphan ignored .import sidecars plus broader superseded visual/evidence/test/tool debt. BCM-M21-007 is the authorized cleanup pass. M22+ remains blocked until M21 cleanup/audit/release sequencing completes.
 
 ## Tasks
 
@@ -959,6 +959,12 @@ Owner F5 V07 history and active R03 remediation:
 - Active V07-R04 criteria: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_CRITERIA_V07_R04.md`
 - Active V07-R04 prompt: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CHATGPT_OWNER_F5_REMEDIATION_PROMPT_V07_R04.md`
 - Required marker: `AWAITING_OWNER_VISUAL_ACCEPTANCE_V07_R04`.
+- Later owner decision (2026-10-04): **ALL TEN current R04 gameplay surfaces/playable geometries OWNER-APPROVED**. This supersedes the pending R04 visual-selection/acceptance gate for the current island surface/profile set.
+- Current R04 gameplay contract: `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`.
+- Active repository-hygiene owner ruling: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/OWNER_RULING_R04_REPOSITORY_HYGIENE_V01.md`.
+- Active repository-hygiene locked criteria: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_R04_REPOSITORY_HYGIENE_CRITERIA_V01.md`.
+- Active repository-hygiene prompt: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_R04_REPOSITORY_HYGIENE_PROMPT_V01.md`.
+- Required cleanup marker: `AWAITING_GPT_R04_REPOSITORY_HYGIENE_AUDIT_V01`.
 
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
@@ -987,7 +993,7 @@ M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
  
 ## M22-M27 — Planned GameFeelFlow + Saltmire Spark presentation program
 
-**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 Sunny Cove/table-composition remediation. The current M21 milestone, sprint, task, status, next action, actor, and owner sequence remain unchanged. Start this program only after the relevant gameplay/table/result/map visuals are owner-accepted and M21 permits progression.
+**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 R04 repository-hygiene/release-closure sequence. The ten current R04 gameplay surfaces/geometries are owner-approved, but M22 starts only after BCM-M21-007 cleanup is independently audited and M21 permits progression.
 
 **Presentation-only constitution**
 - Gameplay/campaign truth stays with `Drink`, `ShotController`, `GameManager`, `GameplaySessionBridge`, `CampaignManager`, `GameEconomy`, `SaveManager`, canonical level data, and accepted table geometry. Presentation observes finalized facts only.
