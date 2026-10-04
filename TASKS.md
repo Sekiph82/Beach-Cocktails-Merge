@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-R04-REPOSITORY-HYGIENE-V01
-- Current Task: BCM-M21-007 — R04 repository hygiene, obsolete asset/evidence/import cleanup, and current-authority normalization.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: CODEX executes BCM-M21-007 using the locked R04 repository-hygiene prompt. Inventory the repository first, protect all owner-approved current/planned assets, delete only proven obsolete/orphan/generated material, reconcile tests/rules/manifests to current R04 authority, resolve the owner-deleted legacy game_board_background.png reference safely, run full focused/regression validation, push evidence/log, then stop for independent GPT audit. M22+ remains blocked behind M21.
+- Current Sprint: BCM-M21-WORLD-MAP-LAYOUT-CLOSURE-V01
+- Current Task: BCM-M21-001 — World Map 720×1280 layout regression diagnosis and closure after accepted R04 repository cleanup.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: CODEX executes the bounded BCM-M21-001 World Map 720×1280 diagnostic/closure prompt. First reproduce and instrument the M12 failure, then inspect the real renderer-capable 720×1280 World Map with Godot AI before changing any semantic map positions. If the pixels are clean, repair the stale/overbroad report/test only; if there is real overlap/clipping, fix the minimum presentation layer. M12 must PASS twice plus regressions. M22+ remains blocked behind M21.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: The OWNER has now personally approved the current R04 gameplay background/playable-area design and playable geometry for all ten islands. Each island's protected authority is gameplay_surface_v07_r04.png + byte-identical gameplay_surface.png + playable_geometry_r04.json, with current map/completion assets retained. Six obsolete Sunny Cove JSON records were already removed; the prior cleanup log still reports 100 orphan ignored .import sidecars plus broader superseded visual/evidence/test/tool debt. BCM-M21-007 is the authorized cleanup pass. M22+ remains blocked until M21 cleanup/audit/release sequencing completes.
+- Progress: BCM-M21-007 repository cleanup is independently **CONDITIONAL CLEANUP_SCOPE_PASS** and accepted as complete: 136 tracked removals verified, 199 generated/orphan import deletions evidenced, 94 REVIEW items preserved, all ten owner-approved R04 surface/runtime/profile families and retained map/completion assets preserved. One current blocker remains outside cleanup causality: the M12 World Map 720×1280 geometry probe fails a clipping/overlap gate. `world_map_controller.gd` is byte-identical across cleanup and the M12 test changed only for removal of the obsolete `map_background` fixture field. BCM-M21-001 is reopened for renderer-capable diagnosis/closure before M21 release closure.
 
 ## Tasks
 
@@ -965,6 +965,10 @@ Owner F5 V07 history and active R03 remediation:
 - Active repository-hygiene locked criteria: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_R04_REPOSITORY_HYGIENE_CRITERIA_V01.md`.
 - Active repository-hygiene prompt: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_R04_REPOSITORY_HYGIENE_PROMPT_V01.md`.
 - Required cleanup marker: `AWAITING_GPT_R04_REPOSITORY_HYGIENE_AUDIT_V01`.
+- Independent hygiene audit: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_R04_REPOSITORY_HYGIENE_AUDIT_V01.md` — **CONDITIONAL / CLEANUP_SCOPE_PASS / M12 WORLD MAP REGRESSION OPEN**.
+- Active M21-001 World Map criteria: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_M21_WORLD_MAP_LAYOUT_CRITERIA_V01.md`.
+- Active M21-001 World Map prompt: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_M21_WORLD_MAP_LAYOUT_PROMPT_V01.md`.
+- Required World Map marker: `AWAITING_GPT_M21_WORLD_MAP_LAYOUT_AUDIT_V01`.
 
 Owner F5 V04 active remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
@@ -977,12 +981,13 @@ Owner F5 V04 active remediation:
 - Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
 
-- [!] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
 - [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+- [x] BCM-M21-007 — Remove proven obsolete/orphan visual assets, evidence, generated import metadata, stale JSON/tests/tools, and normalize repository truth around the owner-approved ten-island R04 surface/profile authority.
 
 ## Campaign design references
 
@@ -993,7 +998,7 @@ M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
  
 ## M22-M27 — Planned GameFeelFlow + Saltmire Spark presentation program
 
-**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 R04 repository-hygiene/release-closure sequence. The ten current R04 gameplay surfaces/geometries are owner-approved, but M22 starts only after BCM-M21-007 cleanup is independently audited and M21 permits progression.
+**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 World Map/release-closure sequence. The ten current R04 gameplay surfaces/geometries are owner-approved and BCM-M21-007 cleanup is accepted; M22 starts only after BCM-M21-001 World Map closure and M21 release closure permit progression.
 
 **Presentation-only constitution**
 - Gameplay/campaign truth stays with `Drink`, `ShotController`, `GameManager`, `GameplaySessionBridge`, `CampaignManager`, `GameEconomy`, `SaveManager`, canonical level data, and accepted table geometry. Presentation observes finalized facts only.
