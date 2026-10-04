@@ -323,43 +323,67 @@ Desktop checkout with the current `origin/main`. ChatGPT may have updated
 `TASKS.md`, prompts, audit criteria, audits, or other coordination files after
 the prior task.
 
-### Standing owner-local plugin sync exception
+### Standing owner-local safe-sync exception
 
-The following exact dirty-state combination is an authorized, recurring owner-local development setup and MUST NOT block synchronization by itself:
+Owner-local work in the canonical Desktop checkout MUST be preserved and, by itself, MUST NOT block a safe behind-only synchronization when incoming remote changes are path-disjoint.
 
-- modified tracked `project.godot` containing owner-local plugin/autoload integration;
+Known recurring owner-local paths currently include, but are not limited to:
+
+- tracked `project.godot`;
+- tracked `scenes/main.tscn`;
 - untracked `addons/godot_ai/`;
 - untracked `addons/game_feel_flow/`;
 - untracked `addons/saltmire_spark/`;
 - exactly 14 known generated untracked `.translation` sidecars.
 
-The three addon directories above are deliberate owner-installed local integrations. During M21 they are protected owner-local content: do not delete, clean, reset, stash with `-u`, stage, commit, or rewrite them.
+The rule is intentionally generic so future legitimate owner-local tracked edits do not require one-off authorization every time.
 
 When ALL of the following are true:
 
 1. local `main` is behind-only relative to `origin/main`;
-2. the only local dirty paths are the authorized categories above;
-3. the incoming diff from local `HEAD` to `origin/main` does not touch `project.godot`, `addons/godot_ai/**`, `addons/game_feel_flow/**`, `addons/saltmire_spark/**`, or any of the 14 translation sidecars;
+2. there are no local commits ahead of `origin/main`;
+3. every current dirty path is inventoried before sync;
+4. the incoming diff from local `HEAD` to `origin/main` touches **none** of the dirty local paths;
+5. no merge/rebase conflict is predicted;
 
-Codex is explicitly owner-authorized to reconcile the checkout **before reading the active task prompt**.
+Codex is explicitly owner-authorized to synchronize **before reading the active task prompt** while preserving all current local work.
 
-Use this procedure:
+Use this exact safe procedure:
 
-1. record the current pre-sync HEAD short SHA:
-   `$preSync = git rev-parse --short=12 HEAD`
-2. create a NEW tracked-only stash containing exactly `project.godot`, with a message unique to that pre-sync HEAD:
-   `git stash push -m "owner-local-plugin-sync-preserve-$preSync" -- project.godot`
-3. do **not** use `-u`; leave all three untracked addon directories and the 14 sidecars untouched;
-4. `git fetch origin main`;
-5. re-verify that the incoming diff excludes every protected owner-local path;
-6. `git merge --ff-only origin/main`;
-7. locate and apply only the NEW stash whose exact message contains the recorded `$preSync`; do not apply an older similarly named stash and do not drop any preservation stash;
-8. verify the restored dirty state consists only of the intended `project.godot` diff plus the three untouched addon directories and 14 sidecars;
-9. continue with the synchronized `AGENTS.md`, `TASKS.md`, and active prompt.
+1. record:
+   - current HEAD;
+   - `git status --short`;
+   - the complete list of modified tracked paths;
+   - the complete list of untracked paths.
+2. create a NEW tracked-only stash containing **all currently modified tracked owner-local paths**:
+   - use an explicit path list;
+   - do not use `-u`;
+   - do not stash untracked files;
+   - name the stash `owner-local-safe-sync-<preSyncShortSha>`.
+3. leave all untracked files/directories untouched.
+4. `git fetch origin main`.
+5. re-check behind-only status and compare incoming changed paths against the full dirty-path inventory.
+6. if incoming changes remain path-disjoint, run:
+   `git merge --ff-only origin/main`
+7. locate only the NEW stash by its exact unique message and apply it without dropping it.
+8. verify:
+   - every tracked owner-local diff is restored;
+   - every untracked owner-local path is still present and untouched;
+   - no conflict occurred;
+   - no owner-local path was staged or committed.
+9. continue with synchronized `AGENTS.md`, `TASKS.md`, and the active prompt.
 
-Existing older preservation stashes may remain. Their mere existence is not a blocker and they must not be applied blindly.
+Do **not** stop merely because a new owner-local tracked file such as `scenes/main.tscn` appears, provided the incoming diff does not touch that path and all conditions above are satisfied.
 
-This is a standing owner authorization. **Do not stop merely because this exact known owner-local plugin state exists.** Stop only if the dirty set contains anything else, the branch is not behind-only, the incoming diff touches a protected owner-local path, the newly created stash cannot be applied cleanly, or another genuine ambiguity appears.
+Stop only when:
+- local history is not behind-only;
+- incoming remote changes touch any dirty local path;
+- a stash/apply conflict occurs;
+- an unexpected path cannot be safely classified as owner-local work;
+- or another genuine ambiguity remains after the path-disjoint comparison.
+
+Existing older preservation stashes may remain. Their existence is not a blocker and they must never be applied blindly.
+
 
 1. From `C:\Users\sekip\Desktop\Beach Cocktails - Merge`, run:
    - `git status --short --branch`
