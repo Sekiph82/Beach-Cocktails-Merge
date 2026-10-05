@@ -65,8 +65,8 @@
                 ]
             },
             "map_position": [
-                0.175,
-                0.88
+                0.75,
+                0.234375
             ],
             "target_policy": {
                 "min_level": 5,
@@ -139,7 +139,21 @@
                     "source": "sunny_cove_progression_v1"
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    225,
+                    225
+                ],
+                "label_offset": [
+                    0,
+                    92
+                ],
+                "label_size": [
+                    144,
+                    40
+                ]
+            }
         },
         {
             "id": "tiki_island",
@@ -163,8 +177,8 @@
                 "max_level": 9
             },
             "map_position": [
-                0.12,
-                0.625
+                0.24305555555555555,
+                0.34375
             ],
             "reward_track": {
                 "milestones": [],
@@ -172,7 +186,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/tiki_island/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/tiki_island/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    183,
+                    183
+                ],
+                "label_offset": [
+                    0,
+                    70
+                ],
+                "label_size": [
+                    144,
+                    40
+                ]
+            }
         },
         {
             "id": "azure_bay",
@@ -196,8 +224,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.665,
-                0.825
+                0.6736111111111112,
+                0.42421875
             ],
             "reward_track": {
                 "milestones": [],
@@ -205,7 +233,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/azure_bay/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/azure_bay/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    234,
+                    234
+                ],
+                "label_offset": [
+                    0,
+                    97
+                ],
+                "label_size": [
+                    144,
+                    40
+                ]
+            }
         },
         {
             "id": "coconut_beach",
@@ -229,8 +271,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.29,
-                0.502
+                0.2013888888888889,
+                0.50390625
             ],
             "reward_track": {
                 "milestones": [],
@@ -238,7 +280,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/coconut_beach/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/coconut_beach/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    192,
+                    192
+                ],
+                "label_offset": [
+                    0,
+                    75
+                ],
+                "label_size": [
+                    152,
+                    40
+                ]
+            }
         },
         {
             "id": "sunset_island",
@@ -262,8 +318,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.5,
-                0.52
+                0.5694444444444444,
+                0.59921875
             ],
             "reward_track": {
                 "milestones": [],
@@ -271,7 +327,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunset_island/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/sunset_island/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    213,
+                    213
+                ],
+                "label_offset": [
+                    0,
+                    85
+                ],
+                "label_size": [
+                    145,
+                    40
+                ]
+            }
         },
         {
             "id": "party_beach",
@@ -295,8 +365,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.81,
-                0.615
+                0.8472222222222222,
+                0.6796875
             ],
             "reward_track": {
                 "milestones": [],
@@ -304,7 +374,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/party_beach/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/party_beach/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    186,
+                    186
+                ],
+                "label_offset": [
+                    0,
+                    70
+                ],
+                "label_size": [
+                    144,
+                    40
+                ]
+            }
         },
         {
             "id": "frozen_paradise",
@@ -328,8 +412,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.75,
-                0.005
+                0.5555555555555556,
+                0.796875
             ],
             "reward_track": {
                 "milestones": [],
@@ -337,7 +421,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/frozen_paradise/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/frozen_paradise/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    228,
+                    228
+                ],
+                "label_offset": [
+                    0,
+                    92
+                ],
+                "label_size": [
+                    144,
+                    40
+                ]
+            }
         },
         {
             "id": "volcano_bay",
@@ -361,8 +459,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.255,
-                0.015
+                0.25,
+                0.71875
             ],
             "reward_track": {
                 "milestones": [],
@@ -370,7 +468,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/volcano_bay/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/volcano_bay/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    207,
+                    207
+                ],
+                "label_offset": [
+                    0,
+                    83
+                ],
+                "label_size": [
+                    144,
+                    40
+                ]
+            }
         },
         {
             "id": "billionaire_island",
@@ -394,8 +506,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.635,
-                0.165
+                0.25,
+                0.921875
             ],
             "reward_track": {
                 "milestones": [],
@@ -403,7 +515,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/billionaire_island/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/billionaire_island/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    177,
+                    177
+                ],
+                "label_offset": [
+                    0,
+                    67
+                ],
+                "label_size": [
+                    153,
+                    40
+                ]
+            }
         },
         {
             "id": "final_island",
@@ -427,8 +553,8 @@
                 "max_level": 12
             },
             "map_position": [
-                0.795,
-                0.36
+                0.8541666666666666,
+                0.9203125
             ],
             "reward_track": {
                 "milestones": [],
@@ -436,7 +562,21 @@
                     "placeholder": true
                 }
             },
-            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/final_island/playable_geometry_r04.json"
+            "playable_geometry_profile": "res://assets/ui_assets/campaign/islands/final_island/playable_geometry_r04.json",
+            "world_map_layout": {
+                "render_size": [
+                    201,
+                    201
+                ],
+                "label_offset": [
+                    0,
+                    79
+                ],
+                "label_size": [
+                    144,
+                    40
+                ]
+            }
         }
     ]
 }

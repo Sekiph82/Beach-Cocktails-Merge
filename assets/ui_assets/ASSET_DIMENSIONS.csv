@@ -116,6 +116,8 @@ assets/ui_assets/campaign/world_map/world_clouds_front.png,320,180,RGBA,True
 assets/ui_assets/campaign/world_map/world_map_background.png,720,1280,RGBA,True
 assets/ui_assets/campaign/world_map/world_map_boat.png,320,180,RGBA,True
 assets/ui_assets/campaign/world_map/world_map_compass.png,320,180,RGBA,True
+assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v01.png,720,1280,RGB,False
+assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v02.png,941,1672,RGB,False
 assets/ui_assets/campaign/world_map/world_map_title_panel.png,500,120,RGBA,True
 assets/ui_assets/CONTACT_SHEET_GLOBAL.png,970,590,RGBA,True
 assets/ui_assets/CONTACT_SHEET_ISLANDS.png,1208,630,RGBA,True

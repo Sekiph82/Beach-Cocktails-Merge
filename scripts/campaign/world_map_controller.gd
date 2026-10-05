@@ -1,11 +1,9 @@
 class_name WorldMapController
 extends Control
 
-## Reusable, data-driven World Map controller.
-##
-## Island definitions, map coordinates, art, and unlock rules come from the
-## campaign definition layer. CampaignManager remains the sole authority for
-## OPEN/LOCKED/CURRENT/COMPLETE state and selection decisions.
+## Runtime composition for the owner-approved World Map. CampaignManager remains
+## the authority for unlock state and island selection; this controller owns only
+## presentation and emits the existing navigation boundary.
 
 signal island_selected(island_id: String)
 signal island_map_requested(island_id: String)
@@ -16,9 +14,12 @@ const STATE_OPEN := "OPEN"
 const STATE_LOCKED := "LOCKED"
 const STATE_CURRENT := "CURRENT"
 const STATE_COMPLETE := "COMPLETE"
+const CANONICAL_SIZE := Vector2(720.0, 1280.0)
 
-const MAP_BACKGROUND := preload("res://assets/ui_assets/campaign/world_map/world_map_background.png")
+const MAP_BACKGROUND := preload("res://assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v02.png")
+const CLOUDS_BACK := preload("res://assets/ui_assets/campaign/world_map/world_clouds_back.png")
 const CLOUDS_FRONT := preload("res://assets/ui_assets/campaign/world_map/world_clouds_front.png")
+const ROUTE_LINE := preload("res://assets/ui_assets/campaign/world_map/route_line.png")
 const TITLE_PANEL := preload("res://assets/ui_assets/campaign/world_map/world_map_title_panel.png")
 const COMPASS := preload("res://assets/ui_assets/campaign/world_map/world_map_compass.png")
 const BOAT := preload("res://assets/ui_assets/campaign/world_map/world_map_boat.png")
@@ -39,9 +40,8 @@ var _refresh_queued := false
 
 var _map_canvas: Control
 var _marker_layer: Control
-var _status_label: Label
-var _selection_label: Label
-var _feedback_overlay
+var _route_layer: Control
+var _feedback_overlay: CampaignFeedbackOverlay
 
 
 func _ready() -> void:
@@ -64,9 +64,6 @@ func configure_campaign(database, manager) -> bool:
 
 
 func refresh() -> void:
-	# Rebuilds are deferred so a marker cannot be freed while its pressed signal
-	# is still dispatching. The old marker is detached and queue-freed only from
-	# the deferred rebuild, never immediate-freed.
 	if _refresh_queued:
 		return
 	_refresh_queued = true
@@ -109,7 +106,6 @@ func _refresh_deferred() -> void:
 	if selected_island_id.is_empty():
 		selected_island_id = campaign_manager.current_island_id
 	_layout_map()
-	_update_summary()
 	call_deferred("_layout_map")
 
 
@@ -131,6 +127,10 @@ func is_entry_selectable(island_id: String) -> bool:
 	return entry != null and bool(entry.is_selectable())
 
 
+func get_entry(island_id: String) -> Control:
+	return _entries.get(island_id) as Control
+
+
 func get_locked_feedback() -> Dictionary:
 	return last_locked_feedback.duplicate(true)
 
@@ -149,7 +149,7 @@ func get_map_node_count() -> int:
 
 func get_marker_position(island_id: String) -> Vector2:
 	var entry: Control = _entries.get(island_id) as Control
-	return entry.position if entry != null else Vector2(-1.0, -1.0)
+	return entry.position + entry.size * 0.5 if entry != null else Vector2(-1.0, -1.0)
 
 
 func get_hotspot_center_report() -> Array[Dictionary]:
@@ -159,7 +159,7 @@ func get_hotspot_center_report() -> Array[Dictionary]:
 		var entry: Control = _entries.get(island_id) as Control
 		if entry == null:
 			continue
-		var center := entry.position + IslandEntry.MARKER_CENTER
+		var center := entry.position + entry.size * 0.5
 		result.append({
 			"island_id": island_id,
 			"map_position": definition.get("map_position", []),
@@ -180,22 +180,22 @@ func select_island(island_id: String) -> bool:
 			"reason": str(feedback.get("reason", "Island locked")),
 			"progress": str(feedback.get("progress", "Progress required")),
 		}
-		_show_locked_feedback(last_locked_feedback)
 		locked_island_feedback.emit(island_id, last_locked_feedback["reason"], last_locked_feedback["progress"])
+		if _feedback_overlay != null:
+			_feedback_overlay.show_locked_island(last_locked_feedback["reason"], last_locked_feedback["progress"])
 		return false
 	if not campaign_manager.select_island(island_id):
 		return false
 	selected_island_id = island_id
+	if _feedback_overlay != null:
+		_feedback_overlay.hide_feedback()
 	island_selected.emit(island_id)
-	# M13 owns IslandMapScene. This signal is the navigation boundary; this
-	# controller never launches gameplay directly.
 	island_map_requested.emit(island_id)
 	refresh()
-	_show_selection_feedback(island_id)
 	return true
 
 
-func get_layout_report(reference_size: Vector2 = Vector2(720, 1280)) -> Dictionary:
+func get_layout_report(reference_size: Vector2 = CANONICAL_SIZE) -> Dictionary:
 	var report := {
 		"reference_size": reference_size,
 		"entry_count": _entries.size(),
@@ -211,51 +211,66 @@ func get_layout_report(reference_size: Vector2 = Vector2(720, 1280)) -> Dictiona
 		"entries_fit_width": true,
 		"map_fills_viewport": _map_canvas != null,
 		"duplicate_nodes": get_map_node_count() != _entries.size(),
+		"islands": [],
 	}
 	if _map_canvas == null or _entries.is_empty():
 		return report
 	var viewport_rect := Rect2(Vector2.ZERO, reference_size)
-	var header_rect: Rect2 = (get_node("Header") as Control).get_global_rect()
-	var status_rect: Rect2 = (get_node("StatusPanel") as Control).get_global_rect()
-	var selection_rect: Rect2 = _selection_label.get_global_rect() if _selection_label != null else Rect2()
 	var header: Control = get_node("Header") as Control
-	for control_name in ["BackButton", "TitlePanel", "Compass"]:
-		var header_control: Control = header.get_node(control_name) as Control
-		var header_control_rect := header_control.get_global_rect()
-		if not header_rect.encloses(header_control_rect):
+	var header_rects: Array[Rect2] = [
+		(header.get_node("BackButton") as Control).get_global_rect(),
+		(header.get_node("TitlePanel") as Control).get_global_rect(),
+		(header.get_node("Compass") as Control).get_global_rect(),
+	]
+	for control_rect in header_rects:
+		if control_rect.position.x < 0.0 or control_rect.position.y < 0.0 or control_rect.end.x > reference_size.x or control_rect.end.y > reference_size.y:
 			report["header_controls_fit"] = false
 	var previous: Array[Rect2] = []
-	for island_id in get_entry_ids():
-		var entry: Control = _entries[island_id] as Control
+	var island_reports: Array[Dictionary] = []
+	for island_id in _ordered_ids:
+		var definition: Dictionary = _definitions_by_id.get(island_id, {})
+		var entry: IslandEntry = _entries[island_id] as IslandEntry
 		var hit_rect := entry.get_global_rect()
-		if hit_rect.position.x < viewport_rect.position.x or hit_rect.end.x > viewport_rect.end.x:
+		if hit_rect.position.x < 0.0 or hit_rect.end.x > reference_size.x:
 			report["horizontal_clipping"] = true
 			report["entries_fit_width"] = false
-		if hit_rect.position.y < viewport_rect.position.y or hit_rect.end.y > viewport_rect.end.y:
+		if hit_rect.position.y < 0.0 or hit_rect.end.y > reference_size.y:
 			report["vertical_clipping"] = true
 		for other in previous:
 			if hit_rect.intersects(other):
 				report["overlap"] = true
 		previous.append(hit_rect)
-		var marker_visuals: Array[Control] = [
-			entry.get_node("SelectionRing"),
-			entry.get_node("IslandName"),
-			entry.get_node("IslandState"),
-		]
-		for visual in marker_visuals:
-			if not visual.is_visible_in_tree():
-				continue
-			var visual_rect := visual.get_global_rect()
-			if visual_rect.position.x < viewport_rect.position.x or visual_rect.end.x > viewport_rect.end.x:
-				report["horizontal_clipping"] = true
-			if visual_rect.position.y < viewport_rect.position.y or visual_rect.end.y > viewport_rect.end.y:
-				report["vertical_clipping"] = true
-			if visual_rect.intersects(header_rect):
+		var art_rect := entry.get_art_global_rect()
+		var label_rect := entry.get_label_global_rect()
+		if label_rect.position.x < 0.0 or label_rect.end.x > reference_size.x:
+			report["horizontal_clipping"] = true
+		if label_rect.position.y < 0.0 or label_rect.end.y > reference_size.y:
+			report["vertical_clipping"] = true
+		for header_rect in header_rects:
+			if hit_rect.intersects(header_rect) or label_rect.intersects(header_rect):
 				report["header_overlap"] = true
-			if visual_rect.intersects(status_rect):
-				report["status_overlap"] = true
-			if _selection_label != null and visual_rect.intersects(selection_rect):
-				report["selection_boundary_overlap"] = true
+		var center := art_rect.get_center()
+		var expected_layout: Dictionary = definition.get("world_map_layout", {})
+		var expected_position: Array = definition.get("map_position", [0.0, 0.0])
+		var expected_center := Vector2(float(expected_position[0]) * CANONICAL_SIZE.x, float(expected_position[1]) * CANONICAL_SIZE.y)
+		var expected_size: Array = expected_layout.get("render_size", [entry.size.x, entry.size.y])
+		island_reports.append({
+			"id": island_id,
+			"source_png": str(definition.get("map_asset", "")),
+			"expected_center": _vec_json(expected_center),
+			"expected_size": _vec_json(Vector2(float(expected_size[0]), float(expected_size[1]))),
+			"actual_center": _vec_json(center),
+			"actual_size": _vec_json(art_rect.size),
+			"hit_rect": _rect_json(hit_rect),
+			"label_rect": _rect_json(label_rect),
+			"route_anchor": _vec_json(center),
+			"state": entry.island_state,
+			"center_delta": _vec_json(center - expected_center),
+			"size_delta": _vec_json(art_rect.size - Vector2(float(expected_size[0]), float(expected_size[1]))),
+			"overlap": false,
+			"clipped": hit_rect.position.x < 0.0 or hit_rect.position.y < 0.0 or hit_rect.end.x > reference_size.x or hit_rect.end.y > reference_size.y or label_rect.position.x < 0.0 or label_rect.position.y < 0.0 or label_rect.end.x > reference_size.x or label_rect.end.y > reference_size.y,
+		})
+	report["islands"] = island_reports
 	report["navigation_overlap"] = bool(report["status_overlap"]) or bool(report["selection_boundary_overlap"])
 	return report
 
@@ -268,45 +283,48 @@ func _build_shell() -> void:
 	background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	background.stretch_mode = TextureRect.STRETCH_SCALE
 	background.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	background.z_index = -10
 	add_child(background)
-
-	var ocean_wash := ColorRect.new()
-	ocean_wash.name = "OceanWash"
-	ocean_wash.color = Color(0.02, 0.10, 0.18, 0.12)
-	ocean_wash.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	ocean_wash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(ocean_wash)
 
 	_map_canvas = Control.new()
 	_map_canvas.name = "MapCanvas"
-	_map_canvas.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_map_canvas.offset_top = 142.0
-	_map_canvas.offset_bottom = -176.0
-	_map_canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_map_canvas.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_map_canvas.mouse_filter = Control.MOUSE_FILTER_PASS
 	add_child(_map_canvas)
+
+	_route_layer = Control.new()
+	_route_layer.name = "RouteLayer"
+	_route_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_route_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_route_layer.z_index = 1
+	_map_canvas.add_child(_route_layer)
+
+	var boat := TextureRect.new()
+	boat.name = "MapBoat"
+	boat.texture = BOAT
+	boat.position = Vector2(282.5, 357.5)
+	boat.size = Vector2(115.0, 65.0)
+	boat.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	boat.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	boat.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	boat.z_index = 2
+	_map_canvas.add_child(boat)
+	boat.size = Vector2(115.0, 65.0)
 
 	_marker_layer = Control.new()
 	_marker_layer.name = "IslandMarkers"
 	_marker_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_marker_layer.mouse_filter = Control.MOUSE_FILTER_PASS
-	_marker_layer.z_index = 2
+	_marker_layer.z_index = 3
 	_map_canvas.add_child(_marker_layer)
 
-	var clouds := TextureRect.new()
-	clouds.name = "CloudsFront"
-	clouds.texture = CLOUDS_FRONT
-	clouds.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	clouds.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	clouds.stretch_mode = TextureRect.STRETCH_SCALE
-	clouds.modulate = Color(1.0, 1.0, 1.0, 0.06)
-	clouds.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	clouds.z_index = 4
-	add_child(clouds)
+	_add_cloud(CLOUDS_BACK, Rect2(0.0, 8.0, 126.0, 146.0), Vector2(23.0, 316.0), Vector2(126.0, 146.0), "CloudsBack", 4, 0.74)
+	_add_cloud(CLOUDS_FRONT, Rect2(205.0, 12.0, 115.0, 146.0), Vector2(640.5, 243.0), Vector2(115.0, 146.0), "CloudsFront", 5, 0.74)
 
 	var header := Control.new()
 	header.name = "Header"
 	header.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
-	header.offset_bottom = 76.0
+	header.offset_bottom = 160.0
 	header.mouse_filter = Control.MOUSE_FILTER_PASS
 	header.z_index = 8
 	add_child(header)
@@ -314,9 +332,9 @@ func _build_shell() -> void:
 	var back := Button.new()
 	back.name = "BackButton"
 	back.text = "‹"
-	back.position = Vector2(22.0, 6.0)
-	back.size = Vector2(64.0, 64.0)
-	back.add_theme_font_size_override("font_size", 42)
+	back.position = Vector2(20.0, 53.0)
+	back.size = Vector2(68.0, 68.0)
+	back.add_theme_font_size_override("font_size", 48)
 	back.tooltip_text = "Return"
 	back.pressed.connect(func() -> void: return_requested.emit())
 	_apply_button_style(back, Color("#12354d"), Color("#f7d47b"))
@@ -325,107 +343,114 @@ func _build_shell() -> void:
 	var title_panel := TextureRect.new()
 	title_panel.name = "TitlePanel"
 	title_panel.texture = TITLE_PANEL
-	title_panel.position = Vector2(138.0, 0.0)
-	title_panel.size = Vector2(444.0, 76.0)
+	title_panel.position = Vector2(110.0, 30.0)
+	title_panel.size = Vector2(500.0, 120.0)
 	title_panel.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	title_panel.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	title_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(title_panel)
-	# TextureRect applies the newly assigned texture's minimum size when it
-	# enters the tree; reapply the authored fit after parenting so its frame
-	# stays inside the safe header band.
-	title_panel.size = Vector2(444.0, 76.0)
-
-	var eyebrow := Label.new()
-	eyebrow.text = "CAMPAIGN NAVIGATION"
-	eyebrow.position = Vector2(170.0, 4.0)
-	eyebrow.size = Vector2(380.0, 18.0)
-	eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	eyebrow.add_theme_font_size_override("font_size", 13)
-	eyebrow.modulate = Color("#73e0d1")
-	eyebrow.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	header.add_child(eyebrow)
-
-	var title := Label.new()
-	title.text = "WORLD MAP"
-	title.position = Vector2(170.0, 21.0)
-	title.size = Vector2(380.0, 42.0)
-	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.add_theme_font_size_override("font_size", 30)
-	title.modulate = Color("#fff3cf")
-	title.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	header.add_child(title)
+	_add_title_label(header, "WORLD MAP", Vector2(180.0, 48.0), Vector2(360.0, 28.0), 15, Color("#bff5e7"))
+	_add_title_label(header, "ISLAND JOURNEY", Vector2(160.0, 72.0), Vector2(400.0, 42.0), 29, Color("#fff0c1"))
+	_add_title_label(header, "FOLLOW THE TROPICAL ROUTE", Vector2(175.0, 113.0), Vector2(370.0, 22.0), 12, Color("#ddf9e8"))
 
 	var compass := TextureRect.new()
 	compass.name = "Compass"
 	compass.texture = COMPASS
-	compass.position = Vector2(624.0, 3.0)
-	compass.size = Vector2(70.0, 70.0)
+	compass.position = Vector2(618.0, 47.0)
+	compass.size = Vector2(82.0, 82.0)
 	compass.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	compass.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	compass.stretch_mode = TextureRect.STRETCH_SCALE
 	compass.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(compass)
-	compass.size = Vector2(70.0, 70.0)
+	compass.size = Vector2(82.0, 82.0)
 
-	var status_panel := PanelContainer.new()
-	status_panel.name = "StatusPanel"
-	status_panel.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
-	status_panel.offset_left = 24.0
-	status_panel.offset_top = -160.0
-	status_panel.offset_right = -24.0
-	status_panel.offset_bottom = -82.0
-	status_panel.add_theme_stylebox_override("panel", _panel_style(Color("#08283c"), Color("#3f9b9b"), 0.92))
-	status_panel.z_index = 9
-	add_child(status_panel)
-
-	var status_margin := MarginContainer.new()
-	status_margin.add_theme_constant_override("margin_left", 18)
-	status_margin.add_theme_constant_override("margin_top", 10)
-	status_margin.add_theme_constant_override("margin_right", 18)
-	status_margin.add_theme_constant_override("margin_bottom", 8)
-	status_panel.add_child(status_margin)
-	_status_label = Label.new()
-	_status_label.add_theme_font_size_override("font_size", 16)
-	_status_label.modulate = Color("#fff0c6")
-	_status_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	status_margin.add_child(_status_label)
-
-	_selection_label = Label.new()
-	_selection_label.name = "SelectionBoundary"
-	_selection_label.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
-	_selection_label.offset_left = 26.0
-	_selection_label.offset_top = -70.0
-	_selection_label.offset_right = -26.0
-	_selection_label.offset_bottom = -24.0
-	_selection_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_selection_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_selection_label.add_theme_font_size_override("font_size", 14)
-	_selection_label.modulate = Color("#d7ebe4")
-	_selection_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_selection_label.z_index = 9
-	add_child(_selection_label)
-
-	var boat := TextureRect.new()
-	boat.name = "MapBoat"
-	boat.texture = BOAT
-	boat.position = Vector2(205.0, 1030.0)
-	boat.size = Vector2(86.0, 62.0)
-	boat.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	boat.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	boat.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	boat.z_index = 1
-	add_child(boat)
-	boat.size = Vector2(86.0, 62.0)
-
+	_build_route()
 	_feedback_overlay = FEEDBACK_SCENE.new()
 	_feedback_overlay.name = "CampaignFeedbackOverlay"
 	_feedback_overlay.action_requested.connect(_on_feedback_action)
 	add_child(_feedback_overlay)
 
 
-func _on_feedback_action(action: String) -> void:
-	if action == "DISMISS" and _feedback_overlay != null:
-		_feedback_overlay.hide_feedback()
+func _add_title_label(parent: Control, value: String, label_position: Vector2, label_size: Vector2, font_size: int, color: Color) -> void:
+	var label := Label.new()
+	label.text = value
+	label.position = label_position
+	label.size = label_size
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", color)
+	label.add_theme_color_override("font_shadow_color", Color("#082a38"))
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	parent.add_child(label)
+
+
+func _add_cloud(source: Texture2D, region: Rect2, center: Vector2, cloud_size: Vector2, node_name: String, order: int, opacity: float) -> void:
+	var atlas := AtlasTexture.new()
+	atlas.atlas = source
+	atlas.region = region
+	var cloud := TextureRect.new()
+	cloud.name = node_name
+	cloud.texture = atlas
+	cloud.position = center - cloud_size * 0.5
+	cloud.size = cloud_size
+	cloud.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	cloud.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	cloud.modulate = Color(1.0, 1.0, 1.0, opacity)
+	cloud.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	cloud.z_index = order
+	var feather_shader := Shader.new()
+	feather_shader.code = """
+shader_type canvas_item;
+void fragment() {
+	vec4 color = texture(TEXTURE, UV) * COLOR;
+	float edge = min(min(UV.x, 1.0 - UV.x), min(UV.y, 1.0 - UV.y));
+	color.a *= smoothstep(0.0, 0.22, edge);
+	COLOR = color;
+}
+"""
+	var feather_material := ShaderMaterial.new()
+	feather_material.shader = feather_shader
+	cloud.material = feather_material
+	_map_canvas.add_child(cloud)
+	cloud.position = center - cloud_size * 0.5
+	cloud.size = cloud_size
+
+
+func _build_route() -> void:
+	for child in _route_layer.get_children():
+		child.queue_free()
+	if level_database == null:
+		return
+	var definitions: Array[Dictionary] = []
+	for island_id in level_database.get_island_ids():
+		definitions.append(level_database.get_island(island_id))
+	definitions.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return int(a.get("order_index", 0)) < int(b.get("order_index", 0))
+	)
+	var previous_center := Vector2.ZERO
+	var has_previous := false
+	for definition in definitions:
+		var center := _canonical_center(definition)
+		if has_previous:
+			var segment := TextureRect.new()
+			segment.name = "Route_%02d_%s" % [int(definition.get("order_index", 0)), str(definition.get("id", ""))]
+			segment.texture = ROUTE_LINE
+			var delta := center - previous_center
+			var length := delta.length()
+			segment.size = Vector2(length + 40.0, 19.0)
+			segment.position = (center + previous_center) * 0.5 - segment.size * 0.5
+			segment.rotation = delta.angle()
+			segment.pivot_offset = segment.size * 0.5
+			segment.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			segment.stretch_mode = TextureRect.STRETCH_SCALE
+			segment.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			_route_layer.add_child(segment)
+			segment.size = Vector2(length + 40.0, 19.0)
+		previous_center = center
+		has_previous = true
 
 
 func _configure_default_campaign() -> void:
@@ -446,6 +471,11 @@ func _on_progression_changed(_island_id: String, _level_id: int) -> void:
 	refresh()
 
 
+func _on_feedback_action(action: String) -> void:
+	if action == "DISMISS" and _feedback_overlay != null:
+		_feedback_overlay.hide_feedback()
+
+
 func _state_for(island_id: String, unlocked: bool) -> String:
 	if campaign_manager.is_island_complete(island_id):
 		return STATE_COMPLETE
@@ -458,65 +488,31 @@ func _on_island_pressed(island_id: String) -> void:
 	select_island(island_id)
 
 
-func _show_locked_feedback(feedback: Dictionary) -> void:
-	_status_label.modulate = Color("#ffd0c4")
-	_status_label.text = "%s\n%s" % [feedback["reason"], feedback["progress"]]
-	_selection_label.text = "LOCKED DESTINATION  •  Complete the required campaign progress to continue"
-	if _feedback_overlay != null:
-		_feedback_overlay.show_locked_island(str(feedback["reason"]), str(feedback["progress"]))
-
-
-func _show_selection_feedback(island_id: String) -> void:
-	if _feedback_overlay != null:
-		_feedback_overlay.hide_feedback()
-	_status_label.modulate = Color("#fff0c6")
-	var definition: Dictionary = _definitions_by_id.get(island_id, {})
-	_status_label.text = "Selected %s  •  Island Map navigation boundary ready" % str(definition.get("display_name", island_id))
-	_selection_label.text = "ISLAND SELECTED  •  M13 Island Map will receive this island id"
-
-
-func _update_summary() -> void:
-	if selected_island_id.is_empty() or not _entries.has(selected_island_id):
-		_status_label.text = "Sunny Cove is open • follow the route to discover future islands"
-		_selection_label.text = "Select an open island to continue • locked destinations show their campaign requirement"
-		return
-	var selected_definition: Dictionary = _definitions_by_id.get(selected_island_id, {})
-	var selected_entry = _entries[selected_island_id]
-	_status_label.modulate = Color("#fff0c6")
-	var display_state := "CURRENT • OPEN" if str(selected_entry.island_state) == STATE_CURRENT else str(selected_entry.island_state)
-	_status_label.text = "%s  •  %s\n%s" % [selected_definition.get("display_name", selected_island_id), display_state, str(campaign_manager.get_island_unlock_feedback(selected_island_id).get("progress", ""))]
-	_selection_label.text = "Select an island destination • locked markers are not navigable"
-
-
 func _layout_map() -> void:
 	if _map_canvas == null:
 		return
-	var map_size := _map_canvas.size
-	if map_size.x <= 0.0 or map_size.y <= 0.0:
-		map_size = Vector2(720.0, 924.0)
+	var viewport_size := _map_canvas.size
+	if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+		viewport_size = CANONICAL_SIZE
+	var scale_factor := minf(viewport_size.x / CANONICAL_SIZE.x, viewport_size.y / CANONICAL_SIZE.y)
+	var letterbox := (viewport_size - CANONICAL_SIZE * scale_factor) * 0.5
 	for island_id in _ordered_ids:
 		var definition: Dictionary = _definitions_by_id.get(island_id, {})
-		var entry: Control = _entries.get(island_id) as Control
+		var entry: IslandEntry = _entries.get(island_id) as IslandEntry
 		if entry == null:
 			continue
-		var center := _calibrated_center(island_id, definition, int(definition.get("order_index", 1)))
-		entry.position = center - IslandEntry.MARKER_CENTER
+		var center := _canonical_center(definition) * scale_factor + letterbox
+		entry.apply_layout(scale_factor)
+		entry.position = center - entry.size * 0.5
+	_build_route()
 
 
-func _calibrated_center(_island_id: String, definition: Dictionary, order_index: int) -> Vector2:
-	var map_size := _map_canvas.size
-	if map_size.x <= 0.0 or map_size.y <= 0.0:
-		map_size = Vector2(720.0, 924.0)
-	return _map_position(definition, order_index) * map_size
-
-
-func _map_position(definition: Dictionary, order_index: int) -> Vector2:
+func _canonical_center(definition: Dictionary) -> Vector2:
 	var raw_position: Variant = definition.get("map_position", [])
 	if raw_position is Array and raw_position.size() == 2:
-		return Vector2(clampf(float(raw_position[0]), 0.0, 1.0), clampf(float(raw_position[1]), 0.0, 1.0))
-	var fallback_x := 0.16 + float((order_index - 1) % 4) * 0.22
-	var fallback_y := 0.18 + float((order_index - 1) / 4) * 0.28
-	return Vector2(fallback_x, fallback_y)
+		return Vector2(float(raw_position[0]) * CANONICAL_SIZE.x, float(raw_position[1]) * CANONICAL_SIZE.y)
+	var order_index := int(definition.get("order_index", 1))
+	return Vector2(110.0 + float((order_index - 1) % 4) * 155.0, 280.0 + float((order_index - 1) / 4) * 330.0)
 
 
 func _panel_style(background: Color, border: Color, alpha: float) -> StyleBoxFlat:
@@ -524,16 +520,24 @@ func _panel_style(background: Color, border: Color, alpha: float) -> StyleBoxFla
 	style.bg_color = Color(background.r, background.g, background.b, alpha)
 	style.border_color = border
 	style.set_border_width_all(2)
-	style.set_corner_radius_all(18)
-	style.shadow_color = Color(0, 0, 0, 0.28)
-	style.shadow_size = 8
+	style.set_corner_radius_all(34)
+	style.shadow_color = Color(0, 0, 0, 0.32)
+	style.shadow_size = 5
 	return style
 
 
 func _apply_button_style(button: Button, background: Color, border: Color) -> void:
-	var style := _panel_style(background, border, 0.94)
+	var style := _panel_style(background, border, 0.96)
 	button.add_theme_stylebox_override("normal", style)
 	var hover := style.duplicate()
 	hover.bg_color = background.lightened(0.12)
 	button.add_theme_stylebox_override("hover", hover)
 	button.add_theme_stylebox_override("pressed", hover)
+
+
+func _vec_json(value: Vector2) -> Dictionary:
+	return {"x": snappedf(value.x, 0.01), "y": snappedf(value.y, 0.01)}
+
+
+func _rect_json(value: Rect2) -> Dictionary:
+	return {"x": snappedf(value.position.x, 0.01), "y": snappedf(value.position.y, 0.01), "width": snappedf(value.size.x, 0.01), "height": snappedf(value.size.y, 0.01)}

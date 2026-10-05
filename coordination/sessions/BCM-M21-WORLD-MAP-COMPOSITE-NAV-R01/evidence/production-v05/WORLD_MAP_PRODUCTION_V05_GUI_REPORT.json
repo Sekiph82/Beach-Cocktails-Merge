@@ -1,0 +1,16 @@
+{
+	"captures": [
+		"res://coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/01_world_map_full_fresh.png",
+		"res://coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/02_world_map_top_section.png",
+		"res://coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/03_world_map_middle_section.png",
+		"res://coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/04_world_map_bottom_section.png",
+		"res://coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/05_sunny_cove_current_selectable.png",
+		"res://coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/06_tiki_island_locked.png",
+		"res://coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/07_sunny_cove_island_map_after_real_mouse.png"
+	],
+	"checks_failed": [],
+	"independent_gpt_audit": "PENDING",
+	"owner_f5_acceptance": "PENDING",
+	"prompt_version": "V05",
+	"work_item": "BCM-M21-001"
+}

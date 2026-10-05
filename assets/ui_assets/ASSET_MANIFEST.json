@@ -1644,6 +1644,34 @@
       "sha256": "8d375bdab9f99f7aa7caa273134fdceceeb103551534266cc5157d5d2627c6f0"
     },
     {
+      "path": "assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v01.png",
+      "category": "campaign/world_map",
+      "intended_screen_use": "world map ocean background owner v01",
+      "dimensions": {
+        "width": 720,
+        "height": 1280
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "648f90e0c66e0a29f3781022071ab8ea5b0a0ae824020c4f5b9aa538067c1700"
+    },
+    {
+      "path": "assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v02.png",
+      "category": "campaign/world_map",
+      "intended_screen_use": "world map ocean background owner v02",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "dca5feb7283588d59158388bca87ea7d8f5796ccfa37559daecec11e4606a4e2"
+    },
+    {
       "path": "assets/ui_assets/campaign/world_map/world_map_title_panel.png",
       "category": "campaign/world_map",
       "intended_screen_use": "world map title panel",

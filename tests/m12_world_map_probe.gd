@@ -131,6 +131,17 @@ func _run() -> void:
     var canonical_map = await _mount(canonical_database, canonical_campaign)
     var canonical_ids: Array[String] = canonical_map.get_entry_ids()
     _check("canonical map displays ten planned destinations", canonical_ids.size() == 10 and canonical_map.get_visual_marker_count() == 10)
+    var canonical_background: TextureRect = canonical_map.get_node("WorldMapBackground") as TextureRect
+    _check("canonical composite map uses the owner-approved clean V02 ocean", canonical_background != null and canonical_background.texture.resource_path.ends_with("world_map_ocean_background_owner_v02.png"))
+    var canonical_icons_visible := true
+    var canonical_sizes: Dictionary = {}
+    for canonical_id in canonical_ids:
+        var entry: IslandEntry = canonical_map.get_entry(canonical_id) as IslandEntry
+        canonical_icons_visible = canonical_icons_visible and entry != null and entry.get_node("IslandArt").visible and entry.get_art_global_rect().get_center().distance_to(entry.get_global_rect().get_center()) <= 0.1
+        if entry != null:
+            canonical_sizes[str(entry.size)] = true
+    _check("canonical map renders each island body as its own aligned interactive entry", canonical_icons_visible)
+    _check("canonical World Map retains deliberately varied island dimensions", canonical_sizes.size() == 10)
     var all_future_locked := true
     for canonical_id in canonical_ids:
         if canonical_id != "sunny_cove":
