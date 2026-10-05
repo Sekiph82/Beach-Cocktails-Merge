@@ -531,3 +531,22 @@ Existing older preservation stashes may remain. Their existence is not a blocker
 - Do not replace functional gameplay logic merely to simplify integration.
 - Keep changes bounded to the active work item.
 - Never self-approve work, close milestones, or edit `TASKS.md`.
+
+## Active M21 owner-F5 polish regression closure — 2026-10-06
+
+The R02 product visuals are implemented and frozen for remediation. Independent audit is:
+`coordination/sessions/BCM-M21-OWNER-F5-POLISH-R01/CHATGPT_OWNER_F5_VISUAL_POLISH_AUDIT_R02.md`
+with verdict:
+`CHANGES_REQUIRED / REGRESSION_AND_CLEAN_STATE_CLOSURE`.
+
+The active bounded remediation package is:
+- `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R03/CHATGPT_OWNER_F5_VISUAL_POLISH_CRITERIA_R03.md`
+- `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R03/CHATGPT_OWNER_F5_VISUAL_POLISH_PROMPT_R03.md`
+
+R03 may reconcile stale regression assumptions, a real M08 teardown crash, and the local `project.godot` canonical-state drift. It must not redesign the accepted R02 Home, Island Map, World Map, To-Go presentation, or R04 gameplay geometry unless a reproduced regression proves a minimal production correction is necessary.
+
+Required stop marker:
+`AWAITING_GPT_M21_OWNER_F5_POLISH_AUDIT_R03`
+
+BCM-M21-006 remains blocked.
+
