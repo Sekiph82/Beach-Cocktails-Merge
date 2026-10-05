@@ -448,56 +448,77 @@ func _build_shell() -> void:
 	# A PanelContainer would relayout those controls into the same container slot
 	# on the lower-map scroll presentation, so use a plain Panel as the visual
 	# surface and preserve their production coordinates.
-	var header := Panel.new()
+	var header := Control.new()
 	header.name = "IslandMapHeader"
 	header.set_anchors_preset(Control.PRESET_TOP_WIDE)
-	header.offset_bottom = 166.0
-	header.add_theme_stylebox_override("panel", _panel_style(Color("#103d52"), Color("#4bb3a8"), 0.98))
+	header.offset_bottom = 112.0
+	header.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.z_index = 5
 	add_child(header)
+	var sky_gradient := Gradient.new()
+	sky_gradient.colors = PackedColorArray([Color("#7db8df"), Color("#ffcf8b")])
+	var sky_texture := GradientTexture2D.new()
+	sky_texture.gradient = sky_gradient
+	sky_texture.width = 2
+	sky_texture.height = 112
+	sky_texture.fill_from = Vector2.ZERO
+	sky_texture.fill_to = Vector2(0.0, 1.0)
+	var sky_band := TextureRect.new()
+	sky_band.name = "IslandMapSkyBand"
+	sky_band.texture = sky_texture
+	sky_band.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	sky_band.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	sky_band.stretch_mode = TextureRect.STRETCH_SCALE
+	sky_band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	header.add_child(sky_band)
 
 	var back := Button.new()
 	back.name = "BackToWorldMap"
 	back.text = "‹"
-	back.position = Vector2(18.0, 24.0)
+	back.position = Vector2(18.0, 18.0)
 	back.size = Vector2(62.0, 62.0)
 	back.add_theme_font_size_override("font_size", 40)
 	back.add_theme_color_override("font_color", Color("#fff0c6"))
 	back.add_theme_stylebox_override("normal", _panel_style(Color("#0b2b40"), Color("#f1bd64")))
 	back.pressed.connect(request_back_to_world_map)
 	header.add_child(back)
+	back.mouse_filter = Control.MOUSE_FILTER_STOP
+	header.mouse_filter = Control.MOUSE_FILTER_PASS
+
+	var plaque := TextureRect.new()
+	plaque.name = "IslandNamePlaque"
+	plaque.texture = load("res://assets/ui_assets/campaign/world_map/island_name_panel.png") as Texture2D
+	plaque.position = Vector2(176.0, 4.0)
+	plaque.size = Vector2(368.0, 88.0)
+	plaque.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	plaque.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	plaque.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	header.add_child(plaque)
 
 	_title_label = Label.new()
-	_title_label.position = Vector2(92.0, 20.0)
-	_title_label.size = Vector2(560.0, 42.0)
+	_title_label.name = "IslandName"
+	_title_label.position = Vector2(208.0, 36.0)
+	_title_label.size = Vector2(304.0, 38.0)
 	_title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_title_label.add_theme_font_size_override("font_size", 28)
-	_title_label.modulate = Color("#fff0c6")
+	_title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	_title_label.add_theme_font_size_override("font_size", 24)
+	_title_label.add_theme_color_override("font_color", Color("#fff0c6"))
+	_title_label.add_theme_color_override("font_shadow_color", Color(0.08, 0.16, 0.17, 0.9))
+	_title_label.add_theme_constant_override("shadow_offset_x", 1)
+	_title_label.add_theme_constant_override("shadow_offset_y", 2)
+	_title_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(_title_label)
 
-	var subtitle := Label.new()
-	subtitle.text = "ISLAND MAP  •  SELECT A LEVEL TO VIEW ITS CAMPAIGN BOUNDARY"
-	subtitle.position = Vector2(84.0, 58.0)
-	subtitle.size = Vector2(574.0, 22.0)
-	subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	subtitle.add_theme_font_size_override("font_size", 12)
-	subtitle.modulate = Color("#8ce0d0")
-	header.add_child(subtitle)
-
 	_summary_label = Label.new()
-	_summary_label.position = Vector2(84.0, 88.0)
-	_summary_label.size = Vector2(574.0, 60.0)
-	_summary_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_summary_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_summary_label.add_theme_font_size_override("font_size", 14)
-	_summary_label.modulate = Color("#d8f0df")
-	_summary_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_summary_label.name = "ProgressSummaryData"
+	_summary_label.visible = false
+	_summary_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(_summary_label)
 
 	_scroll = ScrollContainer.new()
 	_scroll.name = "LevelPathScroll"
 	_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_scroll.offset_top = 178.0
+	_scroll.offset_top = 112.0
 	_scroll.offset_bottom = -70.0
 	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO

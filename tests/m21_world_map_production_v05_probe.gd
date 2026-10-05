@@ -191,9 +191,9 @@ func _run() -> void:
 	var campaign = CAMPAIGN_SCRIPT.new()
 	var configured := database.load_canonical() and campaign.configure(database, SAVE_SCRIPT.new().create_default_state())
 	_check("isolated fresh campaign configured", configured and navigation.configure_campaign(database, campaign))
-	var play: Control = shell.get_menu_controls()["play"]
-	await _click_at(play.get_global_rect().get_center())
-	_check("real viewport PLAY click enters production World Map", shell.get_current_view() == "CAMPAIGN" and navigation.get_current_view() == navigation.VIEW_WORLD_MAP)
+	var world_map_button: Control = shell.get_menu_controls()["world_map"]
+	await _click_at(world_map_button.get_global_rect().get_center())
+	_check("real viewport WORLD MAP click enters production World Map", shell.get_current_view() == "CAMPAIGN" and navigation.get_current_view() == navigation.VIEW_WORLD_MAP)
 	var world = navigation.get_world_map()
 	await _frames(4)
 	var layout := _check_layout(world)

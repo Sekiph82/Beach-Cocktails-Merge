@@ -258,6 +258,20 @@
       "sha256": "7ccc4066d64bc9ba311dc2d1bf9e72e9295917256b4e0a10fc4b61bdb9cdf912"
     },
     {
+      "path": "assets/ui_assets/campaign/island_map/level_node_two_star.png",
+      "category": "campaign/island_map",
+      "intended_screen_use": "level node two star",
+      "dimensions": {
+        "width": 320,
+        "height": 180
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "f7431f70810075d92e8ca7a2b4b80ffc5806f104d7974aff335f3e8ae38915da"
+    },
+    {
       "path": "assets/ui_assets/campaign/island_map/level_node_unlocked.png",
       "category": "campaign/island_map",
       "intended_screen_use": "level node unlocked",

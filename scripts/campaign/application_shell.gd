@@ -34,9 +34,10 @@ var _onboarding_body: Label
 var _onboarding_counter: Label
 var _onboarding_next_button: Button
 var _onboarding_page := 0
-var _menu_play_button: Button
-var _menu_settings_button: Button
-var _status_label: Label
+var _menu_play_button: BaseButton
+var _menu_world_map_button: BaseButton
+var _menu_settings_button: BaseButton
+var _continue_label: Label
 
 
 func _ready() -> void:
@@ -62,6 +63,7 @@ func _ready() -> void:
         show_onboarding()
     else:
         show_main_menu()
+    _refresh_continue_label()
     for key in _settings_controls:
         _refresh_setting_control(str(key))
 
@@ -178,11 +180,24 @@ func show_main_menu() -> bool:
     campaign_navigation.visible = false
     _menu_layer.visible = true
     current_view = "MAIN_MENU"
+    _refresh_continue_label()
     main_menu_entered.emit()
     return true
 
 
 func press_play_continue() -> bool:
+    if campaign_navigation == null or is_onboarding_visible():
+        return false
+    if not campaign_navigation.continue_campaign():
+        return false
+    _menu_layer.visible = false
+    campaign_navigation.visible = true
+    current_view = "CAMPAIGN"
+    campaign_requested.emit()
+    return true
+
+
+func press_world_map() -> bool:
     if campaign_navigation == null or is_onboarding_visible():
         return false
     if not campaign_navigation.show_world_map():
@@ -201,6 +216,7 @@ func request_settings() -> void:
 func get_menu_controls() -> Dictionary:
     return {
         "play": _menu_play_button,
+        "world_map": _menu_world_map_button,
         "settings": _menu_settings_button,
     }
 
@@ -216,84 +232,136 @@ func _build_menu() -> void:
     _menu_layer.mouse_filter = Control.MOUSE_FILTER_STOP
     add_child(_menu_layer)
 
-    var background := ColorRect.new()
+    var sky_and_ocean := Gradient.new()
+    sky_and_ocean.offsets = PackedFloat32Array([0.0, 0.42, 0.72, 1.0])
+    sky_and_ocean.colors = PackedColorArray([Color("#5aa7da"), Color("#f0b46a"), Color("#39b9c5"), Color("#116e92")])
+    var underlay_texture := GradientTexture2D.new()
+    underlay_texture.gradient = sky_and_ocean
+    underlay_texture.width = 2
+    underlay_texture.height = 1280
+    underlay_texture.fill_from = Vector2(0.0, 0.0)
+    underlay_texture.fill_to = Vector2(0.0, 1.0)
+    var underlay := TextureRect.new()
+    underlay.name = "TropicalSkyOceanUnderlay"
+    underlay.texture = underlay_texture
+    underlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    underlay.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    underlay.stretch_mode = TextureRect.STRETCH_SCALE
+    underlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    _menu_layer.add_child(underlay)
+
+    var background := TextureRect.new()
     background.name = "MainMenuBackground"
-    background.color = Color("#08283c")
+    background.texture = load("res://assets/ui_assets/screens/main_menu/main_menu_background.png") as Texture2D
     background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    background.stretch_mode = TextureRect.STRETCH_SCALE
     background.mouse_filter = Control.MOUSE_FILTER_IGNORE
     _menu_layer.add_child(background)
 
-    var wash := ColorRect.new()
-    wash.name = "MainMenuAccent"
-    wash.color = Color(0.10, 0.62, 0.57, 0.18)
-    wash.set_anchors_preset(Control.PRESET_TOP_WIDE)
-    wash.offset_bottom = 430.0
-    wash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    _menu_layer.add_child(wash)
+    var left_decor := _make_menu_decor("LeftTropicalDecor", "main_menu_decor_left.png", Rect2(0.0, 320.0, 170.0, 430.0))
+    _menu_layer.add_child(left_decor)
+    var right_decor := _make_menu_decor("RightTropicalDecor", "main_menu_decor_right.png", Rect2(550.0, 320.0, 170.0, 430.0))
+    _menu_layer.add_child(right_decor)
 
-    var title := Label.new()
-    title.name = "Title"
-    title.text = "BEACH COCKTAILS"
-    title.position = Vector2(42.0, 238.0)
-    title.size = Vector2(636.0, 74.0)
-    title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    title.add_theme_font_size_override("font_size", 42)
-    title.add_theme_color_override("font_color", Color("#fff0c6"))
-    _menu_layer.add_child(title)
+    var logo := TextureRect.new()
+    logo.name = "BeachCocktailsLogo"
+    logo.texture = load("res://assets/ui_assets/brand/logo_beach_cocktails_merge.png") as Texture2D
+    logo.position = Vector2(280.0, 10.0)
+    logo.size = Vector2(160.0, 326.0)
+    logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    _menu_layer.add_child(logo)
 
-    var subtitle := Label.new()
-    subtitle.name = "Subtitle"
-    subtitle.text = "MERGE • MASTER • DISCOVER"
-    subtitle.position = Vector2(42.0, 318.0)
-    subtitle.size = Vector2(636.0, 32.0)
-    subtitle.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    subtitle.add_theme_font_size_override("font_size", 17)
-    subtitle.add_theme_color_override("font_color", Color("#73e0d1"))
-    _menu_layer.add_child(subtitle)
-
-    var card := PanelContainer.new()
-    card.name = "MenuCard"
-    card.position = Vector2(70.0, 470.0)
-    card.size = Vector2(580.0, 430.0)
-    card.add_theme_stylebox_override("panel", _panel_style(Color("#103d52"), Color("#4bb3a8"), 0.96))
-    _menu_layer.add_child(card)
-
-    var card_margin := MarginContainer.new()
-    card_margin.add_theme_constant_override("margin_left", 44)
-    card_margin.add_theme_constant_override("margin_top", 44)
-    card_margin.add_theme_constant_override("margin_right", 44)
-    card_margin.add_theme_constant_override("margin_bottom", 44)
-    card.add_child(card_margin)
-
-    var column := VBoxContainer.new()
-    column.add_theme_constant_override("separation", 22)
-    card_margin.add_child(column)
-
-    var eyebrow := Label.new()
-    eyebrow.text = "YOUR CAMPAIGN AWAITS"
-    eyebrow.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    eyebrow.add_theme_font_size_override("font_size", 17)
-    eyebrow.add_theme_color_override("font_color", Color("#f7d47b"))
-    column.add_child(eyebrow)
-
-    _menu_play_button = _make_menu_button("PLAY / CONTINUE", Color("#0e665f"), Color("#ffd166"))
-    _menu_play_button.name = "PlayContinueButton"
+    _menu_play_button = _make_menu_art_button("PlayContinueButton", "main_menu_play_button.png", Rect2(138.0, 440.0, 444.0, 168.0), "PLAY")
     _menu_play_button.pressed.connect(press_play_continue)
-    column.add_child(_menu_play_button)
+    _menu_layer.add_child(_menu_play_button)
+    _continue_label = _make_menu_label("ContinueLevel", "", Rect2(150.0, 610.0, 420.0, 36.0), 19)
+    _menu_layer.add_child(_continue_label)
 
-    _menu_settings_button = _make_menu_button("SETTINGS", Color("#12354d"), Color("#73e0d1"))
-    _menu_settings_button.name = "SettingsButton"
-    _menu_settings_button.pressed.connect(show_settings)
-    column.add_child(_menu_settings_button)
+    _menu_world_map_button = _make_menu_art_button("WorldMapButton", "main_menu_world_map_button.png", Rect2(164.0, 670.0, 392.0, 126.0), "WORLD MAP")
+    _menu_world_map_button.pressed.connect(press_world_map)
+    _menu_layer.add_child(_menu_world_map_button)
 
-    _status_label = Label.new()
-    _status_label.name = "Status"
-    _status_label.text = "Progress is kept safe across menu and campaign transitions."
-    _status_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    _status_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    _status_label.add_theme_font_size_override("font_size", 15)
-    _status_label.add_theme_color_override("font_color", Color("#d7ebe4"))
-    column.add_child(_status_label)
+    var utility_specs := [
+        {"name": "ShopButton", "asset": "main_menu_shop_button.png", "label": "SHOP"},
+        {"name": "DailyRewardsButton", "asset": "main_menu_daily_button.png", "label": "DAILY REWARDS"},
+        {"name": "SettingsButton", "asset": "main_menu_settings_button.png", "label": "SETTINGS"},
+    ]
+    for index in range(utility_specs.size()):
+        var spec: Dictionary = utility_specs[index]
+        var x := 54.0 + float(index) * 204.0
+        var art_button := _make_menu_art_button(str(spec["name"]), str(spec["asset"]), Rect2(x, 1000.0, 156.0, 116.0), str(spec["label"]))
+        if index < 2:
+            art_button.disabled = true
+            art_button.tooltip_text = "Coming soon"
+        else:
+            _menu_settings_button = art_button
+            _menu_settings_button.pressed.connect(show_settings)
+        _menu_layer.add_child(art_button)
+
+    _refresh_continue_label()
+
+
+func _make_menu_decor(node_name: String, file_name: String, rect: Rect2) -> TextureRect:
+    var decor := TextureRect.new()
+    decor.name = node_name
+    decor.texture = load("res://assets/ui_assets/screens/main_menu/%s" % file_name) as Texture2D
+    decor.position = rect.position
+    decor.size = rect.size
+    decor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    decor.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    decor.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    return decor
+
+
+func _make_menu_art_button(node_name: String, file_name: String, rect: Rect2, label_text: String) -> TextureButton:
+    var button := TextureButton.new()
+    button.name = node_name
+    var texture := load("res://assets/ui_assets/screens/main_menu/%s" % file_name) as Texture2D
+    button.texture_normal = texture
+    button.texture_pressed = texture
+    button.texture_hover = texture
+    button.texture_disabled = texture
+    button.ignore_texture_size = true
+    button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+    button.position = rect.position
+    button.size = rect.size
+    button.tooltip_text = label_text
+    button.mouse_filter = Control.MOUSE_FILTER_STOP
+    var label_y := rect.size.y - 32.0
+    if node_name == "PlayContinueButton":
+        label_y = 112.0
+    elif node_name == "WorldMapButton":
+        label_y = 78.0
+    var label := _make_menu_label("ButtonLabel", label_text, Rect2(0.0, label_y, rect.size.x, 30.0), 17)
+    button.add_child(label)
+    return button
+
+
+func _make_menu_label(node_name: String, value: String, rect: Rect2, font_size: int) -> Label:
+    var label := Label.new()
+    label.name = node_name
+    label.text = value
+    label.position = rect.position
+    label.size = rect.size
+    label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+    label.add_theme_font_size_override("font_size", font_size)
+    label.add_theme_color_override("font_color", Color("#fff5d8"))
+    label.add_theme_color_override("font_shadow_color", Color(0.12, 0.08, 0.04, 0.95))
+    label.add_theme_constant_override("shadow_offset_x", 2)
+    label.add_theme_constant_override("shadow_offset_y", 2)
+    label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    return label
+
+
+func _refresh_continue_label() -> void:
+    if _continue_label == null:
+        return
+    var value := campaign_navigation.get_continue_level_label() if campaign_navigation != null else "PLAY"
+    _continue_label.text = value if value.begins_with("CONTINUE") else ""
 
 
 func _build_onboarding() -> void:

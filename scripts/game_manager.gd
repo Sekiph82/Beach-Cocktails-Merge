@@ -1115,7 +1115,7 @@ func _build_ui() -> void:
 	var logo := _make_panel("Logo", logo_path, logo_rect)
 	_hud.add_child(logo)
 
-	var to_go_width := 170.0 * ui_scale
+	var to_go_width := 212.5 * ui_scale
 	var to_go_height := to_go_width * TO_GO_PANEL_SOURCE_SIZE.y / TO_GO_PANEL_SOURCE_SIZE.x
 	# The supplied asset already contains its hanging artwork. Its alpha
 	# bounds reach the source-image top, so placing the unchanged panel at y=0
@@ -1133,6 +1133,8 @@ func _build_ui() -> void:
 
 	_to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 520.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
 	_to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 700.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
+	_scale_to_go_content(_to_go_progress_label)
+	_scale_to_go_content(_to_go_reward_label)
 
 	_vip_target_sprite = Sprite2D.new()
 	_vip_target_sprite.name = "VipTargetCocktail"
@@ -1143,6 +1145,8 @@ func _build_ui() -> void:
 	_vip_target_sprite.visible = false
 	_vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 1100.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
 	_vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 1295.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
+	_scale_to_go_content(_vip_progress_label)
+	_scale_to_go_content(_vip_reward_label)
 
 	var next_width := 140.0 * ui_scale
 	var next_height := next_width * 1426.0 / 1103.0
@@ -1315,7 +1319,12 @@ func _panel_source_rect(source_position: Vector2, source_size: Vector2, panel_si
 
 
 func _to_go_cocktail_scale(level: int) -> float:
-	return _hud_icon_scale(level, TO_GO_COCKTAIL_MAX_DIMENSION * _ui_scale)
+	return _hud_icon_scale(level, TO_GO_COCKTAIL_MAX_DIMENSION * _ui_scale * 1.25)
+
+
+func _scale_to_go_content(control: Control) -> void:
+	control.pivot_offset = control.size * 0.5
+	control.scale = Vector2.ONE * 1.25
 
 
 func _make_panel_value(panel: Control, value: String, font_size: int, y_ratio: float) -> Label:

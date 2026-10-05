@@ -10,6 +10,11 @@ const STATE_LOCKED := "LOCKED"
 const STATE_OPEN := "OPEN"
 const STATE_CURRENT := "CURRENT"
 const STATE_COMPLETE := "COMPLETE"
+const NODE_TEXTURES := {
+	STATE_LOCKED: "res://assets/ui_assets/campaign/island_map/level_node_locked.png",
+	STATE_OPEN: "res://assets/ui_assets/campaign/island_map/level_node_unlocked.png",
+	STATE_CURRENT: "res://assets/ui_assets/campaign/island_map/level_node_finale.png",
+}
 const VIP_MARKER_TEXTURE_PATH := "res://assets/ui_assets/ui/gameplay/vip_badge.png"
 const VIP_MARKER_TEXTURE := preload(VIP_MARKER_TEXTURE_PATH)
 const VIP_MARKER_SIZE := Vector2(36.0, 36.0)
@@ -22,6 +27,11 @@ var best_score := 0
 var milestone := false
 var vip_enabled := false
 var _vip_marker: TextureRect
+var _node_art: TextureRect
+var _level_label: Label
+var _stars_label: Label
+var _score_label: Label
+var _milestone_marker: TextureRect
 
 
 func _ready() -> void:
@@ -29,7 +39,13 @@ func _ready() -> void:
 	size = custom_minimum_size
 	focus_mode = Control.FOCUS_ALL
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	flat = true
+	text = ""
+	_build_node_art()
 	_build_vip_marker()
+	_update_labels()
+	_node_art.texture = load(_texture_path_for_state()) as Texture2D
+	_vip_marker.visible = vip_enabled
 	pressed.connect(_on_pressed)
 
 
@@ -53,8 +69,9 @@ func configure(
 	if _vip_marker != null:
 		_vip_marker.visible = vip_enabled
 	tooltip_text = "Level %d%s\nBest score: %d" % [level_id, " milestone" if milestone else "", best_score]
-	text = _display_text()
-	_apply_style()
+	_update_labels()
+	if _node_art != null:
+		_node_art.texture = load(_texture_path_for_state()) as Texture2D
 
 
 func try_select() -> bool:
@@ -112,47 +129,74 @@ func _build_vip_marker() -> void:
 	add_child(_vip_marker)
 
 
-func _display_text() -> String:
+func _build_node_art() -> void:
+	_node_art = TextureRect.new()
+	_node_art.name = "NodeArt"
+	_node_art.position = Vector2(-14.0, -9.0)
+	_node_art.size = Vector2(144.0, 81.0)
+	_node_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_node_art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_node_art.texture = load(_texture_path_for_state()) as Texture2D
+	_node_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_node_art.z_index = 0
+	add_child(_node_art)
+
+	_level_label = _make_overlay_label("LevelNumber", Rect2(22.0, 22.0, 72.0, 28.0), 20, Color.WHITE)
+	_stars_label = _make_overlay_label("EarnedStars", Rect2(8.0, 67.0, 100.0, 20.0), 16, Color("#ffd970"))
+	_score_label = _make_overlay_label("BestScore", Rect2(5.0, 88.0, 106.0, 18.0), 11, Color("#fff3d2"))
+	_milestone_marker = TextureRect.new()
+	_milestone_marker.name = "MilestoneMarker"
+	_milestone_marker.texture = load("res://assets/ui_assets/campaign/island_map/milestone_chest_marker.png") as Texture2D
+	_milestone_marker.position = Vector2(98.0, -2.0)
+	_milestone_marker.size = Vector2(18.0, 18.0)
+	_milestone_marker.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_milestone_marker.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_milestone_marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_milestone_marker.z_index = 3
+	_milestone_marker.visible = false
+	add_child(_milestone_marker)
+
+
+func _make_overlay_label(label_name: String, rect: Rect2, font_size: int, color: Color) -> Label:
+	var label := Label.new()
+	label.name = label_name
+	label.position = rect.position
+	label.size = rect.size
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", color)
+	label.add_theme_color_override("font_shadow_color", Color(0.05, 0.13, 0.16, 0.95))
+	label.add_theme_constant_override("shadow_offset_x", 1)
+	label.add_theme_constant_override("shadow_offset_y", 1)
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	label.z_index = 2
+	add_child(label)
+	return label
+
+
+func _texture_path_for_state() -> String:
+	if level_state == STATE_COMPLETE:
+		match earned_stars:
+			0: return "res://assets/ui_assets/campaign/island_map/level_node_completed.png"
+			1: return "res://assets/ui_assets/campaign/island_map/level_node_current.png"
+			2: return "res://assets/ui_assets/campaign/island_map/level_node_two_star.png"
+			_: return "res://assets/ui_assets/campaign/island_map/level_node_milestone.png"
+	return str(NODE_TEXTURES.get(level_state, NODE_TEXTURES[STATE_LOCKED]))
+
+
+func _update_labels() -> void:
+	if _level_label == null:
+		return
+	_level_label.text = "L%d" % level_id
 	var stars := ""
 	for index in range(3):
 		stars += "★" if index < earned_stars else "☆"
-	var marker := "  ◆" if milestone else ""
-	return "L%d%s\n%s\nBEST %d\n%s" % [level_id, marker, stars, best_score, level_state]
+	_stars_label.text = stars
+	_score_label.text = "BEST %d" % best_score if best_score > 0 else ("MILESTONE" if milestone else "")
+	if _milestone_marker != null:
+		_milestone_marker.visible = milestone
 
 
-func _apply_style() -> void:
-	var fill := Color("#173f54")
-	var border := Color("#5cb8b0")
-	var font := Color("#f9f1cf")
-	if level_state == STATE_LOCKED:
-		fill = Color("#233542")
-		border = Color("#64717b")
-		font = Color("#a4afb4")
-	elif level_state == STATE_CURRENT:
-		fill = Color("#725124")
-		border = Color("#ffd166")
-	elif level_state == STATE_COMPLETE:
-		fill = Color("#245746")
-		border = Color("#8be0a8")
-	add_theme_font_size_override("font_size", 15)
-	add_theme_color_override("font_color", font)
-	add_theme_color_override("font_hover_color", font)
-	add_theme_color_override("font_pressed_color", font)
-	add_theme_color_override("font_disabled_color", font)
-	add_theme_stylebox_override("normal", _style(fill, border))
-	add_theme_stylebox_override("hover", _style(fill.lightened(0.10), border, 3.0))
-	add_theme_stylebox_override("pressed", _style(fill.darkened(0.08), border, 4.0))
-	add_theme_stylebox_override("disabled", _style(fill, border.darkened(0.15)))
-
-
-func _style(fill: Color, border: Color, width: float = 2.0) -> StyleBoxFlat:
-	var style := StyleBoxFlat.new()
-	style.bg_color = fill
-	style.border_color = border
-	style.set_border_width_all(int(width))
-	style.set_corner_radius_all(18)
-	style.content_margin_left = 6.0
-	style.content_margin_right = 6.0
-	style.content_margin_top = 6.0
-	style.content_margin_bottom = 6.0
-	return style
+func get_skin_path() -> String:
+	return _texture_path_for_state()

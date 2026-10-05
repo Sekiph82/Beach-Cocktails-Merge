@@ -25,35 +25,7 @@ func _check(label: String, condition: bool) -> void:
 
 func _database():
     var database = DATABASE_SCRIPT.new()
-    var islands := {
-        "schema_version": 1,
-        "islands": [{
-            "id": ISLAND_ID,
-            "display_name": "M20 Shell Island",
-            "order_index": 1,
-            "level_count": 1,
-            "unlock_rule": {"type": "default_open"},
-            "next_island_id": "",
-            "map_asset": "res://assets/ui_assets/campaign/world_map/sunny_cove.png",
-            "map_position": [0.5, 0.5],
-            "reward_track": {"milestones": [1]},
-        }],
-    }
-    var levels := {
-        "schema_version": 1,
-        "island_id": ISLAND_ID,
-        "levels": [{
-            "island_id": ISLAND_ID,
-            "level_id": 1,
-            "time_limit_sec": 30,
-            "orders": [{"cocktail_level": 6, "quantity": 1}],
-            "vip": null,
-            "rewards": {"coins": 0},
-            "score_star_thresholds": {"one_star": 0, "two_stars": 100, "three_stars": 250},
-            "feature_flags": {"timed": true, "vip": false, "boosters": false},
-        }],
-    }
-    _check("fixture campaign data loads", database.load_from_data(islands, levels, DATABASE_SCRIPT.ValidationMode.FULL))
+    _check("canonical campaign data loads", database.load_canonical())
     return database
 
 
@@ -76,25 +48,29 @@ func _run() -> void:
     var campaign = CAMPAIGN_SCRIPT.new()
     var state := {
         "schema_version": 2,
-        "unlocked_islands": [ISLAND_ID],
-        "islands": {ISLAND_ID: {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": [], "claimed_star_rewards": []}},
+        "unlocked_islands": ["sunny_cove"],
+        "islands": {"sunny_cove": {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": [], "claimed_star_rewards": []}},
         "legacy_best_score": 17,
         "boosters": {},
         "coins": 3,
         "reward_ledger": [],
     }
-    _check("fixture campaign configures at existing router boundary", navigation.configure_campaign(database, campaign) == false or campaign.configure(database, state))
-    _check("shell PLAY/CONTINUE enters World Map", shell.press_play_continue() and shell.get_current_view() == "CAMPAIGN" and navigation.get_current_view() == navigation.VIEW_WORLD_MAP and navigation.visible)
+    _check("campaign configures before installation into the existing router", campaign.configure(database, state))
+    _check("production router installs the canonical fixture campaign", navigation.configure_campaign(database, campaign))
+    _check("shell World Map action enters production World Map", shell.press_world_map() and shell.get_current_view() == "CAMPAIGN" and navigation.get_current_view() == navigation.VIEW_WORLD_MAP and navigation.visible)
     await process_frame
     await process_frame
-    _check("campaign World Map is live after PLAY", navigation.get_world_map() != null and navigation.get_world_map().get_entry_count() == 1)
+    _check("production World Map is live after explicit World Map action", navigation.get_world_map() != null and navigation.get_world_map().get_entry_count() == 10)
 
     var before := campaign.get_progression_state().duplicate(true)
     navigation.get_world_map().return_requested.emit()
     await process_frame
     _check("World Map return uses the app-level menu signal", shell.is_main_menu_visible() and not navigation.visible and shell.get_current_view() == "MAIN_MENU")
-    _check("campaign progression survives menu transition", campaign.get_progression_state() == before)
-    _check("no duplicate map or gameplay authority is created", navigation.get_map_instance_count() == 2 and navigation.get_gameplay_instance_count() == 0)
+    var launch_configuration: Array[Dictionary] = []
+    navigation.gameplay_session_started.connect(func(configuration: Dictionary) -> void: launch_configuration.append(configuration))
+    _check("PLAY/CONTINUE launches the selected campaign level", shell.press_play_continue() and navigation.get_current_view() == navigation.VIEW_GAMEPLAY and navigation.get_gameplay_instance_count() == 1 and launch_configuration.size() == 1 and launch_configuration[0].get("island_id", "") == "sunny_cove" and int(launch_configuration[0].get("level_id", 0)) == 1)
+    _check("campaign progression survives distinct Home actions", campaign.get_progression_state() == before)
+    _check("Home menu return disposes gameplay without duplicating map authority", shell.show_main_menu() and navigation.get_map_instance_count() == 2 and navigation.get_gameplay_instance_count() == 0)
 
     shell.queue_free()
     await process_frame

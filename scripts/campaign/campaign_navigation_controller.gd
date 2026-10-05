@@ -125,6 +125,29 @@ func show_world_map() -> bool:
 	return true
 
 
+func continue_campaign() -> bool:
+	if not _ensure_map_instances() or campaign_manager == null or level_database == null:
+		return false
+	var island_id := str(campaign_manager.current_island_id)
+	var level_id := int(campaign_manager.selected_level_id)
+	var island_exists: bool = not level_database.get_island(island_id).is_empty()
+	if island_exists and level_id > 0 and not level_database.get_level(island_id, level_id).is_empty() and campaign_manager.is_level_unlocked(island_id, level_id):
+		return _launch_selected_level(island_id, level_id)
+	if island_exists:
+		return show_island_map(island_id)
+	return show_world_map()
+
+
+func get_continue_level_label() -> String:
+	if campaign_manager == null or level_database == null:
+		return "PLAY"
+	var island_id := str(campaign_manager.current_island_id)
+	var level_id := int(campaign_manager.selected_level_id)
+	if not level_database.get_island(island_id).is_empty() and level_id > 0 and not level_database.get_level(island_id, level_id).is_empty() and campaign_manager.is_level_unlocked(island_id, level_id):
+		return "CONTINUE LEVEL %d" % level_id
+	return "PLAY"
+
+
 func get_current_view() -> String:
 	return current_view
 
