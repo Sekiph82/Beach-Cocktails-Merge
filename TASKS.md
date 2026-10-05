@@ -12,7 +12,7 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: OWNER F5 V03 result is **REJECTED**. Item 1 PASS. Item 2 FAIL because many visible islands are not in acceptable positions under the baked-background + separate-hotspot architecture. Item 3 FAIL because Sunny Cove Island Map does not open from the production World Map. Items 4-10 were not evaluated. The owner has explicitly superseded the baked World Map: production must use a new clean ocean base plus the ten existing transparent island PNGs, with each visible island and its pointer/touch target sharing the same authoritative transform/center. BCM-M21-001 is reopened together with BCM-M21-006; owner-approved R04 gameplay surfaces/geometries remain frozen.
+- Progress: OWNER F5 V03 remains **REJECTED**. BCM-M21-001 is now under an OWNER-FIRST VISUAL GATE. Before any production World Map implementation, Codex must use the owner-supplied exact 720×1280 ocean background plus the ten existing transparent island PNGs to publish one proposed production-style World Map preview and then STOP for owner approval. No World Map production code, scene, data, hitbox, navigation, or test changes are authorized before `OWNER_WORLD_MAP_VISUAL_APPROVED_V02`. BCM-M21-006 remains blocked; owner-approved R04 gameplay surfaces/geometries remain frozen.
 
 ## Blockers/Waits
 
@@ -982,9 +982,12 @@ Owner F5 V07 history and active R03 remediation:
 - Current final owner checklist: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_ACCEPTANCE_CHECKLIST_V03.md`.
 - Required owner marker: `OWNER_F5_ACCEPTED_V03` or `OWNER_F5_REJECTED_V03`.
 - Composite World Map owner rejection: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/OWNER_F5_REJECTION_V03.md`.
-- Active composite World Map criteria: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_CRITERIA_V01.md`.
-- Active composite World Map prompt: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_PROMPT_R01.md`.
-- Required builder marker: `AWAITING_GPT_M21_WORLD_MAP_COMPOSITE_NAV_AUDIT_V01`.
+- Historical direct-implementation criteria: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_CRITERIA_V01.md` — superseded before execution by the owner-first visual gate.
+- Historical direct-implementation prompt: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_PROMPT_R01.md` — DO NOT EXECUTE unless later explicitly re-authorized after owner visual approval.
+- Active owner-first preview criteria: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_OWNER_PREVIEW_CRITERIA_V02.md`.
+- Active owner-first preview prompt: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_OWNER_PREVIEW_PROMPT_V02.md`.
+- Required preview marker: `AWAITING_OWNER_WORLD_MAP_VISUAL_APPROVAL_V02`.
+- Production implementation is blocked until explicit `OWNER_WORLD_MAP_VISUAL_APPROVED_V02`.
 
 Owner F5 V04 historical remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
