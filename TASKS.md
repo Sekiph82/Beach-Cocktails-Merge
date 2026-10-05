@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-OWNER-F5-POLISH-R03
+- Current Sprint: BCM-M21-HOME-EXACT-TARGET-R04
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: BCM-M21-001-R03 — CODEX executes `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R03/CHATGPT_OWNER_F5_VISUAL_POLISH_PROMPT_R03.md`, closes the failed M07 regression authority, eliminates the M08 post-PASS crash, reconciles the dirty `project.godot`, reruns the locked matrix, and stops for independent GPT audit.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M21-001-R04 — CODEX executes `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`, rebuilds Home exactly from the owner-supplied TARGET and local Home PNG set with no creative deviation, publishes target-parity evidence, and stops for owner visual approval.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R02 product changes are implemented and source-level review confirms the requested Island Map node/header system, To-Go/VIP +25% scale, and asset-driven Home redesign. Independent audit `CHATGPT_OWNER_F5_VISUAL_POLISH_AUDIT_R02.md` is **CHANGES_REQUIRED / REGRESSION_AND_CLEAN_STATE_CLOSURE** because mandatory M07 probes did not all pass, M08 printed PASS but exited with Windows `-1073741819`, and final `project.godot` remained locally modified. Active bounded remediation is `BCM-M21-OWNER-F5-POLISH-R03`. No visual redesign is authorized; BCM-M21-006 remains blocked.
+- Progress: R02 Island Map and To-Go changes remain in place. The owner has issued a newer exact Home visual ruling: production Home must be composed mechanically from the PNG set in `assets/ui_assets/screens/home/` and match `TARGET beach cocktails merge home.png` exactly in placement, scale, hierarchy, and button count. The previously active R03 technical closure is deferred before execution; its M07/M08/project.godot findings remain open and will be reissued after the exact Home is owner-approved. Active task is `BCM-M21-001-R04`. BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
@@ -1000,7 +1000,11 @@ Owner F5 V07 history and active R03 remediation:
 - R02 independent audit: `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R01/CHATGPT_OWNER_F5_VISUAL_POLISH_AUDIT_R02.md` — **CHANGES_REQUIRED / REGRESSION_AND_CLEAN_STATE_CLOSURE**.
 - Active R03 criteria: `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R03/CHATGPT_OWNER_F5_VISUAL_POLISH_CRITERIA_R03.md`.
 - Active R03 prompt: `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R03/CHATGPT_OWNER_F5_VISUAL_POLISH_PROMPT_R03.md`.
-- Required builder marker: `AWAITING_GPT_M21_OWNER_F5_POLISH_AUDIT_R03`.
+- R03 technical-closure package is deferred/superseded-before-execution by the newer owner Home visual ruling; its findings remain open for a later post-R04 closure.
+- Active R04 owner ruling: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/OWNER_HOME_EXACT_TARGET_RULING_R04.md`.
+- Active R04 criteria: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_CRITERIA_R04.md`.
+- Active R04 prompt: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`.
+- Required builder marker: `AWAITING_OWNER_HOME_EXACT_TARGET_APPROVAL_R04`.
 - The older direct-implementation R01 package remains superseded.
 
 Owner F5 V04 historical remediation:
