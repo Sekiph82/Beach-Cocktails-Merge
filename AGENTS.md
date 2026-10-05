@@ -285,6 +285,56 @@ The active remediation must prove the complete real-input chain:
 
 A direct method call is insufficient. Mouse/touch interaction must be tested through the real production UI.
 
+## Canonical addon/dependency authority — 2026-10-05
+
+The owner has explicitly decided that the canonical GitHub repository must contain the complete project source needed to reproduce the local project.
+
+The following addon directories are no longer intended to remain local-only after the one-time full-sync promotion task:
+- `addons/godot_ai/`
+- `addons/game_feel_flow/`
+- `addons/saltmire_spark/`
+
+During the one-time full-sync promotion:
+- preserve these local directories through the preliminary safe sync;
+- inspect them for secrets, machine-specific caches, demo/test clutter, generated binaries, and license files;
+- commit the actual addon source/config/assets required by the project;
+- preserve required license/attribution files;
+- do not commit generated caches, editor state, logs, temp files, or secrets;
+- commit the corresponding intentional `project.godot` plugin/autoload configuration needed for the tracked addons to work;
+- after publication, these addon directories become normal tracked canonical repository dependencies and must no longer appear as untracked owner-local exceptions.
+
+The owner's desired steady state is:
+- local canonical checkout contains all intended project source;
+- GitHub `main` contains the same intended project source;
+- `git status --short` is empty after synchronization;
+- local `HEAD = origin/main = remote main`;
+- ahead/behind = `0/0`.
+
+Generated/reproducible files are not "missing project source" and must remain ignored rather than committed. This includes:
+- `.godot/`;
+- `*.import`;
+- generated `*.translation` sidecars;
+- Python `__pycache__/` and `*.pyc`;
+- logs, temp/build/export output, editor state, and machine-specific files.
+
+### One-time tracked owner-file reconciliation
+
+For the full-sync promotion, Codex is explicitly authorized to inspect and reconcile the current local diffs in:
+- `project.godot`;
+- `scenes/main.tscn`;
+- `scenes/campaign/WorldMapScene.tscn`.
+
+Do not discard these files merely to obtain a clean status.
+
+For each:
+1. inspect the exact local-vs-origin diff;
+2. determine whether the local diff is intentional current project state or generated/stale residue;
+3. validate parse/runtime implications;
+4. commit intentional current state;
+5. remove/revert only changes proven generated/stale and document why.
+
+The goal is not to force-clean Git. The goal is to make GitHub accurately contain the current intended project.
+
 ## Owner-authorized R04 repository cleanup authority — 2026-10-04
 
 The owner has explicitly approved the current R04 gameplay backgrounds/playable areas for all ten islands and explicitly authorizes a dedicated repository cleanup task to remove superseded, unused, orphaned, and no-longer-planned files.
@@ -310,7 +360,7 @@ Also preserve unless a newer owner ruling explicitly replaces them:
 - `data/campaign/islands.json`, current level/campaign/economy/save data;
 - `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`;
 - active R04 runtime/validation tests and the code that loads/validates the R04 surface/profile pair;
-- owner-local `project.godot`, `addons/godot_ai/`, `addons/game_feel_flow/`, `addons/saltmire_spark/`, and the known translation sidecars during synchronization.
+- during the preliminary safe sync for the one-time canonical promotion, preserve local `project.godot`, `addons/godot_ai/`, `addons/game_feel_flow/`, `addons/saltmire_spark/`, and generated translation sidecars; after promotion, the three addon directories and intentional project.godot configuration are canonical tracked repository state, while generated translation sidecars remain ignored.
 
 ### Explicitly deletable after proof
 
@@ -364,14 +414,15 @@ the prior task.
 
 Owner-local work in the canonical Desktop checkout MUST be preserved and, by itself, MUST NOT block a safe behind-only synchronization when incoming remote changes are path-disjoint.
 
-Known recurring owner-local paths currently include, but are not limited to:
+Known owner-local paths may include, but are not limited to:
 
 - tracked `project.godot`;
 - tracked `scenes/main.tscn`;
-- untracked `addons/godot_ai/`;
-- untracked `addons/game_feel_flow/`;
-- untracked `addons/saltmire_spark/`;
-- exactly 14 known generated untracked `.translation` sidecars.
+- tracked `scenes/campaign/WorldMapScene.tscn`;
+- during the one-time addon promotion only, untracked `addons/godot_ai/`, `addons/game_feel_flow/`, and `addons/saltmire_spark/`;
+- generated untracked `.translation` sidecars and Python cache files.
+
+After the one-time addon promotion, the three addon directories are expected to be tracked and must not remain recurring untracked exceptions.
 
 The rule is intentionally generic so future legitimate owner-local tracked edits do not require one-off authorization every time.
 
