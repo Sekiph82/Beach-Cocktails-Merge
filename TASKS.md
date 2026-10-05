@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001 — CODEX executes the locked V05 production integration prompt, implements the owner-approved V04 World Map composition in production, restores real mouse/touch Sunny Cove Island Map entry, publishes runtime evidence/regressions, and stops for independent GPT audit.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M21-001 — OWNER runs the fresh F5 acceptance checklist V04 on the real production build. If all 10 items pass, return `OWNER_F5_ACCEPTED_V04`; otherwise return `OWNER_F5_REJECTED_V04` with failing item numbers and observations.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: OWNER F5 V03 remains historical **REJECTED**. The replacement World Map V04 visual preview is OWNER-APPROVED and frozen. The locked production package is published as `CHATGPT_WORLD_MAP_PRODUCTION_PROMPT_V05.md` plus `CHATGPT_WORLD_MAP_PRODUCTION_CRITERIA_V05.md`. CODEX must implement the accepted runtime composition, restore real-input Sunny Cove navigation, run the locked regression matrix, publish production evidence, and stop at `AWAITING_GPT_M21_WORLD_MAP_PRODUCTION_AUDIT_V05`. BCM-M21-001 remains IN_PROGRESS; BCM-M21-006 remains blocked until independent GPT audit plus fresh owner runtime acceptance.
+- Progress: OWNER F5 V03 remains historical **REJECTED**. The replacement World Map V04 visual preview is OWNER-APPROVED and the V05 production implementation has now passed independent GPT technical audit: `CHATGPT_WORLD_MAP_PRODUCTION_AUDIT_V05.md` = **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**. Real mouse/touch Sunny Cove navigation is present in the committed production-path harness; campaign/gameplay semantics and R04 authority are preserved. BCM-M21-001 remains IN_PROGRESS solely for fresh owner-native F5 runtime/visual acceptance using `OWNER_F5_ACCEPTANCE_CHECKLIST_V04.md`. BCM-M21-006 remains blocked until that owner decision is recorded.
 
 ## Blockers/Waits
 
@@ -991,6 +991,9 @@ Owner F5 V07 history and active R03 remediation:
 - Active production criteria: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_PRODUCTION_CRITERIA_V05.md`.
 - Active production prompt: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_PRODUCTION_PROMPT_V05.md`.
 - Required builder marker: `AWAITING_GPT_M21_WORLD_MAP_PRODUCTION_AUDIT_V05`.
+- Independent V05 audit: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_PRODUCTION_AUDIT_V05.md` — **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**.
+- Fresh owner F5 checklist: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/OWNER_F5_ACCEPTANCE_CHECKLIST_V04.md`.
+- Required owner marker: `OWNER_F5_ACCEPTED_V04` or `OWNER_F5_REJECTED_V04`.
 - The older direct-implementation R01 package remains superseded.
 
 Owner F5 V04 historical remediation:
