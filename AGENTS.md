@@ -274,7 +274,14 @@ The owner has now explicitly issued `OWNER_WORLD_MAP_VISUAL_APPROVED_V02` for th
 
 The approved V04 preview is the frozen visual target for production integration. Do not redesign it during implementation unless a newer owner ruling supersedes it.
 
-Production implementation still requires a NEW locked ChatGPT implementation prompt/criteria. The older direct-implementation R01 package remains superseded and must not be executed as-is.
+The active locked production package is now:
+- `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_PRODUCTION_CRITERIA_V05.md`
+- `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_PRODUCTION_PROMPT_V05.md`
+
+Required builder stop marker:
+`AWAITING_GPT_M21_WORLD_MAP_PRODUCTION_AUDIT_V05`
+
+The older direct-implementation R01 package remains superseded and must not be executed as-is.
 
 ## Active M21 World Map composition authority — 2026-10-05
 
