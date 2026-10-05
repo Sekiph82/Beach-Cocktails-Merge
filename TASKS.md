@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001 — OWNER runs the fresh F5 acceptance checklist V04 on the real production build. If all 10 items pass, return `OWNER_F5_ACCEPTED_V04`; otherwise return `OWNER_F5_REJECTED_V04` with failing item numbers and observations.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M21-001 — CODEX executes `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R01/CHATGPT_OWNER_F5_VISUAL_POLISH_PROMPT_R01.md`, applies the owner-requested Island Map node/header redesign and exact +25% To-Go/VIP panel scale, publishes evidence/regressions, and stops for independent GPT audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: OWNER F5 V03 remains historical **REJECTED**. The replacement World Map V04 visual preview is OWNER-APPROVED and the V05 production implementation has now passed independent GPT technical audit: `CHATGPT_WORLD_MAP_PRODUCTION_AUDIT_V05.md` = **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**. Real mouse/touch Sunny Cove navigation is present in the committed production-path harness; campaign/gameplay semantics and R04 authority are preserved. BCM-M21-001 remains IN_PROGRESS solely for fresh owner-native F5 runtime/visual acceptance using `OWNER_F5_ACCEPTANCE_CHECKLIST_V04.md`. BCM-M21-006 remains blocked until that owner decision is recorded.
+- Progress: OWNER F5 V03 remains historical **REJECTED**. The V04 World Map preview is owner-approved and V05 production integration passed independent GPT technical audit. During the fresh owner F5 runtime review, all functional checklist items passed, but the owner requested two final visual changes before release acceptance: replace Island Map flat level boxes/top teal header with the canonical PNG node family plus `island_name_panel.png`, including a new 2-star node asset; and enlarge the combined To-Go/VIP Orders panel and its local dynamic content by exactly 25% (170→212.5 width at 720×1280, preserving aspect ratio). Active remediation package: `BCM-M21-OWNER-F5-POLISH-R01`. BCM-M21-001 remains IN_PROGRESS; BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
@@ -993,7 +993,11 @@ Owner F5 V07 history and active R03 remediation:
 - Required builder marker: `AWAITING_GPT_M21_WORLD_MAP_PRODUCTION_AUDIT_V05`.
 - Independent V05 audit: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_PRODUCTION_AUDIT_V05.md` — **TECHNICAL_AUDITED_PASS / OWNER_F5_ACCEPTANCE_REQUIRED**.
 - Fresh owner F5 checklist: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/OWNER_F5_ACCEPTANCE_CHECKLIST_V04.md`.
-- Required owner marker: `OWNER_F5_ACCEPTED_V04` or `OWNER_F5_REJECTED_V04`.
+- Prior owner F5 V04 checklist behavior: functionally PASS, but final acceptance withheld for owner-requested visual polish.
+- Active owner polish ruling: `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R01/OWNER_F5_VISUAL_POLISH_RULING_R01.md`.
+- Active polish criteria: `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R01/CHATGPT_OWNER_F5_VISUAL_POLISH_CRITERIA_R01.md`.
+- Active polish prompt: `coordination/sessions/BCM-M21-OWNER-F5-POLISH-R01/CHATGPT_OWNER_F5_VISUAL_POLISH_PROMPT_R01.md`.
+- Required builder marker: `AWAITING_GPT_M21_OWNER_F5_POLISH_AUDIT_R01`.
 - The older direct-implementation R01 package remains superseded.
 
 Owner F5 V04 historical remediation:
