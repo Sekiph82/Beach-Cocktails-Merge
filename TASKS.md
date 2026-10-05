@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: M21
-- Current Sprint: BCM-M21-FINAL-OWNER-F5-ACCEPTANCE-V03
-- Current Task: BCM-M21-006 — Final owner F5 runtime acceptance and v1 campaign release closure.
-- Current Task Status: OWNER_REQUIRED
-- Next Task/Action: OWNER runs the synchronized project with F5 and completes `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_ACCEPTANCE_CHECKLIST_V03.md`. All 10 items PASS → return `OWNER_F5_ACCEPTED_V03` and ChatGPT records final M21 release closure. Any FAIL → return `OWNER_F5_REJECTED_V03` with failing item number(s) and evidence. No further Codex work is authorized unless owner review finds a defect. M22+ remains blocked behind M21.
-- Required Actor: OWNER
+- Current Sprint: BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01
+- Current Task: BCM-M21-001 + BCM-M21-006 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: CODEX executes `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_PROMPT_R01.md`. Replace the rejected baked ten-island World Map with a clean 720×1280 ocean base plus the ten existing per-island PNGs, unify visible art and hit targets under one layout authority, and reproduce/fix the real-input Sunny Cove Island Map opening failure. Publish renderer/Godot-AI evidence and regressions, then stop for independent GPT audit. M22+ remains blocked behind M21.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: BCM-M21-007 cleanup is accepted. BCM-M21-001 World Map 720×1280 closure is independently **AUDITED_PASS / COMPLETE** at builder handoff `7016a9852ab61e23702cda2cd170e7b5bca4dc62`: semantic island positions and all owner-approved R04 assets/geometries are unchanged; the real header/boat overlap defect was fixed; post-fix layout reports are clean in fresh/locked/selected states; M12 passes twice consecutively; M10/M11/M13/M14/M20, R04 authority, asset validation, clean Godot boot, and diff checks pass. The only remaining M21 gate is explicit owner F5 acceptance under checklist V03.
+- Progress: OWNER F5 V03 result is **REJECTED**. Item 1 PASS. Item 2 FAIL because many visible islands are not in acceptable positions under the baked-background + separate-hotspot architecture. Item 3 FAIL because Sunny Cove Island Map does not open from the production World Map. Items 4-10 were not evaluated. The owner has explicitly superseded the baked World Map: production must use a new clean ocean base plus the ten existing transparent island PNGs, with each visible island and its pointer/touch target sharing the same authoritative transform/center. BCM-M21-001 is reopened together with BCM-M21-006; owner-approved R04 gameplay surfaces/geometries remain frozen.
 
 ## Tasks
 
@@ -971,6 +971,10 @@ Owner F5 V07 history and active R03 remediation:
 - Independent World Map audit: `coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/CHATGPT_M21_WORLD_MAP_LAYOUT_AUDIT_V01.md` — **AUDITED_PASS / BCM-M21-001 COMPLETE / OWNER_F5_ACCEPTANCE_REQUIRED**.
 - Current final owner checklist: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_ACCEPTANCE_CHECKLIST_V03.md`.
 - Required owner marker: `OWNER_F5_ACCEPTED_V03` or `OWNER_F5_REJECTED_V03`.
+- Composite World Map owner rejection: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/OWNER_F5_REJECTION_V03.md`.
+- Active composite World Map criteria: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_CRITERIA_V01.md`.
+- Active composite World Map prompt: `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_PROMPT_R01.md`.
+- Required builder marker: `AWAITING_GPT_M21_WORLD_MAP_COMPOSITE_NAV_AUDIT_V01`.
 
 Owner F5 V04 historical remediation:
 - Owner ruling: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/OWNER_F5_RULING_V04.md`
@@ -983,7 +987,7 @@ Owner F5 V04 historical remediation:
 - Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
 
-- [x] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
@@ -1000,7 +1004,7 @@ M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
  
 ## M22-M27 — Planned GameFeelFlow + Saltmire Spark presentation program
 
-**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 final owner-acceptance/release-closure sequence. The ten current R04 gameplay surfaces/geometries are owner-approved, BCM-M21-007 cleanup is accepted, and BCM-M21-001 World Map closure is audited PASS. M22 starts only after the owner returns `OWNER_F5_ACCEPTED_V03` and ChatGPT records final M21 release closure.
+**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 composite-World-Map/navigation remediation and final owner-acceptance sequence. The ten current R04 gameplay surfaces/geometries are owner-approved and frozen; M22 starts only after the new composite World Map + Sunny Cove navigation remediation passes independent audit, the owner completes a fresh F5 acceptance, and ChatGPT records final M21 release closure.
 
 **Presentation-only constitution**
 - Gameplay/campaign truth stays with `Drink`, `ShotController`, `GameManager`, `GameplaySessionBridge`, `CampaignManager`, `GameEconomy`, `SaveManager`, canonical level data, and accepted table geometry. Presentation observes finalized facts only.
