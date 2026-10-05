@@ -28,3 +28,10 @@ dist/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Python-generated cache data
+**/__pycache__/
+*.py[cod]
+
+# Godot-generated translation sidecars from imported asset tables
+*.translation
