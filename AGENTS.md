@@ -246,6 +246,31 @@ Read and obey `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`.
 
 `TABLE_GEOMETRY_CONTRACT_V2.md` and `TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md` are historical evidence only for the retired split-table visual pipeline. They do not authorize new R04 split table layers or masks.
 
+## Active M21 World Map owner-first visual gate — 2026-10-05
+
+The owner requires the proposed World Map composition to be visually reviewed **before** any production implementation.
+
+The owner-selected background is a specific 720×1280 PNG that must be placed at:
+
+`assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v01.png`
+
+Before owner approval:
+- Codex may read production World Map code/data/assets;
+- Codex may create preview-only evidence and layout metadata;
+- Codex may commit the exact owner background asset if supplied locally;
+- Codex MUST NOT modify production World Map scripts, scenes, data, map positions, hitboxes, navigation, or production tests;
+- Codex MUST NOT start BCM-M21-006;
+- root `TASKS.md` remains read-only.
+
+The active preview package is:
+- `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_OWNER_PREVIEW_CRITERIA_V02.md`
+- `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_OWNER_PREVIEW_PROMPT_V02.md`
+
+Required stop marker:
+`AWAITING_OWNER_WORLD_MAP_VISUAL_APPROVAL_V02`
+
+Only explicit `OWNER_WORLD_MAP_VISUAL_APPROVED_V02` authorizes a later production implementation prompt. Until then, any older direct-implementation prompt for this World Map cycle is superseded.
+
 ## Active M21 World Map composition authority — 2026-10-05
 
 The owner has rejected the baked ten-island World Map composition.
