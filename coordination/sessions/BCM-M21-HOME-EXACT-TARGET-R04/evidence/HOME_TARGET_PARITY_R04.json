@@ -1,0 +1,572 @@
+{
+  "schema": "BCM-M21-HOME-TARGET-PARITY-R04",
+  "reference_size": {
+    "width": 941,
+    "height": 1672
+  },
+  "target_sha256": "38d937b8a4345906fe69e436965d1f0feb9d69105d25a3455048488df07c15e1",
+  "target_copy_sha256": "38d937b8a4345906fe69e436965d1f0feb9d69105d25a3455048488df07c15e1",
+  "target_copy_byte_identical": true,
+  "runtime_capture": "evidence/02_home_reference_941x1672.png",
+  "dynamic_text_masks": [
+    {
+      "id": "level",
+      "target_rect": {
+        "x": 25,
+        "y": 24,
+        "width": 60,
+        "height": 54
+      }
+    },
+    {
+      "id": "energy",
+      "target_rect": {
+        "x": 298,
+        "y": 25,
+        "width": 66,
+        "height": 53
+      }
+    },
+    {
+      "id": "coins",
+      "target_rect": {
+        "x": 497,
+        "y": 25,
+        "width": 91,
+        "height": 53
+      }
+    },
+    {
+      "id": "gems",
+      "target_rect": {
+        "x": 728,
+        "y": 25,
+        "width": 57,
+        "height": 53
+      }
+    },
+    {
+      "id": "continue",
+      "target_rect": {
+        "x": 290,
+        "y": 1137,
+        "width": 360,
+        "height": 52
+      }
+    }
+  ],
+  "comparison_method": "Actual Godot production capture compared to owner TARGET at 941x1672. Dynamic text zones are excluded for full-scene comparison; per-art error samples pixels where the supplied source image alpha is greater than 200.",
+  "full_image_after_dynamic_masks": {
+    "rgb_mae_0_255": 51.0437,
+    "exact_rgb_pixel_fraction": 0.02357586,
+    "rgb_values_compared": 4620150
+  },
+  "outside_ui_art_reference_comparison": {
+    "rgb_mae_0_255": 47.004,
+    "rgb_values_compared": 3177888
+  },
+  "asset_placements": [
+    {
+      "id": "background",
+      "file": "home background.png",
+      "source_sha256": "da4c61e225c52049c89d8f7b9be9b8476a25e4b6cf9c89a75bcffeef5fcbe56a",
+      "target_rect_px": {
+        "x": 0,
+        "y": 0,
+        "width": 941,
+        "height": 1672
+      },
+      "normalized_rect": {
+        "x": 0.0,
+        "width": 1.0,
+        "y": 0.0,
+        "height": 1.0
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 0,
+        "y": 0,
+        "width": 941,
+        "height": 1672
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 51.3334,
+      "opaque_source_rgb_values_compared": 4720056
+    },
+    {
+      "id": "level_bar",
+      "file": "level bari.png",
+      "source_sha256": "9f343f75cf251b0d52f8e6b62c58a00018b58053b6b35c8c555b195f24a53aa3",
+      "target_rect_px": {
+        "x": 16,
+        "y": 3,
+        "width": 239,
+        "height": 89
+      },
+      "normalized_rect": {
+        "x": 0.017003,
+        "width": 0.253985,
+        "y": 0.001794,
+        "height": 0.05323
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 16,
+        "y": 3,
+        "width": 239,
+        "height": 89
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 51.1088,
+      "opaque_source_rgb_values_compared": 35094
+    },
+    {
+      "id": "energy_bar",
+      "file": "enerji bari.png",
+      "source_sha256": "fbabb516cf67c00b22fa5e54c4e806f00d79831ccba0889cb82c1cb5cf886946",
+      "target_rect_px": {
+        "x": 247,
+        "y": 15,
+        "width": 218,
+        "height": 81
+      },
+      "normalized_rect": {
+        "x": 0.262487,
+        "width": 0.231668,
+        "y": 0.008971,
+        "height": 0.048445
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 247,
+        "y": 15,
+        "width": 218,
+        "height": 81
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 67.1321,
+      "opaque_source_rgb_values_compared": 28737
+    },
+    {
+      "id": "coin_bar",
+      "file": "coin bari.png",
+      "source_sha256": "c3c2375d075e09c34d7f352dd436d5b42eece71218b3ad9f6dc70133dd26eba3",
+      "target_rect_px": {
+        "x": 444,
+        "y": 14,
+        "width": 217,
+        "height": 81
+      },
+      "normalized_rect": {
+        "x": 0.471838,
+        "width": 0.230606,
+        "y": 0.008373,
+        "height": 0.048445
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 444,
+        "y": 14,
+        "width": 217,
+        "height": 81
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 62.25,
+      "opaque_source_rgb_values_compared": 28776
+    },
+    {
+      "id": "diamond_bar",
+      "file": "elmas bari.png",
+      "source_sha256": "3ede1d9af75ad7d3d2137d524135458a2146c08e92cab0626a7c8b81673a4b68",
+      "target_rect_px": {
+        "x": 654,
+        "y": 13,
+        "width": 221,
+        "height": 82
+      },
+      "normalized_rect": {
+        "x": 0.695005,
+        "width": 0.234857,
+        "y": 0.007775,
+        "height": 0.049043
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 654,
+        "y": 13,
+        "width": 221,
+        "height": 82
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 70.3732,
+      "opaque_source_rgb_values_compared": 28215
+    },
+    {
+      "id": "energy_plus",
+      "file": "ekle gorseli.png",
+      "source_sha256": "6a432c656d17093cc3c7315aaed20355711268e38b3a11103ec95b8ed71c2788",
+      "target_rect_px": {
+        "x": 384,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "normalized_rect": {
+        "x": 0.408077,
+        "width": 0.06695,
+        "y": 0.017344,
+        "height": 0.037081
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 384,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 75.759,
+      "opaque_source_rgb_values_compared": 5391
+    },
+    {
+      "id": "coin_plus",
+      "file": "ekle gorseli.png",
+      "source_sha256": "6a432c656d17093cc3c7315aaed20355711268e38b3a11103ec95b8ed71c2788",
+      "target_rect_px": {
+        "x": 596,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "normalized_rect": {
+        "x": 0.633369,
+        "width": 0.06695,
+        "y": 0.017344,
+        "height": 0.037081
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 596,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 74.7665,
+      "opaque_source_rgb_values_compared": 5391
+    },
+    {
+      "id": "diamond_plus",
+      "file": "ekle gorseli.png",
+      "source_sha256": "6a432c656d17093cc3c7315aaed20355711268e38b3a11103ec95b8ed71c2788",
+      "target_rect_px": {
+        "x": 791,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "normalized_rect": {
+        "x": 0.840595,
+        "width": 0.06695,
+        "y": 0.017344,
+        "height": 0.037081
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 791,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 75.4222,
+      "opaque_source_rgb_values_compared": 5391
+    },
+    {
+      "id": "settings",
+      "file": "settings.png",
+      "source_sha256": "27cc0d1e7651ad27013874654257d994a26c1a875293ea6a08ebd3d327fc9fb1",
+      "target_rect_px": {
+        "x": 856,
+        "y": 18,
+        "width": 77,
+        "height": 77
+      },
+      "normalized_rect": {
+        "x": 0.909671,
+        "width": 0.081828,
+        "y": 0.010766,
+        "height": 0.046053
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 856,
+        "y": 18,
+        "width": 77,
+        "height": 77
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 85.3025,
+      "opaque_source_rgb_values_compared": 12402
+    },
+    {
+      "id": "play",
+      "file": "play butonu.png",
+      "source_sha256": "9063f83cc43c4ed116fb777e72f12f2682a8f80e3f1c50faf4c057a587e04953",
+      "target_rect_px": {
+        "x": 118,
+        "y": 945,
+        "width": 698,
+        "height": 299
+      },
+      "normalized_rect": {
+        "x": 0.125399,
+        "width": 0.741764,
+        "y": 0.565191,
+        "height": 0.178828
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 118,
+        "y": 945,
+        "width": 698,
+        "height": 299
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 68.2582,
+      "opaque_source_rgb_values_compared": 379410
+    },
+    {
+      "id": "world_map",
+      "file": "world map.png",
+      "source_sha256": "2caff4e52e80b0b17832b409d5dce1ec32ed1f9cd28919be0b4b9d1daa9c74b2",
+      "target_rect_px": {
+        "x": 110,
+        "y": 1191,
+        "width": 730,
+        "height": 243
+      },
+      "normalized_rect": {
+        "x": 0.116897,
+        "width": 0.77577,
+        "y": 0.712321,
+        "height": 0.145335
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 110,
+        "y": 1191,
+        "width": 730,
+        "height": 243
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 54.844,
+      "opaque_source_rgb_values_compared": 336855
+    },
+    {
+      "id": "shop",
+      "file": "shop.png",
+      "source_sha256": "2ec896f639dfd265c1651438097f435b8be205f542c4e515bfe7c85e92829170",
+      "target_rect_px": {
+        "x": 67,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "normalized_rect": {
+        "x": 0.071201,
+        "width": 0.174283,
+        "y": 0.847488,
+        "height": 0.089713
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 67,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 88.3166,
+      "opaque_source_rgb_values_compared": 47037
+    },
+    {
+      "id": "events",
+      "file": "Events.png",
+      "source_sha256": "1669f940650f904893495712ff6cc873f90beae28f8945dcb115e01a791645be",
+      "target_rect_px": {
+        "x": 269,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "normalized_rect": {
+        "x": 0.285866,
+        "width": 0.174283,
+        "y": 0.847488,
+        "height": 0.089713
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 269,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 70.9001,
+      "opaque_source_rgb_values_compared": 46389
+    },
+    {
+      "id": "daily_rewards",
+      "file": "daily rewards.png",
+      "source_sha256": "6dc64b823e79253ed3b409e2e8644b8a00f87b3ee758d3aa5f71515b7d715868",
+      "target_rect_px": {
+        "x": 469,
+        "y": 1417,
+        "width": 160,
+        "height": 158
+      },
+      "normalized_rect": {
+        "x": 0.498406,
+        "width": 0.170032,
+        "y": 0.847488,
+        "height": 0.094498
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 469,
+        "y": 1417,
+        "width": 160,
+        "height": 158
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 83.9251,
+      "opaque_source_rgb_values_compared": 43920
+    },
+    {
+      "id": "achievements",
+      "file": "achievements.png",
+      "source_sha256": "9480ab45ea9e1c49df41a739a7aafdb5c7b444860aad0c39171d1c55ed3fc89b",
+      "target_rect_px": {
+        "x": 672,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "normalized_rect": {
+        "x": 0.714134,
+        "width": 0.174283,
+        "y": 0.847488,
+        "height": 0.089713
+      },
+      "runtime_rect_px_at_941x1672": {
+        "x": 672,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "delta_to_layout_rect_px": {
+        "center_x": 0,
+        "center_y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "reference_match_delta_px": null,
+      "reference_match_status": "UNVERIFIED",
+      "visible_art_rgb_mae_0_255": 84.3928,
+      "opaque_source_rgb_values_compared": 44649
+    }
+  ],
+  "target_parity_gate": "UNVERIFIED",
+  "notes": [
+    "Rect transform agreement to the authored JSON passed the focused Godot probe at 941x1672; this is not an independent image-to-target placement measurement.",
+    "Visible art samples show material pixel differences against TARGET for supplied source images; exact target parity is therefore not claimed.",
+    "The provided home background.png differs visually from the TARGET backdrop. TARGET remains reference-only and is not used at runtime.",
+    "Bottom utility PNG text artwork differs in appearance from labels shown in TARGET. Source PNGs were preserved byte-for-byte and used without edits."
+  ]
+}

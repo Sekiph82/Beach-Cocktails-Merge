@@ -2134,6 +2134,202 @@
       "sha256": "9d9a01f59ef7298c5ca34630f8120dbc6cf2cc72032dab641cddd8345e7c38ec"
     },
     {
+      "path": "assets/ui_assets/screens/home/achievements.png",
+      "category": "screens/home",
+      "intended_screen_use": "achievements",
+      "dimensions": {
+        "width": 1313,
+        "height": 1198
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9480ab45ea9e1c49df41a739a7aafdb5c7b444860aad0c39171d1c55ed3fc89b"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/coin bari.png",
+      "category": "screens/home",
+      "intended_screen_use": "coin bari",
+      "dimensions": {
+        "width": 2054,
+        "height": 766
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "c3c2375d075e09c34d7f352dd436d5b42eece71218b3ad9f6dc70133dd26eba3"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/daily rewards.png",
+      "category": "screens/home",
+      "intended_screen_use": "daily rewards",
+      "dimensions": {
+        "width": 1263,
+        "height": 1246
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "6dc64b823e79253ed3b409e2e8644b8a00f87b3ee758d3aa5f71515b7d715868"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/ekle gorseli.png",
+      "category": "screens/home",
+      "intended_screen_use": "ekle gorseli",
+      "dimensions": {
+        "width": 1266,
+        "height": 1242
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "6a432c656d17093cc3c7315aaed20355711268e38b3a11103ec95b8ed71c2788"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/elmas bari.png",
+      "category": "screens/home",
+      "intended_screen_use": "elmas bari",
+      "dimensions": {
+        "width": 2053,
+        "height": 766
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "3ede1d9af75ad7d3d2137d524135458a2146c08e92cab0626a7c8b81673a4b68"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/enerji bari.png",
+      "category": "screens/home",
+      "intended_screen_use": "enerji bari",
+      "dimensions": {
+        "width": 2053,
+        "height": 766
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "fbabb516cf67c00b22fa5e54c4e806f00d79831ccba0889cb82c1cb5cf886946"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/Events.png",
+      "category": "screens/home",
+      "intended_screen_use": "Events",
+      "dimensions": {
+        "width": 1313,
+        "height": 1198
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "1669f940650f904893495712ff6cc873f90beae28f8945dcb115e01a791645be"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/home background.png",
+      "category": "screens/home",
+      "intended_screen_use": "home background",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "da4c61e225c52049c89d8f7b9be9b8476a25e4b6cf9c89a75bcffeef5fcbe56a"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/level bari.png",
+      "category": "screens/home",
+      "intended_screen_use": "level bari",
+      "dimensions": {
+        "width": 2053,
+        "height": 766
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9f343f75cf251b0d52f8e6b62c58a00018b58053b6b35c8c555b195f24a53aa3"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/play butonu.png",
+      "category": "screens/home",
+      "intended_screen_use": "play butonu",
+      "dimensions": {
+        "width": 1916,
+        "height": 821
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "9063f83cc43c4ed116fb777e72f12f2682a8f80e3f1c50faf4c057a587e04953"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/settings.png",
+      "category": "screens/home",
+      "intended_screen_use": "settings",
+      "dimensions": {
+        "width": 1254,
+        "height": 1254
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "27cc0d1e7651ad27013874654257d994a26c1a875293ea6a08ebd3d327fc9fb1"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/shop.png",
+      "category": "screens/home",
+      "intended_screen_use": "shop",
+      "dimensions": {
+        "width": 1313,
+        "height": 1198
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "2ec896f639dfd265c1651438097f435b8be205f542c4e515bfe7c85e92829170"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/TARGET beach cocktails merge home.png",
+      "category": "screens/home",
+      "intended_screen_use": "TARGET beach cocktails merge home",
+      "dimensions": {
+        "width": 941,
+        "height": 1672
+      },
+      "alpha_expected": false,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "38d937b8a4345906fe69e436965d1f0feb9d69105d25a3455048488df07c15e1"
+    },
+    {
+      "path": "assets/ui_assets/screens/home/world map.png",
+      "category": "screens/home",
+      "intended_screen_use": "world map",
+      "dimensions": {
+        "width": 2172,
+        "height": 724
+      },
+      "alpha_expected": true,
+      "island_id": null,
+      "table_geometry_version": null,
+      "generation_source_method": "existing canonical asset; metadata inventory refreshed",
+      "sha256": "2caff4e52e80b0b17832b409d5dce1ec32ed1f9cd28919be0b4b9d1daa9c74b2"
+    },
+    {
       "path": "assets/ui_assets/screens/main_menu/coin_counter_panel.png",
       "category": "screens/main_menu",
       "intended_screen_use": "coin counter panel",

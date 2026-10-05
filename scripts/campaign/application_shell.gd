@@ -17,6 +17,11 @@ const SETTINGS_SCRIPT := preload("res://scripts/campaign/user_settings.gd")
 const DEFAULT_SETTINGS_STORAGE_PATH := "user://user_settings.json"
 const ONBOARDING_SCHEMA_VERSION := 1
 const DEFAULT_ONBOARDING_STORAGE_PATH := "user://onboarding_state.json"
+const HOME_LAYOUT_PATH := "res://coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/HOME_TARGET_LAYOUT_R04.json"
+const HOME_ASSET_ROOT := "res://assets/ui_assets/screens/home/"
+const HOME_REFERENCE_SIZE := Vector2(941.0, 1672.0)
+const HOME_ENERGY_DISPLAY_DEFAULT := 100
+const HOME_GEMS_DISPLAY_DEFAULT := 85
 
 var campaign_navigation: CampaignNavigationController
 var current_view := "MAIN_MENU"
@@ -38,6 +43,10 @@ var _menu_play_button: BaseButton
 var _menu_world_map_button: BaseButton
 var _menu_settings_button: BaseButton
 var _continue_label: Label
+var _home_value_labels: Dictionary = {}
+var _home_layout: Dictionary = {}
+var _home_layout_nodes: Dictionary = {}
+var _home_text_specs: Dictionary = {}
 
 
 func _ready() -> void:
@@ -226,130 +235,142 @@ func _on_navigation_main_menu_requested() -> void:
 
 
 func _build_menu() -> void:
+    _home_layout = _read_home_layout()
     _menu_layer = Control.new()
     _menu_layer.name = "MainMenu"
     _menu_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     _menu_layer.mouse_filter = Control.MOUSE_FILTER_STOP
     add_child(_menu_layer)
-
-    var sky_and_ocean := Gradient.new()
-    sky_and_ocean.offsets = PackedFloat32Array([0.0, 0.42, 0.72, 1.0])
-    sky_and_ocean.colors = PackedColorArray([Color("#5aa7da"), Color("#f0b46a"), Color("#39b9c5"), Color("#116e92")])
-    var underlay_texture := GradientTexture2D.new()
-    underlay_texture.gradient = sky_and_ocean
-    underlay_texture.width = 2
-    underlay_texture.height = 1280
-    underlay_texture.fill_from = Vector2(0.0, 0.0)
-    underlay_texture.fill_to = Vector2(0.0, 1.0)
-    var underlay := TextureRect.new()
-    underlay.name = "TropicalSkyOceanUnderlay"
-    underlay.texture = underlay_texture
-    underlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    underlay.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-    underlay.stretch_mode = TextureRect.STRETCH_SCALE
-    underlay.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    _menu_layer.add_child(underlay)
-
-    var background := TextureRect.new()
-    background.name = "MainMenuBackground"
-    background.texture = load("res://assets/ui_assets/screens/main_menu/main_menu_background.png") as Texture2D
-    background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-    background.stretch_mode = TextureRect.STRETCH_SCALE
-    background.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    _menu_layer.add_child(background)
-
-    var left_decor := _make_menu_decor("LeftTropicalDecor", "main_menu_decor_left.png", Rect2(0.0, 320.0, 170.0, 430.0))
-    _menu_layer.add_child(left_decor)
-    var right_decor := _make_menu_decor("RightTropicalDecor", "main_menu_decor_right.png", Rect2(550.0, 320.0, 170.0, 430.0))
-    _menu_layer.add_child(right_decor)
-
-    var logo := TextureRect.new()
-    logo.name = "BeachCocktailsLogo"
-    logo.texture = load("res://assets/ui_assets/brand/logo_beach_cocktails_merge.png") as Texture2D
-    logo.position = Vector2(280.0, 10.0)
-    logo.size = Vector2(160.0, 326.0)
-    logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-    logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-    logo.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    _menu_layer.add_child(logo)
-
-    _menu_play_button = _make_menu_art_button("PlayContinueButton", "main_menu_play_button.png", Rect2(138.0, 440.0, 444.0, 168.0), "PLAY")
-    _menu_play_button.pressed.connect(press_play_continue)
-    _menu_layer.add_child(_menu_play_button)
-    _continue_label = _make_menu_label("ContinueLevel", "", Rect2(150.0, 610.0, 420.0, 36.0), 19)
-    _menu_layer.add_child(_continue_label)
-
-    _menu_world_map_button = _make_menu_art_button("WorldMapButton", "main_menu_world_map_button.png", Rect2(164.0, 670.0, 392.0, 126.0), "WORLD MAP")
-    _menu_world_map_button.pressed.connect(press_world_map)
-    _menu_layer.add_child(_menu_world_map_button)
-
-    var utility_specs := [
-        {"name": "ShopButton", "asset": "main_menu_shop_button.png", "label": "SHOP"},
-        {"name": "DailyRewardsButton", "asset": "main_menu_daily_button.png", "label": "DAILY REWARDS"},
-        {"name": "SettingsButton", "asset": "main_menu_settings_button.png", "label": "SETTINGS"},
-    ]
-    for index in range(utility_specs.size()):
-        var spec: Dictionary = utility_specs[index]
-        var x := 54.0 + float(index) * 204.0
-        var art_button := _make_menu_art_button(str(spec["name"]), str(spec["asset"]), Rect2(x, 1000.0, 156.0, 116.0), str(spec["label"]))
-        if index < 2:
-            art_button.disabled = true
-            art_button.tooltip_text = "Coming soon"
-        else:
-            _menu_settings_button = art_button
+    _menu_layer.resized.connect(_resize_home_layout)
+    var items: Array = _home_layout.get("items", [])
+    for item_value in items:
+        if not item_value is Dictionary:
+            continue
+        var item: Dictionary = item_value
+        var node_name := str(item.get("id", ""))
+        var asset_name := str(item.get("file", ""))
+        var rect := _home_item_rect(item)
+        if node_name == "play":
+            _menu_play_button = _make_home_art_button("HomePlay", asset_name, rect, "PLAY")
+            _home_layout_nodes[node_name] = _menu_play_button
+            _menu_play_button.pressed.connect(press_play_continue)
+            _menu_layer.add_child(_menu_play_button)
+        elif node_name == "world_map":
+            _menu_world_map_button = _make_home_art_button("HomeWorldMap", asset_name, rect, "WORLD MAP")
+            _home_layout_nodes[node_name] = _menu_world_map_button
+            _menu_world_map_button.pressed.connect(press_world_map)
+            _menu_layer.add_child(_menu_world_map_button)
+        elif node_name == "settings":
+            _menu_settings_button = _make_home_art_button("HomeSettings", asset_name, rect, "SETTINGS")
+            _home_layout_nodes[node_name] = _menu_settings_button
             _menu_settings_button.pressed.connect(show_settings)
-        _menu_layer.add_child(art_button)
+            _menu_layer.add_child(_menu_settings_button)
+        else:
+            _home_layout_nodes[node_name] = _add_home_art(node_name, asset_name, rect)
+    for text_value in _home_layout.get("dynamic_text", []):
+        if not text_value is Dictionary:
+            continue
+        var spec: Dictionary = text_value
+        var label := _make_home_value_label(str(spec.get("id", "")), _home_item_rect(spec), int(spec.get("font_size", 28)), str(spec.get("style", "hud")))
+        var text_id := str(spec.get("id", ""))
+        _home_value_labels[text_id] = label
+        _home_text_specs[text_id] = spec
+        _menu_layer.add_child(label)
+    _continue_label = _home_value_labels.get("continue") as Label
+    _refresh_home_values()
+    call_deferred("_resize_home_layout")
 
-    _refresh_continue_label()
+
+func _read_home_layout() -> Dictionary:
+    if not FileAccess.file_exists(HOME_LAYOUT_PATH):
+        push_error("Missing exact Home layout: %s" % HOME_LAYOUT_PATH)
+        return {}
+    var file := FileAccess.open(HOME_LAYOUT_PATH, FileAccess.READ)
+    if file == null:
+        return {}
+    var parsed = JSON.parse_string(file.get_as_text())
+    return parsed if parsed is Dictionary else {}
 
 
-func _make_menu_decor(node_name: String, file_name: String, rect: Rect2) -> TextureRect:
-    var decor := TextureRect.new()
-    decor.name = node_name
-    decor.texture = load("res://assets/ui_assets/screens/main_menu/%s" % file_name) as Texture2D
-    decor.position = rect.position
-    decor.size = rect.size
-    decor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-    decor.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-    decor.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    return decor
+func _home_item_rect(spec: Dictionary) -> Rect2:
+    var reference_rect: Dictionary = spec.get("target_rect", {})
+    var viewport_size := _menu_layer.size if _menu_layer != null and _menu_layer.size.x > 0.0 else get_viewport_rect().size
+    var sx := viewport_size.x / HOME_REFERENCE_SIZE.x
+    var sy := viewport_size.y / HOME_REFERENCE_SIZE.y
+    return Rect2(
+        float(reference_rect.get("x", 0.0)) * sx,
+        float(reference_rect.get("y", 0.0)) * sy,
+        float(reference_rect.get("width", 0.0)) * sx,
+        float(reference_rect.get("height", 0.0)) * sy
+    )
 
 
-func _make_menu_art_button(node_name: String, file_name: String, rect: Rect2, label_text: String) -> TextureButton:
+func _resize_home_layout() -> void:
+    if _menu_layer == null:
+        return
+    for item_value in _home_layout.get("items", []):
+        if not item_value is Dictionary:
+            continue
+        var item: Dictionary = item_value
+        var node = _home_layout_nodes.get(str(item.get("id", "")))
+        if is_instance_valid(node):
+            var rect := _home_item_rect(item)
+            if str(item.get("id", "")) == "background":
+                node.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+            else:
+                node.position = rect.position
+                node.size = rect.size
+    for text_id in _home_text_specs:
+        var label = _home_value_labels.get(text_id)
+        if is_instance_valid(label):
+            label.position = _home_item_rect(_home_text_specs[text_id]).position
+            label.size = _home_item_rect(_home_text_specs[text_id]).size
+
+
+func _add_home_art(node_name: String, file_name: String, rect: Rect2) -> Control:
+    var node := TextureRect.new()
+    node.name = "HomeArt_%s" % node_name
+    node.texture = load(HOME_ASSET_ROOT + file_name) as Texture2D
+    node.position = rect.position
+    node.size = rect.size
+    node.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    node.stretch_mode = TextureRect.STRETCH_SCALE
+    node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    if node_name == "background":
+        node.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+        node.z_index = -100
+    _menu_layer.add_child(node)
+    return node
+
+
+func _make_home_art_button(node_name: String, file_name: String, rect: Rect2, tooltip: String) -> TextureButton:
     var button := TextureButton.new()
     button.name = node_name
-    var texture := load("res://assets/ui_assets/screens/main_menu/%s" % file_name) as Texture2D
+    var texture := load(HOME_ASSET_ROOT + file_name) as Texture2D
     button.texture_normal = texture
     button.texture_pressed = texture
     button.texture_hover = texture
     button.texture_disabled = texture
     button.ignore_texture_size = true
-    button.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+    button.stretch_mode = TextureButton.STRETCH_SCALE
     button.position = rect.position
     button.size = rect.size
-    button.tooltip_text = label_text
+    button.tooltip_text = tooltip
     button.mouse_filter = Control.MOUSE_FILTER_STOP
-    var label_y := rect.size.y - 32.0
-    if node_name == "PlayContinueButton":
-        label_y = 112.0
-    elif node_name == "WorldMapButton":
-        label_y = 78.0
-    var label := _make_menu_label("ButtonLabel", label_text, Rect2(0.0, label_y, rect.size.x, 30.0), 17)
-    button.add_child(label)
     return button
 
 
-func _make_menu_label(node_name: String, value: String, rect: Rect2, font_size: int) -> Label:
+func _make_home_value_label(node_name: String, rect: Rect2, font_size: int, style: String) -> Label:
     var label := Label.new()
-    label.name = node_name
-    label.text = value
+    label.name = "HomeValue_%s" % node_name
     label.position = rect.position
     label.size = rect.size
     label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
     label.add_theme_font_size_override("font_size", font_size)
-    label.add_theme_color_override("font_color", Color("#fff5d8"))
+    label.add_theme_color_override("font_color", Color("#fff5e7") if style == "hud" else Color("#5a2a0a"))
+    label.add_theme_color_override("font_outline_color", Color("#351608") if style == "hud" else Color("#ffe18a"))
+    label.add_theme_constant_override("outline_size", 4 if style == "hud" else 2)
     label.add_theme_color_override("font_shadow_color", Color(0.12, 0.08, 0.04, 0.95))
     label.add_theme_constant_override("shadow_offset_x", 2)
     label.add_theme_constant_override("shadow_offset_y", 2)
@@ -357,11 +378,49 @@ func _make_menu_label(node_name: String, value: String, rect: Rect2, font_size: 
     return label
 
 
+func _refresh_home_values() -> void:
+    var level := _current_selected_level()
+    var economy = campaign_navigation.economy if campaign_navigation != null else null
+    var coins := int(economy.coins) if economy != null else 0
+    if _home_value_labels.has("level"):
+        (_home_value_labels["level"] as Label).text = str(level) if level > 0 else "1"
+    if _home_value_labels.has("energy"):
+        (_home_value_labels["energy"] as Label).text = str(HOME_ENERGY_DISPLAY_DEFAULT)
+    if _home_value_labels.has("coins"):
+        (_home_value_labels["coins"] as Label).text = _format_home_coins(coins)
+    if _home_value_labels.has("gems"):
+        (_home_value_labels["gems"] as Label).text = str(HOME_GEMS_DISPLAY_DEFAULT)
+    if _home_value_labels.has("continue"):
+        (_home_value_labels["continue"] as Label).text = "CONTINUE LEVEL %d" % level if level > 0 else "PLAY"
+
+
+func _current_selected_level() -> int:
+    if campaign_navigation == null or campaign_navigation.campaign_manager == null:
+        return 0
+    var manager = campaign_navigation.campaign_manager
+    var level_id := int(manager.selected_level_id)
+    if level_id > 0 and manager.is_level_unlocked(str(manager.current_island_id), level_id):
+        return level_id
+    return 0
+
+
+func _format_home_coins(value: int) -> String:
+    var digits := str(maxi(0, value))
+    var groups: Array[String] = []
+    while digits.length() > 3:
+        groups.push_front(digits.substr(digits.length() - 3, 3))
+        digits = digits.substr(0, digits.length() - 3)
+    groups.push_front(digits)
+    return ".".join(groups)
+
+
+func _process(_delta: float) -> void:
+    if _menu_layer != null and _menu_layer.visible:
+        _refresh_home_values()
+
+
 func _refresh_continue_label() -> void:
-    if _continue_label == null:
-        return
-    var value := campaign_navigation.get_continue_level_label() if campaign_navigation != null else "PLAY"
-    _continue_label.text = value if value.begins_with("CONTINUE") else ""
+    _refresh_home_values()
 
 
 func _build_onboarding() -> void:

@@ -151,6 +151,20 @@ assets/ui_assets/screens/daily_reward/daily_day_slot.png,440,190,RGBA,True
 assets/ui_assets/screens/daily_reward/daily_reward_background.png,720,1280,RGBA,True
 assets/ui_assets/screens/daily_reward/daily_reward_panel.png,440,190,RGBA,True
 assets/ui_assets/screens/daily_reward/streak_badge.png,128,128,RGBA,True
+assets/ui_assets/screens/home/achievements.png,1313,1198,RGBA,True
+assets/ui_assets/screens/home/coin bari.png,2054,766,RGBA,True
+assets/ui_assets/screens/home/daily rewards.png,1263,1246,RGBA,True
+assets/ui_assets/screens/home/ekle gorseli.png,1266,1242,RGBA,True
+assets/ui_assets/screens/home/elmas bari.png,2053,766,RGBA,True
+assets/ui_assets/screens/home/enerji bari.png,2053,766,RGBA,True
+assets/ui_assets/screens/home/Events.png,1313,1198,RGBA,True
+assets/ui_assets/screens/home/home background.png,941,1672,RGB,False
+assets/ui_assets/screens/home/level bari.png,2053,766,RGBA,True
+assets/ui_assets/screens/home/play butonu.png,1916,821,RGBA,True
+assets/ui_assets/screens/home/settings.png,1254,1254,RGBA,True
+assets/ui_assets/screens/home/shop.png,1313,1198,RGBA,True
+assets/ui_assets/screens/home/TARGET beach cocktails merge home.png,941,1672,RGB,False
+assets/ui_assets/screens/home/world map.png,2172,724,RGBA,True
 assets/ui_assets/screens/main_menu/coin_counter_panel.png,440,190,RGBA,True
 assets/ui_assets/screens/main_menu/gem_counter_panel.png,440,190,RGBA,True
 assets/ui_assets/screens/main_menu/main_menu_background.png,720,1280,RGBA,True

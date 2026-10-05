@@ -1,0 +1,437 @@
+{
+  "schema": "BCM-M21-HOME-TARGET-LAYOUT-R04",
+  "reference_size": {
+    "width": 941,
+    "height": 1672
+  },
+  "coordinate_rule": "All runtime visual rects are normalized from these TARGET pixel rects. The target PNG is reference-only.",
+  "items": [
+    {
+      "id": "background",
+      "file": "home background.png",
+      "source_size": {
+        "width": 941,
+        "height": 1672
+      },
+      "target_rect": {
+        "x": 0,
+        "y": 0,
+        "width": 941,
+        "height": 1672
+      },
+      "normalized_rect": {
+        "x": 0.0,
+        "width": 1.0,
+        "y": 0.0,
+        "height": 1.0
+      },
+      "z_order": -100,
+      "input_behavior": "ignored full-screen base"
+    },
+    {
+      "id": "level_bar",
+      "file": "level bari.png",
+      "source_size": {
+        "width": 2053,
+        "height": 766
+      },
+      "target_rect": {
+        "x": 16,
+        "y": 3,
+        "width": 239,
+        "height": 89
+      },
+      "normalized_rect": {
+        "x": 0.017003,
+        "width": 0.253985,
+        "y": 0.001794,
+        "height": 0.05323
+      },
+      "z_order": 1,
+      "input_behavior": "decorative; ignores input"
+    },
+    {
+      "id": "energy_bar",
+      "file": "enerji bari.png",
+      "source_size": {
+        "width": 2053,
+        "height": 766
+      },
+      "target_rect": {
+        "x": 247,
+        "y": 15,
+        "width": 218,
+        "height": 81
+      },
+      "normalized_rect": {
+        "x": 0.262487,
+        "width": 0.231668,
+        "y": 0.008971,
+        "height": 0.048445
+      },
+      "z_order": 1,
+      "input_behavior": "decorative; ignores input"
+    },
+    {
+      "id": "coin_bar",
+      "file": "coin bari.png",
+      "source_size": {
+        "width": 2054,
+        "height": 766
+      },
+      "target_rect": {
+        "x": 444,
+        "y": 14,
+        "width": 217,
+        "height": 81
+      },
+      "normalized_rect": {
+        "x": 0.471838,
+        "width": 0.230606,
+        "y": 0.008373,
+        "height": 0.048445
+      },
+      "z_order": 1,
+      "input_behavior": "decorative; ignores input"
+    },
+    {
+      "id": "diamond_bar",
+      "file": "elmas bari.png",
+      "source_size": {
+        "width": 2053,
+        "height": 766
+      },
+      "target_rect": {
+        "x": 654,
+        "y": 13,
+        "width": 221,
+        "height": 82
+      },
+      "normalized_rect": {
+        "x": 0.695005,
+        "width": 0.234857,
+        "y": 0.007775,
+        "height": 0.049043
+      },
+      "z_order": 1,
+      "input_behavior": "decorative; ignores input"
+    },
+    {
+      "id": "energy_plus",
+      "file": "ekle gorseli.png",
+      "source_size": {
+        "width": 1266,
+        "height": 1242
+      },
+      "target_rect": {
+        "x": 384,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "normalized_rect": {
+        "x": 0.408077,
+        "width": 0.06695,
+        "y": 0.017344,
+        "height": 0.037081
+      },
+      "z_order": 3,
+      "input_behavior": "presentation-only; ignores input"
+    },
+    {
+      "id": "coin_plus",
+      "file": "ekle gorseli.png",
+      "source_size": {
+        "width": 1266,
+        "height": 1242
+      },
+      "target_rect": {
+        "x": 596,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "normalized_rect": {
+        "x": 0.633369,
+        "width": 0.06695,
+        "y": 0.017344,
+        "height": 0.037081
+      },
+      "z_order": 3,
+      "input_behavior": "presentation-only; ignores input"
+    },
+    {
+      "id": "diamond_plus",
+      "file": "ekle gorseli.png",
+      "source_size": {
+        "width": 1266,
+        "height": 1242
+      },
+      "target_rect": {
+        "x": 791,
+        "y": 29,
+        "width": 63,
+        "height": 62
+      },
+      "normalized_rect": {
+        "x": 0.840595,
+        "width": 0.06695,
+        "y": 0.017344,
+        "height": 0.037081
+      },
+      "z_order": 3,
+      "input_behavior": "presentation-only; ignores input"
+    },
+    {
+      "id": "settings",
+      "file": "settings.png",
+      "source_size": {
+        "width": 1254,
+        "height": 1254
+      },
+      "target_rect": {
+        "x": 856,
+        "y": 18,
+        "width": 77,
+        "height": 77
+      },
+      "normalized_rect": {
+        "x": 0.909671,
+        "width": 0.081828,
+        "y": 0.010766,
+        "height": 0.046053
+      },
+      "z_order": 4,
+      "input_behavior": "TextureButton body opens Settings"
+    },
+    {
+      "id": "play",
+      "file": "play butonu.png",
+      "source_size": {
+        "width": 1916,
+        "height": 821
+      },
+      "target_rect": {
+        "x": 118,
+        "y": 945,
+        "width": 698,
+        "height": 299
+      },
+      "normalized_rect": {
+        "x": 0.125399,
+        "width": 0.741764,
+        "y": 0.565191,
+        "height": 0.178828
+      },
+      "z_order": 2,
+      "input_behavior": "TextureButton body continues selected campaign level"
+    },
+    {
+      "id": "world_map",
+      "file": "world map.png",
+      "source_size": {
+        "width": 2172,
+        "height": 724
+      },
+      "target_rect": {
+        "x": 110,
+        "y": 1191,
+        "width": 730,
+        "height": 243
+      },
+      "normalized_rect": {
+        "x": 0.116897,
+        "width": 0.77577,
+        "y": 0.712321,
+        "height": 0.145335
+      },
+      "z_order": 2,
+      "input_behavior": "TextureButton body opens production World Map"
+    },
+    {
+      "id": "shop",
+      "file": "shop.png",
+      "source_size": {
+        "width": 1313,
+        "height": 1198
+      },
+      "target_rect": {
+        "x": 67,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "normalized_rect": {
+        "x": 0.071201,
+        "width": 0.174283,
+        "y": 0.847488,
+        "height": 0.089713
+      },
+      "z_order": 2,
+      "input_behavior": "inert visual; no canonical destination"
+    },
+    {
+      "id": "events",
+      "file": "Events.png",
+      "source_size": {
+        "width": 1313,
+        "height": 1198
+      },
+      "target_rect": {
+        "x": 269,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "normalized_rect": {
+        "x": 0.285866,
+        "width": 0.174283,
+        "y": 0.847488,
+        "height": 0.089713
+      },
+      "z_order": 2,
+      "input_behavior": "inert visual; no canonical destination"
+    },
+    {
+      "id": "daily_rewards",
+      "file": "daily rewards.png",
+      "source_size": {
+        "width": 1263,
+        "height": 1246
+      },
+      "target_rect": {
+        "x": 469,
+        "y": 1417,
+        "width": 160,
+        "height": 158
+      },
+      "normalized_rect": {
+        "x": 0.498406,
+        "width": 0.170032,
+        "y": 0.847488,
+        "height": 0.094498
+      },
+      "z_order": 2,
+      "input_behavior": "inert visual; no canonical destination"
+    },
+    {
+      "id": "achievements",
+      "file": "achievements.png",
+      "source_size": {
+        "width": 1313,
+        "height": 1198
+      },
+      "target_rect": {
+        "x": 672,
+        "y": 1417,
+        "width": 164,
+        "height": 150
+      },
+      "normalized_rect": {
+        "x": 0.714134,
+        "width": 0.174283,
+        "y": 0.847488,
+        "height": 0.089713
+      },
+      "z_order": 2,
+      "input_behavior": "inert visual; no canonical destination"
+    }
+  ],
+  "dynamic_text": [
+    {
+      "id": "level",
+      "target_rect": {
+        "x": 25,
+        "y": 24,
+        "width": 60,
+        "height": 54
+      },
+      "normalized_rect": {
+        "x": 0.026567,
+        "width": 0.063762,
+        "y": 0.014354,
+        "height": 0.032297
+      },
+      "z_order": 5,
+      "font_size": 32,
+      "style": "hud",
+      "source": "campaign_manager.current_island_id + selected_level_id"
+    },
+    {
+      "id": "energy",
+      "target_rect": {
+        "x": 298,
+        "y": 25,
+        "width": 66,
+        "height": 53
+      },
+      "normalized_rect": {
+        "x": 0.316684,
+        "width": 0.070138,
+        "y": 0.014952,
+        "height": 0.031699
+      },
+      "z_order": 5,
+      "font_size": 31,
+      "style": "hud",
+      "source": "presentation-only Home display default 100"
+    },
+    {
+      "id": "coins",
+      "target_rect": {
+        "x": 497,
+        "y": 25,
+        "width": 91,
+        "height": 53
+      },
+      "normalized_rect": {
+        "x": 0.528162,
+        "width": 0.096706,
+        "y": 0.014952,
+        "height": 0.031699
+      },
+      "z_order": 5,
+      "font_size": 30,
+      "style": "hud",
+      "source": "CampaignNavigationController.economy.coins; thousands separated by period"
+    },
+    {
+      "id": "gems",
+      "target_rect": {
+        "x": 728,
+        "y": 25,
+        "width": 57,
+        "height": 53
+      },
+      "normalized_rect": {
+        "x": 0.773645,
+        "width": 0.060574,
+        "y": 0.014952,
+        "height": 0.031699
+      },
+      "z_order": 5,
+      "font_size": 31,
+      "style": "hud",
+      "source": "presentation-only Home display default 85"
+    },
+    {
+      "id": "continue",
+      "target_rect": {
+        "x": 290,
+        "y": 1137,
+        "width": 360,
+        "height": 52
+      },
+      "normalized_rect": {
+        "x": 0.308183,
+        "width": 0.382572,
+        "y": 0.680024,
+        "height": 0.0311
+      },
+      "z_order": 6,
+      "font_size": 27,
+      "style": "plaque",
+      "source": "same validated selected campaign level as level"
+    }
+  ]
+}
