@@ -1,24 +1,38 @@
 from __future__ import annotations
 import json, math
 from pathlib import Path
-from PIL import Image, ImageDraw, ImageFont, ImageEnhance, ImageFilter
+from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageEnhance, ImageFilter
 
 ROOT = Path(__file__).resolve().parents[5]
 ASSETS = ROOT / 'assets' / 'ui_assets' / 'campaign' / 'world_map'
 OUT = Path(__file__).resolve().parent
 BG = ASSETS / 'world_map_ocean_background_owner_v01.png'
 ISLANDS = [
-    ('sunny_cove', 'Sunny Cove', 'sunny_cove.png', (160, 455), 'CURRENT'),
-    ('tiki_island', 'Tiki Island', 'tiki_island.png', (560, 525), 'LOCKED'),
-    ('azure_bay', 'Azure Bay', 'azure_bay.png', (160, 615), 'LOCKED'),
-    ('coconut_beach', 'Coconut Beach', 'coconut_beach.png', (560, 685), 'LOCKED'),
-    ('sunset_island', 'Sunset Island', 'sunset_island.png', (160, 775), 'LOCKED'),
-    ('party_beach', 'Party Beach', 'party_beach.png', (560, 845), 'LOCKED'),
-    ('frozen_paradise', 'Frozen Paradise', 'frozen_paradise.png', (160, 935), 'LOCKED'),
-    ('volcano_bay', 'Volcano Bay', 'volcano_bay.png', (560, 1005), 'LOCKED'),
-    ('billionaire_island', 'Billionaire Island', 'billionaire_island.png', (160, 1095), 'LOCKED'),
-    ('final_island', 'Final Island', 'final_island.png', (560, 1170), 'LOCKED'),
+    # Centers and sizes deliberately vary to follow the owner's organic
+    # reference rather than forming repeated rows or columns.
+    ('sunny_cove', 'Sunny Cove', 'sunny_cove.png', (145, 365), 150, 'CURRENT'),
+    ('tiki_island', 'Tiki Island', 'tiki_island.png', (525, 455), 122, 'LOCKED'),
+    ('azure_bay', 'Azure Bay', 'azure_bay.png', (415, 590), 156, 'LOCKED'),
+    ('coconut_beach', 'Coconut Beach', 'coconut_beach.png', (145, 635), 128, 'LOCKED'),
+    ('sunset_island', 'Sunset Island', 'sunset_island.png', (275, 790), 142, 'LOCKED'),
+    ('party_beach', 'Party Beach', 'party_beach.png', (575, 805), 124, 'LOCKED'),
+    ('frozen_paradise', 'Frozen Paradise', 'frozen_paradise.png', (505, 955), 152, 'LOCKED'),
+    ('volcano_bay', 'Volcano Bay', 'volcano_bay.png', (160, 1035), 138, 'LOCKED'),
+    ('billionaire_island', 'Billionaire Island', 'billionaire_island.png', (165, 1180), 118, 'LOCKED'),
+    ('final_island', 'Final Island', 'final_island.png', (515, 1135), 134, 'LOCKED'),
 ]
+LABEL_CENTERS = {
+    'sunny_cove': (145, 456),
+    'tiki_island': (525, 367),
+    'azure_bay': (415, 688),
+    'coconut_beach': (145, 548),
+    'sunset_island': (275, 880),
+    'party_beach': (575, 714),
+    'frozen_paradise': (505, 1048),
+    'volcano_bay': (160, 944),
+    'billionaire_island': (165, 1255),
+    'final_island': (515, 1222),
+}
 W, H = 720, 1280
 FONT_REG = 'C:/Windows/Fonts/segoeui.ttf'
 FONT_BOLD = 'C:/Windows/Fonts/segoeuib.ttf'
@@ -33,9 +47,38 @@ def alpha_paste(dst, src, center):
     x, y = center
     dst.alpha_composite(src, (round(x-src.width/2), round(y-src.height/2)))
 
+def set_opacity(image, factor):
+    alpha = image.getchannel('A').point(lambda value: round(value * factor))
+    image.putalpha(alpha)
+    return image
+
+def feather_edges(image, extent=24):
+    width, height = image.size
+    mask = Image.new('L', image.size)
+    mask.putdata([
+        round(255 * min(1.0, x / extent, (width - 1 - x) / extent,
+                        y / extent, (height - 1 - y) / extent))
+        for y in range(height) for x in range(width)
+    ])
+    image.putalpha(ImageChops.multiply(image.getchannel('A'), mask))
+    return image
+
 canvas = Image.open(BG).convert('RGBA')
 if canvas.size != (W, H):
     raise SystemExit(f'Owner background dimensions are {canvas.size}, expected {(W,H)}')
+
+# Add two subdued cloud banks around the outer horizon and an existing boat
+# in open water. The approved sky/ocean source remains the unmodified base.
+cloud_back = Image.open(ASSETS / 'world_clouds_back.png').convert('RGBA')
+cloud_back = cloud_back.crop((0,8,126,154)).resize((126,146), Image.Resampling.LANCZOS)
+alpha_paste(canvas, set_opacity(feather_edges(cloud_back), 0.74), (23,316))
+cloud_front = Image.open(ASSETS / 'world_clouds_front.png').convert('RGBA')
+cloud_front = cloud_front.crop((205,12,320,158)).resize((115,146), Image.Resampling.LANCZOS)
+alpha_paste(canvas, set_opacity(feather_edges(cloud_front), 0.74), (698,316))
+
+boat = Image.open(ASSETS / 'world_map_boat.png').convert('RGBA')
+boat = boat.resize((150,84), Image.Resampling.LANCZOS)
+alpha_paste(canvas, boat, (340,925))
 
 # Subtle darkened route underlay follows the island sequence; the supplied
 # beaded route asset supplies the visible gold-and-aqua detail.
@@ -49,7 +92,7 @@ for a, b in zip(ISLANDS, ISLANDS[1:]):
     seg = seg.rotate(angle, resample=Image.Resampling.BICUBIC, expand=True)
     alpha_paste(canvas, seg, ((p1[0]+p2[0])/2, (p1[1]+p2[1])/2))
 
-# Header ornaments fit below the horizon and leave the owner's sky/sun open.
+# Header ornaments and title frame stay in the sky, above the ocean horizon.
 draw = ImageDraw.Draw(canvas, 'RGBA')
 # restrained back affordance
 shadow = Image.new('RGBA', (78,78), (0,0,0,0))
@@ -66,25 +109,26 @@ alpha_paste(canvas, compass, (659,88))
 
 # Existing tropical title plaque; all copy remains dynamic-looking preview text.
 title = Image.open(ASSETS / 'world_map_title_panel.png').convert('RGBA').resize((500,120), Image.Resampling.LANCZOS)
-alpha_paste(canvas, title, (360,309))
+alpha_paste(canvas, title, (360,106))
 draw = ImageDraw.Draw(canvas, 'RGBA')
-center_text(draw, (360,281), 'WORLD MAP', font(15, True), (191,245,231,255), 1, (6,42,55,210))
-center_text(draw, (360,310), 'ISLAND JOURNEY', font(29, True), (255,240,193,255), 2, (49,74,60,230))
-center_text(draw, (360,338), 'FOLLOW THE TROPICAL ROUTE', font(12, True), (221,249,232,255), 1, (8,57,68,225))
+center_text(draw, (360,78), 'WORLD MAP', font(15, True), (191,245,231,255), 1, (6,42,55,210))
+center_text(draw, (360,107), 'ISLAND JOURNEY', font(29, True), (255,240,193,255), 2, (49,74,60,230))
+center_text(draw, (360,135), 'FOLLOW THE TROPICAL ROUTE', font(12, True), (221,249,232,255), 1, (8,57,68,225))
 
 # Draw all route markers and islands over the route. Sunny Cove receives a
 # warm halo and brighter treatment; the future islands remain fully legible.
 layout = []
-for idx, (island_id, name, filename, center, state) in enumerate(ISLANDS, 1):
+for idx, (island_id, name, filename, center, size, state) in enumerate(ISLANDS, 1):
     x, y = center
     if idx == 1:
-        halo = Image.new('RGBA', (210,210), (0,0,0,0))
+        halo_size = size + 50
+        halo = Image.new('RGBA', (halo_size,halo_size), (0,0,0,0))
         hd = ImageDraw.Draw(halo)
-        hd.ellipse((20,20,190,190), fill=(255,199,67,34), outline=(255,220,130,150), width=5)
+        inset = 12
+        hd.ellipse((inset,inset,halo_size-inset,halo_size-inset), fill=(255,199,67,34), outline=(255,220,130,150), width=5)
         halo = halo.filter(ImageFilter.GaussianBlur(5))
         alpha_paste(canvas, halo, center)
     sprite = Image.open(ASSETS / filename).convert('RGBA')
-    size = 150 if idx == 1 else 142
     sprite = sprite.resize((size,size), Image.Resampling.LANCZOS)
     if idx > 1:
         rgb = Image.new('RGB', sprite.size, (16,63,86))
@@ -94,10 +138,12 @@ for idx, (island_id, name, filename, center, state) in enumerate(ISLANDS, 1):
         sprite.putdata([(*rgb.getpixel((i % size, i // size)), sprite.getchannel('A').getpixel((i % size, i // size))) for i in range(size*size)])
     alpha_paste(canvas, sprite, center)
 
-    # Compact navy/gold caption tab sits on the transparent lower island edge.
-    label_w, label_h = 190, 36
+    # Caption size follows each name; placement stays just below the island.
+    label_h = 38
+    label_font = font(12 if len(name) < 14 else 10, True)
+    label_w = min(188, max(142, round(ImageDraw.Draw(canvas).textlength(name.upper(), font=label_font) + 52)))
     lx = max(label_w//2+8, min(W-label_w//2-8, x))
-    ly = y + 66
+    lx, ly = LABEL_CENTERS[island_id]
     tab = Image.new('RGBA', (label_w+12,label_h+12), (0,0,0,0))
     td = ImageDraw.Draw(tab)
     fill = (31,82,91,237) if idx == 1 else (13,52,70,228)
@@ -110,15 +156,11 @@ for idx, (island_id, name, filename, center, state) in enumerate(ISLANDS, 1):
     draw.ellipse((med_x-11,ly-11,med_x+11,ly+11), fill=(244,193,82,255) if idx==1 else (104,167,172,255), outline=(255,246,211,220), width=1)
     center_text(draw, (med_x,ly), f'{idx:02}', font(9,True), (28,54,61,255))
     label = name.upper()
-    if len(label) > 16:
-        ft = font(11, True)
-    elif len(label) > 12:
-        ft = font(12, True)
-    else:
-        ft = font(13, True)
+    ft = label_font
     text_x = lx + 13
     center_text(draw, (text_x,ly-4), label, ft, (255,242,211,255), 1, (7,38,48,255))
-    center_text(draw, (text_x,ly+9), 'START HERE' if idx==1 else 'CURRENT' if state=='CURRENT' else 'LOCKED', font(7,True), (255,219,135,255) if idx==1 else (187,219,224,255))
+    status = 'START HERE' if idx == 1 else 'LOCKED'
+    center_text(draw, (text_x,ly+10), status, font(7,True), (255,219,135,255) if idx == 1 else (187,219,224,255))
 
     layout.append({
         'island_id': island_id,
@@ -126,6 +168,7 @@ for idx, (island_id, name, filename, center, state) in enumerate(ISLANDS, 1):
         'preview_center': {'x': x, 'y': y},
         'rendered_size': {'width': size, 'height': size},
         'label_center': {'x': round(lx), 'y': round(ly)},
+        'label_size': {'width': label_w + 2, 'height': label_h + 2},
         'route_anchor': {'x': x, 'y': y},
         'representative_state': state,
     })
@@ -133,10 +176,16 @@ for idx, (island_id, name, filename, center, state) in enumerate(ISLANDS, 1):
 out_png = OUT / 'WORLD_MAP_OWNER_PREVIEW_V02.png'
 canvas.convert('RGB').save(out_png, format='PNG', optimize=True)
 layout_doc = {
-    'artifact': 'BCM-M21-001 owner-first visual preview V02',
+    'artifact': 'BCM-M21-001 owner-first visual preview V02, owner-directed composition revision',
     'canvas': {'width': W, 'height': H},
     'background_source': 'assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v01.png',
     'background_used_without_pixel_edits': True,
+    'composition_reference': 'assets/ui_assets/campaign/world_map/world_map_background.png (layout guidance only)',
+    'decorative_assets': [
+        'assets/ui_assets/campaign/world_map/world_clouds_back.png',
+        'assets/ui_assets/campaign/world_map/world_clouds_front.png',
+        'assets/ui_assets/campaign/world_map/world_map_boat.png',
+    ],
     'island_order': [item[0] for item in ISLANDS],
     'islands': layout,
     'preview_only_not_production_authority': True,
