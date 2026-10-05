@@ -14,6 +14,12 @@ config/name="CocktailMerge"
 run/main_scene="res://scenes/campaign/ApplicationShellScene.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 
+[autoload]
+
+Spark="*res://addons/saltmire_spark/spark.gd"
+GameFeelFlow="*res://addons/game_feel_flow/core/game_feel_flow.gd"
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+
 [display]
 
 window/size/viewport_width=720
@@ -22,6 +28,10 @@ window/size/window_width_override=800
 window/size/window_height_override=1422
 window/stretch/mode="viewport"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/game_feel_flow/plugin.cfg", "res://addons/godot_ai/plugin.cfg", "res://addons/saltmire_spark/plugin.cfg")
 
 [rendering]
 
