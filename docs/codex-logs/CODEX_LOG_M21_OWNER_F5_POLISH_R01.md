@@ -89,11 +89,9 @@
 
 ## Publication and repository state
 
-- Implementation commit SHA: `cd4f560` (`cd4f560...`), published to `origin/main`.
+- Implementation commit SHA: `cd4f5604a73eadc1702f92f0fe38402494a0eece`, published to `origin/main`.
 - Branch: `main`; no new branch created.
 - `TASKS.md` was not modified.
 - Owner-local `project.godot` work is preserved and remains unstaged/uncommitted. Therefore the prompt's clean-worktree condition cannot be claimed in this checkout; intended task changes will be committed separately.
 - At implementation publication verification: local HEAD, `origin/main`, and remote `main` all equaled `cd4f560`; ahead/behind was `0/0`. A following log-only commit will contain this record. Final tip parity was rechecked after that publication and is reported in the handoff.
 - Required handoff marker: `AWAITING_GPT_M21_OWNER_F5_POLISH_AUDIT_R02`.
-
-
