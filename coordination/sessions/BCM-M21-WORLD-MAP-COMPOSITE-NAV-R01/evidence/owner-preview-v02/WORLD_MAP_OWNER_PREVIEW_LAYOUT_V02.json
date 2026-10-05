@@ -1,0 +1,234 @@
+{
+  "artifact": "BCM-M21-001 owner-first visual preview V02",
+  "canvas": {
+    "width": 720,
+    "height": 1280
+  },
+  "background_source": "assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v01.png",
+  "background_used_without_pixel_edits": true,
+  "island_order": [
+    "sunny_cove",
+    "tiki_island",
+    "azure_bay",
+    "coconut_beach",
+    "sunset_island",
+    "party_beach",
+    "frozen_paradise",
+    "volcano_bay",
+    "billionaire_island",
+    "final_island"
+  ],
+  "islands": [
+    {
+      "island_id": "sunny_cove",
+      "source_png": "assets/ui_assets/campaign/world_map/sunny_cove.png",
+      "preview_center": {
+        "x": 160,
+        "y": 455
+      },
+      "rendered_size": {
+        "width": 150,
+        "height": 150
+      },
+      "label_center": {
+        "x": 160,
+        "y": 521
+      },
+      "route_anchor": {
+        "x": 160,
+        "y": 455
+      },
+      "representative_state": "CURRENT"
+    },
+    {
+      "island_id": "tiki_island",
+      "source_png": "assets/ui_assets/campaign/world_map/tiki_island.png",
+      "preview_center": {
+        "x": 560,
+        "y": 525
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 560,
+        "y": 591
+      },
+      "route_anchor": {
+        "x": 560,
+        "y": 525
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "azure_bay",
+      "source_png": "assets/ui_assets/campaign/world_map/azure_bay.png",
+      "preview_center": {
+        "x": 160,
+        "y": 615
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 160,
+        "y": 681
+      },
+      "route_anchor": {
+        "x": 160,
+        "y": 615
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "coconut_beach",
+      "source_png": "assets/ui_assets/campaign/world_map/coconut_beach.png",
+      "preview_center": {
+        "x": 560,
+        "y": 685
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 560,
+        "y": 751
+      },
+      "route_anchor": {
+        "x": 560,
+        "y": 685
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "sunset_island",
+      "source_png": "assets/ui_assets/campaign/world_map/sunset_island.png",
+      "preview_center": {
+        "x": 160,
+        "y": 775
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 160,
+        "y": 841
+      },
+      "route_anchor": {
+        "x": 160,
+        "y": 775
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "party_beach",
+      "source_png": "assets/ui_assets/campaign/world_map/party_beach.png",
+      "preview_center": {
+        "x": 560,
+        "y": 845
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 560,
+        "y": 911
+      },
+      "route_anchor": {
+        "x": 560,
+        "y": 845
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "frozen_paradise",
+      "source_png": "assets/ui_assets/campaign/world_map/frozen_paradise.png",
+      "preview_center": {
+        "x": 160,
+        "y": 935
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 160,
+        "y": 1001
+      },
+      "route_anchor": {
+        "x": 160,
+        "y": 935
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "volcano_bay",
+      "source_png": "assets/ui_assets/campaign/world_map/volcano_bay.png",
+      "preview_center": {
+        "x": 560,
+        "y": 1005
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 560,
+        "y": 1071
+      },
+      "route_anchor": {
+        "x": 560,
+        "y": 1005
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "billionaire_island",
+      "source_png": "assets/ui_assets/campaign/world_map/billionaire_island.png",
+      "preview_center": {
+        "x": 160,
+        "y": 1095
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 160,
+        "y": 1161
+      },
+      "route_anchor": {
+        "x": 160,
+        "y": 1095
+      },
+      "representative_state": "LOCKED"
+    },
+    {
+      "island_id": "final_island",
+      "source_png": "assets/ui_assets/campaign/world_map/final_island.png",
+      "preview_center": {
+        "x": 560,
+        "y": 1170
+      },
+      "rendered_size": {
+        "width": 142,
+        "height": 142
+      },
+      "label_center": {
+        "x": 560,
+        "y": 1236
+      },
+      "route_anchor": {
+        "x": 560,
+        "y": 1170
+      },
+      "representative_state": "LOCKED"
+    }
+  ],
+  "preview_only_not_production_authority": true
+}
