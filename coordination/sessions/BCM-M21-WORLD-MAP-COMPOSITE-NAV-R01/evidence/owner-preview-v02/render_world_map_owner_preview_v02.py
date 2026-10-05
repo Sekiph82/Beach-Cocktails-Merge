@@ -6,32 +6,32 @@ from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageEnhance, ImageFilt
 ROOT = Path(__file__).resolve().parents[5]
 ASSETS = ROOT / 'assets' / 'ui_assets' / 'campaign' / 'world_map'
 OUT = Path(__file__).resolve().parent
-BG = ASSETS / 'world_map_ocean_background_owner_v01.png'
+BG = ASSETS / 'world_map_ocean_background_owner_v02.png'
 ISLANDS = [
     # Centers and sizes deliberately vary to follow the owner's organic
     # reference rather than forming repeated rows or columns.
-    ('sunny_cove', 'Sunny Cove', 'sunny_cove.png', (145, 365), 150, 'CURRENT'),
-    ('tiki_island', 'Tiki Island', 'tiki_island.png', (525, 455), 122, 'LOCKED'),
-    ('azure_bay', 'Azure Bay', 'azure_bay.png', (415, 590), 156, 'LOCKED'),
-    ('coconut_beach', 'Coconut Beach', 'coconut_beach.png', (145, 635), 128, 'LOCKED'),
-    ('sunset_island', 'Sunset Island', 'sunset_island.png', (275, 790), 142, 'LOCKED'),
-    ('party_beach', 'Party Beach', 'party_beach.png', (575, 805), 124, 'LOCKED'),
-    ('frozen_paradise', 'Frozen Paradise', 'frozen_paradise.png', (505, 955), 152, 'LOCKED'),
-    ('volcano_bay', 'Volcano Bay', 'volcano_bay.png', (160, 1035), 138, 'LOCKED'),
-    ('billionaire_island', 'Billionaire Island', 'billionaire_island.png', (165, 1180), 118, 'LOCKED'),
-    ('final_island', 'Final Island', 'final_island.png', (515, 1135), 134, 'LOCKED'),
+    ('sunny_cove', 'Sunny Cove', 'sunny_cove.png', (540, 300), 225, 'CURRENT'),
+    ('tiki_island', 'Tiki Island', 'tiki_island.png', (175, 440), 183, 'LOCKED'),
+    ('azure_bay', 'Azure Bay', 'azure_bay.png', (485, 545), 234, 'LOCKED'),
+    ('coconut_beach', 'Coconut Beach', 'coconut_beach.png', (145, 645), 192, 'LOCKED'),
+    ('sunset_island', 'Sunset Island', 'sunset_island.png', (410, 765), 213, 'LOCKED'),
+    ('party_beach', 'Party Beach', 'party_beach.png', (610, 870), 186, 'LOCKED'),
+    ('frozen_paradise', 'Frozen Paradise', 'frozen_paradise.png', (400, 1020), 228, 'LOCKED'),
+    ('volcano_bay', 'Volcano Bay', 'volcano_bay.png', (180, 920), 207, 'LOCKED'),
+    ('billionaire_island', 'Billionaire Island', 'billionaire_island.png', (180, 1180), 177, 'LOCKED'),
+    ('final_island', 'Final Island', 'final_island.png', (615, 1178), 201, 'LOCKED'),
 ]
 LABEL_CENTERS = {
-    'sunny_cove': (145, 456),
-    'tiki_island': (525, 367),
-    'azure_bay': (415, 688),
-    'coconut_beach': (145, 548),
-    'sunset_island': (275, 880),
-    'party_beach': (575, 714),
-    'frozen_paradise': (505, 1048),
-    'volcano_bay': (160, 944),
-    'billionaire_island': (165, 1255),
-    'final_island': (515, 1222),
+    'sunny_cove': (540, 392),
+    'tiki_island': (175, 510),
+    'azure_bay': (485, 642),
+    'coconut_beach': (145, 720),
+    'sunset_island': (410, 850),
+    'party_beach': (610, 940),
+    'frozen_paradise': (400, 1112),
+    'volcano_bay': (180, 1003),
+    'billionaire_island': (180, 1247),
+    'final_island': (615, 1257),
 }
 W, H = 720, 1280
 FONT_REG = 'C:/Windows/Fonts/segoeui.ttf'
@@ -63,9 +63,9 @@ def feather_edges(image, extent=24):
     image.putalpha(ImageChops.multiply(image.getchannel('A'), mask))
     return image
 
-canvas = Image.open(BG).convert('RGBA')
-if canvas.size != (W, H):
-    raise SystemExit(f'Owner background dimensions are {canvas.size}, expected {(W,H)}')
+background_source = Image.open(BG).convert('RGB')
+background_source_size = background_source.size
+canvas = background_source.resize((W, H), Image.Resampling.LANCZOS).convert('RGBA')
 
 # Add two subdued cloud banks around the outer horizon and an existing boat
 # in open water. The approved sky/ocean source remains the unmodified base.
@@ -77,8 +77,8 @@ cloud_front = cloud_front.crop((205,12,320,158)).resize((115,146), Image.Resampl
 alpha_paste(canvas, set_opacity(feather_edges(cloud_front), 0.74), (698,316))
 
 boat = Image.open(ASSETS / 'world_map_boat.png').convert('RGBA')
-boat = boat.resize((150,84), Image.Resampling.LANCZOS)
-alpha_paste(canvas, boat, (340,925))
+boat = boat.resize((115,65), Image.Resampling.LANCZOS)
+alpha_paste(canvas, boat, (340,390))
 
 # Subtle darkened route underlay follows the island sequence; the supplied
 # beaded route asset supplies the visible gold-and-aqua detail.
@@ -109,11 +109,11 @@ alpha_paste(canvas, compass, (659,88))
 
 # Existing tropical title plaque; all copy remains dynamic-looking preview text.
 title = Image.open(ASSETS / 'world_map_title_panel.png').convert('RGBA').resize((500,120), Image.Resampling.LANCZOS)
-alpha_paste(canvas, title, (360,106))
+alpha_paste(canvas, title, (360,90))
 draw = ImageDraw.Draw(canvas, 'RGBA')
-center_text(draw, (360,78), 'WORLD MAP', font(15, True), (191,245,231,255), 1, (6,42,55,210))
-center_text(draw, (360,107), 'ISLAND JOURNEY', font(29, True), (255,240,193,255), 2, (49,74,60,230))
-center_text(draw, (360,135), 'FOLLOW THE TROPICAL ROUTE', font(12, True), (221,249,232,255), 1, (8,57,68,225))
+center_text(draw, (360,62), 'WORLD MAP', font(15, True), (191,245,231,255), 1, (6,42,55,210))
+center_text(draw, (360,91), 'ISLAND JOURNEY', font(29, True), (255,240,193,255), 2, (49,74,60,230))
+center_text(draw, (360,119), 'FOLLOW THE TROPICAL ROUTE', font(12, True), (221,249,232,255), 1, (8,57,68,225))
 
 # Draw all route markers and islands over the route. Sunny Cove receives a
 # warm halo and brighter treatment; the future islands remain fully legible.
@@ -178,8 +178,11 @@ canvas.convert('RGB').save(out_png, format='PNG', optimize=True)
 layout_doc = {
     'artifact': 'BCM-M21-001 owner-first visual preview V02, owner-directed composition revision',
     'canvas': {'width': W, 'height': H},
-    'background_source': 'assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v01.png',
-    'background_used_without_pixel_edits': True,
+    'island_size_multiplier_from_prior_preview': 1.5,
+    'background_source': 'assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v02.png',
+    'background_source_dimensions': {'width': background_source_size[0], 'height': background_source_size[1]},
+    'background_rendered_dimensions': {'width': W, 'height': H},
+    'background_source_file_preserved_byte_for_byte': True,
     'composition_reference': 'assets/ui_assets/campaign/world_map/world_map_background.png (layout guidance only)',
     'decorative_assets': [
         'assets/ui_assets/campaign/world_map/world_clouds_back.png',
