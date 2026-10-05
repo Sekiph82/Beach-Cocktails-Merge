@@ -266,10 +266,15 @@ The active preview package is:
 - `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_OWNER_PREVIEW_CRITERIA_V02.md`
 - `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_OWNER_PREVIEW_PROMPT_V02.md`
 
-Required stop marker:
+Required preview stop marker:
 `AWAITING_OWNER_WORLD_MAP_VISUAL_APPROVAL_V02`
 
-Only explicit `OWNER_WORLD_MAP_VISUAL_APPROVED_V02` authorizes a later production implementation prompt. Until then, any older direct-implementation prompt for this World Map cycle is superseded.
+The owner has now explicitly issued `OWNER_WORLD_MAP_VISUAL_APPROVED_V02` for the V04 preview recorded in:
+`coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/OWNER_WORLD_MAP_VISUAL_ACCEPTANCE_V04.md`.
+
+The approved V04 preview is the frozen visual target for production integration. Do not redesign it during implementation unless a newer owner ruling supersedes it.
+
+Production implementation still requires a NEW locked ChatGPT implementation prompt/criteria. The older direct-implementation R01 package remains superseded and must not be executed as-is.
 
 ## Active M21 World Map composition authority — 2026-10-05
 
