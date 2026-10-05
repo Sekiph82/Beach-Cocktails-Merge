@@ -4,15 +4,19 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: M21
+- Current Milestone: BCM-M21
 - Current Sprint: BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01
-- Current Task: BCM-M21-001 + BCM-M21-006 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: CODEX executes `coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/CHATGPT_WORLD_MAP_COMPOSITE_NAV_PROMPT_R01.md`. Replace the rejected baked ten-island World Map with a clean 720×1280 ocean base plus the ten existing per-island PNGs, unify visible art and hit targets under one layout authority, and reproduce/fix the real-input Sunny Cove Island Map opening failure. Publish renderer/Godot-AI evidence and regressions, then stop for independent GPT audit. M22+ remains blocked behind M21.
+- Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M21-006 — After BCM-M21-001 passes independent audit and fresh owner visual/runtime acceptance, complete final owner F5 runtime acceptance, documentation, packaging, and v1 campaign release closure.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
 - Progress: OWNER F5 V03 result is **REJECTED**. Item 1 PASS. Item 2 FAIL because many visible islands are not in acceptable positions under the baked-background + separate-hotspot architecture. Item 3 FAIL because Sunny Cove Island Map does not open from the production World Map. Items 4-10 were not evaluated. The owner has explicitly superseded the baked World Map: production must use a new clean ocean base plus the ten existing transparent island PNGs, with each visible island and its pointer/touch target sharing the same authoritative transform/center. BCM-M21-001 is reopened together with BCM-M21-006; owner-approved R04 gameplay surfaces/geometries remain frozen.
+
+## Blockers/Waits
+
+- BCM-M21-006 is blocked until BCM-M21-001 passes independent audit and fresh owner visual/runtime acceptance.
 
 ## Tasks
 
@@ -44,15 +48,21 @@ Legend:
 - ChatGPT independently audits actual diff/source/tests/evidence against locked criteria.
 - Owner runtime screenshots and annotations are authoritative when later than earlier audit interpretations.
 - Only ChatGPT updates this tracker after audit.
+- **H!veAI parser contract:** every counted task row must be exactly `- [x] ID — title`, `- [~] ID — title`, `- [!] ID — title`, or `- [ ] ID — title`. Headings, milestone summaries, historical notes, retired/cancelled work, and explanatory bullets must never use checkbox markers.
+- **Current Task must contain exactly one canonical task ID** and that ID must exist exactly once in the task rows below. Never join simultaneous concerns with `+` in the Current Task field.
+- **Current Task Status must match the task-row marker:** `[~] = IN_PROGRESS`, `[!] = BLOCKED`, `[x] = TASK_COMPLETE`, `[ ] = BACKLOG`.
+- **Next Task/Action must begin with a canonical task ID followed by an em dash** so H!veAI can materialize `nextTaskId` and `nextTaskTitle`.
+- If work is permanently cancelled/superseded and H!veAI has no cancelled marker, preserve it as a non-checkbox historical bullet so it does not inflate Total/Remaining task metrics.
+- Per-task H!veAI metadata, when needed, is indented directly below the task row using supported labels such as `Owner:`, `Depends on:`, `Blocker:`, `Owner Gate:`, `Waiting for:`, and `Priority:`.
 - No guide line.
 
 ## M00-M04 — Accepted baseline
 
-- [x] M00 repository baseline.
-- [x] M01 launch/current/next/gameplay contract.
-- [x] M02 collision/merge/rapid-launch physics.
-- [x] M03 scoring/combo/To-Go/persistence/Game Over.
-- [x] M04 refreshed canonical visual asset family.
+- M00 — repository baseline. Milestone summary only; not a H!veAI task row.
+- M01 — launch/current/next/gameplay contract. Milestone summary only; not a H!veAI task row.
+- M02 — collision/merge/rapid-launch physics. Milestone summary only; not a H!veAI task row.
+- M03 — scoring/combo/To-Go/persistence/Game Over. Milestone summary only; not a H!veAI task row.
+- M04 — refreshed canonical visual asset family. Milestone summary only; not a H!veAI task row.
 
 
 
@@ -426,7 +436,7 @@ Scope:
 
 - [x] BCM-M09-001 — Add bounded merge, order-complete, VIP, level-win, level-fail, and UI audio hooks.
 - [x] BCM-M09-002 — Add optional mobile haptics with settings toggle and safe no-op fallback on unsupported platforms.
-- [ ] BCM-M09-003 — Add restrained timer urgency feedback that does not alter gameplay physics or obscure the board.
+- BCM-M09-003 — RETIRED by the later owner no-timer ruling; timer-urgency feedback will not be implemented and is not a H!veAI task row.
 - [x] BCM-M09-004 — Add regression coverage for audio/haptic toggles and pause/resume behavior.
 
 ### M10 — Campaign architecture and canonical data model
@@ -987,12 +997,18 @@ Owner F5 V04 historical remediation:
 - Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
 
-- [~] BCM-M21-001 — Validate mobile layout and touch navigation across World Map, 100-level Island Map, gameplay, and result flow.
+- [~] BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
+  Owner: Codex
+  Priority: 100
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
 - [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+  Owner: Human
+  Depends on: BCM-M21-001
+  Blocker: BCM-M21-001 composite World Map remediation must pass independent audit and fresh owner visual/runtime acceptance.
+  Owner Gate: OWNER_F5_ACCEPTED after the new composite World Map is approved.
 - [x] BCM-M21-007 — Remove proven obsolete/orphan visual assets, evidence, generated import metadata, stale JSON/tests/tools, and normalize repository truth around the owner-approved ten-island R04 surface/profile authority.
 
 ## Campaign design references
