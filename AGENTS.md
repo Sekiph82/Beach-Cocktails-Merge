@@ -246,6 +246,45 @@ Read and obey `docs/ui-assets/GAMEPLAY_SURFACE_CONTRACT_V07_R04.md`.
 
 `TABLE_GEOMETRY_CONTRACT_V2.md` and `TABLE_ASSET_PRODUCTION_RULECHAIN_V2.md` are historical evidence only for the retired split-table visual pipeline. They do not authorize new R04 split table layers or masks.
 
+## Active M21 World Map composition authority — 2026-10-05
+
+The owner has rejected the baked ten-island World Map composition.
+
+The previous architecture in which `world_map_background.png` visually baked the ten islands while `IslandEntry` supplied separate invisible/displaced interaction markers is **superseded** for the active M21 remediation.
+
+The new World Map authority is a composited runtime map:
+
+- a new clean 720×1280 ocean/background base with no baked island bodies;
+- the ten existing per-island transparent PNGs under `assets/ui_assets/campaign/world_map/`:
+  - `sunny_cove.png`
+  - `tiki_island.png`
+  - `azure_bay.png`
+  - `coconut_beach.png`
+  - `sunset_island.png`
+  - `party_beach.png`
+  - `frozen_paradise.png`
+  - `volcano_bay.png`
+  - `billionaire_island.png`
+  - `final_island.png`;
+- each island's visible art, state treatment, and pointer/touch target must share the same authoritative layout transform and center;
+- no invisible hotspot may be spatially separated from its island art;
+- map positions may be recalibrated during this explicit remediation;
+- the current island ordering, unlock rules, ids, save/progression truth, and campaign semantics must remain unchanged.
+
+The current header/back/compass treatment may be retained if it fits the new map cleanly. Decorative clouds/boat/routes may be reused only if they do not obscure islands, labels, hit targets, or navigation.
+
+Do not delete the old `world_map_background.png` until the replacement map has passed owner visual/runtime acceptance. After acceptance it may be retired in a later explicit cleanup.
+
+### Sunny Cove navigation blocker
+
+The owner also reports that Sunny Cove does not open from the World Map in the current F5 build.
+
+The active remediation must prove the complete real-input chain:
+
+`visible Sunny Cove island art → IslandEntry/Button press → WorldMapController.select_island("sunny_cove") → island_map_requested("sunny_cove") → CampaignNavigationController.show_island_map("sunny_cove") → IslandMapController.configure_island(...) → visible Sunny Cove Island Map`.
+
+A direct method call is insufficient. Mouse/touch interaction must be tested through the real production UI.
+
 ## Owner-authorized R04 repository cleanup authority — 2026-10-04
 
 The owner has explicitly approved the current R04 gameplay backgrounds/playable areas for all ten islands and explicitly authorizes a dedicated repository cleanup task to remove superseded, unused, orphaned, and no-longer-planned files.
