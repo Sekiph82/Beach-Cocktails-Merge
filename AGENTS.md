@@ -550,3 +550,25 @@ Required stop marker:
 
 BCM-M21-006 remains blocked.
 
+## Active M21 exact Home target authority — 2026-10-06
+
+The owner has supplied a complete Home PNG set locally under:
+`assets/ui_assets/screens/home/`
+
+and an exact reference:
+`TARGET beach cocktails merge home.png`.
+
+For the active R04 task, that TARGET is pixel-authoritative. Codex must compose the production Home from the supplied separate PNGs at the same relative positions/sizes. No redesign, creative adjustment, asset regeneration, renaming, recoloring, cropping, alternate layout, or substitute visual is authorized.
+
+Active package:
+- `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/OWNER_HOME_EXACT_TARGET_RULING_R04.md`
+- `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_CRITERIA_R04.md`
+- `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`
+
+The prior R03 regression/clean-state closure package is deferred before execution because its Home baseline is superseded. Its findings (M07 regression authority, M08 post-PASS crash, and project.godot clean-state drift) remain open and must be reissued after R04 owner visual acceptance.
+
+Required stop marker:
+`AWAITING_OWNER_HOME_EXACT_TARGET_APPROVAL_R04`
+
+BCM-M21-006 remains blocked.
+
