@@ -47,5 +47,7 @@
 - `TASKS.md` was not modified.
 - Two pre-existing owner critique screenshots remain untracked and untouched. Therefore the required clean `git status` cannot be claimed without publishing or removing those owner files; they are excluded from the task commit.
 - Pre-publication repository proof: local HEAD=`8de111a23db71d075f70460d15505a2bc0c950c8`; `origin/main`=`8de111a23db71d075f70460d15505a2bc0c950c8`; remote `main`=`8de111a23db71d075f70460d15505a2bc0c950c8`; ahead/behind=`0/0`.
-- Final task commit SHA and post-push equality will be recorded in the handoff evidence after publication.
+- R06 implementation/evidence commit: `3d07dab459a6133204c1a3d645d7af1f4560e9ea`.
+- Post-push verification for that commit: local HEAD=`3d07dab459a6133204c1a3d645d7af1f4560e9ea`; `origin/main`=`3d07dab459a6133204c1a3d645d7af1f4560e9ea`; remote `main`=`3d07dab459a6133204c1a3d645d7af1f4560e9ea`; ahead/behind=`0/0`. Detailed proof is in `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/evidence/final_repository_proof.txt`.
+- The final proof/log-only commit is reported separately in the task handoff; no product files are included in that follow-up.
 - Builder handoff marker: `AWAITING_OWNER_FULL_GAME_RUNTIME_REVIEW_R06`.
