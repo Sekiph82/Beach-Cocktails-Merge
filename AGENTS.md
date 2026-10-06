@@ -572,3 +572,30 @@ Required stop marker:
 
 BCM-M21-006 remains blocked.
 
+## Active M21 final Home bar-fit correction — 2026-10-06
+
+The owner has identified one remaining Home visual issue after R04/V03: the coin value does not fit cleanly inside the current Coin bar.
+
+Active bounded R05 authority:
+- `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/OWNER_HOME_BAR_FIT_RULING_R05.md`
+- `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_CRITERIA_R05.md`
+- `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_PROMPT_R05.md`
+
+R05 may change only:
+- Energy horizontal width and its plus x-position;
+- Coin horizontal width and its plus x-position;
+- Coin value text bounds needed to fit the widened bar.
+
+All other Home geometry/art and navigation behavior are frozen.
+
+Reference-space values:
+- Energy rect → `(229.0, 15.0, 136.125, 81.0)`;
+- Energy plus center x → `347.625`;
+- Coin rect → `(444.0, 14.0, 203.4375, 81.0)`;
+- Coin plus center x → `629.6875`.
+
+Required stop marker:
+`AWAITING_OWNER_HOME_BAR_FIT_APPROVAL_R05`
+
+Deferred M07/M08/project.godot technical closure remains open after Home approval.
+
