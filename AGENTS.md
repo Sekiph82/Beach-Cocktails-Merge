@@ -733,3 +733,28 @@ Required stop marker:
 
 BCM-M21-006 remains blocked.
 
+## M21 Sunny Cove Back R09 independent audit — 2026-10-06
+
+Independent audit:
+`coordination/sessions/BCM-M21-WORLD-MAP-INPUT-R09/CHATGPT_SUNNY_COVE_BACK_AUDIT_R09.md`
+
+Verdict:
+`TECHNICAL_AUDITED_PASS / OWNER_F5_CONFIRMATION_REQUIRED`
+
+Verified:
+- production root cause was real pointer interception by the scrollable LevelNodes layer;
+- the existing Back button is now in the Island Map root input layer at z=10 with unchanged visible rect/style;
+- mouse Back returns Sunny Cove → World Map exactly once;
+- touch Sunny Cove entry and touch Back both pass;
+- World Map → Home remains working;
+- V05 passes twice consecutively;
+- R08 Home frontier behavior and accepted R07 visuals/mastery/full-background work remain frozen.
+
+Current owner gate:
+`Home → World Map → Sunny Cove → top-left Back → World Map`
+
+Owner acceptance marker:
+`OWNER_SUNNY_COVE_BACK_ACCEPTED_R09`
+
+BCM-M21-006 remains blocked until this fresh owner runtime confirmation and later closure work.
+
