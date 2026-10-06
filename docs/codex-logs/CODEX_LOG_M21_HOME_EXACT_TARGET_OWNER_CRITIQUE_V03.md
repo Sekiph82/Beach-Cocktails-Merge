@@ -25,12 +25,13 @@
 - `python tools/ui_assets/validate_assets.py` — exit 0; checksums 373/373, R04 families 10/10, retired art absent, invalid semantic duplicates 0.
 - `godot_console.exe --headless --path . --editor --quit` — exit 0; clean filesystem scan/import/editor initialization.
 - M21 V05 World Map suite was not rerun because no World Map implementation was changed; the Home-to-World-Map action was exercised through the real production button in this turn. Its prior published V05 result remains in `CODEX_LOG_M21_WORLD_MAP_PRODUCTION_V05.md`.
-- `git diff --check` and `git diff --exit-code HEAD -- TASKS.md` — pending final publication check. Manual inspection was limited to the generated Home captures; no independent owner acceptance audit was performed.
+- `git diff --check` — exit 0. `git diff --exit-code HEAD -- TASKS.md` — exit 0; root tracker unchanged. Manual inspection was limited to the generated Home captures; no independent owner acceptance audit was performed.
 
 ## Scope and handoff
 
 - Intended files: Home layout JSON, focused Home probe, V03 annotated input/render/navigation/parity evidence, and this new immutable log.
 - Preserved outside the change: owner-local `project.godot`, the original owner annotations in V02 evidence, and root `TASKS.md`.
 - No source PNGs in `assets/ui_assets/screens/home/` were modified. `TASKS.md` was not modified.
-- Branch `main`, remote `origin`; start SHA `8b6d8595f04ab1e456f45f913082cb30965100d4`; end/final commit SHA and three-way SHA equality pending publication.
+- Branch `main`, remote `origin`; start SHA `8b6d8595f04ab1e456f45f913082cb30965100d4`; final implementation/evidence commit SHA `6d36a8701c0c1c5e363e9417ac1111451f8633c0`.
+- This execution log is finalized in the following documentation-only commit. Three-way local/origin/remote SHA equality will be verified after push.
 - Known limit: overall pixel-identical match to the original R04 TARGET remains unverified; this work implements and measures the newer owner annotations only.
