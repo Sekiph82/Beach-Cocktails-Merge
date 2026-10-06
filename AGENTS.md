@@ -625,3 +625,41 @@ Required stop marker:
 
 BCM-M21-006 remains blocked.
 
+## Active M21 Island Map + star mastery owner remediation — 2026-10-06
+
+R06 reached owner runtime review. The Home composition is accepted, but the owner returned bounded changes required for:
+- PLAY plaque text fit;
+- automatic Island Map frontier-page focus;
+- island-title placement;
+- level-node readability;
+- removal of Island Map BEST/SCORE text;
+- complete 1/2/3-star mastery semantics.
+
+Active R07 package:
+- `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/OWNER_ISLAND_MAP_STAR_RULING_R07.md`
+- `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_CRITERIA_R07.md`
+- `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_PROMPT_R07.md`
+
+Owner-locked behavior:
+- Home PLAY plaque = `LEVEL N`, dynamic frontier level;
+- 10→11 through 90→91 automatically shows/focuses the new ten-level Island Map page;
+- `SUNNY COVE` centered inside existing plaque;
+- node labels = readable `LVn`;
+- exactly three visible star positions;
+- no visible BEST/SCORE on Island Map nodes;
+- 1 star = normal completion;
+- 2 stars = 2-star score threshold;
+- 3 stars = 3-star score threshold, plus VIP completion only when that level has VIP;
+- stars never gate progression;
+- replay never downgrades stored stars/best score;
+- existing cumulative-star reward semantics remain.
+
+Sunny Cove thresholds must be generated deterministically using the exact formula in the owner ruling and must be non-null for all 100 levels.
+
+The Economy Draft V01 remains inactive and MUST NOT be implemented in R07.
+
+Required stop marker:
+`AWAITING_OWNER_ISLAND_MAP_STAR_REVIEW_R07`
+
+BCM-M21-006 remains blocked.
+
