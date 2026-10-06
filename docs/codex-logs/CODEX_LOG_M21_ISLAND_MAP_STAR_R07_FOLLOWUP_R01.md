@@ -29,5 +29,8 @@
 
 ## Final repository state
 
-- Pending publication. `TASKS.md` must remain byte-identical. Owner critique PNGs stay unstaged.
-- Required stop marker after publication: `AWAITING_OWNER_ISLAND_MAP_BACKGROUND_FULL_REVIEW_R01`.
+- Implementation/evidence commit: `e7abee759534ebd6bdbd198a95ad0380bf9b6a77` on `main`, pushed to `origin/main`.
+- After push and fetch, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `e7abee759534ebd6bdbd198a95ad0380bf9b6a77`; divergence was `0 0`.
+- `TASKS.md` remained byte-identical (`git diff --exit-code -- TASKS.md` exit 0). Only the two pre-existing owner critique PNGs remain untracked; they were not staged or changed.
+- Final product implementation and builder evidence are published. Owner-native F5 review and independent ChatGPT audit remain pending; no acceptance or tracker transition is claimed.
+- Required stop marker: `AWAITING_OWNER_ISLAND_MAP_BACKGROUND_FULL_REVIEW_R01`.
