@@ -122,6 +122,16 @@ func is_level_unlocked(island_id: String, level_id: int) -> bool:
     return level_id >= 1 and level_id <= _highest_unlocked_level(island_id)
 
 
+func get_frontier_level_id(island_id: String = "") -> int:
+    var resolved_island_id := island_id if not island_id.is_empty() else current_island_id
+    if level_database == null or level_database.get_island(resolved_island_id).is_empty():
+        return 0
+    var level_count := int(level_database.get_island(resolved_island_id).get("level_count", 0))
+    if level_count <= 0:
+        return 0
+    return clampi(_highest_unlocked_level(resolved_island_id), 1, level_count)
+
+
 func mark_level_completed(island_id: String, level_id: int, result: Dictionary = {}) -> Dictionary:
     if not is_level_unlocked(island_id, level_id):
         return {"ok": false, "reason": "LEVEL_LOCKED", "changed": false}

@@ -233,23 +233,21 @@ func set_current_score(score: int) -> void:
 
 
 func calculate_stars(completed: bool, vip_completed: bool, score: int, level_definition: Dictionary = {}) -> int:
-    ## Mastery is derived only after normal completion. VIP is optional and
-    ## score thresholds remain data-driven by the detached level definition.
+    ## Stars measure normal completion and score mastery. VIP only gates the
+    ## third star on VIP-enabled levels; it never gates progression.
     if not completed:
         return 0
     var stars := 1
     var vip_enabled := _definition_vip_enabled(level_definition)
-    if vip_enabled and vip_completed:
-        stars = 2
     var thresholds: Variant = level_definition.get("score_star_thresholds", {})
     if thresholds is Dictionary:
         var two_stars: Variant = thresholds.get("two_stars", null)
         var three_stars: Variant = thresholds.get("three_stars", null)
         var normalized_score := maxi(0, score)
         if two_stars != null and normalized_score >= int(two_stars):
-            stars = maxi(stars, 2)
-        if vip_enabled and vip_completed and three_stars != null and normalized_score >= int(three_stars):
-            stars = maxi(stars, 3)
+            stars = 2
+        if three_stars != null and normalized_score >= int(three_stars) and (not vip_enabled or vip_completed):
+            stars = 3
     return clampi(stars, 1, 3)
 
 

@@ -84,12 +84,15 @@ func _run() -> void:
     var no_vip_definition := {"vip": null, "score_star_thresholds": {"two_stars": 100, "three_stars": 250}}
     var disabled_vip_definition := {"vip": {"enabled": false}, "score_star_thresholds": {"two_stars": null, "three_stars": 250}}
     _check("incomplete result earns zero stars", bridge.calculate_stars(false, true, 999, vip_definition) == 0)
-    _check("normal completion earns the base star", bridge.calculate_stars(true, false, 0, vip_definition) == 1)
-    _check("VIP completion raises mastery to two stars", bridge.calculate_stars(true, true, 0, vip_definition) == 2)
-    _check("configured score mastery raises a completed result", bridge.calculate_stars(true, false, 100, no_vip_definition) == 2)
-    _check("VIP plus configured score mastery earns three stars", bridge.calculate_stars(true, true, 250, vip_definition) == 3)
-    _check("disabled VIP cannot create a false VIP star", bridge.calculate_stars(true, true, 0, disabled_vip_definition) == 1)
-    _check("star result is clamped to three", bridge.calculate_stars(true, true, 999999, vip_definition) == 3)
+    _check("completed below two-star score earns one star", bridge.calculate_stars(true, false, 99, no_vip_definition) == 1)
+    _check("non-VIP reaches two stars at the two-star score threshold", bridge.calculate_stars(true, false, 100, no_vip_definition) == 2)
+    _check("non-VIP reaches three stars at the three-star score threshold", bridge.calculate_stars(true, false, 250, no_vip_definition) == 3)
+    _check("VIP completion below the two-star threshold remains one star", bridge.calculate_stars(true, true, 99, vip_definition) == 1)
+    _check("VIP state does not change two-star score mastery", bridge.calculate_stars(true, false, 100, vip_definition) == 2 and bridge.calculate_stars(true, true, 100, vip_definition) == 2)
+    _check("VIP score below the three-star threshold remains two stars", bridge.calculate_stars(true, false, 249, vip_definition) == 2 and bridge.calculate_stars(true, true, 249, vip_definition) == 2)
+    _check("VIP level without VIP completion caps three-star score at two", bridge.calculate_stars(true, false, 250, vip_definition) == 2)
+    _check("VIP level with VIP completion earns three stars at threshold", bridge.calculate_stars(true, true, 250, vip_definition) == 3)
+    _check("disabled VIP does not gate three-star score", bridge.calculate_stars(true, false, 250, disabled_vip_definition) == 3)
 
     var database = _database()
     var campaign = _campaign(database)

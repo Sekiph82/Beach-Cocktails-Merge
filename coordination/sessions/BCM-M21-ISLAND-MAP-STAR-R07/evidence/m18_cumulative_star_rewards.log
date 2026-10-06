@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M18_CUMULATIVE_REWARDS_PROBE PASS: canonical Sunny Cove loads in FULL validation
+M18_CUMULATIVE_REWARDS_PROBE PASS: canonical reward track contains the exact ten thresholds
+M18_CUMULATIVE_REWARDS_PROBE PASS: canonical reward track leaves retired +Time slots empty and preserves approved upgrades
+M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state
+M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority
+M18_CUMULATIVE_REWARDS_PROBE PASS: partial cumulative progress is deterministic
+M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state
+M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority
+M18_CUMULATIVE_REWARDS_PROBE PASS: 29 to 30 preserves cumulative progress without a retired reward
+M18_CUMULATIVE_REWARDS_PROBE PASS: worse replay leaves retired reward slots unclaimed
+M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state
+M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority
+M18_CUMULATIVE_REWARDS_PROBE PASS: catch-up claims only the configured 150-star upgrade
+M18_CUMULATIVE_REWARDS_PROBE PASS: catch-up grants one upgrade and no retired +Time
+M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state
+M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority
+M18_CUMULATIVE_REWARDS_PROBE PASS: 149 to 150 grants the approved upgrade reward
+M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state
+M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority
+M18_CUMULATIVE_REWARDS_PROBE PASS: 299 to 300 grants only the two approved upgrades
+M18_CUMULATIVE_REWARDS_PROBE PASS: final threshold claim remains duplicate-safe
+M18_CUMULATIVE_REWARDS_PROBE PASS: claimed threshold state saves
+M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state
+M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority
+M18_CUMULATIVE_REWARDS_PROBE PASS: approved upgrade claim persists across save/reload
+M18_CUMULATIVE_REWARDS_PROBE PASS: replay after reload does not duplicate a reward
+M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state
+M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority
+M18_CUMULATIVE_REWARDS_PROBE PASS: one-star completion advances progression without a reward gate
+M18_CUMULATIVE_STAR_REWARDS_RESULT=PASS
+
+EXIT=0

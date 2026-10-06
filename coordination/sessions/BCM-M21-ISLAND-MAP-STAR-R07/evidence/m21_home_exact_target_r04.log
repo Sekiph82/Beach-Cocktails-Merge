@@ -1,0 +1,54 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_HOME_R04 PASS: layout JSON loads
+M21_HOME_R04 PASS: layout uses 941x1672 reference
+M21_HOME_R04 PASS: canonical campaign data loads
+M21_HOME_R04 PASS: fixture campaign configures
+M21_HOME_R04 PASS: existing navigation accepts deterministic fixture
+M21_HOME_R04 PASS: fixture selected level is 12
+M21_HOME_R04 PASS: top Level value stays selected and plaque label uses frontier 12
+M21_HOME_R04 PASS: coins bind to canonical economy and format 4250 as 4.250
+M21_HOME_R04 PASS: energy and gems are display-only 100 and 85
+M21_HOME_R04 PASS: Level and Continue update with a different live selected level
+M21_HOME_R04 PASS: old replay selection does not regress the frontier plaque label
+M21_HOME_R04 PASS: fixture returns to target level 12
+M21_HOME_R04 PASS: all supplied runtime images have exact occurrence counts
+M21_HOME_R04 PASS: reference TARGET is never a runtime texture
+M21_HOME_R04 PASS: old R02 composition nodes are absent
+M21_HOME_R04 PASS: three action images are distinct input controls
+M21_HOME_R04 PASS: layout asset count matches runtime visual count
+M21_HOME_R04 PASS: level_bar has its owner-directed width and preserved height
+M21_HOME_R04 PASS: energy_bar has its owner-directed width and preserved height
+M21_HOME_R04 PASS: coin_bar has its owner-directed width and preserved height
+M21_HOME_R04 PASS: diamond_bar has its owner-directed width and preserved height
+M21_HOME_R04 PASS: Energy width remains 25% smaller than V03
+M21_HOME_R04 PASS: Coin width is 25% larger than V03 and its right endpoint is fixed
+M21_HOME_R04 PASS: Energy is exactly centered between Level and Coin with equal edge gaps
+M21_HOME_R04 PASS: three plus icons remain vertically centered on their bars and Energy plus stays at its bar endpoint
+M21_HOME_R04 PASS: Energy number moves with the centered bar
+M21_HOME_R04 PASS: all six lower actions retain their relative layout at a uniform 6/7 scale
+M21_HOME_R04 PASS: PLAY starts at the owner's marked y=1050 line
+M21_HOME_R04 PASS: lower action group ends at the marked y=1590 bottom
+M21_HOME_R04 PASS: Continue label is centered horizontally and raised 12 px total
+M21_HOME_R04 PASS: Continue label uses the requested smaller 23 px font
+M21_HOME_R04 PASS: saved 02_home_owner_critique_v05_941x1672 at 941x1672
+M21_HOME_R04 PASS: all production art rects match normalized layout at 941x1672
+M21_HOME_R04 PASS: saved 03_home_owner_critique_v05_720x1280 at 720x1280
+M21_HOME_R04 PASS: saved 04_home_owner_critique_v05_800x1422 at 800x1422
+M21_HOME_R04 PASS: current player level 7 is available for the welcome-screen Continue action
+M21_HOME_R04 PASS: welcome screen plaque reflects the player's frontier level 12
+M21_HOME_R04 PASS: PLAY image resumes the player's current level 7
+M21_HOME_R04 PASS: saved 05_home_owner_critique_v05_play_navigation at 720x1280
+M21_HOME_R04 PASS: WORLD MAP image opens and displays production World Map
+M21_HOME_R04 PASS: saved 06_home_owner_critique_v05_world_map_navigation at 720x1280
+M21_HOME_R04 PASS: SETTINGS image opens existing Settings
+M21_HOME_R04 PASS: saved 07_home_owner_critique_v05_settings_navigation at 720x1280
+M21_HOME_R04_RESULT=PASS
+
+EXIT=0

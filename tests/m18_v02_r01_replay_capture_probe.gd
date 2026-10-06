@@ -76,7 +76,7 @@ func _run() -> void:
     await process_frame
     await process_frame
     var map = navigation.get_island_map()
-    _check("completed Child 05 exposes prior stars and best score", map.get_level_state(5) == "COMPLETE" and map.get_level_stars(5) == 2 and map.get_level_button(5).get_best_score() == 505 and map.get_level_button(5).text.contains("BEST 505"))
+    _check("completed Child 05 exposes prior stars and retains best score internally without node text", map.get_level_state(5) == "COMPLETE" and map.get_level_stars(5) == 2 and map.get_level_button(5).get_best_score() == 505 and map.get_level_button(5).get_node_or_null("BestScore") == null and map.get_level_button(5).text.is_empty())
     _check("capture 1 saved", _capture(root, "child05_completed_prior_record"))
 
     var worse: Dictionary = campaign.mark_level_completed(ISLAND_ID, 5, {"stars": 1, "score": 1})
@@ -90,7 +90,7 @@ func _run() -> void:
     map.refresh()
     await process_frame
     await process_frame
-    _check("improved replay updates authoritative visible record", better.get("changed", false) and map.get_level_stars(5) == 3 and map.get_level_button(5).get_best_score() == 900 and map.get_level_button(5).text.contains("BEST 900"))
+    _check("improved replay updates authoritative stars and retains best score internally", better.get("changed", false) and map.get_level_stars(5) == 3 and map.get_level_button(5).get_best_score() == 900 and map.get_level_button(5).get_node_or_null("BestScore") == null and map.get_level_button(5).text.is_empty())
     _check("capture 3 saved", _capture(root, "child05_improved_replay_updated"))
 
     map.set_scroll_vertical(913)

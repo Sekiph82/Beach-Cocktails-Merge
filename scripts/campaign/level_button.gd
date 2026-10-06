@@ -30,7 +30,6 @@ var _vip_marker: TextureRect
 var _node_art: TextureRect
 var _level_label: Label
 var _stars_label: Label
-var _score_label: Label
 var _milestone_marker: TextureRect
 
 
@@ -68,7 +67,7 @@ func configure(
 	disabled = level_state == STATE_LOCKED
 	if _vip_marker != null:
 		_vip_marker.visible = vip_enabled
-	tooltip_text = "Level %d%s\nBest score: %d" % [level_id, " milestone" if milestone else "", best_score]
+	tooltip_text = "Level %d%s" % [level_id, " milestone" if milestone else ""]
 	_update_labels()
 	if _node_art != null:
 		_node_art.texture = load(_texture_path_for_state()) as Texture2D
@@ -141,9 +140,8 @@ func _build_node_art() -> void:
 	_node_art.z_index = 0
 	add_child(_node_art)
 
-	_level_label = _make_overlay_label("LevelNumber", Rect2(22.0, 22.0, 72.0, 28.0), 20, Color.WHITE)
-	_stars_label = _make_overlay_label("EarnedStars", Rect2(8.0, 67.0, 100.0, 20.0), 16, Color("#ffd970"))
-	_score_label = _make_overlay_label("BestScore", Rect2(5.0, 88.0, 106.0, 18.0), 11, Color("#fff3d2"))
+	_level_label = _make_overlay_label("LevelNumber", Rect2(7.0, 18.0, 102.0, 32.0), 24, Color.WHITE)
+	_stars_label = _make_overlay_label("EarnedStars", Rect2(8.0, 60.0, 100.0, 29.0), 22, Color("#ffd970"))
 	_milestone_marker = TextureRect.new()
 	_milestone_marker.name = "MilestoneMarker"
 	_milestone_marker.texture = load("res://assets/ui_assets/campaign/island_map/milestone_chest_marker.png") as Texture2D
@@ -166,9 +164,11 @@ func _make_overlay_label(label_name: String, rect: Rect2, font_size: int, color:
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
+	label.add_theme_color_override("font_outline_color", Color("#163747"))
+	label.add_theme_constant_override("outline_size", 2)
 	label.add_theme_color_override("font_shadow_color", Color(0.05, 0.13, 0.16, 0.95))
-	label.add_theme_constant_override("shadow_offset_x", 1)
-	label.add_theme_constant_override("shadow_offset_y", 1)
+	label.add_theme_constant_override("shadow_offset_x", 2)
+	label.add_theme_constant_override("shadow_offset_y", 2)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.z_index = 2
 	add_child(label)
@@ -188,12 +188,12 @@ func _texture_path_for_state() -> String:
 func _update_labels() -> void:
 	if _level_label == null:
 		return
-	_level_label.text = "L%d" % level_id
+	_level_label.text = "LV%d" % level_id
 	var stars := ""
 	for index in range(3):
 		stars += "★" if index < earned_stars else "☆"
 	_stars_label.text = stars
-	_score_label.text = "BEST %d" % best_score if best_score > 0 else ("MILESTONE" if milestone else "")
+	_stars_label.add_theme_color_override("font_color", Color("#c4d0d1") if level_state == STATE_LOCKED else Color("#ffd970"))
 	if _milestone_marker != null:
 		_milestone_marker.visible = milestone
 

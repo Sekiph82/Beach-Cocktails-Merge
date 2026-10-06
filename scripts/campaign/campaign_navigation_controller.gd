@@ -142,9 +142,9 @@ func get_continue_level_label() -> String:
 	if campaign_manager == null or level_database == null:
 		return "PLAY"
 	var island_id := str(campaign_manager.current_island_id)
-	var level_id := int(campaign_manager.selected_level_id)
-	if not level_database.get_island(island_id).is_empty() and level_id > 0 and not level_database.get_level(island_id, level_id).is_empty() and campaign_manager.is_level_unlocked(island_id, level_id):
-		return "CONTINUE LEVEL %d" % level_id
+	var level_id := int(campaign_manager.get_frontier_level_id(island_id))
+	if level_id > 0:
+		return "LEVEL %d" % level_id
 	return "PLAY"
 
 

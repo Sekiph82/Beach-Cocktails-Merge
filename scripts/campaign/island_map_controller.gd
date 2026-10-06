@@ -16,6 +16,8 @@ const MAP_WIDTH := 720.0
 const NODE_HEIGHT := 126.0
 const NODE_SIZE := Vector2(116.0, 112.0)
 const DEFAULT_MILESTONES := [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+const ISLAND_PLAQUE_TEXTURE_SIZE := Vector2(440.0, 190.0)
+const ISLAND_PLAQUE_INNER_TEXTURE_RECT := Rect2(74.0, 65.0, 291.0, 66.0)
 
 const LEVEL_BUTTON_SCENE := preload("res://scenes/campaign/LevelButton.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
@@ -75,14 +77,19 @@ func configure_island(
 	_restoration_state = restoration.duplicate(true)
 	_has_restoration_state = not restoration.is_empty()
 	_restored_scroll_vertical = int(restoration.get("scroll_vertical", -1)) if _has_restoration_state else -1
+	var frontier_level := int(campaign_manager.get_frontier_level_id(island_id))
+	var restored_frontier := int(restoration.get("frontier_level_id", frontier_level))
+	var frontier_advanced := _has_restoration_state and frontier_level > restored_frontier
 	selected_level_id = int(_restoration_state.get("selected_level_id", 0))
 	if selected_level_id <= 0 and campaign_manager.current_island_id == island_id:
 		selected_level_id = int(campaign_manager.selected_level_id)
 	if selected_level_id <= 0:
 		selected_level_id = 1
-	_focus_level_id = int(_restoration_state.get("scroll_focus_level_id", 0))
+	_focus_level_id = frontier_level if frontier_advanced else int(_restoration_state.get("scroll_focus_level_id", 0))
 	if _has_restoration_state and _focus_level_id <= 0:
 		_focus_level_id = selected_level_id
+	if frontier_advanced:
+		_restored_scroll_vertical = -1
 	if not _has_restoration_state:
 		# First entry is intentionally independent from CampaignManager's
 		# currently selected level. _refresh_deferred computes the focus from
@@ -191,6 +198,7 @@ func get_restoration_state() -> Dictionary:
 		"selected_level_id": selected_level_id,
 		"scroll_focus_level_id": _focus_level_id,
 		"scroll_vertical": get_scroll_vertical(),
+		"frontier_level_id": int(campaign_manager.get_frontier_level_id(island_id)) if campaign_manager != null else 0,
 	}
 
 
@@ -200,12 +208,17 @@ func restore_state(restoration: Dictionary) -> bool:
 	_restoration_state = restoration.duplicate(true)
 	_has_restoration_state = true
 	_restored_scroll_vertical = int(restoration.get("scroll_vertical", -1))
+	var frontier_level := int(campaign_manager.get_frontier_level_id(island_id)) if campaign_manager != null else 0
+	var restored_frontier := int(restoration.get("frontier_level_id", frontier_level))
+	var frontier_advanced := frontier_level > restored_frontier
 	var restored_selected := int(restoration.get("selected_level_id", 0))
 	if restored_selected > 0 and campaign_manager != null and campaign_manager.is_level_unlocked(island_id, restored_selected):
 		selected_level_id = restored_selected
-	var restored_focus := int(restoration.get("scroll_focus_level_id", 0))
+	var restored_focus := frontier_level if frontier_advanced else int(restoration.get("scroll_focus_level_id", 0))
 	if restored_focus > 0:
 		_focus_level_id = restored_focus
+	if frontier_advanced:
+		_restored_scroll_vertical = -1
 	refresh()
 	return true
 
@@ -323,10 +336,9 @@ func _is_vip_level(level_id: int) -> bool:
 
 
 func _entry_focus_level(level_count: int) -> int:
-	for level_id in range(level_count, 0, -1):
-		if campaign_manager.is_level_unlocked(island_id, level_id) and not campaign_manager.is_level_completed(island_id, level_id):
-			return level_id
-	return level_count if level_count > 0 else 0
+	if campaign_manager == null or level_count <= 0:
+		return 0
+	return clampi(int(campaign_manager.get_frontier_level_id(island_id)), 1, level_count)
 
 
 func _on_level_button_selected(level_id: int) -> void:
@@ -497,11 +509,18 @@ func _build_shell() -> void:
 
 	_title_label = Label.new()
 	_title_label.name = "IslandName"
-	_title_label.position = Vector2(208.0, 36.0)
-	_title_label.size = Vector2(304.0, 38.0)
+	var texture_scale := minf(plaque.size.x / ISLAND_PLAQUE_TEXTURE_SIZE.x, plaque.size.y / ISLAND_PLAQUE_TEXTURE_SIZE.y)
+	var displayed_texture_size := ISLAND_PLAQUE_TEXTURE_SIZE * texture_scale
+	var displayed_texture_origin := plaque.position + (plaque.size - displayed_texture_size) * 0.5
+	var plaque_inner_rect := Rect2(
+		displayed_texture_origin + ISLAND_PLAQUE_INNER_TEXTURE_RECT.position * texture_scale,
+		ISLAND_PLAQUE_INNER_TEXTURE_RECT.size * texture_scale
+	)
+	_title_label.position = plaque_inner_rect.position
+	_title_label.size = plaque_inner_rect.size
 	_title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_title_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	_title_label.add_theme_font_size_override("font_size", 24)
+	_title_label.add_theme_font_size_override("font_size", 20)
 	_title_label.add_theme_color_override("font_color", Color("#fff0c6"))
 	_title_label.add_theme_color_override("font_shadow_color", Color(0.08, 0.16, 0.17, 0.9))
 	_title_label.add_theme_constant_override("shadow_offset_x", 1)

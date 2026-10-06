@@ -391,7 +391,8 @@ func _refresh_home_values() -> void:
     if _home_value_labels.has("gems"):
         (_home_value_labels["gems"] as Label).text = str(HOME_GEMS_DISPLAY_DEFAULT)
     if _home_value_labels.has("continue"):
-        (_home_value_labels["continue"] as Label).text = "CONTINUE LEVEL %d" % level if level > 0 else "PLAY"
+        var frontier_level := _current_frontier_level()
+        (_home_value_labels["continue"] as Label).text = "LEVEL %d" % frontier_level if frontier_level > 0 else "PLAY"
 
 
 func _current_selected_level() -> int:
@@ -402,6 +403,12 @@ func _current_selected_level() -> int:
     if level_id > 0 and manager.is_level_unlocked(str(manager.current_island_id), level_id):
         return level_id
     return 0
+
+
+func _current_frontier_level() -> int:
+    if campaign_navigation == null or campaign_navigation.campaign_manager == null:
+        return 0
+    return int(campaign_navigation.campaign_manager.get_frontier_level_id())
 
 
 func _format_home_coins(value: int) -> String:

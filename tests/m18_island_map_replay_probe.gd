@@ -92,7 +92,7 @@ func _run() -> void:
     await process_frame
     var map = navigation.get_island_map()
     _check("completed level remains selectable for replay", map.get_level_state(5) == "COMPLETE" and map.get_level_button(5).is_selectable())
-    _check("authoritative prior stars, score and 2-star skin are visible", map.get_level_stars(5) == 2 and map.get_level_button(5).get_best_score() == 505 and map.get_level_button(5).get_node("BestScore").text == "BEST 505" and map.get_level_button(5).get_skin_path().ends_with("level_node_two_star.png"))
+    _check("authoritative prior stars and 2-star skin are visible without node score text", map.get_level_stars(5) == 2 and map.get_level_button(5).get_best_score() == 505 and map.get_level_button(5).get_node_or_null("BestScore") == null and map.get_level_button(5).get_skin_path().ends_with("level_node_two_star.png"))
 
     map.set_scroll_vertical(913)
     _check("worse replay preserves stored state", not campaign.mark_level_completed(ISLAND_ID, 5, {"stars": 1, "score": 1})["changed"] and map.get_level_stars(5) == 2 and map.get_level_button(5).get_best_score() == 505)
@@ -103,7 +103,7 @@ func _run() -> void:
     map.refresh()
     await process_frame
     await process_frame
-    _check("better replay state and 3-star skin are visible after refresh", map.get_level_stars(5) == 3 and map.get_level_button(5).get_best_score() == 900 and map.get_level_button(5).get_node("BestScore").text == "BEST 900" and map.get_level_button(5).get_skin_path().ends_with("level_node_milestone.png"))
+    _check("better replay state and 3-star skin are visible after refresh without node score text", map.get_level_stars(5) == 3 and map.get_level_button(5).get_best_score() == 900 and map.get_level_button(5).get_node_or_null("BestScore") == null and map.get_level_button(5).get_skin_path().ends_with("level_node_milestone.png"))
 
     # Re-enter through the actual gameplay-return boundary. Selection and the
     # manually chosen scroll location must survive without a second map host.

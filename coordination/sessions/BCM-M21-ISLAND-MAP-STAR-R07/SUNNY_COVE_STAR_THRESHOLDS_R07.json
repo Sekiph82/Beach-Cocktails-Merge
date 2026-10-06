@@ -1,0 +1,1842 @@
+{
+  "schema_version": 1,
+  "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1",
+  "island_id": "sunny_cove",
+  "level_count": 100,
+  "sources": {
+    "drinks": "data/drinks.json",
+    "levels": "data/campaign/levels/sunny_cove.json"
+  },
+  "construct_score": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 100,
+    "5": 400,
+    "6": 1150,
+    "7": 2900,
+    "8": 6800,
+    "9": 15200,
+    "10": 32900,
+    "11": 69800,
+    "12": 146100
+  },
+  "levels": [
+    {
+      "level_id": 1,
+      "normal_orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 400,
+      "two_stars": 450,
+      "three_stars": 550,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 2,
+      "normal_orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 400,
+      "two_stars": 450,
+      "three_stars": 550,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 3,
+      "normal_orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 800,
+      "two_stars": 900,
+      "three_stars": 1100,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 4,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 2150,
+      "two_stars": 2400,
+      "three_stars": 2950,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 5,
+      "normal_orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 800,
+      "two_stars": 900,
+      "three_stars": 1100,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 6,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 2550,
+      "two_stars": 2850,
+      "three_stars": 3450,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 7,
+      "normal_orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 1200,
+      "two_stars": 1350,
+      "three_stars": 1650,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 8,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 2550,
+      "two_stars": 2850,
+      "three_stars": 3450,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 9,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 4300,
+      "two_stars": 4750,
+      "three_stars": 5850,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 10,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 4700,
+      "two_stars": 5200,
+      "three_stars": 6350,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 11,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 2550,
+      "two_stars": 2850,
+      "three_stars": 3450,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 12,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 4300,
+      "two_stars": 4750,
+      "three_stars": 5850,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 13,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 4700,
+      "two_stars": 5200,
+      "three_stars": 6350,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 14,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 2950,
+      "two_stars": 3250,
+      "three_stars": 4000,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 15,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 5100,
+      "two_stars": 5650,
+      "three_stars": 6900,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 16,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 4300,
+      "two_stars": 4750,
+      "three_stars": 5850,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 17,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 5100,
+      "two_stars": 5650,
+      "three_stars": 6900,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 18,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 4700,
+      "two_stars": 5200,
+      "three_stars": 6350,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 19,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 5100,
+      "two_stars": 5650,
+      "three_stars": 6900,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 20,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 6850,
+      "two_stars": 7550,
+      "three_stars": 9250,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 21,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 4300,
+      "two_stars": 4750,
+      "three_stars": 5850,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 22,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 5100,
+      "two_stars": 5650,
+      "three_stars": 6900,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 23,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 4700,
+      "two_stars": 5200,
+      "three_stars": 6350,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 24,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 6850,
+      "two_stars": 7550,
+      "three_stars": 9250,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 25,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 5100,
+      "two_stars": 5650,
+      "three_stars": 6900,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 26,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 6450,
+      "two_stars": 7100,
+      "three_stars": 8750,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 27,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 5500,
+      "two_stars": 6050,
+      "three_stars": 7450,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 28,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 6850,
+      "two_stars": 7550,
+      "three_stars": 9250,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 29,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 7250,
+      "two_stars": 8000,
+      "three_stars": 9800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 30,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 5900,
+      "two_stars": 6500,
+      "three_stars": 8000,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 31,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 5100,
+      "two_stars": 5650,
+      "three_stars": 6900,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 32,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 6850,
+      "two_stars": 7550,
+      "three_stars": 9250,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 33,
+      "normal_orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 6450,
+      "two_stars": 7100,
+      "three_stars": 8750,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 34,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 7250,
+      "two_stars": 8000,
+      "three_stars": 9800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 35,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 5500,
+      "two_stars": 6050,
+      "three_stars": 7450,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 36,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 5900,
+      "two_stars": 6500,
+      "three_stars": 8000,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 37,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 7250,
+      "two_stars": 8000,
+      "three_stars": 9800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 38,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 9400,
+      "two_stars": 10350,
+      "three_stars": 12700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 39,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 7250,
+      "two_stars": 8000,
+      "three_stars": 9800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 40,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 9800,
+      "two_stars": 10800,
+      "three_stars": 13250,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 41,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 6850,
+      "two_stars": 7550,
+      "three_stars": 9250,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 42,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 7250,
+      "two_stars": 8000,
+      "three_stars": 9800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 43,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 9800,
+      "two_stars": 10800,
+      "three_stars": 13250,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 44,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 5900,
+      "two_stars": 6500,
+      "three_stars": 8000,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 45,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 9400,
+      "two_stars": 10350,
+      "three_stars": 12700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 46,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 9000,
+      "two_stars": 9900,
+      "three_stars": 12150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 47,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 10200,
+      "two_stars": 11250,
+      "three_stars": 13800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 48,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 9400,
+      "two_stars": 10350,
+      "three_stars": 12700,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 49,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 9800,
+      "two_stars": 10800,
+      "three_stars": 13250,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 50,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 10200,
+      "two_stars": 11250,
+      "three_stars": 13800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 51,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 7250,
+      "two_stars": 8000,
+      "three_stars": 9800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 52,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 9800,
+      "two_stars": 10800,
+      "three_stars": 13250,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 53,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 10200,
+      "two_stars": 11250,
+      "three_stars": 13800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 54,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 9400,
+      "two_stars": 10350,
+      "three_stars": 12700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 55,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 10200,
+      "two_stars": 11250,
+      "three_stars": 13800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 56,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11950,
+      "two_stars": 13150,
+      "three_stars": 16150,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 57,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 9800,
+      "two_stars": 10800,
+      "three_stars": 13250,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 58,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11950,
+      "two_stars": 13150,
+      "three_stars": 16150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 59,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11550,
+      "two_stars": 12750,
+      "three_stars": 15600,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 60,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 12350,
+      "two_stars": 13600,
+      "three_stars": 16700,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 61,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 9800,
+      "two_stars": 10800,
+      "three_stars": 13250,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 62,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 10200,
+      "two_stars": 11250,
+      "three_stars": 13800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 63,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11950,
+      "two_stars": 13150,
+      "three_stars": 16150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 64,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 9800,
+      "two_stars": 10800,
+      "three_stars": 13250,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 65,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11950,
+      "two_stars": 13150,
+      "three_stars": 16150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 66,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 12350,
+      "two_stars": 13600,
+      "three_stars": 16700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 67,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11550,
+      "two_stars": 12750,
+      "three_stars": 15600,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 68,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 11000,
+      "two_stars": 12100,
+      "three_stars": 14850,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 69,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14500,
+      "two_stars": 15950,
+      "three_stars": 19600,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 70,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 12350,
+      "two_stars": 13600,
+      "three_stars": 16700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 71,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 10200,
+      "two_stars": 11250,
+      "three_stars": 13800,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 72,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11950,
+      "two_stars": 13150,
+      "three_stars": 16150,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 73,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 12350,
+      "two_stars": 13600,
+      "three_stars": 16700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 74,
+      "normal_orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11550,
+      "two_stars": 12750,
+      "three_stars": 15600,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 75,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 12350,
+      "two_stars": 13600,
+      "three_stars": 16700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 76,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14500,
+      "two_stars": 15950,
+      "three_stars": 19600,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 77,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 11000,
+      "two_stars": 12100,
+      "three_stars": 14850,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 78,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14500,
+      "two_stars": 15950,
+      "three_stars": 19600,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 79,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14900,
+      "two_stars": 16400,
+      "three_stars": 20150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 80,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 14100,
+      "two_stars": 15550,
+      "three_stars": 19050,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 81,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 11950,
+      "two_stars": 13150,
+      "three_stars": 16150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 82,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 12350,
+      "two_stars": 13600,
+      "three_stars": 16700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 83,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14500,
+      "two_stars": 15950,
+      "three_stars": 19600,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 84,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 3
+        }
+      ],
+      "mastery_base": 11000,
+      "two_stars": 12100,
+      "three_stars": 14850,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 85,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14500,
+      "two_stars": 15950,
+      "three_stars": 19600,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 86,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14900,
+      "two_stars": 16400,
+      "three_stars": 20150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 87,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 14100,
+      "two_stars": 15550,
+      "three_stars": 19050,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 88,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14900,
+      "two_stars": 16400,
+      "three_stars": 20150,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 89,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 16650,
+      "two_stars": 18350,
+      "three_stars": 22500,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 90,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14900,
+      "two_stars": 16400,
+      "three_stars": 20150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 91,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 12350,
+      "two_stars": 13600,
+      "three_stars": 16700,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 92,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14500,
+      "two_stars": 15950,
+      "three_stars": 19600,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 93,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14900,
+      "two_stars": 16400,
+      "three_stars": 20150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 94,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "mastery_base": 14100,
+      "two_stars": 15550,
+      "three_stars": 19050,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 95,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14900,
+      "two_stars": 16400,
+      "three_stars": 20150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 96,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 16650,
+      "two_stars": 18350,
+      "three_stars": 22500,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 97,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 14900,
+      "two_stars": 16400,
+      "three_stars": 20150,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 98,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 16650,
+      "two_stars": 18350,
+      "three_stars": 22500,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 99,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 16650,
+      "two_stars": 18350,
+      "three_stars": 22500,
+      "vip_enabled": false,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    },
+    {
+      "level_id": 100,
+      "normal_orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "mastery_base": 17050,
+      "two_stars": 18800,
+      "three_stars": 23050,
+      "vip_enabled": true,
+      "formula_version": "BCM-M21-R07-STAR-THRESHOLDS-1"
+    }
+  ]
+}
