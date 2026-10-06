@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-ISLAND-MAP-STAR-R07
+- Current Sprint: BCM-M21-HOME-FRONTIER-R08
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001-R07 — CODEX executes `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_PROMPT_R07.md`, changes the Home play plaque to `LEVEL N`, makes Island Map auto-focus the newly unlocked ten-level page, centers the island title, makes LV/stars readable, removes Island Map BEST text, implements the approved 1/2/3-star mastery contract, populates deterministic Sunny Cove thresholds, and stops for owner review.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: BCM-M21-001-R08 — CODEX executes `coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_HOME_FRONTIER_PROMPT_R08.md`, makes the Home top LEVEL, PLAY plaque, and Home PLAY action use the same campaign frontier authority while preserving old-level replay from Island Map, reruns the locked regressions, and stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R06 runtime checks completed, and the owner accepts the Home composition but returned runtime **CHANGES_REQUIRED** for bounded UX/mastery issues. R07 is active: PLAY plaque text becomes `LEVEL N`; Island Map automatically shows the new frontier page after 10→11, 20→21 ... 90→91; SUNNY COVE is centered inside its plaque; node labels become readable `LVn`; Island Map BEST/SCORE text is removed; three star positions remain visible; and the owner-approved star contract is implemented with deterministic non-null Sunny Cove thresholds. The economy draft remains inactive. Deferred M07/M08 technical findings remain open. BCM-M21-006 remains blocked.
+- Progress: Independent audit of R07 plus the 720×1280 Sunny Cove full-background follow-up found the Island Map/star/background work technically sound, but **CHANGES_REQUIRED** remains because Home still mixes authorities: the top LEVEL display uses `selected_level_id`, the PLAY plaque uses frontier, and Home PLAY launches `selected_level_id`. After replaying an old level this can show `LEVEL 11` yet launch level 4. R08 is a bounded functional remediation only: Home top LEVEL + plaque + PLAY must all use `CampaignManager.get_frontier_level_id()`. Explicit Island Map replay of old levels remains supported. R07 visuals/star thresholds/full-background are frozen. Economy draft remains inactive. BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
@@ -1010,6 +1010,10 @@ Owner F5 V07 history and active R03 remediation:
 - Active R07 owner ruling: `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/OWNER_ISLAND_MAP_STAR_RULING_R07.md`.
 - Active R07 criteria: `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_CRITERIA_R07.md`.
 - Active R07 prompt: `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_PROMPT_R07.md`.
+- Independent R07/full-background audit: `coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_R07_FULL_BACKGROUND_AUDIT.md` — **CHANGES_REQUIRED / HOME_FRONTIER_AUTHORITY_MISMATCH**.
+- Active R08 criteria: `coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_HOME_FRONTIER_CRITERIA_R08.md`.
+- Active R08 prompt: `coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_HOME_FRONTIER_PROMPT_R08.md`.
+- Required builder marker: `AWAITING_GPT_M21_HOME_FRONTIER_AUDIT_R08`.
 - Required builder marker: `AWAITING_OWNER_ISLAND_MAP_STAR_REVIEW_R07`.
 - Active R06 criteria: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_CRITERIA_R06.md`.
 - Active R06 prompt: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_PROMPT_R06.md`.
