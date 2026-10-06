@@ -23,5 +23,5 @@
 - `python -m json.tool` on `HOME_TARGET_LAYOUT_R04.json` and `HOME_TARGET_PARITY_R04_OWNER_CRITIQUE_V05.json` — PASS.
 - `git diff --check` — PASS; `git diff --exit-code HEAD -- TASKS.md` — PASS.
 - Full pixel parity to original TARGET remains unverified. No owner-supplied PNGs were modified. No independent audit or owner approval is claimed.
-- Implementation/publication SHAs and final three-way ref equality will be verified after commit and push.
+- Implementation commit: `a5470507c576aa38e009e97b23e6f1f8847e37f5` (`Center Home energy bar between level and coin`). After its push, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` each returned `a5470507c576aa38e009e97b23e6f1f8847e37f5`; divergence was `0/0`. The execution log is being published as a separate follow-up commit.
 - No owner visual approval or independent audit is claimed.
