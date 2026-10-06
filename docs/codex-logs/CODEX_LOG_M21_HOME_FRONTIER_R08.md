@@ -38,6 +38,9 @@
 
 ## Final repository state
 
-- Publication pending. `TASKS.md` is unchanged. The two owner-local critique PNGs remain untouched and unstaged. R07 Island Map assets, layout, stars, and behavior remain unchanged.
+- Implementation/evidence commit: `ff1ab6d7414fe16aaf904c45e961a07f0024e1ad` on `main`, pushed to `origin/main`.
+- Immediately after implementation publication, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `ff1ab6d7414fe16aaf904c45e961a07f0024e1ad`; divergence was `0 0`.
+- `TASKS.md` remained byte-identical (`git diff --exit-code -- TASKS.md` exit 0). The two owner-local critique PNGs remain untouched and unstaged. R07 Island Map assets, layout, stars, and behavior remain unchanged.
 - The R08 behavior and its focused/regression checks pass, but the locked V05 regression command remains red on both current and pre-R08 baseline. This inherited World Map issue remains unmodified due to the R08 scope freeze and must be considered in independent audit.
-- Required final marker: `AWAITING_GPT_M21_HOME_FRONTIER_AUDIT_R08`.
+- The final log-only publication receipt is being added after the implementation commit; final local/origin/live equality will be rechecked after that receipt push.
+- Required stop marker: `AWAITING_GPT_M21_HOME_FRONTIER_AUDIT_R08`.
