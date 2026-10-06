@@ -67,6 +67,8 @@ Two preliminary verification invocations were corrected: the M18 V02 capture pro
 
 ## Final repository state
 
-- Pending publication. Start HEAD `5800039af5a0670e446262e6fe5fc4a8ec1bdc98`; branch `main`; remote `origin`. Final SHA/equality proof will be added after commit and push.
+- Product/evidence commit: `d0df2040b357a8850e9aaa5235ec64add38d9700` on `main` / `origin`.
+- Immediately after that push and fetch, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `d0df2040b357a8850e9aaa5235ec64add38d9700`; divergence was `0 0`.
+- This required log publication receipt is a follow-up log-only commit. Its resulting local/origin/live SHA equality is verified again in the final handoff; the product state is unchanged.
 - `TASKS.md` remains byte-identical and is not staged. The two owner critique screenshots remain untouched and unstaged.
 - Builder stop marker: `AWAITING_OWNER_ISLAND_MAP_STAR_REVIEW_R07`.
