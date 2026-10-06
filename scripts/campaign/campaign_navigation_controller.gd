@@ -129,7 +129,7 @@ func continue_campaign() -> bool:
 	if not _ensure_map_instances() or campaign_manager == null or level_database == null:
 		return false
 	var island_id := str(campaign_manager.current_island_id)
-	var level_id := int(campaign_manager.selected_level_id)
+	var level_id := int(campaign_manager.get_frontier_level_id(island_id))
 	var island_exists: bool = not level_database.get_island(island_id).is_empty()
 	if island_exists and level_id > 0 and not level_database.get_level(island_id, level_id).is_empty() and campaign_manager.is_level_unlocked(island_id, level_id):
 		return _launch_selected_level(island_id, level_id)

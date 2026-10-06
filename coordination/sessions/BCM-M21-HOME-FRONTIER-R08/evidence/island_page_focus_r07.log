@@ -1,0 +1,155 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_ISLAND_MAP_PAGE_R07 PASS: canonical Sunny Cove database passes full validation
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 10
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 10
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 10
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 10 unlocks 11
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 10→11 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 10→11 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 11 is visible without manual scroll
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:58)
+       [1] _verify_boundary (res://tests/m21_island_map_page_focus_r07_probe.gd:88)
+       [2] _frames (res://tests/m21_island_map_page_focus_r07_probe.gd:29)
+SCRIPT ERROR: Cannot call method 'is_empty' on a null value.
+   at: _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:60)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:60)
+       [1] _verify_boundary (res://tests/m21_island_map_page_focus_r07_probe.gd:88)
+       [2] _frames (res://tests/m21_island_map_page_focus_r07_probe.gd:29)
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 20
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 20
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 20
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 20 unlocks 21
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 20→21 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 20→21 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 21 is visible without manual scroll
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:58)
+       [1] _verify_boundary (res://tests/m21_island_map_page_focus_r07_probe.gd:90)
+       [2] _frames (res://tests/m21_island_map_page_focus_r07_probe.gd:29)
+SCRIPT ERROR: Cannot call method 'is_empty' on a null value.
+   at: _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:60)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:60)
+       [1] _verify_boundary (res://tests/m21_island_map_page_focus_r07_probe.gd:90)
+       [2] _frames (res://tests/m21_island_map_page_focus_r07_probe.gd:29)
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 30
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 30
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 30
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 30 unlocks 31
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 30→31 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 30→31 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 31 is visible without manual scroll
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 40
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 40
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 40
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 40 unlocks 41
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 40→41 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 40→41 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 41 is visible without manual scroll
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 50
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 50
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 50
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 50 unlocks 51
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 50→51 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 50→51 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 51 is visible without manual scroll
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 60
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 60
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 60
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 60 unlocks 61
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 60→61 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 60→61 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 61 is visible without manual scroll
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 70
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 70
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 70
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 70 unlocks 71
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 70→71 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 70→71 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 71 is visible without manual scroll
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 80
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 80
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 80
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 80 unlocks 81
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 80→81 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 80→81 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 81 is visible without manual scroll
+M21_ISLAND_MAP_PAGE_R07 PASS: campaign configures at frontier 90
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: before completion focus is level 90
+M21_ISLAND_MAP_PAGE_R07 PASS: old map state records frontier 90
+M21_ISLAND_MAP_PAGE_R07 PASS: production route stores old-page restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: first completion 90 unlocks 91
+M21_ISLAND_MAP_PAGE_R07 PASS: production route returns to Island Map
+M21_ISLAND_MAP_PAGE_R07 PASS: 90→91 focuses new frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: 90→91 scrolls to new page top
+M21_ISLAND_MAP_PAGE_R07 PASS: new frontier node 91 is visible without manual scroll
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:58)
+       [1] _verify_boundary (res://tests/m21_island_map_page_focus_r07_probe.gd:92)
+       [2] _frames (res://tests/m21_island_map_page_focus_r07_probe.gd:29)
+SCRIPT ERROR: Cannot call method 'is_empty' on a null value.
+   at: _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:60)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_island_map_page_focus_r07_probe.gd:60)
+       [1] _verify_boundary (res://tests/m21_island_map_page_focus_r07_probe.gd:92)
+       [2] _frames (res://tests/m21_island_map_page_focus_r07_probe.gd:29)
+M21_ISLAND_MAP_PAGE_R07 PASS: replay fixture configures with frontier 11
+M21_ISLAND_MAP_PAGE_R07 PASS: production navigation accepts boundary fixture
+M21_ISLAND_MAP_PAGE_R07 PASS: production Sunny Cove Island Map opens
+M21_ISLAND_MAP_PAGE_R07 PASS: old level 4 can be manually selected
+M21_ISLAND_MAP_PAGE_R07 PASS: manual selection leaves frontier at 11
+M21_ISLAND_MAP_PAGE_R07 PASS: manual old-page browse stores restoration
+M21_ISLAND_MAP_PAGE_R07 PASS: old replay improves mastery without lowering frontier
+M21_ISLAND_MAP_PAGE_R07 PASS: old replay can return to the production map
+M21_ISLAND_MAP_PAGE_R07 PASS: same-page browsing restoration remains available
+M21_ISLAND_MAP_PAGE_R07_RESULT=PASS boundaries=9
+
+EXIT=0

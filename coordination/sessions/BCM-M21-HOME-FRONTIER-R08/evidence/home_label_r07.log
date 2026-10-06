@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_HOME_LABEL_R07 PASS: canonical campaign data loads
+M21_HOME_LABEL_R07 PASS: ten-level frontier configures
+M21_HOME_LABEL_R07 PASS: production shell accepts frontier campaign
+M21_HOME_LABEL_R07 PASS: campaign manager exposes frontier 10
+M21_HOME_LABEL_R07 PASS: PLAY plaque text is exactly LEVEL 10
+M21_HOME_LABEL_R07 PASS: top Level bar displays the campaign frontier
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture_home (res://tests/m21_home_label_r07_probe.gd:33)
+       [1] _frames (res://tests/m21_home_label_r07_probe.gd:28)
+SCRIPT ERROR: Cannot call method 'is_empty' on a null value.
+   at: _capture_home (res://tests/m21_home_label_r07_probe.gd:35)
+   GDScript backtrace (most recent call first):
+       [0] _capture_home (res://tests/m21_home_label_r07_probe.gd:35)
+       [1] _frames (res://tests/m21_home_label_r07_probe.gd:28)
+M21_HOME_LABEL_R07 PASS: replay selection moves to level 4
+M21_HOME_LABEL_R07 PASS: both Home level displays stay at frontier 10 during old replay
+M21_HOME_LABEL_R07 PASS: first completion of frontier 10 advances both Home levels to 11
+M21_HOME_LABEL_R07 PASS: replaying level 4 cannot move Home or frontier backward
+M21_HOME_LABEL_R07_RESULT=PASS
+
+EXIT=0

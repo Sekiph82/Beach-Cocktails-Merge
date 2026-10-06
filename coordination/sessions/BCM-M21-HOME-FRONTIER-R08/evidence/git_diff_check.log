@@ -1,0 +1,9 @@
+warning: in the working copy of 'coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/WORLD_MAP_PRODUCTION_LAYOUT_V05.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'coordination/sessions/BCM-M21-WORLD-MAP-COMPOSITE-NAV-R01/evidence/production-v05/WORLD_MAP_PRODUCTION_V05_GUI_REPORT.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'project.godot', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/campaign/application_shell.gd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/campaign/campaign_navigation_controller.gd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/m21_home_exact_target_r04_probe.gd', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/m21_home_label_r07_probe.gd', LF will be replaced by CRLF the next time Git touches it
+
+EXIT=0

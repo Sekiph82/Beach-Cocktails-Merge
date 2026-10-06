@@ -379,11 +379,11 @@ func _make_home_value_label(node_name: String, rect: Rect2, font_size: int, styl
 
 
 func _refresh_home_values() -> void:
-    var level := _current_selected_level()
+    var frontier_level := _current_frontier_level()
     var economy = campaign_navigation.economy if campaign_navigation != null else null
     var coins := int(economy.coins) if economy != null else 0
     if _home_value_labels.has("level"):
-        (_home_value_labels["level"] as Label).text = str(level) if level > 0 else "1"
+        (_home_value_labels["level"] as Label).text = str(frontier_level) if frontier_level > 0 else "1"
     if _home_value_labels.has("energy"):
         (_home_value_labels["energy"] as Label).text = str(HOME_ENERGY_DISPLAY_DEFAULT)
     if _home_value_labels.has("coins"):
@@ -391,24 +391,14 @@ func _refresh_home_values() -> void:
     if _home_value_labels.has("gems"):
         (_home_value_labels["gems"] as Label).text = str(HOME_GEMS_DISPLAY_DEFAULT)
     if _home_value_labels.has("continue"):
-        var frontier_level := _current_frontier_level()
         (_home_value_labels["continue"] as Label).text = "LEVEL %d" % frontier_level if frontier_level > 0 else "PLAY"
-
-
-func _current_selected_level() -> int:
-    if campaign_navigation == null or campaign_navigation.campaign_manager == null:
-        return 0
-    var manager = campaign_navigation.campaign_manager
-    var level_id := int(manager.selected_level_id)
-    if level_id > 0 and manager.is_level_unlocked(str(manager.current_island_id), level_id):
-        return level_id
-    return 0
 
 
 func _current_frontier_level() -> int:
     if campaign_navigation == null or campaign_navigation.campaign_manager == null:
         return 0
-    return int(campaign_navigation.campaign_manager.get_frontier_level_id())
+    var manager = campaign_navigation.campaign_manager
+    return int(manager.get_frontier_level_id(str(manager.current_island_id)))
 
 
 func _format_home_coins(value: int) -> String:
