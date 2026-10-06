@@ -63,10 +63,10 @@ func _check_case(manager: GameManager, label: String) -> void:
     if hud == null or logo == null or best == null or score == null or to_go == null or next == null:
         return
 
-    var stack_up := best.position.y < 145.0 and score.position.y < 265.0
+    var accepted_columns := best.position.x < hud.size.x * 0.5 and score.position.x > hud.size.x * 0.65 and score.position.y >= next.position.y + next.size.y
     var no_overlap := not _intersects(logo, best) and not _intersects(best, score) and not _intersects(score, to_go) and not _intersects(score, next) and not _intersects(best, to_go) and not _intersects(best, next)
     var open_table := score.position.y + score.size.y < manager.table_top_y - 4.0
-    _check("%s BEST/SCORE moved upward" % label, stack_up)
+    _check("%s BEST stays left and SCORE stays right below NEXT" % label, accepted_columns)
     _check("%s logo -> BEST -> SCORE stack is fully visible and non-overlapping" % label, no_overlap and logo.position.y >= 0.0 and best.position.y >= 0.0 and score.position.y >= 0.0 and score.position.y + score.size.y <= hud.size.y)
     _check("%s upper tabletop remains open below HUD" % label, open_table)
 
@@ -80,6 +80,8 @@ func _check_case(manager: GameManager, label: String) -> void:
     score_rule = score_rule and manager._best_value.text == "9999999" and manager._score_value.text == "9999999"
     _check("%s preserves fixed seven-digit score behavior" % label, score_rule)
 
+    manager._target_level = 6
+    manager._refresh_merge_target_visual()
     var target_text_free := manager.get_node_or_null("UI/HUD/ToGoOrdersPanel/ToGoLevelLabel") == null and manager.get_node_or_null("UI/HUD/ToGoOrdersPanel/Label") == null
     var reward_digits := manager._to_go_reward_label.text == "1000" and not manager._to_go_reward_label.text.begins_with("+")
     var to_go_artwork := to_go.get_node_or_null("Artwork") as Sprite2D
@@ -91,8 +93,9 @@ func _check_case(manager: GameManager, label: String) -> void:
     var next_ok := manager._next_sprite.texture == Drink.texture_for_level(12)
     var progression_ok := manager._progression_icons.size() == 12 and hud.get_node_or_null("ProgressionIconL13") == null
     _check("%s preserves true NEXT and baked 2x6 progression" % label, next_ok and progression_ok)
-    var geometry_ok := absf(manager.get_horizontal_bounds_at_y(manager.table_bottom_y * 0.75, 42.0).x - (manager.get_table_rail_bounds_at_y(manager.table_bottom_y * 0.75).x + 42.0 + GameManager.TABLE_SOLVER_EPSILON)) < 0.01
-    _check("%s M06-R05 full tabletop bounds remain HUD-independent" % label, geometry_ok and manager.get_node_or_null("guide_line") == null)
+    var danger_ok := is_equal_approx(manager.death_line_y, GameManager.source_to_viewport(Vector2(0.0, 1080.0), manager.get_board_size()).y)
+    var launch_ok := is_equal_approx(manager.launch_y, GameManager.source_to_viewport(Vector2(0.0, 1136.0), manager.get_board_size()).y)
+    _check("%s accepted M06 danger and launch coordinates remain HUD-independent with no guide line" % label, danger_ok and launch_ok and manager.get_node_or_null("guide_line") == null)
     print("M07_R05_STATE label=%s viewport=%s logo=%s best=%s score=%s to_go=%s next=%s table_top_y=%.3f" % [label, manager.get_board_size(), logo.position, best.position, score.position, to_go.position, next.position, manager.table_top_y])
     await _save_capture(manager.get_viewport(), label)
 

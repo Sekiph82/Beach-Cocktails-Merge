@@ -12,10 +12,10 @@ const CASES := [
 ]
 const CAPTURE_DIR := "res://docs/evidence/m07_r08"
 const LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout_v02.json"
-const BEST_VALUE_BOX := Rect2(45.0, 49.5, 116.0, 52.0)
-const SCORE_VALUE_BOX := Rect2(45.0, 47.0, 116.0, 52.0)
-const TO_GO_TARGET_BOX := Rect2(30.0, 78.0, 150.0, 100.0)
-const TO_GO_REWARD_BOX := Rect2(35.0, 185.0, 140.0, 35.0)
+const BEST_VALUE_BOX_SOURCE := Rect2(45.0, 49.5, 116.0, 52.0)
+const SCORE_VALUE_BOX_SOURCE := Rect2(45.0, 47.0, 116.0, 52.0)
+const TO_GO_TARGET_BOX := Rect2(25.875, 84.0, 81.25, 80.0)
+const TO_GO_REWARD_BOX := Rect2(122.0, 128.0, 65.0, 27.0)
 const NEXT_SAFE_BOX := Rect2(28.0, 62.0, 90.0, 100.0)
 
 var failures: Array[String] = []
@@ -89,8 +89,10 @@ func _check_fixed_scores(manager: GameManager, label: String) -> void:
         manager._refresh_hud()
         best_sizes.append(manager._best_value.get_theme_font_size("font_size"))
         score_sizes.append(manager._score_value.get_theme_font_size("font_size"))
-        fit_ok = fit_ok and manager._best_value.text == "%d" % value and manager._score_value.text == "%d" % value and _inside(_label_rect(manager._best_value), BEST_VALUE_BOX, 4.0) and _inside(_label_rect(manager._score_value), SCORE_VALUE_BOX, 4.0)
-        print("M07_R04_FIXED_SCORE label=%s value=%d best_bounds=%s score_bounds=%s best_font=%d score_font=%d" % [label, value, _rect_string(_label_rect(manager._best_value)), _rect_string(_label_rect(manager._score_value)), best_sizes.back(), score_sizes.back()])
+        var best_expected := _scaled_panel_box(manager._best_panel, BEST_VALUE_BOX_SOURCE)
+        var score_expected := _scaled_panel_box(manager._score_panel, SCORE_VALUE_BOX_SOURCE)
+        fit_ok = fit_ok and manager._best_value.text == "%d" % value and manager._score_value.text == "%d" % value and _inside(_label_rect(manager._best_value), best_expected, 4.0) and _inside(_label_rect(manager._score_value), score_expected, 4.0)
+        print("M07_R04_FIXED_SCORE label=%s ui_scale=%.3f panel_size=%s value=%d best_expected=%s best_bounds=%s score_expected=%s score_bounds=%s best_font=%d score_font=%d" % [label, manager._ui_scale, manager._best_panel.size, value, _rect_string(best_expected), _rect_string(_label_rect(manager._best_value)), _rect_string(score_expected), _rect_string(_label_rect(manager._score_value)), best_sizes.back(), score_sizes.back()])
     var fixed_ok := _all_same(best_sizes) and _all_same(score_sizes) and best_sizes[0] == GameManager.BEST_SCORE_FIXED_FONT_SIZE and score_sizes[0] == GameManager.SCORE_FIXED_FONT_SIZE
     _check("%s fixed score font fits 0/321/24380/999999/9999999" % label, fit_ok and fixed_ok)
     _check("%s score display enforces seven-digit maximum" % label, GameManager.SCORE_DISPLAY_MAX_DIGITS == 7 and manager._score_display_text(10000000) == "9999999")
@@ -144,8 +146,9 @@ func _check_held_body_anchor(manager: GameManager, label: String) -> void:
         var baseline: float = float(drink.position.y + visual.scale.y * (sprite.position.y + float(Drink.HELD_BODY_FOOT_SOURCE_PX[level - 1]) * sprite.scale.x))
         var body_center_x: float = float(drink.position.x + visual.scale.x * (sprite.position.x + Drink.VISIBLE_BODY_CENTER_OFFSET_PX[level - 1].x * sprite.scale.x))
         baselines.append(baseline)
-        x_errors.append(absf(body_center_x - manager._launch_zone.position.x))
-        print("M07_R07_HELD label=%s level=L%d pos_y=%.3f root_scale=%.4f sprite_scale=%.5f body_center_x=%.3f halo_x=%.3f baseline=%.3f halo_y=%.3f" % [label, level, drink.position.y, visual.scale.y, sprite.scale.x, body_center_x, manager._launch_zone.position.x, baseline, manager._launch_zone.position.y + Drink.HELD_BODY_BASELINE_OFFSET_PX])
+        var launch_x := manager.get_board_size().x * 0.5
+        x_errors.append(absf(body_center_x - launch_x))
+        print("M07_R07_HELD label=%s level=L%d pos_y=%.3f root_scale=%.4f sprite_scale=%.5f body_center_x=%.3f launch_center_x=%.3f baseline=%.3f launch_baseline=%.3f" % [label, level, drink.position.y, visual.scale.y, sprite.scale.x, body_center_x, launch_x, baseline, manager.launch_y + Drink.HELD_BODY_BASELINE_OFFSET_PX])
         drink.queue_free()
     var min_baseline: float = baselines.min()
     var max_baseline: float = baselines.max()
@@ -196,6 +199,11 @@ func _sprite_visible_top(panel: Control, sprite: Sprite2D) -> float:
 
 func _inside(actual: Rect2, expected: Rect2, tolerance: float) -> bool:
     return actual.position.x >= expected.position.x - tolerance and actual.position.y >= expected.position.y - tolerance and actual.end.x <= expected.end.x + tolerance and actual.end.y <= expected.end.y + tolerance
+
+
+func _scaled_panel_box(panel: Control, source_box: Rect2) -> Rect2:
+    var scale := Vector2(panel.size.x / 205.0, panel.size.y / 115.45)
+    return Rect2(source_box.position * scale, source_box.size * scale)
 
 
 func _all_same(values: Array[int]) -> bool:

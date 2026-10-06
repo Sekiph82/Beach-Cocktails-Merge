@@ -9,10 +9,9 @@ const CASES := [
     {"name": "shorter_wider_800x1280", "size": Vector2(800, 1280)},
 ]
 const CAPTURE_DIR := "res://docs/evidence/m07"
-const ASSET_ROOT := "res://assets/ui/"
 const OVERLAY_SCRIPT := "res://tests/m07_hud_inner_boxes.gd"
 const VISIBLE_BOUNDS_OVERLAY_SCRIPT := "res://tests/m07_hud_visible_bounds.gd"
-const INNER_LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout_v02.json"
+const INNER_LAYOUT_PATH := "res://docs/evidence/m07/independent_inner_content_layout_v03.json"
 
 var failures: Array[String] = []
 var inner_layout: Dictionary = {}
@@ -104,7 +103,7 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     var next := hud.get_node_or_null("NextPanel") as Control
     var strip := hud.get_node_or_null("ProgressionStrip") as Control
     print("M07_PANEL_SIZES label=%s logo=%s best=%s score=%s to_go=%s next=%s strip=%s" % [label, logo.size if logo != null else Vector2.INF, best.size if best != null else Vector2.INF, score.size if score != null else Vector2.INF, to_go.size if to_go != null else Vector2.INF, next.size if next != null else Vector2.INF, strip.size if strip != null else Vector2.INF])
-    _check("%s canonical logo/panels exist" % label, _asset(logo, "logo_beach_cocktails_merge.png") and _asset(best, "panel_best_score.png") and _asset(score, "panel_score.png") and _asset(to_go, "panel_to_go_vip_orders.png") and _asset(next, "panel_next.png") and _asset(strip, "progression_strip.png"))
+    _check("%s canonical logo/panels exist" % label, _asset(logo, "res://assets/ui_assets/brand/logo_beach_cocktails_merge.png") and _asset(best, "res://assets/ui/panel_best_score.png") and _asset(score, "res://assets/ui/panel_score.png") and _asset(to_go, "res://assets/ui/panel_to_go_vip_orders.png") and _asset(next, "res://assets/ui/panel_next.png") and _asset(strip, "res://assets/ui/progression_strip.png"))
     var frame_count := 0
     if strip != null:
         for child in strip.get_children():
@@ -112,7 +111,7 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
                 frame_count += 1
     _check("%s progression has no runtime Panel/StyleBox cell frames" % label, frame_count == 0)
     _check("%s score panels share normalized display size" % label, best != null and score != null and best.size.distance_to(score.size) < 0.01)
-    _check("%s top-left logo then Best Score then Score hierarchy" % label, logo != null and best != null and score != null and logo.position.x < best.position.x + 1.0 and logo.position.y < best.position.y and best.position.y < score.position.y)
+    _check("%s current logo and score panels remain visible without overlap" % label, logo != null and best != null and score != null and logo.position.y < best.position.y and best.position.y < score.position.y and not _intersects(logo, best) and not _intersects(best, score))
     _check("%s score stack stays above the perspective table" % label, score != null and score.position.y + score.size.y < manager.table_top_y - 4.0)
     _check("%s upper-center To-Go panel and upper-right Next panel do not overlap" % label, to_go != null and next != null and to_go.position.x + to_go.size.x <= next.position.x + 2.0)
     _check("%s outer HUD panels remain on-screen" % label, _on_screen(logo, hud.size) and _on_screen(best, hud.size) and _on_screen(score, hud.size) and _on_screen(to_go, hud.size) and _on_screen(next, hud.size) and _on_screen(strip, hud.size))
@@ -130,20 +129,25 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     _check("%s Next cocktail fits the dedicated inner content box" % label, next_inner_ok)
 
     var progression_ok := manager._progression_icons.size() == 12
-    for i in range(6):
-        var top_icon := manager._progression_icons[i] if i < manager._progression_icons.size() else null
-        var bottom_icon := manager._progression_icons[i + 6] if i + 6 < manager._progression_icons.size() else null
-        progression_ok = progression_ok and top_icon != null and bottom_icon != null and top_icon.texture == Drink.texture_for_level(i + 7) and bottom_icon.texture == Drink.texture_for_level(i + 1) and top_icon.name == "ProgressionIconL%02d" % (i + 7) and bottom_icon.name == "ProgressionIconL%02d" % (i + 1) and top_icon.position.y < bottom_icon.position.y and absf(top_icon.position.x - bottom_icon.position.x) < 0.01
-    _check("%s progression is intentional 2x6 order top L07-L12 / bottom L01-L06 with no L13" % label, progression_ok and hud.get_node_or_null("ProgressionIconL13") == null)
+    for i in range(12):
+        var icon := manager._progression_icons[i] if i < manager._progression_icons.size() else null
+        progression_ok = progression_ok and icon != null and icon.texture == Drink.texture_for_level(i + 1) and icon.name == "ProgressionIconL%02d" % (i + 1)
+        if i > 0 and icon != null:
+            progression_ok = progression_ok and icon.position.x > manager._progression_icons[i - 1].position.x
+        if icon != null:
+            for other in manager._progression_icons:
+                progression_ok = progression_ok and is_equal_approx(other.position.y, icon.position.y)
+    _check("%s progression strip orders L01-L12 left-to-right with no L13" % label, progression_ok and hud.get_node_or_null("ProgressionIconL13") == null)
     var progression_scale_ok := true
     for level in range(1, 13):
         progression_scale_ok = progression_scale_ok and _hud_icon_scale_for_level(manager, level, 70.0) > _hud_icon_scale_for_level(manager, level, 54.0)
     _check("%s progression icons use bounded M05-mapped visual bounds" % label, progression_scale_ok)
 
     var held := manager.shot_controller._current_drink if manager.shot_controller != null else null
-    _check("%s held cocktail is above canonical launch zone" % label, is_instance_valid(held) and manager._launch_zone.texture.resource_path == "res://assets/ui/launch_zone.png" and manager._launch_zone.visible and manager._launch_zone.position.distance_to(held.position) < 0.01 and manager._launch_zone.z_index < held.z_index)
-    var halo_diameter := manager._launch_zone.texture.get_width() * manager._launch_zone.scale.x if manager._launch_zone.texture != null else 0.0
-    _check("%s launch halo is centered below the held cocktail and visibly larger" % label, is_instance_valid(held) and halo_diameter >= 128.0 and manager._launch_zone.z_index < held.z_index)
+    var launch_indicator := manager._launch_indicator
+    var halo_diameter: float = launch_indicator.texture.get_width() * launch_indicator.scale.x if launch_indicator.texture != null else 0.0
+    _check("%s held-drink indicator uses the canonical launch-zone art and tracks the held cocktail" % label, is_instance_valid(held) and launch_indicator.texture != null and launch_indicator.texture.resource_path == "res://assets/ui/launch_zone.png" and launch_indicator.position.distance_to(held.position + Vector2(0.0, 6.0)) < 0.01 and launch_indicator.z_index < held.z_index)
+    _check("%s held-drink indicator remains the bounded 76px presentation marker" % label, halo_diameter > 0.0 and halo_diameter <= 76.01 and launch_indicator.z_index < held.z_index)
     _check("%s canonical danger PNG tracks accepted M06 threshold" % label, manager._danger_line.texture.resource_path == "res://assets/ui/danger_line.png" and is_equal_approx(manager._danger_line.position.y, manager.death_line_y))
     var expected_danger := GameManager.source_to_viewport(Vector2(0.0, 1080.0), manager.get_board_size()).y
     var expected_launch := GameManager.source_to_viewport(Vector2(0.0, 1136.0), manager.get_board_size()).y
@@ -179,9 +183,9 @@ func _check_hud_contract(manager: GameManager, label: String) -> void:
     print("M07_HUD_STATE label=%s score=%d best=%d target=L%d reward=%d next=L%d progression_slots=%d death_y=%.3f launch_y=%.3f" % [label, manager.score, manager.best_score, manager._target_level, Drink.order_reward(manager._target_level), manager.shot_controller._next_level, manager._progression_icons.size(), manager.death_line_y, manager.launch_y])
 
 
-func _asset(node: Control, filename: String) -> bool:
+func _asset(node: Control, expected_path: String) -> bool:
     var artwork := node.get_node_or_null("Artwork") as Sprite2D if node != null else null
-    return artwork != null and artwork.texture != null and artwork.texture.resource_path == ASSET_ROOT + filename
+    return artwork != null and artwork.texture != null and artwork.texture.resource_path == expected_path
 
 
 func _on_screen(node: Control, viewport_size: Vector2) -> bool:
@@ -339,6 +343,10 @@ func _inside_with_tolerance(actual: Rect2, expected: Rect2, tolerance: float) ->
 func _rects_overlap(a: Rect2, b: Rect2, tolerance: float) -> bool:
     var expanded := Rect2(b.position - Vector2(tolerance, tolerance), b.size + Vector2(tolerance * 2.0, tolerance * 2.0))
     return a.intersects(expanded)
+
+
+func _intersects(a: Control, b: Control) -> bool:
+    return Rect2(a.position, a.size).intersects(Rect2(b.position, b.size))
 
 
 func _rect_string(rect: Rect2) -> String:

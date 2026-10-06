@@ -1,0 +1,39 @@
+{
+  "release": "Beach Cocktails Merge v1 final M21 closure",
+  "work_item": "BCM-M21-006-R03",
+  "source_sha_tested": "8801136b18a502d08e5f03b1995f470ad5b1ecad",
+  "branch": "main",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "save_schema_version": 2,
+  "main_scene": "res://scenes/campaign/ApplicationShellScene.tscn",
+  "canonical_viewport": "720x1280",
+  "export_presets_file_present": false,
+  "export_status": "UNAVAILABLE_NO_EXPORT_PRESET",
+  "generated_distributable_artifacts": [],
+  "owner_accepted_product_surfaces_frozen": [
+    "Home", "World Map", "Sunny Cove Island Map", "Sunny Cove Back",
+    "Island Map page focus", "stars/mastery", "R04 gameplay surface",
+    "untimed campaign", "To-Go/VIP layout", "navigation round trip"
+  ],
+  "release_checks": {
+    "m07_current_hud": "PASS",
+    "m08_normal_process_twice": "PASS",
+    "r08_home_frontier": "PASS",
+    "r09_mouse_touch_twice": "PASS",
+    "r07_page_focus_and_node_visual": "PASS",
+    "full_background": "PASS",
+    "m18_stars_replay_rewards": "PASS",
+    "m20_application_shell": "PASS",
+    "fresh_save_l1_l100_tiki": "PASS",
+    "accepted_gameplay_regressions": "PASS",
+    "performance_stability_host_profile": "PASS",
+    "save_restart_persistence": "PASS",
+    "asset_validation": "PASS",
+    "godot_import_parse_boot": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "known_limitations": [
+    "No export_presets.cfg is present, so no distributable or signed package was generated.",
+    "Physical-device performance and native install/signing acceptance remain unverified owner-native gates."
+  ]
+}

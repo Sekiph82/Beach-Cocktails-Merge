@@ -80,7 +80,8 @@ func _mount_shell() -> void:
 	if shell.is_onboarding_visible():
 		shell.skip_onboarding()
 	await _frame(2)
-	_check("production PLAY path opens World Map", shell.press_play_continue() and navigation.get_current_view() == navigation.VIEW_WORLD_MAP)
+	_check("production PLAY path opens the current frontier gameplay", shell.press_play_continue() and navigation.get_current_view() == navigation.VIEW_GAMEPLAY)
+	_check("World Map profiling starts through the production router", navigation.show_world_map() and navigation.get_current_view() == navigation.VIEW_WORLD_MAP)
 	await _frame(4)
 	_sample("warmup_world_map")
 
