@@ -663,3 +663,39 @@ Required stop marker:
 
 BCM-M21-006 remains blocked.
 
+## Active M21 Home frontier authority remediation — 2026-10-06
+
+Independent audit of R07 + Sunny Cove full-background follow-up:
+`coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_R07_FULL_BACKGROUND_AUDIT.md`
+
+Verdict:
+`CHANGES_REQUIRED / HOME_FRONTIER_AUTHORITY_MISMATCH`
+
+R07 Island Map/star/full-background work is frozen and should be preserved.
+
+The only active defect:
+- Home top LEVEL currently derives from selected replay level;
+- Home PLAY plaque derives from campaign frontier;
+- Home PLAY still launches selected replay level.
+
+This can produce a false Home state such as:
+`top LEVEL 4 / plaque LEVEL 11 / PLAY launches 4`.
+
+Active R08 package:
+- `coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_HOME_FRONTIER_CRITERIA_R08.md`
+- `coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_HOME_FRONTIER_PROMPT_R08.md`
+
+Owner-locked correction:
+- Home top LEVEL = campaign frontier;
+- Home plaque = `LEVEL <frontier>`;
+- Home PLAY launches that same frontier;
+- explicit old-level replay from Island Map remains allowed;
+- replay never redefines Home frontier.
+
+Do not modify R07 Island Map visuals, 720×1280 full background, landmark coordinates, title, LV labels, stars, threshold generator/data, World Map, gameplay surfaces, or inactive economy draft.
+
+Required stop marker:
+`AWAITING_GPT_M21_HOME_FRONTIER_AUDIT_R08`
+
+BCM-M21-006 remains blocked.
+
