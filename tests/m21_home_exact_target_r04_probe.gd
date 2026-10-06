@@ -7,7 +7,7 @@ const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const LAYOUT_PATH := "res://coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/HOME_TARGET_LAYOUT_R04.json"
 const HOME_ROOT := "res://assets/ui_assets/screens/home/"
-const EVIDENCE_DIR := "res://coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v03"
+const EVIDENCE_DIR := "res://coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04"
 
 var failures: Array[String] = []
 var shell
@@ -125,12 +125,15 @@ func _run() -> void:
 	for item_value in layout.get("items", []):
 		var item: Dictionary = item_value
 		layout_items[str(item.get("id", ""))] = item
-	var expected_bar_rects := {"level_bar": Vector2(179.25, 89.0), "energy_bar": Vector2(181.5, 81.0), "coin_bar": Vector2(162.75, 81.0), "diamond_bar": Vector2(165.75, 82.0)}
+	var expected_bar_rects := {"level_bar": Vector2(179.25, 89.0), "energy_bar": Vector2(136.125, 81.0), "coin_bar": Vector2(203.4375, 81.0), "diamond_bar": Vector2(165.75, 82.0)}
 	for bar_id in expected_bar_rects:
 		var bar_rect: Dictionary = layout_items.get(bar_id, {}).get("target_rect", {})
 		var expected_bar: Vector2 = expected_bar_rects[bar_id]
 		_check("%s has its owner-directed width and preserved height" % bar_id, absf(float(bar_rect.get("width", 0.0)) - expected_bar.x) < 0.01 and absf(float(bar_rect.get("height", 0.0)) - expected_bar.y) < 0.01)
-	_check("Energy bar is 18 px closer to Level while preserving its right endpoint", absf(float(layout_items.get("energy_bar", {}).get("target_rect", {}).get("x", 0.0)) - 229.0) < 0.01 and absf(float(layout_items.get("energy_bar", {}).get("target_rect", {}).get("x", 0.0)) + float(layout_items.get("energy_bar", {}).get("target_rect", {}).get("width", 0.0)) - 410.5) < 0.01)
+	var energy_rect: Dictionary = layout_items.get("energy_bar", {}).get("target_rect", {})
+	var coin_rect: Dictionary = layout_items.get("coin_bar", {}).get("target_rect", {})
+	_check("Energy width is 25% smaller than V03 and its right endpoint is fixed", absf(float(energy_rect.get("width", 0.0)) - 181.5 * 0.75) < 0.01 and absf(float(energy_rect.get("x", 0.0)) + float(energy_rect.get("width", 0.0)) - 410.5) < 0.01)
+	_check("Coin width is 25% larger than V03 and its right endpoint is fixed", absf(float(coin_rect.get("width", 0.0)) - 162.75 * 1.25) < 0.01 and absf(float(coin_rect.get("x", 0.0)) + float(coin_rect.get("width", 0.0)) - 606.75) < 0.01)
 	var plus_centers := {"energy_plus": 393.0, "coin_plus": 589.0, "diamond_plus": 802.0}
 	var plus_bars := {"energy_plus": "energy_bar", "coin_plus": "coin_bar", "diamond_plus": "diamond_bar"}
 	var plus_alignment := true
@@ -167,7 +170,7 @@ func _run() -> void:
 	_check("Continue label is centered horizontally and raised 12 px total", continue_center.distance_to(Vector2(467.5, 1224.857)) < 0.02)
 	_check("Continue label uses the requested smaller 23 px font", int(layout.get("dynamic_text", []).filter(func(entry): return entry.get("id", "") == "continue")[0].font_size) == 23)
 
-	await _capture("02_home_owner_critique_v03_941x1672", Vector2i(941, 1672))
+	await _capture("02_home_owner_critique_v04_941x1672", Vector2i(941, 1672))
 	var rects_match := true
 	for item_value in layout.get("items", []):
 		var item: Dictionary = item_value
@@ -182,8 +185,8 @@ func _run() -> void:
 			print("M21_HOME_R04_RECT: %s actual=%s/%s expected=%s/%s" % [item.get("id", ""), str(visual.position), str(visual.size), str(expected_pos), str(expected_size)])
 			rects_match = false
 	_check("all production art rects match normalized layout at 941x1672", rects_match)
-	await _capture("03_home_owner_critique_v03_720x1280", Vector2i(720, 1280))
-	await _capture("04_home_owner_critique_v03_800x1422", Vector2i(800, 1422))
+	await _capture("03_home_owner_critique_v04_720x1280", Vector2i(720, 1280))
+	await _capture("04_home_owner_critique_v04_800x1422", Vector2i(800, 1422))
 	root.size = Vector2i(720, 1280)
 	await _frames()
 	var controls: Dictionary = shell.get_menu_controls()
@@ -193,19 +196,19 @@ func _run() -> void:
 	controls = shell.get_menu_controls()
 	await _click(controls.play.position + controls.play.size / 2.0)
 	_check("PLAY image resumes the player's current level 7", shell.get_current_view() == "CAMPAIGN" and navigation.current_view == navigation.VIEW_GAMEPLAY and navigation._session_bridge.active_level_id == 7)
-	await _capture("05_home_owner_critique_v03_play_navigation", Vector2i(720, 1280))
+	await _capture("05_home_owner_critique_v04_play_navigation", Vector2i(720, 1280))
 	shell.show_main_menu()
 	await _frames()
 	controls = shell.get_menu_controls()
 	await _click(controls.world_map.position + controls.world_map.size / 2.0)
 	_check("WORLD MAP image opens and displays production World Map", shell.get_current_view() == "CAMPAIGN" and navigation.current_view == navigation.VIEW_WORLD_MAP and navigation._world_map.visible)
-	await _capture("06_home_owner_critique_v03_world_map_navigation", Vector2i(720, 1280))
+	await _capture("06_home_owner_critique_v04_world_map_navigation", Vector2i(720, 1280))
 	shell.show_main_menu()
 	await _frames()
 	controls = shell.get_menu_controls()
 	await _click(controls.settings.position + controls.settings.size / 2.0)
 	_check("SETTINGS image opens existing Settings", shell.get_current_view() == "SETTINGS" and shell.is_settings_visible())
-	await _capture("07_home_owner_critique_v03_settings_navigation", Vector2i(720, 1280))
+	await _capture("07_home_owner_critique_v04_settings_navigation", Vector2i(720, 1280))
 
 	shell.queue_free()
 	await process_frame

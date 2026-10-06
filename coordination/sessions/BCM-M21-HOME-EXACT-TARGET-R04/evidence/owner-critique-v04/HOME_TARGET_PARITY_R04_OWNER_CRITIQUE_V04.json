@@ -1,0 +1,83 @@
+{
+  "schema": "BCM-M21-HOME-TARGET-PARITY-R04-OWNER-CRITIQUE-V04",
+  "work_item": "BCM-M21-001-R04 coin amount fit owner correction",
+  "owner_direction": "Energy width x0.75 and Coin width x1.25 relative to V03; keep each add icon seated at its current bar endpoint.",
+  "production_capture": {
+    "path": "evidence/owner-critique-v04/02_home_owner_critique_v04_941x1672.png",
+    "sha256": "05586c99ac43b1c7792e1ca76a8d397d2cc1830ac44cebcf6be3808042ea8e33",
+    "size": [
+      941,
+      1672
+    ]
+  },
+  "target_reference": {
+    "path": "assets/ui_assets/screens/home/TARGET beach cocktails merge home.png",
+    "sha256": "38d937b8a4345906fe69e436965d1f0feb9d69105d25a3455048488df07c15e1",
+    "size": [
+      941,
+      1672
+    ]
+  },
+  "resize_results": {
+    "energy": {
+      "previous_width": 181.5,
+      "factor": 0.75,
+      "width": 136.125,
+      "rect": {
+        "x": 274.375,
+        "y": 15.0,
+        "width": 136.125,
+        "height": 81.0
+      },
+      "right_edge_preserved_px": 410.5
+    },
+    "coin": {
+      "previous_width": 162.75,
+      "factor": 1.25,
+      "width": 203.4375,
+      "rect": {
+        "x": 403.3125,
+        "y": 14.0,
+        "width": 203.4375,
+        "height": 81.0
+      },
+      "right_edge_preserved_px": 606.75
+    },
+    "add_icon_centers_unchanged": {
+      "energy_plus": {
+        "x": 393.0,
+        "y": 55.5
+      },
+      "coin_plus": {
+        "x": 589.0,
+        "y": 54.5
+      },
+      "diamond_plus": {
+        "x": 802.0,
+        "y": 54.0
+      }
+    },
+    "coins_label_rect": {
+      "x": 479,
+      "y": 25,
+      "width": 91,
+      "height": 53
+    },
+    "coin_balance_visible": "4.250",
+    "verified_by": "tests/m21_home_exact_target_r04_probe.gd"
+  },
+  "captures": [
+    "evidence/owner-critique-v04/02_home_owner_critique_v04_941x1672.png",
+    "evidence/owner-critique-v04/03_home_owner_critique_v04_720x1280.png",
+    "evidence/owner-critique-v04/04_home_owner_critique_v04_800x1422.png",
+    "evidence/owner-critique-v04/05_home_owner_critique_v04_play_navigation.png",
+    "evidence/owner-critique-v04/06_home_owner_critique_v04_world_map_navigation.png",
+    "evidence/owner-critique-v04/07_home_owner_critique_v04_settings_navigation.png"
+  ],
+  "full_pixel_parity_to_original_target": "UNVERIFIED",
+  "notes": [
+    "All three add-icon rectangles were preserved exactly from V03.",
+    "Source owner-supplied PNGs were not modified.",
+    "This report proves the requested V04 layout and production render, not full original TARGET pixel parity."
+  ]
+}

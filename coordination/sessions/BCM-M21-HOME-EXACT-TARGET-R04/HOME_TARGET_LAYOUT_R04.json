@@ -4,7 +4,7 @@
     "width": 941,
     "height": 1672
   },
-  "coordinate_rule": "Owner screenshot critiques V02 and V03 override earlier rectangles for the top bars/add icons, lower button group, and Continue label. Runtime uses normalized reference-space rectangles.",
+  "coordinate_rule": "Owner Home critiques V02-V04 override the original target rectangles for designated elements. V04 resizes Energy and Coin bars about their right/end anchors while preserving all three existing plus-icon transforms.",
   "items": [
     {
       "id": "background",
@@ -58,14 +58,14 @@
         "height": 766
       },
       "target_rect": {
-        "x": 229.0,
+        "x": 274.375,
         "y": 15.0,
-        "width": 181.5,
+        "width": 136.125,
         "height": 81.0
       },
       "normalized_rect": {
-        "x": 0.243358,
-        "width": 0.19288,
+        "x": 0.291578,
+        "width": 0.14466,
         "y": 0.008971,
         "height": 0.048445
       },
@@ -80,14 +80,14 @@
         "height": 766
       },
       "target_rect": {
-        "x": 444,
-        "y": 14,
-        "width": 162.75,
-        "height": 81
+        "x": 403.3125,
+        "y": 14.0,
+        "width": 203.4375,
+        "height": 81.0
       },
       "normalized_rect": {
-        "x": 0.471838,
-        "width": 0.172954,
+        "x": 0.4286,
+        "width": 0.216193,
         "y": 0.008373,
         "height": 0.048445
       },
@@ -452,7 +452,18 @@
         "width_px": 181.5,
         "right_edge_preserved_px": 410.5,
         "purpose": "move Energy closer to Level while preserving the bar endpoint"
-      }
+      },
+      "energy_bar_v04": {
+        "width_factor_of_v03": 0.75,
+        "width_px": 136.125,
+        "right_edge_preserved_px": 410.5
+      },
+      "coin_bar_v04": {
+        "width_factor_of_v03": 1.25,
+        "width_px": 203.4375,
+        "right_edge_preserved_px": 606.75
+      },
+      "resize_anchor_v04": "preserve each existing right edge so the separate add icons remain seated at their current bar endpoints"
     },
     "lower_button_group": {
       "ids": [
@@ -496,6 +507,27 @@
       },
       "vertical_center_rule": "each icon center_y equals its corresponding bar center_y"
     },
-    "owner_screenshot_v03": "evidence/owner-critique-v03/owner_home_annotation_v03.png"
+    "owner_screenshot_v03": "evidence/owner-critique-v03/owner_home_annotation_v03.png",
+    "add_icons_v04": {
+      "preserved_centers_px": {
+        "energy_plus": {
+          "x": 393.0,
+          "y": 55.5
+        },
+        "coin_plus": {
+          "x": 589.0,
+          "y": 54.5
+        },
+        "diamond_plus": {
+          "x": 802.0,
+          "y": 54.0
+        }
+      },
+      "size_px": {
+        "width": 63.0,
+        "height": 62.0
+      }
+    },
+    "owner_request_v04": "Energy bar 25 percent narrower; Coin bar 25 percent wider; keep add icons at the existing endpoints."
   }
 }
