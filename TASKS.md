@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M21-WORLD-MAP-INPUT-R09
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001-R09 — CODEX executes `coordination/sessions/BCM-M21-WORLD-MAP-INPUT-R09/CHATGPT_WORLD_MAP_INPUT_PROMPT_R09.md`, reproduces and diagnoses the three inherited V05 real-input failures, fixes production or the stale harness only with evidence, makes V05 pass twice consecutively, reruns the locked regressions, and stops for independent audit.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M21-001-R09 — OWNER performs one fresh F5 check of `Home → World Map → Sunny Cove → top-left Back → World Map` and returns `OWNER_SUNNY_COVE_BACK_ACCEPTED_R09` or the exact remaining defect.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Independent R08 audit is **R08_SCOPE_PASS / PROJECT_REGRESSION_GATE_FAIL**. The Home frontier defect is fixed: top LEVEL, PLAY plaque, and Home PLAY now use the same campaign frontier, while explicit Island Map replay remains intact. The remaining blocker is inherited V05 production real-input coverage: Island Map Back→World Map, Sunny Cove ScreenTouch entry, and World Map Back→Home fail identically on the clean pre-R08 baseline. R09 is active solely to classify and close those three failures without changing accepted Home/R07 visuals, stars, full Sunny Cove background, gameplay, or the inactive economy draft. BCM-M21-006 remains blocked.
+- Progress: R09 independent audit = **TECHNICAL_AUDITED_PASS / OWNER_F5_CONFIRMATION_REQUIRED**. Root cause was production pointer interception: the scrollable `LevelNodes` layer won GUI hit-testing over the visible Sunny Cove Back button. The same Back button was moved to the Island Map root input layer at z=10 with unchanged appearance/rect. V05 real-input passes twice consecutively for mouse Back, touch Sunny Cove entry, touch Back, map-instance reuse, and World Map Back→Home. R08 frontier behavior and all accepted R07 visuals/mastery/full-background work remain frozen. One fresh owner F5 confirmation is required before BCM-M21-001 can close.
 
 ## Blockers/Waits
 
