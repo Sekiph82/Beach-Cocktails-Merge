@@ -758,3 +758,33 @@ Owner acceptance marker:
 
 BCM-M21-006 remains blocked until this fresh owner runtime confirmation and later closure work.
 
+## Active BCM-M21 final release closure R03 — 2026-10-06
+
+Owner acceptance of BCM-M21-001:
+`coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R03/OWNER_M21_001_ACCEPTANCE_R09.md`
+
+BCM-M21-001 is complete.
+
+Active task:
+`BCM-M21-006`
+
+Active release closure package:
+- `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R03/CHATGPT_FINAL_RELEASE_CRITERIA_R03.md`
+- `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R03/CHATGPT_FINAL_RELEASE_PROMPT_R03.md`
+
+R03 must:
+- preserve all accepted current visuals and gameplay semantics;
+- reconcile the lingering tracked project.godot local drift;
+- close current M07 HUD regression authority without weakening tests;
+- close the prior M08 PASS-marker/nonzero-process crash with two clean exit-0 runs;
+- rerun current R08/R09/R07/M18/M20/progression/performance/save/release checks;
+- verify export/release configuration truthfully;
+- finish with tracked repository state clean and local/origin/remote parity.
+
+Economy Draft V01 remains inactive and must not be implemented during release closure.
+
+Required stop marker:
+`AWAITING_GPT_M21_FINAL_RELEASE_AUDIT_R03`
+
+Do not start M22 until BCM-M21-006 passes independent audit and ChatGPT records M21 complete.
+
