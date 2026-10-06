@@ -788,3 +788,32 @@ Required stop marker:
 
 Do not start M22 until BCM-M21-006 passes independent audit and ChatGPT records M21 complete.
 
+## Active BCM-M21 final release evidence closure R04 — 2026-10-06
+
+Independent R03 audit:
+`coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_AUDIT_R03.md`
+
+Verdict:
+`CHANGES_REQUIRED / EVIDENCE_PUBLICATION_CLOSURE_ONLY`
+
+R03 production/test-semantic work is frozen. The only active blocker is publication of mandatory final-run evidence that remained local because `*.log` is ignored.
+
+Active R04 package:
+- `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_EVIDENCE_CRITERIA_R04.md`
+- `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_EVIDENCE_PROMPT_R04.md`
+
+R04 must:
+- publish exact R03 logs as commit-eligible .txt evidence, or rerun only missing commands;
+- publish M08 x2 and R09 V05 x2 hard-gate evidence;
+- publish all remaining locked current regression evidence;
+- reconcile the conflicting project.godot SHA-256 claims;
+- distinguish product baseline / R03 implementation / R03 handoff SHAs in the final manifest;
+- publish final Git cleanliness/ref proof.
+
+No production runtime, accepted visual, gameplay, test tolerance/assertion, campaign/save/economy semantic, or M22 work is authorized.
+
+Required stop marker:
+`AWAITING_GPT_M21_FINAL_RELEASE_AUDIT_R04`
+
+M22 remains blocked until R04 passes independent audit.
+
