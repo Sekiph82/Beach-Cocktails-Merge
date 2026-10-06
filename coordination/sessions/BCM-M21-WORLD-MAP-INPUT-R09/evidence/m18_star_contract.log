@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M18_STAR_PROBE PASS: incomplete result earns zero stars
+M18_STAR_PROBE PASS: completed below two-star score earns one star
+M18_STAR_PROBE PASS: non-VIP reaches two stars at the two-star score threshold
+M18_STAR_PROBE PASS: non-VIP reaches three stars at the three-star score threshold
+M18_STAR_PROBE PASS: VIP completion below the two-star threshold remains one star
+M18_STAR_PROBE PASS: VIP state does not change two-star score mastery
+M18_STAR_PROBE PASS: VIP score below the three-star threshold remains two stars
+M18_STAR_PROBE PASS: VIP level without VIP completion caps three-star score at two
+M18_STAR_PROBE PASS: VIP level with VIP completion earns three stars at threshold
+M18_STAR_PROBE PASS: disabled VIP does not gate three-star score
+M18_STAR_PROBE PASS: fixture database loads
+M18_STAR_PROBE PASS: campaign configures
+M18_STAR_PROBE PASS: runtime bridge configures
+M18_STAR_PROBE PASS: normal bridge completion reports one star
+M18_STAR_PROBE PASS: one-star completion unlocks the next level
+M18_STAR_PROBE PASS: stars do not gate progression
+M18_STAR_CONTRACT_RESULT=PASS

@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_ISLAND_MAP_NODE_R07 PASS: canonical database passes full validation
+M21_ISLAND_MAP_NODE_R07 PASS: production campaign fixture configures at frontier 6
+M21_ISLAND_MAP_NODE_R07 PASS: production Sunny Cove map configures
+M21_ISLAND_MAP_NODE_R07 PASS: Sunny Cove title center is within 2px of plaque inner center
+M21_ISLAND_MAP_NODE_R07 PASS: Sunny Cove title fits inside plaque inner frame
+M21_ISLAND_MAP_NODE_R07 PASS: actual map exposes all 100 production level nodes
+M21_ISLAND_MAP_NODE_R07 PASS: all nodes use dynamic LV1–LV100 labels
+M21_ISLAND_MAP_NODE_R07 PASS: all nodes always show exactly three star positions
+M21_ISLAND_MAP_NODE_R07 PASS: BEST/SCORE node UI and tooltip text are absent
+M21_ISLAND_MAP_NODE_R07 PASS: LV labels are at least 24 reference px
+M21_ISLAND_MAP_NODE_R07 PASS: star labels are at least 20 reference px
+M21_ISLAND_MAP_NODE_R07 PASS: LV and star labels use strong font outlines
+M21_ISLAND_MAP_NODE_R07 PASS: one-star completed label is ★☆☆
+M21_ISLAND_MAP_NODE_R07 PASS: two-star completed label is ★★☆
+M21_ISLAND_MAP_NODE_R07 PASS: three-star completed label is ★★★
+M21_ISLAND_MAP_NODE_R07 PASS: VIP-complete node retains its three-star mastery
+M21_ISLAND_MAP_NODE_R07 PASS: open node shows ☆☆☆
+M21_ISLAND_MAP_NODE_R07 PASS: current node shows ☆☆☆
+M21_ISLAND_MAP_NODE_R07 PASS: locked node shows subdued ☆☆☆
+M21_ISLAND_MAP_NODE_R07 PASS: milestone chest marker remains separate
+M21_ISLAND_MAP_NODE_R07 PASS: VIP marker remains separate on a VIP node
+M21_ISLAND_MAP_NODE_R07 PASS: best score remains available internally
+M21_ISLAND_MAP_NODE_R07 PASS: existing node art remains in use
+M21_ISLAND_MAP_NODE_R07 PASS: focus exposes LV100 text
+M21_ISLAND_MAP_NODE_R07 PASS: levels 1–10 production page screenshot saved
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_completed_1_star
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_completed_2_star
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_completed_3_star
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_open
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_vip_complete_3_star
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_current_open
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_locked
+M21_ISLAND_MAP_NODE_R07 PASS: close crop saved: node_milestone
+M21_ISLAND_MAP_NODE_R07 PASS: node still accepts selection input
+M21_ISLAND_MAP_NODE_R07_RESULT=PASS

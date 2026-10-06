@@ -576,6 +576,13 @@ func _build_shell() -> void:
 	_feedback_overlay.action_requested.connect(_on_feedback_action)
 	add_child(_feedback_overlay)
 
+	# Keep the Back button in the root viewport's input layer. The long level
+	# path lives inside ScrollContainer's embedded viewport and otherwise wins
+	# GUI hit testing over the header despite the header's higher draw z-index.
+	header.remove_child(back)
+	add_child(back)
+	back.z_index = 10
+
 
 func _set_island_map_background() -> void:
 	if _background_texture == null or _background_fallback == null or level_database == null:
