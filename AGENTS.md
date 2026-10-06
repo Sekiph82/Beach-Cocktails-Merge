@@ -699,3 +699,37 @@ Required stop marker:
 
 BCM-M21-006 remains blocked.
 
+## Active M21 World Map real-input regression closure — 2026-10-06
+
+Independent R08 audit:
+`coordination/sessions/BCM-M21-WORLD-MAP-INPUT-R09/CHATGPT_R08_AUDIT.md`
+
+Verdict:
+`R08_SCOPE_PASS / PROJECT_REGRESSION_GATE_FAIL`
+
+R08 Home frontier behavior is frozen and accepted technically:
+- Home top LEVEL = campaign frontier;
+- PLAY plaque = LEVEL frontier;
+- Home PLAY launches frontier;
+- explicit old-level replay from Island Map remains supported.
+
+Remaining inherited V05 failures:
+1. Island Map Back does not satisfy the production probe's return-to-World-Map assertion.
+2. ScreenTouch Sunny Cove entry does not satisfy the exactly-once assertion.
+3. World Map Back does not satisfy the return-to-Main-Menu assertion.
+
+The same failures reproduce on clean pre-R08 baseline, so R08 must not be reverted.
+
+Active R09 package:
+- `coordination/sessions/BCM-M21-WORLD-MAP-INPUT-R09/CHATGPT_WORLD_MAP_INPUT_CRITERIA_R09.md`
+- `coordination/sessions/BCM-M21-WORLD-MAP-INPUT-R09/CHATGPT_WORLD_MAP_INPUT_PROMPT_R09.md`
+
+R09 must classify each failure as PRODUCT_DEFECT, STALE_PROBE, or HARNESS_LIMITATION with evidence, then close it with equal-or-stronger real pointer/touch coverage. Final V05 must pass twice consecutively.
+
+Do not modify accepted Home geometry/art, R07 Island Map visual/mastery/full-background work, gameplay, or inactive Economy Draft V01.
+
+Required stop marker:
+`AWAITING_GPT_M21_WORLD_MAP_INPUT_AUDIT_R09`
+
+BCM-M21-006 remains blocked.
+
