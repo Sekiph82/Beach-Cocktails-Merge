@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-FINAL-RELEASE-CLOSURE-R03
+- Current Sprint: BCM-M21-FINAL-RELEASE-CLOSURE-R04
 - Current Task: BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-006-R03 — CODEX executes `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R03/CHATGPT_FINAL_RELEASE_PROMPT_R03.md`, closes remaining M07/M08/project.godot release debt, reruns the complete current release matrix, verifies persistence/export state, publishes final evidence, and stops for independent audit.
+- Current Task Status: CHANGES_REQUIRED
+- Next Task/Action: BCM-M21-006-R04 — CODEX executes `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_EVIDENCE_PROMPT_R04.md`, publishes the missing mandatory R03 command evidence as committed text, fixes project.godot/release SHA metadata consistency, publishes final Git/ref proof, and stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner manually confirmed the Sunny Cove Back fix; BCM-M21-001 is now complete. Active task moves to BCM-M21-006 final release closure. R03 must preserve all accepted Home/World Map/Sunny Cove/gameplay visuals, reconcile the lingering tracked `project.godot` drift, close current M07 HUD regression authority and the prior M08 nonzero/access-violation process issue, rerun the full current navigation/progression/save/performance/release matrix, and produce final release evidence. Economy Draft V01 remains inactive. M22 must not start until BCM-M21-006 passes independent audit.
+- Progress: R03 source/probe closure is substantially sound, but independent audit verdict is **CHANGES_REQUIRED / EVIDENCE_PUBLICATION_CLOSURE_ONLY**. Mandatory final-run evidence (M08 x2, R09 V05 x2, M07 finals, R08/R07/M18/M20, save/restart, gameplay regressions, asset/import/boot, diff/ref proof) was retained locally as ignored `.log` files and not published to GitHub, so the final release gate is not independently auditable. R04 is evidence-only: no production or test-semantic changes are authorized. It must publish exact log copies/reruns as `.txt`, reconcile conflicting project.godot SHA-256 evidence, distinguish product baseline vs R03 handoff SHAs in the release manifest, and publish final cleanliness/ref proof. M22 remains blocked.
 
 ## Blockers/Waits
 
