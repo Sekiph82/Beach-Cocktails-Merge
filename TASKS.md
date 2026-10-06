@@ -5,18 +5,18 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-WORLD-MAP-INPUT-R09
-- Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
+- Current Sprint: BCM-M21-FINAL-RELEASE-CLOSURE-R03
+- Current Task: BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001-R09 — OWNER performs one fresh F5 check of `Home → World Map → Sunny Cove → top-left Back → World Map` and returns `OWNER_SUNNY_COVE_BACK_ACCEPTED_R09` or the exact remaining defect.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M21-006-R03 — CODEX executes `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R03/CHATGPT_FINAL_RELEASE_PROMPT_R03.md`, closes remaining M07/M08/project.godot release debt, reruns the complete current release matrix, verifies persistence/export state, publishes final evidence, and stops for independent audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R09 independent audit = **TECHNICAL_AUDITED_PASS / OWNER_F5_CONFIRMATION_REQUIRED**. Root cause was production pointer interception: the scrollable `LevelNodes` layer won GUI hit-testing over the visible Sunny Cove Back button. The same Back button was moved to the Island Map root input layer at z=10 with unchanged appearance/rect. V05 real-input passes twice consecutively for mouse Back, touch Sunny Cove entry, touch Back, map-instance reuse, and World Map Back→Home. R08 frontier behavior and all accepted R07 visuals/mastery/full-background work remain frozen. One fresh owner F5 confirmation is required before BCM-M21-001 can close.
+- Progress: Owner manually confirmed the Sunny Cove Back fix; BCM-M21-001 is now complete. Active task moves to BCM-M21-006 final release closure. R03 must preserve all accepted Home/World Map/Sunny Cove/gameplay visuals, reconcile the lingering tracked `project.godot` drift, close current M07 HUD regression authority and the prior M08 nonzero/access-violation process issue, rerun the full current navigation/progression/save/performance/release matrix, and produce final release evidence. Economy Draft V01 remains inactive. M22 must not start until BCM-M21-006 passes independent audit.
 
 ## Blockers/Waits
 
-- BCM-M21-006 is blocked until BCM-M21-001 passes independent audit and fresh owner visual/runtime acceptance.
+- BCM-M21-006 is active after BCM-M21-001 independent audit PASS and fresh owner runtime acceptance.
 
 ## Tasks
 
@@ -1032,18 +1032,17 @@ Owner F5 V04 historical remediation:
 - Log: `coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATION/CODEX_LOG_OWNER_F5_REMEDIATION_V04.md`
 - Required marker: `AWAITING_OWNER_F5_ACCEPTANCE_V04`
 
-- [~] BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
+- [x] BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
   Owner: Codex
   Priority: 100
 - [x] BCM-M21-002 — Profile Island Map node count, scrolling, loading, save IO, and gameplay memory/performance on target devices.
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [!] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
-  Owner: Human
+- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+  Owner: Codex
   Depends on: BCM-M21-001
-  Blocker: BCM-M21-001 composite World Map remediation must pass independent audit and fresh owner visual/runtime acceptance.
-  Owner Gate: OWNER_F5_ACCEPTED after the new composite World Map is approved.
+  Owner Gate: Final independent audit after R03 technical release closure.
 - [x] BCM-M21-007 — Remove proven obsolete/orphan visual assets, evidence, generated import metadata, stale JSON/tests/tools, and normalize repository truth around the owner-approved ten-island R04 surface/profile authority.
 
 ## Campaign design references
