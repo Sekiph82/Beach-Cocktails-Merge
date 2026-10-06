@@ -1,0 +1,5 @@
+warning: in the working copy of 'data/campaign/islands.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'project.godot', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'scripts/campaign/island_map_controller.gd', LF will be replaced by CRLF the next time Git touches it
+
+EXIT=0

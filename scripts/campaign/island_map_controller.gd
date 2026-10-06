@@ -481,6 +481,7 @@ func _build_shell() -> void:
 	sky_band.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	sky_band.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	sky_band.stretch_mode = TextureRect.STRETCH_SCALE
+	sky_band.modulate.a = 0.0
 	sky_band.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	header.add_child(sky_band)
 
@@ -537,8 +538,6 @@ func _build_shell() -> void:
 	_scroll = ScrollContainer.new()
 	_scroll.name = "LevelPathScroll"
 	_scroll.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_scroll.offset_top = 112.0
-	_scroll.offset_bottom = -70.0
 	_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
 	_scroll.mouse_filter = Control.MOUSE_FILTER_PASS
@@ -631,7 +630,7 @@ func _rebuild_page_backgrounds(definition: Dictionary, page_count: int, page_hei
 		background.name = "IslandMapPageBackground_%02d" % (page + 1)
 		background.texture = texture
 		background.position = Vector2(0.0, float(page) * page_height + origin_y)
-		background.size = Vector2(MAP_WIDTH, 1280.0)
+		background.size = Vector2(MAP_WIDTH, page_height)
 		background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		background.stretch_mode = TextureRect.STRETCH_SCALE
 		background.mouse_filter = Control.MOUSE_FILTER_IGNORE

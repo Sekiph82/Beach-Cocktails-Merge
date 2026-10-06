@@ -1,0 +1,84 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Plugin enabled
+MCP | plugin disabled in headless mode
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (3 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | IslandMapController[39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (25 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | child05_completed_prior_record.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | child05_improved_replay_updated.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | child05_return_context_restored.png[39m[0m
+[  11% ] [90m[1m_update_scan_actions[22m | child05_worse_replay_preserved.png[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | 02_home_owner_critique_v05_941x1672.png[39m[0m
+[  19% ] [90m[1m_update_scan_actions[22m | 03_home_owner_critique_v05_720x1280.png[39m[0m
+[  23% ] [90m[1m_update_scan_actions[22m | 04_home_owner_critique_v05_800x1422.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | 05_home_owner_critique_v05_play_navigation.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | 06_home_owner_critique_v05_world_map_navigation.png[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | 07_home_owner_critique_v05_settings_navigation.png[39m[0m
+[  38% ] [90m[1m_update_scan_actions[22m | sunny_cove_full_background_page_01.png[39m[0m
+[  42% ] [90m[1m_update_scan_actions[22m | sunny_cove_full_background_page_10.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | frontier_10_to_11.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | frontier_20_to_21.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | frontier_90_to_91.png[39m[0m
+[  57% ] [90m[1m_update_scan_actions[22m | island_map_levels_1_10.png[39m[0m
+[  61% ] [90m[1m_update_scan_actions[22m | node_completed_1_star.png[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | node_completed_2_star.png[39m[0m
+[  69% ] [90m[1m_update_scan_actions[22m | node_completed_3_star.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | node_current_open.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | node_locked.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | node_milestone.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | node_open.png[39m[0m
+[  88% ] [90m[1m_update_scan_actions[22m | node_vip_complete_3_star.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | 07_sunny_cove_island_map_after_real_mouse.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | child05_completed_prior_record.png[39m[0m
+[  12% ] [90m[1mreimport[22m | child05_improved_replay_updated.png[39m[0m
+[  25% ] [90m[1mreimport[22m | child05_return_context_restored.png[39m[0m
+[  37% ] [90m[1mreimport[22m | child05_worse_replay_preserved.png[39m[0m
+[  50% ] [90m[1mreimport[22m | sunny_cove_full_background_page_01.png[39m[0m
+[  62% ] [90m[1mreimport[22m | sunny_cove_full_background_page_10.png[39m[0m
+[  75% ] [90m[1mreimport[22m | 07_sunny_cove_island_map_after_real_mouse.png[39m[0m
+[  87% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | Reopening scenes...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | Loading central editor layout...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | Loading plugin window layout...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | Editor layout ready.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Game Feel Flow: Plugin disabled
+
+EXIT=0
