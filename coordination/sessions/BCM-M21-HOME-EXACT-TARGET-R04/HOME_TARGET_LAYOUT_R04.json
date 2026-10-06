@@ -4,7 +4,7 @@
     "width": 941,
     "height": 1672
   },
-  "coordinate_rule": "Owner Home critiques V02-V04 override the original target rectangles for designated elements. V04 resizes Energy and Coin bars about their right/end anchors while preserving all three existing plus-icon transforms.",
+  "coordinate_rule": "Owner Home critiques V02-V05 override the original target rectangles for designated elements. V05 centers Energy between the Level and Coin bar edges with equal gaps, carrying its value and plus icon with the bar.",
   "items": [
     {
       "id": "background",
@@ -58,13 +58,13 @@
         "height": 766
       },
       "target_rect": {
-        "x": 274.375,
+        "x": 231.21875,
         "y": 15.0,
         "width": 136.125,
         "height": 81.0
       },
       "normalized_rect": {
-        "x": 0.291578,
+        "x": 0.245716,
         "width": 0.14466,
         "y": 0.008971,
         "height": 0.048445
@@ -124,13 +124,13 @@
         "height": 1242
       },
       "target_rect": {
-        "x": 361.5,
+        "x": 318.34375,
         "y": 24.5,
         "width": 63.0,
         "height": 62.0
       },
       "normalized_rect": {
-        "x": 0.384166,
+        "x": 0.338304,
         "width": 0.06695,
         "y": 0.014653,
         "height": 0.037081
@@ -360,13 +360,13 @@
     {
       "id": "energy",
       "target_rect": {
-        "x": 298,
+        "x": 254.84375,
         "y": 25,
         "width": 66,
         "height": 53
       },
       "normalized_rect": {
-        "x": 0.316684,
+        "x": 0.270822,
         "width": 0.070138,
         "y": 0.014952,
         "height": 0.031699
@@ -458,12 +458,20 @@
         "width_px": 136.125,
         "right_edge_preserved_px": 410.5
       },
+      "energy_bar_v05": {
+        "placement": "centered between level_bar right edge and coin_bar left edge with equal edge gaps",
+        "x_px": 231.21875,
+        "left_and_right_gap_px": 35.96875,
+        "energy_plus_center_x_px": 349.84375,
+        "energy_plus_to_bar_right_edge_px": -17.5
+      },
       "coin_bar_v04": {
         "width_factor_of_v03": 1.25,
         "width_px": 203.4375,
         "right_edge_preserved_px": 606.75
       },
-      "resize_anchor_v04": "preserve each existing right edge so the separate add icons remain seated at their current bar endpoints"
+      "resize_anchor_v04": "preserve each existing right edge so the separate add icons remain seated at their current bar endpoints",
+      "position_rule_v05": "center Energy between Level and Coin by equalizing edge gaps; move its plus icon and numeric label by the same horizontal offset"
     },
     "lower_button_group": {
       "ids": [
@@ -527,6 +535,15 @@
         "width": 63.0,
         "height": 62.0
       }
+    },
+    "energy_centering_v05": {
+      "level_right_edge_px": 195.25,
+      "energy_left_edge_px": 231.21875,
+      "energy_right_edge_px": 367.34375,
+      "coin_left_edge_px": 403.3125,
+      "left_gap_px": 35.96875,
+      "right_gap_px": 35.96875,
+      "plus_icon_moved_with_bar": true
     },
     "owner_request_v04": "Energy bar 25 percent narrower; Coin bar 25 percent wider; keep add icons at the existing endpoints."
   }

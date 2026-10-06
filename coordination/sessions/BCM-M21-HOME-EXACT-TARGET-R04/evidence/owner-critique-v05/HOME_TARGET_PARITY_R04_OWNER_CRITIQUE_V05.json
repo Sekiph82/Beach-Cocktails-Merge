@@ -1,0 +1,51 @@
+{
+  "schema": "BCM-M21-HOME-TARGET-PARITY-R04-OWNER-CRITIQUE-V05",
+  "work_item": "BCM-M21-001-R04 Energy bar centering owner correction",
+  "owner_direction": "Center the Energy bar between Level and Coin; preserve the resized bar dimensions and keep the Energy plus icon at its bar endpoint.",
+  "production_capture": {
+    "path": "evidence/owner-critique-v05/02_home_owner_critique_v05_941x1672.png",
+    "sha256": "01515414103da49c57ebed02d352cd1d3aeaacb7208c6adf0780f359be192d29",
+    "size": [941, 1672]
+  },
+  "target_reference": {
+    "path": "assets/ui_assets/screens/home/TARGET beach cocktails merge home.png",
+    "sha256": "38d937b8a4345906fe69e436965d1f0feb9d69105d25a3455048488df07c15e1",
+    "size": [941, 1672]
+  },
+  "energy_centering": {
+    "level_right_edge_px": 195.25,
+    "energy_rect": {"x": 231.21875, "y": 15.0, "width": 136.125, "height": 81.0},
+    "coin_left_edge_px": 403.3125,
+    "left_gap_px": 35.96875,
+    "right_gap_px": 35.96875,
+    "energy_label_rect": {"x": 254.84375, "y": 25, "width": 66, "height": 53},
+    "energy_plus_rect": {"x": 318.34375, "y": 24.5, "width": 63.0, "height": 62.0},
+    "energy_plus_center_px": {"x": 349.84375, "y": 55.5},
+    "plus_center_to_energy_right_edge_px": -17.5
+  },
+  "coin_bar": {
+    "rect": {"x": 403.3125, "y": 14.0, "width": 203.4375, "height": 81.0},
+    "right_edge_preserved_px": 606.75,
+    "coins_label_rect": {"x": 479, "y": 25, "width": 91, "height": 53},
+    "coin_balance_visible": "4.250"
+  },
+  "other_add_icon_centers_px": {
+    "coin_plus": {"x": 589.0, "y": 54.5},
+    "diamond_plus": {"x": 802.0, "y": 54.0}
+  },
+  "verified_by": "tests/m21_home_exact_target_r04_probe.gd",
+  "captures": [
+    "evidence/owner-critique-v05/02_home_owner_critique_v05_941x1672.png",
+    "evidence/owner-critique-v05/03_home_owner_critique_v05_720x1280.png",
+    "evidence/owner-critique-v05/04_home_owner_critique_v05_800x1422.png",
+    "evidence/owner-critique-v05/05_home_owner_critique_v05_play_navigation.png",
+    "evidence/owner-critique-v05/06_home_owner_critique_v05_world_map_navigation.png",
+    "evidence/owner-critique-v05/07_home_owner_critique_v05_settings_navigation.png"
+  ],
+  "full_pixel_parity_to_original_target": "UNVERIFIED",
+  "notes": [
+    "Energy and Coin widths retain the V04 owner-approved proportions; only Energy's horizontal position, value label, and attached plus icon moved.",
+    "Owner-supplied source PNGs were not modified.",
+    "This report records the requested Energy centering and production render, not full original TARGET pixel parity."
+  ]
+}
