@@ -1,0 +1,16 @@
+1A557B1057BCFD2EBF8DAA79ED5493A28B7DE2860A2275F729B4A6308DBD3222  coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/HOME_TARGET_LAYOUT_R04.json
+AFEE1E949606E0E1AFC37389282B88CE429683FB063FED4E2D5E40A1CDBC18C6  scripts/campaign/application_shell.gd
+9480AB45EA9E1C49DF41A739A7AAFDB5C7B444860AAD0C39171D1C55ED3FC89B  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\achievements.png
+C3C2375D075E09C34D7F352DD436D5B42EECE71218B3AD9F6DC70133DD26EBA3  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\coin bari.png
+6DC64B823E79253ED3B409E2E8644B8A00F87B3EE758D3AA5F71515B7D715868  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\daily rewards.png
+6A432C656D17093CC3C7315AAED20355711268E38B3A11103EC95B8ED71C2788  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\ekle gorseli.png
+3EDE1D9AF75AD7D3D2137D524135458A2146C08E92CAB0626A7C8B81673A4B68  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\elmas bari.png
+FBABB516CF67C00B22FA5E54C4E806F00D79831CCBA0889CB82C1CB5CF886946  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\enerji bari.png
+1669F940650F904893495712FF6CC873F90BEAE28F8945DCB115E01A791645BE  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\Events.png
+DA4C61E225C52049C89D8F7B9BE9B8476A25E4B6CF9C89A75BCFFEEF5FCBE56A  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\home background.png
+9F343F75CF251B0D52F8E6B62C58A00018B58053B6B35C8C555B195F24A53AA3  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\level bari.png
+9063F83CC43C4ED116FB777E72F12F2682A8F80E3F1C50FAF4C057A587E04953  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\play butonu.png
+27CC0D1E7651AD27013874654257D994A26C1A875293EA6A08EBD3D327FC9FB1  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\settings.png
+2EC896F639DFD265C1651438097F435B8BE205F542C4E515BFE7C85E92829170  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\shop.png
+38D937B8A4345906FE69E436965D1F0FEB9D69105D25A3455048488DF07C15E1  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\TARGET beach cocktails merge home.png
+2CAFF4E52E80B0B17832B409D5DCE1EC32ED1F9CD28919BE0B4B9D1DAA9C74B2  C:\Users\sekip\Desktop\Beach Cocktails - Merge\assets\ui_assets\screens\home\world map.png

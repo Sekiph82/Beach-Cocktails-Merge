@@ -1,0 +1,7 @@
+project.godot reconciliation
+
+- Before restoration the only semantic diff was GameFeelFlow autoload path: canonical `*res://addons/game_feel_flow/core/game_feel_flow.gd` versus local generated UID `*uid://ckhnfaf1odnpl`. Spark, godot_ai helper, enabled plugins, and `run/main_scene` were otherwise identical.
+- This met the R06 UID/path-only exception. Restored canonical `project.godot` from synchronized HEAD.
+- Canonical config hash: DE79FF257F4F4BE0DBE01BECB574A3E502F9BF36F07CF662B293A4B6242D0267.
+- Editor import/parse loaded GameFeelFlow plugin (31 effects registered) and the Godot AI helper; M20 and other shell probes booted through ApplicationShell. Canonical autoload paths work.
+- Godot editor later reserialized GameFeelFlow back to the same UID form during execution; this generated tracked drift was restored again. Final project.godot is byte-identical to HEAD.

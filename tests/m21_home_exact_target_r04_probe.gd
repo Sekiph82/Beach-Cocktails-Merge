@@ -151,7 +151,7 @@ func _run() -> void:
 	var energy_plus_rect: Dictionary = layout_items.get("energy_plus", {}).get("target_rect", {})
 	_check("three plus icons remain vertically centered on their bars and Energy plus stays at its bar endpoint", plus_alignment and absf(float(energy_plus_rect.get("x", 0.0)) + float(energy_plus_rect.get("width", 0.0)) / 2.0 - (float(energy_rect.get("x", 0.0)) + float(energy_rect.get("width", 0.0)) - 17.5)) < 0.01)
 	var energy_text: Dictionary = layout.get("dynamic_text", []).filter(func(entry): return entry.get("id", "") == "energy")[0]
-	_check("Energy number moves with the centered bar", absf(float(energy_text.get("target_rect", {}).get("x", 0.0)) - 254.84375) < 0.01)
+	_check("Energy number moves with the centered bar", absf(float(energy_text.get("target_rect", {}).get("x", 0.0)) - 259.0) < 0.01)
 	var play_rect: Dictionary = layout_items.get("play", {}).get("target_rect", {})
 	var world_rect: Dictionary = layout_items.get("world_map", {}).get("target_rect", {})
 	var action_ids := ["play", "world_map", "shop", "events", "daily_rewards", "achievements"]

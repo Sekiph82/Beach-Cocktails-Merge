@@ -1,0 +1,15 @@
+R06 synchronized checkout report
+
+Repository: C:\Users\sekip\Desktop\Beach Cocktails - Merge
+Branch: main
+Start HEAD before safe sync: d265865f67770be34e3c45f83ea07141feb3c5ca
+Fetched origin/main: 8de111a23db71d075f70460d15505a2bc0c950c8
+Pre-sync divergence: 0 ahead / 5 behind
+Incoming paths: AGENTS.md, TASKS.md, and three R06 prompt/criteria/ruling files; all disjoint from dirty project.godot and two owner screenshots.
+Safe sync: tracked-only stash owner-local-safe-sync-d265865 containing project.godot only; fast-forwarded; applied that exact stash without dropping it; left two untracked owner screenshots untouched.
+Current HEAD: 8de111a23db71d075f70460d15505a2bc0c950c8
+Current origin/main: 8de111a23db71d075f70460d15505a2bc0c950c8
+Remote main at pre-publication check: 8de111a23db71d075f70460d15505a2bc0c950c8
+Current ahead/behind: 0/0
+TASKS.md: unchanged; no Codex edit.
+Owner-local untracked paths preserved: coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png; coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png.

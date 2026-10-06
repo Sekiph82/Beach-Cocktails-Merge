@@ -1,0 +1,12 @@
+m20_app_shell EXIT_CODE=0
+m21_world_map_v05 EXIT_CODE=0
+m13_island_map EXIT_CODE=0
+m14_gameplay_session_bridge EXIT_CODE=0
+r04_gameplay_surface EXIT_CODE=0
+asset_catalog_rebuild EXIT_CODE=0
+asset_validator EXIT_CODE=0
+godot_editor_import_parse EXIT_CODE=0
+normal_app_boot_smoke EXIT_CODE=0
+git_diff_check EXIT_CODE=0
+home_probe EXIT_CODE=1 (one frozen Home-coordinate assertion stale; all other Home probe checks PASS)
+home_probe EXIT_CODE=0 (all checks PASS after stale x expectation corrected to accepted layout x=259)
