@@ -4,7 +4,7 @@
     "width": 941,
     "height": 1672
   },
-  "coordinate_rule": "Owner critique V02 overrides the earlier fixed target rectangles for the four top bar widths, lower button group, and Continue plaque text. Runtime scales these reference-space rectangles proportionally.",
+  "coordinate_rule": "Owner screenshot critiques V02 and V03 override earlier rectangles for the top bars/add icons, lower button group, and Continue label. Runtime uses normalized reference-space rectangles.",
   "items": [
     {
       "id": "background",
@@ -58,14 +58,14 @@
         "height": 766
       },
       "target_rect": {
-        "x": 247,
-        "y": 15,
-        "width": 163.5,
-        "height": 81
+        "x": 229.0,
+        "y": 15.0,
+        "width": 181.5,
+        "height": 81.0
       },
       "normalized_rect": {
-        "x": 0.262487,
-        "width": 0.173751,
+        "x": 0.243358,
+        "width": 0.19288,
         "y": 0.008971,
         "height": 0.048445
       },
@@ -124,15 +124,15 @@
         "height": 1242
       },
       "target_rect": {
-        "x": 384,
-        "y": 29,
-        "width": 63,
-        "height": 62
+        "x": 361.5,
+        "y": 24.5,
+        "width": 63.0,
+        "height": 62.0
       },
       "normalized_rect": {
-        "x": 0.408077,
+        "x": 0.384166,
         "width": 0.06695,
-        "y": 0.017344,
+        "y": 0.014653,
         "height": 0.037081
       },
       "z_order": 3,
@@ -146,15 +146,15 @@
         "height": 1242
       },
       "target_rect": {
-        "x": 596,
-        "y": 29,
-        "width": 63,
-        "height": 62
+        "x": 557.5,
+        "y": 23.5,
+        "width": 63.0,
+        "height": 62.0
       },
       "normalized_rect": {
-        "x": 0.633369,
+        "x": 0.592455,
         "width": 0.06695,
-        "y": 0.017344,
+        "y": 0.014055,
         "height": 0.037081
       },
       "z_order": 3,
@@ -168,15 +168,15 @@
         "height": 1242
       },
       "target_rect": {
-        "x": 791,
-        "y": 29,
-        "width": 63,
-        "height": 62
+        "x": 770.5,
+        "y": 23.0,
+        "width": 63.0,
+        "height": 62.0
       },
       "normalized_rect": {
-        "x": 0.840595,
+        "x": 0.81881,
         "width": 0.06695,
-        "y": 0.017344,
+        "y": 0.013756,
         "height": 0.037081
       },
       "z_order": 3,
@@ -379,13 +379,13 @@
     {
       "id": "coins",
       "target_rect": {
-        "x": 497,
+        "x": 479,
         "y": 25,
         "width": 91,
         "height": 53
       },
       "normalized_rect": {
-        "x": 0.528162,
+        "x": 0.509033,
         "width": 0.096706,
         "y": 0.014952,
         "height": 0.031699
@@ -418,14 +418,14 @@
       "id": "continue",
       "target_rect": {
         "x": 313.214,
-        "y": 1214.571,
+        "y": 1202.571,
         "width": 308.571,
         "height": 44.571
       },
       "normalized_rect": {
         "x": 0.332852,
         "width": 0.327918,
-        "y": 0.726418,
+        "y": 0.719241,
         "height": 0.026657
       },
       "z_order": 6,
@@ -446,7 +446,13 @@
       ],
       "width_factor": 0.75,
       "height_factor": 1.0,
-      "horizontal_anchor": "preserve each left edge"
+      "horizontal_anchor": "preserve each left edge",
+      "energy_bar_v03": {
+        "x_shift_px": -18.0,
+        "width_px": 181.5,
+        "right_edge_preserved_px": 410.5,
+        "purpose": "move Energy closer to Level while preserving the bar endpoint"
+      }
     },
     "lower_button_group": {
       "ids": [
@@ -474,7 +480,22 @@
       "center_after_group_transform": {
         "x": 467.5,
         "y": 1236.857
+      },
+      "owner_vertical_offset_v03_px": -12.0,
+      "owner_vertical_offset_v03_additional_v03b_px": -5.0,
+      "center_after_transform_and_v03_offsets": {
+        "x": 467.5,
+        "y": 1224.857
       }
-    }
+    },
+    "add_icons_v03": {
+      "center_x_on_annotation_lines_px": {
+        "energy_plus": 393.0,
+        "coin_plus": 589.0,
+        "diamond_plus": 802.0
+      },
+      "vertical_center_rule": "each icon center_y equals its corresponding bar center_y"
+    },
+    "owner_screenshot_v03": "evidence/owner-critique-v03/owner_home_annotation_v03.png"
   }
 }

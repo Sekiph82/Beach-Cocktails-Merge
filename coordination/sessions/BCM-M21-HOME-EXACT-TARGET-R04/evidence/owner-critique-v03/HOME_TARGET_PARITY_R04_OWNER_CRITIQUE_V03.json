@@ -1,0 +1,94 @@
+{
+  "schema": "BCM-M21-HOME-TARGET-PARITY-R04-OWNER-CRITIQUE-V03",
+  "work_item": "BCM-M21-001-R04 owner Home critique V03",
+  "owner_annotation": {
+    "path": "evidence/owner-critique-v03/owner_home_annotation_v03.png",
+    "sha256": "d8c9a18f7612ff968dd65e7b8e1adac1a2ae145bab79a6432b60dc90aabe5adb",
+    "size": [
+      941,
+      1672
+    ],
+    "plus_center_marker_x_px": {
+      "energy": 393,
+      "coins": 589,
+      "gems": 802
+    }
+  },
+  "target_reference": {
+    "path": "assets/ui_assets/screens/home/TARGET beach cocktails merge home.png",
+    "sha256": "38d937b8a4345906fe69e436965d1f0feb9d69105d25a3455048488df07c15e1",
+    "size": [
+      941,
+      1672
+    ]
+  },
+  "production_capture": {
+    "path": "evidence/owner-critique-v03/02_home_owner_critique_v03_941x1672.png",
+    "sha256": "af438195ea213c96e637ac265ed92ea6f45c6399d3be1b21c5ac0c1c5722399c",
+    "size": [
+      941,
+      1672
+    ]
+  },
+  "correction_results": {
+    "energy_bar": {
+      "rect": {
+        "x": 229.0,
+        "y": 15.0,
+        "width": 181.5,
+        "height": 81.0
+      },
+      "moved_18_px_toward_level": true,
+      "right_edge_preserved": true
+    },
+    "add_icons": {
+      "energy_plus": {
+        "center_x": 393.0,
+        "center_y": 55.5
+      },
+      "coin_plus": {
+        "center_x": 589.0,
+        "center_y": 54.5
+      },
+      "diamond_plus": {
+        "center_x": 802.0,
+        "center_y": 54.0
+      }
+    },
+    "coins_label_rect": {
+      "x": 479,
+      "y": 25,
+      "width": 91,
+      "height": 53
+    },
+    "continue_label_rect": {
+      "x": 313.214,
+      "y": 1202.571,
+      "width": 308.571,
+      "height": 44.571
+    },
+    "continue_vertical_offset_total_px": -12,
+    "play_button": {
+      "selected_level_fixture": 7,
+      "launched_active_level_id": 7
+    },
+    "world_map_button": {
+      "production_view_visible": true
+    },
+    "verified_by": "tests/m21_home_exact_target_r04_probe.gd"
+  },
+  "captures": [
+    "evidence/owner-critique-v03/02_home_owner_critique_v03_941x1672.png",
+    "evidence/owner-critique-v03/03_home_owner_critique_v03_720x1280.png",
+    "evidence/owner-critique-v03/04_home_owner_critique_v03_800x1422.png",
+    "evidence/owner-critique-v03/05_home_owner_critique_v03_play_navigation.png",
+    "evidence/owner-critique-v03/06_home_owner_critique_v03_world_map_navigation.png",
+    "evidence/owner-critique-v03/07_home_owner_critique_v03_settings_navigation.png"
+  ],
+  "full_pixel_parity_to_original_target": "UNVERIFIED",
+  "notes": [
+    "This evidence measures the current owner-requested corrections and real Home button inputs.",
+    "The earlier R04 parity evidence records material differences between the supplied background and original TARGET art; this work does not claim full pixel parity.",
+    "Owner-supplied PNG source assets were not modified."
+  ]
+}
