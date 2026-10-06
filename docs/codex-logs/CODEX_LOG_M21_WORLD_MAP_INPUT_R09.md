@@ -22,5 +22,8 @@
 
 ## Final repository state
 
-- Pending publication. Before commit, confirm `TASKS.md` remains byte-identical; preserve the two owner-local PNGs and `project.godot` owner diff.
+- Implementation commit: `d5937e2d497b6e315308514599decff2bb0308f0` on `main`.
+- The execution log is being published in a follow-up log-only commit so this record can name the implementation SHA. The local owner diff in `project.godot` still exactly matches the preserved safe-sync stash and is not staged. The two owner critique PNGs remain untouched and untracked.
+- `TASKS.md` is byte-identical. `git diff --check` and `git diff --cached --check` passed before implementation publication.
+- Final push/ref equality is verified after the log-only publication commit and recorded in the handoff response.
 - User-requested final marker: `AWAITING_GPT_SUNNY_COVE_BACK_BUTTON_AUDIT`.
