@@ -31,7 +31,8 @@
 - Intended implementation/evidence files: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/HOME_TARGET_LAYOUT_R04.json`, `tests/m21_home_exact_target_r04_probe.gd`, `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/`, and this new log.
 - Preserved and excluded from staging: the pre-existing owner-local `project.godot` change and the newly supplied annotation `evidence/02_home_reference_941x1672 kritik.png`.
 - No supplied PNG was edited. `TASKS.md` was not modified.
-- Branch `main`; remote `origin`. Start SHA: `642475120a3a3007f976dfaeb6bdf8441ae6d068`. End SHA/final commit SHA: pending publication.
+- Branch `main`; remote `origin`. Start SHA: `642475120a3a3007f976dfaeb6bdf8441ae6d068`. Final implementation/evidence commit SHA: `ee985cca4d09d3fedc78f78ff0e53202b44d4333`.
 - Pre-publication fetch and divergence check: local branch was `0 ahead / 0 behind` `origin/main`.
-- Final local/origin/remote SHA equality: pending publication.
+- This immutable execution log is finalized in the following documentation-only commit; the implementation/evidence changeset above contains all Home code, layout, and capture evidence.
+- Final local/origin/remote SHA equality: pending push verification.
 - Known limitation: overall pixel-exact agreement with the pre-existing TARGET remains unverified, as the accepted V02 request changed marked composition elements while the supplied production art still differs from that reference.
