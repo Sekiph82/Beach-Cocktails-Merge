@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-HOME-BAR-FIT-R05
+- Current Sprint: BCM-M21-FULL-RUNTIME-R06
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001-R05 — CODEX executes `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_PROMPT_R05.md`, narrows Energy by 25%, widens Coin by 25%, preserves the current bar-end seating of the Energy/Coin plus icons, fixes coin-value fit, publishes evidence, and stops for owner approval.
+- Next Task/Action: BCM-M21-001-R06 — CODEX executes `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_PROMPT_R06.md`, freezes the owner-approved Home, reconciles the lingering project.godot drift, verifies the latest full campaign runtime, opens the real project through normal Godot F5/main-scene flow for owner testing, and stops.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R02 Island Map and To-Go changes remain in place. R04 exact Home plus V03 owner corrections passed independent technical audit, but the owner identified one final visual defect: the coin value does not fit cleanly inside the current Coin bar. R05 is a bounded Home-only correction: Energy width 181.5→136.125, Coin width 162.75→203.4375 at the 941×1672 reference, both heights and left x positions preserved, Energy/Coin plus icons moved with the resized bar ends while keeping their current inset relationship, and all other Home elements frozen. BCM-M21-006 remains blocked.
+- Progress: The owner has explicitly accepted the current Home as final for this cycle at main HEAD `d265865f67770be34e3c45f83ea07141feb3c5ca`. Home geometry/art/text are now frozen. Active R06 is integration/runtime-readiness only: preserve the accepted Home byte/geometry authority, reconcile the repeatedly preserved local `project.godot` drift if it is only machine-local path/UID churn, verify the complete current Home→World Map→Island Map→Gameplay navigation stack, ensure local/GitHub are truly clean and synchronized, and launch the real Godot 4.7.2 project via normal ApplicationShell/F5 flow for owner testing. Deferred M07/M08 technical findings remain open for later closure. BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
@@ -1005,11 +1005,11 @@ Owner F5 V07 history and active R03 remediation:
 - Active R04 criteria: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_CRITERIA_R04.md`.
 - Active R04 prompt: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`.
 - Latest independent Home audit: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_OWNER_CRITIQUE_AUDIT_V03.md` — **TECHNICAL_AUDITED_PASS / OWNER_HOME_VISUAL_APPROVAL_REQUIRED**.
-- Owner R04 visual decision: changes required only for final Energy/Coin bar fit.
-- Active R05 ruling: `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/OWNER_HOME_BAR_FIT_RULING_R05.md`.
-- Active R05 criteria: `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_CRITERIA_R05.md`.
-- Active R05 prompt: `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_PROMPT_R05.md`.
-- Required builder marker: `AWAITING_OWNER_HOME_BAR_FIT_APPROVAL_R05`.
+- Final Home owner acceptance: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/OWNER_HOME_ACCEPTANCE_R06.md` — **OWNER_HOME_ACCEPTED_R06**.
+- Active R06 criteria: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_CRITERIA_R06.md`.
+- Active R06 prompt: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_PROMPT_R06.md`.
+- Required builder marker: `AWAITING_OWNER_FULL_GAME_RUNTIME_REVIEW_R06`.
+- R05 Home bar-fit is owner accepted and superseded as active work by R06 runtime integration.
 - The older direct-implementation R01 package remains superseded.
 
 Owner F5 V04 historical remediation:
