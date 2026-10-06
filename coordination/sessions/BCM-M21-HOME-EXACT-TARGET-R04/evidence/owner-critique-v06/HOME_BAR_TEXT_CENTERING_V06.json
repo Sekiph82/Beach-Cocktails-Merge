@@ -1,0 +1,39 @@
+{
+  "work_item": "BCM-M21 Home bar text centering V06",
+  "owner_direction": "Center text inside the intended inner surface of each top bar.",
+  "reference_size": [941, 1672],
+  "text_rects_and_centers": {
+    "level": {
+      "rect": {"x": 17.5, "y": 20.0, "width": 60.0, "height": 54.0},
+      "center": {"x": 47.5, "y": 47.0},
+      "inner_surface": "level badge face"
+    },
+    "energy": {
+      "rect": {"x": 259.0, "y": 29.0, "width": 66.0, "height": 53.0},
+      "center": {"x": 292.0, "y": 55.5},
+      "inner_surface": "open track between lightning badge and plus control"
+    },
+    "coins": {
+      "rect": {"x": 465.25, "y": 28.0, "width": 91.0, "height": 53.0},
+      "center": {"x": 510.75, "y": 54.5},
+      "inner_surface": "numeric area between coin medallion and plus control"
+    },
+    "gems": {
+      "rect": {"x": 709.5, "y": 27.5, "width": 57.0, "height": 53.0},
+      "center": {"x": 738.0, "y": 54.0},
+      "inner_surface": "numeric area between gem and plus control"
+    }
+  },
+  "captures": [
+    "02_home_owner_critique_v06_941x1672.png",
+    "03_home_owner_critique_v06_720x1280.png",
+    "04_home_owner_critique_v06_800x1422.png",
+    "05_home_owner_critique_v06_play_navigation.png",
+    "06_home_owner_critique_v06_world_map_navigation.png",
+    "07_home_owner_critique_v06_settings_navigation.png"
+  ],
+  "reference_capture_sha256": "9f1214104b3ed848890563142415d3b6aeb0cc979d9f2c001c38dfea4e5e0330",
+  "source_art_modified": false,
+  "root_TASKS_modified": false,
+  "full_pixel_parity_to_original_target": "UNVERIFIED"
+}

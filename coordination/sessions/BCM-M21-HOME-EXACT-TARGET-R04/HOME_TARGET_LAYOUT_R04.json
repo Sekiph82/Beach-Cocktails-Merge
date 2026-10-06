@@ -4,7 +4,7 @@
     "width": 941,
     "height": 1672
   },
-  "coordinate_rule": "Owner Home critiques V02-V05 override the original target rectangles for designated elements. V05 centers Energy between the Level and Coin bar edges with equal gaps, carrying its value and plus icon with the bar.",
+  "coordinate_rule": "Owner Home critiques V02-V06 override the original target rectangles for designated elements. V06 centers each top-bar value in its corresponding unobstructed inner text area.",
   "items": [
     {
       "id": "background",
@@ -341,15 +341,15 @@
     {
       "id": "level",
       "target_rect": {
-        "x": 25,
-        "y": 24,
+        "x": 17.5,
+        "y": 20,
         "width": 60,
         "height": 54
       },
       "normalized_rect": {
-        "x": 0.026567,
+        "x": 0.018597,
         "width": 0.063762,
-        "y": 0.014354,
+        "y": 0.011962,
         "height": 0.032297
       },
       "z_order": 5,
@@ -360,15 +360,15 @@
     {
       "id": "energy",
       "target_rect": {
-        "x": 254.84375,
-        "y": 25,
+        "x": 259,
+        "y": 29,
         "width": 66,
         "height": 53
       },
       "normalized_rect": {
-        "x": 0.270822,
+        "x": 0.275239,
         "width": 0.070138,
-        "y": 0.014952,
+        "y": 0.017344,
         "height": 0.031699
       },
       "z_order": 5,
@@ -379,15 +379,15 @@
     {
       "id": "coins",
       "target_rect": {
-        "x": 479,
-        "y": 25,
+        "x": 465.25,
+        "y": 28,
         "width": 91,
         "height": 53
       },
       "normalized_rect": {
-        "x": 0.509033,
+        "x": 0.494421,
         "width": 0.096706,
-        "y": 0.014952,
+        "y": 0.016746,
         "height": 0.031699
       },
       "z_order": 5,
@@ -398,15 +398,15 @@
     {
       "id": "gems",
       "target_rect": {
-        "x": 728,
-        "y": 25,
+        "x": 709.5,
+        "y": 27.5,
         "width": 57,
         "height": 53
       },
       "normalized_rect": {
-        "x": 0.773645,
+        "x": 0.753985,
         "width": 0.060574,
-        "y": 0.014952,
+        "y": 0.016447,
         "height": 0.031699
       },
       "z_order": 5,
@@ -544,6 +544,15 @@
       "left_gap_px": 35.96875,
       "right_gap_px": 35.96875,
       "plus_icon_moved_with_bar": true
+    },
+    "bar_text_centers_v06": {
+      "alignment_rule": "center each Label rectangle on the unobstructed inner face between its built-in left badge and any plus control; align vertically to the badge/bar center",
+      "label_centers_px": {
+        "level_badge": {"x": 47.5, "y": 47.0},
+        "energy_inner_face": {"x": 292.0, "y": 55.5},
+        "coin_inner_face": {"x": 510.75, "y": 54.5},
+        "diamond_inner_face": {"x": 738.0, "y": 54.0}
+      }
     },
     "owner_request_v04": "Energy bar 25 percent narrower; Coin bar 25 percent wider; keep add icons at the existing endpoints."
   }
