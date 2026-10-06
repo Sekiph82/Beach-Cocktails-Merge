@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-FULL-RUNTIME-R06
+- Current Sprint: BCM-M21-ISLAND-MAP-STAR-R07
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001-R06 — CODEX executes `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_PROMPT_R06.md`, freezes the owner-approved Home, reconciles the lingering project.godot drift, verifies the latest full campaign runtime, opens the real project through normal Godot F5/main-scene flow for owner testing, and stops.
+- Next Task/Action: BCM-M21-001-R07 — CODEX executes `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_PROMPT_R07.md`, changes the Home play plaque to `LEVEL N`, makes Island Map auto-focus the newly unlocked ten-level page, centers the island title, makes LV/stars readable, removes Island Map BEST text, implements the approved 1/2/3-star mastery contract, populates deterministic Sunny Cove thresholds, and stops for owner review.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: The owner has explicitly accepted the current Home as final for this cycle at main HEAD `d265865f67770be34e3c45f83ea07141feb3c5ca`. Home geometry/art/text are now frozen. Active R06 is integration/runtime-readiness only: preserve the accepted Home byte/geometry authority, reconcile the repeatedly preserved local `project.godot` drift if it is only machine-local path/UID churn, verify the complete current Home→World Map→Island Map→Gameplay navigation stack, ensure local/GitHub are truly clean and synchronized, and launch the real Godot 4.7.2 project via normal ApplicationShell/F5 flow for owner testing. Deferred M07/M08 technical findings remain open for later closure. BCM-M21-006 remains blocked.
+- Progress: R06 runtime checks completed, and the owner accepts the Home composition but returned runtime **CHANGES_REQUIRED** for bounded UX/mastery issues. R07 is active: PLAY plaque text becomes `LEVEL N`; Island Map automatically shows the new frontier page after 10→11, 20→21 ... 90→91; SUNNY COVE is centered inside its plaque; node labels become readable `LVn`; Island Map BEST/SCORE text is removed; three star positions remain visible; and the owner-approved star contract is implemented with deterministic non-null Sunny Cove thresholds. The economy draft remains inactive. Deferred M07/M08 technical findings remain open. BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
@@ -1006,6 +1006,11 @@ Owner F5 V07 history and active R03 remediation:
 - Active R04 prompt: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`.
 - Latest independent Home audit: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_OWNER_CRITIQUE_AUDIT_V03.md` — **TECHNICAL_AUDITED_PASS / OWNER_HOME_VISUAL_APPROVAL_REQUIRED**.
 - Final Home owner acceptance: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/OWNER_HOME_ACCEPTANCE_R06.md` — **OWNER_HOME_ACCEPTED_R06**.
+- R06 owner runtime review: **CHANGES_REQUIRED** for Home label fit, Island Map frontier paging/header/node readability, and incomplete star mastery.
+- Active R07 owner ruling: `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/OWNER_ISLAND_MAP_STAR_RULING_R07.md`.
+- Active R07 criteria: `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_CRITERIA_R07.md`.
+- Active R07 prompt: `coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/CHATGPT_ISLAND_MAP_STAR_PROMPT_R07.md`.
+- Required builder marker: `AWAITING_OWNER_ISLAND_MAP_STAR_REVIEW_R07`.
 - Active R06 criteria: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_CRITERIA_R06.md`.
 - Active R06 prompt: `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_PROMPT_R06.md`.
 - Required builder marker: `AWAITING_OWNER_FULL_GAME_RUNTIME_REVIEW_R06`.
