@@ -1,0 +1,111 @@
+{
+  "schema": "BCM-M21-HOME-TARGET-PARITY-R04-OWNER-CRITIQUE-V02",
+  "work_item": "BCM-M21-001-R04 owner critique corrections V02",
+  "owner_annotation": "evidence/02_home_reference_941x1672 kritik.png",
+  "owner_annotation_sha256": "87acdf4cf5f3fe043ef9ee5c2aaf625b5fd0734e10b23c7314326e2fe1645a35",
+  "owner_annotation_size": [
+    941,
+    1672
+  ],
+  "target_reference": "assets/ui_assets/screens/home/TARGET beach cocktails merge home.png",
+  "target_reference_sha256": "38d937b8a4345906fe69e436965d1f0feb9d69105d25a3455048488df07c15e1",
+  "target_reference_size": [
+    941,
+    1672
+  ],
+  "production_capture": "evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672.png",
+  "production_capture_sha256": "70f6953449aac6b690c5cf4afb1925266b9d27b99cff151beaeb394d7ab40d1d",
+  "production_capture_size": [
+    941,
+    1672
+  ],
+  "correction_checks": {
+    "four_top_bar_width_factor": 0.75,
+    "four_top_bar_heights_preserved": true,
+    "lower_action_group_uniform_scale": 0.8571428571428571,
+    "lower_action_group_marked_start_y": 1050.0,
+    "lower_action_group_marked_bottom_y": 1590.0,
+    "continue_text_centered": true,
+    "continue_text_font_size": 23,
+    "passed_by": "tests/m21_home_exact_target_r04_probe.gd"
+  },
+  "corrected_target_rects": {
+    "level_bar": {
+      "x": 16,
+      "y": 3,
+      "width": 179.25,
+      "height": 89
+    },
+    "energy_bar": {
+      "x": 247,
+      "y": 15,
+      "width": 163.5,
+      "height": 81
+    },
+    "coin_bar": {
+      "x": 444,
+      "y": 14,
+      "width": 162.75,
+      "height": 81
+    },
+    "diamond_bar": {
+      "x": 654,
+      "y": 13,
+      "width": 165.75,
+      "height": 82
+    },
+    "play": {
+      "x": 168.357,
+      "y": 1050.0,
+      "width": 598.286,
+      "height": 256.286
+    },
+    "world_map": {
+      "x": 161.5,
+      "y": 1260.857,
+      "width": 625.714,
+      "height": 208.286
+    },
+    "shop": {
+      "x": 124.643,
+      "y": 1454.571,
+      "width": 140.571,
+      "height": 128.571
+    },
+    "events": {
+      "x": 297.786,
+      "y": 1454.571,
+      "width": 140.571,
+      "height": 128.571
+    },
+    "daily_rewards": {
+      "x": 469.214,
+      "y": 1454.571,
+      "width": 137.143,
+      "height": 135.429
+    },
+    "achievements": {
+      "x": 643.214,
+      "y": 1454.571,
+      "width": 140.571,
+      "height": 128.571
+    }
+  },
+  "corrected_dynamic_text": {
+    "continue": {
+      "target_rect": {
+        "x": 313.214,
+        "y": 1214.571,
+        "width": 308.571,
+        "height": 44.571
+      },
+      "font_size": 23
+    }
+  },
+  "full_target_parity": "UNVERIFIED",
+  "notes": [
+    "The focused production capture and layout assertions verify the owner-marked changes only.",
+    "The earlier R04 parity report documents material differences between the supplied production background and the TARGET artwork; this correction does not replace or claim to resolve those image-source differences.",
+    "All supplied UI PNGs remain unchanged."
+  ]
+}

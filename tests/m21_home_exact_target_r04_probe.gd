@@ -7,7 +7,7 @@ const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const LAYOUT_PATH := "res://coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/HOME_TARGET_LAYOUT_R04.json"
 const HOME_ROOT := "res://assets/ui_assets/screens/home/"
-const EVIDENCE_DIR := "res://coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence"
+const EVIDENCE_DIR := "res://coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02"
 
 var failures: Array[String] = []
 var shell
@@ -121,8 +121,40 @@ func _run() -> void:
 	_check("old R02 composition nodes are absent", shell._menu_layer.find_child("TropicalSkyOceanUnderlay", true, false) == null and shell._menu_layer.find_child("BeachCocktailsLogo", true, false) == null and shell._menu_layer.find_child("LeftTropicalDecor", true, false) == null and shell._menu_layer.find_child("RightTropicalDecor", true, false) == null)
 	_check("three action images are distinct input controls", shell.get_menu_controls().play is TextureButton and shell.get_menu_controls().world_map is TextureButton and shell.get_menu_controls().settings is TextureButton and shell.get_menu_controls().play != shell.get_menu_controls().world_map and shell.get_menu_controls().world_map != shell.get_menu_controls().settings)
 	_check("layout asset count matches runtime visual count", layout.get("items", []).size() == 15)
+	var layout_items: Dictionary = {}
+	for item_value in layout.get("items", []):
+		var item: Dictionary = item_value
+		layout_items[str(item.get("id", ""))] = item
+	var original_bar_widths := {"level_bar": 239.0, "energy_bar": 218.0, "coin_bar": 217.0, "diamond_bar": 221.0}
+	for bar_id in original_bar_widths:
+		var bar_rect: Dictionary = layout_items.get(bar_id, {}).get("target_rect", {})
+		_check("%s width is reduced to 75%% with height preserved" % bar_id, absf(float(bar_rect.get("width", 0.0)) - float(original_bar_widths[bar_id]) * 0.75) < 0.01)
+	var play_rect: Dictionary = layout_items.get("play", {}).get("target_rect", {})
+	var world_rect: Dictionary = layout_items.get("world_map", {}).get("target_rect", {})
+	var action_ids := ["play", "world_map", "shop", "events", "daily_rewards", "achievements"]
+	var action_scale_consistent := true
+	for action_id in action_ids:
+		var rect: Dictionary = layout_items.get(action_id, {}).get("target_rect", {})
+		var base_rect: Dictionary = {"play": {"x": 118.0, "y": 945.0, "width": 698.0, "height": 299.0}, "world_map": {"x": 110.0, "y": 1196.0, "width": 730.0, "height": 243.0}, "shop": {"x": 67.0, "y": 1417.0, "width": 164.0, "height": 150.0}, "events": {"x": 269.0, "y": 1417.0, "width": 164.0, "height": 150.0}, "daily_rewards": {"x": 469.0, "y": 1417.0, "width": 160.0, "height": 158.0}, "achievements": {"x": 672.0, "y": 1417.0, "width": 164.0, "height": 150.0}}[action_id]
+		var scale_x := float(rect.get("width", 0.0)) / float(base_rect.width)
+		var scale_y := float(rect.get("height", 0.0)) / float(base_rect.height)
+		var center_x := float(rect.get("x", 0.0)) + float(rect.get("width", 0.0)) / 2.0
+		var expected_center_x := 470.5 + (float(base_rect.x) + float(base_rect.width) / 2.0 - 470.5) * (6.0 / 7.0)
+		if absf(scale_x - 6.0 / 7.0) > 0.002 or absf(scale_y - 6.0 / 7.0) > 0.002 or absf(center_x - expected_center_x) > 0.02:
+			action_scale_consistent = false
+	_check("all six lower actions retain their relative layout at a uniform 6/7 scale", action_scale_consistent)
+	_check("PLAY starts at the owner's marked y=1050 line", absf(float(play_rect.get("y", 0.0)) - 1050.0) < 0.01)
+	var lower_group_bottom := 0.0
+	for action_id in action_ids:
+		var rect: Dictionary = layout_items.get(action_id, {}).get("target_rect", {})
+		lower_group_bottom = maxf(lower_group_bottom, float(rect.get("y", 0.0)) + float(rect.get("height", 0.0)))
+	_check("lower action group ends at the marked y=1590 bottom", absf(lower_group_bottom - 1590.0) < 0.02)
+	var continue_rect: Dictionary = layout.get("dynamic_text", []).filter(func(entry): return entry.get("id", "") == "continue")[0].target_rect
+	var continue_center := Vector2(float(continue_rect.x) + float(continue_rect.width) / 2.0, float(continue_rect.y) + float(continue_rect.height) / 2.0)
+	_check("Continue label is centered in its plaque", continue_center.distance_to(Vector2(467.5, 1236.857)) < 0.02)
+	_check("Continue label uses the requested smaller 23 px font", int(layout.get("dynamic_text", []).filter(func(entry): return entry.get("id", "") == "continue")[0].font_size) == 23)
 
-	await _capture("02_home_reference_941x1672", Vector2i(941, 1672))
+	await _capture("02_home_owner_critique_v02_941x1672", Vector2i(941, 1672))
 	var rects_match := true
 	for item_value in layout.get("items", []):
 		var item: Dictionary = item_value
@@ -137,26 +169,26 @@ func _run() -> void:
 			print("M21_HOME_R04_RECT: %s actual=%s/%s expected=%s/%s" % [item.get("id", ""), str(visual.position), str(visual.size), str(expected_pos), str(expected_size)])
 			rects_match = false
 	_check("all production art rects match normalized layout at 941x1672", rects_match)
-	await _capture("03_home_720x1280", Vector2i(720, 1280))
-	await _capture("04_home_800x1422", Vector2i(800, 1422))
+	await _capture("03_home_owner_critique_v02_720x1280", Vector2i(720, 1280))
+	await _capture("04_home_owner_critique_v02_800x1422", Vector2i(800, 1422))
 	root.size = Vector2i(720, 1280)
 	await _frames()
 	var controls: Dictionary = shell.get_menu_controls()
 	await _click(controls.play.position + controls.play.size / 2.0)
 	_check("PLAY image starts selected campaign level", shell.get_current_view() == "CAMPAIGN" and navigation.current_view == navigation.VIEW_GAMEPLAY)
-	await _capture("05_home_play_navigation", Vector2i(720, 1280))
+	await _capture("05_home_owner_critique_v02_play_navigation", Vector2i(720, 1280))
 	shell.show_main_menu()
 	await _frames()
 	controls = shell.get_menu_controls()
 	await _click(controls.world_map.position + controls.world_map.size / 2.0)
 	_check("WORLD MAP image opens production World Map", shell.get_current_view() == "CAMPAIGN" and navigation.current_view == navigation.VIEW_WORLD_MAP)
-	await _capture("06_home_world_map_navigation", Vector2i(720, 1280))
+	await _capture("06_home_owner_critique_v02_world_map_navigation", Vector2i(720, 1280))
 	shell.show_main_menu()
 	await _frames()
 	controls = shell.get_menu_controls()
 	await _click(controls.settings.position + controls.settings.size / 2.0)
 	_check("SETTINGS image opens existing Settings", shell.get_current_view() == "SETTINGS" and shell.is_settings_visible())
-	await _capture("07_home_settings_navigation", Vector2i(720, 1280))
+	await _capture("07_home_owner_critique_v02_settings_navigation", Vector2i(720, 1280))
 
 	shell.queue_free()
 	await process_frame

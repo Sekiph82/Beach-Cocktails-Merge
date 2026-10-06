@@ -4,7 +4,7 @@
     "width": 941,
     "height": 1672
   },
-  "coordinate_rule": "All runtime visual rects are normalized from these TARGET pixel rects. The target PNG is reference-only.",
+  "coordinate_rule": "Owner critique V02 overrides the earlier fixed target rectangles for the four top bar widths, lower button group, and Continue plaque text. Runtime scales these reference-space rectangles proportionally.",
   "items": [
     {
       "id": "background",
@@ -38,12 +38,12 @@
       "target_rect": {
         "x": 16,
         "y": 3,
-        "width": 239,
+        "width": 179.25,
         "height": 89
       },
       "normalized_rect": {
         "x": 0.017003,
-        "width": 0.253985,
+        "width": 0.190489,
         "y": 0.001794,
         "height": 0.05323
       },
@@ -60,12 +60,12 @@
       "target_rect": {
         "x": 247,
         "y": 15,
-        "width": 218,
+        "width": 163.5,
         "height": 81
       },
       "normalized_rect": {
         "x": 0.262487,
-        "width": 0.231668,
+        "width": 0.173751,
         "y": 0.008971,
         "height": 0.048445
       },
@@ -82,12 +82,12 @@
       "target_rect": {
         "x": 444,
         "y": 14,
-        "width": 217,
+        "width": 162.75,
         "height": 81
       },
       "normalized_rect": {
         "x": 0.471838,
-        "width": 0.230606,
+        "width": 0.172954,
         "y": 0.008373,
         "height": 0.048445
       },
@@ -104,12 +104,12 @@
       "target_rect": {
         "x": 654,
         "y": 13,
-        "width": 221,
+        "width": 165.75,
         "height": 82
       },
       "normalized_rect": {
         "x": 0.695005,
-        "width": 0.234857,
+        "width": 0.176142,
         "y": 0.007775,
         "height": 0.049043
       },
@@ -212,16 +212,16 @@
         "height": 821
       },
       "target_rect": {
-        "x": 118,
-        "y": 945,
-        "width": 698,
-        "height": 299
+        "x": 168.357,
+        "y": 1050.0,
+        "width": 598.286,
+        "height": 256.286
       },
       "normalized_rect": {
-        "x": 0.125399,
-        "width": 0.741764,
-        "y": 0.565191,
-        "height": 0.178828
+        "x": 0.178913,
+        "width": 0.635798,
+        "y": 0.62799,
+        "height": 0.153281
       },
       "z_order": 2,
       "input_behavior": "TextureButton body continues selected campaign level"
@@ -234,16 +234,16 @@
         "height": 724
       },
       "target_rect": {
-        "x": 110,
-        "y": 1191,
-        "width": 730,
-        "height": 243
+        "x": 161.5,
+        "y": 1260.857,
+        "width": 625.714,
+        "height": 208.286
       },
       "normalized_rect": {
-        "x": 0.116897,
-        "width": 0.77577,
-        "y": 0.712321,
-        "height": 0.145335
+        "x": 0.171626,
+        "width": 0.664946,
+        "y": 0.754101,
+        "height": 0.124573
       },
       "z_order": 2,
       "input_behavior": "TextureButton body opens production World Map"
@@ -256,16 +256,16 @@
         "height": 1198
       },
       "target_rect": {
-        "x": 67,
-        "y": 1417,
-        "width": 164,
-        "height": 150
+        "x": 124.643,
+        "y": 1454.571,
+        "width": 140.571,
+        "height": 128.571
       },
       "normalized_rect": {
-        "x": 0.071201,
-        "width": 0.174283,
-        "y": 0.847488,
-        "height": 0.089713
+        "x": 0.132458,
+        "width": 0.149385,
+        "y": 0.869959,
+        "height": 0.076897
       },
       "z_order": 2,
       "input_behavior": "inert visual; no canonical destination"
@@ -278,16 +278,16 @@
         "height": 1198
       },
       "target_rect": {
-        "x": 269,
-        "y": 1417,
-        "width": 164,
-        "height": 150
+        "x": 297.786,
+        "y": 1454.571,
+        "width": 140.571,
+        "height": 128.571
       },
       "normalized_rect": {
-        "x": 0.285866,
-        "width": 0.174283,
-        "y": 0.847488,
-        "height": 0.089713
+        "x": 0.316457,
+        "width": 0.149385,
+        "y": 0.869959,
+        "height": 0.076897
       },
       "z_order": 2,
       "input_behavior": "inert visual; no canonical destination"
@@ -300,16 +300,16 @@
         "height": 1246
       },
       "target_rect": {
-        "x": 469,
-        "y": 1417,
-        "width": 160,
-        "height": 158
+        "x": 469.214,
+        "y": 1454.571,
+        "width": 137.143,
+        "height": 135.429
       },
       "normalized_rect": {
-        "x": 0.498406,
-        "width": 0.170032,
-        "y": 0.847488,
-        "height": 0.094498
+        "x": 0.498633,
+        "width": 0.145742,
+        "y": 0.869959,
+        "height": 0.080998
       },
       "z_order": 2,
       "input_behavior": "inert visual; no canonical destination"
@@ -322,16 +322,16 @@
         "height": 1198
       },
       "target_rect": {
-        "x": 672,
-        "y": 1417,
-        "width": 164,
-        "height": 150
+        "x": 643.214,
+        "y": 1454.571,
+        "width": 140.571,
+        "height": 128.571
       },
       "normalized_rect": {
-        "x": 0.714134,
-        "width": 0.174283,
-        "y": 0.847488,
-        "height": 0.089713
+        "x": 0.683543,
+        "width": 0.149385,
+        "y": 0.869959,
+        "height": 0.076897
       },
       "z_order": 2,
       "input_behavior": "inert visual; no canonical destination"
@@ -417,21 +417,64 @@
     {
       "id": "continue",
       "target_rect": {
-        "x": 290,
-        "y": 1137,
-        "width": 360,
-        "height": 52
+        "x": 313.214,
+        "y": 1214.571,
+        "width": 308.571,
+        "height": 44.571
       },
       "normalized_rect": {
-        "x": 0.308183,
-        "width": 0.382572,
-        "y": 0.680024,
-        "height": 0.0311
+        "x": 0.332852,
+        "width": 0.327918,
+        "y": 0.726418,
+        "height": 0.026657
       },
       "z_order": 6,
-      "font_size": 27,
+      "font_size": 23,
       "style": "plaque",
-      "source": "same validated selected campaign level as level"
+      "source": "same validated selected campaign level as level",
+      "alignment_note": "Centered in the PLAY plaque; scaled with the uniform lower-button group."
     }
-  ]
+  ],
+  "owner_adjustments": {
+    "owner_screenshot": "evidence/02_home_reference_941x1672 kritik.png",
+    "top_bars": {
+      "ids": [
+        "level_bar",
+        "energy_bar",
+        "coin_bar",
+        "diamond_bar"
+      ],
+      "width_factor": 0.75,
+      "height_factor": 1.0,
+      "horizontal_anchor": "preserve each left edge"
+    },
+    "lower_button_group": {
+      "ids": [
+        "play",
+        "world_map",
+        "shop",
+        "events",
+        "daily_rewards",
+        "achievements"
+      ],
+      "marked_start_line_y": 1050.0,
+      "marked_bottom_y": 1590.0,
+      "uniform_scale": 0.857142857,
+      "horizontal_anchor_x": 470.5,
+      "original_group_top_y": 945.0,
+      "original_group_bottom_y": 1575.0,
+      "play_top_after_adjustment_y": 1050.0,
+      "group_bottom_after_adjustment_y": 1590.0
+    },
+    "continue_plaque": {
+      "center_target_before_group_transform": {
+        "x": 467.0,
+        "y": 1163.0
+      },
+      "center_after_group_transform": {
+        "x": 467.5,
+        "y": 1236.857
+      }
+    }
+  }
 }
