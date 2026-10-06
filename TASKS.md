@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M21-HOME-EXACT-TARGET-R04
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001-R04 — CODEX executes `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`, rebuilds Home exactly from the owner-supplied TARGET and local Home PNG set with no creative deviation, publishes target-parity evidence, and stops for owner visual approval.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M21-001-R04 — OWNER reviews the latest V03 production Home welcome screen and returns `OWNER_HOME_EXACT_TARGET_ACCEPTED_R04` or `OWNER_HOME_EXACT_TARGET_CHANGES_REQUIRED_R04` with exact visual changes.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R02 Island Map and To-Go changes remain in place. The owner has issued a newer exact Home visual ruling: production Home must be composed mechanically from the PNG set in `assets/ui_assets/screens/home/` and match `TARGET beach cocktails merge home.png` exactly in placement, scale, hierarchy, and button count. The previously active R03 technical closure is deferred before execution; its M07/M08/project.godot findings remain open and will be reissued after the exact Home is owner-approved. Active task is `BCM-M21-001-R04`. BCM-M21-006 remains blocked.
+- Progress: R02 Island Map and To-Go changes remain in place. The exact Home R04 implementation plus owner V02/V03 layout corrections are published. Independent audit `CHATGPT_HOME_OWNER_CRITIQUE_AUDIT_V03.md` = **TECHNICAL_AUDITED_PASS / OWNER_HOME_VISUAL_APPROVAL_REQUIRED**. The latest committed Home shifts Energy 18 px toward Level, centers all three plus icons on the owner-marked x positions and bar midlines, raises Continue a total 12 px, proves PLAY resumes the actual selected campaign level, and proves WORLD MAP opens the production map through real input. Final visual acceptance is now OWNER. The previously deferred M07/M08/project.godot technical closure remains open for after Home acceptance. BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
@@ -1004,7 +1004,8 @@ Owner F5 V07 history and active R03 remediation:
 - Active R04 owner ruling: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/OWNER_HOME_EXACT_TARGET_RULING_R04.md`.
 - Active R04 criteria: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_CRITERIA_R04.md`.
 - Active R04 prompt: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`.
-- Required builder marker: `AWAITING_OWNER_HOME_EXACT_TARGET_APPROVAL_R04`.
+- Latest independent Home audit: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_OWNER_CRITIQUE_AUDIT_V03.md` — **TECHNICAL_AUDITED_PASS / OWNER_HOME_VISUAL_APPROVAL_REQUIRED**.
+- Required owner marker: `OWNER_HOME_EXACT_TARGET_ACCEPTED_R04` or `OWNER_HOME_EXACT_TARGET_CHANGES_REQUIRED_R04`.
 - The older direct-implementation R01 package remains superseded.
 
 Owner F5 V04 historical remediation:
