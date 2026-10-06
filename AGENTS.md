@@ -599,3 +599,29 @@ Required stop marker:
 
 Deferred M07/M08/project.godot technical closure remains open after Home approval.
 
+## Active M21 full runtime integration authority — 2026-10-06
+
+The owner has explicitly accepted the current Home at:
+`d265865f67770be34e3c45f83ea07141feb3c5ca`.
+
+The Home visual/layout is frozen. No further Home movement, resizing, asset replacement, text-geometry change, or stylistic reinterpretation is authorized in R06.
+
+Active R06 package:
+- `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/OWNER_HOME_ACCEPTANCE_R06.md`
+- `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_CRITERIA_R06.md`
+- `coordination/sessions/BCM-M21-FULL-RUNTIME-R06/CHATGPT_FULL_RUNTIME_PROMPT_R06.md`
+
+R06 is integration/runtime-readiness only:
+- reconcile the known local tracked `project.godot` drift if it is proven machine-local UID/path normalization only;
+- preserve current owner save/progression;
+- verify normal ApplicationShell startup and latest Home/World Map/Island Map/gameplay flow;
+- open the actual Godot 4.7.2 project and run the normal main-scene/F5 flow for owner testing;
+- finish with local/GitHub clean and synchronized.
+
+Deferred M07/M08 findings remain open and must not be falsely closed by this task.
+
+Required stop marker:
+`AWAITING_OWNER_FULL_GAME_RUNTIME_REVIEW_R06`
+
+BCM-M21-006 remains blocked.
+
