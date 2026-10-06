@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-HOME-FRONTIER-R08
+- Current Sprint: BCM-M21-WORLD-MAP-INPUT-R09
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: BCM-M21-001-R08 — CODEX executes `coordination/sessions/BCM-M21-HOME-FRONTIER-R08/CHATGPT_HOME_FRONTIER_PROMPT_R08.md`, makes the Home top LEVEL, PLAY plaque, and Home PLAY action use the same campaign frontier authority while preserving old-level replay from Island Map, reruns the locked regressions, and stops for independent audit.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M21-001-R09 — CODEX executes `coordination/sessions/BCM-M21-WORLD-MAP-INPUT-R09/CHATGPT_WORLD_MAP_INPUT_PROMPT_R09.md`, reproduces and diagnoses the three inherited V05 real-input failures, fixes production or the stale harness only with evidence, makes V05 pass twice consecutively, reruns the locked regressions, and stops for independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Independent audit of R07 plus the 720×1280 Sunny Cove full-background follow-up found the Island Map/star/background work technically sound, but **CHANGES_REQUIRED** remains because Home still mixes authorities: the top LEVEL display uses `selected_level_id`, the PLAY plaque uses frontier, and Home PLAY launches `selected_level_id`. After replaying an old level this can show `LEVEL 11` yet launch level 4. R08 is a bounded functional remediation only: Home top LEVEL + plaque + PLAY must all use `CampaignManager.get_frontier_level_id()`. Explicit Island Map replay of old levels remains supported. R07 visuals/star thresholds/full-background are frozen. Economy draft remains inactive. BCM-M21-006 remains blocked.
+- Progress: Independent R08 audit is **R08_SCOPE_PASS / PROJECT_REGRESSION_GATE_FAIL**. The Home frontier defect is fixed: top LEVEL, PLAY plaque, and Home PLAY now use the same campaign frontier, while explicit Island Map replay remains intact. The remaining blocker is inherited V05 production real-input coverage: Island Map Back→World Map, Sunny Cove ScreenTouch entry, and World Map Back→Home fail identically on the clean pre-R08 baseline. R09 is active solely to classify and close those three failures without changing accepted Home/R07 visuals, stars, full Sunny Cove background, gameplay, or the inactive economy draft. BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
