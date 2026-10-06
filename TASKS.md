@@ -5,14 +5,14 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-HOME-EXACT-TARGET-R04
+- Current Sprint: BCM-M21-HOME-BAR-FIT-R05
 - Current Task: BCM-M21-001 — Rebuild World Map as a composited multi-part island map and restore real-input Sunny Cove Island Map entry.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M21-001-R04 — OWNER reviews the latest V03 production Home welcome screen and returns `OWNER_HOME_EXACT_TARGET_ACCEPTED_R04` or `OWNER_HOME_EXACT_TARGET_CHANGES_REQUIRED_R04` with exact visual changes.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M21-001-R05 — CODEX executes `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_PROMPT_R05.md`, narrows Energy by 25%, widens Coin by 25%, preserves the current bar-end seating of the Energy/Coin plus icons, fixes coin-value fit, publishes evidence, and stops for owner approval.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R02 Island Map and To-Go changes remain in place. The exact Home R04 implementation plus owner V02/V03 layout corrections are published. Independent audit `CHATGPT_HOME_OWNER_CRITIQUE_AUDIT_V03.md` = **TECHNICAL_AUDITED_PASS / OWNER_HOME_VISUAL_APPROVAL_REQUIRED**. The latest committed Home shifts Energy 18 px toward Level, centers all three plus icons on the owner-marked x positions and bar midlines, raises Continue a total 12 px, proves PLAY resumes the actual selected campaign level, and proves WORLD MAP opens the production map through real input. Final visual acceptance is now OWNER. The previously deferred M07/M08/project.godot technical closure remains open for after Home acceptance. BCM-M21-006 remains blocked.
+- Progress: R02 Island Map and To-Go changes remain in place. R04 exact Home plus V03 owner corrections passed independent technical audit, but the owner identified one final visual defect: the coin value does not fit cleanly inside the current Coin bar. R05 is a bounded Home-only correction: Energy width 181.5→136.125, Coin width 162.75→203.4375 at the 941×1672 reference, both heights and left x positions preserved, Energy/Coin plus icons moved with the resized bar ends while keeping their current inset relationship, and all other Home elements frozen. BCM-M21-006 remains blocked.
 
 ## Blockers/Waits
 
@@ -1005,7 +1005,11 @@ Owner F5 V07 history and active R03 remediation:
 - Active R04 criteria: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_CRITERIA_R04.md`.
 - Active R04 prompt: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_EXACT_TARGET_PROMPT_R04.md`.
 - Latest independent Home audit: `coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/CHATGPT_HOME_OWNER_CRITIQUE_AUDIT_V03.md` — **TECHNICAL_AUDITED_PASS / OWNER_HOME_VISUAL_APPROVAL_REQUIRED**.
-- Required owner marker: `OWNER_HOME_EXACT_TARGET_ACCEPTED_R04` or `OWNER_HOME_EXACT_TARGET_CHANGES_REQUIRED_R04`.
+- Owner R04 visual decision: changes required only for final Energy/Coin bar fit.
+- Active R05 ruling: `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/OWNER_HOME_BAR_FIT_RULING_R05.md`.
+- Active R05 criteria: `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_CRITERIA_R05.md`.
+- Active R05 prompt: `coordination/sessions/BCM-M21-HOME-BAR-FIT-R05/CHATGPT_HOME_BAR_FIT_PROMPT_R05.md`.
+- Required builder marker: `AWAITING_OWNER_HOME_BAR_FIT_APPROVAL_R05`.
 - The older direct-implementation R01 package remains superseded.
 
 Owner F5 V04 historical remediation:
