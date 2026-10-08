@@ -1,0 +1,23 @@
+# Codex Execution Log — BCM-M23-002 V01
+
+- Work item: BCM-M23-002 — bridge-controlled merge feedback.
+- Prompt version: BCM-M23-MASTER-V01 / M23-002 V01.
+- Start HEAD: `10d3f5fe0255416a9193c0342e99749be4f3c6e3`.
+- Branch / remote: `main` / `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge`).
+- Sync preflight: local/origin/live main=`10d3f5fe0255416a9193c0342e99749be4f3c6e3`, divergence 0/0. Two M21 owner PNGs remain untracked and excluded.
+- Protected paths: root `TASKS.md` is read-only; M23-001 source/evidence/log are unchanged.
+- Implementation: removed the old `_juice_effect` implementation and call; routed one merge event to `Drink/Visual`; added BASE/SURGE/PEAK mapping to the bridge (FULL 10/0.28s, 10/0.30s, 18/0.35s; REDUCED color-only with zero particles); tracked active Spark particles and bounded live count to 48; bounded GFF handle telemetry at 128 outputs; cancellation remains active on service/session replacement and game over.
+- Files changed: `scripts/game_manager.gd`, `scripts/presentation_feedback_bridge.gd`, `tests/m23_002_merge_feedback_probe.gd`, and `coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-002/merge_feedback_probe.json`.
+- Commands/tests:
+  - `godot_console.exe --headless --path . --script res://tests/m23_002_merge_feedback_probe.gd` — `PASS checks=24 failures=0 dispatches=13 active_particles=40 captures=0`.
+  - `godot_console.exe --headless --path . --script res://tests/m23_001_micro_feedback_probe.gd` — `PASS checks=23 failures=0 dispatches=5 cooldown_ms=120 captures=0` after the shared bridge update.
+  - M22 regressions ran from copies in ignored `.godot/m23_validation/`, redirecting outputs to preserve immutable M22 evidence: M22-001 `PASS checks=21`; M22-002 `PASS checks=27`; M22-003 `PASS checks=97`; each exit 0, authority fingerprint `891736178`.
+  - `git diff --check` — PASS.
+  - Source scan: only `scripts/presentation_feedback_bridge.gd` invokes GFF `play` and Spark `burst`.
+- Authority parity: real `GameManager.on_merged(12, ...)` with bridge disabled/enabled produced the same score 6500, best score 6500, chain 1, and 1.5 s chain timer. Body basis, velocity, collision layer/mask, collider transform/radius stayed unchanged. `user://save.cfg` SHA-256/existence fingerprint was unchanged.
+- Godot/runtime evidence: Godot 4.7.2 headless booted the actual main scene and GameManager. Exact-once dedupe, no legacy effect, all merge bands and PEAK hard cap, REDUCED zero particles, plugin absence/failure, cancellation, 48 live-particle stress cap, and authority parity passed.
+- Manual/visual checks: no owner F5/real-renderer review performed. `visual_capture_count=0`; owner visual evidence and acceptance remain pending.
+- Known limitations: no screenshot is claimed; builder evidence does not establish owner visual acceptance. The 48-live-particle estimate conservatively includes the installed Spark preset's lifetime randomization.
+- End HEAD / implementation commit SHA: `d8180b78e8f8efc1a7fe24aade1857267851a260`.
+- Implementation publication parity: local HEAD, `origin/main`, and live `main` all matched `d8180b78e8f8efc1a7fe24aade1857267851a260`, divergence 0/0. The separate log publication commit and its parity will be recorded in the master log.
+- `TASKS.md` was not modified.
