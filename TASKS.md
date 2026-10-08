@@ -7,16 +7,16 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M23
 - Current Sprint: BCM-M23-MASTER-V01
 - Current Task: BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
-- Current Task Status: BLOCKED
-- Next Task/Action: BCM-M23-003 — CODEX executes `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-R03_COMBINED_TUNING_PROMPT.md` to tone down R02 effects and fix persistent tint, then stops for GPT re-audit.
-- Required Actor: CODEX
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M23-003 — OWNER reviews the latest R03 FULL/REDUCED effects in native F5 and reports acceptance or findings; M24 remains blocked.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M22 owner approved. M23 R02 source/evidence reviewed but OWNER_VISUAL_REJECTED: stronger effects now too intense; some color tints fail to restore. M23-R03 tuning plus exact tint restoration required. M21 720x1440 mobile QA failed and remains open; M24 not started.
+- Progress: M22 owner approved. M23-R03 technical/source re-audit PASS; native F5 owner visual acceptance pending. Exact tint restoration proven in builder evidence, 28 real-renderer fixture captures. Separate open findings: 3 ObjectDB teardown warnings, M21 720x1440 mobile QA FAIL. M24 not started.
 
 ## Blockers/Waits
 
-- M23 owner rejected R02 visual intensity and persistent colors. R03 mandatory; M21 mobile QA 720x1440 failure remains reported separately. M24 blocked until independent technical re-audit plus owner FULL/REDUCED acceptance.
+- M23-R03 source audit PASS; owner-native visual acceptance still required. Open independent M21 mobile QA failure and 3 ObjectDB leaked-instance test warning; no silent closure. M24 blocked.
 
 ## Tasks
 
@@ -1152,7 +1152,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: low/high-level merges, transient counts, boundary readability, REDUCED, clean logs.
   - Owner acceptance: required.
 
-- [!] BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
+- [~] BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
   - Purpose: escalating but calm chain feel and feedback only for meaningful score milestones.
   - Existing seam: `GameManager.chain` 1..6, `COMBO_WINDOW`, `_chain_label`, score/best panels, `_refresh_hud()`, active level `score_star_thresholds`.
   - Semantic trigger: BASE 1-2, SURGE 3-4, PEAK 5-6; score UI only on first session crossing of prior best score and configured 2-star/3-star score thresholds.
