@@ -6,17 +6,17 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M23
 - Current Sprint: BCM-M23-MASTER-V01
-- Current Task: BCM-M23-001 — Add restrained launch and table-contact MICRO feedback without touching launch/collision authority.
+- Current Task: BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M23-001 — CODEX executes `coordination/sessions/BCM-M23-MASTER-V01/CHATGPT_M23_MASTER_PROMPT_V01.md` continuously through M23-003, then stops for GPT audit.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M23-003 — OWNER reviews FULL/REDUCED gameplay visual effects (launch/contact, BASE/SURGE/PEAK, score milestones) and explicitly accepts or provides visual findings; M24 blocked.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M22 technical audit PASS and owner Effect Language Matrix V01 APPROVED (2026-10-08); M22 closed. M23 001→003 child prompts, locked audit criteria, and continuous master prompt published. M23 production visual implementation pending Codex. M22 matrix supersedes old M23 REDUCED merge particle and FULL SURGE ceilings.
+- Progress: M22 closed and owner approved. M23 001→003 implemented/published; independent M23 source audit V01 PASS, owner real-renderer visual acceptance pending (captures=0). Codex did not change TASKS.md or protected owner PNGs; M24 not started.
 
 ## Blockers/Waits
 
-- M22 owner gate cleared. M23 visual owner acceptance remains required after implementation; headless screenshot captures=0 are not accepted as rendered visual proof. Preserve two untracked owner PNGs and established release limitations.
+- M23 source audit PASS; owner FULL/REDUCED visual acceptance required. Headless captures=0; M24 must remain blocked until owner decision and tracker update.
 
 ## Tasks
 
@@ -1128,7 +1128,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M23 — Gameplay MICRO, merge, combo, and meaningful score feedback
 
-- [~] BCM-M23-001 — Add restrained launch and table-contact MICRO feedback without touching launch/collision authority.
+- [x] BCM-M23-001 — Add restrained launch and table-contact MICRO feedback without touching launch/collision authority.
   - Purpose: tactile launch/contact while preserving aiming, table/rail readability, and accepted physics.
   - Existing seam: `ShotController.shot_fired(drink,velocity)` after launch velocity is committed; table-contact notification may be emitted only after `Drink._integrate_forces()` applies `GameManager.project_footprint_inside_table()` and after existing `_on_body_entered()` rail handling.
   - Semantic trigger: one `cocktail_launch` per shot; `table_contact` only for meaningful contact, never settle jitter or merge contact.
@@ -1140,7 +1140,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: portrait launch/contact captures, rail-readability comparison, telemetry, clean logs.
   - Owner acceptance: FULL and REDUCED required.
 
-- [ ] BCM-M23-002 — Replace legacy merge juice with one coherent MERGE Spark burst plus visual-only cocktail punch.
+- [x] BCM-M23-002 — Replace legacy merge juice with one coherent MERGE Spark burst plus visual-only cocktail punch.
   - Purpose: crisp merge pop without duplicate legacy effects.
   - Existing seam: `GameManager.on_merged(new_level,merged_drink)` after score/combo update; current `_juice_effect()` + `feedback_service.emit_merge()`; target `merged_drink/Visual`/`CocktailSprite`.
   - Semantic trigger: `merge` once with new level and current chain context.
@@ -1152,7 +1152,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: low/high-level merges, transient counts, boundary readability, REDUCED, clean logs.
   - Owner acceptance: required.
 
-- [ ] BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
+- [~] BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
   - Purpose: escalating but calm chain feel and feedback only for meaningful score milestones.
   - Existing seam: `GameManager.chain` 1..6, `COMBO_WINDOW`, `_chain_label`, score/best panels, `_refresh_hud()`, active level `score_star_thresholds`.
   - Semantic trigger: BASE 1-2, SURGE 3-4, PEAK 5-6; score UI only on first session crossing of prior best score and configured 2-star/3-star score thresholds.
