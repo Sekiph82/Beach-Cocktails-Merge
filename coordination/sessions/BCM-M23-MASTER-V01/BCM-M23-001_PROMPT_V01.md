@@ -1,0 +1,2 @@
+# M23-001 implementation
+Implement launch/contact MICRO using authoritative shot/contact seams and PresentationFeedbackBridge ONLY. Read locked child criteria, M22 policy and latest code. Build robust per-event dedupe and >=120ms meaningful-contact cooldown; never emit settling jitter. Keep original physics/gameplay unchanged. FULL <=4/0.14s launch, <=5/0.16s contact; REDUCED zero particles. Tests for 1x dispatch, bounce spam, no collision/launch shift, failed/absent plugin, cancel. Produce committed evidence/log and preserve visual gating.
