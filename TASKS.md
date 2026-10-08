@@ -4,19 +4,19 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M22
-- Current Sprint: BCM-M22-MASTER-V01
-- Current Task: BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
+- Current Milestone: BCM-M23
+- Current Sprint: BCM-M23-MASTER-V01
+- Current Task: BCM-M23-001 — Add restrained launch and table-contact MICRO feedback without touching launch/collision authority.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M22-003 — OWNER approves or requests edits to M22 Effect Language Matrix; M23 remains blocked.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M23-001 — CODEX executes `coordination/sessions/BCM-M23-MASTER-V01/CHATGPT_M23_MASTER_PROMPT_V01.md` continuously through M23-003, then stops for GPT audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: BCM-M21 remains complete. M22 R01 technical re-audit PASS. Owner Effect Language Matrix approval pending; M23 not started.
+- Progress: M22 technical audit PASS and owner Effect Language Matrix V01 APPROVED (2026-10-08); M22 closed. M23 001→003 child prompts, locked audit criteria, and continuous master prompt published. M23 production visual implementation pending Codex. M22 matrix supersedes old M23 REDUCED merge particle and FULL SURGE ceilings.
 
 ## Blockers/Waits
 
-- M22 R01 technical audit PASS; owner Effect Language Matrix approval required before M23. World Map headless screenshots remain unavailable.
+- M22 owner gate cleared. M23 visual owner acceptance remains required after implementation; headless screenshot captures=0 are not accepted as rendered visual proof. Preserve two untracked owner PNGs and established release limitations.
 
 ## Tasks
 
@@ -1114,7 +1114,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: live wiring/event telemetry, duplicate probes, plugin-on/off runs, clean logs.
   - Owner acceptance: architecture audit, no visual sign-off.
 
-- [~] BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
+- [x] BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
   - Purpose: turn MICRO/MERGE/ORDER/VIP/WIN/MASTERY/ISLAND_UNLOCK into executable presentation policy before production effects.
   - Existing seam: `UserSettings.get_presentation_state()/presentation_changed`, `GameManager.apply_presentation_settings`, `CampaignFeedbackOverlay`, HUD, `Drink/Visual`, `LevelButton`, World Map entries, Island Map nodes.
   - Semantic trigger: tier lookup only.
@@ -1128,7 +1128,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M23 — Gameplay MICRO, merge, combo, and meaningful score feedback
 
-- [ ] BCM-M23-001 — Add restrained launch and table-contact MICRO feedback without touching launch/collision authority.
+- [~] BCM-M23-001 — Add restrained launch and table-contact MICRO feedback without touching launch/collision authority.
   - Purpose: tactile launch/contact while preserving aiming, table/rail readability, and accepted physics.
   - Existing seam: `ShotController.shot_fired(drink,velocity)` after launch velocity is committed; table-contact notification may be emitted only after `Drink._integrate_forces()` applies `GameManager.project_footprint_inside_table()` and after existing `_on_body_entered()` rail handling.
   - Semantic trigger: one `cocktail_launch` per shot; `table_contact` only for meaningful contact, never settle jitter or merge contact.
