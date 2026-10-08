@@ -7,16 +7,16 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M24
 - Current Sprint: BCM-M24-MASTER-V01
 - Current Task: BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
-- Current Task Status: BLOCKED
-- Next Task/Action: BCM-M24-003 — CODEX executes `coordination/sessions/BCM-M24-MASTER-V01/BCM-M24-R01_VALIDATION_MASTER_PROMPT.md` to complete missing locked master regression and real renderer proof, then independent GPT re-audit.
-- Required Actor: CODEX
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M24-003 — OWNER reviews real native F5 To-Go and VIP effects in FULL and REDUCED and explicitly approves or reports issues; M25 blocked.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M23 closed and owner accepted. M24-001/002/003 builder code published; focused 23 checks PASS according to Codex, but ChatGPT M24 milestone V01 audit CHANGES_REQUIRED: full M02/M09/M15/M21/M22/M23 regression not run, no FULL/REDUCED real-renderer M24 captures or owner F5 acceptance. M24-R01 continuation required; M25 blocked.
+- Progress: M23 owner-accepted and closed. M24-001→003 published; M24-R01 technical independent source/evidence audit PASS, cross-milestone tests and renderer captures reported PASS; M24 OWNER F5 VISUAL ACCEPTANCE pending, M25 not started. Initial unisolated M02 run leaves original save-file byte parity unknowable.
 
 ## Blockers/Waits
 
-- M24 audit V01 CHANGES_REQUIRED; complete locked master regressions and real-renderer evidence without overwriting owner-local historical files. M24 owner visuals pending. M25 blocked.
+- M24 V01 missing regression/renderer evidence addressed by R01. Owner native F5 FULL/REDUCED visual review remains mandatory. Instantaneous capture FPS is not a device benchmark. Original save byte parity before first unisolated M02 invocation cannot be proven. M25 blocked.
 
 ## Tasks
 
@@ -1190,7 +1190,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: progress→complete, duplicate token, final-order result handoff, REDUCED, clean logs.
   - Owner acceptance: required.
 
-- [!] BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
+- [~] BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
   - Purpose: premium optional mastery distinct from ordinary To-Go without implying VIP is mandatory.
   - Existing seam: `GameManager._collect_vip_target()/_finish_vip_target()`, `GameplaySessionBridge.record_vip_delivery()` fields `accepted/vip_completed/delivered/remaining`, `vip_state_changed`, VIP target/progress/reward controls.
   - Semantic trigger: `vip_delivery` for accepted >0; `vip_complete` only false→true. Rejected/mismatch/duplicate silent.
