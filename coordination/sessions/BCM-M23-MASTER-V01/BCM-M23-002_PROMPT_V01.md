@@ -1,0 +1,2 @@
+# M23-002 implementation
+After M23-001 published and synced, replace legacy merge juice (not stack) with exactly one bridge-controlled visual-child punch + bounded Spark burst per authoritative merge. Preserve current score, collider, table clipping, chain, feedback dedupe. M22 approved policy overrides old plan: REDUCED MERGE zero particles for all 3 bands; FULL BASE/SURGE <=10/0.30s and PEAK <=18/0.35s. Add tests including plugin failure and no double legacy effects, prove identical authority outputs. Commit evidence and child log.
