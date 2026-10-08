@@ -4,19 +4,19 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M21
-- Current Sprint: BCM-M21-FINAL-RELEASE-CLOSURE-R04
-- Current Task: BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
-- Current Task Status: CHANGES_REQUIRED
-- Next Task/Action: BCM-M21-006-R04 — CODEX executes `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_EVIDENCE_PROMPT_R04.md`, publishes the missing mandatory R03 command evidence as committed text, fixes project.godot/release SHA metadata consistency, publishes final Git/ref proof, and stops for independent audit.
-- Required Actor: CODEX
+- Current Milestone: BCM-M22
+- Current Sprint: BCM-M22-PRESENTATION-ARCHITECTURE
+- Current Task: BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
+- Current Task Status: NOT_STARTED
+- Next Task/Action: CHATGPT prepares the locked BCM-M22-001 implementation prompt + audit criteria from the exact installed GameFeelFlow and Saltmire Spark repository bytes before any production effect implementation.
+- Required Actor: CHATGPT
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R03 source/probe closure is substantially sound, but independent audit verdict is **CHANGES_REQUIRED / EVIDENCE_PUBLICATION_CLOSURE_ONLY**. Mandatory final-run evidence (M08 x2, R09 V05 x2, M07 finals, R08/R07/M18/M20, save/restart, gameplay regressions, asset/import/boot, diff/ref proof) was retained locally as ignored `.log` files and not published to GitHub, so the final release gate is not independently auditable. R04 is evidence-only: no production or test-semantic changes are authorized. It must publish exact log copies/reruns as `.txt`, reconcile conflicting project.godot SHA-256 evidence, distinguish product baseline vs R03 handoff SHAs in the release manifest, and publish final cleanliness/ref proof. M22 remains blocked.
+- Progress: BCM-M21 final independent audit R04 = **AUDITED_PASS / BCM-M21 COMPLETE**. Owner-accepted Home/World Map/Sunny Cove/gameplay surfaces remain frozen; M07 current HUD authority is green, M08 exits cleanly twice, R09 real mouse/touch navigation is green twice, fresh L1→L100 progression/Tiki unlock and host performance/persistence evidence are published, and release metadata truthfully records that no export preset/distributable/native-device signing proof exists. M22 is now the next canonical roadmap milestone. Economy Draft V01 remains inactive.
 
 ## Blockers/Waits
 
-- BCM-M21-006 is active after BCM-M21-001 independent audit PASS and fresh owner runtime acceptance.
+- BCM-M21 has no open implementation blockers. M22 may begin after ChatGPT publishes the locked BCM-M22-001 prompt/criteria. Physical-device/export/signing limitations remain recorded release-environment items, not active M21 code blockers.
 
 ## Tasks
 
@@ -1039,10 +1039,10 @@ Owner F5 V04 historical remediation:
 - [x] BCM-M21-003 — Run full campaign progression test from fresh save through Sunny Cove Level 100 and Tiki Island unlock.
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
-- [~] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
-  Owner: Codex
+- [x] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
+  Owner: ChatGPT / Owner
   Depends on: BCM-M21-001
-  Owner Gate: Final independent audit after R03 technical release closure.
+  Closure: `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_AUDIT_R04.md` — **AUDITED_PASS / BCM-M21 COMPLETE**.
 - [x] BCM-M21-007 — Remove proven obsolete/orphan visual assets, evidence, generated import metadata, stale JSON/tests/tools, and normalize repository truth around the owner-approved ten-island R04 surface/profile authority.
 
 ## Campaign design references
@@ -1050,7 +1050,7 @@ Owner F5 V04 historical remediation:
 - Technical architecture: `docs/CAMPAIGN_MODULE_TECHNICAL_DESIGN.md`.
 - Sunny Cove historical progression spec: `docs/SUNNY_COVE_LEVEL_PROGRESSION_V1.md` — **timer portions superseded by 2026-10-01 OWNER_RULING_V01; no gameplay time limits are permitted.**
 
-M21 completion = Beach Cocktails Merge v1 campaign release-ready closure.
+M21 completion = **COMPLETE** — Beach Cocktails Merge v1 campaign technical/owner-runtime closure audited PASS. No export preset/distributable was available; physical-device/native install/signing remain explicitly unverified.
  
 ## M22-M27 — Planned GameFeelFlow + Saltmire Spark presentation program
 
