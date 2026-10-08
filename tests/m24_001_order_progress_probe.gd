@@ -61,6 +61,8 @@ func _run() -> void:
 	target.queue_free()
 	service.queue_free()
 	bridge.queue_free()
+	manager.free()
+	await process_frame
 	quit(0 if _failures.is_empty() else 1)
 
 

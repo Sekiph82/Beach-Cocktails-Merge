@@ -276,13 +276,19 @@ func _on_normal_delivery_recorded(delivery: Dictionary) -> void:
 	# WIN owns the final normal-order transition; avoid a second progress flourish.
 	if final_order:
 		return
-	feedback_service.emit_order_progress(token, {
+	var level_remaining := int(remaining.get(level, 0))
+	var event_payload := {
 		"level": level,
 		"accepted": int(delivery.get("accepted", 0)),
 		"completed": int(completed.get(level, 0)),
-		"remaining": int(remaining.get(level, 0)),
+		"remaining": level_remaining,
 		"presentation_target": _to_go_progress_label,
-	})
+	}
+	if level_remaining == 0:
+		var completion_token := "%s:L%d" % [token, level]
+		feedback_service.emit_order_complete(completion_token, level, event_payload)
+	else:
+		feedback_service.emit_order_progress(token, event_payload)
 
 
 func get_visible_texture_inventory() -> Array[Dictionary]:
@@ -1771,7 +1777,6 @@ func _finish_target_collection() -> void:
 		drink.queue_free()
 
 	_to_go_panel.visible = true
-	_order_completion_feedback()
 
 	# A delivered stock drink never receives merge/combo points a second time.
 	# Only the currently requested To-Go reward is paid here.
@@ -1789,8 +1794,7 @@ func _finish_target_collection() -> void:
 		if campaign_session_bridge.is_terminal():
 			return
 	else:
-		feedback_service.emit_order_progress("freeplay-order-%d" % _order_sequence, {"level": completed_level, "accepted": 1, "completed": 1, "remaining": 0, "presentation_target": _to_go_progress_label})
-		feedback_service.emit_order_complete(_order_sequence, completed_level, {"level": completed_level, "accepted": 1})
+		feedback_service.emit_order_complete("freeplay-order-%d:L%d" % [_order_sequence, completed_level], completed_level, {"level": completed_level, "accepted": 1, "completed": 1, "remaining": 0, "presentation_target": _to_go_progress_label})
 
 	_target_transition = false
 	_choose_next_target(false)
@@ -1935,13 +1939,6 @@ func _clear_terminal_world_visuals() -> void:
 			elif child.is_in_group("campaign_transient_world_effect"):
 				child.visible = false
 				child.queue_free()
-	if _to_go_panel != null:
-		var flash := _to_go_panel.get_node_or_null("OrderCompleteFlash")
-		if flash is CanvasItem:
-			flash.visible = false
-			flash.queue_free()
-
-
 func _hide_terminal_drink(drink: Drink) -> void:
 	if not is_instance_valid(drink):
 		return
@@ -2004,29 +2001,6 @@ func _spawn_to_go_trail(start: Vector2, target: Vector2, duration: float) -> voi
 	tween.tween_property(trail, "modulate:a", 0.0, fade_time).set_delay(0.08)
 	tween.tween_property(trail, "scale:y", 0.0, fade_time).set_delay(0.08)
 	tween.chain().tween_callback(trail.queue_free)
-
-
-func _order_completion_feedback() -> void:
-	if _to_go_panel == null:
-		return
-	var previous := _to_go_panel.get_node_or_null("OrderCompleteFlash")
-	if previous != null:
-		previous.queue_free()
-
-	var flash := ColorRect.new()
-	flash.name = "OrderCompleteFlash"
-	flash.position = Vector2.ZERO
-	flash.size = _to_go_panel.size
-	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	flash.color = Color(1.0, 0.78, 0.28, 0.0)
-	# Keep the flash above the panel artwork but below unrelated HUD siblings.
-	flash.z_index = 1
-	_to_go_panel.add_child(flash)
-
-	var tween := create_tween()
-	tween.tween_property(flash, "color:a", 0.42, 0.08)
-	tween.tween_property(flash, "color:a", 0.0, 0.24)
-	tween.tween_callback(flash.queue_free)
 
 
 func _draw() -> void:

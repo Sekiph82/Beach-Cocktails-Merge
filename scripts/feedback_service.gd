@@ -169,7 +169,7 @@ func emit_merge(source: Node, details: Dictionary = {}) -> void:
     request_semantic("merge", payload, "merge:%s:%s" % [_session_token(), key], {"source": "game_manager"})
 
 
-func emit_order_complete(completion_token: int, level: int, details: Dictionary = {}) -> void:
+func emit_order_complete(completion_token: Variant, level: int, details: Dictionary = {}) -> void:
     var key := str(completion_token)
     if _completion_tokens.has(key):
         return
