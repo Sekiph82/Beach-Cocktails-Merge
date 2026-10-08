@@ -1,0 +1,9 @@
+# BCM-M24-R01 Independent Re-Audit V02
+
+**Verdict: TECHNICAL_SOURCE_AND_EVIDENCE_PASS / OWNER_F5_VISUAL_ACCEPTANCE_PENDING.**
+
+Reviewed published R01 evidence README and Codex log against locked M24 master/R01 criteria. Source M24-001→003 had already been reviewed in milestone V01, where incomplete validation blocked acceptance. R01 builder evidence now reports isolated and redirected regressions: M02 22, M09 21, M15 63, M21 100 levels/1352 assertions and persistence 9, M22 21/27/97, M23 28/30/30 and R03 lifecycle 13/7, M24 7/8/8, editor import and 120-frame boot, plus 16 GL Compatibility mobile captures. FULL/REDUCED gameplay capture logs report authoritative accepted To-Go/VIP transitions and source tokens through the GameManager and gameplay session bridge, with no final-WIN double flourish. This satisfies prior *missing-evidence* concern on reported test evidence.
+
+**Independent-review scope:** examined committed logs/evidence indexes, not an independent execution of Godot or physical-device test. No claim that owner has personally accepted native F5 visuals. FPS instantaneous samples 2–37/2–36 include capture overhead, so no device benchmark or smoothness PASS. An initial M02 probe ran before APPDATA isolation; no pre-run save.cfg hash exists. Therefore original owner save-byte parity for that initial run **cannot be established retroactively**. Do not say it was unchanged, and do not restore or replace it by guessing. Isolated subsequent tests PASS. Owner-local tracked-file parity and untracked-file preservation are reported, but this limitation must remain explicit.
+
+Disposition: M24 technical regression/evidence gate PASS; **M24 remains open for owner F5 FULL/REDUCED To-Go/VIP visual acceptance** and any owner feedback. Do not activate M25 until owner explicitly signs off. Future probes must isolate APPDATA before the first run.
