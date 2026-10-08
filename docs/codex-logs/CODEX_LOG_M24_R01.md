@@ -52,4 +52,3 @@ M22-003 scratch runs first failed because the redirected folder was missing and 
 - Final implementation/evidence commit SHA: `e1a28643f22e80a409dd82b3c251cc047972b847`.
 - This log is committed in the log-only publication commit after the evidence commit above. After pushing that commit, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` are run and their matching SHA is reported in the completion response.
 - `TASKS.md` remains unchanged. Stop marker: `AWAITING_GPT_M24_R01_REAUDIT`.
-
