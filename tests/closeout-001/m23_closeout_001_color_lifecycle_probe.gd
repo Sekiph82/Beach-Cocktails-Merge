@@ -3,7 +3,7 @@ extends SceneTree
 const MAIN_SCENE := preload("res://scenes/main.tscn")
 const BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
 const EFFECT_REGISTRY := preload("res://addons/game_feel_flow/core/gff_effect_registry.gd")
-const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/color_lifecycle_probe.json"
+const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/color_lifecycle_probe_final.json"
 
 var _checks := 0
 var _failures: Array[String] = []

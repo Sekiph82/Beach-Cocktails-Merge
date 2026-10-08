@@ -1,0 +1,11 @@
+{
+  "command": "godot_console.exe --headless --path . --script res://tests/closeout-001/m21_full_progression_probe_closeout.gd",
+  "exit_code": 0,
+  "result": "M21_CHILD_03_RESULT=PASS completed=100 checkpoints=5",
+  "report": "regressions/M21-progression/M21-003_FULL_PROGRESSION.json",
+  "checks_failed": [],
+  "completed_levels": 100,
+  "checkpoints": [1, 25, 50, 75, 100],
+  "scope": "fresh-save campaign progression, SaveManager reload, CampaignManager reconnection, final island unlock, and non-launchable zero-level Tiki",
+  "capture_claim": "none"
+}

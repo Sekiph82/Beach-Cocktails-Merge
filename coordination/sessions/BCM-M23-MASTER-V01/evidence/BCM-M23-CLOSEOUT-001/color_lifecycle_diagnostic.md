@@ -1,0 +1,7 @@
+# Color Lifecycle Teardown Diagnosis
+
+The unchanged R03 lifecycle probe passes its 13 checks and 7 scenarios, then reports three ObjectDB leaks at exit. A verbose, instrumented copy prints detached failure-stub instance `67058534445`, class `Node`, name `FailingPluginProbe`, `inside_tree=false`; the shutdown report's leaked `Node` has the same instance ID. The same shutdown lists one `GDScriptNativeClass`, one `GDScript`, and orphan `FailingPlugin` / `FailingPluginProbe` StringNames from the nested test stub.
+
+The source owner was the test's `FailingPlugin.new()` in `tests/m23_r03_color_restoration_probe.gd`. The probe passed that detached node into `PresentationPluginContract.refresh_with_nodes()` to simulate a plugin mutating color before returning failure, then retained the contract reference and never freed the node. No runtime gameplay or plugin implementation owned the leak.
+
+The probe now stores the fixture for cleanup, restores the contract to the actual autoload plugin, and explicitly frees the detached failure stub after its scenario. This preserves the plugin-failure test and does not suppress shutdown diagnostics. Three post-fix full runs passed all 13 checks / 7 scenarios with no leaked ObjectDB instances, orphan StringNames, or shutdown errors. Three additional 64-target cancel/restore stress runs each restored all target colors and exited with zero leak warnings.

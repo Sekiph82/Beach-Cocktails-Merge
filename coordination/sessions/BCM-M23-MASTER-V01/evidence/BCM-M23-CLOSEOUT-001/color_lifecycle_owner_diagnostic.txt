@@ -1,0 +1,132 @@
+WorkerThreadPool: 16 threads, 4 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: res://tests/closeout-001/m23_closeout_001_color_lifecycle_baseline_diagnostic.gd remapped: res://tests/closeout-001/m23_closeout_001_color_lifecycle_baseline_diagnostic.gd
+Loading resource: res://scenes/main.tscn remapped: res://scenes/main.tscn
+Loading resource: res://scripts/game_manager.gd remapped: res://scripts/game_manager.gd
+Completed load for: 'res://scripts/game_manager.gd' remapped 'res://scripts/game_manager.gd' at thread -1
+Completed load for: 'res://scenes/main.tscn' remapped 'res://scenes/main.tscn' at thread -1
+Loading resource: res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader remapped: res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader
+Completed load for: 'res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader' remapped 'res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader' at thread -1
+Completed load for: 'res://tests/closeout-001/m23_closeout_001_color_lifecycle_baseline_diagnostic.gd' remapped 'res://tests/closeout-001/m23_closeout_001_color_lifecycle_baseline_diagnostic.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://addons/saltmire_spark/spark.gd remapped: res://addons/saltmire_spark/spark.gd
+Completed load for: 'res://addons/saltmire_spark/spark.gd' remapped 'res://addons/saltmire_spark/spark.gd' at thread -1
+Loading resource: res://addons/game_feel_flow/core/game_feel_flow.gd remapped: res://addons/game_feel_flow/core/game_feel_flow.gd
+Completed load for: 'res://addons/game_feel_flow/core/game_feel_flow.gd' remapped 'res://addons/game_feel_flow/core/game_feel_flow.gd' at thread -1
+Loading resource: res://addons/godot_ai/runtime/game_helper.gd remapped: res://addons/godot_ai/runtime/game_helper.gd
+Completed load for: 'res://addons/godot_ai/runtime/game_helper.gd' remapped 'res://addons/godot_ai/runtime/game_helper.gd' at thread -1
+Loaded system CA certificates
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Loading resource: res://assets/ui/panel_score.png remapped: res://assets/ui/panel_score.png
+Loading resource: res://.godot/imported/panel_score.png-06558f3bafa7e6070c9b29eba8cb7783.ctex remapped: res://.godot/imported/panel_score.png-06558f3bafa7e6070c9b29eba8cb7783.ctex
+Completed load for: 'res://assets/ui/panel_score.png' remapped 'res://assets/ui/panel_score.png' at thread -1
+Loading resource: res://assets/ui/panel_best_score.png remapped: res://assets/ui/panel_best_score.png
+Loading resource: res://.godot/imported/panel_best_score.png-2f06358238af98cbb972f5d68b5108e8.ctex remapped: res://.godot/imported/panel_best_score.png-2f06358238af98cbb972f5d68b5108e8.ctex
+Completed load for: 'res://assets/ui/panel_best_score.png' remapped 'res://assets/ui/panel_best_score.png' at thread -1
+Loading resource: res://assets/ui/panel_best_score.png remapped: res://assets/ui/panel_best_score.png
+Loading resource: res://.godot/imported/panel_best_score.png-2f06358238af98cbb972f5d68b5108e8.ctex remapped: res://.godot/imported/panel_best_score.png-2f06358238af98cbb972f5d68b5108e8.ctex
+Completed load for: 'res://assets/ui/panel_best_score.png' remapped 'res://assets/ui/panel_best_score.png' at thread -1
+Loading resource: res://assets/ui/panel_score.png remapped: res://assets/ui/panel_score.png
+Loading resource: res://.godot/imported/panel_score.png-06558f3bafa7e6070c9b29eba8cb7783.ctex remapped: res://.godot/imported/panel_score.png-06558f3bafa7e6070c9b29eba8cb7783.ctex
+Completed load for: 'res://assets/ui/panel_score.png' remapped 'res://assets/ui/panel_score.png' at thread -1
+Loading resource: res://assets/ui_assets/brand/logo_beach_cocktails_merge.png remapped: res://assets/ui_assets/brand/logo_beach_cocktails_merge.png
+Loading resource: res://.godot/imported/logo_beach_cocktails_merge.png-e36beb3a14e9cd55d3609e147ca5a1a0.ctex remapped: res://.godot/imported/logo_beach_cocktails_merge.png-e36beb3a14e9cd55d3609e147ca5a1a0.ctex
+Completed load for: 'res://assets/ui_assets/brand/logo_beach_cocktails_merge.png' remapped 'res://assets/ui_assets/brand/logo_beach_cocktails_merge.png' at thread -1
+Loading resource: res://assets/ui_assets/brand/logo_beach_cocktails_merge.png remapped: res://assets/ui_assets/brand/logo_beach_cocktails_merge.png
+Loading resource: res://.godot/imported/logo_beach_cocktails_merge.png-e36beb3a14e9cd55d3609e147ca5a1a0.ctex remapped: res://.godot/imported/logo_beach_cocktails_merge.png-e36beb3a14e9cd55d3609e147ca5a1a0.ctex
+Completed load for: 'res://assets/ui_assets/brand/logo_beach_cocktails_merge.png' remapped 'res://assets/ui_assets/brand/logo_beach_cocktails_merge.png' at thread -1
+Loading resource: res://assets/ui/panel_to_go_vip_orders.png remapped: res://assets/ui/panel_to_go_vip_orders.png
+Loading resource: res://.godot/imported/panel_to_go_vip_orders.png-f5d6101d5f6957e8d7abdf345fa707f7.ctex remapped: res://.godot/imported/panel_to_go_vip_orders.png-f5d6101d5f6957e8d7abdf345fa707f7.ctex
+Completed load for: 'res://assets/ui/panel_to_go_vip_orders.png' remapped 'res://assets/ui/panel_to_go_vip_orders.png' at thread -1
+Loading resource: res://assets/ui/panel_next.png remapped: res://assets/ui/panel_next.png
+Loading resource: res://.godot/imported/panel_next.png-5ec55e391970f7409e5833e89f43df89.ctex remapped: res://.godot/imported/panel_next.png-5ec55e391970f7409e5833e89f43df89.ctex
+Completed load for: 'res://assets/ui/panel_next.png' remapped 'res://assets/ui/panel_next.png' at thread -1
+Loading resource: res://assets/ui/panel_next.png remapped: res://assets/ui/panel_next.png
+Loading resource: res://.godot/imported/panel_next.png-5ec55e391970f7409e5833e89f43df89.ctex remapped: res://.godot/imported/panel_next.png-5ec55e391970f7409e5833e89f43df89.ctex
+Completed load for: 'res://assets/ui/panel_next.png' remapped 'res://assets/ui/panel_next.png' at thread -1
+Loading resource: res://assets/ui/progression_strip.png remapped: res://assets/ui/progression_strip.png
+Loading resource: res://.godot/imported/progression_strip.png-aacfb1c016a4d885da8cbd51d4f9140e.ctex remapped: res://.godot/imported/progression_strip.png-aacfb1c016a4d885da8cbd51d4f9140e.ctex
+Completed load for: 'res://assets/ui/progression_strip.png' remapped 'res://assets/ui/progression_strip.png' at thread -1
+Loading resource: res://assets/cocktails/L01.png remapped: res://assets/cocktails/L01.png
+Loading resource: res://.godot/imported/L01.png-bfe633ac43fd47636e139d49b37b4a5c.ctex remapped: res://.godot/imported/L01.png-bfe633ac43fd47636e139d49b37b4a5c.ctex
+Completed load for: 'res://assets/cocktails/L01.png' remapped 'res://assets/cocktails/L01.png' at thread -1
+Loading resource: res://assets/cocktails/L02.png remapped: res://assets/cocktails/L02.png
+Loading resource: res://.godot/imported/L02.png-d6d4245c31d9e12a3d513dc46c4980c8.ctex remapped: res://.godot/imported/L02.png-d6d4245c31d9e12a3d513dc46c4980c8.ctex
+Completed load for: 'res://assets/cocktails/L02.png' remapped 'res://assets/cocktails/L02.png' at thread -1
+Loading resource: res://assets/cocktails/L03.png remapped: res://assets/cocktails/L03.png
+Loading resource: res://.godot/imported/L03.png-2e3c76c2513b8eaab313b85aa7482f2b.ctex remapped: res://.godot/imported/L03.png-2e3c76c2513b8eaab313b85aa7482f2b.ctex
+Completed load for: 'res://assets/cocktails/L03.png' remapped 'res://assets/cocktails/L03.png' at thread -1
+Loading resource: res://assets/cocktails/L04.png remapped: res://assets/cocktails/L04.png
+Loading resource: res://.godot/imported/L04.png-94177206c83de8beb1e8d9f0646146a2.ctex remapped: res://.godot/imported/L04.png-94177206c83de8beb1e8d9f0646146a2.ctex
+Completed load for: 'res://assets/cocktails/L04.png' remapped 'res://assets/cocktails/L04.png' at thread -1
+Loading resource: res://assets/cocktails/L05.png remapped: res://assets/cocktails/L05.png
+Loading resource: res://.godot/imported/L05.png-1aef46a0bf2910500b7f82127e008b97.ctex remapped: res://.godot/imported/L05.png-1aef46a0bf2910500b7f82127e008b97.ctex
+Completed load for: 'res://assets/cocktails/L05.png' remapped 'res://assets/cocktails/L05.png' at thread -1
+Loading resource: res://assets/cocktails/L06.png remapped: res://assets/cocktails/L06.png
+Loading resource: res://.godot/imported/L06.png-f69831928e6393ec4047df6680b9907d.ctex remapped: res://.godot/imported/L06.png-f69831928e6393ec4047df6680b9907d.ctex
+Completed load for: 'res://assets/cocktails/L06.png' remapped 'res://assets/cocktails/L06.png' at thread -1
+Loading resource: res://assets/cocktails/L07.png remapped: res://assets/cocktails/L07.png
+Loading resource: res://.godot/imported/L07.png-84f8f9313a327d93c65bd8977dcf8bff.ctex remapped: res://.godot/imported/L07.png-84f8f9313a327d93c65bd8977dcf8bff.ctex
+Completed load for: 'res://assets/cocktails/L07.png' remapped 'res://assets/cocktails/L07.png' at thread -1
+Loading resource: res://assets/cocktails/L08.png remapped: res://assets/cocktails/L08.png
+Loading resource: res://.godot/imported/L08.png-d4215be233736212a8cca5b372b5acf2.ctex remapped: res://.godot/imported/L08.png-d4215be233736212a8cca5b372b5acf2.ctex
+Completed load for: 'res://assets/cocktails/L08.png' remapped 'res://assets/cocktails/L08.png' at thread -1
+Loading resource: res://assets/cocktails/L09.png remapped: res://assets/cocktails/L09.png
+Loading resource: res://.godot/imported/L09.png-65ff439aac9b821a46ee6cb9e327293b.ctex remapped: res://.godot/imported/L09.png-65ff439aac9b821a46ee6cb9e327293b.ctex
+Completed load for: 'res://assets/cocktails/L09.png' remapped 'res://assets/cocktails/L09.png' at thread -1
+Loading resource: res://assets/cocktails/L10.png remapped: res://assets/cocktails/L10.png
+Loading resource: res://.godot/imported/L10.png-0739102c3e31e6b35f6cfe6dd4012366.ctex remapped: res://.godot/imported/L10.png-0739102c3e31e6b35f6cfe6dd4012366.ctex
+Completed load for: 'res://assets/cocktails/L10.png' remapped 'res://assets/cocktails/L10.png' at thread -1
+Loading resource: res://assets/cocktails/L11.png remapped: res://assets/cocktails/L11.png
+Loading resource: res://.godot/imported/L11.png-fd729dc8611b144291f0d9415fdb8835.ctex remapped: res://.godot/imported/L11.png-fd729dc8611b144291f0d9415fdb8835.ctex
+Completed load for: 'res://assets/cocktails/L11.png' remapped 'res://assets/cocktails/L11.png' at thread -1
+Loading resource: res://assets/cocktails/L12.png remapped: res://assets/cocktails/L12.png
+Loading resource: res://.godot/imported/L12.png-f700a5ae5d126ab5b83f954331840009.ctex remapped: res://.godot/imported/L12.png-f700a5ae5d126ab5b83f954331840009.ctex
+Completed load for: 'res://assets/cocktails/L12.png' remapped 'res://assets/cocktails/L12.png' at thread -1
+Loading resource: res://assets/ui/launch_zone.png remapped: res://assets/ui/launch_zone.png
+Loading resource: res://.godot/imported/launch_zone.png-508e27676c20d1a2351c4f1fcfb1e98b.ctex remapped: res://.godot/imported/launch_zone.png-508e27676c20d1a2351c4f1fcfb1e98b.ctex
+Completed load for: 'res://assets/ui/launch_zone.png' remapped 'res://assets/ui/launch_zone.png' at thread -1
+Loading resource: res://assets/ui/danger_line.png remapped: res://assets/ui/danger_line.png
+Loading resource: res://.godot/imported/danger_line.png-aa6b71734c445152b3bf431067e7e9d3.ctex remapped: res://.godot/imported/danger_line.png-aa6b71734c445152b3bf431067e7e9d3.ctex
+Completed load for: 'res://assets/ui/danger_line.png' remapped 'res://assets/ui/danger_line.png' at thread -1
+M23_CLOSEOUT_FAILURE_OWNER id=67058534445 class=Node script_path= node_name=FailingPluginProbe path=<detached> inside_tree=false
+M23_R03_COLOR_RESTORATION_RESULT=PASS checks=13 failures=0 scenarios=7
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Leaked instance: GDScriptNativeClass:9223372049588683482 - Reference count: 1
+Leaked instance: GDScript:9223372062976902591 - Reference count: 1
+Leaked instance: Node:67058534445 - Node path:
+Hint: Leaked instances typically happen when nodes are removed from the scene tree (with `remove_child()`) but not freed (with `free()` or `queue_free()`).
+Orphan StringName: FailingPluginProbe (static: 0, total: 1)
+Orphan StringName: FailingPlugin (static: 0, total: 1)
+Orphan StringName: stop (static: 0, total: 1)
+Orphan StringName: stopped (static: 0, total: 4)
+Orphan StringName: get_effect (static: 0, total: 1)
+Orphan StringName: play (static: 0, total: 1)
+Orphan StringName: calls (static: 0, total: 4)
+Orphan StringName: play_global (static: 0, total: 1)
+Orphan StringName: stop_all (static: 0, total: 1)
+Orphan StringName: get_effect_names (static: 0, total: 1)
+Orphan StringName: get_combo_names (static: 0, total: 1)
+Orphan StringName: play_combo (static: 0, total: 1)
+Orphan StringName: Node (static: 1, total: 2)
+Orphan StringName: resolve_combo (static: 0, total: 1)
+Orphan StringName: get_combo (static: 0, total: 1)
+Orphan StringName: "tests/closeout-001/m23_closeout_001_color_lifecycle_baseline_diagnostic.gd".FailingPlugin (static: 0, total: 1)
+StringName: 16 unclaimed string names at exit.
+WARNING: 3 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: Cannot get path of node as it is not in a scene tree.
+   at: get_path (scene/main/node.cpp:2431)

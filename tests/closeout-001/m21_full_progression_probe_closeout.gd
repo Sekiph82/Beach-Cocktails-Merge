@@ -8,8 +8,8 @@ const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
-const REPORT_DIR := "res://coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression"
-const SAVE_PATH := "user://m21_child03_fresh_campaign.json"
+const REPORT_DIR := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/regressions/M21-progression"
+const SAVE_PATH := "user://m23_closeout_001_fresh_campaign.json"
 const CHECKPOINTS := [1, 25, 50, 75, 100]
 
 var failures: Array[String] = []

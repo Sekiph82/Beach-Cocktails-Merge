@@ -9,7 +9,7 @@ const SHELL_SCENE := preload("res://scenes/campaign/ApplicationShellScene.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
-const CAPTURE_DIR := "res://coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa"
+const CAPTURE_DIR := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa"
 
 var failures: Array[String] = []
 var captures: Array[Dictionary] = []
@@ -98,7 +98,7 @@ func _run_canonical() -> void:
 	await _capture_surface(viewport, canonical_shell, "canonical_720x1280_main_menu")
 
 	var menu_controls: Dictionary = canonical_shell.get_menu_controls()
-	var settings_button: Button = menu_controls.get("settings")
+	var settings_button: BaseButton = menu_controls.get("settings")
 	_check("Settings production control is reachable", settings_button != null)
 	if settings_button != null:
 		settings_button.pressed.emit()
@@ -118,12 +118,21 @@ func _run_canonical() -> void:
 		close_settings.pressed.emit()
 	await _frame()
 
-	var play_button: Button = canonical_shell.get_menu_controls().get("play")
+	var play_button: BaseButton = canonical_shell.get_menu_controls().get("play")
 	_check("PLAY production control is reachable", play_button != null)
 	if play_button != null:
 		play_button.pressed.emit()
 	await _frame(4)
-	_check("PLAY reaches World Map", canonical_shell.get_current_view() == "CAMPAIGN" and canonical_navigation.get_current_view() == canonical_navigation.VIEW_WORLD_MAP)
+	_check("PLAY continues the unlocked frontier into gameplay", canonical_shell.get_current_view() == "CAMPAIGN" and canonical_navigation.get_current_view() == canonical_navigation.VIEW_GAMEPLAY and canonical_navigation.get_gameplay_instance_count() == 1)
+	_check("PLAY does not misroute into World Map", canonical_navigation.get_current_view() != canonical_navigation.VIEW_WORLD_MAP)
+	await _capture_surface(viewport, canonical_shell, "canonical_720x1280_play_gameplay")
+	_check("Home can be reopened after PLAY", canonical_shell.show_main_menu() and canonical_shell.is_main_menu_visible())
+	var world_map_button: TextureButton = canonical_shell.get_menu_controls().get("world_map")
+	_check("separate WORLD MAP production control is reachable", world_map_button != null)
+	if world_map_button != null:
+		world_map_button.pressed.emit()
+	await _frame(4)
+	_check("WORLD MAP control reaches World Map without gameplay", canonical_shell.get_current_view() == "CAMPAIGN" and canonical_navigation.get_current_view() == canonical_navigation.VIEW_WORLD_MAP and canonical_navigation.get_gameplay_instance_count() == 0)
 	var world = canonical_navigation.get_world_map()
 	_check("World Map has production island controls", world != null and world.get_entry_count() == world.get_map_node_count() and world.get_entry_count() >= 2)
 	_check("World Map layout has no horizontal clipping", not bool(world.get_layout_report(Vector2(720, 1280)).get("horizontal_clipping", true)))
@@ -211,7 +220,19 @@ func _run_tall() -> void:
 	await _frame(2)
 	shell.get_menu_controls().get("play").pressed.emit()
 	await _frame(4)
-	_check("tall presentation reaches World Map", navigation.get_current_view() == navigation.VIEW_WORLD_MAP)
+	_check("tall PLAY continues the unlocked frontier into gameplay", shell.get_current_view() == "CAMPAIGN" and navigation.get_current_view() == navigation.VIEW_GAMEPLAY and navigation.get_gameplay_instance_count() == 1)
+	_check("tall PLAY does not misroute into World Map", navigation.get_current_view() != navigation.VIEW_WORLD_MAP)
+	await _capture_surface(viewport, shell, "tall_720x1440_play_gameplay")
+	_check("tall Home can be reopened after PLAY", shell.show_main_menu() and shell.is_main_menu_visible())
+	var world_map_button: TextureButton = shell.get_menu_controls().get("world_map")
+	_check("tall separate WORLD MAP production control is reachable", world_map_button != null)
+	if world_map_button != null:
+		world_map_button.pressed.emit()
+	await _frame(4)
+	_check("tall WORLD MAP control reaches World Map without gameplay", shell.get_current_view() == "CAMPAIGN" and navigation.get_current_view() == navigation.VIEW_WORLD_MAP and navigation.get_gameplay_instance_count() == 0)
+	var tall_world = navigation.get_world_map()
+	_check("tall World Map retains all production island entries", tall_world != null and tall_world.get_entry_count() == tall_world.get_map_node_count() and tall_world.get_entry_count() >= 2)
+	_check("tall World Map has no horizontal clipping", tall_world != null and not bool(tall_world.get_layout_report(Vector2(720, 1440)).get("horizontal_clipping", true)))
 	await _capture_surface(viewport, shell, "tall_720x1440_world_map")
 	navigation.get_world_map()._entries.get("sunny_cove").pressed.emit()
 	await _frame(4)
