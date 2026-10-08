@@ -1,0 +1,3 @@
+# BCM-M23-R02 Additional Locked Audit Criteria
+
+R01 remediation criteria remain fully mandatory. In addition, PASS requires documented actual Spark/emitter canvas layer vs table/HUD, coordinate transform, alpha/clip, real-renderer A/B occlusion test, FPS/frame-time and rendered-frame counts at observed and 15/30/60fps, test-only contrast/radius A/B, per-category event-to-render trace, root-cause classification, and real captured proof for production FULL and REDUCED modes. If real capture unavailable, classify source-tested/owner visual pending, never visual PASS. Changes presentation-only, no budget expansion, no M24, protect owner PNGs and root TASKS.md.
