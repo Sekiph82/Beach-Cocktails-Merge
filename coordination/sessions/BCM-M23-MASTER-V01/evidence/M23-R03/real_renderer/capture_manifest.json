@@ -1,0 +1,454 @@
+{
+	"all_recorded_color_restorations_exact": true,
+	"captures": [
+		{
+			"frame": 10,
+			"height": 1280,
+			"label": "full_720x1280_launch_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_launch_event.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 19,
+			"height": 1280,
+			"label": "full_720x1280_launch_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_launch_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 21,
+			"height": 1280,
+			"label": "full_720x1280_contact_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_contact_event.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 30,
+			"height": 1280,
+			"label": "full_720x1280_contact_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_contact_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 34,
+			"height": 1280,
+			"label": "full_720x1280_merge_base_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_merge_base_event.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 55,
+			"height": 1280,
+			"label": "full_720x1280_merge_base_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_merge_base_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 59,
+			"height": 1280,
+			"label": "full_720x1280_merge_surge_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_merge_surge_event.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 80,
+			"height": 1280,
+			"label": "full_720x1280_merge_surge_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_merge_surge_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 84,
+			"height": 1280,
+			"label": "full_720x1280_merge_peak_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_merge_peak_event.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 106,
+			"height": 1280,
+			"label": "full_720x1280_merge_peak_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_merge_peak_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 110,
+			"height": 1280,
+			"label": "full_720x1280_score_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_score_event.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 134,
+			"height": 1280,
+			"label": "full_720x1280_score_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_720x1280_score_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 720,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 142,
+			"height": 1422,
+			"label": "full_800x1422_launch_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_launch_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 151,
+			"height": 1422,
+			"label": "full_800x1422_launch_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_launch_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 153,
+			"height": 1422,
+			"label": "full_800x1422_contact_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_contact_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 163,
+			"height": 1422,
+			"label": "full_800x1422_contact_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_contact_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 167,
+			"height": 1422,
+			"label": "full_800x1422_merge_base_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_merge_base_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 187,
+			"height": 1422,
+			"label": "full_800x1422_merge_base_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_merge_base_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 191,
+			"height": 1422,
+			"label": "full_800x1422_merge_surge_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_merge_surge_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 212,
+			"height": 1422,
+			"label": "full_800x1422_merge_surge_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_merge_surge_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 216,
+			"height": 1422,
+			"label": "full_800x1422_merge_peak_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_merge_peak_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 237,
+			"height": 1422,
+			"label": "full_800x1422_merge_peak_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_merge_peak_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 241,
+			"height": 1422,
+			"label": "full_800x1422_score_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_score_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 264,
+			"height": 1422,
+			"label": "full_800x1422_score_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/full_800x1422_score_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 268,
+			"height": 1422,
+			"label": "reduced_contact_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/reduced_contact_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 276,
+			"height": 1422,
+			"label": "reduced_contact_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/reduced_contact_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 280,
+			"height": 1422,
+			"label": "reduced_merge_event",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/reduced_merge_event.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		},
+		{
+			"frame": 288,
+			"height": 1422,
+			"label": "reduced_merge_settled",
+			"path": "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/real_renderer/reduced_merge_settled.png",
+			"renderer": "running_project_viewport",
+			"width": 800,
+			"window_size": "(800, 1422)"
+		}
+	],
+	"color_lifecycle": [
+		{
+			"event_id": "",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "table_contact",
+			"matches_original": true,
+			"operation": "started",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "plugin_call",
+			"requested_color": "(1.0, 0.86, 0.68, 1.0)",
+			"restored_exactly": false,
+			"target_instance_id": 65196263480,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 2026
+		},
+		{
+			"event_id": "",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "table_contact",
+			"matches_original": true,
+			"operation": "restored",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "natural_completion",
+			"requested_color": "(1.0, 0.86, 0.68, 1.0)",
+			"restored_exactly": true,
+			"target_instance_id": 65196263480,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 2128
+		},
+		{
+			"event_id": "r03-score-full_720x1280",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "score_mastery",
+			"matches_original": true,
+			"operation": "started",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "plugin_call",
+			"requested_color": "(1.0, 0.84, 0.62, 1.0)",
+			"restored_exactly": false,
+			"target_instance_id": 58049169366,
+			"target_path": "/root/M23R03RealRendererCapture/Main/UI/HUD/ScorePanel/@Label@17",
+			"timestamp_ms": 3978
+		},
+		{
+			"event_id": "r03-score-full_720x1280",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "score_mastery",
+			"matches_original": true,
+			"operation": "restored",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "natural_completion",
+			"requested_color": "(1.0, 0.84, 0.62, 1.0)",
+			"restored_exactly": true,
+			"target_instance_id": 58049169366,
+			"target_path": "/root/M23R03RealRendererCapture/Main/UI/HUD/ScorePanel/@Label@17",
+			"timestamp_ms": 4161
+		},
+		{
+			"event_id": "",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "table_contact",
+			"matches_original": true,
+			"operation": "started",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "plugin_call",
+			"requested_color": "(1.0, 0.86, 0.68, 1.0)",
+			"restored_exactly": false,
+			"target_instance_id": 71420610651,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 5018
+		},
+		{
+			"event_id": "",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "table_contact",
+			"matches_original": true,
+			"operation": "restored",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "natural_completion",
+			"requested_color": "(1.0, 0.86, 0.68, 1.0)",
+			"restored_exactly": true,
+			"target_instance_id": 71420610651,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 5120
+		},
+		{
+			"event_id": "r03-score-full_800x1422",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 2,
+			"kind": "score_mastery",
+			"matches_original": true,
+			"operation": "started",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "plugin_call",
+			"requested_color": "(1.0, 0.84, 0.62, 1.0)",
+			"restored_exactly": false,
+			"target_instance_id": 58049169366,
+			"target_path": "/root/M23R03RealRendererCapture/Main/UI/HUD/ScorePanel/@Label@17",
+			"timestamp_ms": 7008
+		},
+		{
+			"event_id": "r03-score-full_800x1422",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 2,
+			"kind": "score_mastery",
+			"matches_original": true,
+			"operation": "restored",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "natural_completion",
+			"requested_color": "(1.0, 0.84, 0.62, 1.0)",
+			"restored_exactly": true,
+			"target_instance_id": 58049169366,
+			"target_path": "/root/M23R03RealRendererCapture/Main/UI/HUD/ScorePanel/@Label@17",
+			"timestamp_ms": 7192
+		},
+		{
+			"event_id": "",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "table_contact",
+			"matches_original": true,
+			"operation": "started",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "plugin_call",
+			"requested_color": "(1.0, 0.98, 0.92, 1.0)",
+			"restored_exactly": false,
+			"target_instance_id": 77040978015,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 7591
+		},
+		{
+			"event_id": "",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "table_contact",
+			"matches_original": true,
+			"operation": "restored",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "natural_completion",
+			"requested_color": "(1.0, 0.98, 0.92, 1.0)",
+			"restored_exactly": true,
+			"target_instance_id": 77040978015,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 7722
+		},
+		{
+			"event_id": "merge:service-55968794507:77930170462",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "merge",
+			"matches_original": true,
+			"operation": "started",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "plugin_call",
+			"requested_color": "(1.0, 0.98, 0.92, 1.0)",
+			"restored_exactly": false,
+			"target_instance_id": 77997279325,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 7925
+		},
+		{
+			"event_id": "merge:service-55968794507:77930170462",
+			"final_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"generation": 1,
+			"kind": "merge",
+			"matches_original": true,
+			"operation": "restored",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"reason": "natural_completion",
+			"requested_color": "(1.0, 0.98, 0.92, 1.0)",
+			"restored_exactly": true,
+			"target_instance_id": 77997279325,
+			"target_path": "/root/M23R03RealRendererCapture/Main/World/Drink_L04/Visual",
+			"timestamp_ms": 8039
+		}
+	],
+	"failures": [],
+	"headless_capture_count": 0,
+	"owner_visual_acceptance": "PENDING_OWNER_F5",
+	"probe": "BCM-M23-R03-real-renderer-capture",
+	"renderer": "Godot running project framebuffer (not headless)",
+	"requested_window_sizes": [
+		[
+			720,
+			1280
+		],
+		[
+			800,
+			1422
+		]
+	]
+}

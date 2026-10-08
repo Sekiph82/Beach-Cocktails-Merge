@@ -1,0 +1,42 @@
+{
+	"after_play": {
+		"campaign_navigation_visible": true,
+		"main_menu_visible": false,
+		"navigation_view": "GAMEPLAY",
+		"onboarding_visible": false,
+		"shell_size": "(720.0, 1440.0)",
+		"shell_view": "CAMPAIGN",
+		"viewport_size": "(720, 1440)"
+	},
+	"after_skip": {
+		"campaign_navigation_visible": false,
+		"main_menu_visible": true,
+		"navigation_view": "WORLD_MAP",
+		"onboarding_visible": false,
+		"shell_size": "(720.0, 1440.0)",
+		"shell_view": "MAIN_MENU",
+		"viewport_size": "(720, 1440)"
+	},
+	"before_skip": {
+		"campaign_navigation_visible": false,
+		"main_menu_visible": false,
+		"navigation_view": "WORLD_MAP",
+		"onboarding_visible": true,
+		"shell_size": "(720.0, 1440.0)",
+		"shell_view": "ONBOARDING",
+		"viewport_size": "(720, 1440)"
+	},
+	"campaign_configured": true,
+	"database_loaded": true,
+	"navigation_configured": true,
+	"navigation_result": "FAIL",
+	"play_control": {
+		"disabled": false,
+		"exists": true,
+		"visible": true
+	},
+	"probe": "BCM-M23-R03-M21-720x1440-diagnostic",
+	"renderer": "headless GL Compatibility; visual captures unavailable",
+	"scope": "read-only diagnosis; no M21 production geometry or navigation edits",
+	"skip_onboarding_return": true
+}

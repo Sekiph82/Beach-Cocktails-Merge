@@ -3,7 +3,7 @@ extends SceneTree
 const FEEDBACK_SCRIPT := preload("res://scripts/feedback_service.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
 const DRINK_SCRIPT := preload("res://scripts/drink.gd")
-const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/M23-001_micro_feedback_probe.json"
+const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/M23-001_micro_feedback_probe.json"
 
 var _checks := 0
 var _failures: Array[String] = []
@@ -14,20 +14,21 @@ var _drink_contact_payloads: Array[Dictionary] = []
 
 class MockGFF:
 	extends Node
+	const EFFECT_REGISTRY := preload("res://addons/game_feel_flow/core/gff_effect_registry.gd")
 	var calls: Array[String] = []
 	var params: Array[Dictionary] = []
 	var stopped := 0
 	var should_fail := false
 
-	func play(effect_name: String, _target: Node, options: Dictionary = {}) -> bool:
-		calls.append(effect_name)
+	func play(effect_name: Variant, _target: Node, options: Dictionary = {}) -> bool:
+		calls.append("color" if effect_name is GFFEffect else str(effect_name))
 		params.append(options.duplicate(true))
 		return not should_fail
 	func play_combo(_combo_name: String, _target: Node) -> bool: return true
 	func play_global(_effect_name: String) -> bool: return true
 	func stop(_target: Node) -> void: stopped += 1
 	func stop_all() -> void: pass
-	func get_effect(_effect_name: String): return null
+	func get_effect(effect_name: String): return EFFECT_REGISTRY.create_effect("color", "color") if effect_name == "color" else null
 	func get_combo(_combo_name: String): return null
 	func resolve_combo(_combo_name: String): return null
 	func get_effect_names() -> Array[String]: return ["punch_scale", "color", "alpha"]
@@ -105,7 +106,7 @@ func _run() -> void:
 	_check("duplicate launch event suppressed per source instance", not service.emit_cocktail_launch(2, Vector2(100.0, 300.0), expected_velocity, source))
 	_check("one launch semantic dispatch with unchanged velocity and visual child target", _requests.size() == 1 and _requests[0].payload.velocity == expected_velocity and _requests[0].payload.presentation_target == source_visual and bridge.dispatch_count == 1)
 	_check("FULL launch uses the 4 particle / 0.14 second cap", spark.calls.size() == 1 and int(spark.calls[0].amount) == 4 and is_equal_approx(float(spark.calls[0].lifetime), 0.14))
-	_check("FULL launch uses an explicit restrained punch intensity", is_equal_approx(float(gff.params[0].get("intensity", 0.0)), 0.68))
+	_check("FULL launch uses the R03 midpoint punch intensity", is_equal_approx(float(gff.params[0].get("intensity", 0.0)), 0.48))
 	var launch_trace: Dictionary = bridge.get_visual_diagnostic_trace().back()
 	_check("production launch trace links semantic ID, accepted policy, GFF and Spark calls", str(launch_trace.get("event_id", "")).begins_with("launch:") and bool(launch_trace.get("policy", {}).get("ok", false)) and bool(launch_trace.get("gff_call", {}).get("invoked", false)) and bool(launch_trace.get("spark_call", {}).get("invoked", false)))
 	_check("launch target is presentation-only, not a physics body or camera", source_visual.is_in_group("presentation_effect_target") and not _is_physics_or_camera(source_visual))
@@ -127,7 +128,7 @@ func _run() -> void:
 	_check("contact semantic count reflects cooldown and class", _requests.size() == before_contacts + 3)
 	_check("FULL contact stays within 5 / 0.16 second cap", spark.calls.size() == 4 and int(spark.calls[1].amount) == 5 and is_equal_approx(float(spark.calls[1].lifetime), 0.16))
 	_check("FULL contact passes a non-white target tint to avoid the old no-op color effect", gff.params[1].has("color") and gff.params[1].color != Color.WHITE)
-	_check("launch and contact use larger visible radii while keeping locked amount/lifetime budgets", is_equal_approx(float(spark.calls[0].get("size", -1.0)), 6.0) and is_equal_approx(float(spark.calls[1].get("size", -1.0)), 5.5))
+	_check("launch/contact particle radii sit between the original and rejected R02 sizes", is_equal_approx(float(spark.calls[0].get("size", -1.0)), 4.0) and is_equal_approx(float(spark.calls[1].get("size", -1.0)), 4.25))
 	_check("FULL micro emphasis duration stays inside its event cap", is_equal_approx(float(gff.params[0].duration), 0.14) and is_equal_approx(float(gff.params[1].duration), 0.16))
 
 	bridge.set_presentation_mode("REDUCED")

@@ -11,11 +11,11 @@ const MAX_ACTIVE_GFF_OUTPUTS := 128
 const MAX_VISUAL_TRACE_EVENTS := 128
 const MAX_RENDER_SAMPLES_PER_EVENT := 32
 const FIXTURE_TARGET_GROUP := "m22_test_presentation_target"
-const FULL_CONTACT_TINT := Color(1.0, 0.72, 0.44, 1.0)
-const FULL_SCORE_TINT := Color(1.0, 0.68, 0.30, 1.0)
-const REDUCED_TINT := Color(1.0, 0.94, 0.80, 1.0)
-const SPARK_COLOR := Color(0.30, 0.94, 1.0, 1.0)
-const SPARK_COLOR_END := Color(1.0, 0.94, 0.70, 0.0)
+const FULL_CONTACT_TINT := Color(1.0, 0.86, 0.68, 1.0)
+const FULL_SCORE_TINT := Color(1.0, 0.84, 0.62, 1.0)
+const REDUCED_TINT := Color(1.0, 0.98, 0.92, 1.0)
+const SPARK_COLOR := Color(0.46, 0.78, 0.86, 0.95)
+const SPARK_COLOR_END := Color(0.84, 0.78, 0.66, 0.0)
 
 var _contract: PresentationPluginContract
 var _policy
@@ -25,6 +25,9 @@ var _presentation_mode := "FULL"
 var _diagnostics: Array[String] = []
 var _active_gff_outputs: Array[Dictionary] = []
 var _active_spark_outputs: Array[Dictionary] = []
+var _active_color_outputs: Dictionary = {}
+var _color_generations: Dictionary = {}
+var _color_lifecycle_diagnostics: Array[Dictionary] = []
 var _visual_trace: Array[Dictionary] = []
 var _trace_sequence := 0
 var _visual_diagnostics_enabled := false
@@ -50,6 +53,7 @@ func configure(feedback_service: Node, capability_root: Node) -> void:
 
 
 func refresh_capabilities(capability_root: Node) -> Dictionary:
+	cancel_presentation()
 	if _contract == null:
 		_contract = CONTRACT_SCRIPT.new()
 	return _contract.refresh_from_tree(capability_root)
@@ -67,6 +71,10 @@ func get_diagnostics() -> Array[String]:
 
 func get_visual_diagnostic_trace() -> Array[Dictionary]:
 	return _visual_trace.duplicate(true)
+
+
+func get_color_lifecycle_diagnostics() -> Array[Dictionary]:
+	return _color_lifecycle_diagnostics.duplicate(true)
 
 
 func set_visual_diagnostics_enabled(enabled: bool) -> void:
@@ -108,6 +116,8 @@ func set_production_dispatch_enabled(enabled: bool) -> void:
 func set_presentation_mode(mode: String) -> bool:
 	if not ["FULL", "REDUCED"].has(mode):
 		return false
+	if mode != _presentation_mode:
+		cancel_presentation()
 	_presentation_mode = mode
 	return true
 
@@ -119,6 +129,10 @@ func cancel_presentation() -> void:
 		if is_instance_valid(plugin) and plugin.has_method("stop") and is_instance_valid(target):
 			plugin.call("stop", target)
 	_active_gff_outputs.clear()
+	for target_id_value in _active_color_outputs.keys():
+		var target_id := int(target_id_value)
+		var generation := int(_active_color_outputs[target_id_value].get("generation", -1))
+		_finish_color_output(target_id, generation, "bridge_cancel")
 	for output in _active_spark_outputs:
 		var plugin: Variant = output.get("plugin")
 		if is_instance_valid(plugin) and plugin.has_method("clear"):
@@ -201,7 +215,7 @@ func _micro_plan(kind: String, mode: String) -> Dictionary:
 			speed = 45.0
 			preset = "hit"
 			effect = "punch_scale"
-			gff_params = {"duration": 0.14, "intensity": 0.68}
+			gff_params = {"duration": 0.14, "intensity": 0.48}
 		else:
 			amount = 5
 			lifetime = 0.16
@@ -209,7 +223,7 @@ func _micro_plan(kind: String, mode: String) -> Dictionary:
 			preset = "hit"
 	var overrides := {"amount": amount, "lifetime": lifetime, "speed": speed}
 	if preset == "hit":
-		overrides.merge({"size": 6.0 if kind == "cocktail_launch" else 5.5, "size_end": 1.5, "color": SPARK_COLOR, "color2": SPARK_COLOR_END}, true)
+		overrides.merge({"size": 4.0 if kind == "cocktail_launch" else 4.25, "size_end": 0.8, "color": SPARK_COLOR, "color2": SPARK_COLOR_END}, true)
 	var result := {"mode": mode, "gff_effect": effect, "gff_params": gff_params}
 	if not preset.is_empty():
 		result["spark_preset"] = preset
@@ -232,22 +246,22 @@ func _merge_plan(mode: String, payload: Dictionary) -> Dictionary:
 			lifetime = 0.35
 			speed = 105.0
 			duration = 0.28
-			intensity = 1.0
-			particle_size = 8.0
+			intensity = 0.68
+			particle_size = 5.0
 		elif chain >= 3:
 			amount = 10
 			lifetime = 0.30
 			speed = 70.0
 			duration = 0.23
-			intensity = 0.72
-			particle_size = 6.5
+			intensity = 0.48
+			particle_size = 4.5
 		else:
 			amount = 10
 			lifetime = 0.28
 			speed = 55.0
 			duration = 0.18
-			intensity = 0.45
-			particle_size = 5.0
+			intensity = 0.30
+			particle_size = 4.0
 	var result := {
 		"mode": mode,
 		"gff_effect": "color" if reduced else "punch_scale",
@@ -308,6 +322,8 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 	if not has_effect and not has_spark:
 		return _no_op("unknown_mapping")
 	if has_effect and (_contract == null or not _contract.has_game_feel_flow_effect(effect_name)):
+		if effect_name == "color":
+			_cancel_color_for_target(target, "plugin_effect_unavailable")
 		return _no_op("gff_effect_unavailable:%s" % effect_name)
 	var spark_options: Dictionary = {}
 	if has_spark:
@@ -321,23 +337,36 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 	if has_effect:
 		if _active_gff_outputs.size() >= MAX_ACTIVE_GFF_OUTPUTS:
 			return _no_op("gff_output_capacity")
-		var gff_args: Array = [effect_name, target]
-		if gff_params_value is Dictionary and not gff_params_value.is_empty():
-			gff_args.append(gff_params_value.duplicate(true))
 		var gff_started_ms := Time.get_ticks_msec()
-		var result: Variant = _contract.game_feel_flow.callv("play", gff_args)
-		if result is bool and not result:
-			_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "gff_call_failed"})
-			return _no_op("gff_call_failed")
+		var result: Variant
+		var color_output: Dictionary = {}
+		if effect_name == "color":
+			color_output = _start_color_output(target, gff_params_value, str(request.get("event_id", "")), str(request.get("kind", "")), trace_id)
+			if color_output.is_empty():
+				_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "gff_color_call_failed"})
+				return _no_op("gff_color_call_failed")
+			result = color_output.get("play_result")
+		else:
+			var gff_args: Array = [effect_name, target]
+			if gff_params_value is Dictionary and not gff_params_value.is_empty():
+				gff_args.append(gff_params_value.duplicate(true))
+			result = _contract.game_feel_flow.callv("play", gff_args)
+			if result is bool and not result:
+				_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "gff_call_failed"})
+				return _no_op("gff_call_failed")
 		var effect_duration := float(gff_params_value.get("duration", 0.30)) if gff_params_value is Dictionary else 0.30
-		_active_gff_outputs.append({
+		var active_output := {
 			"plugin": _contract.game_feel_flow,
 			"target": target,
 			"expires_at_ms": Time.get_ticks_msec() + int(ceil(maxf(effect_duration, 0.25) * 1000.0)),
-		})
+		}
+		if not color_output.is_empty():
+			active_output["effect"] = color_output.get("effect")
+		_active_gff_outputs.append(active_output)
 		_update_visual_trace(trace_id, {
 			"gff_call": {"invoked": true, "effect": effect_name, "params": gff_params_value.duplicate(true) if gff_params_value is Dictionary else {}, "returned": str(result), "started_ms": gff_started_ms},
 			"gff_active_effect_count": _gff_active_effect_count(),
+			"color_lifecycle": color_output.get("trace", {}) if not color_output.is_empty() else {},
 		})
 	if has_spark:
 		var position := _target_global_position(target)
@@ -367,6 +396,187 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 		"frames_drawn_at_dispatch": Engine.get_frames_drawn(),
 	})
 	return true
+
+
+func _start_color_output(target: Node, params_value: Variant, event_id: String, kind: String, trace_id: String) -> Dictionary:
+	if not is_instance_valid(target) or not target is CanvasItem or _contract == null or not _contract.has_game_feel_flow():
+		_cancel_color_for_target(target, "plugin_or_target_unavailable")
+		return {}
+	var target_id := target.get_instance_id()
+	var original_modulate: Color = (target as CanvasItem).modulate
+	var previous: Dictionary = _active_color_outputs.get(target_id, {})
+	if not previous.is_empty():
+		original_modulate = previous.get("original_modulate", original_modulate)
+		_finish_color_output(target_id, int(previous.get("generation", -1)), "replaced")
+	var generation := int(_color_generations.get(target_id, 0)) + 1
+	_color_generations[target_id] = generation
+	var plugin: Node = _contract.game_feel_flow
+	var effect_template: Variant = plugin.call("get_effect", "color")
+	if not effect_template is GFFEffect or not plugin.has_method("play"):
+		_record_color_lifecycle(target, generation, event_id, kind, "plugin_failure", "get_effect_unavailable", original_modulate, (target as CanvasItem).modulate, Color.WHITE, trace_id)
+		return {}
+	# Pass an isolated resource instance through the installed public play API. The bridge
+	# owns exact per-target restoration, so GFF must not restore a transient overlap snapshot.
+	var effect_instance := (effect_template as GFFEffect).duplicate(true) as GFFEffect
+	effect_instance.restore_after_play = false
+	var requested_color: Color = params_value.get("color", Color.WHITE) if params_value is Dictionary else Color.WHITE
+	var play_args: Array = [effect_instance, target]
+	if params_value is Dictionary and not params_value.is_empty():
+		play_args.append(params_value.duplicate(true))
+	var duration := float(params_value.get("duration", 0.16)) if params_value is Dictionary else 0.16
+	var exit_callback := Callable(self, "_on_color_target_exiting").bind(target_id, generation)
+	if not target.tree_exiting.is_connected(exit_callback):
+		target.tree_exiting.connect(exit_callback)
+	var trace := {
+		"target_instance_id": target_id,
+		"target_path": str(target.get_path()),
+		"generation": generation,
+		"event_id": event_id,
+		"kind": kind,
+		"original_modulate": original_modulate,
+		"modulate_at_start": (target as CanvasItem).modulate,
+		"requested_color": requested_color,
+		"started_ms": Time.get_ticks_msec(),
+		"prior_generation_replaced": int(previous.get("generation", 0)) if not previous.is_empty() else 0,
+	}
+	var output := {
+		"target": target,
+		"plugin": plugin,
+		"target_id": target_id,
+		"generation": generation,
+		"original_modulate": original_modulate,
+		"exit_callback": exit_callback,
+		"event_id": event_id,
+		"kind": kind,
+		"requested_color": requested_color,
+		"trace_id": trace_id,
+		"trace": trace,
+		"duration": duration,
+	}
+	_active_color_outputs[target_id] = output
+	_record_color_lifecycle(target, generation, event_id, kind, "started", "plugin_call", original_modulate, (target as CanvasItem).modulate, requested_color, trace_id)
+	output["effect"] = effect_instance
+	_active_color_outputs[target_id] = output
+	if _uses_async_gff_play(plugin):
+		_invoke_color_effect.call_deferred(plugin, play_args, target_id, generation)
+		_await_color_completion.call_deferred(target_id, generation, duration)
+	else:
+		var play_result: Variant = plugin.callv("play", play_args)
+		if play_result is bool and not play_result:
+			_finish_color_output(target_id, generation, "plugin_failure")
+			return {}
+		_finish_color_output(target_id, generation, "natural_completion")
+	return output
+
+
+func _uses_async_gff_play(plugin: Node) -> bool:
+	if not is_instance_valid(plugin):
+		return false
+	var script := plugin.get_script() as Script
+	return is_instance_valid(script) and script.resource_path == "res://addons/game_feel_flow/core/game_feel_flow.gd"
+
+
+func _invoke_color_effect(plugin: Node, play_args: Array, target_id: int, generation: int) -> void:
+	if not is_inside_tree() or not _active_color_outputs.has(target_id):
+		return
+	if int(_active_color_outputs[target_id].get("generation", -1)) != generation:
+		return
+	var play_result: Variant = await plugin.callv("play", play_args)
+	if not _active_color_outputs.has(target_id) or int(_active_color_outputs[target_id].get("generation", -1)) != generation:
+		return
+	if play_result is bool and not play_result:
+		_finish_color_output(target_id, generation, "plugin_failure")
+	else:
+		_finish_color_output(target_id, generation, "natural_completion")
+
+
+func _cancel_color_for_target(target: Node, reason: String) -> void:
+	if not is_instance_valid(target):
+		return
+	var target_id := target.get_instance_id()
+	if not _active_color_outputs.has(target_id):
+		return
+	_finish_color_output(target_id, int(_active_color_outputs[target_id].get("generation", -1)), reason)
+
+
+func _await_color_completion(target_id: int, generation: int, duration: float) -> void:
+	if not is_inside_tree():
+		return
+	await get_tree().create_timer(maxf(duration, 0.0) + 0.15, true, false, true).timeout
+	if not is_inside_tree():
+		return
+	_finish_color_output(target_id, generation, "completion_timeout")
+
+
+func _on_color_target_exiting(target_id: int, generation: int) -> void:
+	_finish_color_output(target_id, generation, "target_exit")
+
+
+func _finish_color_output(target_id: int, generation: int, reason: String) -> void:
+	if not _active_color_outputs.has(target_id):
+		return
+	var output: Dictionary = _active_color_outputs[target_id]
+	if int(output.get("generation", -1)) != generation:
+		return
+	var target: Variant = output.get("target")
+	var plugin: Variant = output.get("plugin")
+	if reason != "natural_completion" and is_instance_valid(plugin) and plugin.has_method("stop") and is_instance_valid(target):
+		plugin.call("stop", target)
+	var original_modulate: Color = output.get("original_modulate", Color.WHITE)
+	var final_modulate := Color.WHITE
+	if is_instance_valid(target) and target is CanvasItem:
+		(target as CanvasItem).modulate = original_modulate
+		final_modulate = (target as CanvasItem).modulate
+	var exit_callback: Callable = output.get("exit_callback", Callable())
+	if is_instance_valid(target) and target.has_signal("tree_exiting") and target.tree_exiting.is_connected(exit_callback):
+		target.tree_exiting.disconnect(exit_callback)
+	_record_color_lifecycle(
+		target if is_instance_valid(target) else null,
+		generation,
+		str(output.get("event_id", "")),
+		str(output.get("kind", "")),
+		"restored",
+		reason,
+		original_modulate,
+		final_modulate,
+		output.get("requested_color", Color.WHITE),
+		str(output.get("trace_id", ""))
+	)
+	_active_color_outputs.erase(target_id)
+
+
+func _record_color_lifecycle(
+	target: Node,
+	generation: int,
+	event_id: String,
+	kind: String,
+	operation: String,
+	reason: String,
+	original_modulate: Color,
+	final_modulate: Color,
+	requested_color: Color,
+	trace_id: String
+) -> void:
+	var record := {
+		"target_instance_id": target.get_instance_id() if is_instance_valid(target) else 0,
+		"target_path": str(target.get_path()) if is_instance_valid(target) and target.is_inside_tree() else "",
+		"generation": generation,
+		"event_id": event_id,
+		"kind": kind,
+		"operation": operation,
+		"reason": reason,
+		"original_modulate": original_modulate,
+		"final_modulate": final_modulate,
+		"requested_color": requested_color,
+		"matches_original": final_modulate == original_modulate,
+		"restored_exactly": operation == "restored" and final_modulate == original_modulate,
+		"timestamp_ms": Time.get_ticks_msec(),
+	}
+	_color_lifecycle_diagnostics.append(record)
+	while _color_lifecycle_diagnostics.size() > MAX_VISUAL_TRACE_EVENTS * 2:
+		_color_lifecycle_diagnostics.pop_front()
+	if not trace_id.is_empty():
+		_update_visual_trace(trace_id, {"color_lifecycle": record})
 
 
 func _begin_visual_trace(request: Dictionary) -> String:

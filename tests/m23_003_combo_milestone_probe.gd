@@ -4,7 +4,7 @@ const MAIN_SCENE := preload("res://scenes/main.tscn")
 const BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
 const GFF_COLOR_TARGET_SCRIPT := preload("res://addons/game_feel_flow/core/targets/gff_color_target.gd")
 const GFF_PARAMS_SCRIPT := preload("res://addons/game_feel_flow/core/gff_params.gd")
-const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/M23-003_combo_milestone_probe.json"
+const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/M23-003_combo_milestone_probe.json"
 
 var _checks := 0
 var _failures: Array[String] = []
@@ -25,18 +25,19 @@ class FakeSession:
 
 class MockGFF:
 	extends Node
+	const EFFECT_REGISTRY := preload("res://addons/game_feel_flow/core/gff_effect_registry.gd")
 	var calls: Array[Dictionary] = []
 	var stopped := 0
 	var should_fail := false
 
-	func play(effect_name: String, target: Node, params: Dictionary = {}) -> bool:
-		calls.append({"effect": effect_name, "target": target, "params": params.duplicate(true)})
+	func play(effect_name: Variant, target: Node, params: Dictionary = {}) -> bool:
+		calls.append({"effect": "color" if effect_name is GFFEffect else str(effect_name), "target": target, "params": params.duplicate(true)})
 		return not should_fail
 	func play_combo(_combo_name: String, _target: Node) -> bool: return true
 	func play_global(_effect_name: String) -> bool: return true
 	func stop(_target: Node) -> void: stopped += 1
 	func stop_all() -> void: pass
-	func get_effect(_effect_name: String): return null
+	func get_effect(effect_name: String): return EFFECT_REGISTRY.create_effect("color", "color") if effect_name == "color" else null
 	func get_combo(_combo_name: String): return null
 	func resolve_combo(_combo_name: String): return null
 	func get_effect_names() -> Array[String]: return ["punch_scale", "color", "alpha"]

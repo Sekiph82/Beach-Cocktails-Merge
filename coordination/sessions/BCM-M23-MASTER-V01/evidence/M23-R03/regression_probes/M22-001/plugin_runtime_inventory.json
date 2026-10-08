@@ -1,0 +1,520 @@
+{
+	"consumer_fallback_probe": {
+		"authority_fingerprint": 307023203,
+		"checks": 21,
+		"failures": []
+	},
+	"gff": {
+		"combos": {
+			"death": [
+				{
+					"duration": 0.2,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.08,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.04,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/time/gff_freeze_frame.gd",
+					"start_time": 0.08,
+					"target_class": "",
+					"target_script": ""
+				},
+				{
+					"duration": 0.3,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.12,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.2,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.3,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_alpha_target.gd"
+				}
+			],
+			"death_explosion": [
+				{
+					"duration": 0.35,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.15,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.06,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/time/gff_freeze_frame.gd",
+					"start_time": 0.1,
+					"target_class": "",
+					"target_script": ""
+				},
+				{
+					"duration": 0.35,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.15,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.25,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.35,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_alpha_target.gd"
+				}
+			],
+			"explosion": [
+				{
+					"duration": 0.2,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.08,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.04,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/time/gff_freeze_frame.gd",
+					"start_time": 0.08,
+					"target_class": "",
+					"target_script": ""
+				},
+				{
+					"duration": 0.25,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.12,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				}
+			],
+			"explosion_large": [
+				{
+					"duration": 0.35,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.15,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.06,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/time/gff_freeze_frame.gd",
+					"start_time": 0.12,
+					"target_class": "",
+					"target_script": ""
+				},
+				{
+					"duration": 0.35,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.15,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				}
+			],
+			"explosion_small": [
+				{
+					"duration": 0.12,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.05,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.15,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				}
+			],
+			"hit_critical": [
+				{
+					"duration": 0.18,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.1,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.03,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/time/gff_freeze_frame.gd",
+					"start_time": 0.05,
+					"target_class": "",
+					"target_script": ""
+				},
+				{
+					"duration": 0.25,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.08,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				}
+			],
+			"hit_heavy": [
+				{
+					"duration": 0.14,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.08,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.06,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/time/gff_freeze_frame.gd",
+					"start_time": 0.04,
+					"target_class": "",
+					"target_script": ""
+				},
+				{
+					"duration": 0.22,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.06,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				}
+			],
+			"hit_light": [
+				{
+					"duration": 0.08,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.06,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.14,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				}
+			],
+			"hit_medium": [
+				{
+					"duration": 0.1,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.05,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				},
+				{
+					"duration": 0.18,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				}
+			],
+			"pickup": [
+				{
+					"duration": 0.12,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.04,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				}
+			],
+			"pickup_coin": [
+				{
+					"duration": 0.28,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.22,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.12,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				}
+			],
+			"pickup_health": [
+				{
+					"duration": 0.12,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.06,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				}
+			],
+			"pickup_power": [
+				{
+					"duration": 0.1,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_position_target.gd"
+				},
+				{
+					"duration": 0.15,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.08,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				}
+			],
+			"ui_button_press": [
+				{
+					"duration": 0.08,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.03,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				}
+			],
+			"ui_notification": [
+				{
+					"duration": 0.2,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_scale_target.gd"
+				},
+				{
+					"duration": 0.05,
+					"effect_class": "Resource",
+					"effect_script": "res://addons/game_feel_flow/effects/curved/gff_effect_common.gd",
+					"start_time": 0.0,
+					"target_class": "Resource",
+					"target_script": "res://addons/game_feel_flow/core/targets/gff_color_target.gd"
+				}
+			]
+		},
+		"registered_combo_count": 15,
+		"registered_effect_count": 31,
+		"registered_effects": [
+			"shake_position",
+			"shake_scale",
+			"shake_rotation",
+			"punch_position",
+			"punch_scale",
+			"punch_rotation",
+			"curved_position",
+			"curved_scale",
+			"curved_rotation",
+			"flash",
+			"color",
+			"alpha",
+			"camera_shake",
+			"camera_zoom",
+			"camera_fov",
+			"camera_flash",
+			"sound",
+			"audio_volume",
+			"freeze_frame",
+			"time_scale",
+			"particles",
+			"gpu_particles",
+			"impulse",
+			"velocity",
+			"tween",
+			"animator",
+			"event",
+			"signal",
+			"method",
+			"shake",
+			"punch"
+		]
+	},
+	"spark": {
+		"base": {
+			"amount": 14,
+			"lifetime": 0.45,
+			"lifetime_rand": 0.35,
+			"speed": 220.0
+		},
+		"preset_overrides": {
+			"confetti": {
+				"amount": 28,
+				"lifetime": 0.9,
+				"lifetime_rand": 0.35,
+				"speed": 300.0,
+				"speed_min": 0.35
+			},
+			"dust": {
+				"amount": 10,
+				"lifetime": 0.55,
+				"lifetime_rand": 0.35,
+				"speed": 90.0,
+				"speed_min": 0.35
+			},
+			"explode": {
+				"amount": 34,
+				"lifetime": 0.6,
+				"lifetime_rand": 0.35,
+				"speed": 380.0,
+				"speed_min": 0.35
+			},
+			"hit": {
+				"amount": 12,
+				"lifetime": 0.28,
+				"lifetime_rand": 0.35,
+				"speed": 300.0,
+				"speed_min": 0.35
+			},
+			"pickup": {
+				"amount": 12,
+				"lifetime": 0.5,
+				"lifetime_rand": 0.35,
+				"speed": 150.0,
+				"speed_min": 0.35
+			},
+			"spark": {
+				"amount": 14,
+				"lifetime": 0.45,
+				"lifetime_rand": 0.35,
+				"speed": 220.0,
+				"speed_min": 0.35
+			}
+		}
+	}
+}

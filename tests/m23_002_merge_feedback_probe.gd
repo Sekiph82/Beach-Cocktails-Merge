@@ -2,7 +2,7 @@ extends SceneTree
 
 const MAIN_SCENE := preload("res://scenes/main.tscn")
 const BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
-const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/M23-002_merge_feedback_probe.json"
+const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R03/M23-002_merge_feedback_probe.json"
 
 var _checks := 0
 var _failures: Array[String] = []
@@ -11,18 +11,19 @@ var _merge_requests: Array[Dictionary] = []
 
 class MockGFF:
 	extends Node
+	const EFFECT_REGISTRY := preload("res://addons/game_feel_flow/core/gff_effect_registry.gd")
 	var calls: Array[Dictionary] = []
 	var stopped := 0
 	var should_fail := false
 
-	func play(effect_name: String, target: Node, params: Dictionary = {}) -> bool:
-		calls.append({"effect": effect_name, "target": target, "params": params.duplicate(true)})
+	func play(effect_name: Variant, target: Node, params: Dictionary = {}) -> bool:
+		calls.append({"effect": "color" if effect_name is GFFEffect else str(effect_name), "target": target, "params": params.duplicate(true)})
 		return not should_fail
 	func play_combo(_combo_name: String, _target: Node) -> bool: return true
 	func play_global(_effect_name: String) -> bool: return true
 	func stop(_target: Node) -> void: stopped += 1
 	func stop_all() -> void: pass
-	func get_effect(_effect_name: String): return null
+	func get_effect(effect_name: String): return EFFECT_REGISTRY.create_effect("color", "color") if effect_name == "color" else null
 	func get_combo(_combo_name: String): return null
 	func resolve_combo(_combo_name: String): return null
 	func get_effect_names() -> Array[String]: return ["punch_scale", "color", "alpha"]
@@ -99,10 +100,10 @@ func _run() -> void:
 	_check("duplicate merge request for the same source is coalesced", spark.calls.size() == calls_after_real_merge and _merge_requests.size() == 2)
 
 	var expected_bands := [
-		{"chain": 1, "amount": 10, "lifetime": 0.28, "speed": 55.0, "size": 5.0, "intensity": 0.45, "name": "BASE"},
-		{"chain": 3, "amount": 10, "lifetime": 0.30, "speed": 70.0, "size": 6.5, "intensity": 0.72, "name": "SURGE"},
-		{"chain": 5, "amount": 18, "lifetime": 0.35, "speed": 105.0, "size": 8.0, "intensity": 1.0, "name": "PEAK"},
-		{"chain": 6, "amount": 18, "lifetime": 0.35, "speed": 105.0, "size": 8.0, "intensity": 1.0, "name": "PEAK hard cap"},
+		{"chain": 1, "amount": 10, "lifetime": 0.28, "speed": 55.0, "size": 4.0, "intensity": 0.30, "name": "BASE"},
+		{"chain": 3, "amount": 10, "lifetime": 0.30, "speed": 70.0, "size": 4.5, "intensity": 0.48, "name": "SURGE"},
+		{"chain": 5, "amount": 18, "lifetime": 0.35, "speed": 105.0, "size": 5.0, "intensity": 0.68, "name": "PEAK"},
+		{"chain": 6, "amount": 18, "lifetime": 0.35, "speed": 105.0, "size": 5.0, "intensity": 0.68, "name": "PEAK hard cap"},
 	]
 	var band_results: Array[Dictionary] = []
 	var band_intensities: Array[float] = []
@@ -118,7 +119,7 @@ func _run() -> void:
 		band_intensities.append(float(gff.calls.back().params.get("intensity", 0.0)))
 		band_results.append({"band": band.name, "chain": band.chain, "amount": options.get("amount", -1), "lifetime": options.get("lifetime", -1.0), "passed": matched})
 		_check("FULL %s GameFeelFlow effect targets its presentation child" % band.name, gff.calls.back().target == source.get_node("Visual") and gff.calls.back().effect == "punch_scale")
-	_check("BASE, SURGE and PEAK intensities rise monotonically and PEAK remains capped", band_intensities == [0.45, 0.72, 1.0, 1.0])
+	_check("BASE, SURGE and PEAK intensities rise monotonically and PEAK remains capped", band_intensities == [0.30, 0.48, 0.68, 0.68])
 
 	bridge.set_presentation_mode("REDUCED")
 	var reduced_spark_start := spark.calls.size()

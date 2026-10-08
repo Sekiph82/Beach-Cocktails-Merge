@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/m23_r03_real_renderer_capture.gd" id="1_capture"]
+
+[node name="M23R03RealRendererCapture" type="Node"]
+script = ExtResource("1_capture")
