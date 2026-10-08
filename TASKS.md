@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M23-MASTER-V01
 - Current Task: BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M23-003 — CODEX runs `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-R01_REMEDIATION_PROMPT.md` for owner-rejected M23 visual effects, then stops for independent re-audit.
+- Next Task/Action: BCM-M23-003 — CODEX executes `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-R02_COMBINED_VISIBILITY_MASTER_PROMPT.md` including all active R01 remediation and R02 CanvasLayer/FPS additions; then GPT re-audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M22 owner approved. M23 technical source audit passed, but owner F5 visual review rejected launch/contact visibility, Spark merge particles, combo tier differentiation and score emphasis. M23-R01 remediation prompt/criteria locked; M24 not started.
+- Progress: M22 owner approved. M23 technical source audit PASS but owner F5 visuals REJECTED. Active work: combined M23 R01 remediation + R02 canvas ordering, FPS, size and contrast diagnostics published. No visual acceptance, M24 not started.
 
 ## Blockers/Waits
 
