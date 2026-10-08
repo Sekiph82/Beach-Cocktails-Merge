@@ -6,17 +6,17 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M24
 - Current Sprint: BCM-M24-MASTER-V01
-- Current Task: BCM-M24-001 — Add accepted To-Go delivery/progress feedback at the existing destination.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M24-001 — CODEX executes `coordination/sessions/BCM-M24-MASTER-V01/CHATGPT_M24_MASTER_PROMPT_V01.md` continuously through M24-003, then stops for independent milestone audit.
+- Current Task: BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M24-003 — CODEX executes `coordination/sessions/BCM-M24-MASTER-V01/BCM-M24-R01_VALIDATION_MASTER_PROMPT.md` to complete missing locked master regression and real renderer proof, then independent GPT re-audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M23 R03 owner visual approval recorded; CLOSEOUT-001 independently audited PASS: 3 ObjectDB warnings closed and corrected M21 720x1280/720x1440 real-renderer QA passed 16 captures. M23 closed. M24 master prompt and child locked criteria published; no M24 code executed yet.
+- Progress: M23 closed and owner accepted. M24-001/002/003 builder code published; focused 23 checks PASS according to Codex, but ChatGPT M24 milestone V01 audit CHANGES_REQUIRED: full M02/M09/M15/M21/M22/M23 regression not run, no FULL/REDUCED real-renderer M24 captures or owner F5 acceptance. M24-R01 continuation required; M25 blocked.
 
 ## Blockers/Waits
 
-- No M23 technical blocker remains. M24 requires independent source/visual audit and owner approval; physical-device release QA remains separately pending. Owner-local files and the PowerShell-locked untracked output must be preserved.
+- M24 audit V01 CHANGES_REQUIRED; complete locked master regressions and real-renderer evidence without overwriting owner-local historical files. M24 owner visuals pending. M25 blocked.
 
 ## Tasks
 
@@ -1166,7 +1166,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M24 — To-Go and VIP presentation
 
-- [~] BCM-M24-001 — Add accepted To-Go delivery/progress feedback at the existing destination.
+- [x] BCM-M24-001 — Add accepted To-Go delivery/progress feedback at the existing destination.
   - Purpose: make accepted progress clear without celebrating every HUD refresh.
   - Existing seam: `GameManager._collect_merge_target()/_finish_target_collection()`, existing delivery tween/trail, `_to_go_panel`, and `GameplaySessionBridge.record_to_go_delivery()` response.
   - Semantic trigger: `order_progress` only for `ok && accepted > 0`; terminal final delivery yields to Results WIN instead of double-celebrating.
@@ -1178,7 +1178,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: accepted progress, duplicate suppression, terminal transition, REDUCED, clean logs/screenshots.
   - Owner acceptance: required.
 
-- [ ] BCM-M24-002 — Add ORDER-complete panel emphasis and reward flourish without stacking the current flash.
+- [x] BCM-M24-002 — Add ORDER-complete panel emphasis and reward flourish without stacking the current flash.
   - Purpose: distinguish requirement completion from ordinary progress.
   - Existing seam: `FeedbackService.emit_order_complete()`, `_order_completion_feedback()`, `_to_go_panel`, progress/reward labels, and authoritative delivery response.
   - Semantic trigger: `order_complete` only on authoritative incomplete→complete; suppress when immediate WIN owns the celebration.
@@ -1190,7 +1190,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: progress→complete, duplicate token, final-order result handoff, REDUCED, clean logs.
   - Owner acceptance: required.
 
-- [ ] BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
+- [!] BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
   - Purpose: premium optional mastery distinct from ordinary To-Go without implying VIP is mandatory.
   - Existing seam: `GameManager._collect_vip_target()/_finish_vip_target()`, `GameplaySessionBridge.record_vip_delivery()` fields `accepted/vip_completed/delivered/remaining`, `vip_state_changed`, VIP target/progress/reward controls.
   - Semantic trigger: `vip_delivery` for accepted >0; `vip_complete` only false→true. Rejected/mismatch/duplicate silent.
