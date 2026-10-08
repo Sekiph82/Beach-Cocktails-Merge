@@ -1,0 +1,2 @@
+# M24-001 Locked Criteria
+Only accepted To-Go deliveries ok && accepted>0 trigger order_progress, never UI refresh, duplicate, rejected or paused delivery. Target existing destination/panel, keep trail/travel unless truly redundant; no changed delivery counts, reward, game state. Avoid terminal WIN duplicate. FULL <=8 particles/0.25s, REDUCED immediate status and <=3/0.16s or none. Panel targets only. Genuine renderer captures for owner review. Tests plugin-off parity, dedupe, lifecycle.
