@@ -1,0 +1,7 @@
+# BCM-M24-R01 Locked Audit Criteria
+
+- Run all mandatory M02/M09/M15/M21/M22/M23 and M24 focused tests with recorded exact commands, exit codes, test counts, failures, authority state parity and zero relevant Godot errors; Godot editor import, 120-frame boot and GFF lifecycle/teardown checks. If previously fixed M21 tall mobile QA is rerun use real-renderer method for image assertions (headless capture=0 is not PASS).
+- Preserve all owner-local files including project.godot, two PNGs, other dirty tracked M21/M22 JSON, R01 local evidence and any PowerShell-held file; do not use tracked historical evidence-writing probes in place unless first redirect copies to controlled outputs. After execution verify every protected owner working-tree blob matches saved snapshot. Keep root TASKS.md read-only to Codex.
+- Capture To-Go accepted-progress, ORDER complete, VIP delivery, VIP complete in FULL and REDUCED within real running-project at intended viewport, include before/event/settled images, exact color restoration, effects counts, true source event linkage to authoritative accepted state. If fixture uses synthetic events label separately, not proof of production end-to-end.
+- Verify no duplicates/final-WIN layering, no UI geometry change, no effect over-budget, no R03 color regression, physical logic/save/state parity and plugin fallback. Capture and disclose limitations; owner F5 acceptance stays separate and cannot be self-granted.
+- Publish M24-R01 evidence/log, commit and push 0/0, no M25. Stop for GPT re-audit.
