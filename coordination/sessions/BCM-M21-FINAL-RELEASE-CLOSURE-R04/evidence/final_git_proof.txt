@@ -1,0 +1,71 @@
+R04 final Git/ref/status proof
+
+Snapshot: immediately after evidence commit 6c76741ea49ac2c084d05546b968871eba5f6498 was pushed to origin/main, before the following Codex log-only publication commit.
+Working directory: C:\Users\sekip\Desktop\Beach Cocktails - Merge
+
+COMMAND: git status --short --branch
+STDOUT/STDERR:
+## main...origin/main
+?? "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png"
+?? "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png"
+EXIT_CODE=0
+
+COMMAND: git rev-parse HEAD
+STDOUT/STDERR:
+6c76741ea49ac2c084d05546b968871eba5f6498
+EXIT_CODE=0
+
+COMMAND: git rev-parse origin/main
+STDOUT/STDERR:
+6c76741ea49ac2c084d05546b968871eba5f6498
+EXIT_CODE=0
+
+COMMAND: git ls-remote origin refs/heads/main
+STDOUT/STDERR:
+6c76741ea49ac2c084d05546b968871eba5f6498	refs/heads/main
+EXIT_CODE=0
+
+COMMAND: git rev-list --left-right --count HEAD...origin/main
+STDOUT/STDERR:
+0	0
+EXIT_CODE=0
+
+COMMAND: git diff --exit-code -- project.godot
+STDOUT/STDERR:
+(no output)
+EXIT_CODE=0
+
+COMMAND: git diff --exit-code -- TASKS.md
+STDOUT/STDERR:
+(no output)
+EXIT_CODE=0
+
+COMMAND: Get-FileHash project.godot -Algorithm SHA256
+STDOUT/STDERR:
+Algorithm : SHA256
+Hash      : DE79FF257F4F4BE0DBE01BECB574A3E502F9BF36F07CF662B293A4B6242D0267
+Path      : C:\Users\sekip\Desktop\Beach Cocktails - Merge\project.godot
+EXIT_CODE=0
+
+COMMAND: git stash list
+STDOUT/STDERR:
+stash@{0}: On main: owner-local-safe-sync-b213fbd
+stash@{1}: On main: owner-local-safe-sync-dd6f65f
+stash@{2}: On main: owner-local-safe-sync-ee2c6d0
+stash@{3}: On main: owner-local-safe-sync-d265865
+stash@{4}: On main: owner-local-safe-sync-48ae340
+stash@{5}: On main: owner-local-safe-sync-6f35b45
+stash@{6}: On main: owner-local-safe-sync-92c34f7
+stash@{7}: On main: owner-local-safe-sync-7783fb9
+stash@{8}: On main: owner-local-safe-sync-c147995
+stash@{9}: On main: owner-local-safe-sync-7016a98
+stash@{10}: On main: owner-local-safe-sync-fdd1e53
+stash@{11}: On main: owner-local-safe-sync-ac7fb12135bf
+stash@{12}: On main: owner-local-plugin-sync-preserve-4c943b2e7ed8
+stash@{13}: On main: owner-local-godot-ai-sync-preserve
+stash@{14}: On main: pre-v07-owner-godot-ai-project-settings
+stash@{15}: On main: pre-v04-owner-local-preserve
+EXIT_CODE=0
+
+Stash required to reproduce the current canonical working tree: NO. All listed historical preservation stashes remain untouched.
+Remaining untracked owner-local inputs: the two critique PNGs listed by git status above. Neither is part of the release input.
