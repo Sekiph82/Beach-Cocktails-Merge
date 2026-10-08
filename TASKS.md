@@ -7,16 +7,16 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M22
 - Current Sprint: BCM-M22-MASTER-V01
 - Current Task: BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
-- Current Task Status: BLOCKED
-- Next Task/Action: BCM-M22-003 — CODEX executes `coordination/sessions/BCM-M22-MASTER-V01/CHATGPT_M22_R01_REMEDIATION_PROMPT.md` to reconcile REDUCED effect-language/matrix contradiction, then stops for ChatGPT re-audit.
-- Required Actor: CODEX
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M22-003 — OWNER approves or requests edits to M22 Effect Language Matrix; M23 remains blocked.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: BCM-M21 remains complete. M22-001→003 implementation/evidence published through `dfd5de70`; ChatGPT M22 milestone audit V01 records CHANGES_REQUIRED: REDUCED policy prose says no particles for merge/VIP while permitting nonzero dust budgets. M22 R01 minimal remediation is required; owner matrix approval remains pending; M23 not started.
+- Progress: BCM-M21 remains complete. M22 R01 technical re-audit PASS. Owner Effect Language Matrix approval pending; M23 not started.
 
 ## Blockers/Waits
 
-- BCM-M22 V01 independent audit: CHANGES_REQUIRED on REDUCED policy/matrix contradiction. CODEX R01 remediation pending. M23 blocked until R01 independent PASS and explicit owner approval of regenerated effect-language matrix. Physical-device/export/signing limitations remain recorded release-environment items.
+- M22 R01 technical audit PASS; owner Effect Language Matrix approval required before M23. World Map headless screenshots remain unavailable.
 
 ## Tasks
 
@@ -1114,7 +1114,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: live wiring/event telemetry, duplicate probes, plugin-on/off runs, clean logs.
   - Owner acceptance: architecture audit, no visual sign-off.
 
-- [!] BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
+- [~] BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
   - Purpose: turn MICRO/MERGE/ORDER/VIP/WIN/MASTERY/ISLAND_UNLOCK into executable presentation policy before production effects.
   - Existing seam: `UserSettings.get_presentation_state()/presentation_changed`, `GameManager.apply_presentation_settings`, `CampaignFeedbackOverlay`, HUD, `Drink/Visual`, `LevelButton`, World Map entries, Island Map nodes.
   - Semantic trigger: tier lookup only.
