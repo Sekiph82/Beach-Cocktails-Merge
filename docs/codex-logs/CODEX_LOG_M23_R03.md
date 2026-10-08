@@ -53,7 +53,7 @@ Godot version: `4.7.2.stable.official.ed1daf0bf`.
 
 ## Publication and stop
 
-- Final commit SHA: to be filled after commit.
-- Local HEAD / `origin/main` / live `refs/heads/main`: to be filled after push verification.
+- Final R03 implementation/evidence commit SHA: `4cffd84ee84c6f89f7410bb6831d7182261cb8dc` (the execution log is published in a documentation-only follow-up commit so this SHA can be recorded).
+- Post-push verification at the implementation/evidence publication checkpoint: local HEAD = `4cffd84ee84c6f89f7410bb6831d7182261cb8dc`; `origin/main` = `4cffd84ee84c6f89f7410bb6831d7182261cb8dc`; live `refs/heads/main` = `4cffd84ee84c6f89f7410bb6831d7182261cb8dc`; divergence `0/0`. The log-only follow-up is pushed and the final main parity is rechecked after that commit.
 - `TASKS.md` was not modified.
 - Stop marker: `AWAITING_GPT_M23_R03_REAUDIT`.
