@@ -81,6 +81,13 @@ func _run() -> void:
 	var peak_a := policy.get_spark_budget("merge", "FULL", 5)
 	var peak_b := policy.get_spark_budget("merge", "FULL", 100)
 	_check("merge chain bands are BASE 1-2, SURGE 3-4, PEAK 5+", base_a.band == "BASE" and base_b.band == "BASE" and surge_a.band == "SURGE" and surge_b.band == "SURGE" and peak_a.band == "PEAK" and peak_b == peak_a)
+	for kind in POLICY_SCRIPT.SEMANTIC_KINDS:
+		var reduced_row: Dictionary = policy.get_policy(kind, "REDUCED")
+		if _style_forbids_particles(str(reduced_row.mode_policy.style)):
+			var chains: Array = [1, 3, 5] if kind == "merge" else [1]
+			for chain in chains:
+				var budget: Dictionary = policy.get_spark_budget(kind, "REDUCED", chain)
+				_check("REDUCED %s chain %d forbids all particles" % [kind, chain], int(budget.get("max_amount", -1)) == 0)
 	_check("REDUCED MICRO and table contact have zero particles", policy.get_spark_budget("cocktail_launch", "REDUCED").max_amount == 0 and policy.get_spark_budget("table_contact", "REDUCED").max_amount == 0 and policy.get_spark_budget("ui_primary", "REDUCED").max_amount == 0)
 	var fail_row: Dictionary = policy.get_policy("game_fail", "FULL")
 	_check("game_fail is distinct and subdued", fail_row.tier == "FAIL" and fail_row.tier != policy.get_policy("game_success", "FULL").tier and fail_row.full.spark.max_amount == 0 and fail_row.full.spark.presets.is_empty())
@@ -91,6 +98,8 @@ func _run() -> void:
 	_check("large celebration slot prevents overlapping result celebrations", not policy.validate_dispatch({"kind": "game_success"}, "FULL", {"gff_effect": "color", "active_large_celebrations": 1}).ok)
 	_check("Spark budget requires explicit amount, lifetime, and speed", not policy.validate_dispatch({"kind": "vip_delivery"}, "FULL", {"spark_preset": "pickup", "spark_overrides": {"amount": 2, "lifetime": 0.2}}).ok)
 	_check("REDUCED removes contact particles", not policy.validate_dispatch({"kind": "table_contact"}, "REDUCED", {"spark_preset": "dust", "spark_overrides": {"amount": 1, "lifetime": 0.1, "speed": 20.0}}).ok)
+	_check("REDUCED VIP dust is rejected when style forbids particles", not policy.validate_dispatch({"kind": "vip_delivery"}, "REDUCED", {"spark_preset": "dust", "spark_overrides": {"amount": 1, "lifetime": 0.1, "speed": 20.0}}).ok and not policy.validate_dispatch({"kind": "vip_complete"}, "REDUCED", {"spark_preset": "dust", "spark_overrides": {"amount": 1, "lifetime": 0.1, "speed": 20.0}}).ok)
+	_check("REDUCED merge dust is rejected across BASE/SURGE/PEAK", not policy.validate_dispatch({"kind": "merge", "payload": {"chain": 1}}, "REDUCED", {"spark_preset": "dust", "spark_overrides": {"amount": 1, "lifetime": 0.1, "speed": 20.0}}).ok and not policy.validate_dispatch({"kind": "merge", "payload": {"chain": 3}}, "REDUCED", {"spark_preset": "dust", "spark_overrides": {"amount": 1, "lifetime": 0.1, "speed": 20.0}}).ok and not policy.validate_dispatch({"kind": "merge", "payload": {"chain": 5}}, "REDUCED", {"spark_preset": "dust", "spark_overrides": {"amount": 1, "lifetime": 0.1, "speed": 20.0}}).ok)
 
 	var service = FEEDBACK_SCRIPT.new()
 	root.add_child(service)
@@ -114,7 +123,7 @@ func _run() -> void:
 	var blocked_count := gff.play_calls + spark.burst_calls
 	_check("fixture bridge rejects policy-forbidden effects before invocation", not bridge.dispatch_fixture_request(merge_request, target, {"mode": "FULL", "gff_effect": "impulse"}, gff, spark) and gff.play_calls + spark.burst_calls == blocked_count)
 	var reduced_plan := {"mode": "REDUCED", "gff_effect": "alpha", "spark_preset": "dust", "spark_overrides": {"amount": 2, "lifetime": 0.1, "speed": 20.0}}
-	_check("REDUCED policy dispatches bounded dummy fixture only", bridge.dispatch_fixture_request({"kind": "vip_delivery"}, target, reduced_plan, gff, spark) and gff.play_calls == 2 and spark.burst_calls == 2)
+	_check("REDUCED policy dispatches bounded dummy fixture only", bridge.dispatch_fixture_request({"kind": "order_progress"}, target, reduced_plan, gff, spark) and gff.play_calls == 2 and spark.burst_calls == 2)
 	_check("authority fingerprint is unchanged by policy and dummy bridge", authority_hash == _authority_fingerprint(navigation))
 	bridge.cancel_presentation()
 	_check("view/session cancellation stops local GFF and clears Spark", gff.stop_calls == 2 and spark.clear_calls == 2)
@@ -139,12 +148,32 @@ func _run() -> void:
 	_write_json("budget_validator_report.json", {"result": "PASS" if validation.ok else "FAIL", "failures": validation.failures, "kind_count": validation.kind_count, "mode_rows": validation.mode_rows, "mobile_ceilings": POLICY_SCRIPT.MOBILE_CEILINGS.duplicate(true)})
 	_write_json("forbidden_api_scan.json", {"result": "PASS", "forbidden": POLICY_SCRIPT.ALWAYS_FORBIDDEN_GFF.duplicate(), "policy_mappings": _policy_effect_inventory(policy), "combo_calls_allowed": false, "camera_shake_enabled": false, "root_or_physics_targets_allowed": false})
 	_write_json("state_hash_parity_report.json", {"result": "PASS" if authority_hash == _authority_fingerprint(navigation) else "FAIL", "before": authority_hash, "after": _authority_fingerprint(navigation), "cases": ["policy FULL/REDUCED queries", "safe FULL mock dispatch", "forbidden GFF rejected", "bounded REDUCED mock dispatch", "view/session cancellation"], "scope": "campaign progression, economy ledger, navigation view, active island, gameplay instance count"})
+	var matrix_matches_policy := false
 	var matrix_file := FileAccess.open("%s/M22_EFFECT_LANGUAGE_MATRIX.md" % EVIDENCE_DIR, FileAccess.WRITE)
 	if matrix_file == null:
 		_failures.append("owner matrix is writable")
 	else:
-		matrix_file.store_string(policy.render_markdown_matrix())
+		var rendered_matrix := policy.render_markdown_matrix()
+		matrix_file.store_string(rendered_matrix)
 		matrix_file.close()
+		var matrix_reader := FileAccess.open("%s/M22_EFFECT_LANGUAGE_MATRIX.md" % EVIDENCE_DIR, FileAccess.READ)
+		var saved_matrix := matrix_reader.get_as_text() if matrix_reader != null else ""
+		if matrix_reader != null:
+			matrix_reader.close()
+		matrix_matches_policy = not rendered_matrix.is_empty() and rendered_matrix == saved_matrix
+		_check("generated owner matrix exactly matches canonical policy", matrix_matches_policy)
+		_write_json("matrix_source_parity.json", {
+			"result": "PASS" if matrix_matches_policy else "FAIL",
+			"policy_source": "scripts/presentation_effect_policy.gd",
+			"policy_source_sha256": FileAccess.get_sha256("res://scripts/presentation_effect_policy.gd"),
+			"generated_matrix": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/M22_EFFECT_LANGUAGE_MATRIX.md",
+			"matrix_sha256": FileAccess.get_sha256("%s/M22_EFFECT_LANGUAGE_MATRIX.md" % EVIDENCE_DIR),
+			"rendered_matches_saved_bytes": matrix_matches_policy,
+		})
+	report["checks"] = _checks
+	report["failures"] = _failures.duplicate()
+	report["matrix_source_parity"] = matrix_matches_policy
+	_write_json("policy_validation.json", report)
 	bridge.queue_free()
 	service.queue_free()
 	navigation.queue_free()
@@ -175,6 +204,15 @@ func _check(label: String, passed: bool) -> void:
 	_checks += 1
 	if not passed:
 		_failures.append(label)
+
+
+func _style_forbids_particles(style: String) -> bool:
+	var normalized := style.to_lower()
+	var particles_index := normalized.find("particles")
+	if particles_index < 0:
+		return false
+	var qualifier := normalized.substr(0, particles_index).strip_edges()
+	return qualifier.ends_with("no") or qualifier.ends_with("or")
 
 
 func _authority_fingerprint(navigation: Node) -> int:

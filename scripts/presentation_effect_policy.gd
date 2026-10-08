@@ -52,9 +52,9 @@ const POLICY := {
 			{"name": "PEAK", "min_chain": 5, "max_chain": 0, "budget": {"max_amount": 18, "max_lifetime": 0.35, "max_speed": 105.0, "presets": ["hit", "spark"]}},
 		]},
 		"reduced": {"style": "immediate merge state plus low-contrast alpha/color; no scale, travel, or particles", "gff_effects": ["color", "alpha"], "spark_bands": [
-			{"name": "BASE", "min_chain": 1, "max_chain": 2, "budget": {"max_amount": 2, "max_lifetime": 0.12, "max_speed": 30.0, "presets": ["dust"]}},
-			{"name": "SURGE", "min_chain": 3, "max_chain": 4, "budget": {"max_amount": 2, "max_lifetime": 0.12, "max_speed": 30.0, "presets": ["dust"]}},
-			{"name": "PEAK", "min_chain": 5, "max_chain": 0, "budget": {"max_amount": 4, "max_lifetime": 0.14, "max_speed": 32.0, "presets": ["dust"]}},
+			{"name": "BASE", "min_chain": 1, "max_chain": 2, "budget": {"max_amount": 0, "max_lifetime": 0.0, "max_speed": 0.0, "presets": []}},
+			{"name": "SURGE", "min_chain": 3, "max_chain": 4, "budget": {"max_amount": 0, "max_lifetime": 0.0, "max_speed": 0.0, "presets": []}},
+			{"name": "PEAK", "min_chain": 5, "max_chain": 0, "budget": {"max_amount": 0, "max_lifetime": 0.0, "max_speed": 0.0, "presets": []}},
 		]},
 		"overlap_cancel": "retain one local emphasis per merged visual; newer merge replaces prior; PEAK never escalates past PEAK",
 	},
@@ -73,13 +73,13 @@ const POLICY := {
 	"vip_delivery": {
 		"tier": "VIP", "target": "VIP target visual or VIP progress label",
 		"full": {"style": "local scale punch and color emphasis; one bounded burst", "gff_effects": ["punch_scale", "color", "alpha"], "spark": {"max_amount": 24, "max_lifetime": 0.65, "max_speed": 110.0, "presets": ["pickup", "spark"]}},
-		"reduced": {"style": "immediate VIP delivery state plus low-contrast alpha/color; no scale or particles", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 6, "max_lifetime": 0.28, "max_speed": 40.0, "presets": ["dust"]}},
+		"reduced": {"style": "immediate VIP delivery state plus low-contrast alpha/color; no scale or particles", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 0, "max_lifetime": 0.0, "max_speed": 0.0, "presets": []}},
 		"overlap_cancel": "coalesce by stable VIP delivery token; cancel on target/session exit",
 	},
 	"vip_complete": {
 		"tier": "VIP", "target": "VIP target visual or VIP completion label",
 		"full": {"style": "local scale punch and color emphasis; one bounded burst", "gff_effects": ["punch_scale", "color", "alpha"], "spark": {"max_amount": 24, "max_lifetime": 0.65, "max_speed": 110.0, "presets": ["pickup", "spark"]}},
-		"reduced": {"style": "immediate VIP completion state plus low-contrast alpha/color; no scale or particles", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 6, "max_lifetime": 0.28, "max_speed": 40.0, "presets": ["dust"]}},
+		"reduced": {"style": "immediate VIP completion state plus low-contrast alpha/color; no scale or particles", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 0, "max_lifetime": 0.0, "max_speed": 0.0, "presets": []}},
 		"overlap_cancel": "one completion emphasis per stable token; cancel on target/session exit",
 	},
 	"score_mastery": {

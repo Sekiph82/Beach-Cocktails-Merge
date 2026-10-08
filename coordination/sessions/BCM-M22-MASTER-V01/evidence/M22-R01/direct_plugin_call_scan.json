@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "effect_invocation_file": "scripts/presentation_feedback_bridge.gd",
+  "effect_methods": ["play", "burst", "stop", "clear"],
+  "registry_query_file": "scripts/presentation_plugin_contract.gd",
+  "registry_queries": ["get_effect_names", "get_combo_names"],
+  "registry_queries_are_read_only": true,
+  "production_dispatch_enabled": false,
+  "stock_combo_dispatch": false,
+  "scan": "rg -n --glob '*.gd' 'callv|\\.call\\(' scripts"
+}

@@ -1,0 +1,66 @@
+BCM-M22-R01 REMEDIATION REGRESSION
+
+godot_console --headless --path . -s res://tests/m22_001_plugin_contract_probe.gd
+EXIT=0
+M22_001_PLUGIN_CONTRACT_RESULT=PASS checks=21 failures=0 authority_hash=891736178
+
+godot_console --headless --path . -s res://tests/m22_002_semantic_bridge_probe.gd
+EXIT=0
+M22_002_SEMANTIC_BRIDGE_RESULT=PASS checks=27 failures=0 authority_hash=891736178
+
+godot_console --headless --path . -s res://tests/m22_003_effect_policy_probe.gd
+EXIT=0
+M22_003_EFFECT_POLICY_RESULT=PASS checks=97 failures=0 authority_hash=891736178
+
+godot_console --headless --path . -s res://tests/m02_physics_regression.gd
+EXIT=0
+M02_PROBE_RESULT=PASS
+
+godot_console --headless --path . -s res://tests/m09_audio_haptics_probe.gd
+EXIT=0
+M09_AUDIO_HAPTICS_RESULT=PASS
+Screenshot probes report unavailable=headless_renderer.
+
+godot_console --headless --path . -s res://tests/m15_vip_boosters_economy_probe.gd
+EXIT=0
+M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS
+Screenshot probes report unavailable=HEADLESS_DISPLAY.
+
+godot_console --headless --path . -s res://tests/m21_full_progression_probe.gd
+EXIT=0
+M21_CHILD_03_RESULT=PASS completed=100 checkpoints=5
+
+godot_console --headless --path . -s res://tests/m21_world_map_production_v05_probe.gd
+EXIT=0
+M21_WORLD_MAP_PRODUCTION_V05_RESULT=PASS captures=0 mouse=PASS touch=PASS
+Headless dummy renderer emitted null-texture capture diagnostics; visual screenshots remain unavailable/unverified.
+
+godot_console --headless --editor --path . --quit
+EXIT=0
+Filesystem scan, global class registration, plugin initialization and editor startup completed.
+
+godot_console --headless --path . --quit-after 5
+EXIT=0
+Main scene boot completed.
+
+godot_console --headless --path . --check-only --script res://scripts/game_manager.gd
+EXIT=0
+
+rg -n --glob '*.gd' 'callv|\.call\(' scripts
+EXIT=0
+Effect invocations (play, burst, stop, clear) remain in scripts/presentation_feedback_bridge.gd only. PresentationPluginContract call() sites are read-only get_effect_names/get_combo_names queries.
+
+Production-disabled scan: `_production_dispatch_enabled := false`; request path returns while disabled; no play_combo/play_global dispatch path.
+Forbidden policy names still include impulse, velocity, freeze_frame, time_scale, camera_flash, camera_shake.
+
+Policy semantic matrix: 16 kinds, 32 rows; M22_003 probe checks=97, failures=0.
+Source/matrix parity: exact rendered string equals saved Markdown; source SHA-256=5bc45eee02e171fb6603b77409c69a5e0a78fa21ab27b2dfcc6af19185633de7; matrix SHA-256=3835af87f1a570026c3b440722da64859d0052138a4a89069669445ca2cd1519.
+
+git diff --check
+EXIT=0
+
+git diff --exit-code -- TASKS.md
+EXIT=0
+Root TASKS.md was not modified.
+
+An initial development run of the new semantic regression caught a typed Array[int] assignment error in the test setup; the test list was corrected to an untyped Array and the final M22-003 run above passes.
