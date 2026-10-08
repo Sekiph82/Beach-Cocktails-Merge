@@ -4,19 +4,19 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M23
-- Current Sprint: BCM-M23-MASTER-V01
-- Current Task: BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
-- Current Task Status: BLOCKED
-- Next Task/Action: BCM-M23-003 — CODEX executes `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-CLOSEOUT-001_MASTER_PROMPT.md` to close leaked ObjectDB warnings and M21 mobile QA failure, then GPT audit.
+- Current Milestone: BCM-M24
+- Current Sprint: BCM-M24-MASTER-V01
+- Current Task: BCM-M24-001 — Add accepted To-Go delivery/progress feedback at the existing destination.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M24-001 — CODEX executes `coordination/sessions/BCM-M24-MASTER-V01/CHATGPT_M24_MASTER_PROMPT_V01.md` continuously through M24-003, then stops for independent milestone audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M22 owner approved. M23 R03 effects/intensity and color restoration OWNER_VISUAL_APPROVED on 2026-10-08. Before M24, technical closeout required: 3 ObjectDB lifecycle leak warnings and M21 720x1440 mobile QA FAIL. Combined CLOSEOUT-001 prompt/criteria published.
+- Progress: M23 R03 owner visual approval recorded; CLOSEOUT-001 independently audited PASS: 3 ObjectDB warnings closed and corrected M21 720x1280/720x1440 real-renderer QA passed 16 captures. M23 closed. M24 master prompt and child locked criteria published; no M24 code executed yet.
 
 ## Blockers/Waits
 
-- M23 R03 owner visual approval recorded. Remaining technical blockers: lifecycle ObjectDB leak warnings x3 and M21 720x1440 QA FAIL/captures=0; Codex CLOSEOUT-001 active. M24 blocked.
+- No M23 technical blocker remains. M24 requires independent source/visual audit and owner approval; physical-device release QA remains separately pending. Owner-local files and the PowerShell-locked untracked output must be preserved.
 
 ## Tasks
 
@@ -1152,7 +1152,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: low/high-level merges, transient counts, boundary readability, REDUCED, clean logs.
   - Owner acceptance: required.
 
-- [!] BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
+- [x] BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
   - Purpose: escalating but calm chain feel and feedback only for meaningful score milestones.
   - Existing seam: `GameManager.chain` 1..6, `COMBO_WINDOW`, `_chain_label`, score/best panels, `_refresh_hud()`, active level `score_star_thresholds`.
   - Semantic trigger: BASE 1-2, SURGE 3-4, PEAK 5-6; score UI only on first session crossing of prior best score and configured 2-star/3-star score thresholds.
@@ -1166,7 +1166,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M24 — To-Go and VIP presentation
 
-- [ ] BCM-M24-001 — Add accepted To-Go delivery/progress feedback at the existing destination.
+- [~] BCM-M24-001 — Add accepted To-Go delivery/progress feedback at the existing destination.
   - Purpose: make accepted progress clear without celebrating every HUD refresh.
   - Existing seam: `GameManager._collect_merge_target()/_finish_target_collection()`, existing delivery tween/trail, `_to_go_panel`, and `GameplaySessionBridge.record_to_go_delivery()` response.
   - Semantic trigger: `order_progress` only for `ok && accepted > 0`; terminal final delivery yields to Results WIN instead of double-celebrating.
