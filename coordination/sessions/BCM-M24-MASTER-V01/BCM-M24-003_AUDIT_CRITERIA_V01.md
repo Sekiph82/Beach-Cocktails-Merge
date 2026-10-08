@@ -1,0 +1,2 @@
+# M24-003 Locked Criteria
+VIP is optional and visually premium but not louder than approved M22 limits. Emit vip_delivery only accepted>0, vip_complete only false→true; mismatch/reject/duplicates silent, ordinary order priority intact. FULL delivery <=12/0.35s, completion <=24/0.65s. REDUCED VIP delivery/complete **zero particles** per approved M22 owner matrix, superseding old M24 planning allowance <=6. No authoritative score/reward/stars difference across plugins. Preserve R03 color restoration. Real renderer proof + owner acceptance gate.
