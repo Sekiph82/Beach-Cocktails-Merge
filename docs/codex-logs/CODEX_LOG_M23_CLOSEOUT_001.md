@@ -1,8 +1,11 @@
 # Codex Execution Log — BCM-M23-CLOSEOUT-001
 
-Date: 2026-10-08  
-Prompt: `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-CLOSEOUT-001_MASTER_PROMPT.md`  
-Locked criteria: `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-CLOSEOUT-001_AUDIT_CRITERIA_V01.md`  
+Date: 2026-10-08
+
+Prompt: `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-CLOSEOUT-001_MASTER_PROMPT.md`
+
+Locked criteria: `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-CLOSEOUT-001_AUDIT_CRITERIA_V01.md`
+
 Branch / remote: `main` / `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge.git`)
 
 ## Sync preflight and owner-work preservation
