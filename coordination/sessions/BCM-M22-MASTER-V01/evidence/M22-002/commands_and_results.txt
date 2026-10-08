@@ -1,0 +1,15 @@
+BCM-M22-002 command results (Godot 4.7.2.stable.official.ed1daf0bf)
+
+- godot_console --headless --path . -s res://tests/m22_002_semantic_bridge_probe.gd — exit 0; M22_002_SEMANTIC_BRIDGE_RESULT=PASS checks=26 failures=0 authority_hash=891736178.
+- godot_console --headless --path . --check-only --script res://scripts/game_manager.gd — exit 0.
+- godot_console --headless --editor --path . --quit — exit 0; initial scan/import and class registration completed without parse errors.
+- godot_console --headless --path . --quit-after 5 — exit 0; production main scene booted with GFF 31 effects registered; no effect dispatch was requested by M22.
+- godot_console --headless --path . -s res://tests/m02_physics_regression.gd — exit 0; M02_PROBE_RESULT=PASS.
+- godot_console --headless --path . -s res://tests/m09_audio_haptics_probe.gd — exit 0; M09_AUDIO_HAPTICS_RESULT=PASS.
+- godot_console --headless --path . -s res://tests/m15_vip_boosters_economy_probe.gd — exit 0; M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS. Screenshots unavailable under headless display.
+- godot_console --headless --path . -s res://tests/m21_full_progression_probe.gd — report checks_failed=[]; 100 levels completed; 5 checkpoints. The historical report copy is m21_full_progression_result.json.
+- godot_console --headless --path . -s res://tests/m21_world_map_production_v05_probe.gd — exit 0; M21_WORLD_MAP_PRODUCTION_V05_RESULT=PASS captures=0 mouse=PASS touch=PASS. Headless dummy renderer emitted null-texture screenshot diagnostics; real mouse/touch assertions passed.
+- rg -n --glob '*.gd' '\\.callv\\(' scripts — only PresentationFeedbackBridge.callv sites (GFF play and Spark burst).
+- git diff --check — exit 0, no whitespace errors.
+
+The M21 progression and World Map probes rewrote historical tracked result JSON. Their results were copied into this child evidence folder and original tracked bytes restored. Godot editor UID serialization drift in project.godot was restored to HEAD after editor and boot checks.

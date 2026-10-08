@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "case": "both mock plugins present",
+      "expected": "one allowed GFF mock call and one Spark mock call"
+    },
+    {
+      "case": "GameFeelFlow missing",
+      "expected": "no plugin call"
+    },
+    {
+      "case": "Spark missing",
+      "expected": "no plugin call"
+    },
+    {
+      "case": "both plugins missing",
+      "expected": "no plugin call"
+    },
+    {
+      "case": "GameFeelFlow returns false",
+      "expected": "bounded diagnostic and no-op"
+    },
+    {
+      "case": "Spark returns false",
+      "expected": "bounded diagnostic and no-op"
+    },
+    {
+      "case": "unknown mapping",
+      "expected": "bounded diagnostic and no-op"
+    },
+    {
+      "case": "target not allowlisted",
+      "expected": "bounded diagnostic and no-op"
+    },
+    {
+      "case": "normal production dispatch",
+      "expected": "disabled; no real plugin calls"
+    }
+  ],
+  "fixture_call_counts": {
+    "spark": 2,
+    "gff": 2
+  },
+  "visible_production_effects_activated": false,
+  "result": "PASS"
+}

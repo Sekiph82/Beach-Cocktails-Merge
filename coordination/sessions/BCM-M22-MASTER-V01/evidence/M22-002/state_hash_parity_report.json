@@ -1,0 +1,25 @@
+{
+  "authority_hash_before": 891736178,
+  "scope": "campaign progression, economy ledger, navigation view, active island, gameplay instance count",
+  "identical": true,
+  "broader_regressions": {
+    "m15_vip_economy": "PASS",
+    "m21_full_progression": "100 levels / 5 checkpoints / checks_failed empty",
+    "m02_physics": "PASS"
+  },
+  "authority_hash_after": 891736178,
+  "result": "PASS",
+  "cases": [
+    "semantic requests with production dispatch disabled",
+    "production dispatch flag enabled with no explicit mapping target",
+    "fixture dispatch with mock plugins present",
+    "missing GFF",
+    "missing Spark",
+    "both plugins absent",
+    "GFF returning false",
+    "Spark returning false",
+    "unknown mapping",
+    "non-allowlisted target"
+  ],
+  "probe": "tests/m22_002_semantic_bridge_probe.gd"
+}

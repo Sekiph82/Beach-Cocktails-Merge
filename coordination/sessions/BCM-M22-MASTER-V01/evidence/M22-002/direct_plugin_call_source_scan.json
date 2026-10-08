@@ -1,0 +1,22 @@
+{
+  "production_dispatch_enabled_in_m22": false,
+  "result": "PASS",
+  "gameplay_or_ui_plugin_invocations": [],
+  "effect_invocations": [
+    {
+      "source": "var result: Variant = _contract.game_feel_flow.callv(\"play\", [effect_name, target])",
+      "line": 106,
+      "file": "scripts/presentation_feedback_bridge.gd"
+    },
+    {
+      "source": "var result: Variant = _contract.spark.callv(\"burst\", [position, spark_options])",
+      "line": 111,
+      "file": "scripts/presentation_feedback_bridge.gd"
+    }
+  ],
+  "scanned": "scripts/**/*.gd",
+  "capability_contract": "scripts/presentation_plugin_contract.gd uses generic Node capability checks and read-only registry/preset queries",
+  "invocation_files": [
+    "scripts/presentation_feedback_bridge.gd"
+  ]
+}

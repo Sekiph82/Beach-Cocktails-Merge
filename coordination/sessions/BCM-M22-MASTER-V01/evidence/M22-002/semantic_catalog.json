@@ -1,0 +1,29 @@
+{
+  "catalog": [
+    "cocktail_launch",
+    "table_contact",
+    "merge",
+    "order_progress",
+    "order_complete",
+    "vip_delivery",
+    "vip_complete",
+    "score_mastery",
+    "game_success",
+    "game_fail",
+    "level_unlock",
+    "island_milestone",
+    "island_complete",
+    "island_unlock",
+    "reward_granted",
+    "ui_primary"
+  ],
+  "source": "scripts/feedback_service.gd",
+  "non_micro_requires_stable_event_id": true,
+  "work_item": "BCM-M22-002",
+  "micro_kinds": [
+    "cocktail_launch",
+    "table_contact",
+    "ui_primary"
+  ],
+  "deep_copy_payload_and_context": true
+}

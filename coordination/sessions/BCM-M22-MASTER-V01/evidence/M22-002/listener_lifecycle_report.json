@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "listener_count_with_observer": 2,
+  "per_frame_polling": false,
+  "replacement_listener_count": 1,
+  "production_dispatch_enabled_by_default": false,
+  "stable_after_reconfigure": true,
+  "old_service_disconnected": true,
+  "probe": "tests/m22_002_semantic_bridge_probe.gd"
+}

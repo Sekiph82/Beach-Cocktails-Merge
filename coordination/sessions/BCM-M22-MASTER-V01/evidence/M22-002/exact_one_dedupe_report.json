@@ -1,0 +1,28 @@
+{
+  "semantic_counts": {
+    "cocktail_launch": 2,
+    "game_fail": 1,
+    "game_success": 2,
+    "merge": 2,
+    "order_complete": 1,
+    "reward_granted": 1,
+    "score_mastery": 1
+  },
+  "checks_asserted": [
+    "manual non-MICRO duplicate token suppressed",
+    "MICRO launch requests are not token-deduped",
+    "merge source helper emits one semantic merge",
+    "order token helper emits one semantic completion and one legacy feedback",
+    "game success helper emits one success, score mastery, and reward event despite repeated call",
+    "caller payload and source/session context remain unchanged when a consumer mutates its emitted copy"
+  ],
+  "result": "PASS",
+  "probe_checks": 26,
+  "failures": [],
+  "legacy_event_counts": {
+    "game_success": 1,
+    "merge": 1,
+    "order_complete": 1
+  },
+  "semantic_count_note": "Final game_success count includes one direct accepted request plus one helper one-shot request; the repeated helper call is asserted not to increase it."
+}

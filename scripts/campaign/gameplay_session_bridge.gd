@@ -17,6 +17,7 @@ signal session_resumed
 signal island_map_requested(island_id: String)
 signal economy_changed(state: Dictionary)
 signal vip_state_changed(state: Dictionary)
+signal normal_delivery_recorded(delivery: Dictionary)
 
 const STATE_IDLE := "IDLE"
 const STATE_READY := "READY"
@@ -271,9 +272,12 @@ func record_to_go_delivery(cocktail_level: int, quantity: int = 1, delivery_id: 
     var response := {
         "ok": true,
         "accepted": accepted,
+        "level": cocktail_level,
+        "delivery_id": delivery_id,
         "completed": _normal_completed_by_level.duplicate(true),
         "remaining": _normal_remaining_by_level.duplicate(true),
     }
+    normal_delivery_recorded.emit(response.duplicate(true))
     if _all_normal_orders_complete():
         response["terminal"] = resolve_win(_current_score)
     return response

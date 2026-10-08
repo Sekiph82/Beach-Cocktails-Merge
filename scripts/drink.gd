@@ -8,6 +8,7 @@ extends RigidBody2D
 
 signal merged(a: Drink, b: Drink, new_level: int)
 signal resolved(drink: Drink)
+signal table_contact(contact: Dictionary)
 
 enum MotionState {
 	HELD,
@@ -569,6 +570,12 @@ func _settle_after_physics() -> void:
 func _on_body_entered(body: Node) -> void:
 	if motion_state != MotionState.SLIDING or already_merged:
 		return
+	table_contact.emit({
+		"source_level": level,
+		"contact_type": "drink" if body is Drink else "rail",
+		"contact_level": int(body.level) if body is Drink else 0,
+		"position": global_position,
+	})
 
 	# The solver is allowed to redirect sideways and forward, but any +Y
 	# component created by a collision is removed immediately after solving.

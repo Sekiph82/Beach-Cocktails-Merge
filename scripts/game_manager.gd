@@ -75,6 +75,7 @@ const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
 const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
 const STARTUP_TO_GO_TARGETS := [5, 6, 7]
 const FEEDBACK_SERVICE_SCRIPT := preload("res://scripts/feedback_service.gd")
+const PRESENTATION_FEEDBACK_BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
 const VIP_OPTIONALITY_MODEL := preload("res://scripts/campaign/m17_vip_optionality_model.gd")
 
 @export var table_top_y := 0.0
@@ -99,6 +100,7 @@ var world: Node2D
 var merge_queue: MergeQueue
 var shot_controller: ShotController
 var feedback_service
+var presentation_feedback_bridge: PresentationFeedbackBridge
 
 var _line_timer := 0.0
 var _hud: Control
@@ -174,6 +176,10 @@ func _ready() -> void:
 	feedback_service = FEEDBACK_SERVICE_SCRIPT.new()
 	feedback_service.name = "FeedbackService"
 	add_child(feedback_service)
+	presentation_feedback_bridge = PRESENTATION_FEEDBACK_BRIDGE_SCRIPT.new()
+	presentation_feedback_bridge.name = "PresentationFeedbackBridge"
+	add_child(presentation_feedback_bridge)
+	presentation_feedback_bridge.configure(feedback_service, get_tree().root)
 
 	_build_walls()
 	_build_ui()
@@ -186,6 +192,7 @@ func _ready() -> void:
 	shot_controller.name = "ShotController"
 	shot_controller.setup(self)
 	add_child(shot_controller)
+	shot_controller.shot_fired.connect(_on_shot_fired)
 
 	queue_redraw()
 
@@ -206,6 +213,8 @@ func configure_campaign_session(bridge) -> bool:
 		campaign_session_bridge.session_paused.disconnect(_on_campaign_session_paused)
 	if campaign_session_bridge != null and campaign_session_bridge.has_signal("session_resumed") and campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
 		campaign_session_bridge.session_resumed.disconnect(_on_campaign_session_resumed)
+	if campaign_session_bridge != null and campaign_session_bridge.has_signal("normal_delivery_recorded") and campaign_session_bridge.normal_delivery_recorded.is_connected(_on_normal_delivery_recorded):
+		campaign_session_bridge.normal_delivery_recorded.disconnect(_on_normal_delivery_recorded)
 	campaign_session_bridge = bridge
 	if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
 		campaign_session_bridge.session_terminal.connect(_on_campaign_session_terminal)
@@ -215,9 +224,17 @@ func configure_campaign_session(bridge) -> bool:
 		campaign_session_bridge.session_paused.connect(_on_campaign_session_paused)
 	if campaign_session_bridge.has_signal("session_resumed") and not campaign_session_bridge.session_resumed.is_connected(_on_campaign_session_resumed):
 		campaign_session_bridge.session_resumed.connect(_on_campaign_session_resumed)
+	if campaign_session_bridge.has_signal("normal_delivery_recorded") and not campaign_session_bridge.normal_delivery_recorded.is_connected(_on_normal_delivery_recorded):
+		campaign_session_bridge.normal_delivery_recorded.connect(_on_normal_delivery_recorded)
 	var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
 	if configuration.is_empty():
 		return false
+	feedback_service.set_session_context({
+		"session_id": "%s:%s:%s" % [str(configuration.get("session_serial", "")), str(configuration.get("island_id", "")), str(configuration.get("level_id", ""))],
+		"session_serial": configuration.get("session_serial", 0),
+		"island_id": configuration.get("island_id", ""),
+		"level_id": configuration.get("level_id", 0),
+	})
 	_apply_campaign_theme(configuration.get("island_theme", {}))
 	_target_level = campaign_session_bridge.get_next_required_order_level()
 	if _target_level > 0:
@@ -231,6 +248,28 @@ func configure_campaign_session(bridge) -> bool:
 
 func get_campaign_session_bridge():
 	return campaign_session_bridge
+
+
+func _on_shot_fired(drink: Drink, velocity: Vector2) -> void:
+	if feedback_service == null or not is_instance_valid(drink):
+		return
+	feedback_service.emit_cocktail_launch(drink.level, drink.global_position, velocity)
+
+
+func _on_normal_delivery_recorded(delivery: Dictionary) -> void:
+	if feedback_service == null or int(delivery.get("accepted", 0)) <= 0:
+		return
+	var level := int(delivery.get("level", 0))
+	var completed: Dictionary = delivery.get("completed", {}).duplicate(true)
+	var remaining: Dictionary = delivery.get("remaining", {}).duplicate(true)
+	var token := str(delivery.get("delivery_id", ""))
+	feedback_service.emit_order_progress(token, {
+		"level": level,
+		"accepted": int(delivery.get("accepted", 0)),
+		"completed": int(completed.get(level, 0)),
+		"remaining": int(remaining.get(level, 0)),
+	})
+	feedback_service.emit_order_complete(_order_sequence, level, delivery)
 
 
 func get_visible_texture_inventory() -> Array[Dictionary]:
@@ -832,6 +871,7 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
 	pos = projected["transform"].origin
 	drink.position = pos
 	drink.merged.connect(merge_queue.request_merge)
+	drink.table_contact.connect(_on_table_contact)
 	world.add_child(drink)
 
 	if held:
@@ -840,6 +880,11 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
 		drink.set_settled()
 
 	return drink
+
+
+func _on_table_contact(contact: Dictionary) -> void:
+	if feedback_service != null:
+		feedback_service.emit_table_contact(contact)
 
 
 func set_next_level(p_level: int) -> void:
@@ -872,7 +917,13 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
 
 	_refresh_hud()
 	_juice_effect(merged_drink.position)
-	feedback_service.emit_merge(merged_drink)
+	feedback_service.emit_merge(merged_drink, {
+		"level": new_level,
+		"chain": chain,
+		"score_delta": gained,
+		"score": score,
+		"position": merged_drink.global_position,
+	})
 
 	print("MERGE L%d +%d  COMBO x%d +%d  (toplam: %d)" % [new_level, base, chain, combo_bonus, score])
 
@@ -967,7 +1018,6 @@ func _game_over() -> void:
 	# would miss every new record. Persist the current best at the terminal
 	# state; restart then reloads the same record from user://.
 	_save_best_score()
-	feedback_service.emit_game_fail()
 
 	_refresh_hud()
 	_final_score_label.text = "SKOR  %d\nREKOR  %d" % [score, best_score]
@@ -977,6 +1027,8 @@ func _game_over() -> void:
 
 	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
 		campaign_session_bridge.resolve_lose("TABLE_DANGER", score)
+	else:
+		feedback_service.emit_game_fail({"score": score, "reason": "TABLE_DANGER"})
 
 
 func _restart_game() -> void:
@@ -1643,7 +1695,6 @@ func _finish_target_collection() -> void:
 
 	_to_go_panel.visible = true
 	_order_completion_feedback()
-	feedback_service.emit_order_complete(_order_sequence, completed_level)
 
 	# A delivered stock drink never receives merge/combo points a second time.
 	# Only the currently requested To-Go reward is paid here.
@@ -1660,6 +1711,9 @@ func _finish_target_collection() -> void:
 		campaign_order_completed.emit(completed_level, 1)
 		if campaign_session_bridge.is_terminal():
 			return
+	else:
+		feedback_service.emit_order_progress("freeplay-order-%d" % _order_sequence, {"level": completed_level, "accepted": 1})
+		feedback_service.emit_order_complete(_order_sequence, completed_level, {"level": completed_level, "accepted": 1})
 
 	_target_transition = false
 	_choose_next_target(false)
@@ -1711,6 +1765,12 @@ func _finish_vip_target() -> void:
 		# The bridge must receive the post-premium score so terminal stars and
 		# the campaign result use the same authoritative total.
 		campaign_session_bridge.set_current_score(score)
+		if accepted > 0:
+			var vip_event_token := "%s:%d" % [str(campaign_session_bridge.active_island_id), int(result.get("delivered", 0))]
+			var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
+			feedback_service.emit_vip_delivery(vip_event_token, {"level": delivered_level, "accepted": accepted, "bonus": vip_bonus, "state": vip_state})
+			if bool(result.get("vip_completed", false)):
+				feedback_service.emit_vip_complete(vip_event_token, vip_state)
 		print("VIP DELIVERY L%d +%d/%d BONUS %d (toplam: %d)" % [delivered_level, int(result.get("delivered", 0)), int(result.get("required", result.get("delivered", 0) + result.get("remaining", 0))), vip_bonus, score])
 
 	_vip_target_transition = false
@@ -1764,6 +1824,7 @@ func _active_vip_level() -> int:
 
 
 func _on_campaign_session_terminal(result: Dictionary) -> void:
+	feedback_service.emit_terminal_result(result)
 	game_over = true
 	if merge_queue != null:
 		merge_queue.clear()
