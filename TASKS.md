@@ -5,18 +5,18 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 ## Project Status
 
 - Current Milestone: BCM-M22
-- Current Sprint: BCM-M22-PRESENTATION-ARCHITECTURE
+- Current Sprint: BCM-M22-MASTER-V01
 - Current Task: BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
-- Current Task Status: NOT_STARTED
-- Next Task/Action: CHATGPT prepares the locked BCM-M22-001 implementation prompt + audit criteria from the exact installed GameFeelFlow and Saltmire Spark repository bytes before any production effect implementation.
-- Required Actor: CHATGPT
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M22-001 — CODEX executes `coordination/sessions/BCM-M22-MASTER-V01/CHATGPT_M22_MASTER_PROMPT_V01.md`, beginning with non-destructive Desktop↔GitHub sync, then runs BCM-M22-001 → BCM-M22-002 → BCM-M22-003 continuously with per-child logs/evidence and stops for independent milestone audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: BCM-M21 final independent audit R04 = **AUDITED_PASS / BCM-M21 COMPLETE**. Owner-accepted Home/World Map/Sunny Cove/gameplay surfaces remain frozen; M07 current HUD authority is green, M08 exits cleanly twice, R09 real mouse/touch navigation is green twice, fresh L1→L100 progression/Tiki unlock and host performance/persistence evidence are published, and release metadata truthfully records that no export preset/distributable/native-device signing proof exists. M22 is now the next canonical roadmap milestone. Economy Draft V01 remains inactive.
+- Progress: BCM-M21 remains complete. M22 MASTER V01 is now prepared and active. ChatGPT inspected the exact installed repository bytes before handoff: Game Feel Flow 1.0.0 and Saltmire Spark 1.0.0 are tracked in `addons/` with `/root/GameFeelFlow` and `/root/Spark` autoload authority. The master batch authorizes CODEX to execute BCM-M22-001, BCM-M22-002, and BCM-M22-003 continuously after a non-destructive local Desktop↔GitHub sync, while root `TASKS.md` remains read-only to CODEX. M22 enables architecture/policy only: no production visual effects are activated, M21 owner-accepted product is frozen, and Economy Draft V01 remains inactive. M23 stays blocked pending independent M22 audit plus owner approval of the effect-language matrix.
 
 ## Blockers/Waits
 
-- BCM-M21 has no open implementation blockers. M22 may begin after ChatGPT publishes the locked BCM-M22-001 prompt/criteria. Physical-device/export/signing limitations remain recorded release-environment items, not active M21 code blockers.
+- BCM-M22 MASTER V01 has no pre-implementation blocker. M23 is blocked until all three M22 children pass independent audit and the owner approves the M22 effect-language matrix. Physical-device/export/signing limitations remain recorded release-environment items.
 
 ## Tasks
 
@@ -1054,7 +1054,7 @@ M21 completion = **COMPLETE** — Beach Cocktails Merge v1 campaign technical/ow
  
 ## M22-M27 — Planned GameFeelFlow + Saltmire Spark presentation program
 
-**Planning gate:** future work only. M22-M27 MUST NOT start, pre-empt, reorder, or broaden the active M21 composite-World-Map/navigation remediation and final owner-acceptance sequence. The ten current R04 gameplay surfaces/geometries are owner-approved and frozen; M22 starts only after the new composite World Map + Sunny Cove navigation remediation passes independent audit, the owner completes a fresh F5 acceptance, and ChatGPT records final M21 release closure.
+**Planning gate:** M21 prerequisites are satisfied and M22 is now active under `BCM-M22-MASTER-V01`. M23-M27 remain future work. The ten current R04 gameplay surfaces/geometries and all later owner-accepted Home/World Map/Sunny Cove runtime work remain frozen. M23 may start only after M22 independent milestone audit PASS and owner approval of the M22 effect-language matrix.
 
 **Presentation-only constitution**
 - Gameplay/campaign truth stays with `Drink`, `ShotController`, `GameManager`, `GameplaySessionBridge`, `CampaignManager`, `GameEconomy`, `SaveManager`, canonical level data, and accepted table geometry. Presentation observes finalized facts only.
@@ -1066,10 +1066,10 @@ M21 completion = **COMPLETE** — Beach Cocktails Merge v1 campaign technical/ow
 - Existing `_juice_effect()`, `_order_completion_feedback()`, delivery tweens/trails, and other presentation tweens are migration inputs. If replaced, retire the superseded visual path after parity instead of stacking effects.
 
 **Plugin API planning baseline**
-- Current GitHub `main` does not contain the owner's local plugin folders, so exact local plugin bytes/version are not remotely verifiable yet. M22-001 must inspect the installed copies before any effect implementation.
-- Public GameFeelFlow v1.0.0 exposes autoload `GameFeelFlow`, including `play(effect,target,params)`, `play_combo(combo,target,params)`, `play_global(effect,params)`, `stop/stop_all`, effect registries, punch/scale/flash/camera/particle effects, and dictionary-compatible params. Physics/time effects remain forbidden here.
-- Public Saltmire Spark v1.0.0 exposes autoload `Spark`, including `burst(position,preset_or_overrides)`, `at(node,preset_or_overrides)`, `clear()`, presets `spark`, `hit`, `explode`, `pickup`, `dust`, `confetti`, and bounded custom override dictionaries.
-- Before coding, inspect exact local `addons/game_feel_flow` and `addons/saltmire_spark`, both `plugin.cfg` files, autoloads, method signatures, effect registry, and Spark presets. Installed source overrides this planning shorthand if different.
+- Exact installed plugin bytes are now tracked on GitHub `main` and were inspected by ChatGPT before M22 master handoff.
+- Installed GameFeelFlow `plugin.cfg` = **1.0.0**; autoload `GameFeelFlow`; exact core API includes `play`, `play_combo`, `play_global`, `stop`, `stop_all`, effect/combo registry/query methods. Current implementation registers 31 effects and 15 built-in combos. Physics/time effects remain forbidden here.
+- Installed Saltmire Spark `plugin.cfg` = **1.0.0**; autoload `Spark`; exact API includes `burst(position,preset_or_overrides)`, `at(node,preset_or_overrides)`, `clear()`; presets are `spark`, `hit`, `explode`, `pickup`, `dust`, `confetti`.
+- CODEX must still re-verify the synchronized local Desktop bytes at master start. Synced installed source overrides this recorded baseline if it differs, and any incompatible difference is a STOP condition.
 
 **Beach Cocktails effect language**
 - `MICRO`: launch, restrained table contact, whitelisted primary CTA.
@@ -1090,7 +1090,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M22 — Presentation architecture, plugin contract, semantic bridge, and settings
 
-- [ ] BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
+- [~] BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
   - Purpose: inspect exact local GameFeelFlow/Saltmire Spark versions/autoloads/APIs and establish release-safe optional dependency behavior before effect coding.
   - Existing seam: `project.godot` plus installed `addons/game_feel_flow` and `addons/saltmire_spark`.
   - Semantic trigger: none; dependency gate.
