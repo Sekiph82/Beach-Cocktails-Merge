@@ -1,0 +1,95 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_WORLD_MAP_V05 PASS: real application shell starts at Main Menu
+M21_WORLD_MAP_V05 PASS: isolated fresh campaign configured
+M21_WORLD_MAP_V05 PASS: real viewport WORLD MAP click enters production World Map
+M21_WORLD_MAP_V05 PASS: production layout report written
+M21_WORLD_MAP_V05 PASS: owner V02 clean ocean is production background
+M21_WORLD_MAP_V05 PASS: rejected baked background is not production authority
+M21_WORLD_MAP_V05 PASS: all ten canonical island PNGs are separate visible bodies
+M21_WORLD_MAP_V05 PASS: production layout has no clipping, hitbox overlap or header collision
+M21_WORLD_MAP_V05 PASS: campaign route order remains canonical
+M21_WORLD_MAP_V05 PASS: sunny_cove visible center within ±2px
+M21_WORLD_MAP_V05 PASS: sunny_cove visible size within ±2px
+M21_WORLD_MAP_V05 PASS: sunny_cove art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: sunny_cove label center within ±4px
+M21_WORLD_MAP_V05 PASS: sunny_cove canonical icon is visible
+M21_WORLD_MAP_V05 PASS: tiki_island visible center within ±2px
+M21_WORLD_MAP_V05 PASS: tiki_island visible size within ±2px
+M21_WORLD_MAP_V05 PASS: tiki_island art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: tiki_island label center within ±4px
+M21_WORLD_MAP_V05 PASS: tiki_island canonical icon is visible
+M21_WORLD_MAP_V05 PASS: azure_bay visible center within ±2px
+M21_WORLD_MAP_V05 PASS: azure_bay visible size within ±2px
+M21_WORLD_MAP_V05 PASS: azure_bay art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: azure_bay label center within ±4px
+M21_WORLD_MAP_V05 PASS: azure_bay canonical icon is visible
+M21_WORLD_MAP_V05 PASS: coconut_beach visible center within ±2px
+M21_WORLD_MAP_V05 PASS: coconut_beach visible size within ±2px
+M21_WORLD_MAP_V05 PASS: coconut_beach art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: coconut_beach label center within ±4px
+M21_WORLD_MAP_V05 PASS: coconut_beach canonical icon is visible
+M21_WORLD_MAP_V05 PASS: sunset_island visible center within ±2px
+M21_WORLD_MAP_V05 PASS: sunset_island visible size within ±2px
+M21_WORLD_MAP_V05 PASS: sunset_island art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: sunset_island label center within ±4px
+M21_WORLD_MAP_V05 PASS: sunset_island canonical icon is visible
+M21_WORLD_MAP_V05 PASS: party_beach visible center within ±2px
+M21_WORLD_MAP_V05 PASS: party_beach visible size within ±2px
+M21_WORLD_MAP_V05 PASS: party_beach art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: party_beach label center within ±4px
+M21_WORLD_MAP_V05 PASS: party_beach canonical icon is visible
+M21_WORLD_MAP_V05 PASS: frozen_paradise visible center within ±2px
+M21_WORLD_MAP_V05 PASS: frozen_paradise visible size within ±2px
+M21_WORLD_MAP_V05 PASS: frozen_paradise art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: frozen_paradise label center within ±4px
+M21_WORLD_MAP_V05 PASS: frozen_paradise canonical icon is visible
+M21_WORLD_MAP_V05 PASS: volcano_bay visible center within ±2px
+M21_WORLD_MAP_V05 PASS: volcano_bay visible size within ±2px
+M21_WORLD_MAP_V05 PASS: volcano_bay art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: volcano_bay label center within ±4px
+M21_WORLD_MAP_V05 PASS: volcano_bay canonical icon is visible
+M21_WORLD_MAP_V05 PASS: billionaire_island visible center within ±2px
+M21_WORLD_MAP_V05 PASS: billionaire_island visible size within ±2px
+M21_WORLD_MAP_V05 PASS: billionaire_island art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: billionaire_island label center within ±4px
+M21_WORLD_MAP_V05 PASS: billionaire_island canonical icon is visible
+M21_WORLD_MAP_V05 PASS: final_island visible center within ±2px
+M21_WORLD_MAP_V05 PASS: final_island visible size within ±2px
+M21_WORLD_MAP_V05 PASS: final_island art and hit centers coincide
+M21_WORLD_MAP_V05 PASS: final_island label center within ±4px
+M21_WORLD_MAP_V05 PASS: final_island canonical icon is visible
+M21_WORLD_MAP_V05 PASS: island sizes remain intentionally non-uniform
+M21_WORLD_MAP_V05 PASS: Sunny Cove is the upper-right starting island
+M21_WORLD_MAP_V05 PASS: production GUI shows all future islands locked on fresh state
+M21_WORLD_MAP_V05 PASS: rendered capture 01_world_map_full_fresh is 720x1280 and saved
+M21_WORLD_MAP_V05 PASS: rendered composition crop 02_world_map_top_section saved
+M21_WORLD_MAP_V05 PASS: rendered composition crop 03_world_map_middle_section saved
+M21_WORLD_MAP_V05 PASS: rendered composition crop 04_world_map_bottom_section saved
+M21_WORLD_MAP_V05 PASS: rendered composition crop 05_sunny_cove_current_selectable saved
+M21_WORLD_MAP_V05 PASS: rendered composition crop 06_tiki_island_locked saved
+M21_WORLD_MAP_V05 PASS: Sunny Cove real hit center derived from production control
+M21_WORLD_MAP_V05 PASS: real mouse input emits one select and navigation event
+M21_WORLD_MAP_V05 PASS: mouse path reaches visible Sunny Cove Island Map with 100 levels
+M21_WORLD_MAP_V05 PASS: rendered capture 07_sunny_cove_island_map_after_real_mouse is 720x1280 and saved
+M21_WORLD_MAP_V05_DIAG_BACK rect=[P: (18.0, 18.0), S: (62.0, 62.0)] center=(49.0, 49.0) visible=true disabled=false mouse_filter=0 z=10 z_relative=true header_rect=[P: (0.0, 0.0), S: (720.0, 112.0)] header_visible=true header_filter=1 header_z=5 header_relative=true scroll_rect=[P: (0.0, 0.0), S: (728.0, 1280.0)] scroll_filter=1 scroll_z=2 scroll_relative=true nodes_rect=[P: (0.0, 0.0), S: (720.0, 12800.0)] nodes_filter=1 nodes_z=1 nodes_relative=true hovered_before=<Object#null> nav_before=ISLAND_MAP world_visible_before=false island_visible_before=true
+M21_WORLD_MAP_V05_DIAG_BACK_HOVER hovered_motion=BackToWorldMap:<Button#73601648720> back_global_rect_contains_center=true
+M21_WORLD_MAP_V05_DIAG_BACK_MOUSE emitted=["return_requested"] hovered_after=<Object#null> nav_after=WORLD_MAP world_visible_after=true island_visible_after=false map_pair=2
+M21_WORLD_MAP_V05 PASS: real Island Map Back mouse press returns once to one visible World Map
+M21_WORLD_MAP_V05_DIAG_TOUCH_SETTINGS emulate_touch_from_mouse=false emulate_mouse_from_touch=true center=(540.0, 300.0) counts_before_selected=1 requested=1 entered=1
+M21_WORLD_MAP_V05_DIAG_TOUCH_AFTER selected=["sunny_cove", "sunny_cove"] requested=["sunny_cove", "sunny_cove"] entered=["sunny_cove", "sunny_cove"] nav=ISLAND_MAP active_island=sunny_cove world_visible=false island_visible=true
+M21_WORLD_MAP_V05 PASS: real InputEventScreenTouch enters Sunny Cove Island Map exactly once
+M21_WORLD_MAP_V05 PASS: repeated World Map and Island Map navigation keeps one map pair
+M21_WORLD_MAP_V05_DIAG_BACK_TOUCH rect=[P: (18.0, 18.0), S: (62.0, 62.0)] visible=true filter=0 z=10 emitted=["return_requested", "return_requested"] nav=WORLD_MAP world_visible=true island_visible=false map_pair=2
+M21_WORLD_MAP_V05 PASS: real Island Map Back touch press returns once to one visible World Map
+M21_WORLD_MAP_V05_DIAG_WORLD_BACK rect=[P: (20.0, 53.0), S: (68.0, 71.0)] visible=true filter=0 z=0 nav_before=WORLD_MAP shell_before=CAMPAIGN campaign_visible_before=true
+M21_WORLD_MAP_V05_DIAG_WORLD_BACK_AFTER world_return=["return_requested"] main_menu=["main_menu_requested"] nav_view=WORLD_MAP shell_view=MAIN_MENU campaign_visible=false
+M21_WORLD_MAP_V05 PASS: real World Map Back button emits one request and returns to Main Menu
+M21_WORLD_MAP_PRODUCTION_V05_RESULT=PASS captures=7 mouse=PASS touch=PASS
+EXIT_CODE=0

@@ -1,0 +1,195 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M07_LAYOUT_DATASET PASS schema=BCM-M07-current-hud-visible-content-layout-R03 overflow_tolerance=4.0 overlap_tolerance=2.0
+M07_PROBE PASS: independent visible-content layout dataset loads
+M07_PROBE PASS: main scene loads as PackedScene
+M07_PROBE PASS: canonical has one HUD root
+M07_PANEL_SIZES label=canonical logo=(136.0, 188.0) best=(190.0, 106.9958) score=(190.0, 106.9958) to_go=(212.5, 318.75) next=(140.0, 180.9973) strip=(720.0, 240.0)
+M07_PROBE PASS: canonical canonical logo/panels exist
+M07_PROBE PASS: canonical progression has no runtime Panel/StyleBox cell frames
+M07_PROBE PASS: canonical score panels share normalized display size
+M07_PROBE PASS: canonical current logo and score panels remain visible without overlap
+M07_PROBE PASS: canonical score stack stays above the perspective table
+M07_PROBE PASS: canonical upper-center To-Go panel and upper-right Next panel do not overlap
+M07_PROBE PASS: canonical outer HUD panels remain on-screen
+M07_PROBE PASS: canonical combined To-Go/VIP artwork touches viewport top without runtime ropes
+M07_PROBE PASS: canonical live score values are dynamic
+M07_PROBE PASS: canonical exactly one active To-Go panel/target/reward
+M07_PROBE PASS: canonical exactly one Next panel shows true next texture
+M07_PROBE PASS: canonical To-Go target and reward fit independent downward inner boxes
+M07_PROBE PASS: canonical Next cocktail fits the dedicated inner content box
+M07_PROBE PASS: canonical progression strip orders L01-L12 left-to-right with no L13
+M07_PROBE PASS: canonical progression icons use bounded M05-mapped visual bounds
+M07_PROBE PASS: canonical held-drink indicator uses the canonical launch-zone art and tracks the held cocktail
+M07_PROBE PASS: canonical held-drink indicator remains the bounded 76px presentation marker
+M07_PROBE PASS: canonical canonical danger PNG tracks accepted M06 threshold
+M07_PROBE PASS: canonical danger/launch remain at independent M06 coordinates
+M07_PROBE PASS: canonical no guide-line or permanent prototype hint
+M07_PROBE PASS: canonical no legacy duplicate labels
+M07_PROBE PASS: canonical cocktail HUD consumers use shared M05 level mapping
+M07_VISIBLE_BOUND label=canonical BestScore value actual=[65.46,54.97,60.00,30.00] expected_box=[41.71,45.88,107.51,48.19]
+M07_VISIBLE_BOUND label=canonical Score value actual=[65.46,52.65,60.00,30.00] expected_box=[41.71,43.57,107.51,48.19]
+M07_PROBE PASS: canonical Best Score rendered text stays in independent blank inset
+M07_PROBE PASS: canonical Score rendered text stays in independent blank inset
+M07_PROBE PASS: canonical score/best visible text stays separated across panels
+M07_VISIBLE_BOUND label=canonical To-Go target alpha actual=[33.59,89.25,67.76,71.29] expected_box=[25.88,84.00,81.25,80.00]
+M07_VISIBLE_BOUND label=canonical To-Go reward text actual=[135.75,131.40,43.00,27.00] expected_box=[122.00,128.00,65.00,27.00]
+M07_PROBE PASS: canonical To-Go target alpha stays in independent target box
+M07_PROBE PASS: canonical To-Go reward rendered text stays in independent reward box
+M07_PROBE PASS: canonical To-Go target does not overlap reward
+M07_VISIBLE_BOUND label=canonical NEXT cocktail alpha actual=[34.09,70.15,74.30,76.71] expected_box=[28.00,62.00,90.00,100.00]
+M07_PROBE PASS: canonical NEXT cocktail alpha stays in independent inset without garnish clipping
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL01 actual=[55.90,92.81,40.11,40.80] expected_box=[51.13,0.00,51.88,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL02 actual=[109.09,91.44,41.09,42.42] expected_box=[103.01,0.00,51.71,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL03 actual=[158.50,91.41,43.51,42.25] expected_box=[154.72,0.00,51.46,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL04 actual=[209.88,91.02,42.11,43.68] expected_box=[206.19,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL05 actual=[261.26,91.37,43.23,43.33] expected_box=[257.57,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL06 actual=[314.92,91.83,39.75,41.82] expected_box=[308.95,0.00,51.22,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL07 actual=[363.69,91.44,43.16,42.42] expected_box=[360.17,0.00,51.22,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL08 actual=[416.51,91.51,41.86,43.19] expected_box=[411.38,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL09 actual=[467.96,90.81,41.65,43.89] expected_box=[462.76,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL10 actual=[521.24,91.37,39.51,41.72] expected_box=[514.14,0.00,51.46,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL11 actual=[569.38,91.37,43.37,43.33] expected_box=[565.61,0.00,51.80,240.00]
+M07_VISIBLE_BOUND label=canonical progression ProgressionIconL12 actual=[623.64,92.36,40.39,39.89] expected_box=[617.40,0.00,52.04,240.00]
+M07_PROBE PASS: canonical all 12 progression alpha bounds stay inside independent cells without neighbor overlap
+M07_VISIBLE_BOUNDS label=canonical best=[65.46,54.97,60.00,30.00] score=[65.46,52.65,60.00,30.00] target=[33.59,89.25,67.76,71.29] reward=[135.75,131.40,43.00,27.00] next=[34.09,70.15,74.30,76.71]
+M07_PROBE PASS: canonical live score/To-Go/Next state updates without duplicate mapping
+M07_PROBE PASS: canonical rapid launch keeps current held sprite and Next synchronized
+M07_HUD_STATE label=canonical score=12650 best=24380 target=L6 reward=1000 next=L1 progression_slots=12 death_y=900.000 launch_y=946.667
+M07_CAPTURE name=canonical_720x1280 dimensions=720x1280 path=res://docs/evidence/m07/canonical_720x1280.png error=0
+M07_PROBE PASS: render capture saved for canonical_720x1280
+MERGE L2 +20  COMBO x1 +0  (toplam: 12670)
+M07_CAPTURE name=canonical_720x1280_hud_inner_boxes dimensions=720x1280 path=res://docs/evidence/m07/canonical_720x1280_hud_inner_boxes.png error=0
+M07_PROBE PASS: render HUD inner-box evidence saved for canonical_720x1280
+M07_CAPTURE name=canonical_720x1280_visible_bounds dimensions=720x1280 path=res://docs/evidence/m07/canonical_720x1280_visible_bounds.png error=0
+M07_PROBE PASS: render visible-bounds evidence saved for canonical_720x1280
+M07_PROBE PASS: taller_720x1440 has one HUD root
+M07_PANEL_SIZES label=taller_720x1440 logo=(136.0, 188.0) best=(190.0, 106.9958) score=(190.0, 106.9958) to_go=(212.5, 318.75) next=(140.0, 180.9973) strip=(720.0, 240.0)
+M07_PROBE PASS: taller_720x1440 canonical logo/panels exist
+M07_PROBE PASS: taller_720x1440 progression has no runtime Panel/StyleBox cell frames
+M07_PROBE PASS: taller_720x1440 score panels share normalized display size
+M07_PROBE PASS: taller_720x1440 current logo and score panels remain visible without overlap
+M07_PROBE PASS: taller_720x1440 score stack stays above the perspective table
+M07_PROBE PASS: taller_720x1440 upper-center To-Go panel and upper-right Next panel do not overlap
+M07_PROBE PASS: taller_720x1440 outer HUD panels remain on-screen
+M07_PROBE PASS: taller_720x1440 combined To-Go/VIP artwork touches viewport top without runtime ropes
+M07_PROBE PASS: taller_720x1440 live score values are dynamic
+M07_PROBE PASS: taller_720x1440 exactly one active To-Go panel/target/reward
+M07_PROBE PASS: taller_720x1440 exactly one Next panel shows true next texture
+M07_PROBE PASS: taller_720x1440 To-Go target and reward fit independent downward inner boxes
+M07_PROBE PASS: taller_720x1440 Next cocktail fits the dedicated inner content box
+M07_PROBE PASS: taller_720x1440 progression strip orders L01-L12 left-to-right with no L13
+M07_PROBE PASS: taller_720x1440 progression icons use bounded M05-mapped visual bounds
+M07_PROBE PASS: taller_720x1440 held-drink indicator uses the canonical launch-zone art and tracks the held cocktail
+M07_PROBE PASS: taller_720x1440 held-drink indicator remains the bounded 76px presentation marker
+M07_PROBE PASS: taller_720x1440 canonical danger PNG tracks accepted M06 threshold
+M07_PROBE PASS: taller_720x1440 danger/launch remain at independent M06 coordinates
+M07_PROBE PASS: taller_720x1440 no guide-line or permanent prototype hint
+M07_PROBE PASS: taller_720x1440 no legacy duplicate labels
+M07_PROBE PASS: taller_720x1440 cocktail HUD consumers use shared M05 level mapping
+M07_VISIBLE_BOUND label=taller_720x1440 BestScore value actual=[65.46,54.97,60.00,30.00] expected_box=[41.71,45.88,107.51,48.19]
+M07_VISIBLE_BOUND label=taller_720x1440 Score value actual=[65.46,52.65,60.00,30.00] expected_box=[41.71,43.57,107.51,48.19]
+M07_PROBE PASS: taller_720x1440 Best Score rendered text stays in independent blank inset
+M07_PROBE PASS: taller_720x1440 Score rendered text stays in independent blank inset
+M07_PROBE PASS: taller_720x1440 score/best visible text stays separated across panels
+M07_VISIBLE_BOUND label=taller_720x1440 To-Go target alpha actual=[33.59,89.25,67.76,71.29] expected_box=[25.88,84.00,81.25,80.00]
+M07_VISIBLE_BOUND label=taller_720x1440 To-Go reward text actual=[135.75,131.40,43.00,27.00] expected_box=[122.00,128.00,65.00,27.00]
+M07_PROBE PASS: taller_720x1440 To-Go target alpha stays in independent target box
+M07_PROBE PASS: taller_720x1440 To-Go reward rendered text stays in independent reward box
+M07_PROBE PASS: taller_720x1440 To-Go target does not overlap reward
+M07_VISIBLE_BOUND label=taller_720x1440 NEXT cocktail alpha actual=[34.09,70.15,74.30,76.71] expected_box=[28.00,62.00,90.00,100.00]
+M07_PROBE PASS: taller_720x1440 NEXT cocktail alpha stays in independent inset without garnish clipping
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL01 actual=[55.90,92.81,40.11,40.80] expected_box=[51.13,0.00,51.88,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL02 actual=[109.09,91.44,41.09,42.42] expected_box=[103.01,0.00,51.71,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL03 actual=[158.50,91.41,43.51,42.25] expected_box=[154.72,0.00,51.46,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL04 actual=[209.88,91.02,42.11,43.68] expected_box=[206.19,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL05 actual=[261.26,91.37,43.23,43.33] expected_box=[257.57,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL06 actual=[314.92,91.83,39.75,41.82] expected_box=[308.95,0.00,51.22,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL07 actual=[363.69,91.44,43.16,42.42] expected_box=[360.17,0.00,51.22,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL08 actual=[416.51,91.51,41.86,43.19] expected_box=[411.38,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL09 actual=[467.96,90.81,41.65,43.89] expected_box=[462.76,0.00,51.38,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL10 actual=[521.24,91.37,39.51,41.72] expected_box=[514.14,0.00,51.46,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL11 actual=[569.38,91.37,43.37,43.33] expected_box=[565.61,0.00,51.80,240.00]
+M07_VISIBLE_BOUND label=taller_720x1440 progression ProgressionIconL12 actual=[623.64,92.36,40.39,39.89] expected_box=[617.40,0.00,52.04,240.00]
+M07_PROBE PASS: taller_720x1440 all 12 progression alpha bounds stay inside independent cells without neighbor overlap
+M07_VISIBLE_BOUNDS label=taller_720x1440 best=[65.46,54.97,60.00,30.00] score=[65.46,52.65,60.00,30.00] target=[33.59,89.25,67.76,71.29] reward=[135.75,131.40,43.00,27.00] next=[34.09,70.15,74.30,76.71]
+M07_PROBE PASS: taller_720x1440 live score/To-Go/Next state updates without duplicate mapping
+M07_PROBE PASS: taller_720x1440 rapid launch keeps current held sprite and Next synchronized
+M07_HUD_STATE label=taller_720x1440 score=12650 best=24380 target=L6 reward=1000 next=L1 progression_slots=12 death_y=1012.500 launch_y=1065.000
+M07_CAPTURE name=taller_720x1440 dimensions=720x1440 path=res://docs/evidence/m07/taller_720x1440.png error=0
+M07_PROBE PASS: render capture saved for taller_720x1440
+MERGE L3 +50  COMBO x1 +0  (toplam: 12700)
+M07_CAPTURE name=taller_720x1440_hud_inner_boxes dimensions=720x1440 path=res://docs/evidence/m07/taller_720x1440_hud_inner_boxes.png error=0
+M07_PROBE PASS: render HUD inner-box evidence saved for taller_720x1440
+MERGE L4 +100  COMBO x2 +25  (toplam: 12825)
+M07_CAPTURE name=taller_720x1440_visible_bounds dimensions=720x1440 path=res://docs/evidence/m07/taller_720x1440_visible_bounds.png error=0
+M07_PROBE PASS: render visible-bounds evidence saved for taller_720x1440
+M07_PROBE PASS: shorter_wider_800x1280 has one HUD root
+M07_PANEL_SIZES label=shorter_wider_800x1280 logo=(136.0, 188.0) best=(190.0, 106.9958) score=(190.0, 106.9958) to_go=(212.5, 318.75) next=(140.0, 180.9973) strip=(800.0, 266.6667)
+M07_PROBE PASS: shorter_wider_800x1280 canonical logo/panels exist
+M07_PROBE PASS: shorter_wider_800x1280 progression has no runtime Panel/StyleBox cell frames
+M07_PROBE PASS: shorter_wider_800x1280 score panels share normalized display size
+M07_PROBE PASS: shorter_wider_800x1280 current logo and score panels remain visible without overlap
+M07_PROBE PASS: shorter_wider_800x1280 score stack stays above the perspective table
+M07_PROBE PASS: shorter_wider_800x1280 upper-center To-Go panel and upper-right Next panel do not overlap
+M07_PROBE PASS: shorter_wider_800x1280 outer HUD panels remain on-screen
+M07_PROBE PASS: shorter_wider_800x1280 combined To-Go/VIP artwork touches viewport top without runtime ropes
+M07_PROBE PASS: shorter_wider_800x1280 live score values are dynamic
+M07_PROBE PASS: shorter_wider_800x1280 exactly one active To-Go panel/target/reward
+M07_PROBE PASS: shorter_wider_800x1280 exactly one Next panel shows true next texture
+M07_PROBE PASS: shorter_wider_800x1280 To-Go target and reward fit independent downward inner boxes
+M07_PROBE PASS: shorter_wider_800x1280 Next cocktail fits the dedicated inner content box
+M07_PROBE PASS: shorter_wider_800x1280 progression strip orders L01-L12 left-to-right with no L13
+M07_PROBE PASS: shorter_wider_800x1280 progression icons use bounded M05-mapped visual bounds
+M07_PROBE PASS: shorter_wider_800x1280 held-drink indicator uses the canonical launch-zone art and tracks the held cocktail
+M07_PROBE PASS: shorter_wider_800x1280 held-drink indicator remains the bounded 76px presentation marker
+M07_PROBE PASS: shorter_wider_800x1280 canonical danger PNG tracks accepted M06 threshold
+M07_PROBE PASS: shorter_wider_800x1280 danger/launch remain at independent M06 coordinates
+M07_PROBE PASS: shorter_wider_800x1280 no guide-line or permanent prototype hint
+M07_PROBE PASS: shorter_wider_800x1280 no legacy duplicate labels
+M07_PROBE PASS: shorter_wider_800x1280 cocktail HUD consumers use shared M05 level mapping
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 BestScore value actual=[65.46,54.97,60.00,30.00] expected_box=[41.71,45.88,107.51,48.19]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 Score value actual=[65.46,52.65,60.00,30.00] expected_box=[41.71,43.57,107.51,48.19]
+M07_PROBE PASS: shorter_wider_800x1280 Best Score rendered text stays in independent blank inset
+M07_PROBE PASS: shorter_wider_800x1280 Score rendered text stays in independent blank inset
+M07_PROBE PASS: shorter_wider_800x1280 score/best visible text stays separated across panels
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 To-Go target alpha actual=[33.59,89.25,67.76,71.29] expected_box=[25.88,84.00,81.25,80.00]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 To-Go reward text actual=[135.75,131.40,43.00,27.00] expected_box=[122.00,128.00,65.00,27.00]
+M07_PROBE PASS: shorter_wider_800x1280 To-Go target alpha stays in independent target box
+M07_PROBE PASS: shorter_wider_800x1280 To-Go reward rendered text stays in independent reward box
+M07_PROBE PASS: shorter_wider_800x1280 To-Go target does not overlap reward
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 NEXT cocktail alpha actual=[34.09,70.15,74.30,76.71] expected_box=[28.00,62.00,90.00,100.00]
+M07_PROBE PASS: shorter_wider_800x1280 NEXT cocktail alpha stays in independent inset without garnish clipping
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL01 actual=[64.46,105.33,40.11,40.80] expected_box=[56.81,0.00,57.64,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL02 actual=[123.42,103.97,41.09,42.42] expected_box=[114.46,0.00,57.46,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL03 actual=[178.55,103.93,43.51,42.25] expected_box=[171.92,0.00,57.18,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL04 actual=[235.64,103.55,42.11,43.68] expected_box=[229.10,0.00,57.09,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL05 actual=[292.73,103.90,43.23,43.33] expected_box=[286.19,0.00,57.09,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL06 actual=[352.10,104.35,39.75,41.82] expected_box=[343.28,0.00,56.91,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL07 actual=[406.55,103.97,43.16,42.42] expected_box=[400.18,0.00,56.91,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL08 actual=[465.07,104.04,41.86,43.19] expected_box=[457.09,0.00,57.09,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL09 actual=[522.23,103.34,41.65,43.89] expected_box=[514.18,0.00,57.09,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL10 actual=[581.22,103.90,39.51,41.72] expected_box=[571.27,0.00,57.18,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL11 actual=[635.09,103.90,43.37,43.33] expected_box=[628.45,0.00,57.55,266.67]
+M07_VISIBLE_BOUND label=shorter_wider_800x1280 progression ProgressionIconL12 actual=[695.13,104.88,40.39,39.89] expected_box=[686.00,0.00,57.83,266.67]
+M07_PROBE PASS: shorter_wider_800x1280 all 12 progression alpha bounds stay inside independent cells without neighbor overlap
+M07_VISIBLE_BOUNDS label=shorter_wider_800x1280 best=[65.46,54.97,60.00,30.00] score=[65.46,52.65,60.00,30.00] target=[33.59,89.25,67.76,71.29] reward=[135.75,131.40,43.00,27.00] next=[34.09,70.15,74.30,76.71]
+M07_PROBE PASS: shorter_wider_800x1280 live score/To-Go/Next state updates without duplicate mapping
+M07_PROBE PASS: shorter_wider_800x1280 rapid launch keeps current held sprite and Next synchronized
+M07_HUD_STATE label=shorter_wider_800x1280 score=12650 best=24380 target=L6 reward=1000 next=L3 progression_slots=12 death_y=900.000 launch_y=946.667
+M07_CAPTURE name=shorter_wider_800x1280 dimensions=800x1280 path=res://docs/evidence/m07/shorter_wider_800x1280.png error=0
+M07_PROBE PASS: render capture saved for shorter_wider_800x1280
+MERGE L2 +20  COMBO x1 +0  (toplam: 12670)
+M07_CAPTURE name=shorter_wider_800x1280_hud_inner_boxes dimensions=800x1280 path=res://docs/evidence/m07/shorter_wider_800x1280_hud_inner_boxes.png error=0
+M07_PROBE PASS: render HUD inner-box evidence saved for shorter_wider_800x1280
+M07_CAPTURE name=shorter_wider_800x1280_visible_bounds dimensions=800x1280 path=res://docs/evidence/m07/shorter_wider_800x1280_visible_bounds.png error=0
+M07_PROBE PASS: render visible-bounds evidence saved for shorter_wider_800x1280
+MERGE L4 +100  COMBO x2 +25  (toplam: 12795)
+M07_PROBE_RESULT=PASS
+EXIT_CODE=0

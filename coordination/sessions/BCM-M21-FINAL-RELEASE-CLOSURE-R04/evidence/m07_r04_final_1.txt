@@ -1,0 +1,150 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M07_R04_PROBE PASS: M07-R04 independent layout dataset loads
+M07_R04_PROBE PASS: M07-R04 main scene loads
+M07_R04_FIXED_SCORE label=canonical_720x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=0 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[88.46,54.97,14.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[88.46,52.65,14.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=canonical_720x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=321 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[76.96,54.97,37.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[76.96,52.65,37.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=canonical_720x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=24380 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[65.46,54.97,60.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[65.46,52.65,60.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=canonical_720x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=999999 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[59.96,54.97,71.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[59.96,52.65,71.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=canonical_720x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=9999999 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[53.96,54.97,83.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[53.96,52.65,83.00,30.00] best_font=20 score_font=20
+M07_R04_PROBE PASS: canonical_720x1280 fixed score font fits 0/321/24380/999999/9999999
+M07_R04_PROBE PASS: canonical_720x1280 score display enforces seven-digit maximum
+M07_R04_TO_GO label=canonical_720x1280 target=L6 reward=1000 target_bounds=[33.59,89.25,67.76,71.29] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=canonical_720x1280 target=L7 reward=1800 target_bounds=[29.70,88.59,73.56,72.31] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=canonical_720x1280 target=L8 reward=3000 target_bounds=[32.16,88.71,71.35,73.62] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=canonical_720x1280 target=L9 reward=5000 target_bounds=[32.28,87.51,70.99,74.82] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=canonical_720x1280 target=L10 reward=8000 target_bounds=[35.51,88.47,67.34,71.11] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=canonical_720x1280 target=L11 reward=12000 target_bounds=[29.70,88.47,73.92,73.86] reward_bounds=[130.75,131.40,53.00,27.00] fits=true
+M07_R04_TO_GO label=canonical_720x1280 target=L12 reward=18000 target_bounds=[33.47,90.15,68.84,68.00] reward_bounds=[130.75,131.40,53.00,27.00] fits=true
+M07_R04_PROBE PASS: canonical_720x1280 To-Go contains target and digits-only reward for L06-L12
+M07_R04_PROBE PASS: canonical_720x1280 unchanged To-Go asset topmost visible artwork touches viewport top with no runtime rope
+M07_R08_TO_GO_TOP label=canonical_720x1280 panel_y=0.000 asset_top_y=-0.000 no_runtime_rope=true
+M07_R04_NEXT label=canonical_720x1280 level=L1 bounds=[34.35,75.09,67.54,68.70] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L2 bounds=[34.09,70.15,74.30,76.71] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L3 bounds=[24.00,64.07,90.97,88.33] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L4 bounds=[24.00,63.26,88.04,91.34] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L5 bounds=[24.00,63.99,90.39,90.61] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L6 bounds=[28.77,64.95,83.12,87.45] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L7 bounds=[24.00,64.14,90.24,88.70] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L8 bounds=[27.01,64.29,87.52,90.31] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L9 bounds=[27.15,62.82,87.08,91.78] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L10 bounds=[31.12,63.99,82.61,87.23] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L11 bounds=[24.00,63.99,90.68,90.61] fits=true
+M07_R04_NEXT label=canonical_720x1280 level=L12 bounds=[28.62,66.05,84.44,83.42] fits=true
+M07_R04_PROBE PASS: canonical_720x1280 NEXT L01-L12 alpha bounds fit measured cream window
+M07_R07_HELD label=canonical_720x1280 level=L1 pos_y=946.667 root_scale=0.9896 sprite_scale=0.05797 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L2 pos_y=946.667 root_scale=0.9896 sprite_scale=0.06345 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L3 pos_y=946.667 root_scale=0.9896 sprite_scale=0.08612 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L4 pos_y=946.667 root_scale=0.9896 sprite_scale=0.08169 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L5 pos_y=946.667 root_scale=0.9896 sprite_scale=0.13211 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L6 pos_y=946.667 root_scale=0.9896 sprite_scale=0.12000 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L7 pos_y=946.667 root_scale=0.9896 sprite_scale=0.17043 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L8 pos_y=946.667 root_scale=0.9896 sprite_scale=0.18211 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L9 pos_y=946.667 root_scale=0.9896 sprite_scale=0.19692 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L10 pos_y=946.667 root_scale=0.9896 sprite_scale=0.23040 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L11 pos_y=946.667 root_scale=0.9896 sprite_scale=0.26230 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=canonical_720x1280 level=L12 pos_y=946.667 root_scale=0.9896 sprite_scale=0.25352 body_center_x=360.000 launch_center_x=360.000 baseline=949.667 launch_baseline=949.667
+M07_R04_PROBE PASS: canonical_720x1280 held L01-L12 body bottoms share measured launch-oval center
+M07_R07_HELD_SUMMARY label=canonical_720x1280 baseline_min=949.667 baseline_max=949.667 spread=0.000 target=949.667 max_x_error=0.000
+M07_R04_PROBE PASS: canonical_720x1280 preserves M06 danger/launch coordinates
+M07_R04_CAPTURE label=canonical_720x1280 clean=res://docs/evidence/m07_r08/canonical_720x1280.png visible_bounds=res://docs/evidence/m07_r08/canonical_720x1280_visible_bounds.png dimensions=720x1280
+M07_R04_FIXED_SCORE label=taller_720x1440 ui_scale=1.000 panel_size=(190.0, 106.9958) value=0 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[88.46,54.97,14.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[88.46,52.65,14.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=taller_720x1440 ui_scale=1.000 panel_size=(190.0, 106.9958) value=321 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[76.96,54.97,37.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[76.96,52.65,37.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=taller_720x1440 ui_scale=1.000 panel_size=(190.0, 106.9958) value=24380 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[65.46,54.97,60.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[65.46,52.65,60.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=taller_720x1440 ui_scale=1.000 panel_size=(190.0, 106.9958) value=999999 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[59.96,54.97,71.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[59.96,52.65,71.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=taller_720x1440 ui_scale=1.000 panel_size=(190.0, 106.9958) value=9999999 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[53.96,54.97,83.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[53.96,52.65,83.00,30.00] best_font=20 score_font=20
+M07_R04_PROBE PASS: taller_720x1440 fixed score font fits 0/321/24380/999999/9999999
+M07_R04_PROBE PASS: taller_720x1440 score display enforces seven-digit maximum
+M07_R04_TO_GO label=taller_720x1440 target=L6 reward=1000 target_bounds=[33.59,89.25,67.76,71.29] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=taller_720x1440 target=L7 reward=1800 target_bounds=[29.70,88.59,73.56,72.31] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=taller_720x1440 target=L8 reward=3000 target_bounds=[32.16,88.71,71.35,73.62] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=taller_720x1440 target=L9 reward=5000 target_bounds=[32.28,87.51,70.99,74.82] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=taller_720x1440 target=L10 reward=8000 target_bounds=[35.51,88.47,67.34,71.11] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=taller_720x1440 target=L11 reward=12000 target_bounds=[29.70,88.47,73.92,73.86] reward_bounds=[130.75,131.40,53.00,27.00] fits=true
+M07_R04_TO_GO label=taller_720x1440 target=L12 reward=18000 target_bounds=[33.47,90.15,68.84,68.00] reward_bounds=[130.75,131.40,53.00,27.00] fits=true
+M07_R04_PROBE PASS: taller_720x1440 To-Go contains target and digits-only reward for L06-L12
+M07_R04_PROBE PASS: taller_720x1440 unchanged To-Go asset topmost visible artwork touches viewport top with no runtime rope
+M07_R08_TO_GO_TOP label=taller_720x1440 panel_y=0.000 asset_top_y=-0.000 no_runtime_rope=true
+M07_R04_NEXT label=taller_720x1440 level=L1 bounds=[34.35,75.09,67.54,68.70] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L2 bounds=[34.09,70.15,74.30,76.71] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L3 bounds=[24.00,64.07,90.97,88.33] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L4 bounds=[24.00,63.26,88.04,91.34] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L5 bounds=[24.00,63.99,90.39,90.61] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L6 bounds=[28.77,64.95,83.12,87.45] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L7 bounds=[24.00,64.14,90.24,88.70] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L8 bounds=[27.01,64.29,87.52,90.31] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L9 bounds=[27.15,62.82,87.08,91.78] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L10 bounds=[31.12,63.99,82.61,87.23] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L11 bounds=[24.00,63.99,90.68,90.61] fits=true
+M07_R04_NEXT label=taller_720x1440 level=L12 bounds=[28.62,66.05,84.44,83.42] fits=true
+M07_R04_PROBE PASS: taller_720x1440 NEXT L01-L12 alpha bounds fit measured cream window
+M07_R07_HELD label=taller_720x1440 level=L1 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.05797 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L2 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.06345 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L3 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.08612 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L4 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.08169 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L5 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.13211 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L6 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.12000 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L7 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.17043 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L8 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.18211 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L9 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.19692 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L10 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.23040 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L11 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.26230 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R07_HELD label=taller_720x1440 level=L12 pos_y=1065.000 root_scale=0.9933 sprite_scale=0.25352 body_center_x=360.000 launch_center_x=360.000 baseline=1068.000 launch_baseline=1068.000
+M07_R04_PROBE PASS: taller_720x1440 held L01-L12 body bottoms share measured launch-oval center
+M07_R07_HELD_SUMMARY label=taller_720x1440 baseline_min=1068.000 baseline_max=1068.000 spread=0.000 target=1068.000 max_x_error=0.000
+M07_R04_PROBE PASS: taller_720x1440 preserves M06 danger/launch coordinates
+M07_R04_CAPTURE label=taller_720x1440 clean=res://docs/evidence/m07_r08/taller_720x1440.png visible_bounds=res://docs/evidence/m07_r08/taller_720x1440_visible_bounds.png dimensions=720x1440
+M07_R04_FIXED_SCORE label=shorter_wider_800x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=0 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[88.46,54.97,14.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[88.46,52.65,14.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=shorter_wider_800x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=321 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[76.96,54.97,37.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[76.96,52.65,37.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=shorter_wider_800x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=24380 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[65.46,54.97,60.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[65.46,52.65,60.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=shorter_wider_800x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=999999 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[59.96,54.97,71.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[59.96,52.65,71.00,30.00] best_font=20 score_font=20
+M07_R04_FIXED_SCORE label=shorter_wider_800x1280 ui_scale=1.000 panel_size=(190.0, 106.9958) value=9999999 best_expected=[41.71,45.88,107.51,48.19] best_bounds=[53.96,54.97,83.00,30.00] score_expected=[41.71,43.56,107.51,48.19] score_bounds=[53.96,52.65,83.00,30.00] best_font=20 score_font=20
+M07_R04_PROBE PASS: shorter_wider_800x1280 fixed score font fits 0/321/24380/999999/9999999
+M07_R04_PROBE PASS: shorter_wider_800x1280 score display enforces seven-digit maximum
+M07_R04_TO_GO label=shorter_wider_800x1280 target=L6 reward=1000 target_bounds=[33.59,89.25,67.76,71.29] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=shorter_wider_800x1280 target=L7 reward=1800 target_bounds=[29.70,88.59,73.56,72.31] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=shorter_wider_800x1280 target=L8 reward=3000 target_bounds=[32.16,88.71,71.35,73.62] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=shorter_wider_800x1280 target=L9 reward=5000 target_bounds=[32.28,87.51,70.99,74.82] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=shorter_wider_800x1280 target=L10 reward=8000 target_bounds=[35.51,88.47,67.34,71.11] reward_bounds=[135.75,131.40,43.00,27.00] fits=true
+M07_R04_TO_GO label=shorter_wider_800x1280 target=L11 reward=12000 target_bounds=[29.70,88.47,73.92,73.86] reward_bounds=[130.75,131.40,53.00,27.00] fits=true
+M07_R04_TO_GO label=shorter_wider_800x1280 target=L12 reward=18000 target_bounds=[33.47,90.15,68.84,68.00] reward_bounds=[130.75,131.40,53.00,27.00] fits=true
+M07_R04_PROBE PASS: shorter_wider_800x1280 To-Go contains target and digits-only reward for L06-L12
+M07_R04_PROBE PASS: shorter_wider_800x1280 unchanged To-Go asset topmost visible artwork touches viewport top with no runtime rope
+M07_R08_TO_GO_TOP label=shorter_wider_800x1280 panel_y=0.000 asset_top_y=-0.000 no_runtime_rope=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L1 bounds=[34.35,75.09,67.54,68.70] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L2 bounds=[34.09,70.15,74.30,76.71] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L3 bounds=[24.00,64.07,90.97,88.33] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L4 bounds=[24.00,63.26,88.04,91.34] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L5 bounds=[24.00,63.99,90.39,90.61] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L6 bounds=[28.77,64.95,83.12,87.45] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L7 bounds=[24.00,64.14,90.24,88.70] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L8 bounds=[27.01,64.29,87.52,90.31] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L9 bounds=[27.15,62.82,87.08,91.78] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L10 bounds=[31.12,63.99,82.61,87.23] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L11 bounds=[24.00,63.99,90.68,90.61] fits=true
+M07_R04_NEXT label=shorter_wider_800x1280 level=L12 bounds=[28.62,66.05,84.44,83.42] fits=true
+M07_R04_PROBE PASS: shorter_wider_800x1280 NEXT L01-L12 alpha bounds fit measured cream window
+M07_R07_HELD label=shorter_wider_800x1280 level=L1 pos_y=946.667 root_scale=0.9896 sprite_scale=0.05797 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L2 pos_y=946.667 root_scale=0.9896 sprite_scale=0.06345 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L3 pos_y=946.667 root_scale=0.9896 sprite_scale=0.08612 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L4 pos_y=946.667 root_scale=0.9896 sprite_scale=0.08169 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L5 pos_y=946.667 root_scale=0.9896 sprite_scale=0.13211 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L6 pos_y=946.667 root_scale=0.9896 sprite_scale=0.12000 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L7 pos_y=946.667 root_scale=0.9896 sprite_scale=0.17043 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L8 pos_y=946.667 root_scale=0.9896 sprite_scale=0.18211 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L9 pos_y=946.667 root_scale=0.9896 sprite_scale=0.19692 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L10 pos_y=946.667 root_scale=0.9896 sprite_scale=0.23040 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L11 pos_y=946.667 root_scale=0.9896 sprite_scale=0.26230 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R07_HELD label=shorter_wider_800x1280 level=L12 pos_y=946.667 root_scale=0.9896 sprite_scale=0.25352 body_center_x=400.000 launch_center_x=400.000 baseline=949.667 launch_baseline=949.667
+M07_R04_PROBE PASS: shorter_wider_800x1280 held L01-L12 body bottoms share measured launch-oval center
+M07_R07_HELD_SUMMARY label=shorter_wider_800x1280 baseline_min=949.667 baseline_max=949.667 spread=0.000 target=949.667 max_x_error=0.000
+M07_R04_PROBE PASS: shorter_wider_800x1280 preserves M06 danger/launch coordinates
+M07_R04_CAPTURE label=shorter_wider_800x1280 clean=res://docs/evidence/m07_r08/shorter_wider_800x1280.png visible_bounds=res://docs/evidence/m07_r08/shorter_wider_800x1280_visible_bounds.png dimensions=800x1280
+M07_R04_PROBE_RESULT=PASS
+EXIT_CODE=0

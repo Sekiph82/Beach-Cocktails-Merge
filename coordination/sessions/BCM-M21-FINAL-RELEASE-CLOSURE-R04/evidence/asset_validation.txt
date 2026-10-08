@@ -1,0 +1,5 @@
+PASS manifest-checksums: 373/373 current PNGs
+PASS R04-surface-authority: 10/10 per-island source/runtime/profile/evidence families
+PASS retired-island-gameplay-art: absent from all 10 island packs
+PASS semantic-duplicates: 10 source/runtime identity groups; invalid=0
+EXIT_CODE=0

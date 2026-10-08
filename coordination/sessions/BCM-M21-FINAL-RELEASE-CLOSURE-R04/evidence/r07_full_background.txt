@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_FULL_BACKGROUND_R01 PASS: canonical Sunny Cove data loads
+M21_FULL_BACKGROUND_R01 PASS: production campaign configures
+M21_FULL_BACKGROUND_R01 PASS: production Sunny Cove Island Map configures
+M21_FULL_BACKGROUND_R01 PASS: each ten-level map page uses the full 1280px source height
+M21_FULL_BACKGROUND_R01 PASS: full-height map scroller leaves background visible behind fixed header/footer
+M21_FULL_BACKGROUND_R01 PASS: all ten page backgrounds render the complete native-size source
+M21_FULL_BACKGROUND_R01 PASS: every background covers its whole page without crop or seam offset
+M21_FULL_BACKGROUND_R01 PASS: header sky wash no longer covers the background's top pixels
+M21_FULL_BACKGROUND_R01 PASS: all ten node hit targets align to full-image landmarks and fit the page
+M21_FULL_BACKGROUND_R01 PASS: page-one first and tenth levels remain fully visible at natural image scale
+M21_FULL_BACKGROUND_R01 PASS: saved full 720x1280 production page sunny_cove_full_background_page_01
+M21_FULL_BACKGROUND_R01 PASS: production campaign advances through level 90
+M21_FULL_BACKGROUND_R01 PASS: production Island Map reopens at the new last-page frontier
+M21_FULL_BACKGROUND_R01 PASS: page ten presents level 91–100 over its full background
+M21_FULL_BACKGROUND_R01 PASS: saved full 720x1280 production page sunny_cove_full_background_page_10
+M21_FULL_BACKGROUND_R01_RESULT=PASS pages=10 levels_per_page=10 background=720x1280
+EXIT_CODE=0

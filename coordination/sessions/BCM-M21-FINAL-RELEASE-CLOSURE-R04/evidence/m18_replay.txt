@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M18_ISLAND_MAP_REPLAY_PROBE PASS: replay fixture loads in FULL validation
+M18_ISLAND_MAP_REPLAY_PROBE PASS: replay campaign configures
+M18_ISLAND_MAP_REPLAY_PROBE PASS: navigation accepts replay campaign
+M18_ISLAND_MAP_REPLAY_PROBE PASS: one reusable map pair is mounted
+M18_ISLAND_MAP_REPLAY_PROBE PASS: Island Map opens for the replay fixture
+M18_ISLAND_MAP_REPLAY_PROBE PASS: completed level remains selectable for replay
+M18_ISLAND_MAP_REPLAY_PROBE PASS: authoritative prior stars and 2-star skin are visible without node score text
+M18_ISLAND_MAP_REPLAY_PROBE PASS: worse replay preserves stored state
+M18_ISLAND_MAP_REPLAY_PROBE PASS: better replay refreshes authoritative visible state
+M18_ISLAND_MAP_REPLAY_PROBE PASS: better replay state and 3-star skin are visible after refresh without node score text
+M18_ISLAND_MAP_REPLAY_PROBE PASS: replay launch uses one gameplay instance
+M18_ISLAND_MAP_REPLAY_PROBE PASS: terminal replay can return to the Island Map
+M18_ISLAND_MAP_REPLAY_PROBE PASS: return restores selected level and scroll/focus context
+M18_ISLAND_MAP_REPLAY_PROBE PASS: replay return disposes gameplay without duplicating maps
+M18_ISLAND_MAP_REPLAY_RESULT=PASS
+EXIT_CODE=0

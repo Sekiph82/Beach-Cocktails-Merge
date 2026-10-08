@@ -1,0 +1,83 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M15_PROBE PASS: M15 fixture loads in FULL validation
+M15_PROBE PASS: shared policy accepts normal/VIP L5
+M15_PROBE PASS: shared policy accepts normal/VIP L8
+M15_PROBE PASS: shared policy rejects normal/VIP L4
+M15_PROBE PASS: shared policy rejects normal/VIP L9
+M15_PROBE PASS: VIP zero quantity rejects
+M15_PROBE PASS: VIP fractional quantity rejects
+M15_PROBE PASS: disabled VIP metadata remains valid
+M15_PROBE PASS: typed booster reward grants inventory
+M15_PROBE PASS: reward ledger makes replay idempotent
+M15_PROBE PASS: invalid reward fails closed without partial mutation
+M15_PROBE PASS: insufficient booster consumption is non-mutating
+M15_PROBE PASS: successful booster consumption is exact
+M15_PROBE PASS: SaveManager persists economy balances and ledger
+M15_PROBE PASS: pre-M15 valid save loads with empty ledger
+M15_PROBE PASS: CampaignManager configures with shared economy
+M15_PROBE PASS: GameplaySessionBridge configures with shared economy
+M15_PROBE PASS: VIP session exposes exact target and pending 0/2 state
+M15_PROBE PASS: retired +Time is rejected without consuming legacy inventory
+M15_PROBE PASS: retired +Time remains rejected and does not extend
+M15_PROBE PASS: mismatched and nonpositive VIP deliveries pay zero
+M15_PROBE PASS: paused VIP delivery pays zero
+M15_PROBE PASS: GameplaySessionBridge configures with shared economy
+M15_PROBE PASS: incomplete VIP still produces normal WIN
+M15_PROBE PASS: incomplete VIP grants no VIP booster
+M15_PROBE PASS: CampaignManager configures with shared economy
+M15_PROBE PASS: GameplaySessionBridge configures with shared economy
+M15_PROBE PASS: LOSE does not dispatch configured level or VIP rewards
+M15_PROBE PASS: ineligible milestone is rejected without reward
+M15_PROBE PASS: eligible milestone grants once and records claim
+M15_PROBE PASS: milestone reward dispatch preserves progression independence
+M15_PROBE PASS: production navigation exposes the same economy authority
+M15_PROBE PASS: runtime selection reuses the shared bridge/economy
+M15_PROBE PASS: production normal target is L6 and VIP target is L8
+M15_PROBE PASS: combined owner-approved V06 HUD asset is active
+M15_PROBE PASS: combined R04 HUD uses exact 1.25 scale and source aspect ratio
+M15_PROBE PASS: obsolete procedural VIP card is absent
+M15_PROBE PASS: normal target uses canonical cocktail and authoritative 0/1 progress
+M15_PROBE PASS: normal reward remains Drink.order_reward
+M15_PROBE PASS: VIP target reuses canonical cocktail texture
+M15_PROBE PASS: normal and VIP cocktail slots share one scaling policy
+M15_PROBE PASS: panel-local progress and reward text scales exactly 1.25
+M15_PROBE PASS: VIP pending presentation shows 0/N and doubled reward
+M15_CAPTURE_UNAVAILABLE name=normal_vip_pending reason=HEADLESS_DISPLAY
+MERGE L8 +1000  COMBO x1 +0  (toplam: 1000)
+M15_PROBE PASS: newly merged VIP drink enters production capture
+VIP DELIVERY L8 +1/2 BONUS 6000 (toplam: 7000)
+M15_PROBE PASS: merged VIP receives exact 2x unit payout
+M15_PROBE PASS: first actual VIP delivery accumulates 1/2
+M15_PROBE PASS: VIP partial presentation shows 1/N without debug words
+M15_CAPTURE_UNAVAILABLE name=normal_vip_partial reason=HEADLESS_DISPLAY
+M15_PROBE PASS: stored VIP drink enters production capture
+VIP DELIVERY L8 +2/2 BONUS 6000 (toplam: 13000)
+M15_PROBE PASS: stored VIP receives exact 2x unit payout
+M15_PROBE PASS: second actual VIP delivery completes cumulative 2/2
+M15_PROBE PASS: VIP completed presentation replaces the fraction with a check mark
+M15_CAPTURE_UNAVAILABLE name=normal_vip_completed reason=HEADLESS_DISPLAY
+MERGE L8 +1000  COMBO x2 +250  (toplam: 14250)
+M15_PROBE PASS: extra VIP delivery after completion is idempotent
+M15_PROBE PASS: extra VIP delivery after completion pays zero
+M15_PROBE PASS: normal L6 enters its separate production capture
+TO-GO ORDER L6 +1000  (toplam: 15250)
+M15_PROBE PASS: normal L6 delivery remains 1x payout
+M15_PROBE PASS: normal progress reflects authoritative completed/required state
+M15_PROBE PASS: terminal result score includes VIP bonuses
+M15_PROBE PASS: normal WIN follows VIP completion and grants the configured upgrade once
+M15_PROBE PASS: repeated WIN resolution does not duplicate reward
+MERGE L6 +350  COMBO x1 +0  (toplam: 350)
+TO-GO ORDER L6 +1000  (toplam: 1350)
+M15_PROBE PASS: same-level normal delivery claims first
+M15_PROBE PASS: same-level later L6 remains protected while useful for mandatory L8
+M15_CAPTURE_UNAVAILABLE name=non_vip_0_of_0 reason=HEADLESS_DISPLAY
+M15_PROBE PASS: non-VIP keeps the combined panel visible
+M15_PROBE PASS: non-VIP shows persistent 0/0 with no VIP reward
+M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS
+EXIT_CODE=0

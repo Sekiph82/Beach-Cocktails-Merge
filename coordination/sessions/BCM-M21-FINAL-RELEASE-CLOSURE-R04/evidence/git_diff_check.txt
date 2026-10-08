@@ -1,0 +1,5 @@
+COMMAND: git diff --check
+WORKING_DIRECTORY: C:\Users\sekip\Desktop\Beach Cocktails - Merge
+STDOUT/STDERR:
+(no output)
+EXIT_CODE=0

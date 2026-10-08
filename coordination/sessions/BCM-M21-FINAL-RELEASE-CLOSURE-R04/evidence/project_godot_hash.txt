@@ -1,0 +1,15 @@
+R04 project.godot canonical hash evidence
+
+WORKING_DIRECTORY: C:\Users\sekip\Desktop\Beach Cocktails - Merge
+COMMAND: Get-FileHash project.godot -Algorithm SHA256
+SHA-256: DE79FF257F4F4BE0DBE01BECB574A3E502F9BF36F07CF662B293A4B6242D0267
+COMMAND: git rev-parse HEAD:project.godot
+Git blob ID (SHA-1): 15a168304d729108313be58563592d50da1f99bf
+COMMAND: git diff --exit-code -- project.godot
+STDOUT/STDERR: (no output)
+EXIT_CODE=0
+
+Canonical GameFeelFlow autoload: res://addons/game_feel_flow/core/game_feel_flow.gd
+UID sidecar: addons/game_feel_flow/core/game_feel_flow.gd.uid -> uid://ckhnfaf1odnpl
+
+Correction note: the R03 reconciliation note labeled Git blob ID 15a168304d729108313be58563592d50da1f99bf as a SHA-256 value. That is a Git SHA-1 blob ID. The canonical file SHA-256 is the value above, matching the R03 execution log. This R04 evidence corrects the metadata; historical R03 files were left immutable.

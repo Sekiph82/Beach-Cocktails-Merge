@@ -1,0 +1,68 @@
+R04 COMMAND INDEX
+
+Checkout: C:\Users\sekip\Desktop\Beach Cocktails - Merge
+Evidence capture note: each <name>.txt is an exact byte copy of the listed original R03 local .log. The original combined PowerShell stdout/stderr capture is unchanged, including its explicit EXIT_CODE line. `source_log_sha256.json` records matching SHA-256 values for each source/copy pair. Godot test commands used the synchronized R03 implementation/evidence checkout at c2ef88d; no test was rerun for this evidence-only task except `git diff --check`, whose original command log was unavailable.
+
+Exact command mapping (Godot tests are invoked from the repository root):
+
+M07
+- m07_r04_final_1.txt: godot_console.exe --path . --script tests/m07_r04_focused_probe.gd
+- m07_r05_current.txt: godot_console.exe --path . --script tests/m07_r05_hud_adaptation_probe.gd
+- m07_hud_composition_final_3.txt: godot_console.exe --headless --path . --script tests/m07_hud_composition_probe.gd
+- m07_r06_normal_final.txt: godot_console.exe --path . --script tests/m07_r06_owner_layout_probe.gd
+
+M08 (normal GL renderer; two consecutive source runs)
+- m08_normal_run_3.txt: godot_console.exe --path . --script tests/m08_to_go_delivery_probe.gd
+- m08_normal_run_4.txt: godot_console.exe --path . --script tests/m08_to_go_delivery_probe.gd
+
+Navigation and maps
+- r08_home_frontier.txt: godot_console.exe --headless --path . --script tests/m21_home_frontier_authority_r08_probe.gd
+- r09_world_map_run_1.txt: godot_console.exe --path . --script tests/m21_world_map_production_v05_probe.gd
+- r09_world_map_run_2.txt: godot_console.exe --path . --script tests/m21_world_map_production_v05_probe.gd
+- r07_page_focus.txt: godot_console.exe --headless --path . --script tests/m21_island_map_page_focus_r07_probe.gd
+- r07_node_visual.txt: godot_console.exe --path . --script tests/m21_island_map_node_visual_r07_probe.gd
+- r07_full_background.txt: godot_console.exe --path . --script tests/m21_island_map_full_background_followup_r01_probe.gd
+
+M18 and M20
+- m18_star_contract.txt: godot_console.exe --headless --path . --script tests/m18_star_contract_probe.gd
+- m18_replay.txt: godot_console.exe --headless --path . --script tests/m18_island_map_replay_probe.gd
+- m18_cumulative_rewards.txt: godot_console.exe --headless --path . --script tests/m18_cumulative_star_rewards_probe.gd
+- m18_reward_claim.txt: godot_console.exe --headless --path . --script tests/m18_cumulative_reward_claim_remediation_probe.gd
+- m20_app_shell.txt: godot_console.exe --headless --path . --script tests/m20_app_shell_probe.gd
+
+Progression, performance, and persistence
+- m21_full_progression.txt: godot_console.exe --headless --path . --script tests/m21_full_progression_probe.gd
+- m21_performance_profile_final.txt: godot_console.exe --headless --path . --script tests/m21_performance_profile_probe.gd
+- m21_release_persistence.txt: godot_console.exe --headless --path . --script tests/m21_release_persistence_probe.gd
+
+Accepted gameplay regression set
+- m01_contract_probe.txt: godot_console.exe --headless --path . --script tests/m01_contract_probe.gd
+- m02_physics_regression.txt: godot_console.exe --headless --path . --script tests/m02_physics_regression.gd
+- m03_economy_regression.txt: godot_console.exe --headless --path . --script tests/m03_economy_regression.gd
+- m09_audio_haptics_probe.txt: godot_console.exe --headless --path . --script tests/m09_audio_haptics_probe.gd
+- m13_island_map_probe.txt: godot_console.exe --headless --path . --script tests/m13_island_map_probe.gd
+- m14_gameplay_session_bridge_probe.txt: godot_console.exe --headless --path . --script tests/m14_gameplay_session_bridge_probe.gd
+- m15_vip_boosters_economy_probe.txt: godot_console.exe --headless --path . --script tests/m15_vip_boosters_economy_probe.gd
+- m21_r04_gameplay_surface_authority_probe.txt: godot_console.exe --headless --path . --script tests/m21_r04_gameplay_surface_authority_probe.gd
+
+Assets and Godot
+- asset_validation.txt: python tools/ui_assets/validate_assets.py
+- godot_import_parse.txt: godot_console.exe --headless --editor --path . --quit
+- godot_boot.txt: godot_console.exe --headless --path . --quit
+
+Missing original output, rerun for this closure
+- git_diff_check.txt: git diff --check
+  The original R03 command returned exit 0 as recorded in the R03 builder log, but no local .log file remained. This R04 exact rerun is captured separately with stdout/stderr and explicit exit code.
+
+Capture/copy integrity
+- Copy operation: PowerShell Copy-Item from each R03 evidence .log to same-basename R04 evidence .txt.
+- Hash command: Get-FileHash -Algorithm SHA256 for each source .log and copied .txt.
+- Result: 31 source logs copied; source and copy SHA-256 match for all 31 pairs.
+R04 metadata/evidence commands
+- project_godot_hash.txt: Get-FileHash project.godot -Algorithm SHA256; git rev-parse HEAD:project.godot; git diff --exit-code -- project.godot. Captured result is in the file; EXIT_CODE=0.
+- release_manifest_r04.json: metadata is read from the R03 audit, R03/R04 Git history, project.godot, scripts/campaign/save_manager.gd, and export_presets.cfg presence. Validation command: python -m json.tool coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/evidence/release_manifest_r04.json. EXIT_CODE=0.
+- source_log_sha256.json: source/copy digests were computed with Get-FileHash -Algorithm SHA256 after PowerShell Copy-Item. All 31 comparisons were equal; EXIT_CODE=0.
+- git_diff_check.txt: exact command and captured result are recorded in that file; EXIT_CODE=0.
+- final_git_proof.txt: exact Git identity/status commands and captured outputs are recorded in that file after the R04 evidence publication commit is pushed. Stash list is retained as output; no stash is needed to reproduce the current canonical working tree.
+
+COMMAND_INDEX.txt generation: PowerShell Set-Content from the R04 locked criteria command inventory. EXIT_CODE=0.

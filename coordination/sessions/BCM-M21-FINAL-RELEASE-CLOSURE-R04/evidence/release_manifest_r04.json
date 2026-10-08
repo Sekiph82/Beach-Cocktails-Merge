@@ -1,0 +1,29 @@
+{
+  "release": "Beach Cocktails Merge v1 final M21 closure",
+  "work_item": "BCM-M21-006-R04",
+  "branch": "main",
+  "product_baseline_sha": "8801136b18a502d08e5f03b1995f470ad5b1ecad",
+  "r03_implementation_evidence_sha": "c2ef88d772c8a5ae38a99f9c1b24e92eb09af2fe",
+  "r03_builder_handoff_sha": "7a00da5e5163e0e31e7e6a7ed621ce845413890d",
+  "r04_evidence_closure_sha": null,
+  "r04_evidence_closure_sha_note": "Recorded in CODEX_LOG_M21_FINAL_RELEASE_CLOSURE_R04.md to avoid manifest self-reference.",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "save_schema_version": 2,
+  "main_scene": "res://scenes/campaign/ApplicationShellScene.tscn",
+  "canonical_viewport": "720x1280",
+  "project_godot_sha256": "DE79FF257F4F4BE0DBE01BECB574A3E502F9BF36F07CF662B293A4B6242D0267",
+  "export_presets_file_present": false,
+  "export_status": "UNAVAILABLE_NO_EXPORT_PRESET",
+  "generated_distributable_artifacts": [],
+  "published_exact_r03_logs": 31,
+  "source_copy_sha256_verification": "ALL_MATCH",
+  "owner_accepted_product_surfaces_frozen": [
+    "Home", "World Map", "Sunny Cove Island Map", "Sunny Cove Back",
+    "Island Map page focus", "stars/mastery", "R04 gameplay surface",
+    "untimed campaign", "To-Go/VIP layout", "navigation round trip"
+  ],
+  "known_limitations": [
+    "No export_presets.cfg is present, so no distributable or signed package was generated.",
+    "Physical-device performance and native install/signing acceptance remain unverified owner-native gates."
+  ]
+}

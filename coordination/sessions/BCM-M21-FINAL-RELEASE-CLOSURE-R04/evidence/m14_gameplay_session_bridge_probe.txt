@@ -1,0 +1,70 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M14_PROBE PASS: M14 fixture loads in FULL validation
+M14_PROBE PASS: CampaignManager configures M14 fixture
+M14_PROBE PASS: GameplaySessionBridge configures with database and campaign
+M14_PROBE PASS: M13 selection identity enters exact session
+M14_PROBE PASS: session snapshot includes immutable level definition
+M14_PROBE PASS: session snapshot carries timer, orders, VIP, rewards, thresholds, flags
+M14_PROBE PASS: duplicate active session is rejected
+M14_PROBE PASS: locked level selection is rejected
+M14_PROBE PASS: canonical definition remains unchanged after snapshot
+M14_PROBE PASS: untimed session starts only after gameplay ready
+M14_PROBE PASS: untimed active session keeps zero timer
+M14_PROBE PASS: legitimate pause preserves untimed session
+M14_PROBE PASS: paused untimed session remains zero
+M14_PROBE PASS: resume restores active timer
+M14_PROBE PASS: background pause preserves untimed session
+M14_PROBE PASS: background-paused timer does not drain
+M14_PROBE PASS: background resume restores untimed session
+M14_PROBE PASS: GameplaySessionBridge configures with database and campaign
+M14_PROBE PASS: one simulated hour never resolves an untimed LOSE
+M14_PROBE PASS: untimed tick remains stable
+M14_PROBE PASS: untimed session does not advance progression
+M14_PROBE PASS: GameplaySessionBridge configures with database and campaign
+M14_PROBE PASS: normal quantity ledger starts at 2xL6 then L7
+M14_PROBE PASS: stored qualifying L6 can satisfy a later campaign order
+M14_PROBE PASS: second quantity is required before advancing order
+M14_PROBE PASS: incomplete VIP never blocks normal WIN
+M14_PROBE PASS: score-only completion cannot earn three stars
+M14_PROBE PASS: WIN progression is submitted exactly once
+M14_PROBE PASS: WIN stops timer
+M14_PROBE PASS: CampaignManager configures M14 fixture
+M14_PROBE PASS: GameplaySessionBridge configures with database and campaign
+M14_PROBE PASS: VIP completion with insufficient three-star score earns two stars
+M14_PROBE PASS: GameplaySessionBridge configures with database and campaign
+M14_PROBE PASS: VIP completion with three-star score earns three stars
+M14_PROBE PASS: GameplaySessionBridge configures with database and campaign
+M14_PROBE PASS: plain normal completion earns one star
+M14_PROBE PASS: Retry creates a fresh READY session from original definition
+M14_PROBE PASS: worse replay cannot lower best score or stars
+M14_PROBE PASS: Next Level resolves only an unlocked next level
+M14_PROBE PASS: next-level session starts with clean objective/untimed state
+M14_PROBE PASS: Island Map return preserves exact island boundary
+M14_PROBE PASS: configured app entry is the reusable application shell
+M14_PROBE PASS: configured entry owns the real M13 navigation host
+M14_PROBE PASS: M13 navigation host configures exact fixture campaign
+M14_PROBE PASS: navigation owns one reusable map pair
+M14_PROBE PASS: real M12 World Map selection enters the exact M13 Island Map
+M14_PROBE PASS: M13 level selection launches existing gameplay scene through M14
+M14_PROBE PASS: production selection enters GAMEPLAY with one instance
+M14_PROBE PASS: production gameplay pause hook pauses the active bridge
+M14_PROBE PASS: production gameplay pause hook freezes the timer
+M14_PROBE PASS: production gameplay resume hook resumes the active bridge
+M14_PROBE PASS: production gameplay resume hook keeps untimed session stable
+M14_PROBE PASS: production application pause notification freezes the bridge timer
+M14_PROBE PASS: production application resume notification resumes untimed gameplay
+M14_PROBE PASS: pre-existing user pause survives application resume
+M14_PROBE PASS: terminal gameplay is not resumed by application lifecycle
+M14_PROBE PASS: Retry path is bounded and does not duplicate gameplay
+M14_PROBE PASS: Retry remains the same exact level
+M14_PROBE PASS: Island Map path returns through bridge boundary
+M14_PROBE PASS: Island Map return has no duplicate gameplay instance
+M14_PROBE PASS: final canonical definition remains unchanged
+M14_GAMEPLAY_SESSION_BRIDGE_RESULT=PASS
+EXIT_CODE=0
