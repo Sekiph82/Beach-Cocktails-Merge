@@ -817,3 +817,39 @@ Required stop marker:
 
 M22 remains blocked until R04 passes independent audit.
 
+## BCM-M21 final closure / M22 gate — 2026-10-08
+
+Final M21 independent audit:
+`coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_AUDIT_R04.md`
+
+Verdict:
+`AUDITED_PASS / BCM-M21 COMPLETE`
+
+Closed:
+- BCM-M21-001 owner runtime/navigation acceptance;
+- BCM-M21-006 final technical/evidence/release closure;
+- M07 current HUD regression authority;
+- M08 clean process exit twice;
+- R09 real mouse/touch navigation twice;
+- R07/R08/M18/M20 current campaign regressions;
+- fresh L1→L100 progression and Tiki unlock;
+- host performance/stability and save/restart evidence;
+- canonical project.godot reconciliation;
+- final release evidence publication.
+
+Recorded limitations remain truthful:
+- no export_presets.cfg;
+- no distributable/signed package;
+- physical-device performance unverified;
+- native install/signing unverified.
+
+Next canonical milestone:
+`BCM-M22`
+
+Next canonical task:
+`BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.`
+
+Before any M22 production effect work, ChatGPT must publish the locked M22-001 prompt and audit criteria. Exact installed GameFeelFlow/Saltmire Spark repository bytes override historical/public planning shorthand.
+
+Economy Draft V01 remains inactive unless the owner explicitly activates it.
+
