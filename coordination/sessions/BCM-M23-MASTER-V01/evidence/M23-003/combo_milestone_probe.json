@@ -1,0 +1,106 @@
+{
+	"active_live_particles_after_cancel": 0,
+	"chain_sequence": [
+		{
+			"chain": 1,
+			"gained": 6500,
+			"passed": true,
+			"spark_amount": 10,
+			"spark_lifetime": 0.28
+		},
+		{
+			"chain": 2,
+			"gained": 8125,
+			"passed": true,
+			"spark_amount": 10,
+			"spark_lifetime": 0.28
+		},
+		{
+			"chain": 3,
+			"gained": 9750,
+			"passed": true,
+			"spark_amount": 10,
+			"spark_lifetime": 0.3
+		},
+		{
+			"chain": 4,
+			"gained": 11375,
+			"passed": true,
+			"spark_amount": 10,
+			"spark_lifetime": 0.3
+		},
+		{
+			"chain": 5,
+			"gained": 13000,
+			"passed": true,
+			"spark_amount": 18,
+			"spark_lifetime": 0.35
+		},
+		{
+			"chain": 6,
+			"gained": 14625,
+			"passed": true,
+			"spark_amount": 18,
+			"spark_lifetime": 0.35
+		}
+	],
+	"chain_total_score": 63375,
+	"checks": 28,
+	"diagnostics": [],
+	"failures": [],
+	"live_particle_ceiling": 48,
+	"owner_visual_status": "PENDING_OWNER_VISUAL_EVIDENCE",
+	"probe": "BCM-M23-003",
+	"score_milestone_spark_particles": 0,
+	"threshold_events": [
+		{
+			"event_id": "score-milestone:m23-003-threshold-session-A:two_stars",
+			"milestone": "two_stars",
+			"score": 100,
+			"threshold": 100
+		},
+		{
+			"event_id": "score-milestone:m23-003-threshold-session-A:three_stars",
+			"milestone": "three_stars",
+			"score": 250,
+			"threshold": 250
+		},
+		{
+			"event_id": "score-milestone:m23-003-threshold-session-A:prior_best",
+			"milestone": "prior_best",
+			"score": 1001,
+			"threshold": 1001
+		},
+		{
+			"event_id": "score-milestone:m23-003-threshold-session-B-retry:two_stars",
+			"milestone": "two_stars",
+			"score": 250,
+			"threshold": 100
+		},
+		{
+			"event_id": "score-milestone:m23-003-threshold-session-B-retry:three_stars",
+			"milestone": "three_stars",
+			"score": 250,
+			"threshold": 250
+		},
+		{
+			"event_id": "score-milestone:m23-003-vip-threshold:two_stars",
+			"milestone": "two_stars",
+			"score": 250,
+			"threshold": 100
+		},
+		{
+			"event_id": "score-milestone:m23-003-vip-threshold:three_stars",
+			"milestone": "three_stars",
+			"score": 250,
+			"threshold": 250
+		},
+		{
+			"event_id": "score-milestone:m23-003-reduced:prior_best",
+			"milestone": "prior_best",
+			"score": 1,
+			"threshold": 1
+		}
+	],
+	"visual_capture_count": 0
+}

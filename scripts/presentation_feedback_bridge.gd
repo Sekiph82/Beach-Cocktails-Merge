@@ -114,7 +114,7 @@ func _on_semantic_requested(request: Dictionary) -> void:
 	if not _production_dispatch_enabled:
 		return
 	var kind := str(request.get("kind", ""))
-	if not ["cocktail_launch", "table_contact", "merge"].has(kind):
+	if not ["cocktail_launch", "table_contact", "merge", "score_mastery"].has(kind):
 		return
 	var payload: Dictionary = request.get("payload", {})
 	var target_value: Variant = payload.get("presentation_target", null)
@@ -122,7 +122,11 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		_no_op("production_target_missing")
 		return
 	var mode := _presentation_mode
-	var plan := _micro_plan(kind, mode) if kind != "merge" else _merge_plan(mode, payload)
+	var plan := _micro_plan(kind, mode)
+	if kind == "merge":
+		plan = _merge_plan(mode, payload)
+	elif kind == "score_mastery":
+		plan = _score_milestone_plan(mode)
 	_dispatch_plan(request, target_value as Node, plan, false)
 
 
@@ -186,6 +190,15 @@ func _merge_plan(mode: String, payload: Dictionary) -> Dictionary:
 		result["spark_preset"] = "hit"
 		result["spark_overrides"] = {"amount": amount, "lifetime": lifetime, "speed": speed}
 	return result
+
+
+func _score_milestone_plan(mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	return {
+		"mode": mode,
+		"gff_effect": "color" if reduced else "punch_scale",
+		"gff_params": {"duration": 0.10 if reduced else 0.20},
+	}
 
 
 func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture: bool) -> bool:

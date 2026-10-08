@@ -101,8 +101,8 @@ func stop_by_target(node: Node) -> void:
 		var i := queue.size() - 1
 		while i >= 0:
 			var entry = queue[i]
-			var entry_target: Node = entry.get("target")
-			if is_instance_valid(entry_target) and _is_target_under_node(entry_target, node):
+			var entry_target: Variant = entry.get("target")
+			if is_instance_valid(entry_target) and entry_target is Node and _is_target_under_node(entry_target, node):
 				queue.remove_at(i)
 			i -= 1
 		if queue.is_empty():
@@ -110,8 +110,8 @@ func stop_by_target(node: Node) -> void:
 
 	var ids_to_stop: Array[String] = []
 	for effect_id in _active_effects.keys():
-		var effect_target: Node = _active_targets.get(effect_id)
-		if is_instance_valid(effect_target) and _is_target_under_node(effect_target, node):
+		var effect_target: Variant = _active_targets.get(effect_id)
+		if is_instance_valid(effect_target) and effect_target is Node and _is_target_under_node(effect_target, node):
 			ids_to_stop.append(effect_id)
 
 	for effect_id in ids_to_stop:

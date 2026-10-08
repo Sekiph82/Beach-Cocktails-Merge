@@ -147,6 +147,7 @@ var _vip_target_transition := false
 var _vip_target_drink: Drink
 var _startup_target_index := 0
 var _order_sequence := 0
+var _score_milestones_emitted: Dictionary = {}
 var campaign_session_bridge
 var presentation_reduced_motion := false
 var presentation_high_contrast := false
@@ -219,6 +220,7 @@ func configure_campaign_session(bridge) -> bool:
 	if campaign_session_bridge != null and campaign_session_bridge.has_signal("normal_delivery_recorded") and campaign_session_bridge.normal_delivery_recorded.is_connected(_on_normal_delivery_recorded):
 		campaign_session_bridge.normal_delivery_recorded.disconnect(_on_normal_delivery_recorded)
 	campaign_session_bridge = bridge
+	_score_milestones_emitted.clear()
 	if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
 		campaign_session_bridge.session_terminal.connect(_on_campaign_session_terminal)
 	if campaign_session_bridge.has_signal("vip_state_changed") and not campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):
@@ -899,9 +901,65 @@ func set_next_level(p_level: int) -> void:
 func _add_score(points: int) -> void:
 	if game_over or (campaign_session_bridge != null and campaign_session_bridge.is_terminal()) or points <= 0:
 		return
+	var previous_score := score
+	var previous_best := best_score
 	score += points
 	if score > best_score:
 		best_score = score
+	_emit_score_threshold_crossings(previous_score, previous_best)
+
+
+func _emit_score_threshold_crossings(previous_score: int, previous_best: int, allow_eligible_three_star: bool = false) -> void:
+	if score > previous_best and previous_score <= previous_best:
+		_emit_score_milestone("prior_best", previous_best + 1, _best_value)
+	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		return
+	var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
+	var thresholds: Variant = configuration.get("score_star_thresholds", {})
+	if not thresholds is Dictionary:
+		return
+	var two_star_threshold := int(thresholds.get("two_stars", 0))
+	if two_star_threshold > 0 and previous_score < two_star_threshold and score >= two_star_threshold:
+		_emit_score_milestone("two_stars", two_star_threshold, _score_value)
+	var three_star_threshold := int(thresholds.get("three_stars", 0))
+	var crossed_three_stars := previous_score < three_star_threshold and score >= three_star_threshold
+	var eligible_recheck := allow_eligible_three_star and score >= three_star_threshold
+	if three_star_threshold > 0 and (crossed_three_stars or eligible_recheck) and _three_star_threshold_is_eligible(configuration):
+		_emit_score_milestone("three_stars", three_star_threshold, _score_value)
+
+
+func _three_star_threshold_is_eligible(configuration: Dictionary) -> bool:
+	var vip_configuration: Variant = configuration.get("vip", null)
+	if not vip_configuration is Dictionary or vip_configuration.is_empty():
+		return true
+	if not campaign_session_bridge.has_method("get_vip_state"):
+		return false
+	var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
+	return not bool(vip_state.get("enabled", false)) or bool(vip_state.get("completed", false))
+
+
+func _emit_score_milestone(milestone: String, threshold: int, target: Variant) -> bool:
+	if _score_milestones_emitted.has(milestone) or not is_instance_valid(target):
+		return false
+	var session_id := str(feedback_service.session_context.get("session_id", "")) if feedback_service != null else ""
+	if session_id.is_empty():
+		session_id = "game-manager-%d" % get_instance_id()
+	var payload := {
+		"milestone": milestone,
+		"threshold": threshold,
+		"score": score,
+		"best_score": best_score,
+		"presentation_target": target,
+	}
+	var emitted: bool = feedback_service != null and feedback_service.request_semantic(
+		"score_mastery",
+		payload,
+		"score-milestone:%s:%s" % [session_id, milestone],
+		{"source": "game_manager"}
+	)
+	if emitted:
+		_score_milestones_emitted[milestone] = true
+	return emitted
 
 
 func on_merged(new_level: int, merged_drink: Drink) -> void:
@@ -1160,12 +1218,14 @@ func _build_ui() -> void:
 	_best_panel = _make_panel("BestScorePanel", "res://assets/ui/panel_best_score.png", best_rect)
 	_hud.add_child(_best_panel)
 	_best_value = _make_panel_value(_best_panel, _score_display_text(best_score), BEST_SCORE_FIXED_FONT_SIZE, 0.68)
+	_best_value.add_to_group("presentation_effect_target")
 
 	# SCORE follows the owner-approved right-side composition, below/near the
 	# NEXT panel. It remains a HUD-only node and never enters board geometry.
 	_score_panel = _make_panel("ScorePanel", "res://assets/ui/panel_score.png", score_rect)
 	_hud.add_child(_score_panel)
 	_score_value = _make_panel_value(_score_panel, _score_display_text(score), SCORE_FIXED_FONT_SIZE, 0.68)
+	_score_value.add_to_group("presentation_effect_target")
 
 	var logo_rect := Rect2(20.0 * ui_scale, 0.0, 136.0 * ui_scale, 188.0 * ui_scale)
 	var logo_path := "res://assets/ui_assets/brand/logo_beach_cocktails_merge.png"
@@ -1765,6 +1825,8 @@ func _finish_vip_target() -> void:
 		# mismatched, paused, and already-completed attempts score-neutral.
 		var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
 		var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
+		if accepted > 0 and bool(result.get("vip_completed", false)):
+			_emit_score_threshold_crossings(score, best_score, true)
 		var vip_bonus := VIP_DELIVERY_MULTIPLIER * Drink.order_reward(delivered_level) * accepted
 		if vip_bonus > 0:
 			_add_score(vip_bonus)
