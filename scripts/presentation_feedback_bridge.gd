@@ -7,6 +7,7 @@ extends Node
 const CONTRACT_SCRIPT := preload("res://scripts/presentation_plugin_contract.gd")
 const POLICY_SCRIPT := preload("res://scripts/presentation_effect_policy.gd")
 const MAX_DIAGNOSTICS := 16
+const MAX_ACTIVE_GFF_OUTPUTS := 128
 const FIXTURE_TARGET_GROUP := "m22_test_presentation_target"
 
 var _contract: PresentationPluginContract
@@ -16,7 +17,7 @@ var _production_dispatch_enabled := false
 var _presentation_mode := "FULL"
 var _diagnostics: Array[String] = []
 var _active_gff_outputs: Array[Dictionary] = []
-var _active_spark_outputs: Array[Node] = []
+var _active_spark_outputs: Array[Dictionary] = []
 var dispatch_count := 0
 var no_op_count := 0
 
@@ -70,7 +71,8 @@ func cancel_presentation() -> void:
 		if is_instance_valid(plugin) and plugin.has_method("stop") and is_instance_valid(target):
 			plugin.call("stop", target)
 	_active_gff_outputs.clear()
-	for plugin in _active_spark_outputs:
+	for output in _active_spark_outputs:
+		var plugin: Variant = output.get("plugin")
 		if is_instance_valid(plugin) and plugin.has_method("clear"):
 			plugin.call("clear")
 	_active_spark_outputs.clear()
@@ -112,7 +114,7 @@ func _on_semantic_requested(request: Dictionary) -> void:
 	if not _production_dispatch_enabled:
 		return
 	var kind := str(request.get("kind", ""))
-	if not ["cocktail_launch", "table_contact"].has(kind):
+	if not ["cocktail_launch", "table_contact", "merge"].has(kind):
 		return
 	var payload: Dictionary = request.get("payload", {})
 	var target_value: Variant = payload.get("presentation_target", null)
@@ -120,7 +122,7 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		_no_op("production_target_missing")
 		return
 	var mode := _presentation_mode
-	var plan := _micro_plan(kind, mode)
+	var plan := _micro_plan(kind, mode) if kind != "merge" else _merge_plan(mode, payload)
 	_dispatch_plan(request, target_value as Node, plan, false)
 
 
@@ -152,6 +154,40 @@ func _micro_plan(kind: String, mode: String) -> Dictionary:
 	return result
 
 
+func _merge_plan(mode: String, payload: Dictionary) -> Dictionary:
+	var chain := maxi(1, int(payload.get("chain", 1)))
+	var reduced := mode == "REDUCED"
+	var amount := 0
+	var lifetime := 0.0
+	var speed := 0.0
+	var duration := 0.10
+	if not reduced:
+		if chain >= 5:
+			amount = 18
+			lifetime = 0.35
+			speed = 105.0
+			duration = 0.25
+		elif chain >= 3:
+			amount = 10
+			lifetime = 0.30
+			speed = 90.0
+			duration = 0.22
+		else:
+			amount = 10
+			lifetime = 0.28
+			speed = 90.0
+			duration = 0.22
+	var result := {
+		"mode": mode,
+		"gff_effect": "color" if reduced else "punch_scale",
+		"gff_params": {"duration": duration},
+	}
+	if amount > 0:
+		result["spark_preset"] = "hit"
+		result["spark_overrides"] = {"amount": amount, "lifetime": lifetime, "speed": speed}
+	return result
+
+
 func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture: bool) -> bool:
 	if not _valid_request(request):
 		return _no_op("unknown_semantic_kind")
@@ -160,7 +196,11 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 	if _policy == null:
 		_policy = POLICY_SCRIPT.new()
 	var mode := str(plan.get("mode", "FULL"))
-	var policy_result: Dictionary = _policy.validate_dispatch(request, mode, plan)
+	_prune_expired_gff_outputs()
+	_prune_expired_spark_outputs()
+	var validation_plan := plan.duplicate(true)
+	validation_plan["active_live_particles"] = _active_spark_particle_count()
+	var policy_result: Dictionary = _policy.validate_dispatch(request, mode, validation_plan)
 	if not bool(policy_result.get("ok", false)):
 		return _no_op("policy:%s" % str(policy_result.get("reason", "invalid")))
 	var effect_name := str(plan.get("gff_effect", ""))
@@ -181,20 +221,31 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 			return _no_op("spark_overrides_invalid")
 	# Preflight all requested components before invoking either plugin.
 	if has_effect:
+		if _active_gff_outputs.size() >= MAX_ACTIVE_GFF_OUTPUTS:
+			return _no_op("gff_output_capacity")
 		var gff_args: Array = [effect_name, target]
 		if gff_params_value is Dictionary and not gff_params_value.is_empty():
 			gff_args.append(gff_params_value.duplicate(true))
 		var result: Variant = _contract.game_feel_flow.callv("play", gff_args)
 		if result is bool and not result:
 			return _no_op("gff_call_failed")
-		_active_gff_outputs.append({"plugin": _contract.game_feel_flow, "target": target})
+		var effect_duration := float(gff_params_value.get("duration", 0.30)) if gff_params_value is Dictionary else 0.30
+		_active_gff_outputs.append({
+			"plugin": _contract.game_feel_flow,
+			"target": target,
+			"expires_at_ms": Time.get_ticks_msec() + int(ceil(maxf(effect_duration, 0.25) * 1000.0)),
+		})
 	if has_spark:
 		var position := _target_global_position(target)
 		var result: Variant = _contract.spark.callv("burst", [position, spark_options])
 		if result is bool and not result:
 			cancel_presentation()
 			return _no_op("spark_call_failed")
-		_active_spark_outputs.append(_contract.spark)
+		_active_spark_outputs.append({
+			"plugin": _contract.spark,
+			"amount": int(spark_options.get("amount", 0)),
+			"expires_at_ms": Time.get_ticks_msec() + int(ceil(float(spark_options.get("lifetime", 0.0)) * (1.0 + maxf(float(spark_options.get("lifetime_rand", 0.0)), 0.0)) * 1000.0)),
+		})
 	dispatch_count += 1
 	return true
 
@@ -232,6 +283,27 @@ func _build_spark_options(preset_name: String, overrides_value: Variant, kind: S
 	if not _is_finite_number(speed_value) or float(speed_value) < 0.0 or float(speed_value) > float(policy_budget.max_speed):
 		return {}
 	return merged
+
+
+func _prune_expired_spark_outputs() -> void:
+	var now := Time.get_ticks_msec()
+	for index in range(_active_spark_outputs.size() - 1, -1, -1):
+		if now >= int(_active_spark_outputs[index].get("expires_at_ms", 0)):
+			_active_spark_outputs.remove_at(index)
+
+
+func _prune_expired_gff_outputs() -> void:
+	var now := Time.get_ticks_msec()
+	for index in range(_active_gff_outputs.size() - 1, -1, -1):
+		if now >= int(_active_gff_outputs[index].get("expires_at_ms", 0)):
+			_active_gff_outputs.remove_at(index)
+
+
+func _active_spark_particle_count() -> int:
+	var total := 0
+	for output in _active_spark_outputs:
+		total += int(output.get("amount", 0))
+	return total
 
 
 func _valid_request(request: Dictionary) -> bool:

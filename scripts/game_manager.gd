@@ -72,7 +72,6 @@ const TO_GO_NORMAL_TARGET_CENTER_SOURCE := Vector2(358.0, 665.0)
 const TO_GO_VIP_TARGET_CENTER_SOURCE := Vector2(358.0, 1254.0)
 const TO_GO_COCKTAIL_MAX_DIMENSION := 60.0
 const TO_GO_TRAIL_TEXTURE_PATH := "res://assets/effects/to_go_trail.png"
-const MERGE_GLOW_TEXTURE_PATH := "res://assets/effects/merge_glow.png"
 const STARTUP_TO_GO_TARGETS := [5, 6, 7]
 const FEEDBACK_SERVICE_SCRIPT := preload("res://scripts/feedback_service.gd")
 const PRESENTATION_FEEDBACK_BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
@@ -922,13 +921,13 @@ func on_merged(new_level: int, merged_drink: Drink) -> void:
 	_add_score(gained)
 
 	_refresh_hud()
-	_juice_effect(merged_drink.position)
 	feedback_service.emit_merge(merged_drink, {
 		"level": new_level,
 		"chain": chain,
 		"score_delta": gained,
 		"score": score,
 		"position": merged_drink.global_position,
+		"presentation_target": merged_drink.get_node_or_null("Visual"),
 	})
 
 	print("MERGE L%d +%d  COMBO x%d +%d  (toplam: %d)" % [new_level, base, chain, combo_bonus, score])
@@ -1011,6 +1010,8 @@ func _game_over() -> void:
 		return
 
 	game_over = true
+	if presentation_feedback_bridge != null:
+		presentation_feedback_bridge.cancel_presentation()
 	_clear_terminal_world_visuals()
 	merge_queue.clear()
 	shot_controller.stop_shooting()
@@ -1954,35 +1955,6 @@ func _order_completion_feedback() -> void:
 	tween.tween_property(flash, "color:a", 0.42, 0.08)
 	tween.tween_property(flash, "color:a", 0.0, 0.24)
 	tween.tween_callback(flash.queue_free)
-
-
-func _juice_effect(pos: Vector2) -> void:
-	var effect_root := Node2D.new()
-	effect_root.name = "MergeFeedback"
-	effect_root.add_to_group("campaign_transient_world_effect")
-	effect_root.position = pos
-	effect_root.z_index = 12
-	world.add_child(effect_root)
-
-	var glow := Sprite2D.new()
-	glow.name = "MergeGlow"
-	glow.texture = load(MERGE_GLOW_TEXTURE_PATH)
-	glow.scale = Vector2.ONE * 0.055
-	glow.modulate = Color(1.0, 0.82, 0.35, 0.58)
-	effect_root.add_child(glow)
-
-	var flash := Polygon2D.new()
-	flash.polygon = Drink._circle_points(28.0, 20)
-	flash.color = Color(1.0, 0.92, 0.45, 0.8)
-	effect_root.add_child(flash)
-
-	var tween := create_tween()
-	tween.set_parallel(true)
-	tween.tween_property(glow, "scale", Vector2.ONE * 0.13, 0.22)
-	tween.tween_property(glow, "modulate:a", 0.0, 0.22)
-	tween.tween_property(flash, "scale", Vector2(2.4, 1.8), 0.22)
-	tween.tween_property(flash, "modulate:a", 0.0, 0.22)
-	tween.chain().tween_callback(effect_root.queue_free)
 
 
 func _draw() -> void:
