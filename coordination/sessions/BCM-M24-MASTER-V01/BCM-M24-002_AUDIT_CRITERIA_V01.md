@@ -1,0 +1,2 @@
+# M24-002 Locked Criteria
+order_complete only authoritative incomplete→complete with stable token; suppress on immediate WIN, don't stack existing _order_completion_feedback flash. Replace redundant flourish only after identical authoritative behavior. FULL <=16/0.45s, REDUCED <=4 particles, no spring/camera. Audit score, reward, completion, restart, teardown and color restoration. Provide real renderer FULL/REDUCED evidence; no owner signoff claim.
