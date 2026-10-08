@@ -174,13 +174,17 @@ func _disconnect_feedback_service() -> void:
 
 func _on_semantic_requested(request: Dictionary) -> void:
 	var kind := str(request.get("kind", ""))
-	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete"].has(kind):
+	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete", "vip_delivery", "vip_complete"].has(kind):
+		return
+	var payload: Dictionary = request.get("payload", {})
+	if kind == "vip_delivery" and int(payload.get("accepted", 0)) <= 0:
+		return
+	if kind == "vip_complete" and not bool(payload.get("completed_transition", false)):
 		return
 	var trace_id := _begin_visual_trace(request)
 	if not _production_dispatch_enabled:
 		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "production_dispatch_disabled"})
 		return
-	var payload: Dictionary = request.get("payload", {})
 	var target_value: Variant = payload.get("presentation_target", null)
 	if not target_value is Node or not is_instance_valid(target_value):
 		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "production_target_missing"})
@@ -196,6 +200,10 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		plan = _order_progress_plan(mode)
 	elif kind == "order_complete":
 		plan = _order_complete_plan(mode)
+	elif kind == "vip_delivery":
+		plan = _vip_delivery_plan(mode, payload)
+	elif kind == "vip_complete":
+		plan = _vip_complete_plan(mode)
 	_update_visual_trace(trace_id, {
 		"target": _canvas_item_snapshot(target_value as Node),
 		"plan": plan.duplicate(true),
@@ -332,6 +340,50 @@ func _order_complete_plan(mode: String) -> Dictionary:
 			"size_end": 1.0,
 			"color": Color(1.0, 0.80, 0.38, 0.96),
 			"color2": SPARK_COLOR_END,
+		}
+	return result
+
+
+func _vip_delivery_plan(mode: String, payload: Dictionary) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	var result := {
+		"mode": mode,
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10 if reduced else 0.20, "color": REDUCED_TINT if reduced else Color(0.68, 0.90, 1.0, 1.0)},
+	}
+	# When this accepted delivery also completes VIP, the completion event owns
+	# the single premium burst; the delivery cue remains a brief local tint.
+	if not reduced and not bool(payload.get("completed_transition", false)):
+		result["spark_preset"] = "pickup"
+		result["spark_overrides"] = {
+			"amount": 10,
+			"lifetime": 0.30,
+			"speed": 76.0,
+			"size": 4.0,
+			"size_end": 1.0,
+			"color": Color(0.44, 0.82, 0.96, 0.96),
+			"color2": Color(0.96, 0.82, 0.48, 0.0),
+		}
+	return result
+
+
+func _vip_complete_plan(mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	var result := {
+		"mode": mode,
+		"gff_effect": "color" if reduced else "punch_scale",
+		"gff_params": {"duration": 0.12, "color": REDUCED_TINT} if reduced else {"duration": 0.38, "intensity": 0.42},
+	}
+	if not reduced:
+		result["spark_preset"] = "pickup"
+		result["spark_overrides"] = {
+			"amount": 20,
+			"lifetime": 0.55,
+			"speed": 90.0,
+			"size": 4.75,
+			"size_end": 1.0,
+			"color": Color(0.44, 0.82, 0.96, 0.96),
+			"color2": Color(0.96, 0.82, 0.48, 0.0),
 		}
 	return result
 

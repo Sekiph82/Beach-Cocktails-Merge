@@ -1837,6 +1837,7 @@ func _finish_vip_target() -> void:
 	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
 		# Record acceptance before paying the premium. This keeps rejected,
 		# mismatched, paused, and already-completed attempts score-neutral.
+		var vip_was_completed := bool(campaign_session_bridge.get_vip_state().get("completed", false))
 		var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
 		var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
 		if accepted > 0 and bool(result.get("vip_completed", false)):
@@ -1851,9 +1852,11 @@ func _finish_vip_target() -> void:
 		if accepted > 0:
 			var vip_event_token := "%s:%d" % [str(campaign_session_bridge.active_island_id), int(result.get("delivered", 0))]
 			var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
-			feedback_service.emit_vip_delivery(vip_event_token, {"level": delivered_level, "accepted": accepted, "bonus": vip_bonus, "state": vip_state})
-			if bool(result.get("vip_completed", false)):
-				feedback_service.emit_vip_complete(vip_event_token, vip_state)
+			var vip_completed_now := not vip_was_completed and bool(result.get("vip_completed", false))
+			var vip_feedback := {"level": delivered_level, "accepted": accepted, "bonus": vip_bonus, "state": vip_state, "completed_transition": vip_completed_now, "presentation_target": _vip_progress_label}
+			feedback_service.emit_vip_delivery(vip_event_token, vip_feedback)
+			if vip_completed_now:
+				feedback_service.emit_vip_complete(vip_event_token, vip_feedback)
 		print("VIP DELIVERY L%d +%d/%d BONUS %d (toplam: %d)" % [delivered_level, int(result.get("delivered", 0)), int(result.get("required", result.get("delivered", 0) + result.get("remaining", 0))), vip_bonus, score])
 
 	_vip_target_transition = false
