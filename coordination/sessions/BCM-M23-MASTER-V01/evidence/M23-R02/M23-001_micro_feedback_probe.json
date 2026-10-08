@@ -1,0 +1,38 @@
+{
+	"bridge_dispatch_count": 5,
+	"bridge_no_op_count": 3,
+	"checks": 28,
+	"contact_cooldown_ms": 120,
+	"contact_wait_elapsed_ms": 131,
+	"diagnostics": [
+		"gff_effect_unavailable:color",
+		"gff_call_failed",
+		"spark_call_failed"
+	],
+	"drink_launch_velocity_after_presentation": [
+		0.0,
+		-662.748962402344
+	],
+	"failures": [],
+	"gff_effects": [
+		"punch_scale",
+		"color",
+		"color",
+		"color",
+		"color",
+		"color",
+		"color"
+	],
+	"launch_velocity": [
+		0.0,
+		-700.0
+	],
+	"meaningful_contact_event_count": 1,
+	"owner_visual_status": "PENDING_OWNER_VISUAL_EVIDENCE",
+	"probe": "BCM-M23-001",
+	"reduced_spark_dispatches": 0,
+	"same_level_merge_contact_feedback_events": 1,
+	"semantic_requests": 8,
+	"spark_dispatches": 5,
+	"visual_capture_count": 0
+}

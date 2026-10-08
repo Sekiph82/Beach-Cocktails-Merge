@@ -1,0 +1,184 @@
+{
+	"camera_shake_enabled": false,
+	"combo_calls_allowed": false,
+	"forbidden": [
+		"impulse",
+		"velocity",
+		"freeze_frame",
+		"time_scale",
+		"camera_flash",
+		"camera_shake"
+	],
+	"policy_mappings": {
+		"cocktail_launch": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"game_fail": {
+			"full": [
+				"alpha",
+				"color"
+			],
+			"reduced": [
+				"alpha",
+				"color"
+			]
+		},
+		"game_success": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"island_complete": {
+			"full": [
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"island_milestone": {
+			"full": [
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"island_unlock": {
+			"full": [
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"level_unlock": {
+			"full": [
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"merge": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"order_complete": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"order_progress": {
+			"full": [
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"reward_granted": {
+			"full": [
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"score_mastery": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"table_contact": {
+			"full": [
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"ui_primary": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"vip_complete": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		},
+		"vip_delivery": {
+			"full": [
+				"punch_scale",
+				"color",
+				"alpha"
+			],
+			"reduced": [
+				"color",
+				"alpha"
+			]
+		}
+	},
+	"result": "PASS",
+	"root_or_physics_targets_allowed": false
+}

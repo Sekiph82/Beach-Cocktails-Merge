@@ -1,0 +1,479 @@
+[
+  {
+    "active_particles_before": 0,
+    "capabilities": {
+      "game_feel_flow_methods": {
+        "get_combo": true,
+        "get_combo_names": true,
+        "get_effect": true,
+        "get_effect_names": true,
+        "play": true,
+        "play_combo": true,
+        "play_global": true,
+        "resolve_combo": true,
+        "stop": true,
+        "stop_all": true
+      },
+      "game_feel_flow_present": true,
+      "game_feel_flow_ready": true,
+      "generation": 1,
+      "spark_methods": {
+        "at": true,
+        "burst": true,
+        "clear": true
+      },
+      "spark_present": true,
+      "spark_ready": true
+    },
+    "dispatch_completed_ms": 8116,
+    "dispatch_gate": "enabled",
+    "event_id": "launch:122154913691",
+    "frames_drawn_at_dispatch": 283,
+    "frames_drawn_at_trigger": 283,
+    "gff_active_effect_count": 1,
+    "gff_call": {
+      "effect": "punch_scale",
+      "invoked": true,
+      "params": {
+        "duration": 0.14
+      },
+      "returned": "<GDScriptFunctionState#-9223371907737317145>",
+      "started_ms": 8115
+    },
+    "kind": "cocktail_launch",
+    "mode": "FULL",
+    "payload": {
+      "level": 2,
+      "position": "(360.0, 963.0)",
+      "presentation_target": {
+        "class": "Node2D",
+        "instance_id": 122222022559,
+        "path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L02/Visual"
+      },
+      "source_instance": "122154913691",
+      "velocity": "(0.0, -700.0)"
+    },
+    "plan": {
+      "gff_effect": "punch_scale",
+      "gff_params": {
+        "duration": 0.14
+      },
+      "mode": "FULL",
+      "spark_overrides": {
+        "amount": 4,
+        "lifetime": 0.14,
+        "speed": 45.0
+      },
+      "spark_preset": "hit"
+    },
+    "policy": {
+      "budget": {
+        "max_amount": 5,
+        "max_lifetime": 0.16,
+        "max_speed": 45.0,
+        "presets": [
+          "hit",
+          "spark"
+        ]
+      },
+      "kind": "cocktail_launch",
+      "mode": "FULL",
+      "ok": true,
+      "tier": "MICRO"
+    },
+    "render_samples": [
+      {
+        "elapsed_ms": 16,
+        "fps": 17.0,
+        "frame": 284,
+        "spark": {
+          "canvas_layer": {
+            "layer": 0,
+            "path": "default_world_canvas",
+            "visible": true
+          },
+          "color": "(1.0, 0.75, 0.2, 1.0)",
+          "color2": "(1.0, 0.2, 0.1, 0.0)",
+          "emitter_found": true,
+          "global_position": "(360.0, 963.0)",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "part_count": 4,
+          "path": "/root/Spark/SaltmireSparkPool/@Node2D@210",
+          "screen_position": "(360.0, 963.0)",
+          "size": 3.0,
+          "size_end": 0.0,
+          "visible_in_tree": true,
+          "z_index": 100
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.990094, 0.990094)",
+          "screen_position": "(360.0, 963.0)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 33,
+        "fps": 17.0,
+        "frame": 285,
+        "spark": {
+          "canvas_layer": {
+            "layer": 0,
+            "path": "default_world_canvas",
+            "visible": true
+          },
+          "color": "(1.0, 0.75, 0.2, 1.0)",
+          "color2": "(1.0, 0.2, 0.1, 0.0)",
+          "emitter_found": true,
+          "global_position": "(360.0, 963.0)",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "part_count": 4,
+          "path": "/root/Spark/SaltmireSparkPool/@Node2D@210",
+          "screen_position": "(360.0, 963.0)",
+          "size": 3.0,
+          "size_end": 0.0,
+          "visible_in_tree": true,
+          "z_index": 100
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.989637, 0.989637)",
+          "screen_position": "(360.0, 948.3846)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 528,
+        "fps": 17.0,
+        "frame": 286,
+        "spark": {
+          "canvas_layer": {
+            "layer": 0,
+            "path": "default_world_canvas",
+            "visible": true
+          },
+          "color": "(1.0, 0.75, 0.2, 1.0)",
+          "color2": "(1.0, 0.2, 0.1, 0.0)",
+          "emitter_found": true,
+          "global_position": "(360.0, 963.0)",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "part_count": 4,
+          "path": "/root/Spark/SaltmireSparkPool/@Node2D@210",
+          "screen_position": "(360.0, 963.0)",
+          "size": 3.0,
+          "size_end": 0.0,
+          "visible_in_tree": true,
+          "z_index": 100
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.986803, 0.986803)",
+          "screen_position": "(360.0, 857.6929)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1010,
+        "fps": 17.0,
+        "frame": 287,
+        "spark": {
+          "canvas_layer": {
+            "layer": 0,
+            "path": "default_world_canvas",
+            "visible": true
+          },
+          "color": "(1.0, 0.75, 0.2, 1.0)",
+          "color2": "(1.0, 0.2, 0.1, 0.0)",
+          "emitter_found": true,
+          "global_position": "(360.0, 963.0)",
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "part_count": 4,
+          "path": "/root/Spark/SaltmireSparkPool/@Node2D@210",
+          "screen_position": "(360.0, 963.0)",
+          "size": 3.0,
+          "size_end": 0.0,
+          "visible_in_tree": true,
+          "z_index": 100
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.984106, 0.984106)",
+          "screen_position": "(360.0, 771.3796)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1481,
+        "fps": 10.0,
+        "frame": 288,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.981543, 0.981543)",
+          "screen_position": "(360.0, 689.3866)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1498,
+        "fps": 10.0,
+        "frame": 289,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.981232, 0.981232)",
+          "screen_position": "(360.0, 679.4384)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1516,
+        "fps": 10.0,
+        "frame": 290,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.980924, 0.980924)",
+          "screen_position": "(360.0, 669.5566)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1532,
+        "fps": 10.0,
+        "frame": 291,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.980617, 0.980617)",
+          "screen_position": "(360.0, 659.7413)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1549,
+        "fps": 10.0,
+        "frame": 292,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.980312, 0.980312)",
+          "screen_position": "(360.0, 649.9922)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1565,
+        "fps": 10.0,
+        "frame": 293,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.98001, 0.98001)",
+          "screen_position": "(360.0, 640.3093)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1582,
+        "fps": 10.0,
+        "frame": 294,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.979709, 0.979709)",
+          "screen_position": "(360.0, 630.6924)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1598,
+        "fps": 10.0,
+        "frame": 295,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.979411, 0.979411)",
+          "screen_position": "(360.0, 621.1415)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1615,
+        "fps": 10.0,
+        "frame": 296,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.979114, 0.979114)",
+          "screen_position": "(360.0, 611.6565)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1632,
+        "fps": 10.0,
+        "frame": 297,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.97882, 0.97882)",
+          "screen_position": "(360.0, 602.2371)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1648,
+        "fps": 10.0,
+        "frame": 298,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.978528, 0.978528)",
+          "screen_position": "(360.0, 592.8834)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      },
+      {
+        "elapsed_ms": 1665,
+        "fps": 10.0,
+        "frame": 299,
+        "spark": {
+          "emitter_found": false,
+          "pool_found": true
+        },
+        "target": {
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "scale": "(0.978237, 0.978237)",
+          "screen_position": "(360.0, 583.5952)",
+          "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "valid": true,
+          "visible_in_tree": true
+        }
+      }
+    ],
+    "rendered_frame_count": 16,
+    "semantic_sequence": 1,
+    "source_context": {
+      "island_id": "sunny_cove",
+      "level_id": 25,
+      "session_id": "1:sunny_cove:25",
+      "session_serial": 1,
+      "source": "shot_controller"
+    },
+    "spark_call": {
+      "emitter_instance_id": 129134235880,
+      "invoked": true,
+      "options": {
+        "amount": 4,
+        "color": "(1.0, 0.75, 0.2, 1.0)",
+        "color2": "(1.0, 0.2, 0.1, 0.0)",
+        "damping": 2.0,
+        "direction": -1.5707963267949,
+        "gravity": 200.0,
+        "lifetime": 0.14,
+        "lifetime_rand": 0.35,
+        "size": 3.0,
+        "size_end": 0.0,
+        "speed": 45.0,
+        "speed_min": 0.35,
+        "spread": 2.19911485751286,
+        "z_index": 100
+      },
+      "pool_children_after": 1,
+      "requested_canvas_position": "(360.0, 963.0)"
+    },
+    "stage": "render_sample_complete",
+    "stages": [
+      "semantic_received",
+      "dispatch_validating",
+      "awaiting_render",
+      "render_sample_complete"
+    ],
+    "target": {
+      "canvas_item": true,
+      "canvas_layer": {
+        "layer": 0,
+        "path": "default_world_canvas",
+        "visible": true
+      },
+      "class": "Node2D",
+      "clipping_ancestors": [],
+      "global_position": "(360.0, 963.0)",
+      "modulate": "(1.0, 1.0, 1.0, 1.0)",
+      "path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L02/Visual",
+      "scale": "(0.990094, 0.990094)",
+      "screen_position": "(360.0, 963.0)",
+      "self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+      "valid": true,
+      "visible_in_tree": true,
+      "z_index": 0
+    },
+    "trace_id": "m23-r02-1",
+    "trigger_fps": 17.0,
+    "trigger_timestamp_ms": 8115
+  }
+]

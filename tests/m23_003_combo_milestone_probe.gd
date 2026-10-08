@@ -2,7 +2,9 @@ extends SceneTree
 
 const MAIN_SCENE := preload("res://scenes/main.tscn")
 const BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
-const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-003/combo_milestone_probe.json"
+const GFF_COLOR_TARGET_SCRIPT := preload("res://addons/game_feel_flow/core/targets/gff_color_target.gd")
+const GFF_PARAMS_SCRIPT := preload("res://addons/game_feel_flow/core/gff_params.gd")
+const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/M23-003_combo_milestone_probe.json"
 
 var _checks := 0
 var _failures: Array[String] = []
@@ -60,6 +62,10 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	var color_target = GFF_COLOR_TARGET_SCRIPT.new()
+	var requested_tint := Color(1.0, 0.68, 0.30, 1.0)
+	color_target.apply_params(GFF_PARAMS_SCRIPT.create().with_color("color", requested_tint))
+	_check("installed GFF color target applies per-call color params", color_target.target_color.is_equal_approx(requested_tint))
 	var manager := MAIN_SCENE.instantiate() as GameManager
 	root.add_child(manager)
 	current_scene = manager
@@ -67,6 +73,7 @@ func _run() -> void:
 	await physics_frame
 	var bridge: PresentationFeedbackBridge = manager.presentation_feedback_bridge
 	var service: FeedbackService = manager.feedback_service
+	bridge.set_visual_diagnostics_enabled(true)
 	var gff := MockGFF.new()
 	_mock_gff = gff
 	var spark := MockSpark.new()
@@ -127,6 +134,7 @@ func _run() -> void:
 	_check("prior-best crossing fires once only after strictly exceeding record", _milestone_count("prior_best", score_requests_before) == 1 and manager.best_score == 1002)
 	_check("score milestones dispatch zero Spark particles", spark.calls.size() == spark_before_milestones)
 	_check("FULL score emphasis targets approved dynamic score labels", _milestone_targets_are_score_labels(score_requests_before, manager) and manager._best_value.is_in_group("presentation_effect_target") and manager._score_value.is_in_group("presentation_effect_target"))
+	_check("FULL score emphasis uses a configured CanvasItem color effect supported by Control labels", _gff_effect_for("prior_best", score_requests_before) == "color" and gff.calls.back().target is Control and gff.calls.back().params.has("color"))
 
 	var session_b := FakeSession.new()
 	manager.campaign_session_bridge = session_b

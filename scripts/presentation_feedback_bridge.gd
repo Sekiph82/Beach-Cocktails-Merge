@@ -8,7 +8,14 @@ const CONTRACT_SCRIPT := preload("res://scripts/presentation_plugin_contract.gd"
 const POLICY_SCRIPT := preload("res://scripts/presentation_effect_policy.gd")
 const MAX_DIAGNOSTICS := 16
 const MAX_ACTIVE_GFF_OUTPUTS := 128
+const MAX_VISUAL_TRACE_EVENTS := 128
+const MAX_RENDER_SAMPLES_PER_EVENT := 32
 const FIXTURE_TARGET_GROUP := "m22_test_presentation_target"
+const FULL_CONTACT_TINT := Color(1.0, 0.72, 0.44, 1.0)
+const FULL_SCORE_TINT := Color(1.0, 0.68, 0.30, 1.0)
+const REDUCED_TINT := Color(1.0, 0.94, 0.80, 1.0)
+const SPARK_COLOR := Color(0.30, 0.94, 1.0, 1.0)
+const SPARK_COLOR_END := Color(1.0, 0.94, 0.70, 0.0)
 
 var _contract: PresentationPluginContract
 var _policy
@@ -18,6 +25,13 @@ var _presentation_mode := "FULL"
 var _diagnostics: Array[String] = []
 var _active_gff_outputs: Array[Dictionary] = []
 var _active_spark_outputs: Array[Dictionary] = []
+var _visual_trace: Array[Dictionary] = []
+var _trace_sequence := 0
+var _visual_diagnostics_enabled := false
+var _last_process_delta_ms := 0.0
+var _max_process_delta_ms := 0.0
+var _process_delta_sample_count := 0
+var _dropped_frame_estimate_count := 0
 var dispatch_count := 0
 var no_op_count := 0
 
@@ -49,6 +63,40 @@ func get_listener_count() -> int:
 
 func get_diagnostics() -> Array[String]:
 	return _diagnostics.duplicate(true)
+
+
+func get_visual_diagnostic_trace() -> Array[Dictionary]:
+	return _visual_trace.duplicate(true)
+
+
+func set_visual_diagnostics_enabled(enabled: bool) -> void:
+	_visual_diagnostics_enabled = enabled
+	if not enabled:
+		_visual_trace.clear()
+
+
+func get_frame_diagnostics() -> Dictionary:
+	return {
+		"fps": Engine.get_frames_per_second(),
+		"engine_max_fps": Engine.max_fps,
+		"frames_drawn": Engine.get_frames_drawn(),
+		"process_delta_ms_last": _last_process_delta_ms,
+		"process_delta_ms_max": _max_process_delta_ms,
+		"process_delta_samples": _process_delta_sample_count,
+		"dropped_frame_estimate_count": _dropped_frame_estimate_count,
+	}
+
+
+func _process(delta: float) -> void:
+	if not _visual_diagnostics_enabled:
+		return
+	_last_process_delta_ms = delta * 1000.0
+	_max_process_delta_ms = maxf(_max_process_delta_ms, _last_process_delta_ms)
+	_process_delta_sample_count += 1
+	var fps := Engine.get_frames_per_second()
+	if fps > 0.0 and _last_process_delta_ms > (2000.0 / fps):
+		_dropped_frame_estimate_count += 1
+	_sample_pending_visual_traces(_last_process_delta_ms)
 
 
 func set_production_dispatch_enabled(enabled: bool) -> void:
@@ -111,14 +159,17 @@ func _disconnect_feedback_service() -> void:
 
 
 func _on_semantic_requested(request: Dictionary) -> void:
-	if not _production_dispatch_enabled:
-		return
 	var kind := str(request.get("kind", ""))
 	if not ["cocktail_launch", "table_contact", "merge", "score_mastery"].has(kind):
+		return
+	var trace_id := _begin_visual_trace(request)
+	if not _production_dispatch_enabled:
+		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "production_dispatch_disabled"})
 		return
 	var payload: Dictionary = request.get("payload", {})
 	var target_value: Variant = payload.get("presentation_target", null)
 	if not target_value is Node or not is_instance_valid(target_value):
+		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "production_target_missing"})
 		_no_op("production_target_missing")
 		return
 	var mode := _presentation_mode
@@ -127,7 +178,12 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		plan = _merge_plan(mode, payload)
 	elif kind == "score_mastery":
 		plan = _score_milestone_plan(mode)
-	_dispatch_plan(request, target_value as Node, plan, false)
+	_update_visual_trace(trace_id, {
+		"target": _canvas_item_snapshot(target_value as Node),
+		"plan": plan.duplicate(true),
+		"dispatch_gate": "enabled",
+	})
+	_dispatch_plan(request, target_value as Node, plan, false, trace_id)
 
 
 func _micro_plan(kind: String, mode: String) -> Dictionary:
@@ -137,6 +193,7 @@ func _micro_plan(kind: String, mode: String) -> Dictionary:
 	var speed := 0.0
 	var preset := ""
 	var effect := "color"
+	var gff_params := {"duration": 0.10 if reduced else 0.16, "color": REDUCED_TINT if reduced else FULL_CONTACT_TINT}
 	if not reduced:
 		if kind == "cocktail_launch":
 			amount = 4
@@ -144,14 +201,16 @@ func _micro_plan(kind: String, mode: String) -> Dictionary:
 			speed = 45.0
 			preset = "hit"
 			effect = "punch_scale"
+			gff_params = {"duration": 0.14, "intensity": 0.68}
 		else:
 			amount = 5
 			lifetime = 0.16
 			speed = 40.0
 			preset = "hit"
 	var overrides := {"amount": amount, "lifetime": lifetime, "speed": speed}
-	var duration := 0.10 if reduced else (0.14 if kind == "cocktail_launch" else 0.16)
-	var result := {"mode": mode, "gff_effect": effect, "gff_params": {"duration": duration}}
+	if preset == "hit":
+		overrides.merge({"size": 6.0 if kind == "cocktail_launch" else 5.5, "size_end": 1.5, "color": SPARK_COLOR, "color2": SPARK_COLOR_END}, true)
+	var result := {"mode": mode, "gff_effect": effect, "gff_params": gff_params}
 	if not preset.is_empty():
 		result["spark_preset"] = preset
 		result["spark_overrides"] = overrides
@@ -165,30 +224,46 @@ func _merge_plan(mode: String, payload: Dictionary) -> Dictionary:
 	var lifetime := 0.0
 	var speed := 0.0
 	var duration := 0.10
+	var intensity := 1.0
+	var particle_size := 0.0
 	if not reduced:
 		if chain >= 5:
 			amount = 18
 			lifetime = 0.35
 			speed = 105.0
-			duration = 0.25
+			duration = 0.28
+			intensity = 1.0
+			particle_size = 8.0
 		elif chain >= 3:
 			amount = 10
 			lifetime = 0.30
-			speed = 90.0
-			duration = 0.22
+			speed = 70.0
+			duration = 0.23
+			intensity = 0.72
+			particle_size = 6.5
 		else:
 			amount = 10
 			lifetime = 0.28
-			speed = 90.0
-			duration = 0.22
+			speed = 55.0
+			duration = 0.18
+			intensity = 0.45
+			particle_size = 5.0
 	var result := {
 		"mode": mode,
 		"gff_effect": "color" if reduced else "punch_scale",
-		"gff_params": {"duration": duration},
+		"gff_params": {"duration": duration, "color": REDUCED_TINT} if reduced else {"duration": duration, "intensity": intensity},
 	}
 	if amount > 0:
 		result["spark_preset"] = "hit"
-		result["spark_overrides"] = {"amount": amount, "lifetime": lifetime, "speed": speed}
+		result["spark_overrides"] = {
+			"amount": amount,
+			"lifetime": lifetime,
+			"speed": speed,
+			"size": particle_size,
+			"size_end": 1.5,
+			"color": SPARK_COLOR,
+			"color2": SPARK_COLOR_END,
+		}
 	return result
 
 
@@ -196,15 +271,18 @@ func _score_milestone_plan(mode: String) -> Dictionary:
 	var reduced := mode == "REDUCED"
 	return {
 		"mode": mode,
-		"gff_effect": "color" if reduced else "punch_scale",
-		"gff_params": {"duration": 0.10 if reduced else 0.20},
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10, "color": REDUCED_TINT} if reduced else {"duration": 0.20, "color": FULL_SCORE_TINT},
 	}
 
 
-func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture: bool) -> bool:
+func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture: bool, trace_id: String = "") -> bool:
+	_update_visual_trace(trace_id, {"stage": "dispatch_validating"})
 	if not _valid_request(request):
+		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "unknown_semantic_kind"})
 		return _no_op("unknown_semantic_kind")
 	if not _is_presentation_target(target, fixture):
+		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "target_not_allowlisted"})
 		return _no_op("target_not_allowlisted")
 	if _policy == null:
 		_policy = POLICY_SCRIPT.new()
@@ -214,7 +292,13 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 	var validation_plan := plan.duplicate(true)
 	validation_plan["active_live_particles"] = _active_spark_particle_count()
 	var policy_result: Dictionary = _policy.validate_dispatch(request, mode, validation_plan)
+	_update_visual_trace(trace_id, {
+		"policy": policy_result.duplicate(true),
+		"active_particles_before": _active_spark_particle_count(),
+		"capabilities": _contract.snapshot() if _contract != null else {},
+	})
 	if not bool(policy_result.get("ok", false)):
+		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "policy_rejected"})
 		return _no_op("policy:%s" % str(policy_result.get("reason", "invalid")))
 	var effect_name := str(plan.get("gff_effect", ""))
 	var gff_params_value: Variant = plan.get("gff_params", {})
@@ -231,6 +315,7 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 			return _no_op("spark_preset_unavailable:%s" % spark_preset)
 		spark_options = _build_spark_options(spark_preset, plan.get("spark_overrides", {}), str(request.kind), mode, int(request.get("payload", {}).get("chain", 1)))
 		if spark_options.is_empty():
+			_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "spark_overrides_invalid"})
 			return _no_op("spark_overrides_invalid")
 	# Preflight all requested components before invoking either plugin.
 	if has_effect:
@@ -239,8 +324,10 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 		var gff_args: Array = [effect_name, target]
 		if gff_params_value is Dictionary and not gff_params_value.is_empty():
 			gff_args.append(gff_params_value.duplicate(true))
+		var gff_started_ms := Time.get_ticks_msec()
 		var result: Variant = _contract.game_feel_flow.callv("play", gff_args)
 		if result is bool and not result:
+			_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "gff_call_failed"})
 			return _no_op("gff_call_failed")
 		var effect_duration := float(gff_params_value.get("duration", 0.30)) if gff_params_value is Dictionary else 0.30
 		_active_gff_outputs.append({
@@ -248,19 +335,279 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 			"target": target,
 			"expires_at_ms": Time.get_ticks_msec() + int(ceil(maxf(effect_duration, 0.25) * 1000.0)),
 		})
+		_update_visual_trace(trace_id, {
+			"gff_call": {"invoked": true, "effect": effect_name, "params": gff_params_value.duplicate(true) if gff_params_value is Dictionary else {}, "returned": str(result), "started_ms": gff_started_ms},
+			"gff_active_effect_count": _gff_active_effect_count(),
+		})
 	if has_spark:
 		var position := _target_global_position(target)
+		var pool := get_node_or_null("/root/Spark/SaltmireSparkPool")
+		var emitter_ids_before: Dictionary = {}
+		if is_instance_valid(pool):
+			for emitter in pool.get_children():
+				emitter_ids_before[emitter.get_instance_id()] = true
 		var result: Variant = _contract.spark.callv("burst", [position, spark_options])
 		if result is bool and not result:
+			_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "spark_call_failed"})
 			cancel_presentation()
 			return _no_op("spark_call_failed")
+		var emitter_id := _find_new_spark_emitter_id(pool, emitter_ids_before)
 		_active_spark_outputs.append({
 			"plugin": _contract.spark,
 			"amount": int(spark_options.get("amount", 0)),
 			"expires_at_ms": Time.get_ticks_msec() + int(ceil(float(spark_options.get("lifetime", 0.0)) * (1.0 + maxf(float(spark_options.get("lifetime_rand", 0.0)), 0.0)) * 1000.0)),
 		})
+		_update_visual_trace(trace_id, {
+			"spark_call": {"invoked": true, "requested_canvas_position": position, "options": spark_options.duplicate(true), "emitter_instance_id": emitter_id, "pool_children_after": pool.get_child_count() if is_instance_valid(pool) else -1},
+		})
 	dispatch_count += 1
+	_update_visual_trace(trace_id, {
+		"stage": "awaiting_render",
+		"dispatch_completed_ms": Time.get_ticks_msec(),
+		"frames_drawn_at_dispatch": Engine.get_frames_drawn(),
+	})
 	return true
+
+
+func _begin_visual_trace(request: Dictionary) -> String:
+	if not _visual_diagnostics_enabled:
+		return ""
+	_trace_sequence += 1
+	var trace_id := "m23-r02-%d" % _trace_sequence
+	var payload: Dictionary = request.get("payload", {})
+	var target_value: Variant = payload.get("presentation_target", null)
+	_visual_trace.append({
+		"trace_id": trace_id,
+		"event_id": str(request.get("event_id", "")),
+		"semantic_sequence": int(request.get("sequence", 0)),
+		"kind": str(request.get("kind", "")),
+		"payload": _trace_safe_value(payload),
+		"source_context": _trace_safe_value(request.get("source_context", {})),
+		"trigger_timestamp_ms": Time.get_ticks_msec(),
+		"trigger_fps": Engine.get_frames_per_second(),
+		"frames_drawn_at_trigger": Engine.get_frames_drawn(),
+		"mode": _presentation_mode,
+		"stage": "semantic_received",
+		"stages": ["semantic_received"],
+		"target": _canvas_item_snapshot(target_value as Node) if target_value is Node and is_instance_valid(target_value) else {},
+		"render_samples": [],
+	})
+	while _visual_trace.size() > MAX_VISUAL_TRACE_EVENTS:
+		_visual_trace.pop_front()
+	return trace_id
+
+
+func _update_visual_trace(trace_id: String, patch: Dictionary) -> void:
+	if trace_id.is_empty():
+		return
+	for index in range(_visual_trace.size() - 1, -1, -1):
+		if str(_visual_trace[index].get("trace_id", "")) != trace_id:
+			continue
+		for key in patch:
+			_visual_trace[index][key] = patch[key].duplicate(true) if patch[key] is Dictionary or patch[key] is Array else patch[key]
+		var stage := str(patch.get("stage", ""))
+		if not stage.is_empty():
+			var stages: Array = _visual_trace[index].get("stages", [])
+			if stages.is_empty() or str(stages[stages.size() - 1]) != stage:
+				stages.append(stage)
+			_visual_trace[index]["stages"] = stages
+		return
+
+
+func _sample_pending_visual_traces(process_delta_ms: float) -> void:
+	var current_frame := Engine.get_frames_drawn()
+	for index in range(_visual_trace.size() - 1, -1, -1):
+		var entry: Dictionary = _visual_trace[index]
+		if str(entry.get("stage", "")) != "awaiting_render":
+			continue
+		if current_frame <= int(entry.get("frames_drawn_at_dispatch", current_frame)):
+			continue
+		var samples: Array = entry.get("render_samples", [])
+		if samples.size() >= MAX_RENDER_SAMPLES_PER_EVENT:
+			entry["stage"] = "render_sample_complete"
+			entry["stages"].append("render_sample_complete")
+			continue
+		var sample := {
+			"frame": current_frame,
+			"elapsed_ms": Time.get_ticks_msec() - int(entry.get("trigger_timestamp_ms", Time.get_ticks_msec())),
+			"process_delta_ms": process_delta_ms,
+			"fps": Engine.get_frames_per_second(),
+			"target": _target_live_sample(entry),
+			"spark": _spark_live_sample(int(entry.get("spark_call", {}).get("emitter_instance_id", 0))),
+		}
+		samples.append(sample)
+		entry["render_samples"] = samples
+		entry["rendered_frame_count"] = current_frame - int(entry.get("frames_drawn_at_dispatch", current_frame))
+		if int(sample["spark"].get("visible_particle_count", 0)) > 0:
+			entry["active_drawn_frame_count"] = int(entry.get("active_drawn_frame_count", 0)) + 1
+			entry["first_visible_frame"] = int(entry.get("first_visible_frame", current_frame))
+			entry["last_visible_frame"] = current_frame
+			entry["last_visible_elapsed_ms"] = int(sample["elapsed_ms"])
+		var spark_options: Dictionary = entry.get("spark_call", {}).get("options", {})
+		var gff_params: Dictionary = entry.get("gff_call", {}).get("params", {})
+		var observation_ms := int(ceil(maxf(float(spark_options.get("lifetime", 0.0)), float(gff_params.get("duration", 0.0))) * 1000.0)) + 50
+		var elapsed_ms := int(sample["elapsed_ms"])
+		if elapsed_ms >= observation_ms:
+			entry["stage"] = "render_sample_complete"
+			entry["stages"].append("render_sample_complete")
+			entry["active_drawn_frame_count"] = int(entry.get("active_drawn_frame_count", 0))
+			entry["observation_window_ms"] = observation_ms
+		elif samples.size() >= MAX_RENDER_SAMPLES_PER_EVENT:
+			entry["stage"] = "render_sample_capped"
+			entry["stages"].append("render_sample_capped")
+		_visual_trace[index] = entry
+
+
+func _target_live_sample(entry: Dictionary) -> Dictionary:
+	var target_path := str(entry.get("target", {}).get("path", ""))
+	if target_path.is_empty() or not is_inside_tree():
+		return {}
+	var target := get_node_or_null(NodePath(target_path))
+	if not is_instance_valid(target):
+		return {"valid": false}
+	var result := {"valid": true, "visible_in_tree": (target as CanvasItem).is_visible_in_tree() if target is CanvasItem else false}
+	if target is CanvasItem:
+		var item := target as CanvasItem
+		result["screen_position"] = item.get_global_transform_with_canvas().origin
+		result["modulate"] = item.modulate
+		result["self_modulate"] = item.self_modulate
+		if item is Node2D:
+			result["scale"] = (item as Node2D).scale
+	return result
+
+
+func _spark_live_sample(emitter_id: int) -> Dictionary:
+	if emitter_id <= 0:
+		return {"emitter_found": false}
+	var pool := get_node_or_null("/root/Spark/SaltmireSparkPool")
+	if not is_instance_valid(pool):
+		return {"emitter_found": false, "pool_found": false}
+	for emitter in pool.get_children():
+		if emitter.get_instance_id() != emitter_id or not emitter is CanvasItem:
+			continue
+		var options: Variant = emitter.get("_opts")
+		var parts: Variant = emitter.get("_parts")
+		var active_particle_count := 0
+		var visible_particle_count := 0
+		var max_draw_radius := 0.0
+		if parts is Array and options is Dictionary:
+			var size_start := float(options.get("size", 0.0))
+			var size_end := float(options.get("size_end", 0.0))
+			var end_color: Color = options.get("color2", Color.WHITE)
+			for part_value in parts:
+				if not part_value is Dictionary:
+					continue
+				var part: Dictionary = part_value
+				var age := float(part.get("age", 0.0))
+				var life := maxf(float(part.get("life", 0.0)), 0.001)
+				if age >= life:
+					continue
+				active_particle_count += 1
+				var progress := clampf(age / life, 0.0, 1.0)
+				var radius := lerpf(size_start, size_end, progress)
+				var start_color: Color = part.get("col", Color.WHITE)
+				var particle_color := start_color.lerp(end_color, progress)
+				if radius > 0.15 and particle_color.a > 0.01:
+					visible_particle_count += 1
+					max_draw_radius = maxf(max_draw_radius, radius)
+		var sample := {
+			"emitter_found": true,
+			"path": str(emitter.get_path()),
+			"visible_in_tree": (emitter as CanvasItem).is_visible_in_tree(),
+			"screen_position": (emitter as CanvasItem).get_global_transform_with_canvas().origin,
+			"global_position": (emitter as Node2D).global_position,
+			"z_index": (emitter as CanvasItem).z_index,
+			"canvas_layer": _canvas_layer_snapshot(emitter),
+			"part_count": parts.size() if parts is Array else -1,
+			"active_particle_count": active_particle_count,
+			"visible_particle_count": visible_particle_count,
+			"max_draw_radius": max_draw_radius,
+			"emitter_age_ms": float(emitter.get("_age")) * 1000.0,
+			"size": options.get("size", -1.0) if options is Dictionary else -1.0,
+			"size_end": options.get("size_end", -1.0) if options is Dictionary else -1.0,
+			"color": options.get("color", Color.WHITE) if options is Dictionary else Color.WHITE,
+			"color2": options.get("color2", Color.WHITE) if options is Dictionary else Color.WHITE,
+			"modulate": (emitter as CanvasItem).modulate,
+		}
+		return sample
+	return {"emitter_found": false, "pool_found": true}
+
+
+func _canvas_item_snapshot(node: Node) -> Dictionary:
+	if not is_instance_valid(node) or not node is CanvasItem:
+		return {"valid": is_instance_valid(node), "path": str(node.get_path()) if is_instance_valid(node) else "", "canvas_item": false}
+	var item := node as CanvasItem
+	var result := {
+		"valid": true,
+		"canvas_item": true,
+		"path": str(node.get_path()),
+		"class": node.get_class(),
+		"visible_in_tree": item.is_visible_in_tree(),
+		"global_position": _target_global_position(node),
+		"screen_position": item.get_global_transform_with_canvas().origin,
+		"z_index": item.z_index,
+		"modulate": item.modulate,
+		"self_modulate": item.self_modulate,
+		"scale": item.scale if item is Node2D else Vector2.ONE,
+		"canvas_layer": _canvas_layer_snapshot(node),
+		"clipping_ancestors": _clipping_ancestors(node),
+	}
+	return result
+
+
+func _canvas_layer_snapshot(node: Node) -> Dictionary:
+	var ancestor := node
+	while is_instance_valid(ancestor):
+		if ancestor is CanvasLayer:
+			var layer := ancestor as CanvasLayer
+			return {"path": str(layer.get_path()), "layer": layer.layer, "visible": layer.visible, "follow_viewport_enabled": layer.follow_viewport_enabled, "transform": layer.transform}
+		ancestor = ancestor.get_parent()
+	return {"path": "default_world_canvas", "layer": 0, "visible": true}
+
+
+func _clipping_ancestors(node: Node) -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	var ancestor := node.get_parent()
+	while is_instance_valid(ancestor):
+		if ancestor is Control and (ancestor as Control).clip_contents:
+			result.append({"path": str(ancestor.get_path()), "clip_contents": true, "visible": (ancestor as Control).is_visible_in_tree()})
+		ancestor = ancestor.get_parent()
+	return result
+
+
+func _find_new_spark_emitter_id(pool: Node, ids_before: Dictionary) -> int:
+	if not is_instance_valid(pool):
+		return 0
+	for emitter in pool.get_children():
+		if not ids_before.has(emitter.get_instance_id()):
+			return emitter.get_instance_id()
+	return 0
+
+
+func _gff_active_effect_count() -> int:
+	if _contract == null or not is_instance_valid(_contract.game_feel_flow):
+		return -1
+	var stack: Variant = _contract.game_feel_flow.get("_effect_stack")
+	if not is_instance_valid(stack):
+		return -1
+	var active: Variant = stack.get("_active_effects")
+	return active.size() if active is Dictionary else -1
+
+
+func _trace_safe_value(value: Variant) -> Variant:
+	if value is Node:
+		return {"path": str(value.get_path()), "class": value.get_class(), "instance_id": value.get_instance_id()}
+	if value is Dictionary:
+		var copied: Dictionary = {}
+		for key in value:
+			copied[str(key)] = _trace_safe_value(value[key])
+		return copied
+	if value is Array:
+		var copied: Array = []
+		for item in value:
+			copied.append(_trace_safe_value(item))
+		return copied
+	return value
 
 
 func _build_spark_options(preset_name: String, overrides_value: Variant, kind: String, mode: String, chain: int) -> Dictionary:

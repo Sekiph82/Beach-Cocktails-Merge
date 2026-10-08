@@ -3,7 +3,7 @@ extends SceneTree
 const FEEDBACK_SCRIPT := preload("res://scripts/feedback_service.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
 const DRINK_SCRIPT := preload("res://scripts/drink.gd")
-const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-001/micro_feedback_probe.json"
+const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/M23-001_micro_feedback_probe.json"
 
 var _checks := 0
 var _failures: Array[String] = []
@@ -64,6 +64,7 @@ func _run() -> void:
 	var bridge := BRIDGE_SCRIPT.new()
 	root.add_child(bridge)
 	bridge.configure(service, root)
+	bridge.set_visual_diagnostics_enabled(true)
 	var gff := MockGFF.new()
 	var spark := MockSpark.new()
 	root.add_child(gff)
@@ -104,6 +105,9 @@ func _run() -> void:
 	_check("duplicate launch event suppressed per source instance", not service.emit_cocktail_launch(2, Vector2(100.0, 300.0), expected_velocity, source))
 	_check("one launch semantic dispatch with unchanged velocity and visual child target", _requests.size() == 1 and _requests[0].payload.velocity == expected_velocity and _requests[0].payload.presentation_target == source_visual and bridge.dispatch_count == 1)
 	_check("FULL launch uses the 4 particle / 0.14 second cap", spark.calls.size() == 1 and int(spark.calls[0].amount) == 4 and is_equal_approx(float(spark.calls[0].lifetime), 0.14))
+	_check("FULL launch uses an explicit restrained punch intensity", is_equal_approx(float(gff.params[0].get("intensity", 0.0)), 0.68))
+	var launch_trace: Dictionary = bridge.get_visual_diagnostic_trace().back()
+	_check("production launch trace links semantic ID, accepted policy, GFF and Spark calls", str(launch_trace.get("event_id", "")).begins_with("launch:") and bool(launch_trace.get("policy", {}).get("ok", false)) and bool(launch_trace.get("gff_call", {}).get("invoked", false)) and bool(launch_trace.get("spark_call", {}).get("invoked", false)))
 	_check("launch target is presentation-only, not a physics body or camera", source_visual.is_in_group("presentation_effect_target") and not _is_physics_or_camera(source_visual))
 	_check("launch starts at the existing authoritative velocity", launch_velocity_at_fire == Vector2(0.0, -700.0))
 	_check("presentation dispatch does not shift current velocity or body/collider transforms", source.linear_velocity == launch_velocity_before_effect and source.transform == body_transform_before_effect and source_collider.transform == collider_transform_before_effect)
@@ -122,12 +126,15 @@ func _run() -> void:
 	_check("same contact class is accepted after at least 120ms", elapsed_contact_ms >= FEEDBACK_SCRIPT.MICRO_CONTACT_COOLDOWN_MS and later_contact_accepted)
 	_check("contact semantic count reflects cooldown and class", _requests.size() == before_contacts + 3)
 	_check("FULL contact stays within 5 / 0.16 second cap", spark.calls.size() == 4 and int(spark.calls[1].amount) == 5 and is_equal_approx(float(spark.calls[1].lifetime), 0.16))
+	_check("FULL contact passes a non-white target tint to avoid the old no-op color effect", gff.params[1].has("color") and gff.params[1].color != Color.WHITE)
+	_check("launch and contact use larger visible radii while keeping locked amount/lifetime budgets", is_equal_approx(float(spark.calls[0].get("size", -1.0)), 6.0) and is_equal_approx(float(spark.calls[1].get("size", -1.0)), 5.5))
 	_check("FULL micro emphasis duration stays inside its event cap", is_equal_approx(float(gff.params[0].duration), 0.14) and is_equal_approx(float(gff.params[1].duration), 0.16))
 
 	bridge.set_presentation_mode("REDUCED")
 	var reduced_count := spark.calls.size()
 	service.emit_table_contact({"source_level": 1, "contact_type": "rail", "contact_level": 0, "position": Vector2.ZERO, "source_instance": "drink-B", "presentation_target": target})
 	_check("REDUCED contact invokes alpha/color only, <=0.10 seconds, and no particles", spark.calls.size() == reduced_count and gff.calls.back() == "color" and float(gff.params.back().duration) <= 0.10)
+	_check("REDUCED contact color is explicitly configured", gff.params.back().has("color") and gff.params.back().color != Color.WHITE)
 	_check("invalid presentation mode is rejected", not bridge.set_presentation_mode("UNKNOWN"))
 
 	var calls_before_missing := gff.calls.size() + spark.calls.size()

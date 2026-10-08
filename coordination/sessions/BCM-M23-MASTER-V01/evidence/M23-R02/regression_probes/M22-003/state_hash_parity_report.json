@@ -1,0 +1,13 @@
+{
+	"after": 647494875,
+	"before": 647494875,
+	"cases": [
+		"policy FULL/REDUCED queries",
+		"safe FULL mock dispatch",
+		"forbidden GFF rejected",
+		"bounded REDUCED mock dispatch",
+		"view/session cancellation"
+	],
+	"result": "PASS",
+	"scope": "campaign progression, economy ledger, navigation view, active island, gameplay instance count"
+}

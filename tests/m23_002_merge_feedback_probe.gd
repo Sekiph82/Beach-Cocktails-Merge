@@ -2,7 +2,7 @@ extends SceneTree
 
 const MAIN_SCENE := preload("res://scenes/main.tscn")
 const BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
-const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-002/merge_feedback_probe.json"
+const EVIDENCE_PATH := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/M23-002_merge_feedback_probe.json"
 
 var _checks := 0
 var _failures: Array[String] = []
@@ -57,6 +57,7 @@ func _run() -> void:
 	_check("main GameManager initializes with presentation bridge", manager != null and manager.presentation_feedback_bridge != null and manager.feedback_service != null)
 	var bridge: PresentationFeedbackBridge = manager.presentation_feedback_bridge
 	var service: FeedbackService = manager.feedback_service
+	bridge.set_visual_diagnostics_enabled(true)
 	var gff := MockGFF.new()
 	var spark := MockSpark.new()
 	root.add_child(gff)
@@ -98,12 +99,13 @@ func _run() -> void:
 	_check("duplicate merge request for the same source is coalesced", spark.calls.size() == calls_after_real_merge and _merge_requests.size() == 2)
 
 	var expected_bands := [
-		{"chain": 1, "amount": 10, "lifetime": 0.28, "name": "BASE"},
-		{"chain": 3, "amount": 10, "lifetime": 0.30, "name": "SURGE"},
-		{"chain": 5, "amount": 18, "lifetime": 0.35, "name": "PEAK"},
-		{"chain": 6, "amount": 18, "lifetime": 0.35, "name": "PEAK hard cap"},
+		{"chain": 1, "amount": 10, "lifetime": 0.28, "speed": 55.0, "size": 5.0, "intensity": 0.45, "name": "BASE"},
+		{"chain": 3, "amount": 10, "lifetime": 0.30, "speed": 70.0, "size": 6.5, "intensity": 0.72, "name": "SURGE"},
+		{"chain": 5, "amount": 18, "lifetime": 0.35, "speed": 105.0, "size": 8.0, "intensity": 1.0, "name": "PEAK"},
+		{"chain": 6, "amount": 18, "lifetime": 0.35, "speed": 105.0, "size": 8.0, "intensity": 1.0, "name": "PEAK hard cap"},
 	]
 	var band_results: Array[Dictionary] = []
+	var band_intensities: Array[float] = []
 	for band in expected_bands:
 		bridge.cancel_presentation()
 		var source := _make_merge_source("FULL_%s" % band.name)
@@ -111,8 +113,12 @@ func _run() -> void:
 		var options: Dictionary = spark.calls.back().options if not spark.calls.is_empty() else {}
 		var matched := not options.is_empty() and int(options.get("amount", -1)) == int(band.amount) and is_equal_approx(float(options.get("lifetime", -1.0)), float(band.lifetime))
 		_check("FULL %s Spark amount/lifetime matches locked ceiling" % band.name, matched)
+		var profile_matches := is_equal_approx(float(options.get("speed", -1.0)), float(band.speed)) and is_equal_approx(float(options.get("size", -1.0)), float(band.size)) and is_equal_approx(float(gff.calls.back().params.get("intensity", -1.0)), float(band.intensity))
+		_check("FULL %s has a distinct bounded size/speed/scale profile" % band.name, profile_matches)
+		band_intensities.append(float(gff.calls.back().params.get("intensity", 0.0)))
 		band_results.append({"band": band.name, "chain": band.chain, "amount": options.get("amount", -1), "lifetime": options.get("lifetime", -1.0), "passed": matched})
 		_check("FULL %s GameFeelFlow effect targets its presentation child" % band.name, gff.calls.back().target == source.get_node("Visual") and gff.calls.back().effect == "punch_scale")
+	_check("BASE, SURGE and PEAK intensities rise monotonically and PEAK remains capped", band_intensities == [0.45, 0.72, 1.0, 1.0])
 
 	bridge.set_presentation_mode("REDUCED")
 	var reduced_spark_start := spark.calls.size()
@@ -123,6 +129,7 @@ func _run() -> void:
 		reduced_effects.append(str(gff.calls.back().effect))
 	_check("REDUCED BASE/SURGE/PEAK produce zero particles and color-only emphasis", spark.calls.size() == reduced_spark_start and reduced_effects == ["color", "color", "color"])
 	_check("REDUCED merge emphasis stays <=0.10 seconds", float(gff.calls.back().params.duration) <= 0.10)
+	_check("REDUCED merge passes a configured low-contrast tint", gff.calls.back().params.has("color") and gff.calls.back().params.color != Color.WHITE)
 
 	bridge.set_presentation_mode("FULL")
 	bridge.cancel_presentation()

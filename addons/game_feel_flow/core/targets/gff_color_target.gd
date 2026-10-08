@@ -19,5 +19,10 @@ func apply_value(node: Node, value: Variant) -> void:
 	if node is CanvasItem:
 		node.modulate = value
 
+func apply_params(params: GFFParams) -> void:
+	if params == null:
+		return
+	target_color = params.get_color("color", target_color)
+
 func get_target_name() -> String:
 	return "Color"

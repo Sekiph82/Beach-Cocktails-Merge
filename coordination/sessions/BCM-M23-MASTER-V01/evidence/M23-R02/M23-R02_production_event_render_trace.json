@@ -1,0 +1,2595 @@
+{
+	"best_score": 321,
+	"frame_diagnostics": {
+		"dropped_frame_estimate_count": 5,
+		"engine_max_fps": 0,
+		"fps": 2.0,
+		"frames_drawn": 2285,
+		"process_delta_ms_last": 16.6666666666667,
+		"process_delta_ms_max": 150.0,
+		"process_delta_samples": 1659
+	},
+	"score": 0,
+	"trace": [
+		{
+			"active_drawn_frame_count": 2,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 40722,
+			"dispatch_gate": "enabled",
+			"event_id": "launch:122255576988",
+			"first_visible_frame": 2253,
+			"frames_drawn_at_dispatch": 2252,
+			"frames_drawn_at_trigger": 2252,
+			"gff_active_effect_count": 1,
+			"gff_call": {
+				"effect": "punch_scale",
+				"invoked": true,
+				"params": {
+					"duration": 0.14,
+					"intensity": 0.68
+				},
+				"returned": "<GDScriptFunctionState#-9223371880457563936>",
+				"started_ms": 40721
+			},
+			"kind": "cocktail_launch",
+			"last_visible_elapsed_ms": 27,
+			"last_visible_frame": 2254,
+			"mode": "FULL",
+			"observation_window_ms": 190,
+			"payload": {
+				"level": 1,
+				"position": "(360.0, 963.0)",
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 122322685856,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual"
+				},
+				"source_instance": "122255576988",
+				"velocity": "(0.0, -700.0)"
+			},
+			"plan": {
+				"gff_effect": "punch_scale",
+				"gff_params": {
+					"duration": 0.14,
+					"intensity": 0.68
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 4,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"lifetime": 0.14,
+					"size": 6.0,
+					"size_end": 1.5,
+					"speed": 45.0
+				},
+				"spark_preset": "hit"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 5,
+					"max_lifetime": 0.16,
+					"max_speed": 45.0,
+					"presets": [
+						"hit",
+						"spark"
+					]
+				},
+				"kind": "cocktail_launch",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MICRO"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 10,
+					"fps": 60.0,
+					"frame": 2253,
+					"process_delta_ms": 16.666,
+					"spark": {
+						"active_particle_count": 4,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 33.332,
+						"emitter_found": true,
+						"global_position": "(360.0, 963.0)",
+						"max_draw_radius": 5.16982554927473,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 4,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@210",
+						"screen_position": "(360.0, 963.0)",
+						"size": 6.0,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 4,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.98973, 0.98973)",
+						"screen_position": "(360.0, 951.3528)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 27,
+					"fps": 60.0,
+					"frame": 2254,
+					"process_delta_ms": 16.666,
+					"spark": {
+						"active_particle_count": 4,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 49.998,
+						"emitter_found": true,
+						"global_position": "(360.0, 963.0)",
+						"max_draw_radius": 4.7547383239121,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 4,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@210",
+						"screen_position": "(360.0, 963.0)",
+						"size": 6.0,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 4,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.989368, 0.989368)",
+						"screen_position": "(360.0, 939.7749)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 525,
+					"fps": 60.0,
+					"frame": 2255,
+					"process_delta_ms": 142.748333333332,
+					"spark": {
+						"active_particle_count": 0,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 192.746333333332,
+						"emitter_found": true,
+						"global_position": "(360.0, 963.0)",
+						"max_draw_radius": 0.0,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 4,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@210",
+						"screen_position": "(360.0, 963.0)",
+						"size": 6.0,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 0,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 0.9708, 0.9417, 1.0)",
+						"scale": "(0.986551, 0.986551)",
+						"screen_position": "(360.0, 849.6337)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 3,
+			"semantic_sequence": 1,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "shot_controller"
+			},
+			"spark_call": {
+				"emitter_instance_id": 156413989085,
+				"invoked": true,
+				"options": {
+					"amount": 4,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": 200.0,
+					"lifetime": 0.14,
+					"lifetime_rand": 0.35,
+					"size": 6.0,
+					"size_end": 1.5,
+					"speed": 45.0,
+					"speed_min": 0.35,
+					"spread": 2.19911485751286,
+					"z_index": 100
+				},
+				"pool_children_after": 1,
+				"requested_canvas_position": "(360.0, 963.0)"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(360.0, 963.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual",
+				"scale": "(0.990094, 0.990094)",
+				"screen_position": "(360.0, 963.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-1",
+			"trigger_fps": 60.0,
+			"trigger_timestamp_ms": 40721
+		},
+		{
+			"active_drawn_frame_count": 1,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 41243,
+			"dispatch_gate": "enabled",
+			"event_id": "",
+			"first_visible_frame": 2255,
+			"frames_drawn_at_dispatch": 2254,
+			"frames_drawn_at_trigger": 2254,
+			"gff_active_effect_count": 2,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.72, 0.44, 1.0)",
+					"duration": 0.16
+				},
+				"returned": "<GDScriptFunctionState#-9223371879870361865>",
+				"started_ms": 41243
+			},
+			"kind": "table_contact",
+			"last_visible_elapsed_ms": 3,
+			"last_visible_frame": 2255,
+			"mode": "FULL",
+			"observation_window_ms": 210,
+			"payload": {
+				"contact_type": "drink",
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 122322685856,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual"
+				},
+				"source_instance": "m23r02_final_full_contact"
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.72, 0.44, 1.0)",
+					"duration": 0.16
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 5,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"lifetime": 0.16,
+					"size": 5.5,
+					"size_end": 1.5,
+					"speed": 40.0
+				},
+				"spark_preset": "hit"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 5,
+					"max_lifetime": 0.16,
+					"max_speed": 40.0,
+					"presets": [
+						"hit",
+						"dust"
+					]
+				},
+				"kind": "table_contact",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MICRO"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 3,
+					"fps": 60.0,
+					"frame": 2255,
+					"process_delta_ms": 142.748333333332,
+					"spark": {
+						"active_particle_count": 4,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 142.748333333332,
+						"emitter_found": true,
+						"global_position": "(360.0, 939.7749)",
+						"max_draw_radius": 2.84910338578863,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 5,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@214",
+						"screen_position": "(360.0, 939.7749)",
+						"size": 5.5,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 4,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 0.9708, 0.9417, 1.0)",
+						"scale": "(0.986551, 0.986551)",
+						"screen_position": "(360.0, 849.6337)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 510,
+					"fps": 45.0,
+					"frame": 2256,
+					"process_delta_ms": 116.666666666667,
+					"spark": {
+						"active_particle_count": 0,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 259.414999999999,
+						"emitter_found": true,
+						"global_position": "(360.0, 939.7749)",
+						"max_draw_radius": 0.0,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 5,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@214",
+						"screen_position": "(360.0, 939.7749)",
+						"size": 5.5,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 0,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 0.721, 0.442, 1.0)",
+						"scale": "(0.983871, 0.983871)",
+						"screen_position": "(360.0, 763.8636)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 2,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "drink_collision"
+			},
+			"spark_call": {
+				"emitter_instance_id": 157001191160,
+				"invoked": true,
+				"options": {
+					"amount": 5,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": 200.0,
+					"lifetime": 0.16,
+					"lifetime_rand": 0.35,
+					"size": 5.5,
+					"size_end": 1.5,
+					"speed": 40.0,
+					"speed_min": 0.35,
+					"spread": 2.19911485751286,
+					"z_index": 100
+				},
+				"pool_children_after": 2,
+				"requested_canvas_position": "(360.0, 939.7749)"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(360.0, 939.7749)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual",
+				"scale": "(0.989368, 0.989368)",
+				"screen_position": "(360.0, 939.7749)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-2",
+			"trigger_fps": 60.0,
+			"trigger_timestamp_ms": 41243
+		},
+		{
+			"active_drawn_frame_count": 2,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 41750,
+			"dispatch_gate": "enabled",
+			"event_id": "merge:1:sunny_cove:25:157269626628",
+			"first_visible_frame": 2256,
+			"frames_drawn_at_dispatch": 2255,
+			"frames_drawn_at_trigger": 2255,
+			"gff_active_effect_count": 3,
+			"gff_call": {
+				"effect": "punch_scale",
+				"invoked": true,
+				"params": {
+					"duration": 0.18,
+					"intensity": 0.45
+				},
+				"returned": "<GDScriptFunctionState#-9223371879283160671>",
+				"started_ms": 41750
+			},
+			"kind": "merge",
+			"last_visible_elapsed_ms": 504,
+			"last_visible_frame": 2257,
+			"mode": "FULL",
+			"observation_window_ms": 330,
+			"payload": {
+				"chain": 1,
+				"level": 3,
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 157336734115,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L03/Visual"
+				},
+				"source_instance": "157269626628"
+			},
+			"plan": {
+				"gff_effect": "punch_scale",
+				"gff_params": {
+					"duration": 0.18,
+					"intensity": 0.45
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 10,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"lifetime": 0.28,
+					"size": 5.0,
+					"size_end": 1.5,
+					"speed": 55.0
+				},
+				"spark_preset": "hit"
+			},
+			"policy": {
+				"budget": {
+					"band": "BASE",
+					"max_amount": 10,
+					"max_lifetime": 0.3,
+					"max_speed": 90.0,
+					"presets": [
+						"hit",
+						"spark"
+					]
+				},
+				"kind": "merge",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MERGE"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 4,
+					"fps": 45.0,
+					"frame": 2256,
+					"process_delta_ms": 116.666666666667,
+					"spark": {
+						"active_particle_count": 10,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 116.666666666667,
+						"emitter_found": true,
+						"global_position": "(250.0, 550.0)",
+						"max_draw_radius": 3.66052771310001,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 10,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@217",
+						"screen_position": "(250.0, 550.0)",
+						"size": 5.0,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 10,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977188, 0.977188)",
+						"screen_position": "(250.0, 550.0)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 504,
+					"fps": 45.0,
+					"frame": 2257,
+					"process_delta_ms": 140.525666666668,
+					"spark": {
+						"active_particle_count": 5,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 257.192333333334,
+						"emitter_found": true,
+						"global_position": "(250.0, 550.0)",
+						"max_draw_radius": 2.04712568940161,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 10,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@217",
+						"screen_position": "(250.0, 550.0)",
+						"size": 5.0,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 5,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977188, 0.977188)",
+						"screen_position": "(250.0, 550.0)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 3,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"spark_call": {
+				"emitter_instance_id": 157588392354,
+				"invoked": true,
+				"options": {
+					"amount": 10,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": 200.0,
+					"lifetime": 0.28,
+					"lifetime_rand": 0.35,
+					"size": 5.0,
+					"size_end": 1.5,
+					"speed": 55.0,
+					"speed_min": 0.35,
+					"spread": 2.19911485751286,
+					"z_index": 100
+				},
+				"pool_children_after": 3,
+				"requested_canvas_position": "(250.0, 550.0)"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(250.0, 550.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L03/Visual",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(250.0, 550.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-3",
+			"trigger_fps": 60.0,
+			"trigger_timestamp_ms": 41749
+		},
+		{
+			"active_drawn_frame_count": 2,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 42250,
+			"dispatch_gate": "enabled",
+			"event_id": "merge:1:sunny_cove:25:157873606407",
+			"first_visible_frame": 2257,
+			"frames_drawn_at_dispatch": 2256,
+			"frames_drawn_at_trigger": 2256,
+			"gff_active_effect_count": 3,
+			"gff_call": {
+				"effect": "punch_scale",
+				"invoked": true,
+				"params": {
+					"duration": 0.23,
+					"intensity": 0.72
+				},
+				"returned": "<GDScriptFunctionState#-9223371878679180923>",
+				"started_ms": 42249
+			},
+			"kind": "merge",
+			"last_visible_elapsed_ms": 517,
+			"last_visible_frame": 2258,
+			"mode": "FULL",
+			"observation_window_ms": 350,
+			"payload": {
+				"chain": 3,
+				"level": 3,
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 157940715743,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@220/Visual"
+				},
+				"source_instance": "157873606407"
+			},
+			"plan": {
+				"gff_effect": "punch_scale",
+				"gff_params": {
+					"duration": 0.23,
+					"intensity": 0.72
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 10,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"lifetime": 0.3,
+					"size": 6.5,
+					"size_end": 1.5,
+					"speed": 70.0
+				},
+				"spark_preset": "hit"
+			},
+			"policy": {
+				"budget": {
+					"band": "SURGE",
+					"max_amount": 10,
+					"max_lifetime": 0.3,
+					"max_speed": 90.0,
+					"presets": [
+						"hit",
+						"spark"
+					]
+				},
+				"kind": "merge",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MERGE"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 4,
+					"fps": 45.0,
+					"frame": 2257,
+					"process_delta_ms": 140.525666666668,
+					"spark": {
+						"active_particle_count": 10,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 140.525666666668,
+						"emitter_found": true,
+						"global_position": "(350.0, 550.0)",
+						"max_draw_radius": 4.54260579943291,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 10,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@221",
+						"screen_position": "(350.0, 550.0)",
+						"size": 6.5,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 10,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977188, 0.977188)",
+						"screen_position": "(350.0, 550.0)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 517,
+					"fps": 2.0,
+					"frame": 2258,
+					"process_delta_ms": 133.312666666667,
+					"spark": {
+						"active_particle_count": 5,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 273.838333333334,
+						"emitter_found": true,
+						"global_position": "(350.0, 550.0)",
+						"max_draw_radius": 2.68568210154049,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 10,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@221",
+						"screen_position": "(350.0, 550.0)",
+						"size": 6.5,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 5,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977188, 0.977188)",
+						"screen_position": "(350.0, 550.0)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 4,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"spark_call": {
+				"emitter_instance_id": 158192372112,
+				"invoked": true,
+				"options": {
+					"amount": 10,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": 200.0,
+					"lifetime": 0.3,
+					"lifetime_rand": 0.35,
+					"size": 6.5,
+					"size_end": 1.5,
+					"speed": 70.0,
+					"speed_min": 0.35,
+					"spread": 2.19911485751286,
+					"z_index": 100
+				},
+				"pool_children_after": 4,
+				"requested_canvas_position": "(350.0, 550.0)"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(350.0, 550.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@220/Visual",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(350.0, 550.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-4",
+			"trigger_fps": 45.0,
+			"trigger_timestamp_ms": 42249
+		},
+		{
+			"active_drawn_frame_count": 2,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 42760,
+			"dispatch_gate": "enabled",
+			"event_id": "merge:1:sunny_cove:25:158477586656",
+			"first_visible_frame": 2258,
+			"frames_drawn_at_dispatch": 2257,
+			"frames_drawn_at_trigger": 2257,
+			"gff_active_effect_count": 2,
+			"gff_call": {
+				"effect": "punch_scale",
+				"invoked": true,
+				"params": {
+					"duration": 0.28,
+					"intensity": 1.0
+				},
+				"returned": "<GDScriptFunctionState#-9223371878075199261>",
+				"started_ms": 42760
+			},
+			"kind": "merge",
+			"last_visible_elapsed_ms": 491,
+			"last_visible_frame": 2259,
+			"mode": "FULL",
+			"observation_window_ms": 400,
+			"payload": {
+				"chain": 5,
+				"level": 3,
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 158544693662,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@224/Visual"
+				},
+				"source_instance": "158477586656"
+			},
+			"plan": {
+				"gff_effect": "punch_scale",
+				"gff_params": {
+					"duration": 0.28,
+					"intensity": 1.0
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 18,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"lifetime": 0.35,
+					"size": 8.0,
+					"size_end": 1.5,
+					"speed": 105.0
+				},
+				"spark_preset": "hit"
+			},
+			"policy": {
+				"budget": {
+					"band": "PEAK",
+					"max_amount": 18,
+					"max_lifetime": 0.35,
+					"max_speed": 105.0,
+					"presets": [
+						"hit",
+						"spark"
+					]
+				},
+				"kind": "merge",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MERGE"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 7,
+					"fps": 2.0,
+					"frame": 2258,
+					"process_delta_ms": 133.312666666667,
+					"spark": {
+						"active_particle_count": 18,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 133.312666666667,
+						"emitter_found": true,
+						"global_position": "(450.0, 550.0)",
+						"max_draw_radius": 6.10466586011747,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 18,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@225",
+						"screen_position": "(450.0, 550.0)",
+						"size": 8.0,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 18,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977188, 0.977188)",
+						"screen_position": "(450.0, 550.0)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 491,
+					"fps": 2.0,
+					"frame": 2259,
+					"process_delta_ms": 133.314666666667,
+					"spark": {
+						"active_particle_count": 13,
+						"canvas_layer": {
+							"layer": 0,
+							"path": "default_world_canvas",
+							"visible": true
+						},
+						"color": "(0.3, 0.94, 1.0, 1.0)",
+						"color2": "(1.0, 0.94, 0.7, 0.0)",
+						"emitter_age_ms": 266.627333333333,
+						"emitter_found": true,
+						"global_position": "(450.0, 550.0)",
+						"max_draw_radius": 4.20930328581551,
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"part_count": 18,
+						"path": "/root/Spark/SaltmireSparkPool/@Node2D@225",
+						"screen_position": "(450.0, 550.0)",
+						"size": 8.0,
+						"size_end": 1.5,
+						"visible_in_tree": true,
+						"visible_particle_count": 13,
+						"z_index": 100
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977188, 0.977188)",
+						"screen_position": "(450.0, 550.0)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 5,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"spark_call": {
+				"emitter_instance_id": 158796351865,
+				"invoked": true,
+				"options": {
+					"amount": 18,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": 200.0,
+					"lifetime": 0.35,
+					"lifetime_rand": 0.35,
+					"size": 8.0,
+					"size_end": 1.5,
+					"speed": 105.0,
+					"speed_min": 0.35,
+					"spread": 2.19911485751286,
+					"z_index": 100
+				},
+				"pool_children_after": 4,
+				"requested_canvas_position": "(450.0, 550.0)"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(450.0, 550.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@224/Visual",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(450.0, 550.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-5",
+			"trigger_fps": 45.0,
+			"trigger_timestamp_ms": 42759
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 43242,
+			"dispatch_gate": "enabled",
+			"event_id": "score-milestone:m23r02:final-full",
+			"frames_drawn_at_dispatch": 2258,
+			"frames_drawn_at_trigger": 2258,
+			"gff_active_effect_count": 2,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.68, 0.3, 1.0)",
+					"duration": 0.2
+				},
+				"returned": "<GDScriptFunctionState#-9223371877605439065>",
+				"started_ms": 43242
+			},
+			"kind": "score_mastery",
+			"mode": "FULL",
+			"observation_window_ms": 250,
+			"payload": {
+				"best_score": 321,
+				"milestone": "m23r02_final_full_score",
+				"presentation_target": {
+					"class": "Label",
+					"instance_id": 116752650039,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ScorePanel/@Label@155"
+				},
+				"score": 0,
+				"threshold": 1
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.68, 0.3, 1.0)",
+					"duration": 0.2
+				},
+				"mode": "FULL"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 64,
+					"max_lifetime": 1.5,
+					"max_speed": 120.0,
+					"presets": [
+						"confetti",
+						"spark"
+					]
+				},
+				"kind": "score_mastery",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MASTERY"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 9,
+					"fps": 2.0,
+					"frame": 2259,
+					"process_delta_ms": 133.314666666667,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 0.7867, 0.5334, 1.0)",
+						"screen_position": "(606.4634, 242.6544)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 515,
+					"fps": 2.0,
+					"frame": 2260,
+					"process_delta_ms": 126.180333333332,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"screen_position": "(606.4634, 242.6544)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 6,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"follow_viewport_enabled": false,
+					"layer": 1,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI",
+					"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+					"visible": true
+				},
+				"class": "Label",
+				"clipping_ancestors": [],
+				"global_position": "(606.4634, 242.6544)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ScorePanel/@Label@155",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(606.4634, 242.6544)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-6",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 43241
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 43246,
+			"dispatch_gate": "enabled",
+			"event_id": "",
+			"frames_drawn_at_dispatch": 2259,
+			"frames_drawn_at_trigger": 2259,
+			"gff_active_effect_count": 3,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.72, 0.44, 1.0)",
+					"duration": 0.16
+				},
+				"returned": "<GDScriptFunctionState#-9223371877353779457>",
+				"started_ms": 43246
+			},
+			"kind": "table_contact",
+			"mode": "FULL",
+			"observation_window_ms": 210,
+			"payload": {
+				"contact_level": 3,
+				"contact_type": "drink",
+				"position": "(360.7535, 592.1148)",
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 122322685856,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual"
+				},
+				"source_instance": "122255576988",
+				"source_level": 1
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.72, 0.44, 1.0)",
+					"duration": 0.16
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 5,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"lifetime": 0.16,
+					"size": 5.5,
+					"size_end": 1.5,
+					"speed": 40.0
+				},
+				"spark_preset": "hit"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 5,
+					"max_lifetime": 0.16,
+					"max_speed": 40.0,
+					"presets": [
+						"hit",
+						"dust"
+					]
+				},
+				"kind": "table_contact",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MICRO"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 511,
+					"fps": 2.0,
+					"frame": 2260,
+					"process_delta_ms": 126.180333333332,
+					"spark": {
+						"emitter_found": false,
+						"pool_found": true
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977048, 0.977048)",
+						"screen_position": "(370.143, 545.5506)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 1,
+			"semantic_sequence": 7,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "drink_collision"
+			},
+			"spark_call": {
+				"emitter_instance_id": 159517772166,
+				"invoked": true,
+				"options": {
+					"amount": 5,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": 200.0,
+					"lifetime": 0.16,
+					"lifetime_rand": 0.35,
+					"size": 5.5,
+					"size_end": 1.5,
+					"speed": 40.0,
+					"speed_min": 0.35,
+					"spread": 2.19911485751286,
+					"z_index": 100
+				},
+				"pool_children_after": 3,
+				"requested_canvas_position": "(360.7535, 592.1148)"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(360.7535, 592.1148)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual",
+				"scale": "(0.978913, 0.978913)",
+				"screen_position": "(360.7535, 592.1148)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-7",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 43245
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 5,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 43247,
+			"dispatch_gate": "enabled",
+			"event_id": "",
+			"frames_drawn_at_dispatch": 2259,
+			"frames_drawn_at_trigger": 2259,
+			"gff_active_effect_count": 4,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.72, 0.44, 1.0)",
+					"duration": 0.16
+				},
+				"returned": "<GDScriptFunctionState#-9223371877135677065>",
+				"started_ms": 43246
+			},
+			"kind": "table_contact",
+			"mode": "FULL",
+			"observation_window_ms": 210,
+			"payload": {
+				"contact_level": 1,
+				"contact_type": "drink",
+				"position": "(349.5291, 546.5303)",
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 157940715743,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@220/Visual"
+				},
+				"source_instance": "157873606407",
+				"source_level": 3
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.72, 0.44, 1.0)",
+					"duration": 0.16
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 5,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"lifetime": 0.16,
+					"size": 5.5,
+					"size_end": 1.5,
+					"speed": 40.0
+				},
+				"spark_preset": "hit"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 5,
+					"max_lifetime": 0.16,
+					"max_speed": 40.0,
+					"presets": [
+						"hit",
+						"dust"
+					]
+				},
+				"kind": "table_contact",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "MICRO"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 510,
+					"fps": 2.0,
+					"frame": 2260,
+					"process_delta_ms": 126.180333333332,
+					"spark": {
+						"emitter_found": false,
+						"pool_found": true
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.975741, 0.975741)",
+						"screen_position": "(343.7176, 503.7139)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 1,
+			"semantic_sequence": 8,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "drink_collision"
+			},
+			"spark_call": {
+				"emitter_instance_id": 159735875946,
+				"invoked": true,
+				"options": {
+					"amount": 5,
+					"color": "(0.3, 0.94, 1.0, 1.0)",
+					"color2": "(1.0, 0.94, 0.7, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": 200.0,
+					"lifetime": 0.16,
+					"lifetime_rand": 0.35,
+					"size": 5.5,
+					"size_end": 1.5,
+					"speed": 40.0,
+					"speed_min": 0.35,
+					"spread": 2.19911485751286,
+					"z_index": 100
+				},
+				"pool_children_after": 4,
+				"requested_canvas_position": "(349.5291, 546.5303)"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(349.5291, 546.5303)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@220/Visual",
+				"scale": "(0.977188, 0.977188)",
+				"screen_position": "(349.5291, 546.5303)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-8",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 43246
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 43751,
+			"dispatch_gate": "enabled",
+			"event_id": "",
+			"frames_drawn_at_dispatch": 2259,
+			"frames_drawn_at_trigger": 2259,
+			"gff_active_effect_count": 2,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"returned": "<GDScriptFunctionState#-9223371876749801050>",
+				"started_ms": 43750
+			},
+			"kind": "table_contact",
+			"mode": "REDUCED",
+			"observation_window_ms": 150,
+			"payload": {
+				"contact_type": "drink",
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 122322685856,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual"
+				},
+				"source_instance": "m23r02_final_reduced_contact"
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"mode": "REDUCED"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"kind": "table_contact",
+				"mode": "REDUCED",
+				"ok": true,
+				"tier": "MICRO"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 6,
+					"fps": 2.0,
+					"frame": 2260,
+					"process_delta_ms": 126.180333333332,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977048, 0.977048)",
+						"screen_position": "(370.143, 545.5506)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 510,
+					"fps": 2.0,
+					"frame": 2261,
+					"process_delta_ms": 150.0,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.976366, 0.976366)",
+						"screen_position": "(374.549, 523.7005)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 9,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "drink_collision"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(365.0415, 570.8495)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual",
+				"scale": "(0.977839, 0.977839)",
+				"screen_position": "(365.0415, 570.8495)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-9",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 43750
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 44254,
+			"dispatch_gate": "enabled",
+			"event_id": "merge:1:sunny_cove:25:160356632939",
+			"frames_drawn_at_dispatch": 2260,
+			"frames_drawn_at_trigger": 2260,
+			"gff_active_effect_count": 1,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"returned": "<GDScriptFunctionState#-9223371876212930170>",
+				"started_ms": 44254
+			},
+			"kind": "merge",
+			"mode": "REDUCED",
+			"observation_window_ms": 150,
+			"payload": {
+				"chain": 1,
+				"level": 3,
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 160423741831,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@230/Visual"
+				},
+				"source_instance": "160356632939"
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"mode": "REDUCED"
+			},
+			"policy": {
+				"budget": {
+					"band": "BASE",
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"kind": "merge",
+				"mode": "REDUCED",
+				"ok": true,
+				"tier": "MERGE"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 7,
+					"fps": 2.0,
+					"frame": 2261,
+					"process_delta_ms": 150.0,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.978027, 0.978027)",
+						"screen_position": "(250.0, 576.8497)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 497,
+					"fps": 2.0,
+					"frame": 2262,
+					"process_delta_ms": 133.333333333333,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.978027, 0.978027)",
+						"screen_position": "(250.0, 576.85)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 10,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(250.0, 550.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@230/Visual",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(250.0, 550.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-10",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 44253
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 44741,
+			"dispatch_gate": "enabled",
+			"event_id": "merge:1:sunny_cove:25:160910281062",
+			"frames_drawn_at_dispatch": 2261,
+			"frames_drawn_at_trigger": 2261,
+			"gff_active_effect_count": 1,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"returned": "<GDScriptFunctionState#-9223371875659282051>",
+				"started_ms": 44741
+			},
+			"kind": "merge",
+			"mode": "REDUCED",
+			"observation_window_ms": 150,
+			"payload": {
+				"chain": 3,
+				"level": 3,
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 160977389930,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@233/Visual"
+				},
+				"source_instance": "160910281062"
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"mode": "REDUCED"
+			},
+			"policy": {
+				"budget": {
+					"band": "SURGE",
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"kind": "merge",
+				"mode": "REDUCED",
+				"ok": true,
+				"tier": "MERGE"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 9,
+					"fps": 2.0,
+					"frame": 2262,
+					"process_delta_ms": 133.333333333333,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977249, 0.977249)",
+						"screen_position": "(348.2758, 551.9815)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 537,
+					"fps": 2.0,
+					"frame": 2263,
+					"process_delta_ms": 116.666666666667,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.977249, 0.977249)",
+						"screen_position": "(348.2758, 551.9815)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 11,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(350.0, 550.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@233/Visual",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(350.0, 550.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-11",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 44741
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 44745,
+			"dispatch_gate": "enabled",
+			"event_id": "",
+			"frames_drawn_at_dispatch": 2262,
+			"frames_drawn_at_trigger": 2262,
+			"gff_active_effect_count": 1,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"returned": "<GDScriptFunctionState#-9223371875390846599>",
+				"started_ms": 44745
+			},
+			"kind": "table_contact",
+			"mode": "REDUCED",
+			"observation_window_ms": 150,
+			"payload": {
+				"contact_level": 3,
+				"contact_type": "drink",
+				"position": "(378.3015, 515.6011)",
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 122322685856,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual"
+				},
+				"source_instance": "122255576988",
+				"source_level": 1
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"mode": "REDUCED"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"kind": "table_contact",
+				"mode": "REDUCED",
+				"ok": true,
+				"tier": "MICRO"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 533,
+					"fps": 2.0,
+					"frame": 2263,
+					"process_delta_ms": 116.666666666667,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.975219, 0.975219)",
+						"screen_position": "(384.0699, 486.9942)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 1,
+			"semantic_sequence": 12,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "drink_collision"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(378.3015, 515.6011)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/Drink_L01/Visual",
+				"scale": "(0.976366, 0.976366)",
+				"screen_position": "(378.3015, 515.6011)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-12",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 44745
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 45270,
+			"dispatch_gate": "enabled",
+			"event_id": "merge:1:sunny_cove:25:161648478598",
+			"frames_drawn_at_dispatch": 2262,
+			"frames_drawn_at_trigger": 2262,
+			"gff_active_effect_count": 2,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"returned": "<GDScriptFunctionState#-9223371874921084527>",
+				"started_ms": 45269
+			},
+			"kind": "merge",
+			"mode": "REDUCED",
+			"observation_window_ms": 150,
+			"payload": {
+				"chain": 5,
+				"level": 3,
+				"presentation_target": {
+					"class": "Node2D",
+					"instance_id": 161715587432,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@236/Visual"
+				},
+				"source_instance": "161648478598"
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"mode": "REDUCED"
+			},
+			"policy": {
+				"budget": {
+					"band": "PEAK",
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"kind": "merge",
+				"mode": "REDUCED",
+				"ok": true,
+				"tier": "MERGE"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 9,
+					"fps": 2.0,
+					"frame": 2263,
+					"process_delta_ms": 116.666666666667,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.978027, 0.978027)",
+						"screen_position": "(450.0, 576.8497)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 513,
+					"fps": 2.0,
+					"frame": 2264,
+					"process_delta_ms": 140.385000000001,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"scale": "(0.978027, 0.978027)",
+						"screen_position": "(450.0, 576.85)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 13,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Node2D",
+				"clipping_ancestors": [],
+				"global_position": "(450.0, 550.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/World/@RigidBody2D@236/Visual",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(450.0, 550.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-13",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 45269
+		},
+		{
+			"active_drawn_frame_count": 0,
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"dispatch_completed_ms": 45773,
+			"dispatch_gate": "enabled",
+			"event_id": "score-milestone:m23r02:final-reduced",
+			"frames_drawn_at_dispatch": 2263,
+			"frames_drawn_at_trigger": 2263,
+			"gff_active_effect_count": 1,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"returned": "<GDScriptFunctionState#-9223371874484876915>",
+				"started_ms": 45773
+			},
+			"kind": "score_mastery",
+			"mode": "REDUCED",
+			"observation_window_ms": 150,
+			"payload": {
+				"best_score": 321,
+				"milestone": "m23r02_final_reduced_score",
+				"presentation_target": {
+					"class": "Label",
+					"instance_id": 116752650039,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ScorePanel/@Label@155"
+				},
+				"score": 0,
+				"threshold": 1
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.94, 0.8, 1.0)",
+					"duration": 0.1
+				},
+				"mode": "REDUCED"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 16,
+					"max_lifetime": 0.6,
+					"max_speed": 45.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"kind": "score_mastery",
+				"mode": "REDUCED",
+				"ok": true,
+				"tier": "MASTERY"
+			},
+			"render_samples": [
+				{
+					"elapsed_ms": 9,
+					"fps": 2.0,
+					"frame": 2264,
+					"process_delta_ms": 140.385000000001,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"screen_position": "(606.4634, 242.6544)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				},
+				{
+					"elapsed_ms": 496,
+					"fps": 2.0,
+					"frame": 2265,
+					"process_delta_ms": 133.313333333333,
+					"spark": {
+						"emitter_found": false
+					},
+					"target": {
+						"modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"screen_position": "(606.4634, 242.6544)",
+						"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+						"valid": true,
+						"visible_in_tree": true
+					}
+				}
+			],
+			"rendered_frame_count": 2,
+			"semantic_sequence": 14,
+			"source_context": {
+				"island_id": "sunny_cove",
+				"level_id": 25,
+				"session_id": "1:sunny_cove:25",
+				"session_serial": 1,
+				"source": "game_manager"
+			},
+			"stage": "render_sample_complete",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render",
+				"render_sample_complete"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"follow_viewport_enabled": false,
+					"layer": 1,
+					"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI",
+					"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+					"visible": true
+				},
+				"class": "Label",
+				"clipping_ancestors": [],
+				"global_position": "(606.4634, 242.6544)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignGameplay/UI/HUD/ScorePanel/@Label@155",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(606.4634, 242.6544)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-14",
+			"trigger_fps": 2.0,
+			"trigger_timestamp_ms": 45773
+		}
+	]
+}

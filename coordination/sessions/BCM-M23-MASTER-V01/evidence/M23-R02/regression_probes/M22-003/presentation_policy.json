@@ -1,0 +1,704 @@
+{
+	"large_celebrations_active_at_once": 1,
+	"mobile_ceilings": {
+		"FAIL": {
+			"amount": 0,
+			"lifetime": 0.0
+		},
+		"ISLAND_UNLOCK": {
+			"amount": 72,
+			"lifetime": 1.6
+		},
+		"MASTERY": {
+			"amount": 64,
+			"lifetime": 1.5
+		},
+		"MERGE": {
+			"amount": 10,
+			"lifetime": 0.3
+		},
+		"MERGE_PEAK": {
+			"amount": 18,
+			"lifetime": 0.35
+		},
+		"MICRO": {
+			"amount": 5,
+			"lifetime": 0.16
+		},
+		"ORDER": {
+			"amount": 16,
+			"lifetime": 0.45
+		},
+		"VIP": {
+			"amount": 24,
+			"lifetime": 0.65
+		},
+		"WIN": {
+			"amount": 48,
+			"lifetime": 1.2
+		},
+		"gameplay_live": 48,
+		"large_celebrations": 1,
+		"result_meta_live": 96
+	},
+	"modes": [
+		"FULL",
+		"REDUCED"
+	],
+	"policy": {
+		"cocktail_launch": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 5,
+					"max_lifetime": 0.16,
+					"max_speed": 45.0,
+					"presets": [
+						"hit",
+						"spark"
+					]
+				},
+				"style": "one brief local scale or alpha/color emphasis"
+			},
+			"overlap_cancel": "coalesce by shot event; cancel on visual target or session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"style": "immediate state plus low-contrast alpha/color only"
+			},
+			"target": "Drink/Visual or CocktailSprite",
+			"tier": "MICRO"
+		},
+		"game_fail": {
+			"full": {
+				"gff_effects": [
+					"alpha",
+					"color"
+				],
+				"spark": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"style": "subdued non-celebratory alpha/color emphasis; never WIN/confetti language"
+			},
+			"overlap_cancel": "cancel all transient result emphasis on result/session exit; never share WIN celebration mapping",
+			"reduced": {
+				"gff_effects": [
+					"alpha",
+					"color"
+				],
+				"spark": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"style": "immediate FAIL/result state; optional brief low-contrast alpha/color only"
+			},
+			"target": "result visual controls or fail-result visual child",
+			"tier": "FAIL"
+		},
+		"game_success": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 48,
+					"max_lifetime": 1.2,
+					"max_speed": 115.0,
+					"presets": [
+						"confetti",
+						"spark"
+					]
+				},
+				"style": "brief local color/scale emphasis with a bounded confetti or spark burst; reveal result data only"
+			},
+			"overlap_cancel": "share one large-celebration slot; cancel on result/session exit; result actions stay immediately available",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 12,
+					"max_lifetime": 0.48,
+					"max_speed": 42.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate WIN/result state plus low-contrast alpha/color; no confetti, scale, travel, or sequence"
+			},
+			"target": "result visual controls or result visual child",
+			"tier": "WIN"
+		},
+		"island_complete": {
+			"full": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 72,
+					"max_lifetime": 1.6,
+					"max_speed": 120.0,
+					"presets": [
+						"confetti",
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "brief local alpha/color emphasis with one bounded reveal"
+			},
+			"overlap_cancel": "coalesce by island ID; share one large-celebration slot; cancel on map/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 18,
+					"max_lifetime": 0.64,
+					"max_speed": 45.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate completion state plus low-contrast alpha/color; no confetti or motion"
+			},
+			"target": "island completion visual child",
+			"tier": "ISLAND_UNLOCK"
+		},
+		"island_milestone": {
+			"full": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 72,
+					"max_lifetime": 1.6,
+					"max_speed": 120.0,
+					"presets": [
+						"confetti",
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "brief local alpha/color emphasis with one bounded reveal"
+			},
+			"overlap_cancel": "coalesce by milestone ID; share one large-celebration slot; cancel on map/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 18,
+					"max_lifetime": 0.64,
+					"max_speed": 45.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate milestone state plus low-contrast alpha/color; no confetti or motion"
+			},
+			"target": "island milestone visual child",
+			"tier": "ISLAND_UNLOCK"
+		},
+		"island_unlock": {
+			"full": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 72,
+					"max_lifetime": 1.6,
+					"max_speed": 120.0,
+					"presets": [
+						"confetti",
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "brief local alpha/color emphasis with one bounded reveal"
+			},
+			"overlap_cancel": "coalesce by island ID; share one large-celebration slot; cancel on map/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 18,
+					"max_lifetime": 0.64,
+					"max_speed": 45.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate unlocked state plus low-contrast alpha/color; no confetti or motion"
+			},
+			"target": "unlocked island map visual entry",
+			"tier": "ISLAND_UNLOCK"
+		},
+		"level_unlock": {
+			"full": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 72,
+					"max_lifetime": 1.6,
+					"max_speed": 120.0,
+					"presets": [
+						"confetti",
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "brief local alpha/color emphasis with one bounded reveal; no root/button travel"
+			},
+			"overlap_cancel": "coalesce by unlock ID; share one large-celebration slot; cancel on map/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 18,
+					"max_lifetime": 0.64,
+					"max_speed": 45.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate unlocked state plus low-contrast alpha/color; no confetti or motion"
+			},
+			"target": "unlocked LevelButton visual child",
+			"tier": "ISLAND_UNLOCK"
+		},
+		"merge": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark_bands": [
+					{
+						"budget": {
+							"max_amount": 10,
+							"max_lifetime": 0.3,
+							"max_speed": 90.0,
+							"presets": [
+								"hit",
+								"spark"
+							]
+						},
+						"max_chain": 2,
+						"min_chain": 1,
+						"name": "BASE"
+					},
+					{
+						"budget": {
+							"max_amount": 10,
+							"max_lifetime": 0.3,
+							"max_speed": 90.0,
+							"presets": [
+								"hit",
+								"spark"
+							]
+						},
+						"max_chain": 4,
+						"min_chain": 3,
+						"name": "SURGE"
+					},
+					{
+						"budget": {
+							"max_amount": 18,
+							"max_lifetime": 0.35,
+							"max_speed": 105.0,
+							"presets": [
+								"hit",
+								"spark"
+							]
+						},
+						"max_chain": 0,
+						"min_chain": 5,
+						"name": "PEAK"
+					}
+				],
+				"style": "local scale punch and alpha/color; BASE 1-2, SURGE 3-4, PEAK 5+ hard cap"
+			},
+			"overlap_cancel": "retain one local emphasis per merged visual; newer merge replaces prior; PEAK never escalates past PEAK",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark_bands": [
+					{
+						"budget": {
+							"max_amount": 0,
+							"max_lifetime": 0.0,
+							"max_speed": 0.0,
+							"presets": []
+						},
+						"max_chain": 2,
+						"min_chain": 1,
+						"name": "BASE"
+					},
+					{
+						"budget": {
+							"max_amount": 0,
+							"max_lifetime": 0.0,
+							"max_speed": 0.0,
+							"presets": []
+						},
+						"max_chain": 4,
+						"min_chain": 3,
+						"name": "SURGE"
+					},
+					{
+						"budget": {
+							"max_amount": 0,
+							"max_lifetime": 0.0,
+							"max_speed": 0.0,
+							"presets": []
+						},
+						"max_chain": 0,
+						"min_chain": 5,
+						"name": "PEAK"
+					}
+				],
+				"style": "immediate merge state plus low-contrast alpha/color; no scale, travel, or particles"
+			},
+			"target": "merged Drink/Visual",
+			"tier": "MERGE"
+		},
+		"order_complete": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 16,
+					"max_lifetime": 0.45,
+					"max_speed": 100.0,
+					"presets": [
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "short local scale punch or alpha/color; restrained reveal sequence"
+			},
+			"overlap_cancel": "one completion emphasis per stable token; cancel on panel/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 4,
+					"max_lifetime": 0.2,
+					"max_speed": 38.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate completed state plus brief low-contrast alpha/color"
+			},
+			"target": "To-Go order visual panel",
+			"tier": "ORDER"
+		},
+		"order_progress": {
+			"full": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 16,
+					"max_lifetime": 0.45,
+					"max_speed": 100.0,
+					"presets": [
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "short local alpha/color emphasis; restrained reveal only"
+			},
+			"overlap_cancel": "coalesce by order event ID; retain latest authoritative progress; cancel on panel/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 4,
+					"max_lifetime": 0.2,
+					"max_speed": 38.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate progress state plus brief low-contrast alpha/color"
+			},
+			"target": "To-Go order visual panel",
+			"tier": "ORDER"
+		},
+		"reward_granted": {
+			"full": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 16,
+					"max_lifetime": 0.45,
+					"max_speed": 80.0,
+					"presets": [
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "brief local alpha/color emphasis; restrained reward reveal"
+			},
+			"overlap_cancel": "coalesce by reward ID; preserve the visible reward and action; cancel on result/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 4,
+					"max_lifetime": 0.2,
+					"max_speed": 32.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate granted reward state plus low-contrast alpha/color; no travel or confetti"
+			},
+			"target": "reward/result visual child",
+			"tier": "ISLAND_UNLOCK"
+		},
+		"score_mastery": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 64,
+					"max_lifetime": 1.5,
+					"max_speed": 120.0,
+					"presets": [
+						"confetti",
+						"spark"
+					]
+				},
+				"style": "brief local scale/color emphasis and restrained reveal; at most one celebration"
+			},
+			"overlap_cancel": "share the single large-celebration slot with WIN/ISLAND_UNLOCK; cancel on result/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 16,
+					"max_lifetime": 0.6,
+					"max_speed": 45.0,
+					"presets": [
+						"dust"
+					]
+				},
+				"style": "immediate mastery/result state plus brief low-contrast alpha/color; no confetti or motion"
+			},
+			"target": "score/result visual child",
+			"tier": "MASTERY"
+		},
+		"table_contact": {
+			"full": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 5,
+					"max_lifetime": 0.16,
+					"max_speed": 40.0,
+					"presets": [
+						"hit",
+						"dust"
+					]
+				},
+				"style": "brief local alpha/color emphasis; no contact particle required"
+			},
+			"overlap_cancel": "coalesce repeated contact on the same visual target; cancel on target/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"style": "immediate state plus low-contrast alpha/color only"
+			},
+			"target": "Drink/Visual or CocktailSprite",
+			"tier": "MICRO"
+		},
+		"ui_primary": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 5,
+					"max_lifetime": 0.16,
+					"max_speed": 40.0,
+					"presets": [
+						"hit",
+						"spark"
+					]
+				},
+				"style": "one brief local scale or alpha/color emphasis on the approved CTA child"
+			},
+			"overlap_cancel": "one emphasis per semantic action; do not replay on settings/view changes; cancel on target/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"style": "immediate action state plus brief low-contrast alpha/color only"
+			},
+			"target": "approved CTA visual child only; never arbitrary generic-button feedback",
+			"tier": "MICRO"
+		},
+		"vip_complete": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 24,
+					"max_lifetime": 0.65,
+					"max_speed": 110.0,
+					"presets": [
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "local scale punch and color emphasis; one bounded burst"
+			},
+			"overlap_cancel": "one completion emphasis per stable token; cancel on target/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"style": "immediate VIP completion state plus low-contrast alpha/color; no scale or particles"
+			},
+			"target": "VIP target visual or VIP completion label",
+			"tier": "VIP"
+		},
+		"vip_delivery": {
+			"full": {
+				"gff_effects": [
+					"punch_scale",
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 24,
+					"max_lifetime": 0.65,
+					"max_speed": 110.0,
+					"presets": [
+						"pickup",
+						"spark"
+					]
+				},
+				"style": "local scale punch and color emphasis; one bounded burst"
+			},
+			"overlap_cancel": "coalesce by stable VIP delivery token; cancel on target/session exit",
+			"reduced": {
+				"gff_effects": [
+					"color",
+					"alpha"
+				],
+				"spark": {
+					"max_amount": 0,
+					"max_lifetime": 0.0,
+					"max_speed": 0.0,
+					"presets": []
+				},
+				"style": "immediate VIP delivery state plus low-contrast alpha/color; no scale or particles"
+			},
+			"target": "VIP target visual or VIP progress label",
+			"tier": "VIP"
+		}
+	},
+	"production_enabled_in_m22": false,
+	"semantic_kinds": [
+		"cocktail_launch",
+		"table_contact",
+		"merge",
+		"order_progress",
+		"order_complete",
+		"vip_delivery",
+		"vip_complete",
+		"score_mastery",
+		"game_success",
+		"game_fail",
+		"level_unlock",
+		"island_milestone",
+		"island_complete",
+		"island_unlock",
+		"reward_granted",
+		"ui_primary"
+	]
+}
