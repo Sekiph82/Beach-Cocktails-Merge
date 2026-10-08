@@ -75,4 +75,5 @@ Explicitly excluded owner-local paths: `project.godot`; `coordination/sessions/B
 
 ## Publication record
 
-To be completed after commit/push and parity verification with final commit SHA, local HEAD, `origin/main`, live remote main, and 0/0 divergence.
+- Implementation/evidence commit: `bcdfbab32cc98757d0c43cd8b9ae49d5d3450779`.
+- Publication-log finalization commit and live parity are recorded in the final handoff message after push verification.
