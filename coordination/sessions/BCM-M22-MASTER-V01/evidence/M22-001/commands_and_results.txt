@@ -1,0 +1,13 @@
+## Exact command results
+
+- `git fetch origin main` — exit 0; `origin/main` advanced `4dff38f..45086e0`.
+- `git rev-list --left-right --count HEAD...origin/main` — `0 13` before fast-forward; `0 0` after.
+- `godot_console.exe --headless --path . --script res://tests/m22_001_plugin_contract_probe.gd` — exit 0; `M22_001_PLUGIN_CONTRACT_RESULT=PASS checks=21 failures=0 authority_hash=891736178`.
+- `godot_console.exe --headless --path . --editor --quit` — exit 0; editor filesystem scan, class registration, plugin initialization, and asset import completed.
+- `godot_console.exe --headless --path . --quit-after 2` — exit 0; both presentation autoloads initialized and main scene started.
+- `godot_console.exe --headless --path . --script res://tests/m21_full_progression_probe.gd` — exit 0; `M21_CHILD_03_RESULT=PASS completed=100 checkpoints=5`.
+- `godot_console.exe --headless --path . --script res://tests/m21_world_map_production_v05_probe.gd` — exit 0; `M21_WORLD_MAP_PRODUCTION_V05_RESULT=PASS captures=0 mouse=PASS touch=PASS`.
+- `godot_console.exe --headless --path . --script res://tests/m21_owner_f5_remediation_v07_gameplay_probe.gd` — exit 1 at parse because this historical probe references missing `IslandEntry.MARKER_CENTER`; no implementation file was changed. Current M21 production V05 mouse/touch input and 100-level progression probes pass.
+- `git diff --check` — exit 0.
+
+The editor scan reserialized the GameFeelFlow autoload to `uid://ckhnfaf1odnpl`. That generated drift was inspected and restored to the pre-run working-tree SHA-256 `de79ff257f4f4be0dbe01becb574a3e502f9bf36f07cf662b293a4b6242d0267`; current `project.godot` is clean relative to `HEAD`. The M21 progression and World Map probes rewrote historical evidence JSON; those two exact outputs were captured under M22-001 evidence and the pre-run tracked bytes were restored. No M21 evidence change is included in this child.

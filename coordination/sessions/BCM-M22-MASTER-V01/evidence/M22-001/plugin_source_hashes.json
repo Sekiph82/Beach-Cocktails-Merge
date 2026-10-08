@@ -1,0 +1,17 @@
+{
+  "baseline_commit": "45086e032cb91553f264c825abefcc2618b5cb06",
+  "branch": "main",
+  "remote": "https://github.com/Sekiph82/Beach-Cocktails-Merge.git",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "project_autoloads": {
+    "GameFeelFlow": "res://addons/game_feel_flow/core/game_feel_flow.gd",
+    "Spark": "res://addons/saltmire_spark/spark.gd"
+  },
+  "plugins": [
+    {"id":"Game Feel Flow","version":"1.0.0","config":"addons/game_feel_flow/plugin.cfg","config_bytes":153,"config_sha256":"362d199d9ed1df1d8002f2b50bbd2c93ea51e2a7dfa280a557adc75c58280d40","source":"addons/game_feel_flow/core/game_feel_flow.gd","source_bytes":14008,"source_sha256":"f058cdc88159752dd0cf37ee5d504bbeef7d2ce0e685981ffb41a6c872a49a03"},
+    {"id":"Saltmire Spark","version":"1.0.0","config":"addons/saltmire_spark/plugin.cfg","config_bytes":282,"config_sha256":"ea6d635072c9128c35d7b8ea44b035e1fbdf58d1d22b19ae5e355231664420db","source":"addons/saltmire_spark/spark.gd","source_bytes":6569,"source_sha256":"f6e3daeb9dc6bc0e062d5b520fd376b8924d888189015202efdec4211feeba06"}
+  ],
+  "project_godot_sha256": "de79ff257f4f4be0dbe01becb574a3e502f9bf36f07cf662b293a4b6242d0267",
+  "editor_plugins_enabled": ["res://addons/game_feel_flow/plugin.cfg","res://addons/godot_ai/plugin.cfg","res://addons/saltmire_spark/plugin.cfg"],
+  "runtime_inventory": "plugin_runtime_inventory.json"
+}

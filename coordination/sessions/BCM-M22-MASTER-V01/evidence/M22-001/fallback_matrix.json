@@ -1,0 +1,16 @@
+{
+  "probe": "tests/m22_001_plugin_contract_probe.gd",
+  "result": "PASS",
+  "checks": 21,
+  "cases": [
+    {"case":"both installed singletons", "result":"PASS", "notes":"Complete real GFF and Spark APIs resolved; only lookup methods called."},
+    {"case":"GameFeelFlow absent", "result":"PASS", "notes":"GFF capability false; Spark left present."},
+    {"case":"Spark absent", "result":"PASS", "notes":"Spark capability false; GFF left present."},
+    {"case":"both absent", "result":"PASS", "notes":"Both capability sets safely false."},
+    {"case":"expected method missing", "result":"PASS", "notes":"Partial fixture APIs rejected as incomplete."},
+    {"case":"unknown effect/combo/preset", "result":"PASS", "notes":"Unknown names return false; unknown preset does not fall back to base."},
+    {"case":"authority state fingerprint", "result":"PASS", "notes":"Live campaign/economy/navigation fingerprint remains 891736178 across all fallback configurations."},
+    {"case":"plugin invocation failure", "result":"DEFERRED_TO_M22_002", "notes":"No bridge exists in child 001; failure/no-op injection is exercised at the bridge boundary in the next child."}
+  ],
+  "limitations": ["No physical addon removal was attempted; tracked canonical packaging and autoload dependencies remain intact.", "The authority hash is a live default CampaignNavigationController startup state covering CampaignManager progression, GameEconomy ledger, view/island, and active gameplay instance count; M22-002 extends parity to gameplay outputs."]
+}
