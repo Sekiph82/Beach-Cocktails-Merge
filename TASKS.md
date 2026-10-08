@@ -8,15 +8,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M23-MASTER-V01
 - Current Task: BCM-M23-003 — Add capped combo escalation and selective score/mastery emphasis without animating every number.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M23-003 — CODEX executes `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-R02_COMBINED_VISIBILITY_MASTER_PROMPT.md` including all active R01 remediation and R02 CanvasLayer/FPS additions; then GPT re-audit.
+- Next Task/Action: BCM-M23-003 — CODEX executes `coordination/sessions/BCM-M23-MASTER-V01/BCM-M23-R03_COMBINED_TUNING_PROMPT.md` to tone down R02 effects and fix persistent tint, then stops for GPT re-audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M22 owner approved. M23 technical source audit PASS but owner F5 visuals REJECTED. Active work: combined M23 R01 remediation + R02 canvas ordering, FPS, size and contrast diagnostics published. No visual acceptance, M24 not started.
+- Progress: M22 owner approved. M23 R02 source/evidence reviewed but OWNER_VISUAL_REJECTED: stronger effects now too intense; some color tints fail to restore. M23-R03 tuning plus exact tint restoration required. M21 720x1440 mobile QA failed and remains open; M24 not started.
 
 ## Blockers/Waits
 
-- M23 OWNER_VISUAL_REJECTED (2026-10-08): M23-R01 diagnostics and effect visibility remediation required, with real-renderer visual proof; M24 remains blocked.
+- M23 owner rejected R02 visual intensity and persistent colors. R03 mandatory; M21 mobile QA 720x1440 failure remains reported separately. M24 blocked until independent technical re-audit plus owner FULL/REDUCED acceptance.
 
 ## Tasks
 
