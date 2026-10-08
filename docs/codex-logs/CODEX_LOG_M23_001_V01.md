@@ -1,0 +1,23 @@
+# Codex Execution Log — BCM-M23-001 V01
+
+- Work item: BCM-M23-001 — launch/contact MICRO feedback.
+- Prompt version: BCM-M23-MASTER-V01 / M23-001 V01.
+- Start HEAD: `89ce4ab2fcc88fbe3f4af82fdeba9f7490ce43d2`.
+- Branch / remote: `main` / `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge`).
+- Sync preflight: local/origin/live main=`89ce4ab2fcc88fbe3f4af82fdeba9f7490ce43d2`, divergence 0/0. Worktree contained only the two untracked M21 owner PNGs; both remain excluded and unstaged.
+- Protected paths: root `TASKS.md` remains unchanged. The two owner-local PNGs remain untouched and unstaged.
+- Implementation: added one-shot launch semantic identity; per-drink/contact-class 120 ms cooldown with bounded telemetry; deferred meaningful-contact events and same-level merge-contact suppression; explicit Drink/Visual allowlist; production bridge MICRO mappings with FULL launch 4/0.14s, contact 5/0.16s and REDUCED zero-particle/color-only dispatch; GFF durations are bounded to 0.10s REDUCED and 0.14/0.16s FULL. GameManager activates the bridge and follows the existing reduced-motion setting.
+- Files changed: `scripts/feedback_service.gd`, `scripts/drink.gd`, `scripts/game_manager.gd`, `scripts/presentation_feedback_bridge.gd`, `tests/m23_001_micro_feedback_probe.gd`, and `coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-001/micro_feedback_probe.json`.
+- Tests / commands:
+  - `godot_console.exe --headless --editor --path . --quit` — exit 0 after correcting an initial mixed-indentation parse error.
+  - `godot_console.exe --headless --path . --script res://tests/m23_001_micro_feedback_probe.gd` — `PASS checks=23 failures=0 dispatches=5 cooldown_ms=120 captures=0`.
+  - M22 regression probes were copied to ignored `.godot/m23_validation/` and their output paths redirected there to preserve the original immutable M22 evidence: M22-001 `PASS checks=21`; M22-002 `PASS checks=27`; M22-003 `PASS checks=97`; all exit 0 and authority fingerprints were `891736178`.
+  - `git diff --check` — PASS.
+  - Runtime plugin-call source scan found only `scripts/presentation_feedback_bridge.gd` calling `play` and `burst`.
+  - `project.godot` content was restored to canonical CRLF after patch tooling wrote LF; no content diff remains and it is not part of the implementation commit.
+- Godot/runtime evidence: Godot 4.7.2 headless scripts initialized GameFeelFlow and the probe mocks; plugin absent/failure, cancellation, target allowlist, contact cooldown/class behavior, merge-contact suppression, launch velocity, body/collider transform parity, and FULL/REDUCED particle bounds passed.
+- Manual checks: no owner F5/real-renderer visual review performed. Probe reports `visual_capture_count=0`; owner visual evidence/acceptance remains pending.
+- Known limitations: no screenshot is claimed; builder evidence is not owner acceptance. Runtime `GameFeelFlow.play` returns void, so bridge relies on capability preflight and safe no-op for missing capability; Spark failures cancel active presentation.
+- End HEAD / implementation commit SHA: `765320bbc18ca42797a6e15a3a5b0d559c1e7e24`.
+- Implementation publication parity: local HEAD, `origin/main`, and live `main` all matched `765320bbc18ca42797a6e15a3a5b0d559c1e7e24`, divergence 0/0. The separate log publication commit and its parity will be recorded in the master log.
+- `TASKS.md` was not modified.
