@@ -6,17 +6,17 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M22
 - Current Sprint: BCM-M22-MASTER-V01
-- Current Task: BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M22-001 — CODEX executes `coordination/sessions/BCM-M22-MASTER-V01/CHATGPT_M22_MASTER_PROMPT_V01.md`, beginning with non-destructive Desktop↔GitHub sync, then runs BCM-M22-001 → BCM-M22-002 → BCM-M22-003 continuously with per-child logs/evidence and stops for independent milestone audit.
+- Current Task: BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M22-003 — CODEX executes `coordination/sessions/BCM-M22-MASTER-V01/CHATGPT_M22_R01_REMEDIATION_PROMPT.md` to reconcile REDUCED effect-language/matrix contradiction, then stops for ChatGPT re-audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: BCM-M21 remains complete. M22 MASTER V01 is now prepared and active. ChatGPT inspected the exact installed repository bytes before handoff: Game Feel Flow 1.0.0 and Saltmire Spark 1.0.0 are tracked in `addons/` with `/root/GameFeelFlow` and `/root/Spark` autoload authority. The master batch authorizes CODEX to execute BCM-M22-001, BCM-M22-002, and BCM-M22-003 continuously after a non-destructive local Desktop↔GitHub sync, while root `TASKS.md` remains read-only to CODEX. M22 enables architecture/policy only: no production visual effects are activated, M21 owner-accepted product is frozen, and Economy Draft V01 remains inactive. M23 stays blocked pending independent M22 audit plus owner approval of the effect-language matrix.
+- Progress: BCM-M21 remains complete. M22-001→003 implementation/evidence published through `dfd5de70`; ChatGPT M22 milestone audit V01 records CHANGES_REQUIRED: REDUCED policy prose says no particles for merge/VIP while permitting nonzero dust budgets. M22 R01 minimal remediation is required; owner matrix approval remains pending; M23 not started.
 
 ## Blockers/Waits
 
-- BCM-M22 MASTER V01 has no pre-implementation blocker. M23 is blocked until all three M22 children pass independent audit and the owner approves the M22 effect-language matrix. Physical-device/export/signing limitations remain recorded release-environment items.
+- BCM-M22 V01 independent audit: CHANGES_REQUIRED on REDUCED policy/matrix contradiction. CODEX R01 remediation pending. M23 blocked until R01 independent PASS and explicit owner approval of regenerated effect-language matrix. Physical-device/export/signing limitations remain recorded release-environment items.
 
 ## Tasks
 
@@ -1090,7 +1090,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M22 — Presentation architecture, plugin contract, semantic bridge, and settings
 
-- [~] BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
+- [x] BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.
   - Purpose: inspect exact local GameFeelFlow/Saltmire Spark versions/autoloads/APIs and establish release-safe optional dependency behavior before effect coding.
   - Existing seam: `project.godot` plus installed `addons/game_feel_flow` and `addons/saltmire_spark`.
   - Semantic trigger: none; dependency gate.
@@ -1102,7 +1102,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: autoload/plugin inventory, method/preset probe, production boot screenshot, clean logs.
   - Owner acceptance: technical audit only; no visual sign-off required.
 
-- [ ] BCM-M22-002 — Make FeedbackService the semantic presentation bus and add one sole plugin-calling presentation bridge.
+- [x] BCM-M22-002 — Make FeedbackService the semantic presentation bus and add one sole plugin-calling presentation bridge.
   - Purpose: centralize semantic presentation requests without duplicate event authority.
   - Existing seam: `GameManager.feedback_service`; `FeedbackService.feedback_emitted/emit_merge/emit_order_complete/emit_game_success/emit_game_fail/emit_ui_tap`; `ShotController.shot_fired`; `CampaignNavigationController.gameplay_session_finished/_on_session_terminal`; `CampaignManager.progression_changed`; `UserSettings.presentation_changed`.
   - Semantic trigger: structured `cocktail_launch`, `table_contact`, `merge`, `order_progress`, `order_complete`, `vip_delivery`, `vip_complete`, `score_mastery`, `game_success`, `game_fail`, `level_unlock`, `island_milestone`, `island_complete`, `island_unlock`, `reward_granted`, and whitelisted `ui_primary`.
@@ -1114,7 +1114,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: live wiring/event telemetry, duplicate probes, plugin-on/off runs, clean logs.
   - Owner acceptance: architecture audit, no visual sign-off.
 
-- [ ] BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
+- [!] BCM-M22-003 — Freeze effect-tier configuration, FULL/REDUCED matrix, target restrictions, overlap/cancellation rules, and global budgets.
   - Purpose: turn MICRO/MERGE/ORDER/VIP/WIN/MASTERY/ISLAND_UNLOCK into executable presentation policy before production effects.
   - Existing seam: `UserSettings.get_presentation_state()/presentation_changed`, `GameManager.apply_presentation_settings`, `CampaignFeedbackOverlay`, HUD, `Drink/Visual`, `LevelButton`, World Map entries, Island Map nodes.
   - Semantic trigger: tier lookup only.
