@@ -13,6 +13,7 @@ var _contract: PresentationPluginContract
 var _policy
 var _feedback_service: Node
 var _production_dispatch_enabled := false
+var _presentation_mode := "FULL"
 var _diagnostics: Array[String] = []
 var _active_gff_outputs: Array[Dictionary] = []
 var _active_spark_outputs: Array[Node] = []
@@ -47,6 +48,19 @@ func get_listener_count() -> int:
 
 func get_diagnostics() -> Array[String]:
 	return _diagnostics.duplicate(true)
+
+
+func set_production_dispatch_enabled(enabled: bool) -> void:
+	_production_dispatch_enabled = enabled
+	if not enabled:
+		cancel_presentation()
+
+
+func set_presentation_mode(mode: String) -> bool:
+	if not ["FULL", "REDUCED"].has(mode):
+		return false
+	_presentation_mode = mode
+	return true
 
 
 func cancel_presentation() -> void:
@@ -97,9 +111,45 @@ func _disconnect_feedback_service() -> void:
 func _on_semantic_requested(request: Dictionary) -> void:
 	if not _production_dispatch_enabled:
 		return
-	# Policy authority is introduced in M22-003. Until then, an absent explicit
-	# plan is a safe no-op; M22 does not activate gameplay visuals.
-	_no_op("production_dispatch_disabled")
+	var kind := str(request.get("kind", ""))
+	if not ["cocktail_launch", "table_contact"].has(kind):
+		return
+	var payload: Dictionary = request.get("payload", {})
+	var target_value: Variant = payload.get("presentation_target", null)
+	if not target_value is Node or not is_instance_valid(target_value):
+		_no_op("production_target_missing")
+		return
+	var mode := _presentation_mode
+	var plan := _micro_plan(kind, mode)
+	_dispatch_plan(request, target_value as Node, plan, false)
+
+
+func _micro_plan(kind: String, mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	var amount := 0
+	var lifetime := 0.0
+	var speed := 0.0
+	var preset := ""
+	var effect := "color"
+	if not reduced:
+		if kind == "cocktail_launch":
+			amount = 4
+			lifetime = 0.14
+			speed = 45.0
+			preset = "hit"
+			effect = "punch_scale"
+		else:
+			amount = 5
+			lifetime = 0.16
+			speed = 40.0
+			preset = "hit"
+	var overrides := {"amount": amount, "lifetime": lifetime, "speed": speed}
+	var duration := 0.10 if reduced else (0.14 if kind == "cocktail_launch" else 0.16)
+	var result := {"mode": mode, "gff_effect": effect, "gff_params": {"duration": duration}}
+	if not preset.is_empty():
+		result["spark_preset"] = preset
+		result["spark_overrides"] = overrides
+	return result
 
 
 func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture: bool) -> bool:
@@ -114,6 +164,7 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 	if not bool(policy_result.get("ok", false)):
 		return _no_op("policy:%s" % str(policy_result.get("reason", "invalid")))
 	var effect_name := str(plan.get("gff_effect", ""))
+	var gff_params_value: Variant = plan.get("gff_params", {})
 	var spark_preset := str(plan.get("spark_preset", ""))
 	var has_effect := not effect_name.is_empty()
 	var has_spark := not spark_preset.is_empty()
@@ -130,7 +181,10 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 			return _no_op("spark_overrides_invalid")
 	# Preflight all requested components before invoking either plugin.
 	if has_effect:
-		var result: Variant = _contract.game_feel_flow.callv("play", [effect_name, target])
+		var gff_args: Array = [effect_name, target]
+		if gff_params_value is Dictionary and not gff_params_value.is_empty():
+			gff_args.append(gff_params_value.duplicate(true))
+		var result: Variant = _contract.game_feel_flow.callv("play", gff_args)
 		if result is bool and not result:
 			return _no_op("gff_call_failed")
 		_active_gff_outputs.append({"plugin": _contract.game_feel_flow, "target": target})

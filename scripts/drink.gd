@@ -245,6 +245,7 @@ static func create(p_level: int) -> Drink:
 
 	d._visual_root = Node2D.new()
 	d._visual_root.name = "Visual"
+	d._visual_root.add_to_group("presentation_effect_target")
 	d.add_child(d._visual_root)
 
 	d._cocktail_sprite = Sprite2D.new()
@@ -570,12 +571,9 @@ func _settle_after_physics() -> void:
 func _on_body_entered(body: Node) -> void:
 	if motion_state != MotionState.SLIDING or already_merged:
 		return
-	table_contact.emit({
-		"source_level": level,
-		"contact_type": "drink" if body is Drink else "rail",
-		"contact_level": int(body.level) if body is Drink else 0,
-		"position": global_position,
-	})
+	var is_merge_contact := body is Drink and (body as Drink).level == level and level < Drink.max_level()
+	if not is_merge_contact:
+		call_deferred("_emit_meaningful_table_contact", body)
 
 	# The solver is allowed to redirect sideways and forward, but any +Y
 	# component created by a collision is removed immediately after solving.
@@ -597,6 +595,26 @@ func _on_body_entered(body: Node) -> void:
 			# the signal dispatch so MergeQueue can safely change body state
 			# and schedule replacement outside that callback.
 			call_deferred("_emit_merge_request", other, level + 1)
+
+
+func _emit_meaningful_table_contact(body: Node) -> void:
+	if motion_state != MotionState.SLIDING or already_merged or is_queued_for_deletion():
+		return
+	if body is Drink:
+		var other := body as Drink
+		if not is_instance_valid(other) or other.is_queued_for_deletion():
+			return
+		if other.level == level and level < Drink.max_level():
+			return
+	var contact_type := "drink" if body is Drink else "rail"
+	table_contact.emit({
+		"source_level": level,
+		"contact_type": contact_type,
+		"contact_level": int((body as Drink).level) if body is Drink else 0,
+		"position": global_position,
+		"source_instance": str(get_instance_id()),
+		"presentation_target": _visual_root,
+	})
 
 
 func _forward_only(velocity: Vector2) -> Vector2:

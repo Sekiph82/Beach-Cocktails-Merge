@@ -11,6 +11,9 @@ signal feedback_emitted(kind: String)
 signal semantic_requested(request: Dictionary)
 
 const HAPTIC_COOLDOWN_MS := 90
+const MICRO_CONTACT_COOLDOWN_MS := 120
+const MAX_MICRO_CONTACT_KEYS := 256
+const MAX_MICRO_TOKENS := 256
 const SEMANTIC_KINDS := [
     "cocktail_launch", "table_contact", "merge", "order_progress", "order_complete",
     "vip_delivery", "vip_complete", "score_mastery", "game_success", "game_fail",
@@ -35,6 +38,8 @@ var _merge_sources: Dictionary = {}
 var _completion_tokens: Dictionary = {}
 var _one_shot_events: Dictionary = {}
 var _semantic_tokens: Dictionary = {}
+var _micro_tokens: Dictionary = {}
+var _micro_contact_times: Dictionary = {}
 var _haptics_supported_override: Variant = null
 var _last_haptic_ms := -HAPTIC_COOLDOWN_MS
 
@@ -80,6 +85,25 @@ func request_semantic(
         if _semantic_tokens.has(event_id):
             return false
         _semantic_tokens[event_id] = true
+    if kind == "cocktail_launch" and not event_id.is_empty():
+        if _micro_tokens.has(event_id):
+            return false
+        _micro_tokens[event_id] = true
+        while _micro_tokens.size() > MAX_MICRO_TOKENS:
+            _micro_tokens.erase(_micro_tokens.keys()[0])
+    if kind == "table_contact":
+        var source_instance := str(payload.get("source_instance", ""))
+        var contact_class := str(payload.get("contact_type", ""))
+        if source_instance.is_empty() or not ["drink", "rail"].has(contact_class):
+            _record_semantic_diagnostic("invalid_contact_identity")
+            return false
+        var contact_key := "%s:%s" % [source_instance, contact_class]
+        var now := Time.get_ticks_msec()
+        _prune_micro_contact_times(now)
+        var previous := int(_micro_contact_times.get(contact_key, -MICRO_CONTACT_COOLDOWN_MS))
+        if now - previous < MICRO_CONTACT_COOLDOWN_MS:
+            return false
+        _micro_contact_times[contact_key] = now
     semantic_sequence += 1
     semantic_counts[kind] = int(semantic_counts.get(kind, 0)) + 1
     var merged_context := session_context.duplicate(true)
@@ -96,16 +120,39 @@ func request_semantic(
     return true
 
 
-func emit_cocktail_launch(level: int, position: Vector2, velocity: Vector2) -> bool:
-    return request_semantic("cocktail_launch", {
+func emit_cocktail_launch(level: int, position: Vector2, velocity: Vector2, source: Node = null) -> bool:
+    var payload := {
         "level": level,
         "position": position,
         "velocity": velocity,
-    }, "", {"source": "shot_controller"})
+    }
+    var context := {"source": "shot_controller"}
+    var event_id := ""
+    if is_instance_valid(source):
+        payload["source_instance"] = str(source.get_instance_id())
+        payload["presentation_target"] = source.get_node_or_null("Visual")
+        event_id = "launch:%s" % str(source.get_instance_id())
+    return request_semantic("cocktail_launch", payload, event_id, context)
 
 
 func emit_table_contact(contact: Dictionary) -> bool:
     return request_semantic("table_contact", contact, "", {"source": "drink_collision"})
+
+
+func _prune_micro_contact_times(now: int) -> void:
+    for key in _micro_contact_times.keys():
+        if now - int(_micro_contact_times[key]) >= MICRO_CONTACT_COOLDOWN_MS:
+            _micro_contact_times.erase(key)
+    if _micro_contact_times.size() > MAX_MICRO_CONTACT_KEYS:
+        var oldest_key := ""
+        var oldest_time := now
+        for key in _micro_contact_times:
+            var timestamp := int(_micro_contact_times[key])
+            if timestamp < oldest_time:
+                oldest_key = str(key)
+                oldest_time = timestamp
+        if not oldest_key.is_empty():
+            _micro_contact_times.erase(oldest_key)
 
 
 func emit_merge(source: Node, details: Dictionary = {}) -> void:

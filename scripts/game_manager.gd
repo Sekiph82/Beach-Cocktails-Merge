@@ -180,6 +180,8 @@ func _ready() -> void:
 	presentation_feedback_bridge.name = "PresentationFeedbackBridge"
 	add_child(presentation_feedback_bridge)
 	presentation_feedback_bridge.configure(feedback_service, get_tree().root)
+	presentation_feedback_bridge.set_presentation_mode("FULL")
+	presentation_feedback_bridge.set_production_dispatch_enabled(true)
 
 	_build_walls()
 	_build_ui()
@@ -255,7 +257,7 @@ func get_campaign_session_bridge():
 func _on_shot_fired(drink: Drink, velocity: Vector2) -> void:
 	if feedback_service == null or not is_instance_valid(drink):
 		return
-	feedback_service.emit_cocktail_launch(drink.level, drink.global_position, velocity)
+	feedback_service.emit_cocktail_launch(drink.level, drink.global_position, velocity, drink)
 
 
 func _on_normal_delivery_recorded(delivery: Dictionary) -> void:
@@ -347,6 +349,8 @@ func get_pause_overlay_visible() -> bool:
 
 func apply_presentation_settings(state: Dictionary) -> void:
 	presentation_reduced_motion = bool(state.get("reduced_motion", false))
+	if presentation_feedback_bridge != null:
+		presentation_feedback_bridge.set_presentation_mode("REDUCED" if presentation_reduced_motion else "FULL")
 	presentation_high_contrast = bool(state.get("high_contrast", false))
 	if feedback_service != null:
 		feedback_service.set_haptics_enabled(bool(state.get("haptics_enabled", true)))
