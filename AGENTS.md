@@ -853,3 +853,45 @@ Before any M22 production effect work, ChatGPT must publish the locked M22-001 p
 
 Economy Draft V01 remains inactive unless the owner explicitly activates it.
 
+## Active BCM-M22 MASTER V01 — 2026-10-08
+
+BCM-M21 is complete. M22 is now authorized as one continuous master batch.
+
+Master authority:
+- `coordination/sessions/BCM-M22-MASTER-V01/CHATGPT_M22_MASTER_PROMPT_V01.md`
+- `coordination/sessions/BCM-M22-MASTER-V01/CHATGPT_M22_MASTER_AUDIT_CRITERIA_V01.md`
+- matching child prompt/criteria files for BCM-M22-001, BCM-M22-002, BCM-M22-003.
+
+Execution sequence:
+1. BCM-M22-001 — exact installed plugin contract/fallback;
+2. BCM-M22-002 — FeedbackService semantic bus + sole plugin bridge;
+3. BCM-M22-003 — effect language / FULL-REDUCED / restriction-budget policy.
+
+The first action of the master is mandatory non-destructive synchronization of:
+`C:\Users\sekip\Desktop\Beach Cocktails - Merge`
+with GitHub `main`, preserving all owner-local work.
+
+Exact plugin baseline already inspected on current main:
+- Game Feel Flow 1.0.0, autoload GameFeelFlow;
+- Saltmire Spark 1.0.0, autoload Spark;
+- installed source in `addons/game_feel_flow` and `addons/saltmire_spark`.
+
+M22 constitution:
+- presentation-only;
+- sole bridge is the only production plugin caller;
+- plugin absence/failure = no-op;
+- no GFF impulse/velocity/freeze_frame/time_scale;
+- full-screen flash forbidden;
+- camera/screen shake disabled;
+- no physics/collision/root/camera authority transforms;
+- no production effects/particles activated during M22;
+- M21 owner-accepted product frozen;
+- Economy Draft V01 inactive.
+
+Codex must commit/push each child and continue automatically to the next child, but must never edit root TASKS.md.
+
+Required final builder marker:
+`AWAITING_GPT_M22_MILESTONE_AUDIT_V01`
+
+M23 is blocked until independent M22 audit PASS and owner approval of the effect-language matrix.
+
