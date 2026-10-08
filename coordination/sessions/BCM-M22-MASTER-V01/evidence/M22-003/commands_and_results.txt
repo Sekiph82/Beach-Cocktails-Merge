@@ -1,0 +1,54 @@
+BCM-M22-003 / MASTER FINAL REGRESSION
+
+godot_console --headless --path . -s res://tests/m22_003_effect_policy_probe.gd
+EXIT=0
+M22_003_EFFECT_POLICY_RESULT=PASS checks=89 failures=0 authority_hash=891736178
+
+godot_console --headless --path . -s res://tests/m22_002_semantic_bridge_probe.gd
+EXIT=0
+M22_002_SEMANTIC_BRIDGE_RESULT=PASS checks=27 failures=0 authority_hash=891736178
+
+godot_console --headless --path . -s res://tests/m02_physics_regression.gd
+EXIT=0
+M02_PROBE_RESULT=PASS
+
+godot_console --headless --path . -s res://tests/m09_audio_haptics_probe.gd
+EXIT=0
+M09_AUDIO_HAPTICS_RESULT=PASS
+
+godot_console --headless --path . -s res://tests/m15_vip_boosters_economy_probe.gd
+EXIT=0
+M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS
+
+godot_console --headless --path . -s res://tests/m21_full_progression_probe.gd
+EXIT=0
+M21_CHILD_03_RESULT=PASS completed=100 checkpoints=5
+
+godot_console --headless --path . -s res://tests/m21_world_map_production_v05_probe.gd
+EXIT=0
+M21_WORLD_MAP_PRODUCTION_V05_RESULT=PASS captures=0 mouse=PASS touch=PASS
+NOTE: dummy-renderer screenshot capture emitted null-texture errors; mouse/touch navigation checks passed, screenshot evidence unavailable.
+
+godot_console --headless --editor --path . --quit
+EXIT=0
+Filesystem scan, global class registration, editor initialization completed.
+
+godot_console --headless --path . --quit-after 5
+EXIT=0
+Headless main scene boot completed.
+
+godot_console --headless --path . --check-only --script res://scripts/game_manager.gd
+EXIT=0
+
+rg -n --glob '*.gd' 'callv|\.call\(' scripts
+EXIT=0
+GameFeelFlow/Spark effect calls (play, burst, stop, clear) are confined to PresentationFeedbackBridge. PresentationPluginContract uses read-only get_effect_names/get_combo_names registry queries.
+
+Policy validation: 16 semantic kinds, 32 FULL/REDUCED rows, no failures.
+Budget validator: PASS, no failures.
+Forbidden API scan: PASS; camera shake disabled; stock combo dispatch disabled.
+Isolated state parity: before=891736178 after=891736178.
+Production visual effects: disabled in M22.
+git diff --cached --check
+EXIT=0
+No whitespace errors.

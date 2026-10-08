@@ -205,6 +205,8 @@ func _exit_tree() -> void:
 func configure_campaign_session(bridge) -> bool:
 	if bridge == null or not bridge.is_session_active():
 		return false
+	if presentation_feedback_bridge != null:
+		presentation_feedback_bridge.cancel_presentation()
 	if campaign_session_bridge != null and campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
 		campaign_session_bridge.session_terminal.disconnect(_on_campaign_session_terminal)
 	if campaign_session_bridge != null and campaign_session_bridge.has_signal("vip_state_changed") and campaign_session_bridge.vip_state_changed.is_connected(_on_vip_state_changed):

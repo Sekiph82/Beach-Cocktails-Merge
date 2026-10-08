@@ -5,22 +5,27 @@ extends Node
 ## only isolated fixture requests can execute the plugin calls below.
 
 const CONTRACT_SCRIPT := preload("res://scripts/presentation_plugin_contract.gd")
+const POLICY_SCRIPT := preload("res://scripts/presentation_effect_policy.gd")
 const MAX_DIAGNOSTICS := 16
 const FIXTURE_TARGET_GROUP := "m22_test_presentation_target"
-const SAFE_SPARK_OPTIONS := ["amount", "lifetime", "speed", "speed_min", "lifetime_rand", "size", "size_end", "gravity", "damping", "spread", "direction", "color", "color2"]
 
 var _contract: PresentationPluginContract
+var _policy
 var _feedback_service: Node
 var _production_dispatch_enabled := false
 var _diagnostics: Array[String] = []
+var _active_gff_outputs: Array[Dictionary] = []
+var _active_spark_outputs: Array[Node] = []
 var dispatch_count := 0
 var no_op_count := 0
 
 
 func configure(feedback_service: Node, capability_root: Node) -> void:
+	cancel_presentation()
 	_disconnect_feedback_service()
 	_feedback_service = feedback_service if is_instance_valid(feedback_service) else null
 	_contract = CONTRACT_SCRIPT.new()
+	_policy = POLICY_SCRIPT.new()
 	_contract.refresh_from_tree(capability_root)
 	if is_instance_valid(_feedback_service) and _feedback_service.has_signal("semantic_requested"):
 		var callback := Callable(self, "_on_semantic_requested")
@@ -44,6 +49,19 @@ func get_diagnostics() -> Array[String]:
 	return _diagnostics.duplicate(true)
 
 
+func cancel_presentation() -> void:
+	for output in _active_gff_outputs:
+		var plugin: Variant = output.get("plugin")
+		var target: Variant = output.get("target")
+		if is_instance_valid(plugin) and plugin.has_method("stop") and is_instance_valid(target):
+			plugin.call("stop", target)
+	_active_gff_outputs.clear()
+	for plugin in _active_spark_outputs:
+		if is_instance_valid(plugin) and plugin.has_method("clear"):
+			plugin.call("clear")
+	_active_spark_outputs.clear()
+
+
 func dispatch_fixture_request(
 	request: Dictionary,
 	target: Node,
@@ -55,11 +73,14 @@ func dispatch_fixture_request(
 		return _no_op("fixture_target_not_allowlisted")
 	if _contract == null:
 		_contract = CONTRACT_SCRIPT.new()
+	if _policy == null:
+		_policy = POLICY_SCRIPT.new()
 	_contract.refresh_with_nodes(gff_fixture, spark_fixture)
 	return _dispatch_plan(request.duplicate(true), target, plan.duplicate(true), true)
 
 
 func _exit_tree() -> void:
+	cancel_presentation()
 	_disconnect_feedback_service()
 	if _contract != null:
 		_contract.refresh_with_nodes(null, null)
@@ -86,6 +107,12 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 		return _no_op("unknown_semantic_kind")
 	if not _is_presentation_target(target, fixture):
 		return _no_op("target_not_allowlisted")
+	if _policy == null:
+		_policy = POLICY_SCRIPT.new()
+	var mode := str(plan.get("mode", "FULL"))
+	var policy_result: Dictionary = _policy.validate_dispatch(request, mode, plan)
+	if not bool(policy_result.get("ok", false)):
+		return _no_op("policy:%s" % str(policy_result.get("reason", "invalid")))
 	var effect_name := str(plan.get("gff_effect", ""))
 	var spark_preset := str(plan.get("spark_preset", ""))
 	var has_effect := not effect_name.is_empty()
@@ -98,7 +125,7 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 	if has_spark:
 		if _contract == null or not _contract.has_spark_preset(spark_preset):
 			return _no_op("spark_preset_unavailable:%s" % spark_preset)
-		spark_options = _build_spark_options(spark_preset, plan.get("spark_overrides", {}))
+		spark_options = _build_spark_options(spark_preset, plan.get("spark_overrides", {}), str(request.kind), mode, int(request.get("payload", {}).get("chain", 1)))
 		if spark_options.is_empty():
 			return _no_op("spark_overrides_invalid")
 	# Preflight all requested components before invoking either plugin.
@@ -106,17 +133,23 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 		var result: Variant = _contract.game_feel_flow.callv("play", [effect_name, target])
 		if result is bool and not result:
 			return _no_op("gff_call_failed")
+		_active_gff_outputs.append({"plugin": _contract.game_feel_flow, "target": target})
 	if has_spark:
 		var position := _target_global_position(target)
 		var result: Variant = _contract.spark.callv("burst", [position, spark_options])
 		if result is bool and not result:
+			cancel_presentation()
 			return _no_op("spark_call_failed")
+		_active_spark_outputs.append(_contract.spark)
 	dispatch_count += 1
 	return true
 
 
-func _build_spark_options(preset_name: String, overrides_value: Variant) -> Dictionary:
-	if not overrides_value is Dictionary or _contract == null or not _contract.has_spark():
+func _build_spark_options(preset_name: String, overrides_value: Variant, kind: String, mode: String, chain: int) -> Dictionary:
+	if not overrides_value is Dictionary or _contract == null or not _contract.has_spark() or _policy == null:
+		return {}
+	var policy_budget: Dictionary = _policy.get_spark_budget(kind, mode, chain)
+	if policy_budget.is_empty() or not policy_budget.get("presets", []).has(preset_name):
 		return {}
 	var preset_table: Variant = _contract.spark.get("presets")
 	var base: Variant = _contract.spark.get("base")
@@ -129,7 +162,7 @@ func _build_spark_options(preset_name: String, overrides_value: Variant) -> Dict
 	for key in preset:
 		merged[key] = preset[key]
 	for key in overrides_value:
-		if not SAFE_SPARK_OPTIONS.has(str(key)):
+		if not POLICY_SCRIPT.SAFE_SPARK_OPTIONS.has(str(key)):
 			return {}
 		merged[key] = overrides_value[key]
 	for required in ["amount", "lifetime", "speed"]:
@@ -138,11 +171,11 @@ func _build_spark_options(preset_name: String, overrides_value: Variant) -> Dict
 	var amount_value: Variant = merged.get("amount", -1)
 	var lifetime_value: Variant = merged.get("lifetime", -1.0)
 	var speed_value: Variant = merged.get("speed", -1.0)
-	if not _is_finite_number(amount_value) or not is_equal_approx(float(amount_value), float(int(amount_value))) or int(amount_value) < 0 or int(amount_value) > 72:
+	if not _is_finite_number(amount_value) or not is_equal_approx(float(amount_value), float(int(amount_value))) or int(amount_value) < 0 or int(amount_value) > int(policy_budget.max_amount):
 		return {}
-	if not _is_finite_number(lifetime_value) or float(lifetime_value) < 0.0 or float(lifetime_value) > 1.6:
+	if not _is_finite_number(lifetime_value) or float(lifetime_value) < 0.0 or float(lifetime_value) > float(policy_budget.max_lifetime):
 		return {}
-	if not _is_finite_number(speed_value) or float(speed_value) < 0.0 or float(speed_value) > 120.0:
+	if not _is_finite_number(speed_value) or float(speed_value) < 0.0 or float(speed_value) > float(policy_budget.max_speed):
 		return {}
 	return merged
 

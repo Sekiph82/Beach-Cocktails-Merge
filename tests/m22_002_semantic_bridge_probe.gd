@@ -13,6 +13,7 @@ var _received: Array[Dictionary] = []
 class MockGFF:
 	extends Node
 	var calls := 0
+	var stop_calls := 0
 	var should_fail := false
 
 	func play(_effect_name: String, _target: Node) -> bool:
@@ -20,27 +21,28 @@ class MockGFF:
 		return not should_fail
 	func play_combo(_combo_name: String, _target: Node) -> bool: return true
 	func play_global(_effect_name: String) -> bool: return true
-	func stop(_target: Node) -> void: pass
+	func stop(_target: Node) -> void: stop_calls += 1
 	func stop_all() -> void: pass
 	func get_effect(_effect_name: String): return null
 	func get_combo(_combo_name: String): return null
 	func resolve_combo(_combo_name: String): return null
-	func get_effect_names() -> Array[String]: return ["fixture_glow"]
+	func get_effect_names() -> Array[String]: return ["punch_scale", "color", "alpha"]
 	func get_combo_names() -> Array[String]: return []
 
 
 class MockSpark:
 	extends Node
 	var calls := 0
+	var clear_calls := 0
 	var should_fail := false
 	var base := {"amount": 1, "lifetime": 0.1, "speed": 1.0}
-	var presets := {"fixture_burst": {}}
+	var presets := {"hit": {}}
 
 	func burst(_position: Vector2, _options: Dictionary) -> bool:
 		calls += 1
 		return not should_fail
 	func at(_position: Vector2, _options: Dictionary) -> bool: return true
-	func clear() -> void: pass
+	func clear() -> void: clear_calls += 1
 
 
 class FixtureTarget:
@@ -102,9 +104,9 @@ func _run() -> void:
 	var spark := MockSpark.new()
 	root.add_child(spark)
 	var plan := {
-		"gff_effect": "fixture_glow",
-		"spark_preset": "fixture_burst",
-		"spark_overrides": {"amount": 8, "lifetime": 0.5, "speed": 24.0},
+		"gff_effect": "punch_scale",
+		"spark_preset": "hit",
+		"spark_overrides": {"amount": 8, "lifetime": 0.25, "speed": 24.0},
 	}
 	var authority_before_dispatch := _authority_fingerprint(navigation)
 	service.request_semantic("game_success", {"score": 123}, "success:probe")
@@ -117,15 +119,15 @@ func _run() -> void:
 	var calls_before_absent := gff.calls + spark.calls
 	bridge.dispatch_fixture_request({"kind": "merge"}, fixture, plan, null, spark)
 	_check("missing GameFeelFlow no-ops before calls", gff.calls + spark.calls == calls_before_absent)
-	bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"spark_preset": "fixture_burst", "spark_overrides": plan.spark_overrides}, gff, null)
+	bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"spark_preset": "hit", "spark_overrides": plan.spark_overrides}, gff, null)
 	_check("missing Spark no-ops before calls", gff.calls + spark.calls == calls_before_absent)
-	bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"spark_preset": "fixture_burst", "spark_overrides": plan.spark_overrides}, null, null)
+	bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"spark_preset": "hit", "spark_overrides": plan.spark_overrides}, null, null)
 	_check("both plugins absent no-op safely", gff.calls + spark.calls == calls_before_absent)
 	gff.should_fail = true
-	_check("GameFeelFlow failure returns safe no-op", not bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"gff_effect": "fixture_glow"}, gff, null))
+	_check("GameFeelFlow failure returns safe no-op", not bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"gff_effect": "punch_scale"}, gff, null))
 	gff.should_fail = false
 	spark.should_fail = true
-	_check("Spark failure returns safe no-op", not bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"spark_preset": "fixture_burst", "spark_overrides": plan.spark_overrides}, null, spark))
+	_check("Spark failure returns safe no-op", not bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {"spark_preset": "hit", "spark_overrides": plan.spark_overrides}, null, spark))
 	_check("unknown fixture mapping no-ops", not bridge.dispatch_fixture_request({"kind": "merge"}, fixture, {}, gff, spark))
 	var disallowed_target := FixtureTarget.new()
 	root.add_child(disallowed_target)
@@ -136,6 +138,7 @@ func _run() -> void:
 	root.add_child(replacement_service)
 	bridge.configure(replacement_service, root)
 	_check("session replacement detaches old listener and keeps one new listener", bridge.get_listener_count() == 1 and not service.semantic_requested.is_connected(Callable(bridge, "_on_semantic_requested")))
+	_check("fixture outputs are canceled on service replacement", gff.stop_calls == 1 and spark.clear_calls == 1)
 
 	var catalog: Array = FEEDBACK_SCRIPT.SEMANTIC_KINDS.duplicate()
 	var output := {

@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "plugin_effect_invocation_authority": "scripts/presentation_feedback_bridge.gd",
+  "effect_methods": ["play", "burst", "stop", "clear"],
+  "other_plugin_calls": {
+    "scripts/presentation_plugin_contract.gd": ["get_effect_names", "get_combo_names"],
+    "classification": "read-only registry queries"
+  },
+  "stock_combo_dispatch": false,
+  "production_dispatch_enabled_in_m22": false,
+  "scan_command": "rg -n --glob '*.gd' 'callv|\\.call\\(' scripts"
+}
