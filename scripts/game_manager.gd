@@ -268,13 +268,21 @@ func _on_normal_delivery_recorded(delivery: Dictionary) -> void:
 	var completed: Dictionary = delivery.get("completed", {}).duplicate(true)
 	var remaining: Dictionary = delivery.get("remaining", {}).duplicate(true)
 	var token := str(delivery.get("delivery_id", ""))
+	var final_order := true
+	for remaining_count in remaining.values():
+		if int(remaining_count) > 0:
+			final_order = false
+			break
+	# WIN owns the final normal-order transition; avoid a second progress flourish.
+	if final_order:
+		return
 	feedback_service.emit_order_progress(token, {
 		"level": level,
 		"accepted": int(delivery.get("accepted", 0)),
 		"completed": int(completed.get(level, 0)),
 		"remaining": int(remaining.get(level, 0)),
+		"presentation_target": _to_go_progress_label,
 	})
-	feedback_service.emit_order_complete(_order_sequence, level, delivery)
 
 
 func get_visible_texture_inventory() -> Array[Dictionary]:
@@ -1251,6 +1259,7 @@ func _build_ui() -> void:
 	_to_go_panel.add_child(_to_go_target_sprite)
 
 	_to_go_progress_label = _make_panel_text(_to_go_panel, "0/1", _panel_source_rect(Vector2(568.0, 520.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+	_to_go_progress_label.add_to_group("presentation_effect_target")
 	_to_go_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 700.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
 	_scale_to_go_content(_to_go_progress_label)
 	_scale_to_go_content(_to_go_reward_label)
@@ -1263,6 +1272,7 @@ func _build_ui() -> void:
 	_to_go_panel.add_child(_vip_target_sprite)
 	_vip_target_sprite.visible = false
 	_vip_progress_label = _make_panel_text(_to_go_panel, "0/0", _panel_source_rect(Vector2(568.0, 1100.0), Vector2(430.0, 130.0), to_go_rect.size), maxi(15, roundi(17.0 * ui_scale)), Color(0.30, 0.10, 0.03, 1.0))
+	_vip_progress_label.add_to_group("presentation_effect_target")
 	_vip_reward_label = _make_panel_text(_to_go_panel, "", _panel_source_rect(Vector2(660.0, 1295.0), Vector2(350.0, 105.0), to_go_rect.size), maxi(15, roundi(18.0 * ui_scale)), Color.WHITE)
 	_scale_to_go_content(_vip_progress_label)
 	_scale_to_go_content(_vip_reward_label)
@@ -1779,7 +1789,7 @@ func _finish_target_collection() -> void:
 		if campaign_session_bridge.is_terminal():
 			return
 	else:
-		feedback_service.emit_order_progress("freeplay-order-%d" % _order_sequence, {"level": completed_level, "accepted": 1})
+		feedback_service.emit_order_progress("freeplay-order-%d" % _order_sequence, {"level": completed_level, "accepted": 1, "completed": 1, "remaining": 0, "presentation_target": _to_go_progress_label})
 		feedback_service.emit_order_complete(_order_sequence, completed_level, {"level": completed_level, "accepted": 1})
 
 	_target_transition = false

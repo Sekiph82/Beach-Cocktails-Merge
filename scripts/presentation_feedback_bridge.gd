@@ -174,7 +174,7 @@ func _disconnect_feedback_service() -> void:
 
 func _on_semantic_requested(request: Dictionary) -> void:
 	var kind := str(request.get("kind", ""))
-	if not ["cocktail_launch", "table_contact", "merge", "score_mastery"].has(kind):
+	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress"].has(kind):
 		return
 	var trace_id := _begin_visual_trace(request)
 	if not _production_dispatch_enabled:
@@ -192,6 +192,8 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		plan = _merge_plan(mode, payload)
 	elif kind == "score_mastery":
 		plan = _score_milestone_plan(mode)
+	elif kind == "order_progress":
+		plan = _order_progress_plan(mode)
 	_update_visual_trace(trace_id, {
 		"target": _canvas_item_snapshot(target_value as Node),
 		"plan": plan.duplicate(true),
@@ -288,6 +290,27 @@ func _score_milestone_plan(mode: String) -> Dictionary:
 		"gff_effect": "color",
 		"gff_params": {"duration": 0.10, "color": REDUCED_TINT} if reduced else {"duration": 0.20, "color": FULL_SCORE_TINT},
 	}
+
+
+func _order_progress_plan(mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	var result := {
+		"mode": mode,
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10 if reduced else 0.18, "color": REDUCED_TINT if reduced else Color(1.0, 0.91, 0.64, 1.0)},
+	}
+	if not reduced:
+		result["spark_preset"] = "pickup"
+		result["spark_overrides"] = {
+			"amount": 8,
+			"lifetime": 0.25,
+			"speed": 65.0,
+			"size": 4.0,
+			"size_end": 1.0,
+			"color": SPARK_COLOR,
+			"color2": SPARK_COLOR_END,
+		}
+	return result
 
 
 func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture: bool, trace_id: String = "") -> bool:
