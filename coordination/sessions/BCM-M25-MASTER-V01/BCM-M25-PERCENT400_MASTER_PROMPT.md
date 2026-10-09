@@ -1,0 +1,13 @@
+# BCM-M25-PERCENT400 master prompt
+
+Read the owner ruling and locked audit criteria in this directory. Latest owner ruling explicitly includes VIP orders in the theoretical calculation.
+
+Repository: Sekiph82/Beach-Cocktails-Merge. First sync origin/main nondestructively, preserve owner-local tracked/untracked files, project.godot, saves and stashes. Hash protected files and isolate APPDATA and all test outputs before first Godot run. Codex must not edit root TASKS.md.
+
+Implement the mathematical owner-approved rule in all 100 Sunny Cove levels. For each Lk target, use 2^(k-3) theoretical L3 shots times quantity. T_to_go is sum of normal order targets, T_vip sum of configured VIP order targets, and T_total=T_to_go+T_vip. Max committed shots=4*T_total. Level 6 T=12, cap=48; Level 8 T=16 incl VIP, cap=64; Level 100 T=76 incl VIP, cap=304. Preserve untimed physics and order targets. VIP still optional for a normal WIN; keep its separate rewards. Do not require VIP completion for 3 stars under the new percentage-only rule. State explicitly in audit evidence that the denominator includes VIP even when normal To-Go completion ends the level first; do not double count fulfillment unless targets really consume separate cocktails.
+
+Once objectives finish via production mechanics, stars depend only on successful committed moves and inclusive T: moves < 2T gives 3 stars; 2T <= moves < 3T gives 2 stars; 3T <= moves <= 4T gives 1 star. Incomplete at 4T after physics, merges and deliveries settle gives natural MOVES_EXHAUSTED LOSE with zero stars. On 4T successful final shot WIN takes precedence. Block 4T+1 shot. Score and economy continue unchanged, never contribute to stars.
+
+Work through distinct children with individual prompts/evidence/commit logs: validation of all 100 level formulas and VIP overlap; runtime move budgets/HUD; score-to-move star migration and progression tests; real game physics WIN/LOSE, Retry/Island Map and comprehensive regressions. Test every 100-level exact 2T/3T/4T boundaries, no VIP and VIP. Maintain best stars, old save compatibility and one-time rewards. If historical tests require new expected stars, update them with clear change rationale. No new gameplay physics, level target, spawn or timer changes. This percentage formula is owner policy, not evidence of human balance.
+
+Run Godot import and 120-frame boot, M02-M25 regressions, twice real GL M21 QA with normal exit, FULL/REDUCED real-gameplay results and UI screenshots at 720x1280 and 720x1440. Produce protected hash integrity proof. Commit/push each child, master log and all audit evidence, local/origin/live 0/0. Do not begin M26. STOP AWAITING_GPT_M25_PERCENT400_AUDIT; report any blocking defect honestly.
