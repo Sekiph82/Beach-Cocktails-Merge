@@ -1,0 +1,1023 @@
+{
+	"formula": "T = sum(quantity * 2^(cocktail_level-3)) for mandatory To-Go plus enabled VIP; move_limit=4*T",
+	"levels": [
+		{
+			"level_id": 1,
+			"move_limit_400_percent": 16,
+			"t_to_go": 4,
+			"t_total_inclusive": 4,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 2,
+			"move_limit_400_percent": 16,
+			"t_to_go": 4,
+			"t_total_inclusive": 4,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 3,
+			"move_limit_400_percent": 32,
+			"t_to_go": 8,
+			"t_total_inclusive": 8,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 4,
+			"move_limit_400_percent": 48,
+			"t_to_go": 8,
+			"t_total_inclusive": 12,
+			"t_vip": 4,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 5,
+			"move_limit_400_percent": 32,
+			"t_to_go": 8,
+			"t_total_inclusive": 8,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 6,
+			"move_limit_400_percent": 48,
+			"t_to_go": 12,
+			"t_total_inclusive": 12,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 7,
+			"move_limit_400_percent": 48,
+			"t_to_go": 12,
+			"t_total_inclusive": 12,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 8,
+			"move_limit_400_percent": 64,
+			"t_to_go": 12,
+			"t_total_inclusive": 16,
+			"t_vip": 4,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 9,
+			"move_limit_400_percent": 64,
+			"t_to_go": 16,
+			"t_total_inclusive": 16,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 10,
+			"move_limit_400_percent": 64,
+			"t_to_go": 16,
+			"t_total_inclusive": 16,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 11,
+			"move_limit_400_percent": 48,
+			"t_to_go": 12,
+			"t_total_inclusive": 12,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 12,
+			"move_limit_400_percent": 80,
+			"t_to_go": 16,
+			"t_total_inclusive": 20,
+			"t_vip": 4,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 13,
+			"move_limit_400_percent": 64,
+			"t_to_go": 16,
+			"t_total_inclusive": 16,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 14,
+			"move_limit_400_percent": 64,
+			"t_to_go": 16,
+			"t_total_inclusive": 16,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 15,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 16,
+			"move_limit_400_percent": 80,
+			"t_to_go": 16,
+			"t_total_inclusive": 20,
+			"t_vip": 4,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 17,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 18,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 19,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 20,
+			"move_limit_400_percent": 128,
+			"t_to_go": 24,
+			"t_total_inclusive": 32,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 21,
+			"move_limit_400_percent": 64,
+			"t_to_go": 16,
+			"t_total_inclusive": 16,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 22,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 23,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 24,
+			"move_limit_400_percent": 128,
+			"t_to_go": 24,
+			"t_total_inclusive": 32,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 25,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 26,
+			"move_limit_400_percent": 96,
+			"t_to_go": 24,
+			"t_total_inclusive": 24,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 27,
+			"move_limit_400_percent": 96,
+			"t_to_go": 24,
+			"t_total_inclusive": 24,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 28,
+			"move_limit_400_percent": 128,
+			"t_to_go": 24,
+			"t_total_inclusive": 32,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 29,
+			"move_limit_400_percent": 112,
+			"t_to_go": 28,
+			"t_total_inclusive": 28,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 30,
+			"move_limit_400_percent": 112,
+			"t_to_go": 28,
+			"t_total_inclusive": 28,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 31,
+			"move_limit_400_percent": 80,
+			"t_to_go": 20,
+			"t_total_inclusive": 20,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 32,
+			"move_limit_400_percent": 128,
+			"t_to_go": 24,
+			"t_total_inclusive": 32,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 33,
+			"move_limit_400_percent": 96,
+			"t_to_go": 24,
+			"t_total_inclusive": 24,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 34,
+			"move_limit_400_percent": 112,
+			"t_to_go": 28,
+			"t_total_inclusive": 28,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 35,
+			"move_limit_400_percent": 96,
+			"t_to_go": 24,
+			"t_total_inclusive": 24,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 36,
+			"move_limit_400_percent": 144,
+			"t_to_go": 28,
+			"t_total_inclusive": 36,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 37,
+			"move_limit_400_percent": 112,
+			"t_to_go": 28,
+			"t_total_inclusive": 28,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 38,
+			"move_limit_400_percent": 128,
+			"t_to_go": 32,
+			"t_total_inclusive": 32,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 39,
+			"move_limit_400_percent": 112,
+			"t_to_go": 28,
+			"t_total_inclusive": 28,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 40,
+			"move_limit_400_percent": 160,
+			"t_to_go": 32,
+			"t_total_inclusive": 40,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 41,
+			"move_limit_400_percent": 96,
+			"t_to_go": 24,
+			"t_total_inclusive": 24,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 42,
+			"move_limit_400_percent": 112,
+			"t_to_go": 28,
+			"t_total_inclusive": 28,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 43,
+			"move_limit_400_percent": 128,
+			"t_to_go": 32,
+			"t_total_inclusive": 32,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 44,
+			"move_limit_400_percent": 144,
+			"t_to_go": 28,
+			"t_total_inclusive": 36,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 45,
+			"move_limit_400_percent": 128,
+			"t_to_go": 32,
+			"t_total_inclusive": 32,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 46,
+			"move_limit_400_percent": 128,
+			"t_to_go": 32,
+			"t_total_inclusive": 32,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 47,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 48,
+			"move_limit_400_percent": 160,
+			"t_to_go": 32,
+			"t_total_inclusive": 40,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 49,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 50,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 51,
+			"move_limit_400_percent": 112,
+			"t_to_go": 28,
+			"t_total_inclusive": 28,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 52,
+			"move_limit_400_percent": 160,
+			"t_to_go": 32,
+			"t_total_inclusive": 40,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 53,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 54,
+			"move_limit_400_percent": 128,
+			"t_to_go": 32,
+			"t_total_inclusive": 32,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 55,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 56,
+			"move_limit_400_percent": 224,
+			"t_to_go": 40,
+			"t_total_inclusive": 56,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 57,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 58,
+			"move_limit_400_percent": 160,
+			"t_to_go": 40,
+			"t_total_inclusive": 40,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 59,
+			"move_limit_400_percent": 160,
+			"t_to_go": 40,
+			"t_total_inclusive": 40,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 60,
+			"move_limit_400_percent": 240,
+			"t_to_go": 44,
+			"t_total_inclusive": 60,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 61,
+			"move_limit_400_percent": 128,
+			"t_to_go": 32,
+			"t_total_inclusive": 32,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 62,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 63,
+			"move_limit_400_percent": 160,
+			"t_to_go": 40,
+			"t_total_inclusive": 40,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 64,
+			"move_limit_400_percent": 176,
+			"t_to_go": 36,
+			"t_total_inclusive": 44,
+			"t_vip": 8,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 65,
+			"move_limit_400_percent": 160,
+			"t_to_go": 40,
+			"t_total_inclusive": 40,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 66,
+			"move_limit_400_percent": 176,
+			"t_to_go": 44,
+			"t_total_inclusive": 44,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 67,
+			"move_limit_400_percent": 160,
+			"t_to_go": 40,
+			"t_total_inclusive": 40,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 68,
+			"move_limit_400_percent": 240,
+			"t_to_go": 44,
+			"t_total_inclusive": 60,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 69,
+			"move_limit_400_percent": 192,
+			"t_to_go": 48,
+			"t_total_inclusive": 48,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 70,
+			"move_limit_400_percent": 176,
+			"t_to_go": 44,
+			"t_total_inclusive": 44,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 71,
+			"move_limit_400_percent": 144,
+			"t_to_go": 36,
+			"t_total_inclusive": 36,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 72,
+			"move_limit_400_percent": 224,
+			"t_to_go": 40,
+			"t_total_inclusive": 56,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 73,
+			"move_limit_400_percent": 176,
+			"t_to_go": 44,
+			"t_total_inclusive": 44,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 74,
+			"move_limit_400_percent": 160,
+			"t_to_go": 40,
+			"t_total_inclusive": 40,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 75,
+			"move_limit_400_percent": 176,
+			"t_to_go": 44,
+			"t_total_inclusive": 44,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 76,
+			"move_limit_400_percent": 256,
+			"t_to_go": 48,
+			"t_total_inclusive": 64,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 77,
+			"move_limit_400_percent": 176,
+			"t_to_go": 44,
+			"t_total_inclusive": 44,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 78,
+			"move_limit_400_percent": 192,
+			"t_to_go": 48,
+			"t_total_inclusive": 48,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 79,
+			"move_limit_400_percent": 208,
+			"t_to_go": 52,
+			"t_total_inclusive": 52,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 80,
+			"move_limit_400_percent": 256,
+			"t_to_go": 48,
+			"t_total_inclusive": 64,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 81,
+			"move_limit_400_percent": 160,
+			"t_to_go": 40,
+			"t_total_inclusive": 40,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 82,
+			"move_limit_400_percent": 176,
+			"t_to_go": 44,
+			"t_total_inclusive": 44,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 83,
+			"move_limit_400_percent": 192,
+			"t_to_go": 48,
+			"t_total_inclusive": 48,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 84,
+			"move_limit_400_percent": 240,
+			"t_to_go": 44,
+			"t_total_inclusive": 60,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 85,
+			"move_limit_400_percent": 192,
+			"t_to_go": 48,
+			"t_total_inclusive": 48,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 86,
+			"move_limit_400_percent": 208,
+			"t_to_go": 52,
+			"t_total_inclusive": 52,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 87,
+			"move_limit_400_percent": 192,
+			"t_to_go": 48,
+			"t_total_inclusive": 48,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 88,
+			"move_limit_400_percent": 272,
+			"t_to_go": 52,
+			"t_total_inclusive": 68,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 89,
+			"move_limit_400_percent": 224,
+			"t_to_go": 56,
+			"t_total_inclusive": 56,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 90,
+			"move_limit_400_percent": 208,
+			"t_to_go": 52,
+			"t_total_inclusive": 52,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 91,
+			"move_limit_400_percent": 176,
+			"t_to_go": 44,
+			"t_total_inclusive": 44,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 92,
+			"move_limit_400_percent": 256,
+			"t_to_go": 48,
+			"t_total_inclusive": 64,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 93,
+			"move_limit_400_percent": 208,
+			"t_to_go": 52,
+			"t_total_inclusive": 52,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 94,
+			"move_limit_400_percent": 192,
+			"t_to_go": 48,
+			"t_total_inclusive": 48,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 95,
+			"move_limit_400_percent": 208,
+			"t_to_go": 52,
+			"t_total_inclusive": 52,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 96,
+			"move_limit_400_percent": 288,
+			"t_to_go": 56,
+			"t_total_inclusive": 72,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		},
+		{
+			"level_id": 97,
+			"move_limit_400_percent": 208,
+			"t_to_go": 52,
+			"t_total_inclusive": 52,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 98,
+			"move_limit_400_percent": 224,
+			"t_to_go": 56,
+			"t_total_inclusive": 56,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 99,
+			"move_limit_400_percent": 224,
+			"t_to_go": 56,
+			"t_total_inclusive": 56,
+			"t_vip": 0,
+			"vip_enabled": false,
+			"vip_optional_even_if_normal_win_ends_first": false,
+			"vip_target_overlaps_normal_level": false
+		},
+		{
+			"level_id": 100,
+			"move_limit_400_percent": 304,
+			"t_to_go": 60,
+			"t_total_inclusive": 76,
+			"t_vip": 16,
+			"vip_enabled": true,
+			"vip_optional_even_if_normal_win_ends_first": true,
+			"vip_target_overlaps_normal_level": true
+		}
+	],
+	"prompt": "BCM-M25-PERCENT400",
+	"same_target_overlap_levels": [
+		8,
+		24,
+		32,
+		36,
+		56,
+		64,
+		72,
+		76,
+		80,
+		92,
+		96,
+		100
+	],
+	"star_policy": "WIN only: moves <2T=3; 2T<=moves<3T=2; 3T<=moves<=4T=1; incomplete at 4T=LOSE/0; 4T+1 rejected",
+	"vip_denominator_note": "T includes configured VIP even if normal To-Go completion ends the session first. Fulfillment remains normal-first and a cocktail is never credited to both objectives.",
+	"vip_levels": 25
+}

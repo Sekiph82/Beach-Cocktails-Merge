@@ -271,6 +271,10 @@ func _validate_level_roots(roots: Array) -> bool:
             if not raw_level["feature_flags"] is Dictionary:
                 return _fail("feature_flags must be an object: %s/%d" % [island_id, level_id])
             var copy: Dictionary = raw_level.duplicate(true)
+            var move_budget := calculate_ideal_l3_move_budget(copy)
+            if move_budget.is_empty():
+                return _fail("orders must use L3-L12 targets to derive a move budget: %s/%d" % [island_id, level_id])
+            copy.merge(move_budget, true)
             _levels_by_key[key] = copy
             if not _levels_by_island.has(island_id):
                 _levels_by_island[island_id] = []
@@ -322,6 +326,47 @@ func _validate_orders(orders: Variant, island_id: String, level_id: int) -> bool
         if quantity <= 0:
             return _fail("order quantity must be positive: %s/%d" % [island_id, level_id])
     return true
+
+
+static func calculate_ideal_l3_move_budget(level_definition: Dictionary) -> Dictionary:
+    var orders: Variant = level_definition.get("orders", null)
+    if not orders is Array or orders.is_empty():
+        return {}
+    var to_go := 0
+    for order in orders:
+        if not order is Dictionary:
+            return {}
+        var level := int(order.get("cocktail_level", 0))
+        var quantity := int(order.get("quantity", 0))
+        var shots := ideal_l3_shots_for_target(level, quantity)
+        if shots <= 0:
+            return {}
+        to_go += shots
+
+    var vip_shots := 0
+    var vip: Variant = level_definition.get("vip", null)
+    if vip is Dictionary and bool(vip.get("enabled", true)):
+        vip_shots = ideal_l3_shots_for_target(int(vip.get("cocktail_level", 0)), int(vip.get("quantity", 0)))
+        if vip_shots <= 0:
+            return {}
+    var total := to_go + vip_shots
+    if total <= 0:
+        return {}
+    return {
+        "theoretical_shots_to_go": to_go,
+        "theoretical_shots_vip": vip_shots,
+        "theoretical_shots_total": total,
+        "move_limit": total * 4,
+    }
+
+
+static func ideal_l3_shots_for_target(cocktail_level: int, quantity: int) -> int:
+    if cocktail_level < 3 or cocktail_level > MAX_COCKTAIL_LEVEL or quantity <= 0:
+        return 0
+    var shots_per_target := 1
+    for _index in range(cocktail_level - 3):
+        shots_per_target *= 2
+    return shots_per_target * quantity
 
 
 func _validate_vip(vip: Dictionary, island_id: String, level_id: int) -> bool:
