@@ -1,0 +1,12 @@
+{
+  "task": "BCM-M25-PERCENT400",
+  "preflight_head": "80ebf4cacbf13d75b08973c25bdd88137c0e76a0",
+  "disposable_project": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-PERCENT400-20261009-182322",
+  "project_name": "BCM-M25-PERCENT400-SANDBOX",
+  "godot_user_data_root": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-PERCENT400-20261009-182322\\isolated_appdata\\Godot\\app_userdata\\BCM-M25-PERCENT400-SANDBOX",
+  "godot_logs_observed_under_isolated_user_data": true,
+  "real_owner_user_data_integrity": "PASS; 262 protected files before and after, 0 changed, 0 missing, 0 new real app_userdata files",
+  "import_exit_code": 0,
+  "boot_120_frames_exit_code": 0,
+  "outputs": ["final_import.stdout.txt", "final_import.exit.txt", "final_boot_120.stdout.txt", "final_boot_120.exit.txt"]
+}
