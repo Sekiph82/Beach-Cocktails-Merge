@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-10-09T19:30:37.8820132Z",
+  "finished_utc": "2026-10-09T19:30:49.4860737Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+    "--script",
+    "res://tests/m26_003_reward_primary_feedback_probe.gd"
+  ],
+  "spawned_pids": [
+    12056,
+    14864,
+    29816
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-003\\runs\\m26_003_gl_final.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-003\\runs\\m26_003_gl_final.stderr.txt"
+}

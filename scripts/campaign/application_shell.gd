@@ -200,6 +200,7 @@ func press_play_continue() -> bool:
         return false
     if not campaign_navigation.continue_campaign():
         return false
+    campaign_navigation.emit_primary_ui_feedback("PLAY", _menu_play_button)
     _menu_layer.visible = false
     campaign_navigation.visible = true
     current_view = "CAMPAIGN"
@@ -253,6 +254,7 @@ func _build_menu() -> void:
         var rect := _home_item_rect(item)
         if node_name == "play":
             _menu_play_button = _make_home_art_button("HomePlay", asset_name, rect, "PLAY")
+            _menu_play_button.add_to_group("presentation_effect_target")
             _home_layout_nodes[node_name] = _menu_play_button
             _menu_play_button.pressed.connect(press_play_continue)
             _menu_layer.add_child(_menu_play_button)

@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T19:31:30.8189239Z",
+  "finished_utc": "2026-10-09T19:31:41.4981064Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--editor",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+    "--quit"
+  ],
+  "spawned_pids": [
+    15776,
+    20456,
+    39572
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-003\\runs\\editor_import_m26_003.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-003\\runs\\editor_import_m26_003.stderr.txt"
+}

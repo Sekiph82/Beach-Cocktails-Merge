@@ -13,6 +13,7 @@ var _title: Label
 var _body: Label
 var _actions: VBoxContainer
 var _result_entrance_tween: Tween
+var _action_buttons: Dictionary = {}
 
 
 func _ready() -> void:
@@ -107,6 +108,22 @@ func get_result_presentation_target() -> CanvasItem:
 	return _title
 
 
+func get_reward_presentation_target() -> CanvasItem:
+	_ensure_shell()
+	if _body != null and not _body.is_in_group("presentation_effect_target"):
+		_body.add_to_group("presentation_effect_target")
+	return _body
+
+
+func get_action_presentation_target(action: String) -> CanvasItem:
+	var target: Variant = _action_buttons.get(action)
+	if not is_instance_valid(target) or not target is CanvasItem:
+		return null
+	if not target.is_in_group("presentation_effect_target"):
+		target.add_to_group("presentation_effect_target")
+	return target as CanvasItem
+
+
 func play_result_entrance(duration: float) -> void:
 	if _result_entrance_tween != null and _result_entrance_tween.is_running():
 		_result_entrance_tween.kill()
@@ -133,6 +150,7 @@ func _show(title: String, body: String, actions: Array[String], kind: String) ->
 	for child in _actions.get_children():
 		_actions.remove_child(child)
 		child.queue_free()
+	_action_buttons.clear()
 	for action in visible_actions:
 		var button := Button.new()
 		button.text = _action_label(action)
@@ -143,6 +161,9 @@ func _show(title: String, body: String, actions: Array[String], kind: String) ->
 		button.add_theme_stylebox_override("hover", _style(Color("#185875"), Color("#ffd166")))
 		button.pressed.connect(func() -> void: trigger_action(action))
 		_actions.add_child(button)
+		if action in ["NEXT_LEVEL", "RETRY"]:
+			button.add_to_group("presentation_effect_target")
+			_action_buttons[action] = button
 	visible = true
 
 

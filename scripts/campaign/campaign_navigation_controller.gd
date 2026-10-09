@@ -43,6 +43,8 @@ var _result_feedback
 var _result_feedback_creation_queued := false
 var _pending_terminal_result: Dictionary = {}
 var _pending_campaign_transition: Dictionary = {}
+var _presented_reward_ids: Dictionary = {}
+var _primary_action_sequence := 0
 var _terminal_result_handled := false
 var _result_presentation_count := 0
 var _restoration_by_island: Dictionary = {}
@@ -201,6 +203,25 @@ func get_save_manager():
 
 func get_result_feedback_overlay():
 	return _result_feedback
+
+
+func emit_primary_ui_feedback(action: String, target: Node) -> bool:
+	if not ["PLAY", "NEXT", "RETRY"].has(action) or not is_instance_valid(target) or _world_map == null:
+		return false
+	if not target.is_in_group("presentation_effect_target"):
+		return false
+	if action == "PLAY" and (target.name != "HomePlay" or not target is TextureButton):
+		return false
+	if action in ["NEXT", "RETRY"]:
+		var result_action := "NEXT_LEVEL" if action == "NEXT" else "RETRY"
+		if _result_feedback == null or _result_feedback.get_action_presentation_target(result_action) != target:
+			return false
+	_primary_action_sequence += 1
+	return _world_map._feedback_service.request_semantic("ui_primary", {
+		"action": action,
+		"newly_granted": true,
+		"presentation_target": target,
+	}, "ui-primary:%s:%d" % [action.to_lower(), _primary_action_sequence], {"source": "campaign_navigation_whitelist"})
 
 
 func retry_level() -> bool:
@@ -417,6 +438,7 @@ func _present_pending_terminal_result() -> void:
 	_pending_terminal_result.clear()
 	_result_canvas_layer.visible = true
 	_result_feedback.show_result(result)
+	_emit_new_reward_feedback(result)
 	_result_presentation_count += 1
 	if is_instance_valid(_gameplay) and _gameplay.has_method("present_campaign_result"):
 		_gameplay.present_campaign_result(result, _result_feedback)
@@ -425,14 +447,55 @@ func _present_pending_terminal_result() -> void:
 func _on_result_feedback_action(action: String) -> void:
 	match action:
 		"NEXT_LEVEL":
+			var target: CanvasItem = _result_feedback.get_action_presentation_target(action) if _result_feedback != null else null
+			emit_primary_ui_feedback("NEXT", target)
 			next_level()
 		"RETRY":
+			var target: CanvasItem = _result_feedback.get_action_presentation_target(action) if _result_feedback != null else null
+			emit_primary_ui_feedback("RETRY", target)
 			retry_level()
 		"ISLAND_MAP":
 			if _session_bridge != null and _session_bridge.is_terminal():
 				return_to_island_map()
 		"DISMISS":
 			_hide_result_feedback()
+
+
+func _emit_new_reward_feedback(result: Dictionary) -> void:
+	if _result_feedback == null or _world_map == null:
+		return
+	var reward_target: CanvasItem = _result_feedback.get_reward_presentation_target()
+	if not is_instance_valid(reward_target):
+		return
+	var reward_ids: Array[String] = []
+	var economy: Dictionary = result.get("economy", {}) if result.get("economy", {}) is Dictionary else {}
+	var grants: Array = economy.get("grants", []) if economy.get("grants", []) is Array else []
+	for grant_value in grants:
+		if not grant_value is Dictionary or not bool(grant_value.get("granted", false)):
+			continue
+		var reward_id := str(grant_value.get("reward_id", ""))
+		if not reward_id.is_empty() and not reward_ids.has(reward_id):
+			reward_ids.append(reward_id)
+	var progression: Dictionary = result.get("progression", {}) if result.get("progression", {}) is Dictionary else {}
+	var cumulative: Array = progression.get("cumulative_rewards", []) if progression.get("cumulative_rewards", []) is Array else []
+	for reward_value in cumulative:
+		if not reward_value is Dictionary:
+			continue
+		var grant: Dictionary = reward_value.get("grant", {}) if reward_value.get("grant", {}) is Dictionary else {}
+		if not bool(grant.get("granted", false)):
+			continue
+		var reward_id := str(grant.get("reward_id", ""))
+		if not reward_id.is_empty() and not reward_ids.has(reward_id):
+			reward_ids.append(reward_id)
+	for reward_id in reward_ids:
+		if _presented_reward_ids.has(reward_id):
+			continue
+		_presented_reward_ids[reward_id] = true
+		_world_map._feedback_service.request_semantic("reward_granted", {
+			"reward_id": reward_id,
+			"newly_granted": true,
+			"presentation_target": reward_target,
+		}, "reward-granted:%s" % reward_id, {"source": "campaign_result_ledger"})
 
 
 func _on_session_island_map_requested(island_id: String) -> void:
