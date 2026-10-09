@@ -1,0 +1,3 @@
+# M26 milestone audit V01
+
+Verdict: CHANGES_REQUIRED. Focused M26-002 and M26-003 GL tests pass. M21 QA passes twice, import and boot pass. Owner data reportedly preserved. Full regression is NOT green: 50 passed, 5 failed after M26-003 rerun. Remaining: M08 To-Go parse indentation; M17 analytical reachability; M17 outdated or defective timeout and seed assertions; M20 pause Retry same-level; M23 particle/GFF stress ceiling. Determine whether each is an inherited obsolete expectation or a product regression with controlled baseline evidence. Do not waive unknown failures. Fix, rerun full matrix, audit again. No M27. Owner physical and visual QA not done. GPT reviewed GitHub evidence but did not execute Godot.
