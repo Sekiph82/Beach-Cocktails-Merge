@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M25-MASTER-V01
 - Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M25-MOVE-100-STAR — CODEX executes `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-MOVE-100-STAR_MASTER_PROMPT.md` for all 100 level budgets and move-based stars; then independent GPT audit.
+- Next Task/Action: BCM-M25-MOVE-100-STAR — CODEX runs `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-CAL02_PROMPT.md` to develop scalable no-timer calibration across 45 classes, no rollout until evidence/audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M24 closed. M25 Level 6 move-limit source/evidence audited PASS. Owner approved move limits on all 100 levels and switching stars from score to moves used on 2026-10-09. Per-level calibration, implementation and audit pending; M26 blocked.
+- Progress: M25 full 100-level move-limit/move-star rollout authorized but blocked by insufficient calibration. Child 01 evidence-only STOP accepted; L20 observed wins 84/89 shots versus unsafe estimated 63, only 14 fresh trials over 4 levels. CAL02 calibration continuation active; no other level limits/stars changed. M26 blocked.
 
 ## Blockers/Waits
 
