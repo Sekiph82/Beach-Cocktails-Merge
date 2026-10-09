@@ -1,0 +1,3 @@
+# M25-002 WIN and mastery
+
+Implement tiered Results celebrations from authoritative terminal result: ordinary WIN, 3-star mastery, first clear, meaningful reward. Exactly once per terminal/reward token; stronger tier replaces weaker duplicates. Use only PresentationFeedbackBridge for GFF/Spark. The old backlog 64/72 particles is NOT authorized over existing M22 48-live ceiling. Keep at most 48 concurrent particles unless owner explicitly changes policy. Reduced Motion uses static stars and brief alpha, no particle rain. Preserve immutable rewards, progression and action hitboxes. Test replay and plugin-off parity. Capture FULL/REDUCED real renderer, produce log and evidence.
