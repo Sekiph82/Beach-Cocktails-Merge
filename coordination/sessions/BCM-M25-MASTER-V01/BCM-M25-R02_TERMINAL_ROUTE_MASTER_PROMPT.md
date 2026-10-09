@@ -1,0 +1,11 @@
+# BCM-M25-R02 terminal route and pointer remediation
+
+Repo Sekiph82/Beach-Cocktails-Merge. Local C:\Users\sekip\Desktop\Beach Cocktails - Merge. Before any changes safely synchronize local/origin/live main nondestructively; preserve owner modified tracked/untracked evidence, PNGs, project.godot, stashes and save file. No reset --hard, git clean, force push. Snapshot/hash owner bytes, set isolated APPDATA before FIRST runner, put all report outputs into fresh R02 evidence folder. Read root TASKS.md as read-only, R01 independent audit V02 and R02 locked criteria.
+
+Prior R01 PASS: 2/2 real GL mobile QA runs (16 captures, exit=0), full regression, 35/35 integrity, real physics 3-star WIN FULL and REDUCED. Do not redo or retune accepted results aesthetics without identified bug. M25 remains open solely because genuine LOSE FULL/REDUCED, 1/2-star real WIN, and pointer Results actions lack proof.
+
+Use deterministic valid production game inputs and state to attain natural LOSE in FULL and REDUCED. Do NOT directly call emit_result_presentation, inject terminal outcome, mutate final score or star count, or mock WIN/LOSE. Log actual trigger, complete output, absence of fail confetti, Retry+Island Map availability. Seek normal 1/2-star WIN where reachable; if unreachable prove precisely and stop OWNER_DECISION_REQUIRED rather than fabricate.
+
+Investigate pointer-driven Results navigation failures: actual screenshot pixel/button center, CanvasLayer and stretch transform, mouse event propagation, focus and clipping; compare native mouse and fixture input. Verify RETRY and ISLAND_MAP controls with genuine input, route once, no hitbox movement. If this reveals real defect apply the smallest scoped production fix, then regression. Never hide failures by only invoking Button.pressed or trigger_action method.
+
+Capture real GL FULL/REDUCED screenshots/video frames before, during and settled after each route. Isolate save. Run affected/full regressions, editor import, 120-frame boot, 720x1280 and 720x1440 QA twice with exit 0, replay/dedupe and color restoration, protect owner hashes. Publish evidence and Codex log with truthful outcomes; commit/push 0/0. Do not touch root TASKS.md; no M26. STOP AWAITING_GPT_M25_R02_REAUDIT.
