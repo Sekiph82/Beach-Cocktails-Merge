@@ -1,0 +1,185 @@
+{
+  "physics_authority": "unchanged task-local copy drives production GameManager.spawn_drink, Drink.launch_up, collision/merge code, and Godot physics with 60 physics frames per action and Engine.time_scale=1.0",
+  "fixed60_qualification": "REJECTED_FOR_CALIBRATION_USE",
+  "fixed240_qualification": "REJECTED_FOR_CALIBRATION_USE",
+  "equivalence_rule": "same policy/seed/class, identical gameplay outcome and action log; simulated duration may differ by no more than one 1/60-second settling tick",
+  "comparisons": [
+    {
+      "comparison": "C01 weak seed31001 realtime vs fixed60",
+      "reference": {
+        "class_id": "C01",
+        "representative_level_id": 1,
+        "seed": 31001,
+        "policy": "WEAK_V02",
+        "outcome": "danger",
+        "terminal_reason": "TABLE_DANGER",
+        "moves": 17,
+        "merge_count": 3,
+        "normal_objective_complete": false,
+        "vip_complete": false
+      },
+      "candidate": {
+        "class_id": "C01",
+        "representative_level_id": 1,
+        "seed": 31001,
+        "policy": "WEAK_V02",
+        "outcome": "danger",
+        "terminal_reason": "TABLE_DANGER",
+        "moves": 17,
+        "merge_count": 3,
+        "normal_objective_complete": false,
+        "vip_complete": false
+      },
+      "different_gameplay_fields": [],
+      "action_log_exact": true,
+      "simulated_elapsed_delta_sec": 0.0,
+      "elapsed_delta_at_most_one_60hz_tick": true,
+      "gameplay_equivalent": true,
+      "reference_wall_ms": 16749,
+      "candidate_wall_ms": 1484
+    },
+    {
+      "comparison": "C01 weak seed31002 realtime vs fixed60",
+      "reference": {
+        "class_id": "C01",
+        "representative_level_id": 1,
+        "seed": 31002,
+        "policy": "WEAK_V02",
+        "outcome": "danger",
+        "terminal_reason": "TABLE_DANGER",
+        "moves": 19,
+        "merge_count": 4,
+        "normal_objective_complete": false,
+        "vip_complete": false
+      },
+      "candidate": {
+        "class_id": "C01",
+        "representative_level_id": 1,
+        "seed": 31002,
+        "policy": "WEAK_V02",
+        "outcome": "danger",
+        "terminal_reason": "TABLE_DANGER",
+        "moves": 19,
+        "merge_count": 4,
+        "normal_objective_complete": false,
+        "vip_complete": false
+      },
+      "different_gameplay_fields": [],
+      "action_log_exact": true,
+      "simulated_elapsed_delta_sec": 0.016666666666697694,
+      "elapsed_delta_at_most_one_60hz_tick": true,
+      "gameplay_equivalent": true,
+      "reference_wall_ms": 18640,
+      "candidate_wall_ms": 1576
+    },
+    {
+      "comparison": "C01 merge-aware seed31001 realtime vs fixed60",
+      "reference": {
+        "class_id": "C01",
+        "representative_level_id": 1,
+        "seed": 31001,
+        "policy": "MERGE_AWARE_V01",
+        "outcome": "completed",
+        "terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "moves": 13,
+        "merge_count": 7,
+        "normal_objective_complete": true,
+        "vip_complete": false
+      },
+      "candidate": {
+        "class_id": "C01",
+        "representative_level_id": 1,
+        "seed": 31001,
+        "policy": "MERGE_AWARE_V01",
+        "outcome": "completed",
+        "terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "moves": 13,
+        "merge_count": 7,
+        "normal_objective_complete": true,
+        "vip_complete": false
+      },
+      "different_gameplay_fields": [],
+      "action_log_exact": true,
+      "simulated_elapsed_delta_sec": 0.0,
+      "elapsed_delta_at_most_one_60hz_tick": true,
+      "gameplay_equivalent": true,
+      "reference_wall_ms": 12622,
+      "candidate_wall_ms": 749
+    },
+    {
+      "comparison": "C20 merge-aware seed31001 realtime vs fixed60",
+      "reference": {
+        "class_id": "C20",
+        "representative_level_id": 38,
+        "seed": 31001,
+        "policy": "MERGE_AWARE_V01",
+        "outcome": "completed",
+        "terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "moves": 78,
+        "merge_count": 45,
+        "normal_objective_complete": true,
+        "vip_complete": false
+      },
+      "candidate": {
+        "class_id": "C20",
+        "representative_level_id": 38,
+        "seed": 31001,
+        "policy": "MERGE_AWARE_V01",
+        "outcome": "completed",
+        "terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "moves": 101,
+        "merge_count": 57,
+        "normal_objective_complete": true,
+        "vip_complete": false
+      },
+      "different_gameplay_fields": [
+        "moves",
+        "merge_count"
+      ],
+      "action_log_exact": false,
+      "simulated_elapsed_delta_sec": 22.999999999998806,
+      "elapsed_delta_at_most_one_60hz_tick": false,
+      "gameplay_equivalent": false,
+      "reference_wall_ms": 77697,
+      "candidate_wall_ms": 39277
+    },
+    {
+      "comparison": "C23 merge-aware seed31001 fixed60 vs fixed240",
+      "reference": {
+        "class_id": "C23",
+        "representative_level_id": 43,
+        "seed": 31001,
+        "policy": "MERGE_AWARE_V01",
+        "outcome": "completed",
+        "terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "moves": 120,
+        "merge_count": 66,
+        "normal_objective_complete": true,
+        "vip_complete": false
+      },
+      "candidate": {
+        "class_id": "C23",
+        "representative_level_id": 43,
+        "seed": 31001,
+        "policy": "MERGE_AWARE_V01",
+        "outcome": "completed",
+        "terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "moves": 73,
+        "merge_count": 44,
+        "normal_objective_complete": true,
+        "vip_complete": false
+      },
+      "different_gameplay_fields": [
+        "moves",
+        "merge_count"
+      ],
+      "action_log_exact": false,
+      "simulated_elapsed_delta_sec": 46.299999999997894,
+      "elapsed_delta_at_most_one_60hz_tick": false,
+      "gameplay_equivalent": false,
+      "reference_wall_ms": 44761,
+      "candidate_wall_ms": 16729
+    }
+  ],
+  "reason": "C20 fixed60 changes the same-seed route from 78 to 101 moves and changes the action log; C23 fixed240 changes the same-seed route from 120 to 73 moves. Those outcomes disqualify both acceleration modes for calibration, despite low-level C01 matches."
+}

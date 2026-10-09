@@ -1,0 +1,21 @@
+{
+  "work_item": "BCM-M25-CAL02",
+  "checkpoint_file": "trials.jsonl",
+  "candidate_mode": "fixed_fps_60_exploratory_only",
+  "physics_frames_per_action": 60,
+  "engine_time_scale": 1.0,
+  "requested_classes": 45,
+  "requested_policies": [
+    "WEAK_V02",
+    "MERGE_AWARE_V01"
+  ],
+  "requested_seeds": [
+    31001,
+    31002
+  ],
+  "checkpointed_trial_records": 71,
+  "unique_trial_keys": 71,
+  "classes_with_candidate_records": 24,
+  "latest_invocation": "interrupted during C24 MERGE_AWARE_V01/31001; the incomplete trial was not appended and will rerun on resume",
+  "calibration_disposition": "all candidate records excluded after high-order equivalence failure"
+}

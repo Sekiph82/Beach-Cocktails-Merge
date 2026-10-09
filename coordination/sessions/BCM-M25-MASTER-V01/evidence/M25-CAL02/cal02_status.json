@@ -1,0 +1,24 @@
+{
+  "work_item": "BCM-M25-CAL02",
+  "canonical_order_class_count": 45,
+  "current_canonical_level_count": 100,
+  "trusted_realtime_trial_count": 4,
+  "trusted_realtime_class_coverage": 2,
+  "trusted_realtime_class_ids": [
+    "C01",
+    "C20"
+  ],
+  "fixed60_exploratory_trial_count_excluded": 71,
+  "fixed60_exploratory_class_coverage_excluded": 24,
+  "trusted_vip_enabled_representative_trials": 0,
+  "historical_M17_trials_are_timed_and_not_current_no_timer_distribution": true,
+  "move_limit_or_star_cutoff_enabled": false,
+  "product_files_changed": false,
+  "task_tracker_changed": false,
+  "coverage_csv": "class_coverage_status.csv",
+  "raw_realtime_trials": "trusted_realtime_trials.jsonl",
+  "excluded_candidate_runs": "runs/trials.jsonl",
+  "physics_qualification": "physics_optimization_qualification.json",
+  "decision": "OWNER_CALIBRATION_REQUIRED",
+  "decision_reason": "Only two of 45 classes have fresh time-scale-1.0 real-time samples, with four total trials and no valid VIP-enabled class sample. Fixed-FPS candidate runs are excluded after class-dependent same-seed divergence. The current sample cannot establish class-level win distributions, move caps, or 2/3-star thresholds."
+}

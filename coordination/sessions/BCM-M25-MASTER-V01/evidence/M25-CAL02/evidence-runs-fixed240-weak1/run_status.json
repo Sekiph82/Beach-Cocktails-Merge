@@ -1,0 +1,19 @@
+{
+	"checkpoint_path": "trials.jsonl",
+	"class_report": "res://coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07_R03.json",
+	"expected_class_count": 45,
+	"failures": [],
+	"physics_frames_per_action": 60,
+	"physics_time_scale": 1.0,
+	"policies": [
+		"WEAK_V02"
+	],
+	"requested_key_count": 45,
+	"seeds": [
+		31001
+	],
+	"skipped_existing_this_invocation": 0,
+	"unique_completed_keys": 1,
+	"work_item": "BCM-M25-CAL02",
+	"written_this_invocation": 1
+}
