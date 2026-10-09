@@ -7,12 +7,12 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M26
 - Current Sprint: BCM-M26-MASTER-V01
 - Current Task: BCM-M26-003 — Add campaign/reward notification emphasis and narrowly whitelisted primary-CTA feedback.
-- Current Task Status: BLOCKED
-- Next Task/Action: BCM-M26-003 — CODEX executes `coordination/sessions/BCM-M26-MASTER-V01/BCM-M26-R01_MASTER_PROMPT.md` to resolve five failed regressions and requests one M26 milestone reaudit.
-- Required Actor: CODEX
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M26-003 — OWNER decides M26 closure after technical reaudit PASS; physical-device and personal visual inspection remain unverified.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M26-002 and M26-003 builder functional GL passed, but M26 milestone AUDIT CHANGES_REQUIRED: 50 passed, 5 failed (M08, M17 analytical, M17 difficulty, M20 pause, M23 merge). M26-R01 master remediation required before closure. M27 blocked.
+- Progress: M26-R01 independent source/evidence reaudit technical PASS: full M01-M26 matrix 55/55, two M21 GL QA PASS, FULL/REDUCED mobile captures, clean editor/boot and owner file integrity. M26 final owner approval pending; physical-device QA and visual inspection not performed. M27 blocked until owner ruling.
 
 ## Blockers/Waits
 
@@ -1266,7 +1266,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: final-level→map→new-island sequence, marker geometry comparison, REDUCED, clean logs.
   - Owner acceptance: mandatory.
 
-- [!] BCM-M26-003 — Add campaign/reward notification emphasis and narrowly whitelisted primary-CTA feedback.
+- [~] BCM-M26-003 — Add campaign/reward notification emphasis and narrowly whitelisted primary-CTA feedback.
   - Purpose: polish real rewards and primary actions without animating every generic button.
   - Existing seam: terminal `cumulative_rewards`/economy grants, `CampaignFeedbackOverlay` reward/actions, ApplicationShell primary PLAY, Results primary NEXT/RETRY, `FeedbackService.emit_ui_tap()`.
   - Semantic trigger: `reward_granted` only newly granted ledger entry; `ui_primary` only explicit PLAY/NEXT/RETRY whitelist, not back/settings/toggles/map nodes/every button.
