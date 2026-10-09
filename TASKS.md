@@ -4,19 +4,19 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M24
-- Current Sprint: BCM-M24-MASTER-V01
-- Current Task: BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
+- Current Milestone: BCM-M25
+- Current Sprint: BCM-M25-MASTER-V01
+- Current Task: BCM-M25-001 — Add presentation-only Results choreography for panel entrance, title, stars, score, and rewards.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M24-003 — OWNER reviews real native F5 To-Go and VIP effects in FULL and REDUCED and explicitly approves or reports issues; M25 blocked.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M25-001 — CODEX runs `coordination/sessions/BCM-M25-MASTER-V01/CHATGPT_M25_MASTER_PROMPT_V01.md` for 001→003 and stops for independent audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M23 owner-accepted and closed. M24-001→003 published; M24-R01 technical independent source/evidence audit PASS, cross-milestone tests and renderer captures reported PASS; M24 OWNER F5 VISUAL ACCEPTANCE pending, M25 not started. Initial unisolated M02 run leaves original save-file byte parity unknowable.
+- Progress: M24 R01 independently source/evidence-audited PASS; owner explicitly APPROVED M24 FULL/REDUCED visuals without personally inspecting F5 (2026-10-09). M24 closed. M25 prompts and audit criteria published; no M25 code implemented yet. Save byte parity before original unisolated M02 invocation remains historically unknown.
 
 ## Blockers/Waits
 
-- M24 V01 missing regression/renderer evidence addressed by R01. Owner native F5 FULL/REDUCED visual review remains mandatory. Instantaneous capture FPS is not a device benchmark. Original save byte parity before first unisolated M02 invocation cannot be proven. M25 blocked.
+- No M24 acceptance blocker remains: owner explicitly waived personal F5 viewing and approved. Physical device QA and historical original save-byte parity remain separate release caveats. M25 requires future independent technical audit and owner decision.
 
 ## Tasks
 
@@ -1190,7 +1190,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: progress→complete, duplicate token, final-order result handoff, REDUCED, clean logs.
   - Owner acceptance: required.
 
-- [~] BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
+- [x] BCM-M24-003 — Give VIP delivery and VIP completion a distinct premium language.
   - Purpose: premium optional mastery distinct from ordinary To-Go without implying VIP is mandatory.
   - Existing seam: `GameManager._collect_vip_target()/_finish_vip_target()`, `GameplaySessionBridge.record_vip_delivery()` fields `accepted/vip_completed/delivered/remaining`, `vip_state_changed`, VIP target/progress/reward controls.
   - Semantic trigger: `vip_delivery` for accepted >0; `vip_complete` only false→true. Rejected/mismatch/duplicate silent.
@@ -1204,7 +1204,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M25 — Results presentation and celebration hierarchy
 
-- [ ] BCM-M25-001 — Add presentation-only Results choreography for panel entrance, title, stars, score, and rewards.
+- [~] BCM-M25-001 — Add presentation-only Results choreography for panel entrance, title, stars, score, and rewards.
   - Purpose: polish Results while keeping `CampaignFeedbackOverlay` a pure view over immutable terminal truth.
   - Existing seam: `CampaignNavigationController._on_session_terminal()` exact-once guard, `_present_pending_terminal_result()`, `_result_presentation_count`, `CampaignFeedbackOverlay.show_result()`, FeedbackCard/title/body/actions.
   - Semantic trigger: exactly one `game_success` or `game_fail` from terminal result; stars/rewards read supplied result only.
