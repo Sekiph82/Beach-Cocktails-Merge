@@ -227,6 +227,19 @@ func emit_terminal_result(result: Dictionary) -> void:
         emit_game_fail(result)
 
 
+func emit_result_presentation(result: Dictionary, presentation_target: Node) -> bool:
+    if not is_instance_valid(presentation_target):
+        return false
+    var outcome := str(result.get("outcome", ""))
+    if outcome != "WIN" and outcome != "LOSE":
+        return false
+    var payload := result.duplicate(true)
+    payload["presentation_target"] = presentation_target
+    var session_serial := int(result.get("session_serial", 0))
+    var event_id := "result-presentation:%s:%d" % [outcome.to_lower(), session_serial]
+    return request_semantic("game_success" if outcome == "WIN" else "game_fail", payload, event_id, {"source": "campaign_result_overlay"})
+
+
 func emit_ui_tap() -> void:
     _emit_feedback("ui_tap", 18, 0.20)
 

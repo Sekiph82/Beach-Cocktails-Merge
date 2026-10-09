@@ -1926,6 +1926,19 @@ func _on_campaign_session_terminal(result: Dictionary) -> void:
 	campaign_session_terminal.emit(result)
 
 
+func present_campaign_result(result: Dictionary, presentation_target: Node) -> bool:
+	if feedback_service == null or not is_instance_valid(presentation_target):
+		return false
+	var effect_target: Node = presentation_target
+	if presentation_target.has_method("get_result_presentation_target"):
+		var candidate: Variant = presentation_target.call("get_result_presentation_target")
+		if candidate is Node and is_instance_valid(candidate):
+			effect_target = candidate
+	if str(result.get("outcome", "")) == "WIN" and presentation_target.has_method("play_result_entrance"):
+		presentation_target.call("play_result_entrance", 0.10 if presentation_reduced_motion else 0.24)
+	return feedback_service.emit_result_presentation(result, effect_target)
+
+
 func _clear_terminal_world_visuals() -> void:
 	_target_transition = false
 	_vip_target_transition = false

@@ -166,6 +166,7 @@ func mark_level_completed(island_id: String, level_id: int, result: Dictionary =
     return {
         "ok": true,
         "changed": changed,
+        "first_clear": not bool(old_record.get("completed", false)),
         "record": new_record.duplicate(true),
         "island_complete": is_island_complete(island_id),
         "next_level": resolve_next_level(island_id, level_id),

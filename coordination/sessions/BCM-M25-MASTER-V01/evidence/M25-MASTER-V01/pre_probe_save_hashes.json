@@ -1,0 +1,29 @@
+{
+  "captured_utc": "2026-10-09T04:32:01.7220316Z",
+  "start_head": "73848db0a4e2863b78926dd897ed0259103a05a3",
+  "owner_save_files": [
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\campaign_save.json",
+      "bytes": 4064,
+      "sha256": "AC18B8C4A869938D24844D410D6F1248053BA5BF6CB9D8C6657FAC99624FD615"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\campaign_save.json.bak",
+      "bytes": 4039,
+      "sha256": "16874EF22D59B6F257C69359F45D5548E54B431081C945E00B640E5076DCC918"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\save.cfg",
+      "bytes": 20,
+      "sha256": "0CF8C28A476FF99A8F9B20A576A57A2ED049CE7466D419809A9797940C7BA131"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\user_settings.json",
+      "bytes": 233,
+      "sha256": "1B968D9AC892E32B326B442D01681608F6EDFBD83E296C4C37BE4F880D26A379"
+    }
+  ],
+  "isolated_appdata": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-V01-20261009-073144\\APPDATA",
+  "isolated_report_output": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-V01-20261009-073144\\reports",
+  "note": "No probe executed before this save hash snapshot. All M25 probes use isolated APPDATA and report output."
+}

@@ -388,6 +388,8 @@ func _present_pending_terminal_result() -> void:
 	_result_canvas_layer.visible = true
 	_result_feedback.show_result(result)
 	_result_presentation_count += 1
+	if is_instance_valid(_gameplay) and _gameplay.has_method("present_campaign_result"):
+		_gameplay.present_campaign_result(result, _result_feedback)
 
 
 func _on_result_feedback_action(action: String) -> void:

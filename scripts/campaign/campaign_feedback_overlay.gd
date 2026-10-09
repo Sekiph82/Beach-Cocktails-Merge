@@ -12,6 +12,7 @@ var visible_actions: Array[String] = []
 var _title: Label
 var _body: Label
 var _actions: VBoxContainer
+var _result_entrance_tween: Tween
 
 
 func _ready() -> void:
@@ -19,6 +20,7 @@ func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	z_index = 100
 	visible = false
+	add_to_group("presentation_effect_target")
 	_ensure_shell()
 
 
@@ -32,6 +34,8 @@ func show_locked_level(level_id: int, highest_unlocked: int) -> void:
 
 func show_result(result: Dictionary) -> void:
 	var outcome := str(result.get("outcome", ""))
+	if outcome == "WIN":
+		modulate.a = 0.0
 	var progression: Dictionary = result.get("progression", {}) if result.get("progression", {}) is Dictionary else {}
 	var record: Dictionary = progression.get("record", {}) if progression.get("record", {}) is Dictionary else {}
 	var stars := clampi(int(record.get("stars", result.get("stars", 0))), 0, 3)
@@ -60,6 +64,9 @@ func show_result(result: Dictionary) -> void:
 
 
 func hide_feedback() -> void:
+	if _result_entrance_tween != null and _result_entrance_tween.is_running():
+		_result_entrance_tween.kill()
+	modulate.a = 1.0
 	visible = false
 	feedback_kind = ""
 	visible_actions.clear()
@@ -79,6 +86,33 @@ func get_title_text() -> String:
 
 func get_body_text() -> String:
 	return _body.text if _body != null else ""
+
+
+func get_result_presentation_targets() -> Array[CanvasItem]:
+	_ensure_shell()
+	var targets: Array[CanvasItem] = []
+	for node in [get_node_or_null("FeedbackCard"), _title, _body]:
+		if node is CanvasItem:
+			var item := node as CanvasItem
+			if not item.is_in_group("presentation_effect_target"):
+				item.add_to_group("presentation_effect_target")
+			targets.append(item)
+	return targets
+
+
+func get_result_presentation_target() -> CanvasItem:
+	_ensure_shell()
+	if _title != null and not _title.is_in_group("presentation_effect_target"):
+		_title.add_to_group("presentation_effect_target")
+	return _title
+
+
+func play_result_entrance(duration: float) -> void:
+	if _result_entrance_tween != null and _result_entrance_tween.is_running():
+		_result_entrance_tween.kill()
+	modulate = Color(modulate.r, modulate.g, modulate.b, 0.0)
+	_result_entrance_tween = create_tween()
+	_result_entrance_tween.tween_property(self, "modulate", Color(modulate.r, modulate.g, modulate.b, 1.0), clampf(duration, 0.0, 0.75))
 
 
 func trigger_action(action: String) -> bool:

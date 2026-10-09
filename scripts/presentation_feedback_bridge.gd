@@ -35,6 +35,7 @@ var _last_process_delta_ms := 0.0
 var _max_process_delta_ms := 0.0
 var _process_delta_sample_count := 0
 var _dropped_frame_estimate_count := 0
+var _result_presentation_tokens: Dictionary = {}
 var dispatch_count := 0
 var no_op_count := 0
 
@@ -174,7 +175,7 @@ func _disconnect_feedback_service() -> void:
 
 func _on_semantic_requested(request: Dictionary) -> void:
 	var kind := str(request.get("kind", ""))
-	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete", "vip_delivery", "vip_complete"].has(kind):
+	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete", "vip_delivery", "vip_complete", "game_success", "game_fail"].has(kind):
 		return
 	var payload: Dictionary = request.get("payload", {})
 	if kind == "vip_delivery" and int(payload.get("accepted", 0)) <= 0:
@@ -192,7 +193,13 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		return
 	var mode := _presentation_mode
 	var plan := _micro_plan(kind, mode)
-	if kind == "merge":
+	if kind == "game_success" or kind == "game_fail":
+		var token := str(request.get("event_id", ""))
+		if token.is_empty() or _result_presentation_tokens.has(token):
+			return
+		_result_presentation_tokens[token] = true
+		plan = _result_presentation_plan(kind, mode, payload)
+	elif kind == "merge":
 		plan = _merge_plan(mode, payload)
 	elif kind == "score_mastery":
 		plan = _score_milestone_plan(mode)
@@ -210,6 +217,55 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		"dispatch_gate": "enabled",
 	})
 	_dispatch_plan(request, target_value as Node, plan, false, trace_id)
+
+
+func _result_presentation_plan(kind: String, mode: String, payload: Dictionary) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	var is_win := kind == "game_success"
+	var plan := {
+		"mode": mode,
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10 if reduced else 0.24, "color": REDUCED_TINT if reduced else Color(1.0, 0.86, 0.58, 1.0)} if is_win else {"duration": 0.08 if reduced else 0.18, "color": REDUCED_TINT if reduced else Color(0.94, 0.88, 0.72, 1.0)},
+	}
+	if not is_win or reduced:
+		return plan
+	var progression: Dictionary = payload.get("progression", {}) if payload.get("progression", {}) is Dictionary else {}
+	var economy: Dictionary = payload.get("economy", {}) if payload.get("economy", {}) is Dictionary else {}
+	var grants: Array = economy.get("grants", []) if economy.get("grants", []) is Array else []
+	var has_new_reward := false
+	for grant in grants:
+		if grant is Dictionary and bool(grant.get("granted", false)) and not str(grant.get("reward_id", "")).is_empty():
+			has_new_reward = true
+			break
+	var tier := "WIN"
+	if int(payload.get("stars", 0)) >= 3:
+		tier = "MASTERY"
+	if bool(progression.get("first_clear", false)):
+		tier = "FIRST_CLEAR"
+	if has_new_reward or (progression.get("cumulative_rewards", []) is Array and not progression.get("cumulative_rewards", []).is_empty()):
+		tier = "REWARD"
+	var amount := 30
+	if tier == "MASTERY":
+		amount = 48
+	elif tier == "FIRST_CLEAR":
+		amount = 36
+	elif tier == "REWARD":
+		amount = 40
+	amount = mini(amount, maxi(0, 48 - _active_spark_particle_count()))
+	plan["tier"] = tier
+	if amount > 0:
+		plan["spark_preset"] = "confetti"
+		plan["spark_overrides"] = {
+			"amount": amount,
+			"lifetime": 0.90,
+			"speed": 105.0,
+			"size": 3.25,
+			"size_end": 0.8,
+			"gravity": 460.0,
+			"color": Color(1.0, 0.78, 0.30, 0.96),
+			"color2": Color(0.95, 0.48, 0.31, 0.0),
+		}
+	return plan
 
 
 func _micro_plan(kind: String, mode: String) -> Dictionary:
@@ -446,8 +502,19 @@ func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture
 			result = color_output.get("play_result")
 		else:
 			var gff_args: Array = [effect_name, target]
-			if gff_params_value is Dictionary and not gff_params_value.is_empty():
-				gff_args.append(gff_params_value.duplicate(true))
+			if effect_name == "alpha":
+				var alpha_template: Variant = _contract.game_feel_flow.call("get_effect", "alpha")
+				if alpha_template is GFFEffect:
+					var alpha_effect := (alpha_template as GFFEffect).duplicate(true) as GFFEffect
+					alpha_effect.restore_after_play = false
+					alpha_effect.duration = float(gff_params_value.get("duration", 0.24)) if gff_params_value is Dictionary else 0.24
+					var alpha_target: Variant = alpha_effect.get("target")
+					if alpha_target != null and alpha_target.has_method("set"):
+						alpha_target.set("target_alpha", float(gff_params_value.get("target_alpha", 1.0)))
+					gff_args = [alpha_effect, target]
+			else:
+				if gff_params_value is Dictionary and not gff_params_value.is_empty():
+					gff_args.append(gff_params_value.duplicate(true))
 			result = _contract.game_feel_flow.callv("play", gff_args)
 			if result is bool and not result:
 				_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "gff_call_failed"})
