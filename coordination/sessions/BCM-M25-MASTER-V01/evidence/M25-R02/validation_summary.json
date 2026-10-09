@@ -54,9 +54,9 @@
   "production_changes": [],
   "required_stop_marker": "AWAITING_GPT_M25_R02_REAUDIT",
   "publication": {
-    "evidence_commit_sha": "PENDING",
-    "local_head": "PENDING",
-    "origin_main": "PENDING",
-    "remote_main": "PENDING"
+    "evidence_commit_sha": "11b35092a6096eb5d25dbf0e26dcb08fb29e2da0",
+    "local_head": "11b35092a6096eb5d25dbf0e26dcb08fb29e2da0",
+    "origin_main": "11b35092a6096eb5d25dbf0e26dcb08fb29e2da0",
+    "remote_main": "11b35092a6096eb5d25dbf0e26dcb08fb29e2da0"
   }
 }

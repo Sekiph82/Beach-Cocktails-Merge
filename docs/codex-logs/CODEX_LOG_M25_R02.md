@@ -37,7 +37,7 @@ The R02 game window used a logical viewport of 800x1422 while the captured rende
 - M21 GL mobile QA runs 01 and 02 — exit `0` each.
 - Regression rerun matrix — 11/11 exit `0`; see `regression/runs/headless_regression_rerun_results.json` and individual logs.
 - All gameplay scenario process exit records and screenshots are retained per scenario. Outcomes are recorded in each `result_metadata.json` and stdout file.
-- `git diff --check` result: pending publication preflight.
+- `git diff --check` and `git diff --cached --check`: exit `0` before evidence commit.
 
 ## Preservation / limits
 
@@ -49,6 +49,6 @@ The R02 game window used a logical viewport of 800x1422 while the captured rende
 
 ## Publication
 
-- R02 evidence commit SHA: pending.
-- Final publication HEAD / `origin/main` / remote `main`: pending verification.
+- R02 evidence bundle commit SHA: `11b35092a6096eb5d25dbf0e26dcb08fb29e2da0`.
+- After evidence push, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `11b35092a6096eb5d25dbf0e26dcb08fb29e2da0`; ahead/behind `0/0`. This log finalization is a separate follow-up commit; final branch parity is rechecked after that push.
 - Required stop marker: `AWAITING_GPT_M25_R02_REAUDIT`.
