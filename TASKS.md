@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M26-MASTER-V01
 - Current Task: BCM-M26-002 — Add island-completion and new-island-unlock celebration on Island/World Maps.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M26-002 — CODEX runs `coordination/sessions/BCM-M26-MASTER-V01/BCM-M26-002_PROMPT_V01.md` and stops for independent child audit.
+- Next Task/Action: BCM-M26-002 — CODEX follows the M26 master prompt continuously through M26-003, then stops for milestone audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M26-001 technical PASS after R01: official Godot AI export script tracked, editor import and GL boot PASS; two exact old task Godot processes cleared and seven new tests left no matching orphans; 229 real userdata files unchanged. Three photographed windows versus two discovered PIDs remains noted. M26-002 now active; M26-wide regressions, M21 mobile QA twice and owner visual signoff pending. M27 blocked.
+- Progress: M26-001 closed. Owner approved continuous milestone execution for M26-002 and M26-003; child logs and commits remain separate. One GPT milestone audit at end. M27 blocked.
 
 ## Blockers/Waits
 
