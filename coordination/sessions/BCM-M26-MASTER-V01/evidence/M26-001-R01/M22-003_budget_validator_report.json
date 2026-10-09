@@ -1,0 +1,59 @@
+{
+	"failures": [],
+	"kind_count": 16,
+	"mobile_ceilings": {
+		"FAIL": {
+			"amount": 0,
+			"lifetime": 0.0
+		},
+		"ISLAND_COMPLETE": {
+			"amount": 40,
+			"lifetime": 1.1
+		},
+		"ISLAND_UNLOCK": {
+			"amount": 48,
+			"lifetime": 1.6
+		},
+		"MAP_LEVEL_UNLOCK": {
+			"amount": 10,
+			"lifetime": 0.35
+		},
+		"MAP_MILESTONE": {
+			"amount": 18,
+			"lifetime": 0.55
+		},
+		"MASTERY": {
+			"amount": 48,
+			"lifetime": 1.5
+		},
+		"MERGE": {
+			"amount": 10,
+			"lifetime": 0.3
+		},
+		"MERGE_PEAK": {
+			"amount": 18,
+			"lifetime": 0.35
+		},
+		"MICRO": {
+			"amount": 5,
+			"lifetime": 0.16
+		},
+		"ORDER": {
+			"amount": 16,
+			"lifetime": 0.45
+		},
+		"VIP": {
+			"amount": 24,
+			"lifetime": 0.65
+		},
+		"WIN": {
+			"amount": 48,
+			"lifetime": 1.2
+		},
+		"gameplay_live": 48,
+		"large_celebrations": 1,
+		"result_meta_live": 48
+	},
+	"mode_rows": 32,
+	"result": "PASS"
+}

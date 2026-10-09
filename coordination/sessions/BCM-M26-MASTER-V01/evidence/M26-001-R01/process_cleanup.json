@@ -1,0 +1,105 @@
+{
+  "captured_utc": "2026-10-09T17:25:27.5087482Z",
+  "prior_sandbox": "BCM-M26-001-459d701-Sandbox",
+  "owner_reported_gray_windows": 3,
+  "enumerated_exact_task_processes": [
+    {
+      "action": "force-terminated after graceful close failed and PID/command revalidation",
+      "executable": "godot_console.exe",
+      "window_title": "",
+      "responding": true,
+      "pid": 38888,
+      "command_line": "--headless --path C:\\Users\\sekip\\.codex\\worktrees\\BCM-M26-001-459d701-SANDBOX --script res://tests/m26_001_island_map_presentation_probe.gd"
+    },
+    {
+      "action": "exited before escalation",
+      "executable": "godot.exe",
+      "window_title": "",
+      "responding": true,
+      "pid": 33332,
+      "command_line": "--headless --path C:\\Users\\sekip\\.codex\\worktrees\\BCM-M26-001-459d701-SANDBOX --script res://tests/m26_001_island_map_presentation_probe.gd"
+    }
+  ],
+  "verified_exact_sandbox_process_count_after": 0,
+  "unrelated_godot_processes_left_untouched": 7,
+  "discrepancy": "Owner screenshot reported three gray windows; process inventory found two exact sandbox Godot PIDs, both command lines headless and titles empty.",
+  "new_runner_invocations": [
+    {
+      "result_file": "boot_120.result.json",
+      "spawned_pids": [
+        11276,
+        14776,
+        28172
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "remaining_exact_project_pids": []
+    },
+    {
+      "result_file": "editor_import.result.json",
+      "spawned_pids": [
+        14700,
+        40572,
+        41644
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "remaining_exact_project_pids": []
+    },
+    {
+      "result_file": "m22_001_plugin_contract.result.json",
+      "spawned_pids": [
+        28856,
+        36012,
+        41968
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "remaining_exact_project_pids": []
+    },
+    {
+      "result_file": "m22_002_semantic_bridge.result.json",
+      "spawned_pids": [
+        20112,
+        28464,
+        39596
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "remaining_exact_project_pids": []
+    },
+    {
+      "result_file": "m22_003_effect_policy_closeout.result.json",
+      "spawned_pids": [
+        18188,
+        24864,
+        32212
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "remaining_exact_project_pids": []
+    },
+    {
+      "result_file": "m22_003_effect_policy.result.json",
+      "spawned_pids": [
+        28736,
+        38432,
+        39008
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "remaining_exact_project_pids": []
+    },
+    {
+      "result_file": "m26_001_gl.result.json",
+      "spawned_pids": [
+        7476,
+        25460,
+        26012
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "remaining_exact_project_pids": []
+    }
+  ]
+}

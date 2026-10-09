@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-10-09T17:23:08.0092080Z",
+  "finished_utc": "2026-10-09T17:23:17.9850013Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+    "--quit-after",
+    "120"
+  ],
+  "spawned_pids": [
+    11276,
+    14776,
+    28172
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\boot_120.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\boot_120.stderr.txt"
+}

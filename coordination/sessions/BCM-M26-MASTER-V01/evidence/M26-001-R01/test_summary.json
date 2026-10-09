@@ -1,0 +1,182 @@
+{
+  "work_item": "BCM-M26-001-R01",
+  "sandbox_name": "BCM-M26-001-R01-VERIFIED-SANDBOX",
+  "results": [
+    {
+      "name": "clean_editor_import",
+      "arguments": [
+        "--headless",
+        "--editor",
+        "--path",
+        "<sandbox>",
+        "--quit"
+      ],
+      "checks": "Godot AI enabled; fresh clean scan/import",
+      "godot_version": "4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+      "exit_code": 0,
+      "timed_out": false,
+      "failure": null,
+      "spawned_pids": [
+        14700,
+        40572,
+        41644
+      ],
+      "cleanup_verified": true,
+      "matching_godot_pids_after_cleanup": [],
+      "result_line": null
+    },
+    {
+      "name": "120_frame_boot",
+      "arguments": [
+        "--path",
+        "<sandbox>",
+        "--quit-after",
+        "120"
+      ],
+      "checks": "120-frame startup boot",
+      "godot_version": "4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+      "exit_code": 0,
+      "timed_out": false,
+      "failure": null,
+      "spawned_pids": [
+        11276,
+        14776,
+        28172
+      ],
+      "cleanup_verified": true,
+      "matching_godot_pids_after_cleanup": [],
+      "result_line": null
+    },
+    {
+      "name": "m26_001_gl_probe",
+      "arguments": [
+        "--path",
+        "<sandbox>",
+        "--script",
+        "res://tests/m26_001_island_map_presentation_probe.gd"
+      ],
+      "checks": "5 real GL captures; 23 dispatches; zero failures",
+      "godot_version": "4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+      "exit_code": 0,
+      "timed_out": false,
+      "failure": null,
+      "spawned_pids": [
+        7476,
+        25460,
+        26012
+      ],
+      "cleanup_verified": true,
+      "matching_godot_pids_after_cleanup": [],
+      "result_line": "M26_001_ISLAND_MAP_RESULT=PASS captures=5 failures=0 dispatches=23"
+    },
+    {
+      "name": "m22_001_plugin_contract",
+      "arguments": [
+        "--headless",
+        "--path",
+        "<sandbox>",
+        "--script",
+        "res://tests/m22_001_plugin_contract_probe.gd"
+      ],
+      "checks": "21 checks; zero failures; plugin fallback/contract",
+      "godot_version": "4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+      "exit_code": 0,
+      "timed_out": false,
+      "failure": null,
+      "spawned_pids": [
+        28856,
+        36012,
+        41968
+      ],
+      "cleanup_verified": true,
+      "matching_godot_pids_after_cleanup": [],
+      "result_line": "M22_001_PLUGIN_CONTRACT_RESULT=PASS checks=21 failures=0 authority_hash=2961871060"
+    },
+    {
+      "name": "m22_002_semantic_bridge",
+      "arguments": [
+        "--headless",
+        "--path",
+        "<sandbox>",
+        "--script",
+        "res://tests/m22_002_semantic_bridge_probe.gd"
+      ],
+      "checks": "27 checks; zero failures; absent plugin safe bridge",
+      "godot_version": "4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+      "exit_code": 0,
+      "timed_out": false,
+      "failure": null,
+      "spawned_pids": [
+        20112,
+        28464,
+        39596
+      ],
+      "cleanup_verified": true,
+      "matching_godot_pids_after_cleanup": [],
+      "result_line": "M22_002_SEMANTIC_BRIDGE_RESULT=PASS checks=27 failures=0 authority_hash=2961871060"
+    },
+    {
+      "name": "m22_003_effect_policy",
+      "arguments": [
+        "--headless",
+        "--path",
+        "<sandbox>",
+        "--script",
+        "res://tests/m22_003_effect_policy_probe.gd"
+      ],
+      "checks": "97 checks; zero failures",
+      "godot_version": "4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+      "exit_code": 0,
+      "timed_out": false,
+      "failure": null,
+      "spawned_pids": [
+        28736,
+        38432,
+        39008
+      ],
+      "cleanup_verified": true,
+      "matching_godot_pids_after_cleanup": [],
+      "result_line": "M22_003_EFFECT_POLICY_RESULT=PASS checks=97 failures=0 authority_hash=2961871060"
+    },
+    {
+      "name": "m22_003_effect_policy_closeout",
+      "arguments": [
+        "--headless",
+        "--path",
+        "<sandbox>",
+        "--script",
+        "res://tests/closeout-001/m22_003_effect_policy_probe_closeout.gd"
+      ],
+      "checks": "97 checks; zero failures",
+      "godot_version": "4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+      "exit_code": 0,
+      "timed_out": false,
+      "failure": null,
+      "spawned_pids": [
+        18188,
+        24864,
+        32212
+      ],
+      "cleanup_verified": true,
+      "matching_godot_pids_after_cleanup": [],
+      "result_line": "M22_003_EFFECT_POLICY_RESULT=PASS checks=97 failures=0 authority_hash=2961871060"
+    }
+  ],
+  "owner_user_data_before_files": 229,
+  "owner_user_data_after_files": 229,
+  "owner_user_data_changed": 0,
+  "owner_user_data_added": 0,
+  "owner_user_data_removed": 0,
+  "owner_project_godot_hash_unchanged": true,
+  "owner_local_plugin_hash_unchanged": true,
+  "all_task_runner_cleanup_gates_passed": true,
+  "full_M02_M25_regression_not_run": true,
+  "two_M21_mobile_QA_runs_not_run": true,
+  "manual_owner_visual_acceptance_not_performed": true,
+  "TASKS_md_modified": false,
+  "notes": [
+    "Editor import performed after fresh cache/import in disposable worktree with all three project plugins enabled; Godot AI reports disabled in headless editor mode, preload resolves.",
+    "120-frame boot exits 0; startup reports invalid scene UID fallback warnings for WorldMapScene.tscn and scenes/main.tscn.",
+    "M26 GL test state is fixture-driven through CampaignManager and not natural player-operated completion, per prior independent audit limitation."
+  ]
+}

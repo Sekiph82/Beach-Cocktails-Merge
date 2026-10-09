@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T17:23:54.3330180Z",
+  "finished_utc": "2026-10-09T17:24:00.4026389Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+    "--script",
+    "res://tests/m22_001_plugin_contract_probe.gd"
+  ],
+  "spawned_pids": [
+    28856,
+    36012,
+    41968
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\m22_001_plugin_contract.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\m22_001_plugin_contract.stderr.txt"
+}

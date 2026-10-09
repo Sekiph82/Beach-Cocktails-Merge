@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-10-09T17:23:24.9634690Z",
+  "finished_utc": "2026-10-09T17:23:45.6601834Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+    "--script",
+    "res://tests/m26_001_island_map_presentation_probe.gd"
+  ],
+  "spawned_pids": [
+    7476,
+    25460,
+    26012
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\m26_001_gl.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\m26_001_gl.stderr.txt"
+}

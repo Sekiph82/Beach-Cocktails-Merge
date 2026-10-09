@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T17:24:21.4516245Z",
+  "finished_utc": "2026-10-09T17:24:27.4554105Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source",
+    "--script",
+    "res://tests/closeout-001/m22_003_effect_policy_probe_closeout.gd"
+  ],
+  "spawned_pids": [
+    18188,
+    24864,
+    32212
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\m22_003_effect_policy_closeout.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\m26-001-r01-verified-source\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-001-R01\\runs\\m22_003_effect_policy_closeout.stderr.txt"
+}

@@ -1,0 +1,8 @@
+{
+	"generated_matrix": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/M22_EFFECT_LANGUAGE_MATRIX.md",
+	"matrix_sha256": "2d24c39b2e594da7e95825affac8da29d647f2acc8bc5906b9c604f2c1874c9a",
+	"policy_source": "scripts/presentation_effect_policy.gd",
+	"policy_source_sha256": "3855707d720e89a27ed3187ed981a5007f27254afb5f9eab0c3c0d445250fbd5",
+	"rendered_matches_saved_bytes": true,
+	"result": "PASS"
+}

@@ -1,0 +1,12 @@
+{
+  "component": "addons/godot_ai/export/mcp_export_plugin.gd",
+  "plugin_version": "4.3.0",
+  "official_tag": "v4.3.0",
+  "official_tag_commit": "b82b5c519b1b17228f70d8effce1626f391bd1dd",
+  "official_source_url": "https://github.com/hi-godot/godot-ai/blob/v4.3.0/plugin/addons/godot_ai/export/mcp_export_plugin.gd",
+  "local_sha256": "B78D4029AE926D035B1D711BB9BCBF17124488599D991BAE557593969F37A2AB",
+  "verified_download_sha256": "E32FD58F473C4D9C974D866ADA447058E1F71B933AADCF4B1EF6C6C4AD2A470A",
+  "match": false,
+  "repository_gitignore_rule": ".gitignore:16 export/",
+  "disposition": "Tracked exact verified upstream file; no replacement or byte edits"
+}
