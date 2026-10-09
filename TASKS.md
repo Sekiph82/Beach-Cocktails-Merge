@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M25
-- Current Sprint: BCM-M25-MASTER-V01
-- Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
-- Current Task Status: BLOCKED
-- Next Task/Action: OWNER reviews BCM-M25-PERCENT400 technical audit and decides physical-device QA/visual acceptance. M25 technical gate PASS; no M26 without owner disposition.
-- Required Actor: OWNER
+- Current Milestone: BCM-M26
+- Current Sprint: BCM-M26-MASTER-V01
+- Current Task: BCM-M26-001 — Add level-unlock and Island Map milestone presentation from authoritative progression.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M26-001 — CODEX follows `coordination/sessions/BCM-M26-MASTER-V01/CHATGPT_M26_MASTER_PROMPT_V01.md` and stops for audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M25-PERCENT400 source/evidence audit PASS: 100 levels inclusive To-Go+VIP ideal L3 T, move limit 4T, move-derived stars; natural WIN/LOSE GL and regressions reported PASS; 262 protected hashes match, real app logs unchanged. Physical-device QA/human playtest not verified; M25 owner gate pending, M26 blocked.
+- Progress: M25 owner-approved closure with device QA still unverified. M26 implementation begins with campaign and map presentation.
 
 ## Blockers/Waits
 
@@ -1228,7 +1228,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: normal WIN, mastery, first clear, reward, replay, FULL/REDUCED, clean logs.
   - Owner acceptance: mandatory.
 
-- [!] BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
+- [x] BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
   - Purpose: clear failure and calm retry flow.
   - Existing seam: `FeedbackService.emit_game_fail()`, `GameplaySessionBridge.resolve_lose()`, navigation terminal handler, `CampaignFeedbackOverlay.show_result()` LOSE branch.
   - Semantic trigger: `game_fail` once per terminal loss.
@@ -1242,7 +1242,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M26 — Campaign/map unlocks, island milestones, rewards, and selective UI
 
-- [ ] BCM-M26-001 — Add level-unlock and Island Map milestone presentation from authoritative progression.
+- [~] BCM-M26-001 — Add level-unlock and Island Map milestone presentation from authoritative progression.
   - Purpose: highlight genuinely new level/milestone states without animating every refresh.
   - Existing seam: `CampaignManager.progression_changed`, `mark_level_completed()` return `next_level/cumulative_rewards`, `IslandMapController.refresh()/_state_for()`, `LevelButton`, milestone list, summary.
   - Semantic trigger: `level_unlock` only locked→open; `island_milestone` only newly reached/claimed configured threshold.
