@@ -12,7 +12,7 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner has superseded empirical calibration gate with explicit mathematical rule for all 100 levels: ideal T = To-Go ideal L3 shots + VIP ideal L3 shots; 4T shot limit; star thresholds <2T (3), <3T (2), through 4T (1), otherwise LOSE. VIP optional for WIN; score-based stars retired by new ruling. Implementation pending. M26 blocked.
+- Progress: Owner-approved M25-PERCENT400 To-Go+VIP inclusive 100-level formula is active implementation scope. Historical CAL02 calibration workflow stopped, fixed-frame acceleration rejected (non-equivalent). CAL02 testing rotated out TWO owner diagnostic logs in real user-data directory despite APPDATA isolation; owner save and other tracked files preserved. PERCENT400 must verify actual log destination isolation BEFORE Godot tests; if not verifiable stop for owner ruling. M26 blocked.
 
 ## Blockers/Waits
 
