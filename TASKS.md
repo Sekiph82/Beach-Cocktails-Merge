@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M25
 - Current Sprint: BCM-M25-MASTER-V01
-- Current Task: BCM-M25-001 — Add presentation-only Results choreography for panel entrance, title, stars, score, and rewards.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M25-001 — CODEX runs `coordination/sessions/BCM-M25-MASTER-V01/CHATGPT_M25_MASTER_PROMPT_V01.md` for 001→003 and stops for independent audit.
+- Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M25-003 — CODEX runs `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-R01_CRASH_AND_RESULTS_VALIDATION_PROMPT.md` to resolve native M21 mobile-QA crash and missing genuine gameplay terminal evidence; then GPT re-audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M24 R01 independently source/evidence-audited PASS; owner explicitly APPROVED M24 FULL/REDUCED visuals without personally inspecting F5 (2026-10-09). M24 closed. M25 prompts and audit criteria published; no M25 code implemented yet. Save byte parity before original unisolated M02 invocation remains historically unknown.
+- Progress: M24 closed with explicit owner approval. M25-001/002/003 built in one integrated commit and builder 22 checks PASS, but M25 V01 independent audit CHANGES_REQUIRED: mobile GL runner crashed (-1073741819) after 16 captures, genuine player-operated terminal WIN/LOSE not verified, child commits not separated. M25-R01 active. No M26.
 
 ## Blockers/Waits
 
@@ -1204,7 +1204,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M25 — Results presentation and celebration hierarchy
 
-- [~] BCM-M25-001 — Add presentation-only Results choreography for panel entrance, title, stars, score, and rewards.
+- [x] BCM-M25-001 — Add presentation-only Results choreography for panel entrance, title, stars, score, and rewards.
   - Purpose: polish Results while keeping `CampaignFeedbackOverlay` a pure view over immutable terminal truth.
   - Existing seam: `CampaignNavigationController._on_session_terminal()` exact-once guard, `_present_pending_terminal_result()`, `_result_presentation_count`, `CampaignFeedbackOverlay.show_result()`, FeedbackCard/title/body/actions.
   - Semantic trigger: exactly one `game_success` or `game_fail` from terminal result; stars/rewards read supplied result only.
@@ -1216,7 +1216,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: WIN/LOSE reveal captures, node state before/after, REDUCED, clean logs.
   - Owner acceptance: required before particle celebrations.
 
-- [ ] BCM-M25-002 — Add tiered WIN, three-star MASTERY, first-clear, and meaningful reward celebrations.
+- [x] BCM-M25-002 — Add tiered WIN, three-star MASTERY, first-clear, and meaningful reward celebrations.
   - Purpose: ordinary win satisfying; mastery/first-clear/major reward clearly stronger without noise.
   - Existing seam: terminal result/progression/economy fields from `GameplaySessionBridge` + `CampaignManager.mark_level_completed()` (`record`, stars, `cumulative_rewards`, `next_level`, `next_island`, `island_complete`, grants). Presentation may snapshot pre/post state only to classify first-clear/unlock.
   - Semantic trigger: `game_success` every WIN; `mastery` at 3 stars; `first_clear` only first incomplete→complete; `reward_granted` only newly granted non-duplicate entries. Stronger tier subsumes weaker duplicate flourishes.
@@ -1228,7 +1228,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: normal WIN, mastery, first clear, reward, replay, FULL/REDUCED, clean logs.
   - Owner acceptance: mandatory.
 
-- [ ] BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
+- [!] BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
   - Purpose: clear failure and calm retry flow.
   - Existing seam: `FeedbackService.emit_game_fail()`, `GameplaySessionBridge.resolve_lose()`, navigation terminal handler, `CampaignFeedbackOverlay.show_result()` LOSE branch.
   - Semantic trigger: `game_fail` once per terminal loss.
