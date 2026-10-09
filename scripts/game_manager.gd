@@ -958,33 +958,9 @@ func _add_score(points: int) -> void:
 	_emit_score_threshold_crossings(previous_score, previous_best)
 
 
-func _emit_score_threshold_crossings(previous_score: int, previous_best: int, allow_eligible_three_star: bool = false) -> void:
+func _emit_score_threshold_crossings(previous_score: int, previous_best: int) -> void:
 	if score > previous_best and previous_score <= previous_best:
 		_emit_score_milestone("prior_best", previous_best + 1, _best_value)
-	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-		return
-	var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
-	var thresholds: Variant = configuration.get("score_star_thresholds", {})
-	if not thresholds is Dictionary:
-		return
-	var two_star_threshold := int(thresholds.get("two_stars", 0))
-	if two_star_threshold > 0 and previous_score < two_star_threshold and score >= two_star_threshold:
-		_emit_score_milestone("two_stars", two_star_threshold, _score_value)
-	var three_star_threshold := int(thresholds.get("three_stars", 0))
-	var crossed_three_stars := previous_score < three_star_threshold and score >= three_star_threshold
-	var eligible_recheck := allow_eligible_three_star and score >= three_star_threshold
-	if three_star_threshold > 0 and (crossed_three_stars or eligible_recheck) and _three_star_threshold_is_eligible(configuration):
-		_emit_score_milestone("three_stars", three_star_threshold, _score_value)
-
-
-func _three_star_threshold_is_eligible(configuration: Dictionary) -> bool:
-	var vip_configuration: Variant = configuration.get("vip", null)
-	if not vip_configuration is Dictionary or vip_configuration.is_empty():
-		return true
-	if not campaign_session_bridge.has_method("get_vip_state"):
-		return false
-	var vip_state: Dictionary = campaign_session_bridge.get_vip_state()
-	return not bool(vip_state.get("enabled", false)) or bool(vip_state.get("completed", false))
 
 
 func _emit_score_milestone(milestone: String, threshold: int, target: Variant) -> bool:
@@ -1364,7 +1340,7 @@ func _build_ui() -> void:
 		HORIZONTAL_ALIGNMENT_CENTER
 	)
 	_move_limit_label.name = "MoveLimitLabel"
-	_move_limit_label.text = "MOVES 35"
+	_move_limit_label.text = "MOVES"
 	_move_limit_label.add_theme_color_override("font_color", Color("#fff0c6"))
 	_move_limit_label.add_theme_color_override("font_outline_color", Color("#173b47"))
 	_move_limit_label.add_theme_constant_override("outline_size", 4)
@@ -1915,7 +1891,7 @@ func _finish_vip_target() -> void:
 		var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
 		var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
 		if accepted > 0 and bool(result.get("vip_completed", false)):
-			_emit_score_threshold_crossings(score, best_score, true)
+			_emit_score_threshold_crossings(score, best_score)
 		var vip_bonus := VIP_DELIVERY_MULTIPLIER * Drink.order_reward(delivered_level) * accepted
 		if vip_bonus > 0:
 			_add_score(vip_bonus)

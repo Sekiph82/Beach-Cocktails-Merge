@@ -244,6 +244,9 @@ func get_move_budget_state() -> Dictionary:
     return {
         "enabled": _move_limit > 0,
         "move_limit": _move_limit,
+        "theoretical_shots_to_go": int(_active_level.get("theoretical_shots_to_go", 0)),
+        "theoretical_shots_vip": int(_active_level.get("theoretical_shots_vip", 0)),
+        "theoretical_shots_total": int(_active_level.get("theoretical_shots_total", 0)),
         "moves_used": _moves_used,
         "moves_remaining": remaining,
         "exhausted": _move_limit > 0 and remaining == 0,
@@ -272,23 +275,18 @@ func record_committed_shot(shot_id: String) -> Dictionary:
     return {"ok": true, "duplicate": false, "state": state}
 
 
-func calculate_stars(completed: bool, vip_completed: bool, score: int, level_definition: Dictionary = {}) -> int:
-    ## Stars measure normal completion and score mastery. VIP only gates the
-    ## third star on VIP-enabled levels; it never gates progression.
+func calculate_stars(completed: bool, moves_used: int, theoretical_shots: int) -> int:
+    ## PERCENT400 stars measure committed shots against the inclusive ideal-L3
+    ## denominator. Score and optional VIP completion do not affect the result.
     if not completed:
         return 0
-    var stars := 1
-    var vip_enabled := _definition_vip_enabled(level_definition)
-    var thresholds: Variant = level_definition.get("score_star_thresholds", {})
-    if thresholds is Dictionary:
-        var two_stars: Variant = thresholds.get("two_stars", null)
-        var three_stars: Variant = thresholds.get("three_stars", null)
-        var normalized_score := maxi(0, score)
-        if two_stars != null and normalized_score >= int(two_stars):
-            stars = 2
-        if three_stars != null and normalized_score >= int(three_stars) and (not vip_enabled or vip_completed):
-            stars = 3
-    return clampi(stars, 1, 3)
+    if theoretical_shots <= 0 or moves_used < 0 or moves_used > theoretical_shots * 4:
+        return 0
+    if moves_used < theoretical_shots * 2:
+        return 3
+    if moves_used < theoretical_shots * 3:
+        return 2
+    return 1
 
 
 func record_to_go_delivery(cocktail_level: int, quantity: int = 1, delivery_id: String = "", score: int = -1) -> Dictionary:
@@ -486,6 +484,9 @@ func _build_session_configuration() -> Dictionary:
         "island_id": active_island_id,
         "level_id": active_level_id,
         "move_limit": _move_limit,
+        "theoretical_shots_to_go": int(_active_level.get("theoretical_shots_to_go", 0)),
+        "theoretical_shots_vip": int(_active_level.get("theoretical_shots_vip", 0)),
+        "theoretical_shots_total": int(_active_level.get("theoretical_shots_total", 0)),
         "moves_remaining": _move_limit,
         "island_theme": island_theme,
         "time_limit_sec": 0.0,
@@ -546,7 +547,7 @@ func _resolve_terminal(outcome: String, reason: String) -> Dictionary:
         "normal_orders_completed": _normal_completed_by_level.duplicate(true),
         "normal_orders_remaining": _normal_remaining_by_level.duplicate(true),
         "vip_completed": _vip_completed,
-        "stars": calculate_stars(outcome == OUTCOME_WIN, _vip_completed, _current_score, _active_level),
+        "stars": calculate_stars(outcome == OUTCOME_WIN, _moves_used, int(_active_level.get("theoretical_shots_total", 0))),
         "retry_available": true,
         "next_level_available": false,
         "island_map_available": true,
@@ -597,12 +598,7 @@ func _submit_progression(result: Dictionary) -> void:
 
 
 func _derive_stars() -> int:
-    return calculate_stars(true, _vip_completed, _current_score, _active_level)
-
-
-func _definition_vip_enabled(level_definition: Dictionary) -> bool:
-    var vip: Variant = level_definition.get("vip", null)
-    return vip is Dictionary and bool(vip.get("enabled", true))
+    return calculate_stars(true, _moves_used, int(_active_level.get("theoretical_shots_total", 0)))
 
 
 func _deep_read_only(value: Variant):
