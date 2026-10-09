@@ -1,0 +1,149 @@
+[
+  {
+    "test": "m02_physics_regression",
+    "exit_code": 0,
+    "final_markers": [
+      "M02_PROBE_RESULT=PASS"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 0
+  },
+  {
+    "test": "m09_audio_haptics_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M09_AUDIO_HAPTICS_RESULT=PASS"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 0
+  },
+  {
+    "test": "m15_vip_boosters_economy_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 0
+  },
+  {
+    "test": "m21_full_progression_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M21_CHILD_03_RESULT=PASS completed=100 checkpoints=5"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m21_mobile_qa_probe",
+    "exit_code": 1,
+    "final_markers": [
+      "M21_CHILD_01_RESULT=FAIL failures=[\"capture image available: canonical_720x1280_onboarding\", \"capture image available: canonical_720x1280_main_menu\", \"capture image available: canonical_720x1280_settings\", \"capture image available: canonical_720x1280_play_gameplay\", \"capture image available: canonical_720x1280_world_map\", \"capture image available: canonical_720x1280_locked_feedback\", \"capture image available: canonical_720x1280_island_map_top\", \"capture image available: canonical_720x1280_island_map_bottom\", \"capture image available: canonical_720x1280_pause\", \"capture image available: canonical_720x1280_gameplay\", \"capture image available: canonical_720x1280_lose_result\", \"capture image available: canonical_720x1280_win_result\", \"capture image available: tall_720x1440_play_gameplay\", \"capture image available: tall_720x1440_world_map\", \"capture image available: tall_720x1440_island_map_bottom\", \"capture image available: tall_720x1440_gameplay\"] captures=0"
+    ],
+    "stderr_bytes": 9008,
+    "artifact_count": 1
+  },
+  {
+    "test": "m21_release_persistence_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M21_RELEASE_PERSISTENCE_RESULT=PASS"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 0
+  },
+  {
+    "test": "m22_001_plugin_contract_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M22_001_PLUGIN_CONTRACT_RESULT=PASS checks=21 failures=0 authority_hash=2961871060"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m22_002_semantic_bridge_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M22_002_SEMANTIC_BRIDGE_RESULT=PASS checks=27 failures=0 authority_hash=2961871060"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m22_003_effect_policy_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M22_003_EFFECT_POLICY_RESULT=PASS checks=97 failures=0 authority_hash=2961871060"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 6
+  },
+  {
+    "test": "m23_001_micro_feedback_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M23_001_MICRO_FEEDBACK_RESULT=PASS checks=28 failures=0 dispatches=5 cooldown_ms=120 captures=0"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m23_002_merge_feedback_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M23_002_MERGE_FEEDBACK_RESULT=PASS checks=30 failures=0 dispatches=13 active_particles=40 captures=0"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m23_003_combo_milestone_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M23_003_COMBO_MILESTONE_RESULT=PASS checks=30 failures=0 score_milestones=8 captures=0"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m23_r03_color_restoration_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M23_R03_COLOR_RESTORATION_RESULT=PASS checks=13 failures=0 scenarios=7"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m24_001_order_progress_probe",
+    "exit_code": 0,
+    "final_markers": [],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m24_002_order_complete_probe",
+    "exit_code": 0,
+    "final_markers": [],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m24_003_vip_feedback_probe",
+    "exit_code": 0,
+    "final_markers": [],
+    "stderr_bytes": 0,
+    "artifact_count": 1
+  },
+  {
+    "test": "m25_result_presentation_probe",
+    "exit_code": 0,
+    "final_markers": [
+      "M25_RESULT_PRESENTATION_PROBE_RESULT=PASS checks=22 failures=0"
+    ],
+    "stderr_bytes": 0,
+    "artifact_count": 0
+  }
+]

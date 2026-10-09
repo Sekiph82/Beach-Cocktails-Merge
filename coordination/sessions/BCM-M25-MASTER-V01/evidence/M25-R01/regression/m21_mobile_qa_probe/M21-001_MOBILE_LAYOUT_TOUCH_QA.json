@@ -1,0 +1,48 @@
+{
+	"capture_count": 0,
+	"captures": [],
+	"checks_failed": [
+		"capture image available: canonical_720x1280_onboarding",
+		"capture image available: canonical_720x1280_main_menu",
+		"capture image available: canonical_720x1280_settings",
+		"capture image available: canonical_720x1280_play_gameplay",
+		"capture image available: canonical_720x1280_world_map",
+		"capture image available: canonical_720x1280_locked_feedback",
+		"capture image available: canonical_720x1280_island_map_top",
+		"capture image available: canonical_720x1280_island_map_bottom",
+		"capture image available: canonical_720x1280_pause",
+		"capture image available: canonical_720x1280_gameplay",
+		"capture image available: canonical_720x1280_lose_result",
+		"capture image available: canonical_720x1280_win_result",
+		"capture image available: tall_720x1440_play_gameplay",
+		"capture image available: tall_720x1440_world_map",
+		"capture image available: tall_720x1440_island_map_bottom",
+		"capture image available: tall_720x1440_gameplay"
+	],
+	"environment": {
+		"canonical_viewport": [
+			720,
+			1280
+		],
+		"godot": {
+			"build": "official",
+			"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+			"hex": 263938,
+			"major": 4,
+			"minor": 7,
+			"patch": 2,
+			"status": "stable",
+			"string": "4.7.2-stable (official)",
+			"timestamp": 0
+		},
+		"physical_device": false,
+		"renderer": "GL Compatibility",
+		"tall_viewport": [
+			720,
+			1440
+		]
+	},
+	"physical_device_acceptance": "DEFERRED_TO_OWNER_NATIVE_M21_006",
+	"probe": "tests/m21_mobile_qa_probe.gd",
+	"work_item": "BCM-M21-001"
+}

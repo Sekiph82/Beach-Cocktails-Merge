@@ -1,0 +1,13 @@
+{
+  "run": "clean_gl_run_01",
+  "exit_code": 0,
+  "process_id": 34588,
+  "renderer": "GL Compatibility",
+  "capture_count": 16,
+  "checks_failed": [],
+  "finished_local": "2026-10-09T08:59:52.0412616+03:00",
+  "command": "godot.exe --path <repo> --rendering-method gl_compatibility --script res://tests/m21_mobile_qa_probe.gd",
+  "capture_override": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/clean_gl_run_01",
+  "appdata": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-R01-20261009-085551\\APPDATA",
+  "teardown": "M21_CHILD_01_TEARDOWN bridges_canceled=true spark_cleared=true renderer_synced=true"
+}

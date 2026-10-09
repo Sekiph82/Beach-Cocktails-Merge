@@ -1,0 +1,52 @@
+{
+  "prior_run_time": "2026-10-09 07:47:59 local",
+  "prior_process_exit_decimal": -1073741819,
+  "exception": "0xc0000005",
+  "faulting_application": "godot.exe 4.7.2.0",
+  "faulting_module": "igxelpicd64.dll 31.0.101.3616",
+  "fault_offset": "0x00000000002e1ee1",
+  "application_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot.exe",
+  "gpu": {
+    "Name": "Intel(R) Iris(R) Xe Graphics",
+    "DriverVersion": "31.0.101.3616",
+    "PNPDeviceID": "PCI\\VEN_8086&DEV_46A6&SUBSYS_16041025&REV_0C\\3&11583659&0&10"
+  },
+  "windows_events": [
+    {
+      "TimeCreated": "2026-10-09T07:48:05.041787+03:00",
+      "Id": 1001,
+      "ProviderName": "Windows Error Reporting",
+      "Message": "Fault bucket 1541735498714593916, type 4\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: godot.exe\r\nP2: 4.7.2.0\r\nP3: 6a826550\r\nP4: igxelpicd64.dll\r\nP5: 31.0.101.3616\r\nP6: 631251b6\r\nP7: c0000005\r\nP8: 00000000002e1ee1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.40ddec29-a4ad-4b53-a678-57807ba51139.tmp.WERInternalMetadata.xml\r\n\r\nThese files may be available here:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\ReportArchive\\AppCrash_godot.exe_9d6853a4117f19dd7b15d6ebbe16894dc057_7022ecb0_b2f77bd1-c3f4-433f-8b9d-3488807bea9b\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 73c18a60-21a8-45a9-ae50-c625da543955\r\nReport Status: 268566528\r\nHashed bucket: 9c1535f9e12d7f8c85655844827e3a7c\r\nCab Guid: 0"
+    },
+    {
+      "TimeCreated": "2026-10-09T07:48:01.7093257+03:00",
+      "Id": 1001,
+      "ProviderName": "Windows Error Reporting",
+      "Message": "Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: godot.exe\r\nP2: 4.7.2.0\r\nP3: 6a826550\r\nP4: igxelpicd64.dll\r\nP5: 31.0.101.3616\r\nP6: 631251b6\r\nP7: c0000005\r\nP8: 00000000002e1ee1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_godot.exe_9d6853a4117f19dd7b15d6ebbe16894dc057_7022ecb0_b2f77bd1-c3f4-433f-8b9d-3488807bea9b\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 73c18a60-21a8-45a9-ae50-c625da543955\r\nReport Status: 131076\r\nHashed bucket: \r\nCab Guid: 0"
+    },
+    {
+      "TimeCreated": "2026-10-09T07:47:59.2847065+03:00",
+      "Id": 1000,
+      "ProviderName": "Application Error",
+      "Message": "Faulting application name: godot.exe, version: 4.7.2.0, time stamp: 0x6a826550\r\nFaulting module name: igxelpicd64.dll, version: 31.0.101.3616, time stamp: 0x631251b6\r\nException code: 0xc0000005\r\nFault offset: 0x00000000002e1ee1\r\nFaulting process id: 0x7160\r\nFaulting application start time: 0x1DD57A95390784F\r\nFaulting application path: C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot.exe\r\nFaulting module path: C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\iigd_dch.inf_amd64_e8ff696b27af6abc\\igxelpicd64.dll\r\nReport Id: 73c18a60-21a8-45a9-ae50-c625da543955\r\nFaulting package full name: \r\nFaulting package-relative application ID: "
+    },
+    {
+      "TimeCreated": "2026-10-06T20:49:11.2999917+03:00",
+      "Id": 1001,
+      "ProviderName": "Windows Error Reporting",
+      "Message": "Fault bucket 1541735498714593916, type 4\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: godot.exe\r\nP2: 4.7.2.0\r\nP3: 6a826550\r\nP4: igxelpicd64.dll\r\nP5: 31.0.101.3616\r\nP6: 631251b6\r\nP7: c0000005\r\nP8: 00000000002e1ee1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\Temp\\WER.cb48e884-4e2b-49c0-82ac-cdaefc0bf4b5.tmp.WERInternalMetadata.xml\r\n\r\nThese files may be available here:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\ReportArchive\\AppCrash_godot.exe_9d6853a4117f19dd7b15d6ebbe16894dc057_7022ecb0_f7ea63c8-3d82-4898-8dac-083a27365f40\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 9d954eec-bdf6-4ffe-8659-28844f2b28c0\r\nReport Status: 268566528\r\nHashed bucket: 9c1535f9e12d7f8c85655844827e3a7c\r\nCab Guid: 0"
+    },
+    {
+      "TimeCreated": "2026-10-06T20:49:07.8062776+03:00",
+      "Id": 1001,
+      "ProviderName": "Windows Error Reporting",
+      "Message": "Fault bucket , type 0\r\nEvent Name: APPCRASH\r\nResponse: Not available\r\nCab Id: 0\r\n\r\nProblem signature:\r\nP1: godot.exe\r\nP2: 4.7.2.0\r\nP3: 6a826550\r\nP4: igxelpicd64.dll\r\nP5: 31.0.101.3616\r\nP6: 631251b6\r\nP7: c0000005\r\nP8: 00000000002e1ee1\r\nP9: \r\nP10: \r\n\r\nAttached files:\r\n\r\nThese files may be available here:\r\n\\\\?\\C:\\ProgramData\\Microsoft\\Windows\\WER\\ReportQueue\\AppCrash_godot.exe_9d6853a4117f19dd7b15d6ebbe16894dc057_7022ecb0_f7ea63c8-3d82-4898-8dac-083a27365f40\r\n\r\nAnalysis symbol: \r\nRechecking for solution: 0\r\nReport Id: 9d954eec-bdf6-4ffe-8659-28844f2b28c0\r\nReport Status: 131076\r\nHashed bucket: \r\nCab Guid: 0"
+    },
+    {
+      "TimeCreated": "2026-10-06T20:49:04.3143094+03:00",
+      "Id": 1000,
+      "ProviderName": "Application Error",
+      "Message": "Faulting application name: godot.exe, version: 4.7.2.0, time stamp: 0x6a826550\r\nFaulting module name: igxelpicd64.dll, version: 31.0.101.3616, time stamp: 0x631251b6\r\nException code: 0xc0000005\r\nFault offset: 0x00000000002e1ee1\r\nFaulting process id: 0x4348\r\nFaulting application start time: 0x1DD55BAF70267C9\r\nFaulting application path: C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot.exe\r\nFaulting module path: C:\\WINDOWS\\System32\\DriverStore\\FileRepository\\iigd_dch.inf_amd64_e8ff696b27af6abc\\igxelpicd64.dll\r\nReport Id: 9d954eec-bdf6-4ffe-8659-28844f2b28c0\r\nFaulting package full name: \r\nFaulting package-relative application ID: "
+    }
+  ]
+}

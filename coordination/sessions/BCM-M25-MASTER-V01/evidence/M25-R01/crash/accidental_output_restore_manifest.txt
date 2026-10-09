@@ -1,0 +1,7 @@
+coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa/canonical_720x1280_gameplay.png
+coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa/canonical_720x1280_lose_result.png
+coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa/canonical_720x1280_pause.png
+coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa/canonical_720x1280_play_gameplay.png
+coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa/canonical_720x1280_win_result.png
+coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa/tall_720x1440_gameplay.png
+coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa/tall_720x1440_play_gameplay.png

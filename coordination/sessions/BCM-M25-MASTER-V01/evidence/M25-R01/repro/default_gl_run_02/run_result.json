@@ -1,0 +1,10 @@
+{
+  "run": "default_gl_run_02",
+  "exit_code": 0,
+  "process_id": 5556,
+  "renderer": "gl_compatibility/default Intel OpenGL driver",
+  "finished_local": "2026-10-09T08:58:35.0498508+03:00",
+  "stdout": "default_gl_run_02.stdout.log",
+  "stderr": "default_gl_run_02.stderr.log",
+  "checks": "M21_CHILD_01_RESULT=PASS captures=16"
+}

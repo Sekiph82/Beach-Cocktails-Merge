@@ -1,0 +1,96 @@
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:64)
+       [1] _capture_surface (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:79)
+       [2] _frame (res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd:34)

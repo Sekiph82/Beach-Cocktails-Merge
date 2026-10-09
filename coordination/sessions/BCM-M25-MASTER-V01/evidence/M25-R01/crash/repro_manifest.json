@@ -1,0 +1,12 @@
+{
+  "run": "baseline_reproduction",
+  "godot": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot.exe",
+  "version": "4.7.2.stable.official.ed1daf0bf",
+  "source_runner": "tests/m21_mobile_qa_probe.gd",
+  "source_sha256": "8FCD61EF3B0B97F9EE0D6538728B843EB099D728F59C94EEC26779AB3DF2CC71",
+  "copied_runner": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/m21_mobile_qa_baseline_r01.gd",
+  "renderer": "GL Compatibility",
+  "command": "godot.exe --path <repo> --rendering-method gl_compatibility --script res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/m21_mobile_qa_baseline_r01.gd",
+  "appdata": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-R01-20261009-085551\\APPDATA",
+  "capture_root": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/repro"
+}

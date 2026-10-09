@@ -1,0 +1,8 @@
+{
+  "captured_pre_probe": "2026-10-09T05:55:51.9541349Z",
+  "checked": 35,
+  "matches": 35,
+  "mismatches": [],
+  "all_match": true,
+  "temporary_editor_rewrite": "project.godot was rewritten by Godot editor import from owner bytes to UID path, then restored byte-for-byte from the exact preserved stash blob in CRLF form matching the pre-probe SHA-256; final owner hash matches"
+}

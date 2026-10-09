@@ -9,7 +9,7 @@ const SHELL_SCENE := preload("res://scenes/campaign/ApplicationShellScene.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
-var CAPTURE_DIR := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa"
+const CAPTURE_DIR := "res://coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa"
 
 var failures: Array[String] = []
 var captures: Array[Dictionary] = []
@@ -18,9 +18,6 @@ var canonical_navigation
 
 
 func _init() -> void:
-	var capture_override := OS.get_environment("BCM_MOBILE_QA_CAPTURE_DIR").strip_edges()
-	if capture_override.begins_with("res://") and not capture_override.contains(".."):
-		CAPTURE_DIR = capture_override.trim_suffix("/")
 	call_deferred("_run")
 
 
@@ -287,32 +284,8 @@ func _finish() -> void:
 	quit(1)
 
 
-func _cancel_bridges_under(node: Node) -> void:
-	if node.has_method("cancel_presentation"):
-		node.call("cancel_presentation")
-	for child in node.get_children():
-		_cancel_bridges_under(child)
-
-
-func _shutdown_rendering_tree() -> void:
-	if is_instance_valid(canonical_shell):
-		_cancel_bridges_under(canonical_shell)
-	if is_instance_valid(get_root().get_node_or_null("Spark")):
-		get_root().get_node("Spark").call("clear")
-	if is_instance_valid(canonical_shell):
-		canonical_shell.queue_free()
-		canonical_shell = null
-	await _frame(3)
-	await RenderingServer.frame_post_draw
-	RenderingServer.force_sync()
-	await RenderingServer.frame_post_draw
-	await _frame(2)
-	print("M21_CHILD_01_TEARDOWN bridges_canceled=true spark_cleared=true renderer_synced=true")
-
-
 func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(CAPTURE_DIR))
 	await _run_canonical()
 	await _run_tall()
-	await _shutdown_rendering_tree()
 	_finish()
