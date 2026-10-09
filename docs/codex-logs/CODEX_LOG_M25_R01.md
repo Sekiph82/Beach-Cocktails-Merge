@@ -54,5 +54,6 @@
 - `TASKS.md` was not modified. M26 was not started.
 - Manual physical-device checks were not performed. Automated mouse InputEvents are not claimed as human-operated input. Real result-button pointer routing, genuine FULL/REDUCED LOSE, and genuine one-/two-star terminal runs remain unverified. The R01 acceptance chain therefore remains for independent audit; no acceptance verdict is claimed.
 - Owner-local `project.godot`, M21/M22 evidence and owner Home PNGs are preserved outside the staged publication set.
-- Start-of-work HEAD is above. End HEAD, implementation/evidence commit SHA, final local/origin/live remote SHA values, and ahead/behind parity are to be added in the publication handoff after the explicitly scoped commit and push.
+- Implementation/evidence commit SHA: `2efa9413844b0b163a2a855ac8069508dd4fb2d7` (pushed to `origin/main`). At post-push verification, local HEAD, `origin/main`, and `git ls-remote origin refs/heads/main` all returned `2efa9413844b0b163a2a855ac8069508dd4fb2d7`; ahead/behind was `0/0`.
+- The log-only publication finalization is a subsequent commit; its full SHA is recorded in Git history. Local pre-existing owner modifications and untracked owner files remain unstaged and preserved; no M25-owned path is left unpublished.
 - Required stop marker: `AWAITING_GPT_M25_R01_REAUDIT`.
