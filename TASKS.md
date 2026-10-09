@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M26
-- Current Sprint: BCM-M26-MASTER-V01
-- Current Task: BCM-M26-003 — Add campaign/reward notification emphasis and narrowly whitelisted primary-CTA feedback.
+- Current Milestone: BCM-M27
+- Current Sprint: BCM-M27-MASTER-V01
+- Current Task: BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M26-003 — OWNER decides M26 closure after technical reaudit PASS; physical-device and personal visual inspection remain unverified.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M27-001 — CODEX follows `coordination/sessions/BCM-M27-MASTER-V01/CHATGPT_M27_MASTER_PROMPT_V01.md`, completes M27-001/002/003 in one run and stops for milestone audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M26-R01 independent source/evidence reaudit technical PASS: full M01-M26 matrix 55/55, two M21 GL QA PASS, FULL/REDUCED mobile captures, clean editor/boot and owner file integrity. M26 final owner approval pending; physical-device QA and visual inspection not performed. M27 blocked until owner ruling.
+- Progress: M26 owner-approved closure after technical 55/55 PASS; unperformed physical device and owner visual QA remain disclosed. M27 continuous milestone active: performance/cleanup, FULL/REDUCED accessibility, plugin-off/authority/visual closure. Owner-native M27 acceptance mandatory before final closure.
 
 ## Blockers/Waits
 
@@ -1266,7 +1266,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: final-level→map→new-island sequence, marker geometry comparison, REDUCED, clean logs.
   - Owner acceptance: mandatory.
 
-- [~] BCM-M26-003 — Add campaign/reward notification emphasis and narrowly whitelisted primary-CTA feedback.
+- [x] BCM-M26-003 — Add campaign/reward notification emphasis and narrowly whitelisted primary-CTA feedback.
   - Purpose: polish real rewards and primary actions without animating every generic button.
   - Existing seam: terminal `cumulative_rewards`/economy grants, `CampaignFeedbackOverlay` reward/actions, ApplicationShell primary PLAY, Results primary NEXT/RETRY, `FeedbackService.emit_ui_tap()`.
   - Semantic trigger: `reward_granted` only newly granted ledger entry; `ui_primary` only explicit PLAY/NEXT/RETRY whitelist, not back/settings/toggles/map nodes/every button.
@@ -1280,7 +1280,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M27 — Performance, Reduced Motion, failure-mode, and runtime visual closure
 
-- [ ] BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
+- [~] BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
   - Purpose: prove rapid merges/deliveries/navigation do not leak or overwhelm portrait mobile.
   - Existing seam: presentation-bridge telemetry, `GameManager.get_terminal_visual_counts()`, `campaign_transient_world_effect`, session/view lifecycle, Spark live pool, GameFeelFlow active effects/`stop_all`.
   - Semantic trigger: stress replay of existing semantic catalog only.
