@@ -1,0 +1,7 @@
+# M26-R01 one master remediation
+
+Read M26 audit V01 and master regression summary. First safely sync origin/main without altering owner edits, stashes, saves or project.godot. Codex treats TASKS.md as read only. Before Godot, prove sandbox user-data and log isolation and hash owner files. Always clean only task-owned Godot PIDs using the verified runner. Leave no background sandbox windows.
+
+Resolve all five remaining failures in one continuous milestone run: M08 To-Go mixed-indentation parse error; M17 analytical objective reachability; M17 timed-era timeout and seed-difference assertions; M20 pause retry returning to same level; M23 merge feedback particle and GFF output ceiling. For every failure reproduce and compare with controlled pre-M26 baseline. Separate superseded old no-timer or move-star assumptions from real defects. Repair code when needed; change tests only with traced contract justification. Never loosen global 48-live-particle limit, disable tests merely to pass, or change approved physics, move stars, economy, map geometry and progression without evidence. Preserve raw failing logs and later passing evidence.
+
+After all fixes rerun focused probes, full M02-M26 matrix, full and reduced GL views at 720x1280 and 720x1440, two M21 QA runs, editor import and 120-frame boot. Check all real files and user logs unchanged, task process count zero and Git 0/0. Report unresolved failures honestly. Write one master Codex log and evidence; commit changes to main; do not edit TASKS.md or begin M27. Stop for independent M26-R01 milestone audit.
