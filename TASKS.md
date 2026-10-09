@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M25-MASTER-V01
 - Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
 - Current Task Status: BLOCKED
-- Next Task/Action: OWNER decision after MOVE-LIMIT-001 technical audit PASS: retain L6 candidate 35, decide whether move limits extend to other 99 levels and whether score-based star thresholds remain or move-based star system is separately calibrated. No automatic rollout.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M25-MOVE-100-STAR — CODEX executes `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-MOVE-100-STAR_MASTER_PROMPT.md` for all 100 level budgets and move-based stars; then independent GPT audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M24 closed. M25 MOVE-LIMIT-001 technically audited PASS: Level 6 natural 35th-shot WIN/LOSE, Retry/Island Map, 22-shot win and regression evidence. Only L6 is move-limited; other levels unlimited. Score-star system unchanged. Wider fairness, global rollout and optional move-star design await owner; M26 blocked.
+- Progress: M24 closed. M25 Level 6 move-limit source/evidence audited PASS. Owner approved move limits on all 100 levels and switching stars from score to moves used on 2026-10-09. Per-level calibration, implementation and audit pending; M26 blocked.
 
 ## Blockers/Waits
 
