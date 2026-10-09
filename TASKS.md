@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M25-MASTER-V01
 - Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M25-003 — CODEX executes `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-R02_TERMINAL_ROUTE_MASTER_PROMPT.md` for genuine LOSE, 1/2-star WIN and pointer action routing, then GPT re-audit.
+- Next Task/Action: BCM-M25-003 — CODEX executes `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-R03_CAUSAL_DIAGNOSTIC_MASTER_PROMPT.md` to determine LOSE/star-tier reachability and test Retry/Island Map scaled routes. Stop for owner ruling if unreachable; no M26.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M24 closed. M25 R01 audit PARTIAL TECHNICAL PASS: prior GL mobile crash mitigated (2 successful 16-capture/exit 0 runs), regressions PASS, real FULL/REDUCED 3-star WIN captured. Still BLOCKED: no genuine FULL/REDUCED LOSE, no genuine 1/2-star WIN, pointer-driven Results action routing unverified/false. M25-R02 validation prompt published, M26 not started.
+- Progress: M24 closed. M25 R02 audit PARTIAL_PASS: scaled fixture mouse Island Map and two-resolution touch PASS; real LOSE FULL/REDUCED, 1/2-star WIN and Retry pointer NOT VERIFIED. R03 deterministic code/data feasibility diagnosis required before more gameplay attempts; M26 blocked.
 
 ## Blockers/Waits
 
