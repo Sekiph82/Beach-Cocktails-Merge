@@ -66,7 +66,7 @@ func _run() -> void:
 	_check("catalog exactly matches M22-002", POLICY_SCRIPT.SEMANTIC_KINDS == FEEDBACK_SCRIPT.SEMANTIC_KINDS)
 	_check("no production effect or particle is active in M22", not policy.get_catalog_report().production_enabled_in_m22)
 	_check("large celebration concurrency is capped at one", policy.can_start_large_celebration(0) and not policy.can_start_large_celebration(1))
-	_check("large result particle requests respect the 96 live cap", policy.validate_live_particle_count("island_unlock", 90, 6).ok and not policy.validate_live_particle_count("island_unlock", 91, 6).ok)
+	_check("all result and gameplay particle requests respect the global 48 live cap", policy.validate_live_particle_count("island_unlock", 42, 6).ok and not policy.validate_live_particle_count("island_unlock", 43, 6).ok)
 	_check("gameplay live particle requests respect the 48 live cap", policy.validate_live_particle_count("merge", 47, 1).ok and not policy.validate_live_particle_count("merge", 48, 1).ok)
 	for kind in POLICY_SCRIPT.SEMANTIC_KINDS:
 		for mode in POLICY_SCRIPT.MODES:

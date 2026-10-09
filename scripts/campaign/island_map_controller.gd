@@ -24,6 +24,8 @@ const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
+const FEEDBACK_SERVICE_SCRIPT := preload("res://scripts/feedback_service.gd")
+const PRESENTATION_BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
 
 var island_id := ""
 var level_database
@@ -36,8 +38,13 @@ var _restored_scroll_vertical := -1
 var _refresh_queued := false
 var _level_buttons: Dictionary = {}
 var _milestone_levels: Array[int] = []
+var _last_progression_snapshot: Dictionary = {}
+var _presented_progression_events: Dictionary = {}
+var _pending_progression_events: Array[Dictionary] = []
 var _page_backgrounds: Array[TextureRect] = []
 var _active_layout: Dictionary = {}
+var _feedback_service: FeedbackService
+var _presentation_bridge: PresentationFeedbackBridge
 
 var _background_texture: TextureRect
 var _background_fallback: ColorRect
@@ -54,10 +61,30 @@ var _feedback_overlay
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_build_shell()
+	_configure_presentation_feedback()
 	if level_database == null or campaign_manager == null:
 		_configure_default_campaign()
+	_bind_campaign_progression_signal()
+	_last_progression_snapshot = _capture_progression_snapshot()
 	if not island_id.is_empty():
 		refresh()
+
+
+func _exit_tree() -> void:
+	if campaign_manager != null and campaign_manager.has_signal("progression_changed"):
+		var callback := Callable(self, "_on_campaign_progression_changed")
+		if campaign_manager.progression_changed.is_connected(callback):
+			campaign_manager.progression_changed.disconnect(callback)
+	if is_instance_valid(_presentation_bridge):
+		_presentation_bridge.cancel_presentation()
+
+
+func set_presentation_mode(mode: String) -> bool:
+	return _presentation_bridge != null and _presentation_bridge.set_presentation_mode(mode)
+
+
+func apply_presentation_settings(state: Dictionary) -> void:
+	set_presentation_mode("REDUCED" if bool(state.get("reduced_motion", false)) else "FULL")
 
 
 func configure_island(
@@ -73,7 +100,16 @@ func configure_island(
 		return false
 	island_id = configured_island_id
 	level_database = database
+	var previous_manager = campaign_manager
 	campaign_manager = manager
+	if previous_manager != campaign_manager:
+		if previous_manager != null and previous_manager.has_signal("progression_changed"):
+			var previous_callback := Callable(self, "_on_campaign_progression_changed")
+			if previous_manager.progression_changed.is_connected(previous_callback):
+				previous_manager.progression_changed.disconnect(previous_callback)
+		_bind_campaign_progression_signal()
+	_refresh_milestones(definition)
+	_last_progression_snapshot = _capture_progression_snapshot()
 	_restoration_state = restoration.duplicate(true)
 	_has_restoration_state = not restoration.is_empty()
 	_restored_scroll_vertical = int(restoration.get("scroll_vertical", -1)) if _has_restoration_state else -1
@@ -95,7 +131,6 @@ func configure_island(
 		# currently selected level. _refresh_deferred computes the focus from
 		# unlocked/unfinished state after the configured level count is known.
 		_focus_level_id = 0
-	_refresh_milestones(definition)
 	_set_island_map_background()
 	refresh()
 	return true
@@ -309,7 +344,9 @@ func _refresh_deferred() -> void:
 		points.append(center)
 	if _path_line != null:
 		_path_line.points = points
+	_last_progression_snapshot = _capture_progression_snapshot()
 	_update_summary()
+	call_deferred("_flush_pending_progression_events")
 	if not _has_restoration_state:
 		_focus_level_id = _entry_focus_level(level_count)
 	elif _focus_level_id <= 0 or not _level_buttons.has(_focus_level_id):
@@ -325,6 +362,126 @@ func _state_for(level_id: int) -> String:
 	if level_id == selected_level_id or level_id == int(campaign_manager.selected_level_id):
 		return STATE_CURRENT
 	return STATE_OPEN
+
+
+func _configure_presentation_feedback() -> void:
+	_feedback_service = FEEDBACK_SERVICE_SCRIPT.new() as FeedbackService
+	_feedback_service.name = "IslandMapFeedbackService"
+	add_child(_feedback_service)
+	_presentation_bridge = PRESENTATION_BRIDGE_SCRIPT.new() as PresentationFeedbackBridge
+	_presentation_bridge.name = "IslandMapPresentationFeedbackBridge"
+	add_child(_presentation_bridge)
+	_presentation_bridge.configure(_feedback_service, get_tree().root)
+	_presentation_bridge.set_presentation_mode("FULL")
+	_presentation_bridge.set_production_dispatch_enabled(true)
+
+
+func _bind_campaign_progression_signal() -> void:
+	if campaign_manager == null or not campaign_manager.has_signal("progression_changed"):
+		return
+	var callback := Callable(self, "_on_campaign_progression_changed")
+	if not campaign_manager.progression_changed.is_connected(callback):
+		campaign_manager.progression_changed.connect(callback)
+
+
+func _capture_progression_snapshot() -> Dictionary:
+	if level_database == null or campaign_manager == null or island_id.is_empty():
+		return {}
+	var definition: Dictionary = level_database.get_island(island_id)
+	var level_count := int(definition.get("level_count", 0))
+	var levels: Dictionary = {}
+	for level_id in range(1, level_count + 1):
+		levels[level_id] = {
+			"unlocked": campaign_manager.is_level_unlocked(island_id, level_id),
+			"completed": campaign_manager.is_level_completed(island_id, level_id),
+		}
+	var state: Dictionary = campaign_manager.get_progression_state().get("islands", {}).get(island_id, {})
+	return {
+		"levels": levels,
+		"claimed_milestones": state.get("claimed_milestones", []).duplicate(true),
+	}
+
+
+func _on_campaign_progression_changed(changed_island_id: String, _changed_level_id: int) -> void:
+	if changed_island_id != island_id:
+		return
+	var previous := _last_progression_snapshot
+	var current := _capture_progression_snapshot()
+	_last_progression_snapshot = current
+	var old_levels: Dictionary = previous.get("levels", {})
+	var new_levels: Dictionary = current.get("levels", {})
+	for level_id_value in new_levels:
+		var level_id := int(level_id_value)
+		var old_level: Dictionary = old_levels.get(level_id, {})
+		var new_level: Dictionary = new_levels[level_id]
+		if not bool(old_level.get("unlocked", false)) and bool(new_level.get("unlocked", false)):
+			_queue_progression_event({"kind": "level_unlock", "level_id": level_id})
+		if _milestone_levels.has(level_id) and not bool(old_level.get("completed", false)) and bool(new_level.get("completed", false)):
+			_queue_progression_event({"kind": "island_milestone", "level_id": level_id, "transition": "reached"})
+	var old_claimed: Array = previous.get("claimed_milestones", [])
+	for milestone_value in current.get("claimed_milestones", []):
+		if not old_claimed.has(milestone_value) and _milestone_levels.has(int(milestone_value)):
+			_queue_progression_event({"kind": "island_milestone", "level_id": int(milestone_value), "transition": "claimed"})
+	refresh()
+
+
+func _queue_progression_event(event: Dictionary) -> void:
+	var kind := str(event.get("kind", ""))
+	var level_id := int(event.get("level_id", 0))
+	var transition := str(event.get("transition", "reached"))
+	var event_id := "level-unlock:%s:%d" % [island_id, level_id] if kind == "level_unlock" else "island-milestone:%s:%d:%s" % [island_id, level_id, transition]
+	if _presented_progression_events.has(event_id):
+		return
+	for pending in _pending_progression_events:
+		var pending_id := "level-unlock:%s:%d" % [island_id, int(pending.get("level_id", 0))] if str(pending.get("kind", "")) == "level_unlock" else "island-milestone:%s:%d:%s" % [island_id, int(pending.get("level_id", 0)), str(pending.get("transition", "reached"))]
+		if pending_id == event_id:
+			return
+	_pending_progression_events.append(event.duplicate(true))
+
+
+func _flush_pending_progression_events() -> void:
+	if not is_visible_in_tree() or _level_buttons.is_empty():
+		return
+	var pending := _pending_progression_events.duplicate(true)
+	_pending_progression_events.clear()
+	for event in pending:
+		if str(event.get("kind", "")) == "level_unlock":
+			_present_level_unlock(int(event.get("level_id", 0)))
+		else:
+			_present_island_milestone(int(event.get("level_id", 0)), str(event.get("transition", "reached")))
+
+
+func _present_level_unlock(level_id: int) -> void:
+	var event_id := "level-unlock:%s:%d" % [island_id, level_id]
+	if _presented_progression_events.has(event_id):
+		return
+	var button = _level_buttons.get(level_id)
+	var target = button.get_node_or_null("NodeArt") if is_instance_valid(button) else null
+	if not is_instance_valid(target):
+		return
+	_presented_progression_events[event_id] = true
+	_feedback_service.request_semantic("level_unlock", {
+		"island_id": island_id,
+		"level_id": level_id,
+		"presentation_target": target,
+	}, event_id, {"source": "island_map_controller"})
+
+
+func _present_island_milestone(level_id: int, transition: String) -> void:
+	var event_id := "island-milestone:%s:%d:%s" % [island_id, level_id, transition]
+	if _presented_progression_events.has(event_id):
+		return
+	var button = _level_buttons.get(level_id)
+	var target = button.get_node_or_null("MilestoneMarker") if is_instance_valid(button) else null
+	if not is_instance_valid(target):
+		return
+	_presented_progression_events[event_id] = true
+	_feedback_service.request_semantic("island_milestone", {
+		"island_id": island_id,
+		"milestone_id": level_id,
+		"transition": transition,
+		"presentation_target": target,
+	}, event_id, {"source": "island_map_controller"})
 
 
 func _is_vip_level(level_id: int) -> bool:

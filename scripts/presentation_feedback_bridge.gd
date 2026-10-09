@@ -175,7 +175,7 @@ func _disconnect_feedback_service() -> void:
 
 func _on_semantic_requested(request: Dictionary) -> void:
 	var kind := str(request.get("kind", ""))
-	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete", "vip_delivery", "vip_complete", "game_success", "game_fail"].has(kind):
+	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete", "vip_delivery", "vip_complete", "game_success", "game_fail", "level_unlock", "island_milestone"].has(kind):
 		return
 	var payload: Dictionary = request.get("payload", {})
 	if kind == "vip_delivery" and int(payload.get("accepted", 0)) <= 0:
@@ -211,6 +211,10 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		plan = _vip_delivery_plan(mode, payload)
 	elif kind == "vip_complete":
 		plan = _vip_complete_plan(mode)
+	elif kind == "level_unlock":
+		plan = _level_unlock_plan(mode)
+	elif kind == "island_milestone":
+		plan = _island_milestone_plan(mode)
 	_update_visual_trace(trace_id, {
 		"target": _canvas_item_snapshot(target_value as Node),
 		"plan": plan.duplicate(true),
@@ -441,6 +445,39 @@ func _vip_complete_plan(mode: String) -> Dictionary:
 			"color": Color(0.44, 0.82, 0.96, 0.96),
 			"color2": Color(0.96, 0.82, 0.48, 0.0),
 		}
+	return result
+
+
+func _level_unlock_plan(mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	var result := {
+		"mode": mode,
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10, "color": REDUCED_TINT} if reduced else {"duration": 0.24, "color": Color(0.62, 0.92, 0.76, 1.0)},
+	}
+	if not reduced:
+		result["spark_preset"] = "pickup"
+		result["spark_overrides"] = {"amount": 10, "lifetime": 0.35, "speed": 70.0, "size": 4.0, "size_end": 1.0, "color": Color(0.50, 0.88, 0.66, 0.96), "color2": SPARK_COLOR_END}
+	return result
+
+
+func _island_milestone_plan(mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	var result := {
+		"mode": mode,
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10, "color": REDUCED_TINT} if reduced else {"duration": 0.30, "color": Color(1.0, 0.82, 0.42, 1.0)},
+	}
+	result["spark_preset"] = "dust" if reduced else "pickup"
+	result["spark_overrides"] = {
+		"amount": 4 if reduced else 18,
+		"lifetime": 0.20 if reduced else 0.55,
+		"speed": 35.0 if reduced else 90.0,
+		"size": 4.0,
+		"size_end": 0.8,
+		"color": Color(0.78, 0.92, 0.72, 0.9) if reduced else Color(1.0, 0.78, 0.32, 0.96),
+		"color2": SPARK_COLOR_END,
+	}
 	return result
 
 

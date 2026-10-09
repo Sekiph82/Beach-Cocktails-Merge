@@ -46,6 +46,7 @@ var _terminal_result_handled := false
 var _result_presentation_count := 0
 var _restoration_by_island: Dictionary = {}
 var _persistence_enabled := false
+var _presentation_settings: Dictionary = {"reduced_motion": false}
 
 
 func _ready() -> void:
@@ -123,6 +124,15 @@ func show_world_map() -> bool:
 	current_view = VIEW_WORLD_MAP
 	world_map_entered.emit()
 	return true
+
+
+func apply_presentation_settings(state: Dictionary) -> void:
+	_presentation_settings = state.duplicate(true)
+	if is_instance_valid(_island_map):
+		_island_map.apply_presentation_settings(state)
+	var gameplay := get_node_or_null("CampaignGameplay")
+	if is_instance_valid(gameplay) and gameplay.has_method("apply_presentation_settings"):
+		gameplay.apply_presentation_settings(state)
 
 
 func continue_campaign() -> bool:
@@ -254,6 +264,7 @@ func _ensure_map_instances() -> bool:
 		add_child(_island_map)
 	else:
 		_island_map.visible = false
+	_island_map.apply_presentation_settings(_presentation_settings)
 	_world_map.visible = current_view == VIEW_WORLD_MAP
 	_island_map.visible = current_view == VIEW_ISLAND_MAP
 	return true

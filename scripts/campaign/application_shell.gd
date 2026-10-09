@@ -66,6 +66,7 @@ func _ready() -> void:
     campaign_navigation.main_menu_requested.connect(_on_navigation_main_menu_requested)
     campaign_navigation.gameplay_session_started.connect(_on_gameplay_session_started)
     add_child(campaign_navigation)
+    _apply_settings_to_gameplay()
     campaign_navigation.visible = false
     onboarding_state = _read_onboarding_state()
     if not bool(onboarding_state.get("completed", false)):
@@ -607,6 +608,7 @@ func _on_setting_changed(key: String, _value: Variant) -> void:
 
 
 func _on_presentation_changed(_state: Dictionary) -> void:
+    _apply_settings_to_gameplay()
     if _settings_layer != null:
         _settings_layer.modulate = Color("#ffffff") if not bool(user_settings.get_value("high_contrast", false)) else Color("#ffffff")
 
@@ -618,6 +620,7 @@ func _on_gameplay_session_started(_configuration: Dictionary) -> void:
 func _apply_settings_to_gameplay() -> void:
     if user_settings == null or campaign_navigation == null:
         return
+    campaign_navigation.apply_presentation_settings(user_settings.get_presentation_state())
     user_settings.apply_to_gameplay(campaign_navigation.get_node_or_null("CampaignGameplay"))
 
 

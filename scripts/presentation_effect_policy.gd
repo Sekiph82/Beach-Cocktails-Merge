@@ -23,11 +23,14 @@ const MOBILE_CEILINGS := {
 	"ORDER": {"amount": 16, "lifetime": 0.45},
 	"VIP": {"amount": 24, "lifetime": 0.65},
 	"WIN": {"amount": 48, "lifetime": 1.20},
-	"MASTERY": {"amount": 64, "lifetime": 1.50},
-	"ISLAND_UNLOCK": {"amount": 72, "lifetime": 1.60},
+	"MASTERY": {"amount": 48, "lifetime": 1.50},
+	"ISLAND_UNLOCK": {"amount": 48, "lifetime": 1.60},
+	"ISLAND_COMPLETE": {"amount": 40, "lifetime": 1.10},
+	"MAP_LEVEL_UNLOCK": {"amount": 10, "lifetime": 0.35},
+	"MAP_MILESTONE": {"amount": 18, "lifetime": 0.55},
 	"FAIL": {"amount": 0, "lifetime": 0.0},
 	"gameplay_live": 48,
-	"result_meta_live": 96,
+	"result_meta_live": 48,
 	"large_celebrations": 1,
 }
 
@@ -84,8 +87,8 @@ const POLICY := {
 	},
 	"score_mastery": {
 		"tier": "MASTERY", "target": "score/result visual child",
-		"full": {"style": "brief local scale/color emphasis and restrained reveal; at most one celebration", "gff_effects": ["punch_scale", "color", "alpha"], "spark": {"max_amount": 64, "max_lifetime": 1.50, "max_speed": 120.0, "presets": ["confetti", "spark"]}},
-		"reduced": {"style": "immediate mastery/result state plus brief low-contrast alpha/color; no confetti or motion", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 16, "max_lifetime": 0.60, "max_speed": 45.0, "presets": ["dust"]}},
+		"full": {"style": "brief local scale/color emphasis and restrained reveal; at most one celebration", "gff_effects": ["punch_scale", "color", "alpha"], "spark": {"max_amount": 48, "max_lifetime": 1.50, "max_speed": 120.0, "presets": ["confetti", "spark"]}},
+		"reduced": {"style": "immediate mastery/result state plus brief low-contrast alpha/color; no confetti or motion", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 12, "max_lifetime": 0.60, "max_speed": 45.0, "presets": ["dust"]}},
 		"overlap_cancel": "share the single large-celebration slot with WIN/ISLAND_UNLOCK; cancel on result/session exit",
 	},
 	"game_success": {
@@ -101,27 +104,27 @@ const POLICY := {
 		"overlap_cancel": "cancel all transient result emphasis on result/session exit; never share WIN celebration mapping",
 	},
 	"level_unlock": {
-		"tier": "ISLAND_UNLOCK", "target": "unlocked LevelButton visual child",
-		"full": {"style": "brief local alpha/color emphasis with one bounded reveal; no root/button travel", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 72, "max_lifetime": 1.60, "max_speed": 120.0, "presets": ["confetti", "pickup", "spark"]}},
-		"reduced": {"style": "immediate unlocked state plus low-contrast alpha/color; no confetti or motion", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 18, "max_lifetime": 0.64, "max_speed": 45.0, "presets": ["dust"]}},
-		"overlap_cancel": "coalesce by unlock ID; share one large-celebration slot; cancel on map/session exit",
+		"tier": "MAP_LEVEL_UNLOCK", "target": "newly unlocked LevelButton art child",
+		"full": {"style": "brief local alpha/color emphasis and small reveal on the affected level only", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 10, "max_lifetime": 0.35, "max_speed": 70.0, "presets": ["pickup", "spark"]}},
+		"reduced": {"style": "immediate unlocked state plus a brief low-contrast alpha/color cue", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 0, "max_lifetime": 0.0, "max_speed": 0.0, "presets": []}},
+		"overlap_cancel": "coalesce by stable island and level ID; cancel on map exit",
 	},
 	"island_milestone": {
-		"tier": "ISLAND_UNLOCK", "target": "island milestone visual child",
-		"full": {"style": "brief local alpha/color emphasis with one bounded reveal", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 72, "max_lifetime": 1.60, "max_speed": 120.0, "presets": ["confetti", "pickup", "spark"]}},
-		"reduced": {"style": "immediate milestone state plus low-contrast alpha/color; no confetti or motion", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 18, "max_lifetime": 0.64, "max_speed": 45.0, "presets": ["dust"]}},
-		"overlap_cancel": "coalesce by milestone ID; share one large-celebration slot; cancel on map/session exit",
+		"tier": "MAP_MILESTONE", "target": "island milestone marker child",
+		"full": {"style": "brief local alpha/color emphasis with one bounded reveal", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 18, "max_lifetime": 0.55, "max_speed": 90.0, "presets": ["pickup", "spark"]}},
+		"reduced": {"style": "immediate milestone state plus low-contrast alpha/color; no travel or confetti", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 4, "max_lifetime": 0.20, "max_speed": 35.0, "presets": ["dust"]}},
+		"overlap_cancel": "coalesce by stable milestone ID; affect only its marker; cancel on map exit",
 	},
 	"island_complete": {
-		"tier": "ISLAND_UNLOCK", "target": "island completion visual child",
-		"full": {"style": "brief local alpha/color emphasis with one bounded reveal", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 72, "max_lifetime": 1.60, "max_speed": 120.0, "presets": ["confetti", "pickup", "spark"]}},
-		"reduced": {"style": "immediate completion state plus low-contrast alpha/color; no confetti or motion", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 18, "max_lifetime": 0.64, "max_speed": 45.0, "presets": ["dust"]}},
+		"tier": "ISLAND_COMPLETE", "target": "completed island summary child",
+		"full": {"style": "brief local alpha/color emphasis with one bounded completion cue", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 40, "max_lifetime": 1.10, "max_speed": 105.0, "presets": ["confetti", "pickup", "spark"]}},
+		"reduced": {"style": "immediate completion state plus low-contrast alpha/color; no travel or confetti", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 10, "max_lifetime": 0.44, "max_speed": 38.0, "presets": ["dust"]}},
 		"overlap_cancel": "coalesce by island ID; share one large-celebration slot; cancel on map/session exit",
 	},
 	"island_unlock": {
 		"tier": "ISLAND_UNLOCK", "target": "unlocked island map visual entry",
-		"full": {"style": "brief local alpha/color emphasis with one bounded reveal", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 72, "max_lifetime": 1.60, "max_speed": 120.0, "presets": ["confetti", "pickup", "spark"]}},
-		"reduced": {"style": "immediate unlocked state plus low-contrast alpha/color; no confetti or motion", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 18, "max_lifetime": 0.64, "max_speed": 45.0, "presets": ["dust"]}},
+		"full": {"style": "brief local alpha/color emphasis with one bounded reveal", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 48, "max_lifetime": 1.60, "max_speed": 120.0, "presets": ["confetti", "pickup", "spark"]}},
+		"reduced": {"style": "immediate unlocked state plus low-speed local alpha/color and a small burst", "gff_effects": ["color", "alpha"], "spark": {"max_amount": 10, "max_lifetime": 0.48, "max_speed": 35.0, "presets": ["dust"]}},
 		"overlap_cancel": "coalesce by island ID; share one large-celebration slot; cancel on map/session exit",
 	},
 	"reward_granted": {
@@ -261,7 +264,7 @@ func validate_policy() -> Dictionary:
 						failures.append("reduced_micro_particles:%s" % kind)
 					if kind == "table_contact" and int(budget.max_amount) != 0:
 						failures.append("reduced_contact_particles")
-					if str(row.tier) in ["MERGE", "ORDER", "VIP", "WIN", "MASTERY", "ISLAND_UNLOCK"] and int(budget.max_amount) > floor(float(full_budget.max_amount) * 0.25):
+					if str(row.tier) in ["MERGE", "ORDER", "VIP", "WIN", "MASTERY", "ISLAND_UNLOCK", "ISLAND_COMPLETE", "MAP_MILESTONE", "MAP_LEVEL_UNLOCK"] and int(budget.max_amount) > floor(float(full_budget.max_amount) * 0.25):
 						failures.append("reduced_over_quarter:%s:%s" % [kind, str(budget.get("band", ""))])
 					if str(row.tier) != "FAIL" and (float(budget.max_speed) >= float(full_budget.max_speed) or float(budget.max_lifetime) >= float(full_budget.max_lifetime)):
 						failures.append("reduced_motion_not_lower:%s" % kind)
@@ -280,14 +283,13 @@ func can_start_large_celebration(active_count: int) -> bool:
 
 func is_large_celebration(kind: String) -> bool:
 	var row: Dictionary = POLICY.get(kind, {})
-	return ["WIN", "MASTERY", "ISLAND_UNLOCK"].has(str(row.get("tier", "")))
+	return ["WIN", "MASTERY", "ISLAND_COMPLETE", "ISLAND_UNLOCK"].has(str(row.get("tier", "")))
 
 
 func validate_live_particle_count(kind: String, active_count: int, requested_count: int) -> Dictionary:
 	if not POLICY.has(kind) or active_count < 0 or requested_count < 0:
 		return {"ok": false, "reason": "particle_count_invalid"}
-	var row: Dictionary = POLICY[kind]
-	var ceiling := int(MOBILE_CEILINGS.result_meta_live) if ["WIN", "MASTERY", "ISLAND_UNLOCK", "FAIL"].has(str(row.tier)) else int(MOBILE_CEILINGS.gameplay_live)
+	var ceiling := int(MOBILE_CEILINGS.result_meta_live)
 	if active_count + requested_count > ceiling:
 		return {"ok": false, "reason": "live_particle_ceiling_exceeded", "ceiling": ceiling}
 	return {"ok": true, "live_particles_after": active_count + requested_count, "ceiling": ceiling}
@@ -306,8 +308,8 @@ func render_markdown_matrix() -> String:
 		"- GFF forbidden: `impulse`, `velocity`, `freeze_frame`, `time_scale`, `camera_flash`, and camera/screen shake.",
 		"- No stock GFF combo execution. Only explicit safe single-effect names are allowed by policy: `punch_scale`, `color`, `alpha`.",
 		"- No authority root, physics body, collider, table, rail, or camera transforms. Spark always requires explicit `amount`, `lifetime`, and `speed` overrides.",
-		"- Gameplay live-particle ceiling: 48. Result/meta ceiling: 96. Large celebrations active at once: 1.",
-		"- Mobile ceilings: MICRO 5/0.16 s; MERGE 10/0.30 s; MERGE PEAK 18/0.35 s; ORDER 16/0.45 s; VIP 24/0.65 s; WIN 48/1.20 s; MASTERY 64/1.50 s; ISLAND_UNLOCK 72/1.60 s.",
+		"- Global live-particle ceiling: 48. Large celebrations active at once: 1.",
+		"- Mobile ceilings: MICRO 5/0.16 s; MERGE 10/0.30 s; MERGE PEAK 18/0.35 s; ORDER 16/0.45 s; VIP 24/0.65 s; WIN/MASTERY 48; Island Map level unlock 10/0.35 s; milestone 18/0.55 s; island complete 40/1.10 s; island unlock 48/1.60 s.",
 		"- REDUCED removes shake, camera motion, squash/stretch, spring/position travel, large confetti, and rapid sequencing. Important tiers use at most 25% of FULL particle count with lower speed/lifetime. MICRO and table-contact use zero particles.",
 		"",
 		"## Per-kind policy",

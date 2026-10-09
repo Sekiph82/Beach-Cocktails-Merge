@@ -138,6 +138,7 @@ func _build_node_art() -> void:
 	_node_art.texture = load(_texture_path_for_state()) as Texture2D
 	_node_art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_node_art.z_index = 0
+	_node_art.add_to_group("presentation_effect_target")
 	add_child(_node_art)
 
 	_level_label = _make_overlay_label("LevelNumber", Rect2(7.0, 18.0, 102.0, 32.0), 24, Color.WHITE)
@@ -152,6 +153,7 @@ func _build_node_art() -> void:
 	_milestone_marker.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_milestone_marker.z_index = 3
 	_milestone_marker.visible = false
+	_milestone_marker.add_to_group("presentation_effect_target")
 	add_child(_milestone_marker)
 
 
