@@ -168,6 +168,8 @@ func _run() -> void:
 	var reduced_plan: Dictionary = reduced_trace.get("plan", {})
 	_check("REDUCED unlock uses at most ten gentle particles", str(reduced_plan.get("mode", "")) == "REDUCED" and int(reduced_plan.get("spark_overrides", {}).get("amount", 99)) <= 10 and float(reduced_plan.get("spark_overrides", {}).get("speed", 999.0)) <= 35.0 and not reduced_plan.get("spark_overrides", {}).get("presets", []).has("confetti"))
 	await _capture("reduced_island_unlock_720x1280", Vector2i(720, 1280))
+	await _set_viewport_size(Vector2i(720, 1440))
+	await _capture("reduced_island_unlock_720x1440", Vector2i(720, 1440))
 	await _settle(0.52)
 	_check("REDUCED unlock color restores exactly", not bridge.get_color_lifecycle_diagnostics().is_empty() and bool(bridge.get_color_lifecycle_diagnostics().back().get("restored_exactly", false)))
 	max_active_particles = maxi(max_active_particles, bridge._active_spark_particle_count())

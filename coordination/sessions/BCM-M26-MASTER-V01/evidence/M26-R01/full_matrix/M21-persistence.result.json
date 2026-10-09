@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T21:30:01.2523104Z",
+  "finished_utc": "2026-10-09T21:30:07.1847358Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+    "--script",
+    "res://tests/m21_release_persistence_probe.gd"
+  ],
+  "spawned_pids": [
+    29776,
+    34216,
+    41544
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\full_matrix\\M21-persistence.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\full_matrix\\M21-persistence.stderr.txt"
+}

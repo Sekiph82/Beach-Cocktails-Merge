@@ -1,0 +1,28 @@
+{
+  "started_utc": "2026-10-09T21:44:14.9863632Z",
+  "finished_utc": "2026-10-09T21:44:25.3663641Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+    "--rendering-method",
+    "gl_compatibility",
+    "--display-driver",
+    "windows",
+    "--script",
+    "res://tests/m26_003_reward_primary_feedback_probe.gd"
+  ],
+  "spawned_pids": [
+    34176,
+    37724,
+    41312
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\full_matrix_postfix\\M26-003-focused.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\full_matrix_postfix\\M26-003-focused.stderr.txt"
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "full_play_cta_720x1280.png",
+    "sha256": "565DD2585756C035B08A877B522C1A2B5738207C3A13F2BA0131542D2937A03B",
+    "bytes": 1662369,
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "name": "full_reward_results_720x1440.png",
+    "sha256": "E8CF94771D3508D8FD047F6573BBE23FE626720277F8B64B2BB508BFFBCF410B",
+    "bytes": 602558,
+    "width": 720,
+    "height": 1440
+  },
+  {
+    "name": "full_retry_cta_720x1280.png",
+    "sha256": "9C5799B5289EA180D86239CBD9C292208B4E63961CFBB27AD87998C619D81173",
+    "bytes": 1589773,
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "name": "reduced_reward_cta_720x1280.png",
+    "sha256": "2B15DCE3217FB50A218DB90D724DCD7810736A4F14D7DE3E5E4489A92EC6AC92",
+    "bytes": 599375,
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "name": "reduced_reward_cta_720x1440.png",
+    "sha256": "82FF808EBECBC9A62E48039F81EF16B60212EB38C10CC7D83D72507C464E0784",
+    "bytes": 601320,
+    "width": 720,
+    "height": 1440
+  }
+]

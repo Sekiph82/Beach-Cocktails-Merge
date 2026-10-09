@@ -183,6 +183,8 @@ func _run() -> void:
 	var reduced_trace := _last_trace(world_bridge, "reward_granted")
 	_check("REDUCED reward is immediate, calm, and particle-free", bool(reduced_reward.get("granted", false)) and str(reduced_trace.get("plan", {}).get("mode", "")) == "REDUCED" and float(reduced_trace.get("plan", {}).get("gff_params", {}).get("duration", 1.0)) <= 0.10 and not reduced_trace.get("plan", {}).has("spark_preset"))
 	await _capture("reduced_reward_cta_720x1280", Vector2i(720, 1280))
+	await _set_viewport_size(Vector2i(720, 1440))
+	await _capture("reduced_reward_cta_720x1440", Vector2i(720, 1440))
 	await _settle(0.30)
 	_check("REDUCED reward color restores exactly", not world_bridge.get_color_lifecycle_diagnostics().is_empty() and bool(world_bridge.get_color_lifecycle_diagnostics().back().get("restored_exactly", false)))
 

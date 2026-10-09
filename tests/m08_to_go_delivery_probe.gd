@@ -76,12 +76,12 @@ func _run() -> void:
     _check("To-Go reward is added exactly once", manager.score - score_before == reward)
     _check("target transition returns to idle and chooses next target", not manager._target_transition and manager._target_drink == null and manager._target_level >= 6 and manager._target_level <= 12)
     _check("stored delivery does not add merge/combo score", manager.chain == 0)
-	_check("completion semantic is emitted once without a legacy panel flash", manager.feedback_service.event_count("order_complete") == 1 and _count_named(manager._to_go_panel, "OrderCompleteFlash") == 0)
+    _check("completion semantic is emitted once without a legacy panel flash", manager.feedback_service.event_count("order_complete") == 1 and _count_named(manager._to_go_panel, "OrderCompleteFlash") == 0)
     print("M08_STATE completion panels best_visible=%s score_visible=%s hud_visible=%s best_modulate=%s score_modulate=%s" % [manager._best_panel.visible, manager._score_panel.visible, manager._hud.visible, manager._best_panel.modulate, manager._score_panel.modulate])
     _save_capture("order_completion_feedback_720x1280.png")
     await _wait_seconds(0.40)
     _check("delivery trail self-cleans", _count_named(manager.world, "ToGoDeliveryTrail") == 0)
-	_check("completion remains presentation-only and creates no overlay node", _count_named(manager._to_go_panel, "OrderCompleteFlash") == 0)
+    _check("completion remains presentation-only and creates no overlay node", _count_named(manager._to_go_panel, "OrderCompleteFlash") == 0)
 
     manager._target_level = 6
     manager._target_transition = false

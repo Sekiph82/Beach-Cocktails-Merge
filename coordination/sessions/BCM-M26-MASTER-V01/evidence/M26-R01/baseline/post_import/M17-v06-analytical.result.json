@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T21:09:10.5048277Z",
+  "finished_utc": "2026-10-09T21:09:13.7334227Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline",
+    "--script",
+    "res://tests/m17_canonical_screening_v06_analytical_probe.gd"
+  ],
+  "spawned_pids": [
+    25480,
+    36868,
+    41816
+  ],
+  "exit_code": 1,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\baseline\\post_import\\M17-v06-analytical.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\baseline\\post_import\\M17-v06-analytical.stderr.txt"
+}

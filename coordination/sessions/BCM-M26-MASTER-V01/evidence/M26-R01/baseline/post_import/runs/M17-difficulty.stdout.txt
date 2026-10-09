@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M17_PROBE FAIL: canonical Sunny Cove loads in FULL validation mode
+M17_PROBE FAIL: canonical Sunny Cove has 100 levels
+M17_DIFFICULTY_VALIDATION_RESULT=FAIL failures=["canonical Sunny Cove loads in FULL validation mode", "canonical Sunny Cove has 100 levels"]

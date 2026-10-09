@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M20_CHILD_05_PROBE PASS: locked island selection is rejected
+M20_CHILD_05_PROBE PASS: locked island feedback is reusable and visible
+M20_CHILD_05_PROBE PASS: locked island feedback explains the authoritative requirement
+M20_CHILD_05_PROBE PASS: locked island feedback can be dismissed
+M20_CHILD_05_PROBE PASS: Sunny Cove opens from the World Map
+M20_CHILD_05_PROBE PASS: locked level selection is rejected
+M20_CHILD_05_PROBE PASS: locked level feedback is reusable and visible
+M20_CHILD_05_PROBE PASS: locked level feedback can be dismissed
+M20_CHILD_05_PROBE PASS: level 1 enters production gameplay
+M20_CHILD_05_PROBE PASS: LOSE result uses one reusable overlay
+M20_CHILD_05_PROBE PASS: LOSE exposes only Retry and Island Map
+M20_CHILD_05_PROBE PASS: Retry action re-enters one production gameplay session
+M20_CHILD_05_PROBE PASS: retry session is active and singular
+M20_CHILD_05_PROBE PASS: WIN result uses authoritative bridge outcome and stars
+M20_CHILD_05_PROBE PASS: WIN exposes Next Level conditionally plus Island Map
+M20_CHILD_05_PROBE PASS: VIP remains optional on normal WIN
+M20_CHILD_05_PROBE PASS: WIN has no ad or purchase continuation
+M20_CHILD_05_PROBE PASS: Island Map action exits result without a duplicate overlay
+M20_CHILD_05_PROBE PASS: result-to-map returns to one Island Map instance
+M20_CHILD_05_PROBE PASS: milestone/reward feedback is represented by the same overlay
+M20_CHILD_05_RESULT=PASS

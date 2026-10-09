@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T21:09:13.8851593Z",
+  "finished_utc": "2026-10-09T21:09:29.2503537Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline",
+    "--script",
+    "res://tests/m17_difficulty_validation_probe.gd"
+  ],
+  "spawned_pids": [
+    15776,
+    40616,
+    41948
+  ],
+  "exit_code": 1,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\baseline\\post_import\\M17-difficulty.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\baseline\\post_import\\M17-difficulty.stderr.txt"
+}

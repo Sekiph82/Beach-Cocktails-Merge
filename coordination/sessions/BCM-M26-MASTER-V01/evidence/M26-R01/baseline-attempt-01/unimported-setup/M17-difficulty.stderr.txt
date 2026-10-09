@@ -1,0 +1,411 @@
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:346)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:364)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:364)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:426)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:472)
+SCRIPT ERROR: Parse Error: Could not resolve external class member "spawn_drink".
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:276)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:359)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:390)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:390)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:392)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink_id" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:399)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "footprint" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:400)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:421)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:421)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:459)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:459)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:461)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:568)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "footprint" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/campaign/m17_seeded_validation_harness.gd:571)
+SCRIPT ERROR: Parse Error: Could not find type "MergeQueue" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:100)
+SCRIPT ERROR: Parse Error: Could not find type "ShotController" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:101)
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:103)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:148)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:150)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:266)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:907)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:990)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1088)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1749)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1793)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1853)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:2008)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:164)
+SCRIPT ERROR: Parse Error: Identifier "MergeQueue" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:175)
+SCRIPT ERROR: Parse Error: Identifier "ShotController" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:196)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:340)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:588)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:589)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:911)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:911)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:991)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1001)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "base" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1001)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "gained" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1003)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1060)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1073)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1074)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1074)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1091)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1094)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1098)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1101)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "other" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1101)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1105)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "touching_distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1106)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1127)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1128)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1128)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1589)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1599)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "texture" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1599)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1603)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1609)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1629)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1630)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1640)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1664)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "max_level" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1664)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1698)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1702)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1704)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1704)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1707)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1709)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1709)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1712)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1728)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1731)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1733)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1733)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1736)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1738)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1738)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1740)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1761)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1763)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1763)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1764)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1766)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1766)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1780)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1783)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1822)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1833)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "order_bonus" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1833)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1881)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "delivered_level" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1882)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1895)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "vip_bonus" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1895)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1946)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1950)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:2003)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:2004)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/m17_difficulty_validation_probe.gd:0)
+ERROR: Failed to load script "res://tests/m17_difficulty_validation_probe.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://addons/game_feel_flow/effects/events/gff_event.gd".
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:7)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://addons/game_feel_flow/effects/events/gff_signal.gd".
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:8)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://addons/game_feel_flow/effects/events/gff_method.gd".
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:9)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffectStack" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:20)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffect" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:38)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffect" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:155)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:159)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffect" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:175)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:179)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:183)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:338)
+SCRIPT ERROR: Parse Error: Could not find type "GFFPlayer" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:348)
+SCRIPT ERROR: Parse Error: Could not find type "GFFPlayer" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:360)
+SCRIPT ERROR: Parse Error: Could not find type "GFFParams" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:380)
+SCRIPT ERROR: Parse Error: Identifier "GFFProjectSettings" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:26)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectConfigManager" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:27)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectStack" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:31)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffectCommon" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:40)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffectCommon" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:41)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "common" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:41)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCameraOffsetTarget" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:43)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCameraZoomTarget" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:44)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCameraFovTarget" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:45)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "started" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:79)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffect" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:86)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "started" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:88)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:94)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:95)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:123)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:165)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:169)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:173)
+SCRIPT ERROR: Parse Error: Could not find type "GFFCombo" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:185)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:241)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:242)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:243)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:246)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:247)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffectCommon" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:247)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "punch_scale" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:247)
+SCRIPT ERROR: Parse Error: Could not find type "GFFScaleTarget" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:248)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "punch_scale_target" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:248)
+SCRIPT ERROR: Parse Error: Identifier "GFFScaleTarget" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:249)
+SCRIPT ERROR: Parse Error: Identifier "GFFElasticTweener" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:251)
+SCRIPT ERROR: Parse Error: Could not find type "GFFElasticTweener" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:251)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:253)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:256)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:257)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:258)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:261)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:262)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:263)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffectCommon" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:263)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "alpha_effect" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:263)
+SCRIPT ERROR: Parse Error: Could not find type "GFFAlphaTarget" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:264)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffect" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:266)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:271)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:272)
+SCRIPT ERROR: Parse Error: Identifier "GFFEffectRegistry" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:273)
+SCRIPT ERROR: Parse Error: Identifier "GFFCameraFlash" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:276)
+SCRIPT ERROR: Parse Error: Identifier "GFFSound" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:279)
+SCRIPT ERROR: Parse Error: Identifier "GFFAudioVolume" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:280)
+SCRIPT ERROR: Parse Error: Identifier "GFFFreezeFrame" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:283)
+SCRIPT ERROR: Parse Error: Identifier "GFFTimeScale" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:284)
+SCRIPT ERROR: Parse Error: Identifier "GFFParticles" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:287)
+SCRIPT ERROR: Parse Error: Identifier "GFFGPUParticles" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:288)
+SCRIPT ERROR: Parse Error: Identifier "GFFImpulse" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:291)
+SCRIPT ERROR: Parse Error: Identifier "GFFVelocity" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:292)
+SCRIPT ERROR: Parse Error: Identifier "GFFTween" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:295)
+SCRIPT ERROR: Parse Error: Identifier "GFFAnimator" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:296)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:311)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:312)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:313)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:314)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:315)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:316)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:317)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:318)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:319)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:320)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:321)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:322)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:323)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:324)
+SCRIPT ERROR: Parse Error: Identifier "GFFCombo" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:325)
+SCRIPT ERROR: Parse Error: Could not find type "GFFPlayer" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:350)
+SCRIPT ERROR: Parse Error: Could not find type "GFFPlayer" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:353)
+SCRIPT ERROR: Parse Error: Could not find type "GFFPlayer" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:362)
+SCRIPT ERROR: Parse Error: Could not find type "GFFPlayer" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:363)
+SCRIPT ERROR: Parse Error: Could not find type "GFFPlayer" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:366)
+SCRIPT ERROR: Parse Error: Identifier "GFFParams" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:383)
+SCRIPT ERROR: Parse Error: Identifier "GFFParams" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:385)
+SCRIPT ERROR: Parse Error: Identifier "GFFParams" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:387)
+SCRIPT ERROR: Parse Error: Could not find type "GFFParams" in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:388)
+SCRIPT ERROR: Parse Error: Identifier "GFFParams" not declared in the current scope.
+   at: GDScript::reload (res://addons/game_feel_flow/core/game_feel_flow.gd:391)
+ERROR: Failed to load script "res://addons/game_feel_flow/core/game_feel_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: Failed to instantiate an autoload, script 'res://addons/game_feel_flow/core/game_feel_flow.gd' does not inherit from 'Node'.
+   at: start (main/main.cpp:4539)
+ERROR: No loader found for resource: res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:332)
+   GDScript backtrace (most recent call first):
+       [0] _validate_surface_profile (res://scripts/campaign/level_database.gd:456)
+       [1] _validate_island_root (res://scripts/campaign/level_database.gd:209)
+       [2] load_canonical (res://scripts/campaign/level_database.gd:47)
+       [3] _run (res://tests/m17_difficulty_validation_probe.gd:36)

@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-10-09T21:40:10.9306217Z",
+  "finished_utc": "2026-10-09T21:40:15.0456684Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+    "--script",
+    "res://tests/m19_r01_ordered_verification_probe.gd",
+    "--",
+    "--child=5"
+  ],
+  "spawned_pids": [
+    16616,
+    17760,
+    36880
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\full_matrix_postfix\\M19-R01-child-05.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\full_matrix_postfix\\M19-R01-child-05.stderr.txt"
+}

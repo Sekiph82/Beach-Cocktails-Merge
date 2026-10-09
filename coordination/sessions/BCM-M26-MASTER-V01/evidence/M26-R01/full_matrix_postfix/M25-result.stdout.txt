@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M25_RESULT_PRESENTATION PASS: ordinary WIN uses a presentation-only color cue and bounded celebration
+M25_RESULT_PRESENTATION PASS: three-star MASTERY is the strongest non-meta tier and never exceeds 48
+M25_RESULT_PRESENTATION PASS: first-clear subsumes the ordinary mastery flourish
+M25_RESULT_PRESENTATION PASS: new reward subsumes weaker celebration tiers
+M25_RESULT_PRESENTATION PASS: REDUCED WIN is color-only with zero particles and <=0.12 seconds
+M25_RESULT_PRESENTATION PASS: LOSE has no Spark and stays within FULL/REDUCED time limits
+M25_RESULT_PRESENTATION PASS: live result particle clamp accounts for any prior active particles
+M25_RESULT_PRESENTATION PASS: progression classifies the initial completion as first-clear and replay as existing
+M25_RESULT_PRESENTATION PASS: first terminal presentation semantic is accepted
+M25_RESULT_ALPHA_AFTER_FULL_FADE=1.0000
+M25_RESULT_ENTRANCE_DEBUG inside_tree=true tween=false elapsed=0.267 visible=true
+M25_RESULT_PRESENTATION PASS: FULL WIN fade settles to a visible, fully opaque result
+M25_RESULT_PRESENTATION PASS: production bridge invokes GFF and one bounded WIN Spark burst
+M25_RESULT_PRESENTATION PASS: duplicate terminal presentation semantic is suppressed
+M25_RESULT_PRESENTATION PASS: presentation request preserves immutable result values and does not mutate source
+M25_RESULT_PRESENTATION PASS: WIN copy, score, stars, reward text, and actions remain visible
+M25_RESULT_PRESENTATION PASS: overlay result surface and visual children expose local allowlisted targets
+M25_RESULT_PRESENTATION PASS: REDUCED semantic dispatch remains GFF-only
+M25_RESULT_PRESENTATION PASS: REDUCED dispatch leaves Spark pool empty
+M25_RESULT_PRESENTATION PASS: LOSE semantic dispatch is accepted
+M25_RESULT_PRESENTATION PASS: LOSE dispatch is subdued and adds no Spark emitter
+M25_RESULT_PRESENTATION PASS: LOSE retains retry/map actions and unchanged result wording
+M25_RESULT_PRESENTATION PASS: Retry remains activatable while the failure result is presented
+M25_RESULT_PRESENTATION PASS: Retry action target stays sized and emits one action without hitbox movement
+M25_RESULT_PRESENTATION_PROBE_RESULT=PASS checks=22 failures=0

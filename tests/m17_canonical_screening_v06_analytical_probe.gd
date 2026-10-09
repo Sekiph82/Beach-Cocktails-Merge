@@ -48,7 +48,7 @@ func _run() -> void:
 	var all_reachable := true
 	for level in levels:
 		all_reachable = all_reachable and bool(MODEL_SCRIPT.level_reachability(level, 12).get("valid", false))
-	_check("all normal objectives are reachable with positive quantities and timers", all_reachable)
+	_check("all normal objectives are reachable with positive quantities under the untimed campaign contract", all_reachable)
 	var timer_scan := MODEL_SCRIPT.timer_scan(levels)
 	_check("timer/cost scan covers all levels", timer_scan.get("levels", []).size() == 100)
 	var no_fabricated_impossibility := true

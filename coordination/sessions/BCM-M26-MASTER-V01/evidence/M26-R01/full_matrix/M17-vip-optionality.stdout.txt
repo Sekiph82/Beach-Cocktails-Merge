@@ -1,0 +1,49 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M17_V05_PROBE PASS: F1 one L5 candidate is protected
+M17_V05_PROBE PASS: F1 two L5 including candidate are protected
+M17_V05_PROBE PASS: F1 third L5 becomes surplus
+M17_V05_PROBE PASS: F2 higher L8 cannot satisfy lower L5
+M17_V05_PROBE PASS: F2 exact L5 remains protected beside unsplittable L8
+M17_V05_PROBE PASS: canonical data loads for L60/L100 planner fixtures
+M17_V05_PROBE PASS: L60 mandatory reserve protects every normal piece
+M17_V05_PROBE PASS: L60 extra VIP L7 is surplus
+M17_V05_PROBE PASS: L100 mandatory reserve protects every normal piece
+M17_V05_PROBE PASS: L100 extra VIP L7 is surplus
+M17_V05_PROBE PASS: V05 fixture loads in FULL validation
+M17_V05_PROBE PASS: V05 fixture campaign configures
+M17_V05_PROBE PASS: real campaign navigation configures V05 fixture
+M17_V05_PROBE PASS: real GameManager session opens
+M17_V05_PROBE PASS: G stocked path protects first mandatory L5
+TO-GO ORDER L6 +1000  (toplam: 1000)
+M17_V05_PROBE PASS: protected normal L6 enters normal capture
+M17_V05_PROBE PASS: G normal WIN succeeds with VIP intentionally missed
+M17_V05_PROBE PASS: G missed VIP receives no booster reward
+M17_V05_PROBE PASS: I first play persists vip_completed=false
+M17_V05_PROBE PASS: return to Island Map succeeds after terminal session
+M17_V05_PROBE PASS: replay creates a fresh real GameManager session
+MERGE L5 +200  COMBO x1 +0  (toplam: 200)
+M17_V05_PROBE PASS: H direct merged surplus L5 enters VIP capture
+VIP DELIVERY L5 +1/1 BONUS 0 (toplam: 200)
+M17_V05_PROBE PASS: H protected reserve remains after direct VIP capture
+TO-GO ORDER L6 +1000  (toplam: 1200)
+M17_V05_PROBE PASS: protected normal L6 enters normal capture
+M17_V05_PROBE PASS: H normal WIN succeeds after surplus VIP delivery
+M17_V05_PROBE PASS: H configured VIP reward grants exactly once
+M17_V05_PROBE PASS: I replay persists vip_completed=true
+M17_V05_PROBE PASS: return to Island Map succeeds after terminal session
+M17_V05_PROBE PASS: replay creates a fresh real GameManager session
+M17_V05_PROBE PASS: I stocked surplus L5 enters VIP capture
+VIP DELIVERY L5 +1/1 BONUS 0 (toplam: 0)
+M17_V05_PROBE PASS: I stocked VIP capture leaves mandatory reserve
+TO-GO ORDER L6 +1000  (toplam: 1000)
+M17_V05_PROBE PASS: protected normal L6 enters normal capture
+M17_V05_PROBE PASS: I second replay still wins normally
+M17_V05_PROBE PASS: I second replay does not duplicate VIP reward
+M17_V05_PROBE PASS: I second replay keeps persisted vip_completed=true
+M17_VIP_OPTIONALITY_RESULT=PASS

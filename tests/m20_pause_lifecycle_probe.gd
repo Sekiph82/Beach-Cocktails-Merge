@@ -62,6 +62,7 @@ func _run() -> void:
     bridge.tick(0.25)
     _check("background resume keeps untimed session stable", is_equal_approx(bridge.timer_remaining_sec, resumed_time))
 
+    var level_before_retry: int = bridge.active_level_id
     bridge.resolve_lose("M20_TEST_TERMINAL")
     _check("terminal result hides pause overlay", bridge.is_terminal() and not gameplay.get_pause_overlay_visible() and not gameplay.resume_campaign_gameplay())
     _check("terminal session cannot be resumed", bridge.session_state == bridge.STATE_TERMINAL)
@@ -71,7 +72,7 @@ func _run() -> void:
         await process_frame
     gameplay = navigation.get_node_or_null("CampaignGameplay") as GameManager
     bridge = navigation.get_session_bridge()
-    _check("retry remains the same campaign level", gameplay != null and bridge.active_level_id == 1 and bridge.is_session_active())
+    _check("retry remains the same campaign level", gameplay != null and level_before_retry > 0 and bridge.active_level_id == level_before_retry and bridge.is_session_active())
     var completion_before_map: bool = navigation.campaign_manager.is_level_completed("sunny_cove", 1)
     gameplay.request_pause()
     _check("Island Map action leaves through bridge boundary", gameplay.request_island_map())

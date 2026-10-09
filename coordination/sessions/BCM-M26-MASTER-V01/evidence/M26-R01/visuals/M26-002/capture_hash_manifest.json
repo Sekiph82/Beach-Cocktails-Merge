@@ -1,0 +1,30 @@
+[
+  {
+    "name": "full_island_complete_720x1280.png",
+    "sha256": "668292355AA7195F264F40E288696CDAAF06AAC6952850E62CE062D14C47AE9A",
+    "bytes": 2255941,
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "name": "full_island_unlock_720x1440.png",
+    "sha256": "958D2CF57CEE8AB607AE4B2AB06F811F21A7BF39AD3682DB730647902CF23BC7",
+    "bytes": 2308413,
+    "width": 720,
+    "height": 1440
+  },
+  {
+    "name": "reduced_island_unlock_720x1280.png",
+    "sha256": "BE323163A80523AFEF4D823946FE8766BB3B765479809F87B1C551EF8942D9A6",
+    "bytes": 2091426,
+    "width": 720,
+    "height": 1280
+  },
+  {
+    "name": "reduced_island_unlock_720x1440.png",
+    "sha256": "5792E21F603C4625FBFA4B55746F7318C1742187D655B50D8FA11929E1E4C77E",
+    "bytes": 2308529,
+    "width": 720,
+    "height": 1440
+  }
+]

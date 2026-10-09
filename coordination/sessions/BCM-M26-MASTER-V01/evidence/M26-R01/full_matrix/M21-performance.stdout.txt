@@ -1,0 +1,205 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_CHILD_02_PROBE PASS: canonical campaign data loads
+M21_CHILD_02_PROBE PASS: fresh campaign fixture configures
+M21_CHILD_02_PROBE PASS: production navigation accepts profiling campaign
+M21_CHILD_02_PROBE PASS: production PLAY path opens the current frontier gameplay
+M21_CHILD_02_PROBE PASS: World Map profiling starts through the production router
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"warmup_world_map","map_instance_count":2,"object_count":3894,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: World Map node count is bounded at warmup
+M21_CHILD_02_PROBE PASS: map cycle 1 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 1 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 1 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_01","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 2 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 2 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 2 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_02","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 3 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 3 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 3 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_03","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 4 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 4 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 4 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_04","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 5 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 5 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 5 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_05","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 6 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 6 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 6 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_06","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 7 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 7 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 7 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_07","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 8 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 8 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 8 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_08","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 9 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 9 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 9 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_09","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 10 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 10 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 10 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_10","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 11 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 11 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 11 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_11","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map cycle 12 opens Sunny Cove
+M21_CHILD_02_PROBE PASS: map cycle 12 keeps 100 level buttons
+M21_CHILD_02_PROBE PASS: map cycle 12 remains vertically scrollable
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"map_cycle_12","map_instance_count":2,"object_count":3920,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: map node count remains bounded
+M21_CHILD_02_PROBE PASS: map instance authority remains singular
+M21_CHILD_02_PROBE PASS: gameplay cycle 1 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 1 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 1 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 1 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_01","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: gameplay cycle 2 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 2 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 2 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 2 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_02","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: gameplay cycle 3 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 3 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 3 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 3 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_03","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: gameplay cycle 4 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 4 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 4 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 4 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_04","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: gameplay cycle 5 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 5 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 5 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 5 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_05","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: gameplay cycle 6 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 6 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 6 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 6 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_06","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: gameplay cycle 7 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 7 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 7 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 7 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_07","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: gameplay cycle 8 has one active instance
+M21_CHILD_02_PROBE PASS: gameplay cycle 8 reaches one result overlay
+M21_CHILD_02_PROBE PASS: gameplay cycle 8 returns through production result action
+M21_CHILD_02_PROBE PASS: gameplay cycle 8 disposes gameplay instance
+M21_CHILD_02_SAMPLE {"gameplay_instance_count":0,"island_map_level_buttons":100,"label":"gameplay_cycle_08","map_instance_count":2,"object_count":3946,"orphan_node_count":0,"world_map_entries":10,"world_map_nodes":10}
+M21_CHILD_02_PROBE PASS: save IO cycle 1 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 1 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 2 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 2 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 3 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 3 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 4 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 4 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 5 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 5 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 6 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 6 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 7 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 7 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 8 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 8 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 9 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 9 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 10 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 10 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 11 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 11 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 12 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 12 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 13 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 13 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 14 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 14 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 15 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 15 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 16 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 16 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 17 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 17 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 18 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 18 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 19 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 19 reads valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 20 writes valid state
+M21_CHILD_02_PROBE PASS: save IO cycle 20 reads valid state
+M21_CHILD_02_PROBE PASS: settings IO cycle 1 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 1 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 2 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 2 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 3 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 3 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 4 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 4 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 5 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 5 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 6 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 6 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 7 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 7 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 8 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 8 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 9 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 9 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 10 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 10 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 11 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 11 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 12 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 12 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 13 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 13 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 14 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 14 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 15 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 15 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 16 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 16 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 17 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 17 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 18 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 18 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 19 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 19 reads
+M21_CHILD_02_PROBE PASS: settings IO cycle 20 writes
+M21_CHILD_02_PROBE PASS: settings IO cycle 20 reads
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 1 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 2 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 3 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 4 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 5 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 6 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 7 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 8 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 9 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 10 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 11 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 12 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 13 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 14 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 15 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 16 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 17 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 18 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 19 reads completed state
+M21_CHILD_02_PROBE PASS: onboarding IO cycle 20 reads completed state
+M21_CHILD_02_RESULT=PASS samples=21 frame_samples=60

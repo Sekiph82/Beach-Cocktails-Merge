@@ -1,0 +1,930 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M16_PROBE PASS: approved expected table contains 100 untimed rows
+M16_PROBE PASS: approved expected table contains 100 costs
+M16_PROBE PASS: approved expected table contains 100 order rows
+M16_PROBE PASS: canonical Sunny Cove loads in FULL validation mode
+M16_PROBE PASS: Sunny Cove declares 100 levels
+M16_PROBE PASS: canonical Sunny Cove has exactly 100 loaded levels
+M16_PROBE PASS: exactly 25 VIP levels are configured
+M16_PROBE PASS: L1 id is sequential
+M16_PROBE PASS: L1 island reference is Sunny Cove
+M16_PROBE PASS: L1 matches the approved normal objective row
+M16_PROBE PASS: L1 is untimed
+M16_PROBE PASS: L1 matches the approved merge-cost row
+M16_PROBE PASS: L1 normal targets stay within L5-L8
+M16_PROBE PASS: L1 is non-VIP with neutral payload
+M16_PROBE PASS: L1 normal objective cost follows the merge model
+M16_PROBE PASS: L2 id is sequential
+M16_PROBE PASS: L2 island reference is Sunny Cove
+M16_PROBE PASS: L2 matches the approved normal objective row
+M16_PROBE PASS: L2 is untimed
+M16_PROBE PASS: L2 matches the approved merge-cost row
+M16_PROBE PASS: L2 normal targets stay within L5-L8
+M16_PROBE PASS: L2 is non-VIP with neutral payload
+M16_PROBE PASS: L2 normal objective cost follows the merge model
+M16_PROBE PASS: L3 id is sequential
+M16_PROBE PASS: L3 island reference is Sunny Cove
+M16_PROBE PASS: L3 matches the approved normal objective row
+M16_PROBE PASS: L3 is untimed
+M16_PROBE PASS: L3 matches the approved merge-cost row
+M16_PROBE PASS: L3 normal targets stay within L5-L8
+M16_PROBE PASS: L3 is non-VIP with neutral payload
+M16_PROBE PASS: L3 normal objective cost follows the merge model
+M16_PROBE PASS: L4 id is sequential
+M16_PROBE PASS: L4 island reference is Sunny Cove
+M16_PROBE PASS: L4 matches the approved normal objective row
+M16_PROBE PASS: L4 is untimed
+M16_PROBE PASS: L4 matches the approved merge-cost row
+M16_PROBE PASS: L4 normal targets stay within L5-L8
+M16_PROBE PASS: L4 exact VIP target and quantity
+M16_PROBE PASS: L4 exact VIP reward
+M16_PROBE PASS: L4 VIP workload ratio follows owner policy
+M16_PROBE PASS: L4 VIP feature flag is enabled
+M16_PROBE PASS: L4 normal objective cost follows the merge model
+M16_PROBE PASS: L5 id is sequential
+M16_PROBE PASS: L5 island reference is Sunny Cove
+M16_PROBE PASS: L5 matches the approved normal objective row
+M16_PROBE PASS: L5 is untimed
+M16_PROBE PASS: L5 matches the approved merge-cost row
+M16_PROBE PASS: L5 normal targets stay within L5-L8
+M16_PROBE PASS: L5 is non-VIP with neutral payload
+M16_PROBE PASS: L5 normal objective cost follows the merge model
+M16_PROBE PASS: L6 id is sequential
+M16_PROBE PASS: L6 island reference is Sunny Cove
+M16_PROBE PASS: L6 matches the approved normal objective row
+M16_PROBE PASS: L6 is untimed
+M16_PROBE PASS: L6 matches the approved merge-cost row
+M16_PROBE PASS: L6 normal targets stay within L5-L8
+M16_PROBE PASS: L6 is non-VIP with neutral payload
+M16_PROBE PASS: L6 normal objective cost follows the merge model
+M16_PROBE PASS: L7 id is sequential
+M16_PROBE PASS: L7 island reference is Sunny Cove
+M16_PROBE PASS: L7 matches the approved normal objective row
+M16_PROBE PASS: L7 is untimed
+M16_PROBE PASS: L7 matches the approved merge-cost row
+M16_PROBE PASS: L7 normal targets stay within L5-L8
+M16_PROBE PASS: L7 is non-VIP with neutral payload
+M16_PROBE PASS: L7 normal objective cost follows the merge model
+M16_PROBE PASS: L8 id is sequential
+M16_PROBE PASS: L8 island reference is Sunny Cove
+M16_PROBE PASS: L8 matches the approved normal objective row
+M16_PROBE PASS: L8 is untimed
+M16_PROBE PASS: L8 matches the approved merge-cost row
+M16_PROBE PASS: L8 normal targets stay within L5-L8
+M16_PROBE PASS: L8 exact VIP target and quantity
+M16_PROBE PASS: L8 exact VIP reward
+M16_PROBE PASS: L8 VIP workload ratio follows owner policy
+M16_PROBE PASS: L8 VIP feature flag is enabled
+M16_PROBE PASS: L8 normal objective cost follows the merge model
+M16_PROBE PASS: L9 id is sequential
+M16_PROBE PASS: L9 island reference is Sunny Cove
+M16_PROBE PASS: L9 matches the approved normal objective row
+M16_PROBE PASS: L9 is untimed
+M16_PROBE PASS: L9 matches the approved merge-cost row
+M16_PROBE PASS: L9 normal targets stay within L5-L8
+M16_PROBE PASS: L9 is non-VIP with neutral payload
+M16_PROBE PASS: L9 normal objective cost follows the merge model
+M16_PROBE PASS: L10 id is sequential
+M16_PROBE PASS: L10 island reference is Sunny Cove
+M16_PROBE PASS: L10 matches the approved normal objective row
+M16_PROBE PASS: L10 is untimed
+M16_PROBE PASS: L10 matches the approved merge-cost row
+M16_PROBE PASS: L10 normal targets stay within L5-L8
+M16_PROBE PASS: L10 is non-VIP with neutral payload
+M16_PROBE PASS: L10 normal objective cost follows the merge model
+M16_PROBE PASS: L11 id is sequential
+M16_PROBE PASS: L11 island reference is Sunny Cove
+M16_PROBE PASS: L11 matches the approved normal objective row
+M16_PROBE PASS: L11 is untimed
+M16_PROBE PASS: L11 matches the approved merge-cost row
+M16_PROBE PASS: L11 normal targets stay within L5-L8
+M16_PROBE PASS: L11 is non-VIP with neutral payload
+M16_PROBE PASS: L11 normal objective cost follows the merge model
+M16_PROBE PASS: L12 id is sequential
+M16_PROBE PASS: L12 island reference is Sunny Cove
+M16_PROBE PASS: L12 matches the approved normal objective row
+M16_PROBE PASS: L12 is untimed
+M16_PROBE PASS: L12 matches the approved merge-cost row
+M16_PROBE PASS: L12 normal targets stay within L5-L8
+M16_PROBE PASS: L12 exact VIP target and quantity
+M16_PROBE PASS: L12 exact VIP reward
+M16_PROBE PASS: L12 VIP workload ratio follows owner policy
+M16_PROBE PASS: L12 VIP feature flag is enabled
+M16_PROBE PASS: L12 normal objective cost follows the merge model
+M16_PROBE PASS: L13 id is sequential
+M16_PROBE PASS: L13 island reference is Sunny Cove
+M16_PROBE PASS: L13 matches the approved normal objective row
+M16_PROBE PASS: L13 is untimed
+M16_PROBE PASS: L13 matches the approved merge-cost row
+M16_PROBE PASS: L13 normal targets stay within L5-L8
+M16_PROBE PASS: L13 is non-VIP with neutral payload
+M16_PROBE PASS: L13 normal objective cost follows the merge model
+M16_PROBE PASS: L14 id is sequential
+M16_PROBE PASS: L14 island reference is Sunny Cove
+M16_PROBE PASS: L14 matches the approved normal objective row
+M16_PROBE PASS: L14 is untimed
+M16_PROBE PASS: L14 matches the approved merge-cost row
+M16_PROBE PASS: L14 normal targets stay within L5-L8
+M16_PROBE PASS: L14 is non-VIP with neutral payload
+M16_PROBE PASS: L14 normal objective cost follows the merge model
+M16_PROBE PASS: L15 id is sequential
+M16_PROBE PASS: L15 island reference is Sunny Cove
+M16_PROBE PASS: L15 matches the approved normal objective row
+M16_PROBE PASS: L15 is untimed
+M16_PROBE PASS: L15 matches the approved merge-cost row
+M16_PROBE PASS: L15 normal targets stay within L5-L8
+M16_PROBE PASS: L15 is non-VIP with neutral payload
+M16_PROBE PASS: L15 normal objective cost follows the merge model
+M16_PROBE PASS: L16 id is sequential
+M16_PROBE PASS: L16 island reference is Sunny Cove
+M16_PROBE PASS: L16 matches the approved normal objective row
+M16_PROBE PASS: L16 is untimed
+M16_PROBE PASS: L16 matches the approved merge-cost row
+M16_PROBE PASS: L16 normal targets stay within L5-L8
+M16_PROBE PASS: L16 exact VIP target and quantity
+M16_PROBE PASS: L16 exact VIP reward
+M16_PROBE PASS: L16 VIP workload ratio follows owner policy
+M16_PROBE PASS: L16 VIP feature flag is enabled
+M16_PROBE PASS: L16 normal objective cost follows the merge model
+M16_PROBE PASS: L17 id is sequential
+M16_PROBE PASS: L17 island reference is Sunny Cove
+M16_PROBE PASS: L17 matches the approved normal objective row
+M16_PROBE PASS: L17 is untimed
+M16_PROBE PASS: L17 matches the approved merge-cost row
+M16_PROBE PASS: L17 normal targets stay within L5-L8
+M16_PROBE PASS: L17 is non-VIP with neutral payload
+M16_PROBE PASS: L17 normal objective cost follows the merge model
+M16_PROBE PASS: L18 id is sequential
+M16_PROBE PASS: L18 island reference is Sunny Cove
+M16_PROBE PASS: L18 matches the approved normal objective row
+M16_PROBE PASS: L18 is untimed
+M16_PROBE PASS: L18 matches the approved merge-cost row
+M16_PROBE PASS: L18 normal targets stay within L5-L8
+M16_PROBE PASS: L18 is non-VIP with neutral payload
+M16_PROBE PASS: L18 normal objective cost follows the merge model
+M16_PROBE PASS: L19 id is sequential
+M16_PROBE PASS: L19 island reference is Sunny Cove
+M16_PROBE PASS: L19 matches the approved normal objective row
+M16_PROBE PASS: L19 is untimed
+M16_PROBE PASS: L19 matches the approved merge-cost row
+M16_PROBE PASS: L19 normal targets stay within L5-L8
+M16_PROBE PASS: L19 is non-VIP with neutral payload
+M16_PROBE PASS: L19 normal objective cost follows the merge model
+M16_PROBE PASS: L20 id is sequential
+M16_PROBE PASS: L20 island reference is Sunny Cove
+M16_PROBE PASS: L20 matches the approved normal objective row
+M16_PROBE PASS: L20 is untimed
+M16_PROBE PASS: L20 matches the approved merge-cost row
+M16_PROBE PASS: L20 normal targets stay within L5-L8
+M16_PROBE PASS: L20 exact VIP target and quantity
+M16_PROBE PASS: L20 exact VIP reward
+M16_PROBE PASS: L20 VIP workload ratio follows owner policy
+M16_PROBE PASS: L20 VIP feature flag is enabled
+M16_PROBE PASS: L20 normal objective cost follows the merge model
+M16_PROBE PASS: L21 id is sequential
+M16_PROBE PASS: L21 island reference is Sunny Cove
+M16_PROBE PASS: L21 matches the approved normal objective row
+M16_PROBE PASS: L21 is untimed
+M16_PROBE PASS: L21 matches the approved merge-cost row
+M16_PROBE PASS: L21 normal targets stay within L5-L8
+M16_PROBE PASS: L21 is non-VIP with neutral payload
+M16_PROBE PASS: L21 normal objective cost follows the merge model
+M16_PROBE PASS: L22 id is sequential
+M16_PROBE PASS: L22 island reference is Sunny Cove
+M16_PROBE PASS: L22 matches the approved normal objective row
+M16_PROBE PASS: L22 is untimed
+M16_PROBE PASS: L22 matches the approved merge-cost row
+M16_PROBE PASS: L22 normal targets stay within L5-L8
+M16_PROBE PASS: L22 is non-VIP with neutral payload
+M16_PROBE PASS: L22 normal objective cost follows the merge model
+M16_PROBE PASS: L23 id is sequential
+M16_PROBE PASS: L23 island reference is Sunny Cove
+M16_PROBE PASS: L23 matches the approved normal objective row
+M16_PROBE PASS: L23 is untimed
+M16_PROBE PASS: L23 matches the approved merge-cost row
+M16_PROBE PASS: L23 normal targets stay within L5-L8
+M16_PROBE PASS: L23 is non-VIP with neutral payload
+M16_PROBE PASS: L23 normal objective cost follows the merge model
+M16_PROBE PASS: L24 id is sequential
+M16_PROBE PASS: L24 island reference is Sunny Cove
+M16_PROBE PASS: L24 matches the approved normal objective row
+M16_PROBE PASS: L24 is untimed
+M16_PROBE PASS: L24 matches the approved merge-cost row
+M16_PROBE PASS: L24 normal targets stay within L5-L8
+M16_PROBE PASS: L24 exact VIP target and quantity
+M16_PROBE PASS: L24 exact VIP reward
+M16_PROBE PASS: L24 VIP workload ratio follows owner policy
+M16_PROBE PASS: L24 VIP feature flag is enabled
+M16_PROBE PASS: L24 normal objective cost follows the merge model
+M16_PROBE PASS: L25 id is sequential
+M16_PROBE PASS: L25 island reference is Sunny Cove
+M16_PROBE PASS: L25 matches the approved normal objective row
+M16_PROBE PASS: L25 is untimed
+M16_PROBE PASS: L25 matches the approved merge-cost row
+M16_PROBE PASS: L25 normal targets stay within L5-L8
+M16_PROBE PASS: L25 is non-VIP with neutral payload
+M16_PROBE PASS: L25 normal objective cost follows the merge model
+M16_PROBE PASS: L26 id is sequential
+M16_PROBE PASS: L26 island reference is Sunny Cove
+M16_PROBE PASS: L26 matches the approved normal objective row
+M16_PROBE PASS: L26 is untimed
+M16_PROBE PASS: L26 matches the approved merge-cost row
+M16_PROBE PASS: L26 normal targets stay within L5-L8
+M16_PROBE PASS: L26 is non-VIP with neutral payload
+M16_PROBE PASS: L26 normal objective cost follows the merge model
+M16_PROBE PASS: L27 id is sequential
+M16_PROBE PASS: L27 island reference is Sunny Cove
+M16_PROBE PASS: L27 matches the approved normal objective row
+M16_PROBE PASS: L27 is untimed
+M16_PROBE PASS: L27 matches the approved merge-cost row
+M16_PROBE PASS: L27 normal targets stay within L5-L8
+M16_PROBE PASS: L27 is non-VIP with neutral payload
+M16_PROBE PASS: L27 normal objective cost follows the merge model
+M16_PROBE PASS: L28 id is sequential
+M16_PROBE PASS: L28 island reference is Sunny Cove
+M16_PROBE PASS: L28 matches the approved normal objective row
+M16_PROBE PASS: L28 is untimed
+M16_PROBE PASS: L28 matches the approved merge-cost row
+M16_PROBE PASS: L28 normal targets stay within L5-L8
+M16_PROBE PASS: L28 exact VIP target and quantity
+M16_PROBE PASS: L28 exact VIP reward
+M16_PROBE PASS: L28 VIP workload ratio follows owner policy
+M16_PROBE PASS: L28 VIP feature flag is enabled
+M16_PROBE PASS: L28 normal objective cost follows the merge model
+M16_PROBE PASS: L29 id is sequential
+M16_PROBE PASS: L29 island reference is Sunny Cove
+M16_PROBE PASS: L29 matches the approved normal objective row
+M16_PROBE PASS: L29 is untimed
+M16_PROBE PASS: L29 matches the approved merge-cost row
+M16_PROBE PASS: L29 normal targets stay within L5-L8
+M16_PROBE PASS: L29 is non-VIP with neutral payload
+M16_PROBE PASS: L29 normal objective cost follows the merge model
+M16_PROBE PASS: L30 id is sequential
+M16_PROBE PASS: L30 island reference is Sunny Cove
+M16_PROBE PASS: L30 matches the approved normal objective row
+M16_PROBE PASS: L30 is untimed
+M16_PROBE PASS: L30 matches the approved merge-cost row
+M16_PROBE PASS: L30 normal targets stay within L5-L8
+M16_PROBE PASS: L30 is non-VIP with neutral payload
+M16_PROBE PASS: L30 normal objective cost follows the merge model
+M16_PROBE PASS: L31 id is sequential
+M16_PROBE PASS: L31 island reference is Sunny Cove
+M16_PROBE PASS: L31 matches the approved normal objective row
+M16_PROBE PASS: L31 is untimed
+M16_PROBE PASS: L31 matches the approved merge-cost row
+M16_PROBE PASS: L31 normal targets stay within L5-L8
+M16_PROBE PASS: L31 is non-VIP with neutral payload
+M16_PROBE PASS: L31 normal objective cost follows the merge model
+M16_PROBE PASS: L32 id is sequential
+M16_PROBE PASS: L32 island reference is Sunny Cove
+M16_PROBE PASS: L32 matches the approved normal objective row
+M16_PROBE PASS: L32 is untimed
+M16_PROBE PASS: L32 matches the approved merge-cost row
+M16_PROBE PASS: L32 normal targets stay within L5-L8
+M16_PROBE PASS: L32 exact VIP target and quantity
+M16_PROBE PASS: L32 exact VIP reward
+M16_PROBE PASS: L32 VIP workload ratio follows owner policy
+M16_PROBE PASS: L32 VIP feature flag is enabled
+M16_PROBE PASS: L32 normal objective cost follows the merge model
+M16_PROBE PASS: L33 id is sequential
+M16_PROBE PASS: L33 island reference is Sunny Cove
+M16_PROBE PASS: L33 matches the approved normal objective row
+M16_PROBE PASS: L33 is untimed
+M16_PROBE PASS: L33 matches the approved merge-cost row
+M16_PROBE PASS: L33 normal targets stay within L5-L8
+M16_PROBE PASS: L33 is non-VIP with neutral payload
+M16_PROBE PASS: L33 normal objective cost follows the merge model
+M16_PROBE PASS: L34 id is sequential
+M16_PROBE PASS: L34 island reference is Sunny Cove
+M16_PROBE PASS: L34 matches the approved normal objective row
+M16_PROBE PASS: L34 is untimed
+M16_PROBE PASS: L34 matches the approved merge-cost row
+M16_PROBE PASS: L34 normal targets stay within L5-L8
+M16_PROBE PASS: L34 is non-VIP with neutral payload
+M16_PROBE PASS: L34 normal objective cost follows the merge model
+M16_PROBE PASS: L35 id is sequential
+M16_PROBE PASS: L35 island reference is Sunny Cove
+M16_PROBE PASS: L35 matches the approved normal objective row
+M16_PROBE PASS: L35 is untimed
+M16_PROBE PASS: L35 matches the approved merge-cost row
+M16_PROBE PASS: L35 normal targets stay within L5-L8
+M16_PROBE PASS: L35 is non-VIP with neutral payload
+M16_PROBE PASS: L35 normal objective cost follows the merge model
+M16_PROBE PASS: L36 id is sequential
+M16_PROBE PASS: L36 island reference is Sunny Cove
+M16_PROBE PASS: L36 matches the approved normal objective row
+M16_PROBE PASS: L36 is untimed
+M16_PROBE PASS: L36 matches the approved merge-cost row
+M16_PROBE PASS: L36 normal targets stay within L5-L8
+M16_PROBE PASS: L36 exact VIP target and quantity
+M16_PROBE PASS: L36 exact VIP reward
+M16_PROBE PASS: L36 VIP workload ratio follows owner policy
+M16_PROBE PASS: L36 VIP feature flag is enabled
+M16_PROBE PASS: L36 normal objective cost follows the merge model
+M16_PROBE PASS: L37 id is sequential
+M16_PROBE PASS: L37 island reference is Sunny Cove
+M16_PROBE PASS: L37 matches the approved normal objective row
+M16_PROBE PASS: L37 is untimed
+M16_PROBE PASS: L37 matches the approved merge-cost row
+M16_PROBE PASS: L37 normal targets stay within L5-L8
+M16_PROBE PASS: L37 is non-VIP with neutral payload
+M16_PROBE PASS: L37 normal objective cost follows the merge model
+M16_PROBE PASS: L38 id is sequential
+M16_PROBE PASS: L38 island reference is Sunny Cove
+M16_PROBE PASS: L38 matches the approved normal objective row
+M16_PROBE PASS: L38 is untimed
+M16_PROBE PASS: L38 matches the approved merge-cost row
+M16_PROBE PASS: L38 normal targets stay within L5-L8
+M16_PROBE PASS: L38 is non-VIP with neutral payload
+M16_PROBE PASS: L38 normal objective cost follows the merge model
+M16_PROBE PASS: L39 id is sequential
+M16_PROBE PASS: L39 island reference is Sunny Cove
+M16_PROBE PASS: L39 matches the approved normal objective row
+M16_PROBE PASS: L39 is untimed
+M16_PROBE PASS: L39 matches the approved merge-cost row
+M16_PROBE PASS: L39 normal targets stay within L5-L8
+M16_PROBE PASS: L39 is non-VIP with neutral payload
+M16_PROBE PASS: L39 normal objective cost follows the merge model
+M16_PROBE PASS: L40 id is sequential
+M16_PROBE PASS: L40 island reference is Sunny Cove
+M16_PROBE PASS: L40 matches the approved normal objective row
+M16_PROBE PASS: L40 is untimed
+M16_PROBE PASS: L40 matches the approved merge-cost row
+M16_PROBE PASS: L40 normal targets stay within L5-L8
+M16_PROBE PASS: L40 exact VIP target and quantity
+M16_PROBE PASS: L40 exact VIP reward
+M16_PROBE PASS: L40 VIP workload ratio follows owner policy
+M16_PROBE PASS: L40 VIP feature flag is enabled
+M16_PROBE PASS: L40 normal objective cost follows the merge model
+M16_PROBE PASS: L41 id is sequential
+M16_PROBE PASS: L41 island reference is Sunny Cove
+M16_PROBE PASS: L41 matches the approved normal objective row
+M16_PROBE PASS: L41 is untimed
+M16_PROBE PASS: L41 matches the approved merge-cost row
+M16_PROBE PASS: L41 normal targets stay within L5-L8
+M16_PROBE PASS: L41 is non-VIP with neutral payload
+M16_PROBE PASS: L41 normal objective cost follows the merge model
+M16_PROBE PASS: L42 id is sequential
+M16_PROBE PASS: L42 island reference is Sunny Cove
+M16_PROBE PASS: L42 matches the approved normal objective row
+M16_PROBE PASS: L42 is untimed
+M16_PROBE PASS: L42 matches the approved merge-cost row
+M16_PROBE PASS: L42 normal targets stay within L5-L8
+M16_PROBE PASS: L42 is non-VIP with neutral payload
+M16_PROBE PASS: L42 normal objective cost follows the merge model
+M16_PROBE PASS: L43 id is sequential
+M16_PROBE PASS: L43 island reference is Sunny Cove
+M16_PROBE PASS: L43 matches the approved normal objective row
+M16_PROBE PASS: L43 is untimed
+M16_PROBE PASS: L43 matches the approved merge-cost row
+M16_PROBE PASS: L43 normal targets stay within L5-L8
+M16_PROBE PASS: L43 is non-VIP with neutral payload
+M16_PROBE PASS: L43 normal objective cost follows the merge model
+M16_PROBE PASS: L44 id is sequential
+M16_PROBE PASS: L44 island reference is Sunny Cove
+M16_PROBE PASS: L44 matches the approved normal objective row
+M16_PROBE PASS: L44 is untimed
+M16_PROBE PASS: L44 matches the approved merge-cost row
+M16_PROBE PASS: L44 normal targets stay within L5-L8
+M16_PROBE PASS: L44 exact VIP target and quantity
+M16_PROBE PASS: L44 exact VIP reward
+M16_PROBE PASS: L44 VIP workload ratio follows owner policy
+M16_PROBE PASS: L44 VIP feature flag is enabled
+M16_PROBE PASS: L44 normal objective cost follows the merge model
+M16_PROBE PASS: L45 id is sequential
+M16_PROBE PASS: L45 island reference is Sunny Cove
+M16_PROBE PASS: L45 matches the approved normal objective row
+M16_PROBE PASS: L45 is untimed
+M16_PROBE PASS: L45 matches the approved merge-cost row
+M16_PROBE PASS: L45 normal targets stay within L5-L8
+M16_PROBE PASS: L45 is non-VIP with neutral payload
+M16_PROBE PASS: L45 normal objective cost follows the merge model
+M16_PROBE PASS: L46 id is sequential
+M16_PROBE PASS: L46 island reference is Sunny Cove
+M16_PROBE PASS: L46 matches the approved normal objective row
+M16_PROBE PASS: L46 is untimed
+M16_PROBE PASS: L46 matches the approved merge-cost row
+M16_PROBE PASS: L46 normal targets stay within L5-L8
+M16_PROBE PASS: L46 is non-VIP with neutral payload
+M16_PROBE PASS: L46 normal objective cost follows the merge model
+M16_PROBE PASS: L47 id is sequential
+M16_PROBE PASS: L47 island reference is Sunny Cove
+M16_PROBE PASS: L47 matches the approved normal objective row
+M16_PROBE PASS: L47 is untimed
+M16_PROBE PASS: L47 matches the approved merge-cost row
+M16_PROBE PASS: L47 normal targets stay within L5-L8
+M16_PROBE PASS: L47 is non-VIP with neutral payload
+M16_PROBE PASS: L47 normal objective cost follows the merge model
+M16_PROBE PASS: L48 id is sequential
+M16_PROBE PASS: L48 island reference is Sunny Cove
+M16_PROBE PASS: L48 matches the approved normal objective row
+M16_PROBE PASS: L48 is untimed
+M16_PROBE PASS: L48 matches the approved merge-cost row
+M16_PROBE PASS: L48 normal targets stay within L5-L8
+M16_PROBE PASS: L48 exact VIP target and quantity
+M16_PROBE PASS: L48 exact VIP reward
+M16_PROBE PASS: L48 VIP workload ratio follows owner policy
+M16_PROBE PASS: L48 VIP feature flag is enabled
+M16_PROBE PASS: L48 normal objective cost follows the merge model
+M16_PROBE PASS: L49 id is sequential
+M16_PROBE PASS: L49 island reference is Sunny Cove
+M16_PROBE PASS: L49 matches the approved normal objective row
+M16_PROBE PASS: L49 is untimed
+M16_PROBE PASS: L49 matches the approved merge-cost row
+M16_PROBE PASS: L49 normal targets stay within L5-L8
+M16_PROBE PASS: L49 is non-VIP with neutral payload
+M16_PROBE PASS: L49 normal objective cost follows the merge model
+M16_PROBE PASS: L50 id is sequential
+M16_PROBE PASS: L50 island reference is Sunny Cove
+M16_PROBE PASS: L50 matches the approved normal objective row
+M16_PROBE PASS: L50 is untimed
+M16_PROBE PASS: L50 matches the approved merge-cost row
+M16_PROBE PASS: L50 normal targets stay within L5-L8
+M16_PROBE PASS: L50 is non-VIP with neutral payload
+M16_PROBE PASS: L50 normal objective cost follows the merge model
+M16_PROBE PASS: L51 id is sequential
+M16_PROBE PASS: L51 island reference is Sunny Cove
+M16_PROBE PASS: L51 matches the approved normal objective row
+M16_PROBE PASS: L51 is untimed
+M16_PROBE PASS: L51 matches the approved merge-cost row
+M16_PROBE PASS: L51 normal targets stay within L5-L8
+M16_PROBE PASS: L51 is non-VIP with neutral payload
+M16_PROBE PASS: L51 normal objective cost follows the merge model
+M16_PROBE PASS: L52 id is sequential
+M16_PROBE PASS: L52 island reference is Sunny Cove
+M16_PROBE PASS: L52 matches the approved normal objective row
+M16_PROBE PASS: L52 is untimed
+M16_PROBE PASS: L52 matches the approved merge-cost row
+M16_PROBE PASS: L52 normal targets stay within L5-L8
+M16_PROBE PASS: L52 exact VIP target and quantity
+M16_PROBE PASS: L52 exact VIP reward
+M16_PROBE PASS: L52 VIP workload ratio follows owner policy
+M16_PROBE PASS: L52 VIP feature flag is enabled
+M16_PROBE PASS: L52 normal objective cost follows the merge model
+M16_PROBE PASS: L53 id is sequential
+M16_PROBE PASS: L53 island reference is Sunny Cove
+M16_PROBE PASS: L53 matches the approved normal objective row
+M16_PROBE PASS: L53 is untimed
+M16_PROBE PASS: L53 matches the approved merge-cost row
+M16_PROBE PASS: L53 normal targets stay within L5-L8
+M16_PROBE PASS: L53 is non-VIP with neutral payload
+M16_PROBE PASS: L53 normal objective cost follows the merge model
+M16_PROBE PASS: L54 id is sequential
+M16_PROBE PASS: L54 island reference is Sunny Cove
+M16_PROBE PASS: L54 matches the approved normal objective row
+M16_PROBE PASS: L54 is untimed
+M16_PROBE PASS: L54 matches the approved merge-cost row
+M16_PROBE PASS: L54 normal targets stay within L5-L8
+M16_PROBE PASS: L54 is non-VIP with neutral payload
+M16_PROBE PASS: L54 normal objective cost follows the merge model
+M16_PROBE PASS: L55 id is sequential
+M16_PROBE PASS: L55 island reference is Sunny Cove
+M16_PROBE PASS: L55 matches the approved normal objective row
+M16_PROBE PASS: L55 is untimed
+M16_PROBE PASS: L55 matches the approved merge-cost row
+M16_PROBE PASS: L55 normal targets stay within L5-L8
+M16_PROBE PASS: L55 is non-VIP with neutral payload
+M16_PROBE PASS: L55 normal objective cost follows the merge model
+M16_PROBE PASS: L56 id is sequential
+M16_PROBE PASS: L56 island reference is Sunny Cove
+M16_PROBE PASS: L56 matches the approved normal objective row
+M16_PROBE PASS: L56 is untimed
+M16_PROBE PASS: L56 matches the approved merge-cost row
+M16_PROBE PASS: L56 normal targets stay within L5-L8
+M16_PROBE PASS: L56 exact VIP target and quantity
+M16_PROBE PASS: L56 exact VIP reward
+M16_PROBE PASS: L56 VIP workload ratio follows owner policy
+M16_PROBE PASS: L56 VIP feature flag is enabled
+M16_PROBE PASS: L56 normal objective cost follows the merge model
+M16_PROBE PASS: L57 id is sequential
+M16_PROBE PASS: L57 island reference is Sunny Cove
+M16_PROBE PASS: L57 matches the approved normal objective row
+M16_PROBE PASS: L57 is untimed
+M16_PROBE PASS: L57 matches the approved merge-cost row
+M16_PROBE PASS: L57 normal targets stay within L5-L8
+M16_PROBE PASS: L57 is non-VIP with neutral payload
+M16_PROBE PASS: L57 normal objective cost follows the merge model
+M16_PROBE PASS: L58 id is sequential
+M16_PROBE PASS: L58 island reference is Sunny Cove
+M16_PROBE PASS: L58 matches the approved normal objective row
+M16_PROBE PASS: L58 is untimed
+M16_PROBE PASS: L58 matches the approved merge-cost row
+M16_PROBE PASS: L58 normal targets stay within L5-L8
+M16_PROBE PASS: L58 is non-VIP with neutral payload
+M16_PROBE PASS: L58 normal objective cost follows the merge model
+M16_PROBE PASS: L59 id is sequential
+M16_PROBE PASS: L59 island reference is Sunny Cove
+M16_PROBE PASS: L59 matches the approved normal objective row
+M16_PROBE PASS: L59 is untimed
+M16_PROBE PASS: L59 matches the approved merge-cost row
+M16_PROBE PASS: L59 normal targets stay within L5-L8
+M16_PROBE PASS: L59 is non-VIP with neutral payload
+M16_PROBE PASS: L59 normal objective cost follows the merge model
+M16_PROBE PASS: L60 id is sequential
+M16_PROBE PASS: L60 island reference is Sunny Cove
+M16_PROBE PASS: L60 matches the approved normal objective row
+M16_PROBE PASS: L60 is untimed
+M16_PROBE PASS: L60 matches the approved merge-cost row
+M16_PROBE PASS: L60 normal targets stay within L5-L8
+M16_PROBE PASS: L60 exact VIP target and quantity
+M16_PROBE PASS: L60 exact VIP reward
+M16_PROBE PASS: L60 VIP workload ratio follows owner policy
+M16_PROBE PASS: L60 VIP feature flag is enabled
+M16_PROBE PASS: L60 normal objective cost follows the merge model
+M16_PROBE PASS: L61 id is sequential
+M16_PROBE PASS: L61 island reference is Sunny Cove
+M16_PROBE PASS: L61 matches the approved normal objective row
+M16_PROBE PASS: L61 is untimed
+M16_PROBE PASS: L61 matches the approved merge-cost row
+M16_PROBE PASS: L61 normal targets stay within L5-L8
+M16_PROBE PASS: L61 is non-VIP with neutral payload
+M16_PROBE PASS: L61 normal objective cost follows the merge model
+M16_PROBE PASS: L62 id is sequential
+M16_PROBE PASS: L62 island reference is Sunny Cove
+M16_PROBE PASS: L62 matches the approved normal objective row
+M16_PROBE PASS: L62 is untimed
+M16_PROBE PASS: L62 matches the approved merge-cost row
+M16_PROBE PASS: L62 normal targets stay within L5-L8
+M16_PROBE PASS: L62 is non-VIP with neutral payload
+M16_PROBE PASS: L62 normal objective cost follows the merge model
+M16_PROBE PASS: L63 id is sequential
+M16_PROBE PASS: L63 island reference is Sunny Cove
+M16_PROBE PASS: L63 matches the approved normal objective row
+M16_PROBE PASS: L63 is untimed
+M16_PROBE PASS: L63 matches the approved merge-cost row
+M16_PROBE PASS: L63 normal targets stay within L5-L8
+M16_PROBE PASS: L63 is non-VIP with neutral payload
+M16_PROBE PASS: L63 normal objective cost follows the merge model
+M16_PROBE PASS: L64 id is sequential
+M16_PROBE PASS: L64 island reference is Sunny Cove
+M16_PROBE PASS: L64 matches the approved normal objective row
+M16_PROBE PASS: L64 is untimed
+M16_PROBE PASS: L64 matches the approved merge-cost row
+M16_PROBE PASS: L64 normal targets stay within L5-L8
+M16_PROBE PASS: L64 exact VIP target and quantity
+M16_PROBE PASS: L64 exact VIP reward
+M16_PROBE PASS: L64 VIP workload ratio follows owner policy
+M16_PROBE PASS: L64 VIP feature flag is enabled
+M16_PROBE PASS: L64 normal objective cost follows the merge model
+M16_PROBE PASS: L65 id is sequential
+M16_PROBE PASS: L65 island reference is Sunny Cove
+M16_PROBE PASS: L65 matches the approved normal objective row
+M16_PROBE PASS: L65 is untimed
+M16_PROBE PASS: L65 matches the approved merge-cost row
+M16_PROBE PASS: L65 normal targets stay within L5-L8
+M16_PROBE PASS: L65 is non-VIP with neutral payload
+M16_PROBE PASS: L65 normal objective cost follows the merge model
+M16_PROBE PASS: L66 id is sequential
+M16_PROBE PASS: L66 island reference is Sunny Cove
+M16_PROBE PASS: L66 matches the approved normal objective row
+M16_PROBE PASS: L66 is untimed
+M16_PROBE PASS: L66 matches the approved merge-cost row
+M16_PROBE PASS: L66 normal targets stay within L5-L8
+M16_PROBE PASS: L66 is non-VIP with neutral payload
+M16_PROBE PASS: L66 normal objective cost follows the merge model
+M16_PROBE PASS: L67 id is sequential
+M16_PROBE PASS: L67 island reference is Sunny Cove
+M16_PROBE PASS: L67 matches the approved normal objective row
+M16_PROBE PASS: L67 is untimed
+M16_PROBE PASS: L67 matches the approved merge-cost row
+M16_PROBE PASS: L67 normal targets stay within L5-L8
+M16_PROBE PASS: L67 is non-VIP with neutral payload
+M16_PROBE PASS: L67 normal objective cost follows the merge model
+M16_PROBE PASS: L68 id is sequential
+M16_PROBE PASS: L68 island reference is Sunny Cove
+M16_PROBE PASS: L68 matches the approved normal objective row
+M16_PROBE PASS: L68 is untimed
+M16_PROBE PASS: L68 matches the approved merge-cost row
+M16_PROBE PASS: L68 normal targets stay within L5-L8
+M16_PROBE PASS: L68 exact VIP target and quantity
+M16_PROBE PASS: L68 exact VIP reward
+M16_PROBE PASS: L68 VIP workload ratio follows owner policy
+M16_PROBE PASS: L68 VIP feature flag is enabled
+M16_PROBE PASS: L68 normal objective cost follows the merge model
+M16_PROBE PASS: L69 id is sequential
+M16_PROBE PASS: L69 island reference is Sunny Cove
+M16_PROBE PASS: L69 matches the approved normal objective row
+M16_PROBE PASS: L69 is untimed
+M16_PROBE PASS: L69 matches the approved merge-cost row
+M16_PROBE PASS: L69 normal targets stay within L5-L8
+M16_PROBE PASS: L69 is non-VIP with neutral payload
+M16_PROBE PASS: L69 normal objective cost follows the merge model
+M16_PROBE PASS: L70 id is sequential
+M16_PROBE PASS: L70 island reference is Sunny Cove
+M16_PROBE PASS: L70 matches the approved normal objective row
+M16_PROBE PASS: L70 is untimed
+M16_PROBE PASS: L70 matches the approved merge-cost row
+M16_PROBE PASS: L70 normal targets stay within L5-L8
+M16_PROBE PASS: L70 is non-VIP with neutral payload
+M16_PROBE PASS: L70 normal objective cost follows the merge model
+M16_PROBE PASS: L71 id is sequential
+M16_PROBE PASS: L71 island reference is Sunny Cove
+M16_PROBE PASS: L71 matches the approved normal objective row
+M16_PROBE PASS: L71 is untimed
+M16_PROBE PASS: L71 matches the approved merge-cost row
+M16_PROBE PASS: L71 normal targets stay within L5-L8
+M16_PROBE PASS: L71 is non-VIP with neutral payload
+M16_PROBE PASS: L71 normal objective cost follows the merge model
+M16_PROBE PASS: L72 id is sequential
+M16_PROBE PASS: L72 island reference is Sunny Cove
+M16_PROBE PASS: L72 matches the approved normal objective row
+M16_PROBE PASS: L72 is untimed
+M16_PROBE PASS: L72 matches the approved merge-cost row
+M16_PROBE PASS: L72 normal targets stay within L5-L8
+M16_PROBE PASS: L72 exact VIP target and quantity
+M16_PROBE PASS: L72 exact VIP reward
+M16_PROBE PASS: L72 VIP workload ratio follows owner policy
+M16_PROBE PASS: L72 VIP feature flag is enabled
+M16_PROBE PASS: L72 normal objective cost follows the merge model
+M16_PROBE PASS: L73 id is sequential
+M16_PROBE PASS: L73 island reference is Sunny Cove
+M16_PROBE PASS: L73 matches the approved normal objective row
+M16_PROBE PASS: L73 is untimed
+M16_PROBE PASS: L73 matches the approved merge-cost row
+M16_PROBE PASS: L73 normal targets stay within L5-L8
+M16_PROBE PASS: L73 is non-VIP with neutral payload
+M16_PROBE PASS: L73 normal objective cost follows the merge model
+M16_PROBE PASS: L74 id is sequential
+M16_PROBE PASS: L74 island reference is Sunny Cove
+M16_PROBE PASS: L74 matches the approved normal objective row
+M16_PROBE PASS: L74 is untimed
+M16_PROBE PASS: L74 matches the approved merge-cost row
+M16_PROBE PASS: L74 normal targets stay within L5-L8
+M16_PROBE PASS: L74 is non-VIP with neutral payload
+M16_PROBE PASS: L74 normal objective cost follows the merge model
+M16_PROBE PASS: L75 id is sequential
+M16_PROBE PASS: L75 island reference is Sunny Cove
+M16_PROBE PASS: L75 matches the approved normal objective row
+M16_PROBE PASS: L75 is untimed
+M16_PROBE PASS: L75 matches the approved merge-cost row
+M16_PROBE PASS: L75 normal targets stay within L5-L8
+M16_PROBE PASS: L75 is non-VIP with neutral payload
+M16_PROBE PASS: L75 normal objective cost follows the merge model
+M16_PROBE PASS: L76 id is sequential
+M16_PROBE PASS: L76 island reference is Sunny Cove
+M16_PROBE PASS: L76 matches the approved normal objective row
+M16_PROBE PASS: L76 is untimed
+M16_PROBE PASS: L76 matches the approved merge-cost row
+M16_PROBE PASS: L76 normal targets stay within L5-L8
+M16_PROBE PASS: L76 exact VIP target and quantity
+M16_PROBE PASS: L76 exact VIP reward
+M16_PROBE PASS: L76 VIP workload ratio follows owner policy
+M16_PROBE PASS: L76 VIP feature flag is enabled
+M16_PROBE PASS: L76 normal objective cost follows the merge model
+M16_PROBE PASS: L77 id is sequential
+M16_PROBE PASS: L77 island reference is Sunny Cove
+M16_PROBE PASS: L77 matches the approved normal objective row
+M16_PROBE PASS: L77 is untimed
+M16_PROBE PASS: L77 matches the approved merge-cost row
+M16_PROBE PASS: L77 normal targets stay within L5-L8
+M16_PROBE PASS: L77 is non-VIP with neutral payload
+M16_PROBE PASS: L77 normal objective cost follows the merge model
+M16_PROBE PASS: L78 id is sequential
+M16_PROBE PASS: L78 island reference is Sunny Cove
+M16_PROBE PASS: L78 matches the approved normal objective row
+M16_PROBE PASS: L78 is untimed
+M16_PROBE PASS: L78 matches the approved merge-cost row
+M16_PROBE PASS: L78 normal targets stay within L5-L8
+M16_PROBE PASS: L78 is non-VIP with neutral payload
+M16_PROBE PASS: L78 normal objective cost follows the merge model
+M16_PROBE PASS: L79 id is sequential
+M16_PROBE PASS: L79 island reference is Sunny Cove
+M16_PROBE PASS: L79 matches the approved normal objective row
+M16_PROBE PASS: L79 is untimed
+M16_PROBE PASS: L79 matches the approved merge-cost row
+M16_PROBE PASS: L79 normal targets stay within L5-L8
+M16_PROBE PASS: L79 is non-VIP with neutral payload
+M16_PROBE PASS: L79 normal objective cost follows the merge model
+M16_PROBE PASS: L80 id is sequential
+M16_PROBE PASS: L80 island reference is Sunny Cove
+M16_PROBE PASS: L80 matches the approved normal objective row
+M16_PROBE PASS: L80 is untimed
+M16_PROBE PASS: L80 matches the approved merge-cost row
+M16_PROBE PASS: L80 normal targets stay within L5-L8
+M16_PROBE PASS: L80 exact VIP target and quantity
+M16_PROBE PASS: L80 exact VIP reward
+M16_PROBE PASS: L80 VIP workload ratio follows owner policy
+M16_PROBE PASS: L80 VIP feature flag is enabled
+M16_PROBE PASS: L80 normal objective cost follows the merge model
+M16_PROBE PASS: L81 id is sequential
+M16_PROBE PASS: L81 island reference is Sunny Cove
+M16_PROBE PASS: L81 matches the approved normal objective row
+M16_PROBE PASS: L81 is untimed
+M16_PROBE PASS: L81 matches the approved merge-cost row
+M16_PROBE PASS: L81 normal targets stay within L5-L8
+M16_PROBE PASS: L81 is non-VIP with neutral payload
+M16_PROBE PASS: L81 normal objective cost follows the merge model
+M16_PROBE PASS: L82 id is sequential
+M16_PROBE PASS: L82 island reference is Sunny Cove
+M16_PROBE PASS: L82 matches the approved normal objective row
+M16_PROBE PASS: L82 is untimed
+M16_PROBE PASS: L82 matches the approved merge-cost row
+M16_PROBE PASS: L82 normal targets stay within L5-L8
+M16_PROBE PASS: L82 is non-VIP with neutral payload
+M16_PROBE PASS: L82 normal objective cost follows the merge model
+M16_PROBE PASS: L83 id is sequential
+M16_PROBE PASS: L83 island reference is Sunny Cove
+M16_PROBE PASS: L83 matches the approved normal objective row
+M16_PROBE PASS: L83 is untimed
+M16_PROBE PASS: L83 matches the approved merge-cost row
+M16_PROBE PASS: L83 normal targets stay within L5-L8
+M16_PROBE PASS: L83 is non-VIP with neutral payload
+M16_PROBE PASS: L83 normal objective cost follows the merge model
+M16_PROBE PASS: L84 id is sequential
+M16_PROBE PASS: L84 island reference is Sunny Cove
+M16_PROBE PASS: L84 matches the approved normal objective row
+M16_PROBE PASS: L84 is untimed
+M16_PROBE PASS: L84 matches the approved merge-cost row
+M16_PROBE PASS: L84 normal targets stay within L5-L8
+M16_PROBE PASS: L84 exact VIP target and quantity
+M16_PROBE PASS: L84 exact VIP reward
+M16_PROBE PASS: L84 VIP workload ratio follows owner policy
+M16_PROBE PASS: L84 VIP feature flag is enabled
+M16_PROBE PASS: L84 normal objective cost follows the merge model
+M16_PROBE PASS: L85 id is sequential
+M16_PROBE PASS: L85 island reference is Sunny Cove
+M16_PROBE PASS: L85 matches the approved normal objective row
+M16_PROBE PASS: L85 is untimed
+M16_PROBE PASS: L85 matches the approved merge-cost row
+M16_PROBE PASS: L85 normal targets stay within L5-L8
+M16_PROBE PASS: L85 is non-VIP with neutral payload
+M16_PROBE PASS: L85 normal objective cost follows the merge model
+M16_PROBE PASS: L86 id is sequential
+M16_PROBE PASS: L86 island reference is Sunny Cove
+M16_PROBE PASS: L86 matches the approved normal objective row
+M16_PROBE PASS: L86 is untimed
+M16_PROBE PASS: L86 matches the approved merge-cost row
+M16_PROBE PASS: L86 normal targets stay within L5-L8
+M16_PROBE PASS: L86 is non-VIP with neutral payload
+M16_PROBE PASS: L86 normal objective cost follows the merge model
+M16_PROBE PASS: L87 id is sequential
+M16_PROBE PASS: L87 island reference is Sunny Cove
+M16_PROBE PASS: L87 matches the approved normal objective row
+M16_PROBE PASS: L87 is untimed
+M16_PROBE PASS: L87 matches the approved merge-cost row
+M16_PROBE PASS: L87 normal targets stay within L5-L8
+M16_PROBE PASS: L87 is non-VIP with neutral payload
+M16_PROBE PASS: L87 normal objective cost follows the merge model
+M16_PROBE PASS: L88 id is sequential
+M16_PROBE PASS: L88 island reference is Sunny Cove
+M16_PROBE PASS: L88 matches the approved normal objective row
+M16_PROBE PASS: L88 is untimed
+M16_PROBE PASS: L88 matches the approved merge-cost row
+M16_PROBE PASS: L88 normal targets stay within L5-L8
+M16_PROBE PASS: L88 exact VIP target and quantity
+M16_PROBE PASS: L88 exact VIP reward
+M16_PROBE PASS: L88 VIP workload ratio follows owner policy
+M16_PROBE PASS: L88 VIP feature flag is enabled
+M16_PROBE PASS: L88 normal objective cost follows the merge model
+M16_PROBE PASS: L89 id is sequential
+M16_PROBE PASS: L89 island reference is Sunny Cove
+M16_PROBE PASS: L89 matches the approved normal objective row
+M16_PROBE PASS: L89 is untimed
+M16_PROBE PASS: L89 matches the approved merge-cost row
+M16_PROBE PASS: L89 normal targets stay within L5-L8
+M16_PROBE PASS: L89 is non-VIP with neutral payload
+M16_PROBE PASS: L89 normal objective cost follows the merge model
+M16_PROBE PASS: L90 id is sequential
+M16_PROBE PASS: L90 island reference is Sunny Cove
+M16_PROBE PASS: L90 matches the approved normal objective row
+M16_PROBE PASS: L90 is untimed
+M16_PROBE PASS: L90 matches the approved merge-cost row
+M16_PROBE PASS: L90 normal targets stay within L5-L8
+M16_PROBE PASS: L90 is non-VIP with neutral payload
+M16_PROBE PASS: L90 normal objective cost follows the merge model
+M16_PROBE PASS: L91 id is sequential
+M16_PROBE PASS: L91 island reference is Sunny Cove
+M16_PROBE PASS: L91 matches the approved normal objective row
+M16_PROBE PASS: L91 is untimed
+M16_PROBE PASS: L91 matches the approved merge-cost row
+M16_PROBE PASS: L91 normal targets stay within L5-L8
+M16_PROBE PASS: L91 is non-VIP with neutral payload
+M16_PROBE PASS: L91 normal objective cost follows the merge model
+M16_PROBE PASS: L92 id is sequential
+M16_PROBE PASS: L92 island reference is Sunny Cove
+M16_PROBE PASS: L92 matches the approved normal objective row
+M16_PROBE PASS: L92 is untimed
+M16_PROBE PASS: L92 matches the approved merge-cost row
+M16_PROBE PASS: L92 normal targets stay within L5-L8
+M16_PROBE PASS: L92 exact VIP target and quantity
+M16_PROBE PASS: L92 exact VIP reward
+M16_PROBE PASS: L92 VIP workload ratio follows owner policy
+M16_PROBE PASS: L92 VIP feature flag is enabled
+M16_PROBE PASS: L92 normal objective cost follows the merge model
+M16_PROBE PASS: L93 id is sequential
+M16_PROBE PASS: L93 island reference is Sunny Cove
+M16_PROBE PASS: L93 matches the approved normal objective row
+M16_PROBE PASS: L93 is untimed
+M16_PROBE PASS: L93 matches the approved merge-cost row
+M16_PROBE PASS: L93 normal targets stay within L5-L8
+M16_PROBE PASS: L93 is non-VIP with neutral payload
+M16_PROBE PASS: L93 normal objective cost follows the merge model
+M16_PROBE PASS: L94 id is sequential
+M16_PROBE PASS: L94 island reference is Sunny Cove
+M16_PROBE PASS: L94 matches the approved normal objective row
+M16_PROBE PASS: L94 is untimed
+M16_PROBE PASS: L94 matches the approved merge-cost row
+M16_PROBE PASS: L94 normal targets stay within L5-L8
+M16_PROBE PASS: L94 is non-VIP with neutral payload
+M16_PROBE PASS: L94 normal objective cost follows the merge model
+M16_PROBE PASS: L95 id is sequential
+M16_PROBE PASS: L95 island reference is Sunny Cove
+M16_PROBE PASS: L95 matches the approved normal objective row
+M16_PROBE PASS: L95 is untimed
+M16_PROBE PASS: L95 matches the approved merge-cost row
+M16_PROBE PASS: L95 normal targets stay within L5-L8
+M16_PROBE PASS: L95 is non-VIP with neutral payload
+M16_PROBE PASS: L95 normal objective cost follows the merge model
+M16_PROBE PASS: L96 id is sequential
+M16_PROBE PASS: L96 island reference is Sunny Cove
+M16_PROBE PASS: L96 matches the approved normal objective row
+M16_PROBE PASS: L96 is untimed
+M16_PROBE PASS: L96 matches the approved merge-cost row
+M16_PROBE PASS: L96 normal targets stay within L5-L8
+M16_PROBE PASS: L96 exact VIP target and quantity
+M16_PROBE PASS: L96 exact VIP reward
+M16_PROBE PASS: L96 VIP workload ratio follows owner policy
+M16_PROBE PASS: L96 VIP feature flag is enabled
+M16_PROBE PASS: L96 normal objective cost follows the merge model
+M16_PROBE PASS: L97 id is sequential
+M16_PROBE PASS: L97 island reference is Sunny Cove
+M16_PROBE PASS: L97 matches the approved normal objective row
+M16_PROBE PASS: L97 is untimed
+M16_PROBE PASS: L97 matches the approved merge-cost row
+M16_PROBE PASS: L97 normal targets stay within L5-L8
+M16_PROBE PASS: L97 is non-VIP with neutral payload
+M16_PROBE PASS: L97 normal objective cost follows the merge model
+M16_PROBE PASS: L98 id is sequential
+M16_PROBE PASS: L98 island reference is Sunny Cove
+M16_PROBE PASS: L98 matches the approved normal objective row
+M16_PROBE PASS: L98 is untimed
+M16_PROBE PASS: L98 matches the approved merge-cost row
+M16_PROBE PASS: L98 normal targets stay within L5-L8
+M16_PROBE PASS: L98 is non-VIP with neutral payload
+M16_PROBE PASS: L98 normal objective cost follows the merge model
+M16_PROBE PASS: L99 id is sequential
+M16_PROBE PASS: L99 island reference is Sunny Cove
+M16_PROBE PASS: L99 matches the approved normal objective row
+M16_PROBE PASS: L99 is untimed
+M16_PROBE PASS: L99 matches the approved merge-cost row
+M16_PROBE PASS: L99 normal targets stay within L5-L8
+M16_PROBE PASS: L99 is non-VIP with neutral payload
+M16_PROBE PASS: L99 normal objective cost follows the merge model
+M16_PROBE PASS: L100 id is sequential
+M16_PROBE PASS: L100 island reference is Sunny Cove
+M16_PROBE PASS: L100 matches the approved normal objective row
+M16_PROBE PASS: L100 is untimed
+M16_PROBE PASS: L100 matches the approved merge-cost row
+M16_PROBE PASS: L100 normal targets stay within L5-L8
+M16_PROBE PASS: L100 exact VIP target and quantity
+M16_PROBE PASS: L100 exact VIP reward
+M16_PROBE PASS: L100 VIP workload ratio follows owner policy
+M16_PROBE PASS: L100 VIP feature flag is enabled
+M16_PROBE PASS: L100 normal objective cost follows the merge model
+M16_PROBE PASS: merge cost L5 is 16
+M16_PROBE PASS: merge cost L6 is 32
+M16_PROBE PASS: merge cost L7 is 64
+M16_PROBE PASS: merge cost L8 is 128
+M16_PROBE PASS: Level 1 anchor is 1xL5 and untimed
+M16_PROBE PASS: Level 100 anchor is L8+L7+L6+L5 and untimed
+M16_PROBE PASS: VIP quantity mix is 15x qty1 and 10x qty2
+M16_PROBE PASS: Upgrade cadence is exactly VIP levels 20/40/60/80/100
+M16_PROBE PASS: all other VIP rewards are unconfigured pending owner policy
+M16_PROBE PASS: 75 Sunny Cove levels remain non-VIP
+M16_PROBE PASS: VIP cost is excluded from untimed validation
+M16_PROBE PASS: CampaignManager configures from the canonical FULL database
+M16_PROBE PASS: Level 1 is initially selected and unlocked
+M16_PROBE PASS: Level 2 starts locked before Level 1 completion
+M16_PROBE PASS: all 100 levels follow the sequential unlock chain
+M16_PROBE PASS: Level 100 closes Sunny Cove without a next level
+M16_PROBE PASS: Level 100 preserves the next-island unlock boundary
+M16_PROBE PASS: marker campaign configures
+M16_PROBE PASS: Island Map configures from canonical VIP data
+M16_PROBE PASS: VIP crown marker is visible for COMPLETE VIP level
+M16_PROBE PASS: VIP crown marker is visible for OPEN VIP level
+M16_PROBE PASS: VIP crown marker is visible for CURRENT VIP level
+M16_PROBE PASS: VIP crown marker is visible for LOCKED VIP level
+M16_PROBE PASS: non-VIP level has no crown marker
+M16_PROBE PASS: crown marker uses the canonical gameplay VIP badge asset
+M16_PROBE PASS: crown marker display size is exactly 36x36
+M16_PROBE PASS: crown marker stays adjacent without covering the level node
+M16_PROBE PASS: crown marker remains inside the map bounds on both path sides
+M16_PROBE PASS: replay campaign configures with Level 4 unlocked
+M16_PROBE PASS: replay bridge configures with economy
+M16_PROBE PASS: first play can start canonical VIP Level 4
+M16_PROBE PASS: normal WIN succeeds when VIP is missed
+M16_PROBE PASS: missed VIP grants no booster and persists false
+M16_PROBE PASS: completed VIP level remains replayable
+M16_PROBE PASS: replay can complete the missed VIP
+M16_PROBE PASS: replay persists VIP completion without retired +Time
+M16_PROBE PASS: replay again is allowed after VIP completion
+M16_PROBE PASS: replay-after-replay keeps VIP completed
+M16_PROBE PASS: unconfigured VIP reward remains absent on replay
+M16_PROBE PASS: normal content signature is unchanged after marker/replay flows
+M16_SUNNY_COVE_CONTENT_RESULT=PASS

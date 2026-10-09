@@ -119,9 +119,6 @@ static func level_reachability(level_definition: Dictionary, max_level: int) -> 
 			invalid_orders.append({"cocktail_level": target_level, "reason": "TARGET_NOT_REACHABLE"})
 		if quantity <= 0:
 			invalid_orders.append({"cocktail_level": target_level, "quantity": quantity, "reason": "NONPOSITIVE_QUANTITY"})
-	var timer := float(level_definition.get("time_limit_sec", 0.0))
-	if timer <= 0.0:
-		invalid_orders.append({"reason": "NONPOSITIVE_TIMER"})
 	return {
 		"reachable_closure": closure,
 		"max_level": max_level,

@@ -127,6 +127,7 @@ func set_presentation_mode(mode: String) -> bool:
 
 
 func cancel_presentation() -> void:
+	_pending_large_requests.clear()
 	for output in _active_gff_outputs:
 		var plugin: Variant = output.get("plugin")
 		var target: Variant = output.get("target")
@@ -189,18 +190,22 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		return
 	if kind == "ui_primary" and not ["PLAY", "NEXT", "RETRY"].has(str(payload.get("action", ""))):
 		return
-	if _policy != null and _policy.is_large_celebration(kind) and not _dispatching_queued_large and _active_spark_particle_count() > 0:
-		_pending_large_requests.append(request.duplicate(true))
-		return
-	var trace_id := _begin_visual_trace(request)
 	if not _production_dispatch_enabled:
-		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "production_dispatch_disabled"})
+		var disabled_trace_id := _begin_visual_trace(request)
+		_update_visual_trace(disabled_trace_id, {"stage": "blocked", "dispatch_gate": "production_dispatch_disabled"})
 		return
 	var target_value: Variant = payload.get("presentation_target", null)
-	if not target_value is Node or not is_instance_valid(target_value):
-		_update_visual_trace(trace_id, {"stage": "blocked", "dispatch_gate": "production_target_missing"})
+	if not is_instance_valid(target_value) or not target_value is Node:
+		var missing_target_trace_id := _begin_visual_trace(request)
+		_update_visual_trace(missing_target_trace_id, {"stage": "blocked", "dispatch_gate": "production_target_missing"})
 		_no_op("production_target_missing")
 		return
+	if _policy != null and _policy.is_large_celebration(kind) and not _dispatching_queued_large:
+		_prune_expired_spark_outputs()
+		if _active_spark_particle_count() > 0:
+			_pending_large_requests.append(request.duplicate(false))
+			return
+	var trace_id := _begin_visual_trace(request)
 	var mode := _presentation_mode
 	var plan := _micro_plan(kind, mode)
 	if kind == "game_success" or kind == "game_fail":
@@ -560,6 +565,7 @@ func _ui_primary_plan(mode: String) -> Dictionary:
 
 
 func _flush_serialized_large_request() -> void:
+	_prune_expired_spark_outputs()
 	if _pending_large_requests.is_empty() or _active_spark_particle_count() > 0:
 		return
 	var request: Dictionary = _pending_large_requests.pop_front()
@@ -1160,8 +1166,8 @@ func _prune_expired_gff_outputs() -> void:
 
 func _active_spark_particle_count() -> int:
 	var pool := get_node_or_null("/root/Spark/SaltmireSparkPool")
+	var live_total := 0
 	if is_instance_valid(pool):
-		var live_total := 0
 		for emitter in pool.get_children():
 			var parts: Variant = emitter.get("_parts")
 			if not parts is Array:
@@ -1169,11 +1175,15 @@ func _active_spark_particle_count() -> int:
 			for particle in parts:
 				if particle is Dictionary and float(particle.get("age", 0.0)) < float(particle.get("life", 0.0)):
 					live_total += 1
-		return live_total
 	var total := 0
 	for output in _active_spark_outputs:
 		total += int(output.get("amount", 0))
-	return total
+	# The bridge estimate also covers accepted outputs when the plugin pool is
+	# present but has not materialized particles yet (and test/plugin adapters
+	# that record calls without constructing emitters). Taking the larger count
+	# avoids double-counting real outputs while keeping the 48-particle ceiling
+	# fail-closed during that gap.
+	return maxi(live_total, total)
 
 
 func _valid_request(request: Dictionary) -> bool:

@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T21:36:27.1072193Z",
+  "finished_utc": "2026-10-09T21:36:31.5823786Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+    "--script",
+    "res://tests/m19_multi_island_scalability_probe.gd"
+  ],
+  "spawned_pids": [
+    8980,
+    10168,
+    39684
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\live\\post_fix_additional\\M19-scalability.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\live\\post_fix_additional\\M19-scalability.stderr.txt"
+}

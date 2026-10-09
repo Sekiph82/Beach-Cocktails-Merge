@@ -1,0 +1,56 @@
+{
+  "baseline_commit": "459d7013676be4ad9b7291e33df2867779017520",
+  "project_name": "BCM-M26-R01-Baseline-20261009",
+  "user_data_path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M26-R01-Baseline-20261009",
+  "editor_import_exit": 0,
+  "results": [
+    {
+      "id": "M08-to-go",
+      "script": "res://tests/m08_to_go_delivery_probe.gd",
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_markers": [],
+      "status": "FAIL"
+    },
+    {
+      "id": "M17-v06-analytical",
+      "script": "res://tests/m17_canonical_screening_v06_analytical_probe.gd",
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_markers": [
+        "M17_V06_ANALYTICAL_RESULT=FAIL failures=[\"all normal objectives are reachable with positive quantities and timers\"]"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "id": "M17-difficulty",
+      "script": "res://tests/m17_difficulty_validation_probe.gd",
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_markers": [
+        "M17_DIFFICULTY_VALIDATION_RESULT=FAIL failures=[\"timeout fixture expires the production campaign timer\", \"TIMEOUT fixture outcome is timeout and not danger\", \"different seed changes the seeded action sequence\"]"
+      ],
+      "status": "FAIL"
+    },
+    {
+      "id": "M20-pause-lifecycle",
+      "script": "res://tests/m20_pause_lifecycle_probe.gd",
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_markers": [
+        "M20_CHILD_04_RESULT=PASS"
+      ],
+      "status": "PASS"
+    },
+    {
+      "id": "M23-merge",
+      "script": "res://tests/m23_002_merge_feedback_probe.gd",
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_markers": [
+        "M23_002_MERGE_FEEDBACK_RESULT=PASS checks=30 failures=0 dispatches=13 active_particles=40 captures=0"
+      ],
+      "status": "PASS"
+    }
+  ]
+}

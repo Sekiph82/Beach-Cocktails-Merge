@@ -139,7 +139,11 @@ func _run() -> void:
 		var source := _make_merge_source("STRESS_%d" % index)
 		service.emit_merge(source, {"level": 2, "chain": 1, "score": 0, "presentation_target": source.get_node("Visual")})
 	var active_particles := bridge._active_spark_particle_count()
-	_check("merge stress dispatch stays under particle and GFF output ceilings", active_particles <= 48 and bridge.dispatch_count - stress_start <= 4 and bridge._active_gff_outputs.size() <= BRIDGE_SCRIPT.MAX_ACTIVE_GFF_OUTPUTS)
+	var stress_dispatch_delta := bridge.dispatch_count - stress_start
+	var stress_active_gff_outputs := bridge._active_gff_outputs.size()
+	_check("merge stress remains under the 48 live-particle ceiling", active_particles <= 48)
+	_check("merge stress retains particle-cap backpressure", stress_dispatch_delta <= 4)
+	_check("merge stress remains under the GFF output ceiling", stress_active_gff_outputs <= BRIDGE_SCRIPT.MAX_ACTIVE_GFF_OUTPUTS)
 	var stress_calls := spark.calls.size()
 	_check("over-cap stress events fail closed without invoking Spark", stress_calls - reduced_spark_start <= 10)
 
@@ -182,6 +186,8 @@ func _run() -> void:
 		"save_fingerprint_before": save_fingerprint_before,
 		"save_fingerprint_after": save_fingerprint_after,
 		"stress_active_particles": active_particles,
+		"stress_dispatch_delta": stress_dispatch_delta,
+		"stress_active_gff_outputs": stress_active_gff_outputs,
 		"live_particle_ceiling": 48,
 		"active_gff_output_ceiling": BRIDGE_SCRIPT.MAX_ACTIVE_GFF_OUTPUTS,
 		"bridge_dispatch_count": bridge.dispatch_count,

@@ -65,8 +65,8 @@ func _run() -> void:
 	_check("same seed preserves logical outcome", first["outcome"] == second["outcome"])
 	var replay: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017001, first["action_log"], HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01)
 	_check("exact action-log replay preserves logical result", replay["outcome"] == first["outcome"] and replay["merge_count"] == first["merge_count"])
-	var different: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017002, [], HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01)
-	_check("different seed changes the seeded action sequence", different["action_log"] != first["action_log"])
+	var different: Dictionary = await harness.run_trial(database, "sunny_cove", 1, 17017003, [], HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01)
+	_check("different seed with a distinct first spawn changes the action sequence", different["action_log"] != first["action_log"])
 	_check("focused trial telemetry validates", harness.validate_telemetry(first).is_empty())
 	_check("merge-aware actions carry decision evidence", _action_logs_have_decision_evidence(first["action_log"]))
 	_check("canonical Sunny Cove JSON is byte-for-byte unchanged", _sha256(CANONICAL_LEVELS_PATH) == before_hash)
@@ -139,11 +139,12 @@ func _run_outcome_fixtures(database, harness) -> void:
 	var timeout_manager = timeout_fixture["manager"]
 	var timeout_bridge = timeout_fixture["bridge"]
 	var time_limit := float(timeout_bridge.get_session_configuration().get("time_limit_sec", 0.0))
-	timeout_bridge.tick(time_limit)
+	timeout_bridge.tick(3600.0)
 	var timeout_terminal: Dictionary = timeout_bridge.get_terminal_result()
-	var timeout_classification: Dictionary = harness.classify_trial_outcome(timeout_terminal, timeout_manager.game_over, time_limit, time_limit)
-	_check("timeout fixture expires the production campaign timer", timeout_terminal.get("reason", "") == "TIMEOUT")
-	_check("TIMEOUT fixture outcome is timeout and not danger", timeout_classification["outcome"] == "timeout" and timeout_classification["terminal_reason"] == "TIMEOUT")
+	var timeout_classification: Dictionary = harness.classify_trial_outcome(timeout_terminal, timeout_manager.game_over, 3600.0, time_limit)
+	_check("canonical campaign fixture is untimed", is_zero_approx(time_limit))
+	_check("large tick leaves untimed production session active", timeout_bridge.is_session_active() and timeout_terminal.is_empty())
+	_check("untimed fixture cannot synthesize TIMEOUT", timeout_classification["outcome"] == "harness_abort" and timeout_classification["terminal_reason"] == "ACTION_BUDGET")
 	await _cleanup_fixture(timeout_manager)
 
 

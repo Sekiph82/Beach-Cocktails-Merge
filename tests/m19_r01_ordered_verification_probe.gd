@@ -226,7 +226,7 @@ func _child_03() -> void:
     _check("Tiki is first declarative L9 island", tiki.get("target_policy", {}).get("max_level", 0) == 9 and database.is_campaign_target_level_eligible("tiki_island", 9) and not database.is_campaign_target_level_eligible("sunny_cove", 9))
     _check("Tiki has no production levels or exact L9 level", database.get_levels_for_island("tiki_island").is_empty() and not tiki.has("first_l9_level"))
     var policy_file := FileAccess.open("res://docs/CAMPAIGN_COCKTAIL_LEVEL_PROGRESSION_POLICY.md", FileAccess.READ)
-    var policy := policy_file.get_as_text() if policy_file != null else ""
+    var policy := policy_file.get_as_text().replace("\r\n", "\n") if policy_file != null else ""
     _check("policy is data-first and L1-L12 bounded", policy.contains("target_policy") and policy.contains("L1-L12") and policy.contains("does not choose an\n  exact introduction level"))
     _check("runtime has no Tiki-specific branch", not FileAccess.open("res://scripts/campaign/level_database.gd", FileAccess.READ).get_as_text().contains("tiki_island") and not FileAccess.open("res://scripts/campaign/gameplay_session_bridge.gd", FileAccess.READ).get_as_text().contains("tiki_island"))
 

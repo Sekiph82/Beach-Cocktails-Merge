@@ -132,6 +132,8 @@ func _run() -> void:
 	_check("equal prior-best score is not treated as a new record", _milestone_count("prior_best", score_requests_before) == 0 and manager.score == manager.best_score)
 	manager._add_score(1)
 	manager._add_score(1)
+	for _frame in range(60):
+		await process_frame
 	_check("prior-best crossing fires once only after strictly exceeding record", _milestone_count("prior_best", score_requests_before) == 1 and manager.best_score == 1002)
 	_check("score milestones dispatch zero Spark particles", spark.calls.size() == spark_before_milestones)
 	_check("FULL score emphasis targets approved dynamic score labels", _milestone_targets_are_score_labels(score_requests_before, manager) and manager._best_value.is_in_group("presentation_effect_target") and manager._score_value.is_in_group("presentation_effect_target"))

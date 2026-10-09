@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T21:04:38.7523765Z",
+  "finished_utc": "2026-10-09T21:04:42.2179887Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline",
+    "--script",
+    "res://tests/m23_002_merge_feedback_probe.gd"
+  ],
+  "spawned_pids": [
+    4724,
+    34708,
+    37432
+  ],
+  "exit_code": 1,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\baseline\\runs\\M23-merge.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-R01\\baseline\\runs\\M23-merge.stderr.txt"
+}

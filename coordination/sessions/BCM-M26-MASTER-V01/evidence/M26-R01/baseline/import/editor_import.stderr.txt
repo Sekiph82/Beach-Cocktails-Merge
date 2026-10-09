@@ -1,0 +1,14 @@
+SCRIPT ERROR: Parse Error: Preload file "res://addons/godot_ai/export/mcp_export_plugin.gd" does not exist.
+   at: GDScript::reload (res://addons/godot_ai/plugin.gd:45)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ExportPlugin" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://addons/godot_ai/plugin.gd:45)
+ERROR: Failed to load script "res://addons/godot_ai/plugin.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+WARNING: Locale 'three' does not contain any translation. This locale will be ignored.
+   at: import (editor/import/resource_importer_csv_translation.cpp:239)
+WARNING: Locale 'two' does not contain any translation. This locale will be ignored.
+   at: import (editor/import/resource_importer_csv_translation.cpp:239)
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)

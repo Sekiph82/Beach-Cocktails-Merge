@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M17_PROBE PASS: canonical Sunny Cove loads in FULL validation mode
+M17_PROBE PASS: canonical Sunny Cove has 100 levels
+M17_PROBE PASS: L1 objective cost is 16
+M17_PROBE PASS: L100 objective cost is 240
+M17_PROBE PASS: VIP cost is separate
+M17_PROBE PASS: expected L1-equivalent spawn value is 7/3
+M17_PROBE PASS: timer exposes named calibration
+M17_PROBE PASS: timer calibration override changes raw and target time
+M17_PROBE PASS: percentile uses deterministic R7 interpolation
+M17_PROBE PASS: telemetry schema is complete
+M17_PROBE PASS: same-level left target shifts action left
+M17_PROBE PASS: same-level right target shifts action right
+M17_PROBE PASS: left-side congestion selects a safer non-left lane
+M17_PROBE PASS: identical board state produces identical action
+M17_PROBE PASS: policy has no future-RNG input
+M17_PROBE PASS: policy returns a legal horizontal bucket
+M17_PROBE PASS: fixture GameManager is ready
+M17_PROBE PASS: fixture campaign bridge starts
+OYUN BITTI - Skor: 0
+M17_PROBE PASS: danger fixture uses production danger-line/game-over path
+M17_PROBE PASS: TABLE_DANGER fixture terminal reason is preserved
+M17_PROBE PASS: TABLE_DANGER fixture outcome is danger
+M17_PROBE PASS: TABLE_DANGER fixture is not timeout
+M17_PROBE PASS: fixture GameManager is ready
+M17_PROBE PASS: fixture campaign bridge starts
+M17_PROBE FAIL: timeout fixture expires the production campaign timer
+M17_PROBE FAIL: TIMEOUT fixture outcome is timeout and not danger
+M17_PROBE PASS: controlled near-rail footprint creates one proxy event
+M17_PROBE PASS: continuous proximity does not inflate the same edge event
+M17_PROBE PASS: centered footprint does not create a false rail event
+M17_PROBE PASS: release beyond 3px then re-entry creates a second event
+M17_PROBE PASS: qualification runner policy time scale is canonical
+M17_PROBE PASS: same seed produces the same action log
+M17_PROBE PASS: same seed preserves logical outcome
+M17_PROBE PASS: exact action-log replay preserves logical result
+M17_PROBE FAIL: different seed changes the seeded action sequence
+M17_PROBE PASS: focused trial telemetry validates
+M17_PROBE PASS: merge-aware actions carry decision evidence
+M17_PROBE PASS: canonical Sunny Cove JSON is byte-for-byte unchanged
+M17_DIFFICULTY_VALIDATION_RESULT=FAIL failures=["timeout fixture expires the production campaign timer", "TIMEOUT fixture outcome is timeout and not danger", "different seed changes the seeded action sequence"]

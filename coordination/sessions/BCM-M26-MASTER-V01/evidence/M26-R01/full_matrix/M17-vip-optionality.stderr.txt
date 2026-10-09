@@ -1,0 +1,12 @@
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _open_gameplay (res://tests/m17_vip_optionality_probe.gd:97)
+       [1] _run_production_and_replay (res://tests/m17_vip_optionality_probe.gd:172)
+       [2] _run (res://tests/m17_vip_optionality_probe.gd:222)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _open_gameplay (res://tests/m17_vip_optionality_probe.gd:97)
+       [1] _run_production_and_replay (res://tests/m17_vip_optionality_probe.gd:172)
+       [2] _run (res://tests/m17_vip_optionality_probe.gd:222)

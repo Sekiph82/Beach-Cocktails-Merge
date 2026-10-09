@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M26_002_CAMPAIGN_MAP PASS: real project viewport matches 720x1280
+M26_002_CAMPAIGN_MAP PASS: canonical campaign data validates
+M26_002_CAMPAIGN_MAP PASS: explicit fixture save configures with only Sunny Cove unlocked
+M26_002_CAMPAIGN_MAP PASS: production navigation accepts campaign fixture
+M26_002_CAMPAIGN_MAP PASS: production Island Map opens
+M26_002_CAMPAIGN_MAP PASS: M26-002 source route is explicitly fixture-seeded at level 100
+M26_002_CAMPAIGN_MAP PASS: locked islands remain non-selectable before completion
+M26_002_CAMPAIGN_MAP PASS: production level 100 is open
+M26_002_CAMPAIGN_MAP PASS: selecting level 100 enters production gameplay
+M26_002_CAMPAIGN_MAP PASS: bridge starts the configured final-level session
+M26_002_CAMPAIGN_MAP PASS: final-level terminal result records the first authoritative island-completion transition
+M26_002_CAMPAIGN_MAP PASS: CampaignManager reports Tiki as newly unlocked from completion
+M26_002_CAMPAIGN_MAP PASS: terminal transition includes a stable event token
+M26_002_CAMPAIGN_MAP PASS: normal result remains visible before map navigation
+M26_002_CAMPAIGN_MAP PASS: return action opens Island Map without changing completion or unlock truth
+M26_002_CAMPAIGN_MAP PASS: Island Map completion cue dispatches through the existing bridge exactly once
+M26_002_CAMPAIGN_MAP PASS: completion particles stay within 40 and 1.10 seconds
+M26_002_CAMPAIGN_MAP PASS: completion effect targets only visible island title visual
+M26_002_CAMPAIGN_MAP PASS: real GL framebuffer saved: full_island_complete_720x1280
+M26_002_CAMPAIGN_MAP PASS: capture dimensions are 720x1280
+M26_002_CAMPAIGN_MAP PASS: Island Map presentation restored exact title color
+M26_002_CAMPAIGN_MAP PASS: World Map displays the genuine newly unlocked island
+M26_002_CAMPAIGN_MAP PASS: World Map unlock cue dispatches exactly once
+M26_002_CAMPAIGN_MAP PASS: unlock particles stay within 48 and 1.60 seconds
+M26_002_CAMPAIGN_MAP PASS: island art remains the visual feedback target and geometry is unchanged
+M26_002_CAMPAIGN_MAP PASS: selection center remains on the visible island art
+M26_002_CAMPAIGN_MAP PASS: real project viewport matches 720x1440
+M26_002_CAMPAIGN_MAP PASS: real GL framebuffer saved: full_island_unlock_720x1440
+M26_002_CAMPAIGN_MAP PASS: capture dimensions are 720x1440
+M26_002_CAMPAIGN_MAP PASS: World Map unlock presentation restores exact art color
+M26_002_CAMPAIGN_MAP PASS: refresh and navigation re-entry do not replay completion or unlock cues
+M26_002_CAMPAIGN_MAP PASS: map actions, campaign selection, completion, and unlocked records are unchanged
+M26_002_CAMPAIGN_MAP PASS: real project viewport matches 720x1280
+M26_002_CAMPAIGN_MAP PASS: REDUCED unlock uses at most ten gentle particles
+M26_002_CAMPAIGN_MAP PASS: real GL framebuffer saved: reduced_island_unlock_720x1280
+M26_002_CAMPAIGN_MAP PASS: capture dimensions are 720x1280
+M26_002_CAMPAIGN_MAP PASS: real project viewport matches 720x1440
+M26_002_CAMPAIGN_MAP PASS: real GL framebuffer saved: reduced_island_unlock_720x1440
+M26_002_CAMPAIGN_MAP PASS: capture dimensions are 720x1440
+M26_002_CAMPAIGN_MAP PASS: REDUCED unlock color restores exactly
+M26_002_CAMPAIGN_MAP PASS: all observed active Spark particles stay under global 48
+M26_002_CAMPAIGN_MAP PASS: plugin-off keeps locked island navigation blocked
+M26_002_CAMPAIGN_MAP PASS: plugin-off semantic request safely no-ops without changing campaign navigation
+M26_002_CAMPAIGN_MAP PASS: persisted campaign fixture reloads
+M26_002_CAMPAIGN_MAP PASS: restart renders already-unlocked island without replay
+M26_002_CAMPAIGN_MAP PASS: restart has no synthetic unlock request
+M26_002_CAMPAIGN_MAP_RESULT=PASS captures=4 failures=0 max_particles=48

@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SEED_DRAW 17017001 2
+SEED_DRAW 17017002 2
+SEED_DRAW 17017003 1
+SEED_DRAW 17017004 3
+SEED_DRAW 17017005 2
+SEED_DRAW 17017006 1
+SEED_DRAW 17017007 3
+SEED_DRAW 17017008 2
+SEED_DRAW 17017009 3
+SEED_DRAW 17017010 3
+SEED_DRAW 17017011 1
+SEED_DRAW 17017012 3
+SEED_DRAW 17017013 2
+SEED_DRAW 17017014 3
+SEED_DRAW 17017015 2
+SEED_DRAW 17017016 2
+SEED_DRAW 17017017 3
+SEED_DRAW 17017018 3
+SEED_DRAW 17017019 3
+SEED_DRAW 17017020 3
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)

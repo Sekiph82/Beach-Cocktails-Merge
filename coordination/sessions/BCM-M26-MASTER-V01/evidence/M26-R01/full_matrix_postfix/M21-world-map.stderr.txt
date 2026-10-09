@@ -1,0 +1,60 @@
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_world_map_production_v05_probe.gd:89)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:201)
+       [2] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+SCRIPT ERROR: Cannot call method 'save_png' on a null value.
+   at: _capture (res://tests/m21_world_map_production_v05_probe.gd:91)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_world_map_production_v05_probe.gd:91)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:201)
+       [2] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+SCRIPT ERROR: Cannot call method 'get_region' on a null value.
+   at: _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+   GDScript backtrace (most recent call first):
+       [0] _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:202)
+       [2] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+SCRIPT ERROR: Cannot call method 'get_region' on a null value.
+   at: _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+   GDScript backtrace (most recent call first):
+       [0] _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:203)
+       [2] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+SCRIPT ERROR: Cannot call method 'get_region' on a null value.
+   at: _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+   GDScript backtrace (most recent call first):
+       [0] _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:204)
+       [2] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+SCRIPT ERROR: Cannot call method 'get_region' on a null value.
+   at: _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+   GDScript backtrace (most recent call first):
+       [0] _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:205)
+       [2] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+SCRIPT ERROR: Cannot call method 'get_region' on a null value.
+   at: _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+   GDScript backtrace (most recent call first):
+       [0] _write_crop (res://tests/m21_world_map_production_v05_probe.gd:99)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:206)
+       [2] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_world_map_production_v05_probe.gd:89)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:222)
+       [2] _click_at (res://tests/m21_world_map_production_v05_probe.gd:79)
+       [3] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)
+SCRIPT ERROR: Cannot call method 'save_png' on a null value.
+   at: _capture (res://tests/m21_world_map_production_v05_probe.gd:91)
+   GDScript backtrace (most recent call first):
+       [0] _capture (res://tests/m21_world_map_production_v05_probe.gd:91)
+       [1] _run (res://tests/m21_world_map_production_v05_probe.gd:222)
+       [2] _click_at (res://tests/m21_world_map_production_v05_probe.gd:79)
+       [3] _frames (res://tests/m21_world_map_production_v05_probe.gd:44)

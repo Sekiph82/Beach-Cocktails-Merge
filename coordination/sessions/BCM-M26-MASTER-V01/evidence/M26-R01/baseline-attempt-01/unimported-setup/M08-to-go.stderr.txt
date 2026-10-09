@@ -1,0 +1,4 @@
+SCRIPT ERROR: Parse Error: Used tab character for indentation instead of space as used before in the file.
+   at: GDScript::reload (res://tests/m08_to_go_delivery_probe.gd:79)
+ERROR: Failed to load script "res://tests/m08_to_go_delivery_probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

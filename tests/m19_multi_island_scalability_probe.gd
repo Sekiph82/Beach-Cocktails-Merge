@@ -191,7 +191,7 @@ func _run_child_03(database) -> void:
     _check("Child 03 Tiki is the first declarative L9 island", tiki.get("target_policy", {}).get("max_level", 0) == 9 and database.is_campaign_target_level_eligible("tiki_island", 9) and not database.is_campaign_target_level_eligible("sunny_cove", 9))
     _check("Child 03 does not invent Tiki level content", database.get_levels_for_island("tiki_island").is_empty() and not database.get_island("tiki_island").has("first_l9_level"))
     var policy_file := FileAccess.open("res://docs/CAMPAIGN_COCKTAIL_LEVEL_PROGRESSION_POLICY.md", FileAccess.READ)
-    var policy := policy_file.get_as_text() if policy_file != null else ""
+    var policy := policy_file.get_as_text().replace("\r\n", "\n") if policy_file != null else ""
     _check("Child 03 repository policy is data-first and L1-L12 bounded", policy.contains("target_policy") and policy.contains("L1-L12") and policy.contains("does not choose an\n  exact introduction level"))
     print("M19_CHILD_03_RESULT=%s" % ("PASS" if failures.is_empty() else "FAIL"))
 
