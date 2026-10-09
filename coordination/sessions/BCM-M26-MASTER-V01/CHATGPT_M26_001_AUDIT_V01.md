@@ -1,0 +1,9 @@
+# M26-001 independent source/evidence audit V01
+
+Verdict: CHILD FUNCTIONAL EVIDENCE PASS / MILESTONE GATE CHANGES_REQUIRED.
+
+Reviewed pushed M26-001 Codex log, focused GL probe source and locked M26 criteria. Level-unlock and Island Map milestone dispatches are based on CampaignManager progression updates; focused builder GL output claims 5 captures, 0 failures and 23 dispatches. M22 effect-policy probes each 97 checks PASS; 120-frame GL boot exit 0. Refresh/re-entry/replay/restart no-replay checks exist. The focused probe creates campaign state fixtures and calls CampaignManager.mark_level_completed directly, so its captures are real GL rendering of test-driven state, NOT natural player-operated level completion. Do not relabel as genuine complete gameplay.
+
+BLOCKER: clean Godot editor import exit 1 due to pre-existing Godot AI plugin.gd preload of missing addons/godot_ai/export/mcp_export_plugin.gd. Editor import acceptance is not PASS; plugin and import require bounded remediation, no dummy substitute or destructive owner file cleanup. The full M02-M25 regression matrix and two GL M21 mobile QA runs remain pending; allowed to aggregate into final M26 master audit, but cannot claim master PASS now. 229 protected real userdata and 31 owner local files reportedly unchanged. Physical owner visual acceptance pending.
+
+Disposition: M26-001 presentation-specific builder checks accepted conditionally; task left BLOCKED until clean editor import fix/verification. Next M26-001-R01 targets dependency resolution (from verified source/upstream or non-product sandbox plugin-disable for test if owner production plugin is intact) and targeted safety regressions; preserve owner local sources and project.godot. M26-002 stays blocked pending R01 verification. Independently examined GitHub evidence but did not execute Godot locally.
