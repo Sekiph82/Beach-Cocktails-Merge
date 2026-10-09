@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M18_REPLAY_PROBE PASS: fixture database loads
+M18_REPLAY_PROBE PASS: campaign configures
+M18_REPLAY_PROBE PASS: first completion creates a bounded record
+M18_REPLAY_PROBE PASS: worse replay preserves score, stars, and VIP history
+M18_REPLAY_PROBE PASS: equal replay is idempotent
+M18_REPLAY_PROBE PASS: better replay upgrades both mastery fields
+M18_REPLAY_PROBE PASS: progression remains idempotent after replay
+M18_REPLAY_PROBE PASS: atomic save accepts monotonic campaign state
+M18_REPLAY_PROBE PASS: save reload preserves better score/stars
+M18_REPLAY_PROBE PASS: reloaded campaign preserves the same record
+M18_REPLAY_PROBE PASS: current saves reject out-of-range stars
+M18_REPLAY_PROBE PASS: older save migration preserves bounded replay records
+M18_REPLAY_PERSISTENCE_RESULT=PASS

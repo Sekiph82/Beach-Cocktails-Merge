@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M18_COMPLETION_PROGRESSION_PROBE PASS: 100-level completion fixture loads in FULL validation
+M18_COMPLETION_PROGRESSION_PROBE PASS: completion campaign configures
+M18_COMPLETION_PROGRESSION_PROBE PASS: lose bridge configures
+M18_COMPLETION_PROGRESSION_PROBE PASS: level 1 session starts
+M18_COMPLETION_PROGRESSION_PROBE PASS: lose/incomplete does not advance level 2
+M18_COMPLETION_PROGRESSION_PROBE PASS: win bridge configures
+M18_COMPLETION_PROGRESSION_PROBE FAIL: one-star completion resolves WIN
+M18_COMPLETION_PROGRESSION_PROBE PASS: one-star completion unlocks next level
+M18_COMPLETION_PROGRESSION_PROBE PASS: next-level resolution is deterministic and idempotent
+M18_COMPLETION_PROGRESSION_PROBE PASS: completion campaign configures
+M18_COMPLETION_PROGRESSION_PROBE PASS: all 100 levels accept normal one-star completion
+M18_COMPLETION_PROGRESSION_PROBE PASS: Sunny Cove level 100 completion unlocks Tiki without perfect stars
+M18_COMPLETION_PROGRESSION_PROBE PASS: 100% completion is independent of perfect-star replay
+M18_COMPLETION_PROGRESSION_RESULT=FAIL failures=["one-star completion resolves WIN"]

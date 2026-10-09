@@ -1,0 +1,148 @@
+{
+	"captures": [
+		{
+			"error": 0,
+			"height": 1440,
+			"name": "before",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-PERCENT400/reduced_win_1440/before.png",
+			"width": 720
+		},
+		{
+			"error": 0,
+			"height": 1440,
+			"name": "lose_result",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-PERCENT400/reduced_win_1440/lose_result.png",
+			"width": 720
+		},
+		{
+			"error": 0,
+			"height": 1440,
+			"name": "island_map_after_action",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-PERCENT400/reduced_win_1440/island_map_after_action.png",
+			"width": 720
+		}
+	],
+	"failures": [],
+	"first_terminal": {
+		"economy": {
+			"configured": true,
+			"grants": [
+				{
+					"booster_id": "",
+					"booster_quantity": 0,
+					"coins_delta": 0,
+					"duplicate": false,
+					"granted": true,
+					"ok": true,
+					"reward_id": "level:sunny_cove:6"
+				}
+			],
+			"ok": true
+		},
+		"island_id": "sunny_cove",
+		"island_map_available": true,
+		"level_id": 6,
+		"next_level_available": true,
+		"normal_orders_completed": {
+			"5": 1,
+			"6": 1
+		},
+		"normal_orders_remaining": {
+			"5": 0,
+			"6": 0
+		},
+		"outcome": "WIN",
+		"progression": {
+			"changed": true,
+			"cumulative_rewards": [],
+			"cumulative_stars": 1,
+			"first_clear": true,
+			"island_complete": false,
+			"next_island": {
+				"island_id": "sunny_cove",
+				"ok": false,
+				"reason": "ISLAND_INCOMPLETE"
+			},
+			"next_level": {
+				"island_id": "sunny_cove",
+				"level": {
+					"feature_flags": {
+						"boosters": false,
+						"timed": false,
+						"vip": false
+					},
+					"island_id": "sunny_cove",
+					"level_id": 7.0,
+					"move_limit": 48,
+					"orders": [
+						{
+							"cocktail_level": 5.0,
+							"quantity": 3.0
+						}
+					],
+					"rewards": {
+						"coins": 0.0
+					},
+					"score_star_thresholds": {
+						"one_star": 0.0,
+						"three_stars": 1650.0,
+						"two_stars": 1350.0
+					},
+					"theoretical_shots_to_go": 12,
+					"theoretical_shots_total": 12,
+					"theoretical_shots_vip": 0,
+					"time_limit_sec": 0.0,
+					"vip": null
+				},
+				"level_id": 7,
+				"ok": true
+			},
+			"ok": true,
+			"record": {
+				"best_score": 4890,
+				"completed": true,
+				"stars": 1,
+				"vip_completed": false
+			}
+		},
+		"reason": "NORMAL_OBJECTIVES_COMPLETE",
+		"remaining_time_sec": 0.0,
+		"retry_available": true,
+		"score": 4890,
+		"session_serial": 1,
+		"stars": 1,
+		"vip_completed": false
+	},
+	"input_event_count": 84,
+	"island_map_pointer": {
+		"button_text": "ISLAND MAP",
+		"center": [
+			360.0,
+			866.0
+		],
+		"event_position": [
+			400.0,
+			962.222229003906
+		],
+		"ok": true,
+		"rendered": [
+			720,
+			1440
+		],
+		"touch": false,
+		"viewport": [
+			800,
+			1600
+		]
+	},
+	"level_id": 6,
+	"move_limit": 48,
+	"presentation_mode": "REDUCED",
+	"renderer": "Godot 4.7.2 GL Compatibility",
+	"requested_viewport_height": 1440,
+	"retry_pointer": {},
+	"retry_terminal": {},
+	"shot_count_total": 42,
+	"target_strategy": "OBJECTIVE",
+	"work_item": "BCM-M25-PERCENT400"
+}

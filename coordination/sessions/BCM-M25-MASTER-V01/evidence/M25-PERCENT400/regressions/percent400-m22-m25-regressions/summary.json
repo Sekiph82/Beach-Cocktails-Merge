@@ -1,0 +1,74 @@
+[
+  {
+    "id": "M18Completion",
+    "script": "res://tests/m18_completion_progression_probe.gd",
+    "exit_code": 0,
+    "marker": "M18_COMPLETION_PROGRESSION_RESULT=PASS"
+  },
+  {
+    "id": "M22Plugin",
+    "script": "res://tests/m22_001_plugin_contract_probe.gd",
+    "exit_code": 0,
+    "marker": "M22_001_PLUGIN_CONTRACT_RESULT=PASS checks=21 failures=0 authority_hash=2277588066"
+  },
+  {
+    "id": "M22Semantic",
+    "script": "res://tests/m22_002_semantic_bridge_probe.gd",
+    "exit_code": 0,
+    "marker": "M22_002_SEMANTIC_BRIDGE_RESULT=PASS checks=27 failures=0 authority_hash=2277588066"
+  },
+  {
+    "id": "M22Policy",
+    "script": "res://tests/m22_003_effect_policy_probe.gd",
+    "exit_code": 0,
+    "marker": "M22_003_EFFECT_POLICY_RESULT=PASS checks=97 failures=0 authority_hash=2277588066"
+  },
+  {
+    "id": "M23Micro",
+    "script": "res://tests/m23_001_micro_feedback_probe.gd",
+    "exit_code": 0,
+    "marker": "M23_001_MICRO_FEEDBACK_RESULT=PASS checks=28 failures=0 dispatches=5 cooldown_ms=120 captures=0"
+  },
+  {
+    "id": "M23Merge",
+    "script": "res://tests/m23_002_merge_feedback_probe.gd",
+    "exit_code": 0,
+    "marker": "M23_002_MERGE_FEEDBACK_RESULT=PASS checks=30 failures=0 dispatches=13 active_particles=40 captures=0"
+  },
+  {
+    "id": "M23Combo",
+    "script": "res://tests/m23_003_combo_milestone_probe.gd",
+    "exit_code": 0,
+    "marker": "M23_003_COMBO_MILESTONE_RESULT=PASS checks=29 failures=0 score_milestones=2 captures=0"
+  },
+  {
+    "id": "M24Progress",
+    "script": "res://tests/m24_001_order_progress_probe.gd",
+    "exit_code": 0,
+    "marker": "{\"captured_requests\":1,\"checks\":7,\"failures\":[],\"mode_plans\":{\"FULL\":{\"gff_effect\":\"color\",\"gff_params\":{\"color\":\"(1.0, 0.91, 0.64, 1.0)\",\"duration\":0.18},\"mode\":\"FULL\",\"spark_overrides\":{\"amount\":8,\"color\":\"(0.46, 0.78, 0.86, 0.95)\",\"color2\":\"(0.84, 0.78, 0.66, 0.0)\",\"lifetime\":0.25,\"size\":4.0,\"size_end\":1.0,\"speed\":65.0},\"spark_preset\":\"pickup\"},\"REDUCED\":{\"gff_effect\":\"color\",\"gff_params\":{\"color\":\"(1.0, 0.98, 0.92, 1.0)\",\"duration\":0.1},\"mode\":\"REDUCED\"}},\"result\":\"PASS\"}"
+  },
+  {
+    "id": "M24Complete",
+    "script": "res://tests/m24_002_order_complete_probe.gd",
+    "exit_code": 0,
+    "marker": "{\"captured_requests\":2,\"checks\":8,\"failures\":[],\"mode_plans\":{\"FULL\":{\"gff_effect\":\"punch_scale\",\"gff_params\":{\"duration\":0.24,\"intensity\":0.32},\"mode\":\"FULL\",\"spark_overrides\":{\"amount\":12,\"color\":\"(1.0, 0.8, 0.38, 0.96)\",\"color2\":\"(0.84, 0.78, 0.66, 0.0)\",\"lifetime\":0.36,\"size\":4.5,\"size_end\":1.0,\"speed\":82.0},\"spark_preset\":\"pickup\"},\"REDUCED\":{\"gff_effect\":\"color\",\"gff_params\":{\"color\":\"(1.0, 0.98, 0.92, 1.0)\",\"duration\":0.12},\"mode\":\"REDUCED\"}},\"order_complete_events\":1,\"result\":\"PASS\"}"
+  },
+  {
+    "id": "M24VIP",
+    "script": "res://tests/m24_003_vip_feedback_probe.gd",
+    "exit_code": 0,
+    "marker": "{\"bridge_traces\":2,\"checks\":8,\"failures\":[],\"full_completion\":{\"gff_effect\":\"punch_scale\",\"gff_params\":{\"duration\":0.38,\"intensity\":0.42},\"mode\":\"FULL\",\"spark_overrides\":{\"amount\":20,\"color\":\"(0.44, 0.82, 0.96, 0.96)\",\"color2\":\"(0.96, 0.82, 0.48, 0.0)\",\"lifetime\":0.55,\"size\":4.75,\"size_end\":1.0,\"speed\":90.0},\"spark_preset\":\"pickup\"},\"full_delivery\":{\"gff_effect\":\"color\",\"gff_params\":{\"color\":\"(0.68, 0.9, 1.0, 1.0)\",\"duration\":0.2},\"mode\":\"FULL\",\"spark_overrides\":{\"amount\":10,\"color\":\"(0.44, 0.82, 0.96, 0.96)\",\"color2\":\"(0.96, 0.82, 0.48, 0.0)\",\"lifetime\":0.3,\"size\":4.0,\"size_end\":1.0,\"speed\":76.0},\"spark_preset\":\"pickup\"},\"reduced_completion\":{\"gff_effect\":\"color\",\"gff_params\":{\"color\":\"(1.0, 0.98, 0.92, 1.0)\",\"duration\":0.12},\"mode\":\"REDUCED\"},\"reduced_delivery\":{\"gff_effect\":\"color\",\"gff_params\":{\"color\":\"(1.0, 0.98, 0.92, 1.0)\",\"duration\":0.1},\"mode\":\"REDUCED\"},\"result\":\"PASS\"}"
+  },
+  {
+    "id": "M25Presentation",
+    "script": "res://tests/m25_result_presentation_probe.gd",
+    "exit_code": 0,
+    "marker": "M25_RESULT_PRESENTATION_PROBE_RESULT=PASS checks=22 failures=0"
+  },
+  {
+    "id": "M25Percent400",
+    "script": "res://tests/m25_move_limit_probe.gd",
+    "exit_code": 0,
+    "marker": "M25_PERCENT400_RESULT PASS levels=100 vip_levels=25 overlap_levels=[8, 24, 32, 36, 56, 64, 72, 76, 80, 92, 96, 100]"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "task": "BCM-M25-PERCENT400",
+  "captured_utc": "2026-10-09T15:44:31.4689787Z",
+  "pretest_head": "80ebf4cacbf13d75b08973c25bdd88137c0e76a0",
+  "pretest_file_count": 262,
+  "after_file_count": 262,
+  "changed_count": 0,
+  "missing_count": 0,
+  "new_real_app_userdata_files": 0,
+  "changed": [],
+  "missing": [],
+  "new_real_app_userdata_files_list": [],
+  "status": "PASS"
+}

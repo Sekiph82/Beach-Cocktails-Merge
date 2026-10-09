@@ -1,0 +1,49 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M25_MOVE_RUNTIME PASS: production Home shell mounts
+M25_MOVE_RUNTIME PASS: L6 session starts with the derived 48-move budget
+M25_MOVE_RUNTIME PASS: move label clears visible order artwork and stays above the playable board
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L2 +20  COMBO x1 +0  (toplam: 120)
+MERGE L3 +50  COMBO x2 +13  (toplam: 183)
+MERGE L4 +100  COMBO x3 +50  (toplam: 333)
+MERGE L5 +200  COMBO x4 +150  (toplam: 683)
+TO-GO ORDER L5 +0  (toplam: 683)
+MERGE L2 +20  COMBO x1 +0  (toplam: 703)
+MERGE L4 +100  COMBO x1 +0  (toplam: 803)
+MERGE L3 +50  COMBO x2 +13  (toplam: 866)
+MERGE L4 +100  COMBO x3 +50  (toplam: 1016)
+MERGE L5 +200  COMBO x4 +150  (toplam: 1366)
+MERGE L3 +50  COMBO x1 +0  (toplam: 1416)
+MERGE L3 +50  COMBO x2 +13  (toplam: 1479)
+MERGE L4 +100  COMBO x3 +50  (toplam: 1629)
+MERGE L3 +50  COMBO x1 +0  (toplam: 1679)
+MERGE L4 +100  COMBO x1 +0  (toplam: 1779)
+MERGE L2 +20  COMBO x1 +0  (toplam: 1799)
+MERGE L3 +50  COMBO x2 +13  (toplam: 1862)
+MERGE L2 +20  COMBO x1 +0  (toplam: 1882)
+MERGE L4 +100  COMBO x2 +25  (toplam: 2007)
+MERGE L5 +200  COMBO x3 +100  (toplam: 2307)
+MERGE L3 +50  COMBO x1 +0  (toplam: 2357)
+MERGE L3 +50  COMBO x1 +0  (toplam: 2407)
+MERGE L2 +20  COMBO x2 +5  (toplam: 2432)
+MERGE L3 +50  COMBO x1 +0  (toplam: 2482)
+MERGE L4 +100  COMBO x2 +25  (toplam: 2607)
+MERGE L2 +20  COMBO x1 +0  (toplam: 2627)
+MERGE L3 +50  COMBO x2 +13  (toplam: 2690)
+MERGE L4 +100  COMBO x3 +50  (toplam: 2840)
+MERGE L4 +100  COMBO x1 +0  (toplam: 2940)
+MERGE L5 +200  COMBO x2 +50  (toplam: 3190)
+MERGE L6 +350  COMBO x3 +175  (toplam: 3715)
+MERGE L4 +100  COMBO x4 +75  (toplam: 3890)
+TO-GO ORDER L6 +1000  (toplam: 4890)
+M25_MOVE_RUNTIME PASS: objective-focused real mouse route reaches a natural WIN within budget
+M25_MOVE_RUNTIME PASS: no session accepted more than 4T shots
+M25_MOVE_RUNTIME PASS: WIN Island Map action routes once to the map
+M25_MOVE_RUNTIME_RESULT PASS failures=0 first=WIN/NORMAL_OBJECTIVES_COMPLETE retry=NONE/ shots=42 inputs=84

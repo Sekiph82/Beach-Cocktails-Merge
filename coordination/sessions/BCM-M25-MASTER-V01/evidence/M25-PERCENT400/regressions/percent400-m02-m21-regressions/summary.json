@@ -1,0 +1,74 @@
+[
+  {
+    "id": "M02",
+    "script": "res://tests/m02_physics_regression.gd",
+    "exit_code": 0,
+    "marker": "M02_PROBE_RESULT=PASS"
+  },
+  {
+    "id": "M03",
+    "script": "res://tests/m03_economy_regression.gd",
+    "exit_code": 0,
+    "marker": "M03_PROBE_RESULT=PASS"
+  },
+  {
+    "id": "M09",
+    "script": "res://tests/m09_audio_haptics_probe.gd",
+    "exit_code": 0,
+    "marker": "M09_AUDIO_HAPTICS_RESULT=PASS"
+  },
+  {
+    "id": "M15",
+    "script": "res://tests/m15_vip_boosters_economy_probe.gd",
+    "exit_code": 0,
+    "marker": "M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS"
+  },
+  {
+    "id": "M16",
+    "script": "res://tests/m16_sunny_cove_content_probe.gd",
+    "exit_code": 0,
+    "marker": "M16_SUNNY_COVE_CONTENT_RESULT=PASS"
+  },
+  {
+    "id": "M17VIP",
+    "script": "res://tests/m17_vip_optionality_probe.gd",
+    "exit_code": 0,
+    "marker": "M17_VIP_OPTIONALITY_RESULT=PASS"
+  },
+  {
+    "id": "M18Star",
+    "script": "res://tests/m18_star_contract_probe.gd",
+    "exit_code": 0,
+    "marker": "M18_STAR_CONTRACT_RESULT=PASS"
+  },
+  {
+    "id": "M18Replay",
+    "script": "res://tests/m18_replay_persistence_probe.gd",
+    "exit_code": 0,
+    "marker": "M18_REPLAY_PERSISTENCE_RESULT=PASS"
+  },
+  {
+    "id": "M18Reward",
+    "script": "res://tests/m18_cumulative_star_rewards_probe.gd",
+    "exit_code": 0,
+    "marker": "M18_CUMULATIVE_STAR_REWARDS_RESULT=PASS"
+  },
+  {
+    "id": "M18Progression",
+    "script": "res://tests/m18_completion_progression_probe.gd",
+    "exit_code": 1,
+    "marker": null
+  },
+  {
+    "id": "M21Progression",
+    "script": "res://tests/m21_full_progression_probe.gd",
+    "exit_code": 0,
+    "marker": "M21_CHILD_03_RESULT=PASS completed=100 checkpoints=5"
+  },
+  {
+    "id": "M21Persistence",
+    "script": "res://tests/m21_release_persistence_probe.gd",
+    "exit_code": 0,
+    "marker": "M21_RELEASE_PERSISTENCE_RESULT=PASS"
+  }
+]
