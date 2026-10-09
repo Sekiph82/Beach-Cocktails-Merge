@@ -83,16 +83,12 @@ func _run() -> void:
     var vip_definition := {"vip": {"enabled": true}, "score_star_thresholds": {"two_stars": 100, "three_stars": 250}}
     var no_vip_definition := {"vip": null, "score_star_thresholds": {"two_stars": 100, "three_stars": 250}}
     var disabled_vip_definition := {"vip": {"enabled": false}, "score_star_thresholds": {"two_stars": null, "three_stars": 250}}
-    _check("incomplete result earns zero stars", bridge.calculate_stars(false, true, 999, vip_definition) == 0)
-    _check("completed below two-star score earns one star", bridge.calculate_stars(true, false, 99, no_vip_definition) == 1)
-    _check("non-VIP reaches two stars at the two-star score threshold", bridge.calculate_stars(true, false, 100, no_vip_definition) == 2)
-    _check("non-VIP reaches three stars at the three-star score threshold", bridge.calculate_stars(true, false, 250, no_vip_definition) == 3)
-    _check("VIP completion below the two-star threshold remains one star", bridge.calculate_stars(true, true, 99, vip_definition) == 1)
-    _check("VIP state does not change two-star score mastery", bridge.calculate_stars(true, false, 100, vip_definition) == 2 and bridge.calculate_stars(true, true, 100, vip_definition) == 2)
-    _check("VIP score below the three-star threshold remains two stars", bridge.calculate_stars(true, false, 249, vip_definition) == 2 and bridge.calculate_stars(true, true, 249, vip_definition) == 2)
-    _check("VIP level without VIP completion caps three-star score at two", bridge.calculate_stars(true, false, 250, vip_definition) == 2)
-    _check("VIP level with VIP completion earns three stars at threshold", bridge.calculate_stars(true, true, 250, vip_definition) == 3)
-    _check("disabled VIP does not gate three-star score", bridge.calculate_stars(true, false, 250, disabled_vip_definition) == 3)
+    _check("incomplete result earns zero stars", bridge.calculate_stars(false, 0, 8) == 0)
+    _check("moves below 200 percent earn three stars", bridge.calculate_stars(true, 15, 8) == 3)
+    _check("exact 200 percent earns two stars", bridge.calculate_stars(true, 16, 8) == 2)
+    _check("exact 300 percent earns one star", bridge.calculate_stars(true, 24, 8) == 1)
+    _check("exact 400 percent successful completion earns one star", bridge.calculate_stars(true, 32, 8) == 1)
+    _check("moves above 400 percent are never rewarded", bridge.calculate_stars(true, 33, 8) == 0)
 
     var database = _database()
     var campaign = _campaign(database)
@@ -101,7 +97,7 @@ func _run() -> void:
     runtime_bridge.start_session(ISLAND_ID, 1)
     runtime_bridge.mark_gameplay_ready()
     var terminal: Dictionary = runtime_bridge.record_to_go_delivery(6, 1, "normal-completion", 0)["terminal"]
-    _check("normal bridge completion reports one star", terminal.get("outcome", "") == "WIN" and terminal.get("stars", 0) == 1)
+    _check("normal bridge completion uses committed moves, not score", terminal.get("outcome", "") == "WIN" and terminal.get("stars", 0) == 3)
     _check("one-star completion unlocks the next level", campaign.is_level_unlocked(ISLAND_ID, 2))
     _check("stars do not gate progression", campaign.get_next_level(ISLAND_ID, 1).get("ok", false))
 

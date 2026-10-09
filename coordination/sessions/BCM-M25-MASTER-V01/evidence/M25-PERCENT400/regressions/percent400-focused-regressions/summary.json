@@ -1,0 +1,32 @@
+[
+  {
+    "script": "res://tests/m17_vip_optionality_probe.gd",
+    "exit_code": 0,
+    "tail": "M17_V05_PROBE PASS: I second replay still wins normally | M17_V05_PROBE PASS: I second replay does not duplicate VIP reward | M17_V05_PROBE PASS: I second replay keeps persisted vip_completed=true | M17_VIP_OPTIONALITY_RESULT=PASS | "
+  },
+  {
+    "script": "res://tests/m18_star_contract_probe.gd",
+    "exit_code": 0,
+    "tail": "M18_STAR_PROBE PASS: normal bridge completion uses committed moves, not score | M18_STAR_PROBE PASS: one-star completion unlocks the next level | M18_STAR_PROBE PASS: stars do not gate progression | M18_STAR_CONTRACT_RESULT=PASS | "
+  },
+  {
+    "script": "res://tests/m18_replay_persistence_probe.gd",
+    "exit_code": 0,
+    "tail": "M18_REPLAY_PROBE PASS: reloaded campaign preserves the same record | M18_REPLAY_PROBE PASS: current saves reject out-of-range stars | M18_REPLAY_PROBE PASS: older save migration preserves bounded replay records | M18_REPLAY_PERSISTENCE_RESULT=PASS | "
+  },
+  {
+    "script": "res://tests/m18_cumulative_star_rewards_probe.gd",
+    "exit_code": 0,
+    "tail": "M18_CUMULATIVE_REWARDS_PROBE PASS: economy configures from campaign state | M18_CUMULATIVE_REWARDS_PROBE PASS: CampaignManager configures with economy authority | M18_CUMULATIVE_REWARDS_PROBE PASS: one-star completion advances progression without a reward gate | M18_CUMULATIVE_STAR_REWARDS_RESULT=PASS | "
+  },
+  {
+    "script": "res://tests/m23_003_combo_milestone_probe.gd",
+    "exit_code": 0,
+    "tail": "MERGE L12 +6500  COMBO x4 +4875  (toplam: 35750) | MERGE L12 +6500  COMBO x5 +6500  (toplam: 48750) | MERGE L12 +6500  COMBO x6 +8125  (toplam: 63375) | M23_003_COMBO_MILESTONE_RESULT=PASS checks=29 failures=0 score_milestones=2 captures=0 | "
+  },
+  {
+    "script": "res://tests/closeout-001/m23_003_combo_milestone_probe_closeout.gd",
+    "exit_code": 0,
+    "tail": "MERGE L12 +6500  COMBO x4 +4875  (toplam: 35750) | MERGE L12 +6500  COMBO x5 +6500  (toplam: 48750) | MERGE L12 +6500  COMBO x6 +8125  (toplam: 63375) | M23_003_COMBO_MILESTONE_RESULT=PASS checks=29 failures=0 score_milestones=2 captures=0 | "
+  }
+]

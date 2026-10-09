@@ -112,7 +112,12 @@ func _run() -> void:
 
     var win_bridge = BRIDGE_SCRIPT.new()
     _check("win bridge configures", win_bridge.configure(database, campaign))
-    _check("one-star completion resolves WIN", not win_bridge.start_session(SUNNY_COVE, 1).is_empty() and win_bridge.mark_gameplay_ready() and win_bridge.record_to_go_delivery(5, 1, "normal-completion", 0).get("terminal", {}).get("stars", 0) == 1)
+    var win_configuration: Dictionary = win_bridge.start_session(SUNNY_COVE, 1)
+    var win_started := not win_configuration.is_empty() and win_bridge.mark_gameplay_ready()
+    for move in range(1, 13):
+        win_bridge.record_committed_shot("one-star-%d" % move)
+    var one_star_result: Dictionary = win_bridge.record_to_go_delivery(5, 1, "normal-completion", 0)
+    _check("one-star completion resolves WIN at the 300 percent move boundary", win_started and int(win_configuration.get("theoretical_shots_total", 0)) == 4 and int(win_configuration.get("move_limit", 0)) == 16 and one_star_result.get("terminal", {}).get("outcome", "") == "WIN" and one_star_result.get("terminal", {}).get("stars", 0) == 1)
     _check("one-star completion unlocks next level", campaign.is_level_unlocked(SUNNY_COVE, 2))
     var next_one: Dictionary = campaign.resolve_next_level(SUNNY_COVE, 1)
     var next_two: Dictionary = campaign.resolve_next_level(SUNNY_COVE, 1)

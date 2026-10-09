@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+MERGE L12 +6500  COMBO x1 +0  (toplam: 6500)
+MERGE L12 +6500  COMBO x2 +1625  (toplam: 14625)
+MERGE L12 +6500  COMBO x3 +3250  (toplam: 24375)
+MERGE L12 +6500  COMBO x4 +4875  (toplam: 35750)
+MERGE L12 +6500  COMBO x5 +6500  (toplam: 48750)
+MERGE L12 +6500  COMBO x6 +8125  (toplam: 63375)
+M23_003_COMBO_MILESTONE_RESULT=PASS checks=29 failures=0 score_milestones=2 captures=0

@@ -25,6 +25,14 @@ func _check(label: String, condition: bool) -> void:
         print("M14_PROBE FAIL: %s" % label)
 
 
+func _commit_test_moves(bridge, count: int, prefix: String) -> bool:
+    for index in range(count):
+        var result: Dictionary = bridge.record_committed_shot("%s-%d" % [prefix, index])
+        if not result.get("ok", false):
+            return false
+    return true
+
+
 func _islands() -> Dictionary:
     return {
         "schema_version": 1,
@@ -157,7 +165,9 @@ func _run() -> void:
     var pre_vip_result := win_bridge.record_to_go_delivery(7, 1, "l7")
     var win_result: Dictionary = pre_vip_result["terminal"]
     _check("incomplete VIP never blocks normal WIN", win_result["outcome"] == "WIN" and not win_result["vip_completed"])
-    _check("score-only completion cannot earn three stars", win_result["stars"] == 2)
+    var initial_budget: Dictionary = win_bridge.get_move_budget_state()
+    _check("inclusive move denominator includes optional VIP", initial_budget["theoretical_shots_to_go"] == 32 and initial_budget["theoretical_shots_vip"] == 512 and initial_budget["theoretical_shots_total"] == 544)
+    _check("score and optional VIP do not reduce a zero-move three-star WIN", win_result["stars"] == 3)
     _check("WIN progression is submitted exactly once", campaign.is_level_completed(ISLAND_ID, 1) and win_bridge.get_progression_result()["ok"] and win_bridge.resolve_win() == win_result)
     var terminal_time: float = win_bridge.timer_remaining_sec
     win_bridge.tick(2.0)
@@ -169,32 +179,36 @@ func _run() -> void:
     vip_low_bridge.mark_gameplay_ready()
     vip_low_bridge.set_current_score(100)
     vip_low_bridge.set_vip_completed(true)
+    _check("VIP low fixture commits exactly the two-times threshold", _commit_test_moves(vip_low_bridge, 1088, "vip-low"))
     vip_low_bridge.record_to_go_delivery(6, 2, "vip-low-l6")
     var vip_low_result: Dictionary = vip_low_bridge.record_to_go_delivery(7, 1, "vip-low-l7")["terminal"]
-    _check("VIP completion with insufficient three-star score earns two stars", vip_low_result["stars"] == 2)
+    _check("VIP completion at two-times moves earns two stars", vip_low_result["stars"] == 2)
 
     var vip_high_bridge = _bridge(database, matrix_campaign)
     vip_high_bridge.start_session(ISLAND_ID, 1)
     vip_high_bridge.mark_gameplay_ready()
     vip_high_bridge.set_current_score(300)
     vip_high_bridge.set_vip_completed(true)
+    _check("VIP high fixture commits one move below the two-times threshold", _commit_test_moves(vip_high_bridge, 1087, "vip-high"))
     vip_high_bridge.record_to_go_delivery(6, 2, "vip-high-l6")
     var vip_high_result: Dictionary = vip_high_bridge.record_to_go_delivery(7, 1, "vip-high-l7")["terminal"]
-    _check("VIP completion with three-star score earns three stars", vip_high_result["stars"] == 3)
+    _check("VIP completion one move below two-times earns three stars", vip_high_result["stars"] == 3)
 
     var plain_bridge = _bridge(database, matrix_campaign)
     plain_bridge.start_session(ISLAND_ID, 2)
     plain_bridge.mark_gameplay_ready()
     plain_bridge.set_current_score(0)
+    _check("plain fixture commits exactly three-times its ideal shots", _commit_test_moves(plain_bridge, 24, "plain"))
     var plain_result: Dictionary = plain_bridge.record_to_go_delivery(6, 1, "plain-normal")["terminal"]
-    _check("plain normal completion earns one star", plain_result["stars"] == 1)
+    _check("plain normal completion at three-times moves earns one star", plain_result["stars"] == 1)
 
     var replay_configuration: Dictionary = win_bridge.retry_session()
     _check("Retry creates a fresh READY session from original definition", replay_configuration["island_id"] == ISLAND_ID and replay_configuration["level_id"] == 1 and win_bridge.session_state == win_bridge.STATE_READY and is_equal_approx(win_bridge.timer_remaining_sec, 0.0))
     win_bridge.mark_gameplay_ready()
+    _check("worse replay commits three-times its inclusive ideal shots", _commit_test_moves(win_bridge, 192, "replay"))
     win_bridge.record_to_go_delivery(6, 2, "replay-l6", 1)
     win_bridge.record_to_go_delivery(7, 1, "replay-l7", 1)
-    _check("worse replay cannot lower best score or stars", campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["best_score"] == 300 and campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["stars"] == 2)
+    _check("worse replay cannot lower best score or stars", campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["best_score"] == 300 and campaign.get_progression_state()["islands"][ISLAND_ID]["completed_levels"]["1"]["stars"] == 3)
     _check("Next Level resolves only an unlocked next level", win_bridge.next_level_session()["level_id"] == 2 and win_bridge.active_level_id == 2)
     _check("next-level session starts with clean objective/untimed state", win_bridge.session_state == win_bridge.STATE_READY and win_bridge.get_objective_state()["normal_remaining"][6] == 1 and is_equal_approx(win_bridge.timer_remaining_sec, 0.0))
     win_bridge.mark_gameplay_ready()

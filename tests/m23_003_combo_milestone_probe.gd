@@ -125,9 +125,9 @@ func _run() -> void:
 	manager._add_score(100)
 	manager._refresh_hud()
 	manager._refresh_hud()
-	_check("2-star edge crossing emits exactly once despite repeated HUD refresh", _milestone_count("two_stars", score_requests_before) == 1)
+	_check("score crossing does not emit star-progress feedback", _milestone_count("two_stars", score_requests_before) == 0)
 	manager._add_score(150)
-	_check("3-star threshold emits once at exact crossing", _milestone_count("three_stars", score_requests_before) == 1)
+	_check("score threshold does not award or preview stars", _milestone_count("three_stars", score_requests_before) == 0)
 	manager._add_score(750)
 	_check("equal prior-best score is not treated as a new record", _milestone_count("prior_best", score_requests_before) == 0 and manager.score == manager.best_score)
 	manager._add_score(1)
@@ -145,8 +145,7 @@ func _run() -> void:
 	service.set_session_context({"session_id": "m23-003-threshold-session-B-retry"})
 	var retry_start := _score_requests.size()
 	manager._add_score(250)
-	_check("replay/retry session gets one new 2-star and 3-star crossing", _milestone_count("two_stars", retry_start) == 1 and _milestone_count("three_stars", retry_start) == 1)
-	_check("retry semantic tokens include the new session identity", _milestone_ids_have_prefix(retry_start, "score-milestone:m23-003-threshold-session-B-retry:"))
+	_check("replay/retry score changes never emit star-progress feedback", _milestone_count("two_stars", retry_start) == 0 and _milestone_count("three_stars", retry_start) == 0)
 
 	var vip_session := FakeSession.new()
 	vip_session.configuration["vip"] = {"cocktail_level": 5, "quantity": 1}
@@ -158,11 +157,11 @@ func _run() -> void:
 	service.set_session_context({"session_id": "m23-003-vip-threshold"})
 	var vip_start := _score_requests.size()
 	manager._add_score(250)
-	_check("VIP-gated third star waits until the existing VIP condition is complete", _milestone_count("two_stars", vip_start) == 1 and _milestone_count("three_stars", vip_start) == 0)
+	_check("VIP completion state does not create score-derived star feedback", _milestone_count("two_stars", vip_start) == 0 and _milestone_count("three_stars", vip_start) == 0)
 	vip_session.vip_state.completed = true
-	manager._emit_score_threshold_crossings(manager.score, manager.best_score, true)
-	manager._emit_score_threshold_crossings(manager.score, manager.best_score, true)
-	_check("eligible VIP-gated third star emits once after completion", _milestone_count("three_stars", vip_start) == 1)
+	manager._emit_score_threshold_crossings(manager.score, manager.best_score)
+	manager._emit_score_threshold_crossings(manager.score, manager.best_score)
+	_check("VIP bonus completion leaves move-star evaluation to terminal result", _milestone_count("three_stars", vip_start) == 0)
 
 	bridge.set_presentation_mode("REDUCED")
 	manager._score_milestones_emitted.clear()
