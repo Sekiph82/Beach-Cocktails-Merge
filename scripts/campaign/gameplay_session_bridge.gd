@@ -590,11 +590,24 @@ func _submit_progression(result: Dictionary) -> void:
     if _progression_submitted or campaign_manager == null:
         return
     _progression_submitted = true
+    var was_island_complete: bool = campaign_manager.is_island_complete(active_island_id)
+    var previously_unlocked: Array = campaign_manager.get_progression_state().get("unlocked_islands", []).duplicate(true)
     _progression_result = campaign_manager.mark_level_completed(active_island_id, active_level_id, {
         "stars": int(result.get("stars", 1)),
         "score": int(result.get("score", 0)),
         "vip_completed": bool(result.get("vip_completed", false)),
     })
+    if not bool(_progression_result.get("ok", false)):
+        return
+    _progression_result["island_completion_transition"] = not was_island_complete and campaign_manager.is_island_complete(active_island_id)
+    var newly_unlocked_islands: Array[String] = []
+    var unlocked_after: Array = campaign_manager.get_progression_state().get("unlocked_islands", [])
+    for unlocked_id in unlocked_after:
+        if not previously_unlocked.has(unlocked_id):
+            newly_unlocked_islands.append(str(unlocked_id))
+    newly_unlocked_islands.sort()
+    _progression_result["newly_unlocked_islands"] = newly_unlocked_islands
+    _progression_result["transition_token"] = "campaign:%s:%d:%d" % [active_island_id, active_level_id, _session_serial]
 
 
 func _derive_stars() -> int:

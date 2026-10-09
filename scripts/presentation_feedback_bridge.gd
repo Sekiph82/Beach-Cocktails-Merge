@@ -36,6 +36,8 @@ var _max_process_delta_ms := 0.0
 var _process_delta_sample_count := 0
 var _dropped_frame_estimate_count := 0
 var _result_presentation_tokens: Dictionary = {}
+var _pending_large_requests: Array[Dictionary] = []
+var _dispatching_queued_large := false
 var dispatch_count := 0
 var no_op_count := 0
 
@@ -97,6 +99,7 @@ func get_frame_diagnostics() -> Dictionary:
 
 
 func _process(delta: float) -> void:
+	_flush_serialized_large_request()
 	if not _visual_diagnostics_enabled:
 		return
 	_last_process_delta_ms = delta * 1000.0
@@ -175,12 +178,17 @@ func _disconnect_feedback_service() -> void:
 
 func _on_semantic_requested(request: Dictionary) -> void:
 	var kind := str(request.get("kind", ""))
-	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete", "vip_delivery", "vip_complete", "game_success", "game_fail", "level_unlock", "island_milestone"].has(kind):
+	if not ["cocktail_launch", "table_contact", "merge", "score_mastery", "order_progress", "order_complete", "vip_delivery", "vip_complete", "game_success", "game_fail", "level_unlock", "island_milestone", "island_complete", "island_unlock"].has(kind):
 		return
 	var payload: Dictionary = request.get("payload", {})
 	if kind == "vip_delivery" and int(payload.get("accepted", 0)) <= 0:
 		return
 	if kind == "vip_complete" and not bool(payload.get("completed_transition", false)):
+		return
+	if kind in ["island_complete", "island_unlock"] and not bool(payload.get("new_transition", false)):
+		return
+	if _policy != null and _policy.is_large_celebration(kind) and not _dispatching_queued_large and _active_spark_particle_count() > 0:
+		_pending_large_requests.append(request.duplicate(true))
 		return
 	var trace_id := _begin_visual_trace(request)
 	if not _production_dispatch_enabled:
@@ -215,6 +223,10 @@ func _on_semantic_requested(request: Dictionary) -> void:
 		plan = _level_unlock_plan(mode)
 	elif kind == "island_milestone":
 		plan = _island_milestone_plan(mode)
+	elif kind == "island_complete":
+		plan = _island_complete_plan(mode)
+	elif kind == "island_unlock":
+		plan = _island_unlock_plan(mode)
 	_update_visual_trace(trace_id, {
 		"target": _canvas_item_snapshot(target_value as Node),
 		"plan": plan.duplicate(true),
@@ -479,6 +491,53 @@ func _island_milestone_plan(mode: String) -> Dictionary:
 		"color2": SPARK_COLOR_END,
 	}
 	return result
+
+
+func _island_complete_plan(mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	return {
+		"mode": mode,
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10, "color": REDUCED_TINT} if reduced else {"duration": 0.32, "color": Color(1.0, 0.82, 0.42, 1.0)},
+		"spark_preset": "dust" if reduced else "pickup",
+		"spark_overrides": {
+			"amount": 10 if reduced else 40,
+			"lifetime": 0.44 if reduced else 1.10,
+			"speed": 38.0 if reduced else 105.0,
+			"size": 4.5,
+			"size_end": 1.0,
+			"color": Color(0.80, 0.91, 0.76, 0.9) if reduced else Color(1.0, 0.78, 0.32, 0.96),
+			"color2": SPARK_COLOR_END,
+		},
+	}
+
+
+func _island_unlock_plan(mode: String) -> Dictionary:
+	var reduced := mode == "REDUCED"
+	return {
+		"mode": mode,
+		"gff_effect": "color",
+		"gff_params": {"duration": 0.10, "color": REDUCED_TINT} if reduced else {"duration": 0.34, "color": Color(0.62, 0.92, 0.76, 1.0)},
+		"spark_preset": "dust" if reduced else "pickup",
+		"spark_overrides": {
+			"amount": 10 if reduced else 48,
+			"lifetime": 0.48 if reduced else 1.60,
+			"speed": 35.0 if reduced else 120.0,
+			"size": 4.0,
+			"size_end": 0.9,
+			"color": Color(0.78, 0.92, 0.78, 0.9) if reduced else Color(0.50, 0.88, 0.66, 0.96),
+			"color2": SPARK_COLOR_END,
+		},
+	}
+
+
+func _flush_serialized_large_request() -> void:
+	if _pending_large_requests.is_empty() or _active_spark_particle_count() > 0:
+		return
+	var request: Dictionary = _pending_large_requests.pop_front()
+	_dispatching_queued_large = true
+	_on_semantic_requested(request)
+	_dispatching_queued_large = false
 
 
 func _dispatch_plan(request: Dictionary, target: Node, plan: Dictionary, fixture: bool, trace_id: String = "") -> bool:
@@ -1072,6 +1131,17 @@ func _prune_expired_gff_outputs() -> void:
 
 
 func _active_spark_particle_count() -> int:
+	var pool := get_node_or_null("/root/Spark/SaltmireSparkPool")
+	if is_instance_valid(pool):
+		var live_total := 0
+		for emitter in pool.get_children():
+			var parts: Variant = emitter.get("_parts")
+			if not parts is Array:
+				continue
+			for particle in parts:
+				if particle is Dictionary and float(particle.get("age", 0.0)) < float(particle.get("life", 0.0)):
+					live_total += 1
+		return live_total
 	var total := 0
 	for output in _active_spark_outputs:
 		total += int(output.get("amount", 0))

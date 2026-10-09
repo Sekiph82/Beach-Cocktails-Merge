@@ -87,6 +87,23 @@ func apply_presentation_settings(state: Dictionary) -> void:
 	set_presentation_mode("REDUCED" if bool(state.get("reduced_motion", false)) else "FULL")
 
 
+func present_island_completion(transition: Dictionary) -> bool:
+	if transition.is_empty() or campaign_manager == null or island_id.is_empty():
+		return false
+	if str(transition.get("completed_island_id", "")) != island_id:
+		return false
+	if not bool(transition.get("island_completion_transition", false)) or not campaign_manager.is_island_complete(island_id):
+		return false
+	if _title_label == null or _presentation_bridge == null or _feedback_service == null:
+		return false
+	_title_label.add_to_group("presentation_effect_target")
+	return _feedback_service.request_semantic("island_complete", {
+		"island_id": island_id,
+		"new_transition": true,
+		"presentation_target": _title_label,
+	}, "%s:island-complete:%s" % [str(transition.get("transition_token", "")), island_id], {"source": "campaign_island_map"})
+
+
 func configure_island(
 		configured_island_id: String,
 		database,

@@ -28,6 +28,8 @@ const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
+const FEEDBACK_SERVICE_SCRIPT := preload("res://scripts/feedback_service.gd")
+const PRESENTATION_BRIDGE_SCRIPT := preload("res://scripts/presentation_feedback_bridge.gd")
 
 var level_database
 var campaign_manager
@@ -42,6 +44,9 @@ var _map_canvas: Control
 var _marker_layer: Control
 var _route_layer: Control
 var _feedback_overlay: CampaignFeedbackOverlay
+var _feedback_service: FeedbackService
+var _presentation_bridge: PresentationFeedbackBridge
+var _pending_campaign_transition: Dictionary = {}
 
 
 func _ready() -> void:
@@ -60,6 +65,19 @@ func configure_campaign(database, manager) -> bool:
 	campaign_manager = manager
 	_bind_campaign_signals()
 	refresh()
+	return true
+
+
+func set_presentation_mode(mode: String) -> bool:
+	return _presentation_bridge != null and _presentation_bridge.set_presentation_mode(mode)
+
+
+func present_campaign_transition(transition: Dictionary) -> bool:
+	if transition.is_empty() or campaign_manager == null:
+		return false
+	_pending_campaign_transition = transition.duplicate(true)
+	refresh()
+	call_deferred("_flush_pending_campaign_transition")
 	return true
 
 
@@ -98,6 +116,12 @@ func _refresh_deferred() -> void:
 		var entry = CARD_SCENE.instantiate()
 		_marker_layer.add_child(entry)
 		entry.configure(definition, state, str(feedback.get("reason", "")), str(feedback.get("progress", "")))
+		var island_art := entry.get_node_or_null("IslandArt") as CanvasItem
+		if island_art != null and not island_art.is_in_group("presentation_effect_target"):
+			island_art.add_to_group("presentation_effect_target")
+		var island_name := entry.get_node_or_null("IslandNamePanel") as CanvasItem
+		if island_name != null and not island_name.is_in_group("presentation_effect_target"):
+			island_name.add_to_group("presentation_effect_target")
 		entry.island_pressed.connect(_on_island_pressed)
 		_entries[island_id] = entry
 		_definitions_by_id[island_id] = definition
@@ -107,6 +131,7 @@ func _refresh_deferred() -> void:
 		selected_island_id = campaign_manager.current_island_id
 	_layout_map()
 	call_deferred("_layout_map")
+	call_deferred("_flush_pending_campaign_transition")
 
 
 func get_entry_count() -> int:
@@ -276,6 +301,16 @@ func get_layout_report(reference_size: Vector2 = CANONICAL_SIZE) -> Dictionary:
 
 
 func _build_shell() -> void:
+	_feedback_service = FEEDBACK_SERVICE_SCRIPT.new() as FeedbackService
+	_feedback_service.name = "WorldMapFeedbackService"
+	add_child(_feedback_service)
+	_presentation_bridge = PRESENTATION_BRIDGE_SCRIPT.new() as PresentationFeedbackBridge
+	_presentation_bridge.name = "WorldMapPresentationFeedbackBridge"
+	add_child(_presentation_bridge)
+	_presentation_bridge.configure(_feedback_service, get_tree().root)
+	_presentation_bridge.set_presentation_mode("FULL")
+	_presentation_bridge.set_production_dispatch_enabled(true)
+	_presentation_bridge.set_visual_diagnostics_enabled(true)
 	var background := TextureRect.new()
 	background.name = "WorldMapBackground"
 	background.texture = MAP_BACKGROUND
@@ -469,6 +504,30 @@ func _bind_campaign_signals() -> void:
 
 func _on_progression_changed(_island_id: String, _level_id: int) -> void:
 	refresh()
+
+
+func _flush_pending_campaign_transition() -> void:
+	if _pending_campaign_transition.is_empty() or campaign_manager == null or not is_instance_valid(_presentation_bridge):
+		return
+	if _entries.size() != _ordered_ids.size() or _entries.is_empty():
+		return
+	var token := str(_pending_campaign_transition.get("transition_token", ""))
+	if token.is_empty():
+		return
+	var unlock_ids: Array = _pending_campaign_transition.get("newly_unlocked_islands", [])
+	for island_id_value in unlock_ids:
+		var island_id := str(island_id_value)
+		if not campaign_manager.is_island_unlocked(island_id):
+			continue
+		var entry: Node = _entries.get(island_id)
+		var target := entry.get_node_or_null("IslandArt") if is_instance_valid(entry) else null
+		if is_instance_valid(target):
+			_feedback_service.request_semantic("island_unlock", {
+				"island_id": island_id,
+				"new_transition": true,
+				"presentation_target": target,
+			}, "%s:island-unlock:%s" % [token, island_id], {"source": "campaign_world_map"})
+	_pending_campaign_transition.clear()
 
 
 func _on_feedback_action(action: String) -> void:

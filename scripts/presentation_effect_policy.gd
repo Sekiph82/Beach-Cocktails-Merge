@@ -282,8 +282,7 @@ func can_start_large_celebration(active_count: int) -> bool:
 
 
 func is_large_celebration(kind: String) -> bool:
-	var row: Dictionary = POLICY.get(kind, {})
-	return ["WIN", "MASTERY", "ISLAND_COMPLETE", "ISLAND_UNLOCK"].has(str(row.get("tier", "")))
+	return ["game_success", "score_mastery", "island_complete", "island_unlock"].has(kind)
 
 
 func validate_live_particle_count(kind: String, active_count: int, requested_count: int) -> Dictionary:

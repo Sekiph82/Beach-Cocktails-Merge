@@ -42,6 +42,7 @@ var _result_canvas_root: Control
 var _result_feedback
 var _result_feedback_creation_queued := false
 var _pending_terminal_result: Dictionary = {}
+var _pending_campaign_transition: Dictionary = {}
 var _terminal_result_handled := false
 var _result_presentation_count := 0
 var _restoration_by_island: Dictionary = {}
@@ -100,6 +101,9 @@ func show_island_map(island_id: String) -> bool:
 	var restoration: Dictionary = _restoration_by_island.get(island_id, {})
 	if not _island_map.configure_island(island_id, level_database, campaign_manager, restoration):
 		return false
+	if str(_pending_campaign_transition.get("completed_island_id", "")) == island_id:
+		_island_map.present_island_completion(_pending_campaign_transition)
+		_pending_campaign_transition["island_completion_transition"] = false
 	_world_map.visible = false
 	_island_map.visible = true
 	current_view = VIEW_ISLAND_MAP
@@ -120,6 +124,9 @@ func show_world_map() -> bool:
 			_session_bridge.clear_session()
 	_island_map.visible = false
 	_world_map.visible = true
+	if not _pending_campaign_transition.is_empty() and not _pending_campaign_transition.get("newly_unlocked_islands", []).is_empty():
+		_world_map.present_campaign_transition(_pending_campaign_transition)
+		_pending_campaign_transition["newly_unlocked_islands"] = []
 	_world_map.refresh()
 	current_view = VIEW_WORLD_MAP
 	world_map_entered.emit()
@@ -128,6 +135,8 @@ func show_world_map() -> bool:
 
 func apply_presentation_settings(state: Dictionary) -> void:
 	_presentation_settings = state.duplicate(true)
+	if is_instance_valid(_world_map):
+		_world_map.set_presentation_mode("REDUCED" if bool(state.get("reduced_motion", false)) else "FULL")
 	if is_instance_valid(_island_map):
 		_island_map.apply_presentation_settings(state)
 	var gameplay := get_node_or_null("CampaignGameplay")
@@ -377,6 +386,16 @@ func _on_session_terminal(result: Dictionary) -> void:
 		return
 	_terminal_result_handled = true
 	_pending_terminal_result = result.duplicate(true)
+	_pending_campaign_transition.clear()
+	if str(result.get("outcome", "")) == "WIN":
+		var progression: Dictionary = result.get("progression", {})
+		if bool(progression.get("island_completion_transition", false)) or not progression.get("newly_unlocked_islands", []).is_empty():
+			_pending_campaign_transition = {
+				"transition_token": str(progression.get("transition_token", "")),
+				"completed_island_id": str(result.get("island_id", "")),
+				"island_completion_transition": bool(progression.get("island_completion_transition", false)),
+				"newly_unlocked_islands": progression.get("newly_unlocked_islands", []).duplicate(true),
+			}
 	gameplay_session_finished.emit(result)
 	_ensure_result_feedback()
 	call_deferred("_present_pending_terminal_result")
