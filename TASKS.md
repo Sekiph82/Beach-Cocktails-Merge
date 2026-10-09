@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M25-MASTER-V01
 - Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M25-003 — CODEX executes `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-R03_CAUSAL_DIAGNOSTIC_MASTER_PROMPT.md` to determine LOSE/star-tier reachability and test Retry/Island Map scaled routes. Stop for owner ruling if unreachable; no M26.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M25-003 — OWNER_DECISION_REQUIRED: choose whether existing untimed forward-only campaign remains unchanged (natural LOSE unverified) or authorize a precise new natural LOSE rule. Do not modify gameplay or start M26 before ruling.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M24 closed. M25 R02 audit PARTIAL_PASS: scaled fixture mouse Island Map and two-resolution touch PASS; real LOSE FULL/REDUCED, 1/2-star WIN and Retry pointer NOT VERIFIED. R03 deterministic code/data feasibility diagnosis required before more gameplay attempts; M26 blocked.
+- Progress: M24 closed. M25 R03 source feasibility audit reviewed: 71 real shots on L100 gave no TABLE_DANGER LOSE (max settled y+radius 742.43 vs line 846); 1/2-star L1 routes are source proposals, not runtime-verified. Owner loss-rule decision required; M25 blocked, M26 not started.
 
 ## Blockers/Waits
 
