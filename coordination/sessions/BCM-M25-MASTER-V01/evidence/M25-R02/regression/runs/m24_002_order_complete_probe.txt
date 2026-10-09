@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+{"captured_requests":2,"checks":8,"failures":[],"mode_plans":{"FULL":{"gff_effect":"punch_scale","gff_params":{"duration":0.24,"intensity":0.32},"mode":"FULL","spark_overrides":{"amount":12,"color":"(1.0, 0.8, 0.38, 0.96)","color2":"(0.84, 0.78, 0.66, 0.0)","lifetime":0.36,"size":4.5,"size_end":1.0,"speed":82.0},"spark_preset":"pickup"},"REDUCED":{"gff_effect":"color","gff_params":{"color":"(1.0, 0.98, 0.92, 1.0)","duration":0.12},"mode":"REDUCED"}},"order_complete_events":1,"result":"PASS"}

@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x1 +0  (toplam: 150)
+MERGE L2 +20  COMBO x2 +5  (toplam: 175)
+MERGE L2 +20  COMBO x3 +10  (toplam: 205)
+MERGE L3 +50  COMBO x4 +38  (toplam: 293)
+MERGE L4 +100  COMBO x5 +100  (toplam: 493)
+MERGE L4 +100  COMBO x1 +0  (toplam: 593)
+MERGE L5 +200  COMBO x2 +50  (toplam: 843)
+TO-GO ORDER L5 +0  (toplam: 843)
+M25_R01_REAL_INPUT_RESULT=PARTIAL outcome=WIN mode=FULL shots=16 input_events=32 score=843 stars=3 failure=

@@ -1,0 +1,25 @@
+{
+  "timestamp_utc": "2026-10-09T06:58:38.2591721Z",
+  "method": "user32 mouse_event left down/up",
+  "process_id": 27776,
+  "window_title": "CocktailMerge (DEBUG)",
+  "hwnd": "40896070",
+  "client_size": [
+    400,
+    711
+  ],
+  "client_click": [
+    400,
+    962
+  ],
+  "screen_click": [
+    840,
+    983
+  ],
+  "focus_requested": false,
+  "foreground_verified": false,
+  "cursor_set": false,
+  "button_down": false,
+  "button_up": false,
+  "prior_foreground": "65796"
+}

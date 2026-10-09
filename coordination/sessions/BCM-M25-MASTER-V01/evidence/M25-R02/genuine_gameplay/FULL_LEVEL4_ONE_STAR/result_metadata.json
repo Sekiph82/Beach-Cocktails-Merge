@@ -1,0 +1,703 @@
+{
+	"action_clicked": "NONE",
+	"action_requested_count": 0,
+	"action_requested_log": [],
+	"action_route_ok": false,
+	"actions_before_click": [],
+	"actual_outcome": "NONE",
+	"captures": [
+		{
+			"captured_ticks_msec": 3710,
+			"error": 0,
+			"height": 1280,
+			"name": "before",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/genuine_gameplay/FULL_LEVEL4_ONE_STAR/before.png",
+			"width": 720
+		}
+	],
+	"expected_outcome": "WIN",
+	"failure": "",
+	"first_clear": false,
+	"gameplay_game_over": false,
+	"gameplay_score": 0,
+	"human_operated": false,
+	"input_event_count": 160,
+	"level_id": 0,
+	"navigation_after_action": "GAMEPLAY",
+	"pointer_geometry": {},
+	"presentation_mode": "FULL",
+	"renderer": "GL Compatibility",
+	"requested_level_start": 4,
+	"requested_viewport_height": 1280,
+	"result_body": "",
+	"result_title": "",
+	"route_type": "automated mouse InputEvents through ShotController._unhandled_input; production Drink physics/collisions/merge scoring and CampaignNavigation terminal route; no direct terminal/result injection",
+	"score": 0,
+	"selected_action_button_rect": {
+		"position": [
+			0.0,
+			0.0
+		],
+		"size": [
+			0.0,
+			0.0
+		]
+	},
+	"selected_action_button_text": "",
+	"session_observations": [
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 1,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 2,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 3,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 4,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 5,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 6,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 7,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 8,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 9,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 10,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 11,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 12,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 13,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 14,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 15,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 16,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 17,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 18,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 19,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 20,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 21,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 22,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 23,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 24,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 25,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 26,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 27,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 28,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 29,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 30,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 31,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 32,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 33,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 34,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 35,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 36,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 37,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 38,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 39,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 40,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 41,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 42,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 43,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 44,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 45,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 46,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 47,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 48,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 49,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 50,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 51,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 52,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 53,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 54,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 55,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 56,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 57,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 58,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 59,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 60,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 61,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 62,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 63,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 64,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 65,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 66,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 67,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 68,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 69,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 70,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 71,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 72,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 73,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 74,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 75,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 76,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 77,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 78,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 79,
+			"terminal_event_count": 0
+		},
+		{
+			"level_id": 4,
+			"session_serial": 1,
+			"session_state": "ACTIVE",
+			"shot_index": 80,
+			"terminal_event_count": 0
+		}
+	],
+	"shot_count": 0,
+	"shot_delay_frames": 90,
+	"shot_levels": [],
+	"shot_score_deltas": [
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0,
+		0
+	],
+	"stars": 0,
+	"terminal_event_count": 0,
+	"terminal_event_levels": [],
+	"terminal_result": {},
+	"viewport": [
+		800,
+		1422
+	],
+	"work_item": "BCM-M25-R02"
+}

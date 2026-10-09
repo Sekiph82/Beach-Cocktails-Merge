@@ -1,0 +1,54 @@
+{
+	"action_clicked": "NONE",
+	"action_requested_count": 0,
+	"action_requested_log": [],
+	"action_route_ok": false,
+	"actions_before_click": [],
+	"actual_outcome": "NONE",
+	"captures": [],
+	"expected_outcome": "WIN",
+	"failure": "frontier PLAY did not mount CampaignGameplay",
+	"first_clear": false,
+	"gameplay_game_over": false,
+	"gameplay_score": 0,
+	"human_operated": false,
+	"input_event_count": 0,
+	"level_id": 0,
+	"level_selection_geometry": {},
+	"navigation_after_action": "ISLAND_MAP",
+	"pointer_geometry": {},
+	"presentation_mode": "FULL",
+	"renderer": "GL Compatibility",
+	"requested_level_start": 4,
+	"requested_viewport_height": 1280,
+	"result_body": "",
+	"result_title": "",
+	"route_type": "automated mouse InputEvents through ShotController._unhandled_input; production Drink physics/collisions/merge scoring and CampaignNavigation terminal route; no direct terminal/result injection",
+	"score": 0,
+	"selected_action_button_rect": {
+		"position": [
+			0.0,
+			0.0
+		],
+		"size": [
+			0.0,
+			0.0
+		]
+	},
+	"selected_action_button_text": "",
+	"selected_level_input": 0,
+	"session_observations": [],
+	"shot_count": 0,
+	"shot_delay_frames": 90,
+	"shot_levels": [],
+	"shot_score_deltas": [],
+	"stars": 0,
+	"terminal_event_count": 0,
+	"terminal_event_levels": [],
+	"terminal_result": {},
+	"viewport": [
+		800,
+		1422
+	],
+	"work_item": "BCM-M25-R02"
+}

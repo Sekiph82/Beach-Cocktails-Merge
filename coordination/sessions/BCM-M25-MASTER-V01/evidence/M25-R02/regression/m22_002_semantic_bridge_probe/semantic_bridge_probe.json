@@ -1,0 +1,59 @@
+{
+	"authority_hash_after": 1225700348,
+	"authority_hash_before": 1225700348,
+	"bridge_diagnostics": [
+		"production_target_missing",
+		"gff_effect_unavailable:punch_scale",
+		"spark_preset_unavailable:hit",
+		"spark_preset_unavailable:hit",
+		"gff_call_failed",
+		"spark_call_failed",
+		"policy:unknown_mapping",
+		"fixture_target_not_allowlisted"
+	],
+	"bridge_dispatch_count": 1,
+	"bridge_no_op_count": 8,
+	"catalog": [
+		"cocktail_launch",
+		"table_contact",
+		"merge",
+		"order_progress",
+		"order_complete",
+		"vip_delivery",
+		"vip_complete",
+		"score_mastery",
+		"game_success",
+		"game_fail",
+		"level_unlock",
+		"island_milestone",
+		"island_complete",
+		"island_unlock",
+		"reward_granted",
+		"ui_primary"
+	],
+	"checks": 27,
+	"failures": [],
+	"gff_fixture_calls": 2,
+	"legacy_event_counts": {
+		"game_success": 1,
+		"merge": 1,
+		"order_complete": 1
+	},
+	"listener_count_after_reconfigure": 1,
+	"listener_count_initial": 2,
+	"probe": "BCM-M22-002",
+	"semantic_counts": {
+		"cocktail_launch": 2,
+		"game_fail": 1,
+		"game_success": 2,
+		"merge": 2,
+		"order_complete": 1,
+		"reward_granted": 1,
+		"score_mastery": 1
+	},
+	"service_diagnostics": [
+		"missing_event_id:vip_complete",
+		"unknown_kind:unknown"
+	],
+	"spark_fixture_calls": 2
+}

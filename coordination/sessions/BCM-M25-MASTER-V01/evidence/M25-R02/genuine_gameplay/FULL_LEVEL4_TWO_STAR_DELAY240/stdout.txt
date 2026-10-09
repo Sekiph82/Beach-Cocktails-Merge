@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x1 +0  (toplam: 150)
+MERGE L3 +50  COMBO x1 +0  (toplam: 200)
+MERGE L4 +100  COMBO x1 +0  (toplam: 300)
+MERGE L3 +50  COMBO x1 +0  (toplam: 350)
+MERGE L2 +20  COMBO x1 +0  (toplam: 370)
+MERGE L3 +50  COMBO x1 +0  (toplam: 420)
+MERGE L3 +50  COMBO x1 +0  (toplam: 470)
+MERGE L3 +50  COMBO x1 +0  (toplam: 520)
+MERGE L4 +100  COMBO x2 +25  (toplam: 645)
+MERGE L4 +100  COMBO x1 +0  (toplam: 745)
+MERGE L5 +200  COMBO x2 +50  (toplam: 995)
+MERGE L2 +20  COMBO x1 +0  (toplam: 1015)
+MERGE L3 +50  COMBO x1 +0  (toplam: 1065)
+MERGE L4 +100  COMBO x2 +25  (toplam: 1190)
+MERGE L5 +200  COMBO x1 +0  (toplam: 1390)
+VIP DELIVERY L5 +1/1 BONUS 0 (toplam: 1390)
+MERGE L4 +100  COMBO x1 +0  (toplam: 1490)
+MERGE L3 +50  COMBO x1 +0  (toplam: 1540)
+MERGE L2 +20  COMBO x2 +5  (toplam: 1565)
+MERGE L4 +100  COMBO x1 +0  (toplam: 1665)
+MERGE L4 +100  COMBO x1 +0  (toplam: 1765)
+MERGE L5 +200  COMBO x2 +50  (toplam: 2015)
+MERGE L6 +350  COMBO x3 +175  (toplam: 2540)
+TO-GO ORDER L6 +1000  (toplam: 3540)
+M25_R01_REAL_INPUT_RESULT=PASS outcome=WIN mode=FULL shots=29 input_events=58 score=3540 stars=3 failure=
