@@ -51,6 +51,9 @@ func set_input_blocked(blocked: bool) -> void:
 func _spawn_next() -> void:
     if _manager == null or _manager.game_over:
         return
+    if not _manager.can_launch_campaign_shot():
+        _can_shoot = false
+        return
 
     var current_level := _next_level
     _next_level = randi_range(1, 3)
@@ -65,7 +68,7 @@ func _spawn_next() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-    if _input_blocked or not _can_shoot or not is_instance_valid(_current_drink):
+    if _input_blocked or not _can_shoot or not _manager.can_launch_campaign_shot() or not is_instance_valid(_current_drink):
         return
 
     if event is InputEventMouseButton:
@@ -123,7 +126,7 @@ func _end_drag_and_fire() -> void:
 
 
 func _launch() -> void:
-    if not is_instance_valid(_current_drink) or _manager.game_over:
+    if not is_instance_valid(_current_drink) or _manager.game_over or not _manager.can_launch_campaign_shot():
         return
 
     var fired := _current_drink

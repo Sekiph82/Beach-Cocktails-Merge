@@ -1,0 +1,19 @@
+{
+  "checked_utc": "2026-10-09T10:55:44.0889972Z",
+  "baseline_file_count": 260,
+  "unchanged_count": 259,
+  "differences": [
+    {
+      "path": "project.godot",
+      "class": "owner-local",
+      "baseline_sha256": "2486401BDAD22FF4CEB348C382211E9B5BBCA53DBBF94BE043A83239DE026AFB",
+      "current_sha256": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD",
+      "baseline_bytes": 1120,
+      "current_bytes": 1081,
+      "state": "DIFFERS_FROM_PRE_PROBE"
+    }
+  ],
+  "protected_m23_r01_new_files": 0,
+  "disposition": "All original tracked owner-local files and saves were preserved. project.godot was restored byte-for-byte from the retained owner-local safe-sync stash after Godot rewrote it during editor import; the pre-probe hash snapshot had captured the temporary path-form autoload reference.",
+  "owner_local_project_stash_sha256": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD"
+}

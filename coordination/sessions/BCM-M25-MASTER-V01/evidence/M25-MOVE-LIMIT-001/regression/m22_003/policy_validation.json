@@ -1,0 +1,71 @@
+{
+	"authority_hash_after": 332468246,
+	"authority_hash_before": 332468246,
+	"checks": 97,
+	"failures": [],
+	"fixture_only_plugin_calls": {
+		"gff_play": 2,
+		"gff_stop": 2,
+		"spark_burst": 2,
+		"spark_clear": 2
+	},
+	"forbidden_gff": [
+		"impulse",
+		"velocity",
+		"freeze_frame",
+		"time_scale",
+		"camera_flash",
+		"camera_shake"
+	],
+	"matrix_rows": 32,
+	"matrix_source_parity": true,
+	"mobile_ceilings": {
+		"FAIL": {
+			"amount": 0,
+			"lifetime": 0.0
+		},
+		"ISLAND_UNLOCK": {
+			"amount": 72,
+			"lifetime": 1.6
+		},
+		"MASTERY": {
+			"amount": 64,
+			"lifetime": 1.5
+		},
+		"MERGE": {
+			"amount": 10,
+			"lifetime": 0.3
+		},
+		"MERGE_PEAK": {
+			"amount": 18,
+			"lifetime": 0.35
+		},
+		"MICRO": {
+			"amount": 5,
+			"lifetime": 0.16
+		},
+		"ORDER": {
+			"amount": 16,
+			"lifetime": 0.45
+		},
+		"VIP": {
+			"amount": 24,
+			"lifetime": 0.65
+		},
+		"WIN": {
+			"amount": 48,
+			"lifetime": 1.2
+		},
+		"gameplay_live": 48,
+		"large_celebrations": 1,
+		"result_meta_live": 96
+	},
+	"policy_validation": {
+		"failures": [],
+		"kind_count": 16,
+		"mode_rows": 32,
+		"ok": true
+	},
+	"production_dispatch_enabled": false,
+	"work_item": "BCM-M22-003"
+}

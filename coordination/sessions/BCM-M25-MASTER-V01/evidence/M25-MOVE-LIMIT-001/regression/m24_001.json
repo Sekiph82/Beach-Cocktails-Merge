@@ -1,0 +1,34 @@
+{
+	"captured_requests": 1,
+	"checks": 7,
+	"failures": [],
+	"mode_plans": {
+		"FULL": {
+			"gff_effect": "color",
+			"gff_params": {
+				"color": "(1.0, 0.91, 0.64, 1.0)",
+				"duration": 0.18
+			},
+			"mode": "FULL",
+			"spark_overrides": {
+				"amount": 8,
+				"color": "(0.46, 0.78, 0.86, 0.95)",
+				"color2": "(0.84, 0.78, 0.66, 0.0)",
+				"lifetime": 0.25,
+				"size": 4.0,
+				"size_end": 1.0,
+				"speed": 65.0
+			},
+			"spark_preset": "pickup"
+		},
+		"REDUCED": {
+			"gff_effect": "color",
+			"gff_params": {
+				"color": "(1.0, 0.98, 0.92, 1.0)",
+				"duration": 0.1
+			},
+			"mode": "REDUCED"
+		}
+	},
+	"result": "PASS"
+}

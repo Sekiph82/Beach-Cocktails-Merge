@@ -65,6 +65,10 @@ func clear() -> void:
     _flush_scheduled = false
 
 
+func has_pending_work() -> bool:
+    return _flush_scheduled or not _pending.is_empty()
+
+
 func _flush_pending() -> void:
     _flush_scheduled = false
 

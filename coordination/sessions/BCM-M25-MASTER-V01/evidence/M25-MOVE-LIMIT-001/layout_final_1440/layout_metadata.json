@@ -1,0 +1,38 @@
+{
+	"captures": [
+		{
+			"error": 0,
+			"height": 1440,
+			"name": "before",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/layout_final_1440/before.png",
+			"width": 720
+		}
+	],
+	"failures": [],
+	"level_id": 6,
+	"move_label_rect": [
+		250.0,
+		300.0,
+		220.0,
+		38.0
+	],
+	"move_limit": 35,
+	"order_artwork_rect": [
+		254.876327514648,
+		0.0,
+		210.810516357422,
+		289.841003417969
+	],
+	"order_panel_rect": [
+		253.75,
+		0.0,
+		212.5,
+		318.75
+	],
+	"playable_board_top_y": 441.0,
+	"presentation_mode": "FULL",
+	"renderer": "Godot 4.7.2 GL Compatibility",
+	"requested_viewport_height": 1440,
+	"target_strategy": "SPREAD",
+	"work_item": "BCM-M25-MOVE-LIMIT-001"
+}

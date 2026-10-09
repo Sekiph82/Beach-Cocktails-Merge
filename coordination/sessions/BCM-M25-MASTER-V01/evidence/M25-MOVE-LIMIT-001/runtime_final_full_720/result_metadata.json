@@ -1,0 +1,130 @@
+{
+	"captures": [
+		{
+			"error": 0,
+			"height": 1280,
+			"name": "before",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runtime_final_full_720/before.png",
+			"width": 720
+		},
+		{
+			"error": 0,
+			"height": 1280,
+			"name": "moves_05",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runtime_final_full_720/moves_05.png",
+			"width": 720
+		},
+		{
+			"error": 0,
+			"height": 1280,
+			"name": "lose_result",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runtime_final_full_720/lose_result.png",
+			"width": 720
+		},
+		{
+			"error": 0,
+			"height": 1280,
+			"name": "island_map_after_action",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runtime_final_full_720/island_map_after_action.png",
+			"width": 720
+		}
+	],
+	"failures": [
+		"move label clears the order HUD and stays above the playable board"
+	],
+	"first_terminal": {
+		"island_id": "sunny_cove",
+		"island_map_available": true,
+		"level_id": 6,
+		"next_level_available": false,
+		"normal_orders_completed": {
+			"5": 0,
+			"6": 0
+		},
+		"normal_orders_remaining": {
+			"5": 1,
+			"6": 1
+		},
+		"outcome": "LOSE",
+		"reason": "MOVES_EXHAUSTED",
+		"remaining_time_sec": 0.0,
+		"retry_available": true,
+		"score": 841,
+		"session_serial": 1,
+		"stars": 0,
+		"vip_completed": false
+	},
+	"input_event_count": 140,
+	"island_map_pointer": {
+		"button_text": "ISLAND MAP",
+		"center": [
+			360.0,
+			866.0
+		],
+		"event_position": [
+			400.0,
+			962.071899414063
+		],
+		"ok": true,
+		"rendered": [
+			720,
+			1280
+		],
+		"touch": false,
+		"viewport": [
+			800,
+			1422
+		]
+	},
+	"level_id": 6,
+	"move_limit": 35,
+	"presentation_mode": "FULL",
+	"renderer": "Godot 4.7.2 GL Compatibility",
+	"requested_viewport_height": 1280,
+	"retry_pointer": {
+		"button_text": "RETRY",
+		"center": [
+			360.0,
+			784.0
+		],
+		"event_position": [
+			400.0,
+			870.974975585938
+		],
+		"ok": true,
+		"rendered": [
+			720,
+			1280
+		],
+		"touch": true,
+		"viewport": [
+			800,
+			1422
+		]
+	},
+	"retry_terminal": {
+		"island_id": "sunny_cove",
+		"island_map_available": true,
+		"level_id": 6,
+		"next_level_available": false,
+		"normal_orders_completed": {
+			"5": 0,
+			"6": 0
+		},
+		"normal_orders_remaining": {
+			"5": 1,
+			"6": 1
+		},
+		"outcome": "LOSE",
+		"reason": "MOVES_EXHAUSTED",
+		"remaining_time_sec": 0.0,
+		"retry_available": true,
+		"score": 859,
+		"session_serial": 2,
+		"stars": 0,
+		"vip_completed": false
+	},
+	"shot_count_total": 70,
+	"target_strategy": "SPREAD",
+	"work_item": "BCM-M25-MOVE-LIMIT-001"
+}

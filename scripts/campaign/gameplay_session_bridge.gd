@@ -18,6 +18,7 @@ signal island_map_requested(island_id: String)
 signal economy_changed(state: Dictionary)
 signal vip_state_changed(state: Dictionary)
 signal normal_delivery_recorded(delivery: Dictionary)
+signal move_budget_changed(state: Dictionary)
 
 const STATE_IDLE := "IDLE"
 const STATE_READY := "READY"
@@ -51,6 +52,9 @@ var _terminal_result: Dictionary = {}
 var _progression_result: Dictionary = {}
 var _session_serial := 0
 var _progression_submitted := false
+var _move_limit := 0
+var _moves_used := 0
+var _committed_shot_ids: Dictionary = {}
 
 
 func configure(database, manager = null, configured_economy = null) -> bool:
@@ -86,6 +90,8 @@ func start_session(island_id: String, level_id: int) -> Dictionary:
     _terminal_result = {}
     _progression_result = {}
     _progression_submitted = false
+    _moves_used = 0
+    _committed_shot_ids.clear()
     _vip_completed = false
     _vip_delivered = 0
     vip_state_changed.emit(get_vip_state())
@@ -231,6 +237,39 @@ func set_current_score(score: int) -> void:
     if not is_session_active():
         return
     _current_score = maxi(0, score)
+
+
+func get_move_budget_state() -> Dictionary:
+    var remaining := maxi(0, _move_limit - _moves_used) if _move_limit > 0 else 0
+    return {
+        "enabled": _move_limit > 0,
+        "move_limit": _move_limit,
+        "moves_used": _moves_used,
+        "moves_remaining": remaining,
+        "exhausted": _move_limit > 0 and remaining == 0,
+        "level_id": active_level_id,
+    }
+
+
+func can_commit_shot() -> bool:
+    if session_state != STATE_ACTIVE:
+        return false
+    return _move_limit <= 0 or _moves_used < _move_limit
+
+
+func record_committed_shot(shot_id: String) -> Dictionary:
+    if shot_id.is_empty():
+        return {"ok": false, "reason": "SHOT_NOT_ALLOWED", "state": get_move_budget_state()}
+    if _committed_shot_ids.has(shot_id):
+        return {"ok": true, "duplicate": true, "state": get_move_budget_state()}
+    if not can_commit_shot():
+        return {"ok": false, "reason": "SHOT_NOT_ALLOWED", "state": get_move_budget_state()}
+    _committed_shot_ids[shot_id] = true
+    if _move_limit > 0:
+        _moves_used += 1
+    var state := get_move_budget_state()
+    move_budget_changed.emit(state.duplicate(true))
+    return {"ok": true, "duplicate": false, "state": state}
 
 
 func calculate_stars(completed: bool, vip_completed: bool, score: int, level_definition: Dictionary = {}) -> int:
@@ -410,6 +449,9 @@ func clear_session() -> void:
     _pause_reason = ""
     _current_score = 0
     _progression_submitted = false
+    _move_limit = 0
+    _moves_used = 0
+    _committed_shot_ids.clear()
     vip_state_changed.emit(get_vip_state())
 
 
@@ -438,10 +480,13 @@ func _build_session_configuration() -> Dictionary:
     if island_definition.has("playable_geometry"):
         island_theme["playable_geometry"] = island_definition["playable_geometry"].duplicate(true)
     island_theme["island_id"] = active_island_id
+    _move_limit = maxi(0, int(_active_level.get("move_limit", 0)))
     var configuration := {
         "session_serial": _session_serial,
         "island_id": active_island_id,
         "level_id": active_level_id,
+        "move_limit": _move_limit,
+        "moves_remaining": _move_limit,
         "island_theme": island_theme,
         "time_limit_sec": 0.0,
         "orders": _active_level.get("orders", []).duplicate(true),

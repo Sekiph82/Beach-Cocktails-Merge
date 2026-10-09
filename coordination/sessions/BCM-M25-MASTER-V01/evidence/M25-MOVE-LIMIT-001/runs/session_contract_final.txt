@@ -1,0 +1,66 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M25_MOVE_LIMIT PASS: canonical level database loads
+M25_MOVE_LIMIT PASS: session bridge configures
+M25_MOVE_LIMIT PASS: L6 config carries the candidate 35-move limit
+M25_MOVE_LIMIT PASS: L6 starts with all 35 moves
+M25_MOVE_LIMIT PASS: session snapshot is immutable
+M25_MOVE_LIMIT PASS: session becomes active
+M25_MOVE_LIMIT PASS: successful shot 1 is counted once
+M25_MOVE_LIMIT PASS: successful shot 2 is counted once
+M25_MOVE_LIMIT PASS: successful shot 3 is counted once
+M25_MOVE_LIMIT PASS: successful shot 4 is counted once
+M25_MOVE_LIMIT PASS: successful shot 5 is counted once
+M25_MOVE_LIMIT PASS: successful shot 6 is counted once
+M25_MOVE_LIMIT PASS: successful shot 7 is counted once
+M25_MOVE_LIMIT PASS: successful shot 8 is counted once
+M25_MOVE_LIMIT PASS: successful shot 9 is counted once
+M25_MOVE_LIMIT PASS: successful shot 10 is counted once
+M25_MOVE_LIMIT PASS: successful shot 11 is counted once
+M25_MOVE_LIMIT PASS: successful shot 12 is counted once
+M25_MOVE_LIMIT PASS: successful shot 13 is counted once
+M25_MOVE_LIMIT PASS: successful shot 14 is counted once
+M25_MOVE_LIMIT PASS: successful shot 15 is counted once
+M25_MOVE_LIMIT PASS: successful shot 16 is counted once
+M25_MOVE_LIMIT PASS: successful shot 17 is counted once
+M25_MOVE_LIMIT PASS: successful shot 18 is counted once
+M25_MOVE_LIMIT PASS: successful shot 19 is counted once
+M25_MOVE_LIMIT PASS: successful shot 20 is counted once
+M25_MOVE_LIMIT PASS: successful shot 21 is counted once
+M25_MOVE_LIMIT PASS: successful shot 22 is counted once
+M25_MOVE_LIMIT PASS: successful shot 23 is counted once
+M25_MOVE_LIMIT PASS: successful shot 24 is counted once
+M25_MOVE_LIMIT PASS: successful shot 25 is counted once
+M25_MOVE_LIMIT PASS: successful shot 26 is counted once
+M25_MOVE_LIMIT PASS: successful shot 27 is counted once
+M25_MOVE_LIMIT PASS: successful shot 28 is counted once
+M25_MOVE_LIMIT PASS: successful shot 29 is counted once
+M25_MOVE_LIMIT PASS: successful shot 30 is counted once
+M25_MOVE_LIMIT PASS: successful shot 31 is counted once
+M25_MOVE_LIMIT PASS: successful shot 32 is counted once
+M25_MOVE_LIMIT PASS: successful shot 33 is counted once
+M25_MOVE_LIMIT PASS: successful shot 34 is counted once
+M25_MOVE_LIMIT PASS: active session can pause
+M25_MOVE_LIMIT PASS: paused session rejects shot commits
+M25_MOVE_LIMIT PASS: pause does not change budget
+M25_MOVE_LIMIT PASS: active session resumes
+M25_MOVE_LIMIT PASS: 35th committed shot exhausts budget
+M25_MOVE_LIMIT PASS: duplicate signal for last drink is idempotent
+M25_MOVE_LIMIT PASS: 36th distinct shot is rejected
+M25_MOVE_LIMIT PASS: move exhaustion resolves one immutable LOSE result
+M25_MOVE_LIMIT PASS: retry restores all configured moves
+M25_MOVE_LIMIT PASS: retry resets the shot-token ledger
+M25_MOVE_LIMIT PASS: unlimited bridge configures
+M25_MOVE_LIMIT PASS: unset levels retain unlimited fallback
+M25_MOVE_LIMIT PASS: existing score-star thresholds remain unchanged
+M25_MOVE_LIMIT PASS: final-move bridge configures
+M25_MOVE_LIMIT PASS: final-move level starts
+M25_MOVE_LIMIT PASS: final route reaches zero after successful commit
+M25_MOVE_LIMIT PASS: completed objectives on the last move resolve WIN
+M25_MOVE_LIMIT PASS: objective completion keeps existing score stars
+M25_MOVE_LIMIT_RESULT PASS

@@ -93,6 +93,7 @@ var chain := 0
 var chain_timer := 0.0
 const COMBO_WINDOW := 1.5
 const MAX_COMBO := 6
+const MOVE_SETTLEMENT_GRACE_SEC := 0.25
 var game_over := false
 
 var world: Node2D
@@ -102,6 +103,7 @@ var feedback_service
 var presentation_feedback_bridge: PresentationFeedbackBridge
 
 var _line_timer := 0.0
+var _move_idle_settlement_timer := 0.0
 var _hud: Control
 var _best_panel: Control
 var _score_panel: Control
@@ -110,6 +112,7 @@ var _next_panel: Control
 var _progression_strip: Control
 var _best_value: Label
 var _score_value: Label
+var _move_limit_label: Label
 var _to_go_target_sprite: Sprite2D
 var _to_go_progress_label: Label
 var _to_go_reward_label: Label
@@ -219,6 +222,8 @@ func configure_campaign_session(bridge) -> bool:
 		campaign_session_bridge.session_resumed.disconnect(_on_campaign_session_resumed)
 	if campaign_session_bridge != null and campaign_session_bridge.has_signal("normal_delivery_recorded") and campaign_session_bridge.normal_delivery_recorded.is_connected(_on_normal_delivery_recorded):
 		campaign_session_bridge.normal_delivery_recorded.disconnect(_on_normal_delivery_recorded)
+	if campaign_session_bridge != null and campaign_session_bridge.has_signal("move_budget_changed") and campaign_session_bridge.move_budget_changed.is_connected(_on_move_budget_changed):
+		campaign_session_bridge.move_budget_changed.disconnect(_on_move_budget_changed)
 	campaign_session_bridge = bridge
 	_score_milestones_emitted.clear()
 	if not campaign_session_bridge.session_terminal.is_connected(_on_campaign_session_terminal):
@@ -231,6 +236,8 @@ func configure_campaign_session(bridge) -> bool:
 		campaign_session_bridge.session_resumed.connect(_on_campaign_session_resumed)
 	if campaign_session_bridge.has_signal("normal_delivery_recorded") and not campaign_session_bridge.normal_delivery_recorded.is_connected(_on_normal_delivery_recorded):
 		campaign_session_bridge.normal_delivery_recorded.connect(_on_normal_delivery_recorded)
+	if campaign_session_bridge.has_signal("move_budget_changed") and not campaign_session_bridge.move_budget_changed.is_connected(_on_move_budget_changed):
+		campaign_session_bridge.move_budget_changed.connect(_on_move_budget_changed)
 	var configuration: Dictionary = campaign_session_bridge.get_session_configuration()
 	if configuration.is_empty():
 		return false
@@ -241,6 +248,7 @@ func configure_campaign_session(bridge) -> bool:
 		"level_id": configuration.get("level_id", 0),
 	})
 	_apply_campaign_theme(configuration.get("island_theme", {}))
+	_refresh_move_limit_hud()
 	_target_level = campaign_session_bridge.get_next_required_order_level()
 	if _target_level > 0:
 		_refresh_merge_target_visual()
@@ -256,9 +264,36 @@ func get_campaign_session_bridge():
 
 
 func _on_shot_fired(drink: Drink, velocity: Vector2) -> void:
-	if feedback_service == null or not is_instance_valid(drink):
+	if not is_instance_valid(drink):
 		return
-	feedback_service.emit_cocktail_launch(drink.level, drink.global_position, velocity, drink)
+	if campaign_session_bridge != null and int(campaign_session_bridge.get_move_budget_state().get("move_limit", 0)) > 0:
+		campaign_session_bridge.record_committed_shot(str(drink.get_instance_id()))
+		_refresh_move_limit_hud()
+	if feedback_service != null:
+		feedback_service.emit_cocktail_launch(drink.level, drink.global_position, velocity, drink)
+
+
+func can_launch_campaign_shot() -> bool:
+	return campaign_session_bridge == null or not campaign_session_bridge.has_method("can_commit_shot") or campaign_session_bridge.can_commit_shot()
+
+
+func _on_move_budget_changed(_state: Dictionary) -> void:
+	_refresh_move_limit_hud()
+
+
+func _refresh_move_limit_hud() -> void:
+	if _move_limit_label == null:
+		return
+	var state: Dictionary = campaign_session_bridge.get_move_budget_state() if campaign_session_bridge != null and campaign_session_bridge.has_method("get_move_budget_state") else {}
+	var enabled := bool(state.get("enabled", false))
+	_move_limit_label.visible = enabled
+	if not enabled:
+		return
+	var remaining := int(state.get("moves_remaining", 0))
+	_move_limit_label.text = "MOVES %d" % remaining
+	_move_limit_label.add_theme_color_override("font_color", Color("#ff7759") if remaining <= 5 else Color("#fff0c6"))
+	if shot_controller != null and remaining <= 0:
+		shot_controller.stop_shooting()
 
 
 func _on_normal_delivery_recorded(delivery: Dictionary) -> void:
@@ -1030,7 +1065,29 @@ func _process(delta: float) -> void:
 			_refresh_hud()
 
 	_update_death_line(delta)
+	_update_move_limit_exhaustion(delta)
 	_update_launch_zone(true)
+
+
+func _update_move_limit_exhaustion(delta: float) -> void:
+	if game_over or campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		_move_idle_settlement_timer = 0.0
+		return
+	var state: Dictionary = campaign_session_bridge.get_move_budget_state()
+	if not bool(state.get("exhausted", false)):
+		_move_idle_settlement_timer = 0.0
+		return
+	if _target_transition or _vip_target_transition or (merge_queue != null and merge_queue.has_pending_work()):
+		_move_idle_settlement_timer = 0.0
+		return
+	for child in world.get_children():
+		if child is Drink and not child.is_queued_for_deletion() and not child.is_settled():
+			_move_idle_settlement_timer = 0.0
+			return
+	_move_idle_settlement_timer += delta
+	if _move_idle_settlement_timer < MOVE_SETTLEMENT_GRACE_SEC:
+		return
+	_game_over("MOVES_EXHAUSTED")
 
 
 func _update_death_line(delta: float) -> void:
@@ -1047,6 +1104,8 @@ func _update_death_line(delta: float) -> void:
 	_line_timer = _line_timer + delta if danger else 0.0
 
 	if _line_timer >= death_tolerance:
+		if campaign_session_bridge != null and bool(campaign_session_bridge.get_move_budget_state().get("exhausted", false)):
+			return
 		_game_over()
 
 
@@ -1077,7 +1136,7 @@ func try_chain_merge(source: Drink) -> void:
 		merge_queue.request_merge(source, best, source.level + 1)
 
 
-func _game_over() -> void:
+func _game_over(reason: String = "TABLE_DANGER") -> void:
 	if game_over:
 		return
 
@@ -1105,9 +1164,9 @@ func _game_over() -> void:
 	print("OYUN BITTI - Skor: %d" % score)
 
 	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
-		campaign_session_bridge.resolve_lose("TABLE_DANGER", score)
+		campaign_session_bridge.resolve_lose(reason, score)
 	else:
-		feedback_service.emit_game_fail({"score": score, "reason": "TABLE_DANGER"})
+		feedback_service.emit_game_fail({"score": score, "reason": reason})
 
 
 func _restart_game() -> void:
@@ -1143,6 +1202,7 @@ func _refresh_hud() -> void:
 		_chain_label.visible = chain > 1
 		_chain_label.text = "COMBO x%d" % chain
 	_refresh_vip_panel()
+	_refresh_move_limit_hud()
 
 
 func _build_walls() -> void:
@@ -1296,6 +1356,20 @@ func _build_ui() -> void:
 	_next_sprite.position = Vector2(next_width * 0.5, next_height * 0.60)
 	_next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_next_panel.add_child(_next_sprite)
+
+	_move_limit_label = _make_label(
+		Vector2((board_size.x - 220.0 * ui_scale) * 0.5, 300.0 * ui_scale),
+		Vector2(220.0 * ui_scale, 38.0 * ui_scale),
+		22,
+		HORIZONTAL_ALIGNMENT_CENTER
+	)
+	_move_limit_label.name = "MoveLimitLabel"
+	_move_limit_label.text = "MOVES 35"
+	_move_limit_label.add_theme_color_override("font_color", Color("#fff0c6"))
+	_move_limit_label.add_theme_color_override("font_outline_color", Color("#173b47"))
+	_move_limit_label.add_theme_constant_override("outline_size", 4)
+	_move_limit_label.visible = false
+	_hud.add_child(_move_limit_label)
 
 	var strip_width := board_size.x
 	var strip_height := strip_width * 724.0 / 2172.0

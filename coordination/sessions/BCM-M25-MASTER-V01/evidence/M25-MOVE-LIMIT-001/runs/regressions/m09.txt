@@ -1,0 +1,35 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M09_PROBE PASS: main scene loads
+M09_PROBE PASS: feedback service is attached
+M09_PROBE PASS: first live To-Go target is L5
+M09_CAPTURE name=startup_l5_720x1280.png unavailable=headless_renderer
+M09_PROBE PASS: existing reward table remains unchanged including L5=0
+M09_PROBE PASS: live target is expected L5
+M09_CAPTURE name=l5_delivery_in_progress_720x1280.png unavailable=headless_renderer
+TO-GO ORDER L5 +0  (toplam: 0)
+M09_PROBE PASS: L5 delivery returns to idle
+M09_PROBE PASS: first order completes as L5 with unchanged zero reward
+M09_PROBE PASS: live target is expected L6
+TO-GO ORDER L6 +1000  (toplam: 1000)
+M09_PROBE PASS: L6 delivery returns to idle
+M09_PROBE PASS: second order completes as L6 with existing reward
+M09_PROBE PASS: live target is expected L7
+TO-GO ORDER L7 +1800  (toplam: 2800)
+M09_PROBE PASS: L7 delivery returns to idle
+M09_PROBE PASS: third order completes as L7 with existing reward
+M09_PROBE PASS: fourth target resumes normal L6-L12 selection
+M09_PROBE PASS: order-complete feedback fires once per completed order
+MERGE L2 +20  COMBO x1 +0  (toplam: 2820)
+M09_PROBE PASS: merge feedback hook fires at most once per merge
+M09_PROBE PASS: audio hook remains safe without audio assets
+M09_PROBE PASS: disabling haptics prevents haptic calls
+M09_PROBE PASS: unsupported haptics path is a safe no-op
+M09_PROBE PASS: M08 merge feedback cleanup remains intact
+M09_PROBE PASS: M08 delivery trail cleanup remains intact
+M09_AUDIO_HAPTICS_RESULT=PASS

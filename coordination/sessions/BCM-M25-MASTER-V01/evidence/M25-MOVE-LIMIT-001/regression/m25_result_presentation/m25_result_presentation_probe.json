@@ -1,0 +1,7 @@
+{
+	"captures": [],
+	"checks": 22,
+	"failures": [],
+	"production_semantic_duplicate_suppressed": true,
+	"renderer": "Godot viewport when windowed; result is synthetic and not acceptance"
+}
