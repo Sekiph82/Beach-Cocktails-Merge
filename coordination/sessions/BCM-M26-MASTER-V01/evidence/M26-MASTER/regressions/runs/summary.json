@@ -1,0 +1,965 @@
+{
+  "run_utc": "2026-10-09T19:45:08.8035802Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+  "godot": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "head": "30af408800f5632aa992c3fd60aa176aefd3df76",
+  "owner_user_data_files": 229,
+  "owner_local_files": 31,
+  "results": [
+    {
+      "id": "M01-contract",
+      "script": "res://tests/m01_contract_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m01_contract_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M01_PROBE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M01-contract.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M01-contract.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M02-physics",
+      "script": "res://tests/m02_physics_regression.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m02_physics_regression.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M02_PROBE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M02-physics.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M02-physics.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M03-economy",
+      "script": "res://tests/m03_economy_regression.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m03_economy_regression.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M03_PROBE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M03-economy.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M03-economy.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M07-R06-owner-layout",
+      "script": "res://tests/m07_r06_owner_layout_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m07_r06_owner_layout_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M07_R06_PROBE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M07-R06-owner-layout.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M07-R06-owner-layout.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M08-to-go",
+      "script": "res://tests/m08_to_go_delivery_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m08_to_go_delivery_probe.gd"
+      ],
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M08-to-go.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M08-to-go.stderr.txt",
+      "status": "FAIL"
+    },
+    {
+      "id": "M09-audio-haptics",
+      "script": "res://tests/m09_audio_haptics_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m09_audio_haptics_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M09_AUDIO_HAPTICS_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M09-audio-haptics.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M09-audio-haptics.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M10-campaign-architecture",
+      "script": "res://tests/m10_campaign_architecture_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m10_campaign_architecture_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M10_CAMPAIGN_ARCHITECTURE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M10-campaign-architecture.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M10-campaign-architecture.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M11-save-migration",
+      "script": "res://tests/m11_save_migration_progression_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m11_save_migration_progression_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M11_SAVE_MIGRATION_PROGRESSION_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M11-save-migration.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M11-save-migration.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M12-world-map",
+      "script": "res://tests/m12_world_map_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m12_world_map_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M12_WORLD_MAP_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M12-world-map.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M12-world-map.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M13-island-map",
+      "script": "res://tests/m13_island_map_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m13_island_map_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M13_ISLAND_MAP_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M13-island-map.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M13-island-map.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M14-session-bridge",
+      "script": "res://tests/m14_gameplay_session_bridge_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m14_gameplay_session_bridge_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M14_GAMEPLAY_SESSION_BRIDGE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M14-session-bridge.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M14-session-bridge.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M15-economy",
+      "script": "res://tests/m15_vip_boosters_economy_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m15_vip_boosters_economy_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M15-economy.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M15-economy.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M16-content",
+      "script": "res://tests/m16_sunny_cove_content_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m16_sunny_cove_content_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M16_SUNNY_COVE_CONTENT_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M16-content.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M16-content.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M17-vip-optionality",
+      "script": "res://tests/m17_vip_optionality_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m17_vip_optionality_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M17_VIP_OPTIONALITY_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M17-vip-optionality.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M17-vip-optionality.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M17-v06-analytical",
+      "script": "res://tests/m17_canonical_screening_v06_analytical_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m17_canonical_screening_v06_analytical_probe.gd"
+      ],
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M17-v06-analytical.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M17-v06-analytical.stderr.txt",
+      "status": "FAIL"
+    },
+    {
+      "id": "M17-difficulty",
+      "script": "res://tests/m17_difficulty_validation_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m17_difficulty_validation_probe.gd"
+      ],
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M17-difficulty.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M17-difficulty.stderr.txt",
+      "status": "FAIL"
+    },
+    {
+      "id": "M18-star-contract",
+      "script": "res://tests/m18_star_contract_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m18_star_contract_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M18_STAR_CONTRACT_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-star-contract.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-star-contract.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M18-completion",
+      "script": "res://tests/m18_completion_progression_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m18_completion_progression_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M18_COMPLETION_PROGRESSION_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-completion.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-completion.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M18-star-rewards",
+      "script": "res://tests/m18_cumulative_star_rewards_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m18_cumulative_star_rewards_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M18_CUMULATIVE_STAR_REWARDS_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-star-rewards.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-star-rewards.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M18-reward-claims",
+      "script": "res://tests/m18_cumulative_reward_claim_remediation_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m18_cumulative_reward_claim_remediation_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M18_CUMULATIVE_REWARD_REMEDIATION_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-reward-claims.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-reward-claims.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M18-replay-persistence",
+      "script": "res://tests/m18_replay_persistence_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m18_replay_persistence_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M18_REPLAY_PERSISTENCE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-replay-persistence.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-replay-persistence.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M18-integration",
+      "script": "res://tests/m18_integration_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m18_integration_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M18_INTEGRATION_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-integration.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-integration.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M18-island-replay",
+      "script": "res://tests/m18_island_map_replay_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m18_island_map_replay_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M18_ISLAND_MAP_REPLAY_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-island-replay.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M18-island-replay.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M19-scalability",
+      "script": "res://tests/m19_multi_island_scalability_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m19_multi_island_scalability_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M19_CHILD_01_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-scalability.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-scalability.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M19-R01-child-01",
+      "script": "res://tests/m19_r01_ordered_verification_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m19_r01_ordered_verification_probe.gd",
+        "--",
+        "--child=1"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M19_R01_CHILD_01_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-01.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-01.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M19-R01-child-02",
+      "script": "res://tests/m19_r01_ordered_verification_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m19_r01_ordered_verification_probe.gd",
+        "--",
+        "--child=2"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M19_R01_CHILD_02_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-02.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-02.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M19-R01-child-03",
+      "script": "res://tests/m19_r01_ordered_verification_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m19_r01_ordered_verification_probe.gd",
+        "--",
+        "--child=3"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M19_R01_CHILD_03_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-03.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-03.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M19-R01-child-04",
+      "script": "res://tests/m19_r01_ordered_verification_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m19_r01_ordered_verification_probe.gd",
+        "--",
+        "--child=4"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M19_R01_CHILD_04_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-04.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-04.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M19-R01-child-05",
+      "script": "res://tests/m19_r01_ordered_verification_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m19_r01_ordered_verification_probe.gd",
+        "--",
+        "--child=5"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M19_R01_CHILD_05_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-05.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-05.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M19-R01-child-06",
+      "script": "res://tests/m19_r01_ordered_verification_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m19_r01_ordered_verification_probe.gd",
+        "--",
+        "--child=6"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M19_R01_CHILD_06_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-06.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-06.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M20-onboarding",
+      "script": "res://tests/m20_onboarding_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m20_onboarding_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M20_CHILD_02_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-onboarding.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-onboarding.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M20-settings",
+      "script": "res://tests/m20_settings_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m20_settings_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M20_CHILD_03_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-settings.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-settings.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M20-migration",
+      "script": "res://tests/m20_migration_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m20_migration_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M20_CHILD_06_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-migration.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-migration.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M20-campaign-ux",
+      "script": "res://tests/m20_campaign_ux_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m20_campaign_ux_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M20_CHILD_05_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-campaign-ux.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-campaign-ux.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M20-pause-lifecycle",
+      "script": "res://tests/m20_pause_lifecycle_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m20_pause_lifecycle_probe.gd"
+      ],
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-pause-lifecycle.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-pause-lifecycle.stderr.txt",
+      "status": "FAIL"
+    },
+    {
+      "id": "M20-app-shell",
+      "script": "res://tests/m20_app_shell_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m20_app_shell_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M20_CHILD_01_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-app-shell.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M20-app-shell.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M21-progression",
+      "script": "res://tests/m21_full_progression_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m21_full_progression_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M21_CHILD_03_RESULT=PASS completed=100 checkpoints=5",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-progression.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-progression.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M21-persistence",
+      "script": "res://tests/m21_release_persistence_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m21_release_persistence_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M21_RELEASE_PERSISTENCE_RESULT=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-persistence.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-persistence.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M21-world-map",
+      "script": "res://tests/m21_world_map_production_v05_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m21_world_map_production_v05_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M21_WORLD_MAP_PRODUCTION_V05_RESULT=PASS captures=0 mouse=PASS touch=PASS",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-world-map.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-world-map.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M21-R04-surface",
+      "script": "res://tests/m21_r04_gameplay_surface_authority_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m21_r04_gameplay_surface_authority_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M21_R04_SURFACE_PROBE_RESULT=PASS islands=10 checks=71",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-R04-surface.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-R04-surface.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M21-performance",
+      "script": "res://tests/m21_performance_profile_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m21_performance_profile_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M21_CHILD_02_RESULT=PASS samples=21 frame_samples=60",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-performance.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-performance.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M22-plugin-contract",
+      "script": "res://tests/m22_001_plugin_contract_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m22_001_plugin_contract_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M22_001_PLUGIN_CONTRACT_RESULT=PASS checks=21 failures=0 authority_hash=3786882944",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M22-plugin-contract.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M22-plugin-contract.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M22-semantic-bridge",
+      "script": "res://tests/m22_002_semantic_bridge_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m22_002_semantic_bridge_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M22_002_SEMANTIC_BRIDGE_RESULT=PASS checks=27 failures=0 authority_hash=3786882944",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M22-semantic-bridge.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M22-semantic-bridge.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M22-effect-policy",
+      "script": "res://tests/m22_003_effect_policy_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m22_003_effect_policy_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M22_003_EFFECT_POLICY_RESULT=PASS checks=97 failures=0 authority_hash=3786882944",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M22-effect-policy.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M22-effect-policy.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M23-micro",
+      "script": "res://tests/m23_001_micro_feedback_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m23_001_micro_feedback_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M23_001_MICRO_FEEDBACK_RESULT=PASS checks=28 failures=0 dispatches=5 cooldown_ms=120 captures=0",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-micro.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-micro.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M23-merge",
+      "script": "res://tests/m23_002_merge_feedback_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m23_002_merge_feedback_probe.gd"
+      ],
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-merge.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-merge.stderr.txt",
+      "status": "FAIL"
+    },
+    {
+      "id": "M23-combo",
+      "script": "res://tests/m23_003_combo_milestone_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m23_003_combo_milestone_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M23_003_COMBO_MILESTONE_RESULT=PASS checks=29 failures=0 score_milestones=2 captures=0",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-combo.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-combo.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M23-color",
+      "script": "res://tests/m23_r03_color_restoration_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m23_r03_color_restoration_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M23_R03_COLOR_RESTORATION_RESULT=PASS checks=13 failures=0 scenarios=7",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-color.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M23-color.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M24-order-progress",
+      "script": "res://tests/m24_001_order_progress_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m24_001_order_progress_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M24-order-progress.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M24-order-progress.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M24-order-complete",
+      "script": "res://tests/m24_002_order_complete_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m24_002_order_complete_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M24-order-complete.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M24-order-complete.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M24-vip",
+      "script": "res://tests/m24_003_vip_feedback_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m24_003_vip_feedback_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M24-vip.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M24-vip.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M25-result",
+      "script": "res://tests/m25_result_presentation_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m25_result_presentation_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M25_RESULT_PRESENTATION_PROBE_RESULT=PASS checks=22 failures=0",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M25-result.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M25-result.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M25-move-limit",
+      "script": "res://tests/m25_move_limit_probe.gd",
+      "arguments": [
+        "--headless",
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--script",
+        "res://tests/m25_move_limit_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M25_PERCENT400_RESULT PASS levels=100 vip_levels=25 overlap_levels=[8, 24, 32, 36, 56, 64, 72, 76, 80, 92, 96, 100]",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M25-move-limit.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M25-move-limit.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M26-002-focused",
+      "script": "res://tests/m26_002_campaign_unlock_presentation_probe.gd",
+      "arguments": [
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--rendering-method",
+        "gl_compatibility",
+        "--display-driver",
+        "windows",
+        "--script",
+        "res://tests/m26_002_campaign_unlock_presentation_probe.gd"
+      ],
+      "exit_code": 0,
+      "cleanup_verified": true,
+      "result_marker": "M26_002_CAMPAIGN_MAP_RESULT=PASS captures=3 failures=0 max_particles=48",
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M26-002-focused.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M26-002-focused.stderr.txt",
+      "status": "PASS"
+    },
+    {
+      "id": "M26-003-focused",
+      "script": "res://tests/m26_003_reward_primary_feedback_probe.gd",
+      "arguments": [
+        "--path",
+        "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+        "--rendering-method",
+        "gl_compatibility",
+        "--display-driver",
+        "windows",
+        "--script",
+        "res://tests/m26_003_reward_primary_feedback_probe.gd"
+      ],
+      "exit_code": 1,
+      "cleanup_verified": true,
+      "result_marker": null,
+      "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M26-003-focused.stdout.txt",
+      "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M26-003-focused.stderr.txt",
+      "status": "FAIL"
+    }
+  ],
+  "passed": 49,
+  "failed": 6
+}

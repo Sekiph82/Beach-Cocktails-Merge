@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T19:43:34.7331880Z",
+  "finished_utc": "2026-10-09T19:43:47.4700618Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+    "--script",
+    "res://tests/m21_performance_profile_probe.gd"
+  ],
+  "spawned_pids": [
+    35224,
+    36668,
+    39256
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-performance.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M21-performance.stderr.txt"
+}

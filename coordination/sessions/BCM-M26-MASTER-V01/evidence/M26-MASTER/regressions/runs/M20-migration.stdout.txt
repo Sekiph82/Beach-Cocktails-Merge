@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M20_CHILD_06_PROBE PASS: current campaign save round-trips without data loss
+M20_CHILD_06_PROBE PASS: v1 campaign save migrates to the current schema
+M20_CHILD_06_PROBE PASS: M15/M18 stars, replay score, and reward fields survive migration
+M20_CHILD_06_PROBE PASS: legacy best score migrates without rewriting the legacy source
+M20_CHILD_06_PROBE PASS: recovery fixture writes two valid generations
+M20_CHILD_06_PROBE PASS: corrupt primary recovers the valid backup
+M20_CHILD_06_PROBE PASS: future schema is reported unsupported
+M20_CHILD_06_PROBE PASS: unsupported future save remains non-destructive
+M20_CHILD_06_PROBE PASS: settings and onboarding use independent storage files
+M20_CHILD_06_PROBE PASS: corrupt settings fall back to safe defaults
+M20_CHILD_06_PROBE PASS: missing or corrupt settings do not alter campaign save
+M20_CHILD_06_RESULT=PASS

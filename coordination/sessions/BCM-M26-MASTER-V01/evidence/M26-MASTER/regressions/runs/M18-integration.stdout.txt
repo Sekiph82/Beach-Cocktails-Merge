@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M18_INTEGRATION_PROBE PASS: canonical M18 database loads in FULL validation
+M18_INTEGRATION_PROBE PASS: fresh economy configures
+M18_INTEGRATION_PROBE PASS: fresh canonical campaign configures
+M18_INTEGRATION_PROBE PASS: integration records the base one-star award
+M18_INTEGRATION_PROBE PASS: integration preserves worse replay state
+M18_INTEGRATION_PROBE PASS: integration upgrades better replay state
+M18_INTEGRATION_PROBE PASS: 102 cumulative stars do not grant retired +Time
+M18_INTEGRATION_PROBE PASS: retired +Time remains absent after replay
+M18_INTEGRATION_PROBE PASS: integration completes Sunny Cove and unlocks Tiki
+M18_INTEGRATION_PROBE PASS: integration persists campaign and reward-ledger state
+M18_INTEGRATION_PROBE PASS: integration reload preserves star state without claiming empty +Time slots
+M18_INTEGRATION_PROBE PASS: integration navigation configures from reloaded authority
+M18_INTEGRATION_PROBE PASS: integration mounts exactly one reusable map pair
+M18_INTEGRATION_PROBE PASS: integration map exposes replay-complete level state
+M18_INTEGRATION_PROBE PASS: integration enters replay with one gameplay instance
+M18_INTEGRATION_PROBE PASS: integration returns from replay through Island Map boundary
+M18_INTEGRATION_PROBE PASS: integration restores replay context without duplicates
+M18_INTEGRATION_RESULT=PASS

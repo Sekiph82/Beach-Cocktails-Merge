@@ -1,0 +1,45 @@
+{
+  "work_item": "BCM-M26-MASTER-V01",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "source_matrix_passed": 49,
+  "source_matrix_failed": 6,
+  "source_matrix_failures": [
+    "M08-to-go",
+    "M17-v06-analytical",
+    "M17-difficulty",
+    "M20-pause-lifecycle",
+    "M23-merge",
+    "M26-003-focused"
+  ],
+  "repeat_run": {
+    "cleanup_verified": true,
+    "replaces": "M26-003-focused prior result, which used persisted REDUCED setting from earlier probe run",
+    "id": "M26-003-focused-repeat",
+    "exit_code": 0,
+    "result": "M26_003_REWARD_CTA_RESULT=PASS captures=4 failures=0"
+  },
+  "effective_passed": 50,
+  "effective_failed": 5,
+  "failure_details": [
+    {
+      "finding": "Historical probe parse error: mixed indentation at tests/m08_to_go_delivery_probe.gd:79",
+      "id": "M08-to-go"
+    },
+    {
+      "finding": "One canonical analytical objective reachability assertion fails; canonical Sunny Cove JSON remained byte-identical",
+      "id": "M17-v06-analytical"
+    },
+    {
+      "finding": "Timeout fixture, TIMEOUT outcome, and different-seed sequence assertions fail; deterministic replay assertions pass",
+      "id": "M17-difficulty"
+    },
+    {
+      "finding": "Retry remains same campaign level assertion fails; remaining pause lifecycle checks pass",
+      "id": "M20-pause-lifecycle"
+    },
+    {
+      "finding": "Merge stress dispatch particle and GFF output ceiling assertion fails; 30 checks, one failure",
+      "id": "M23-merge"
+    }
+  ]
+}

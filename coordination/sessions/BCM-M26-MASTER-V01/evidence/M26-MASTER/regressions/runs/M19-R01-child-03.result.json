@@ -1,0 +1,27 @@
+{
+  "started_utc": "2026-10-09T19:40:18.9032818Z",
+  "finished_utc": "2026-10-09T19:40:22.9575727Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+    "--script",
+    "res://tests/m19_r01_ordered_verification_probe.gd",
+    "--",
+    "--child=3"
+  ],
+  "spawned_pids": [
+    7348,
+    18552,
+    40136
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-03.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M19-R01-child-03.stderr.txt"
+}

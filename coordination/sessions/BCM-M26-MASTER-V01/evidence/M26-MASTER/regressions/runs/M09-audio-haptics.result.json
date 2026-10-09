@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T19:38:02.8957376Z",
+  "finished_utc": "2026-10-09T19:38:09.8684307Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+    "--script",
+    "res://tests/m09_audio_haptics_probe.gd"
+  ],
+  "spawned_pids": [
+    8592,
+    33780,
+    41232
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M09-audio-haptics.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M09-audio-haptics.stderr.txt"
+}

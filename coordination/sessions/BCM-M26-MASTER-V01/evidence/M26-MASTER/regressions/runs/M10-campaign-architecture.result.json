@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-09T19:38:10.4547603Z",
+  "finished_utc": "2026-10-09T19:38:14.8670551Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox",
+    "--script",
+    "res://tests/m10_campaign_architecture_probe.gd"
+  ],
+  "spawned_pids": [
+    21176,
+    38704,
+    40120
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M10-campaign-architecture.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-master-v01-sandbox\\coordination\\sessions\\BCM-M26-MASTER-V01\\evidence\\M26-MASTER\\regressions\\runs\\M10-campaign-architecture.stderr.txt"
+}

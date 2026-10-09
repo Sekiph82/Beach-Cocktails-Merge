@@ -1,0 +1,107 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M03_PROBE user_save_path=C:/Users/sekip/AppData/Roaming/Godot/app_userdata/BCM-M26-003-20261009-Sandbox/save.cfg
+M03_PROBE PASS: main scene loads as PackedScene
+M03_PROBE PASS: runtime economy objects are ready
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L5 +200  COMBO x1 +0  (toplam: 200)
+MERGE L6 +350  COMBO x1 +0  (toplam: 350)
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+MERGE L8 +1000  COMBO x1 +0  (toplam: 1000)
+MERGE L9 +1600  COMBO x1 +0  (toplam: 1600)
+MERGE L10 +2500  COMBO x1 +0  (toplam: 2500)
+MERGE L11 +4000  COMBO x1 +0  (toplam: 4000)
+MERGE L12 +6500  COMBO x1 +0  (toplam: 6500)
+M03_SCORE_TABLE L2 expected=20 observed=20; L3 expected=50 observed=50; L4 expected=100 observed=100; L5 expected=200 observed=200; L6 expected=350 observed=350; L7 expected=600 observed=600; L8 expected=1000 observed=1000; L9 expected=1600 observed=1600; L10 expected=2500 observed=2500; L11 expected=4000 observed=4000; L12 expected=6500 observed=6500
+M03_PROBE PASS: every resulting merge level L2-L12 pays the exact score once
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+MERGE L2 +20  COMBO x2 +5  (toplam: 45)
+MERGE L2 +20  COMBO x3 +10  (toplam: 75)
+MERGE L2 +20  COMBO x4 +15  (toplam: 110)
+MERGE L2 +20  COMBO x5 +20  (toplam: 150)
+MERGE L2 +20  COMBO x6 +25  (toplam: 195)
+MERGE L2 +20  COMBO x6 +25  (toplam: 240)
+M03_COMBO observed_deltas=[20, 25, 30, 35, 40, 45, 45] chain=6 timer=1.5
+M03_PROBE PASS: combo x1 through x6+ uses 0/25/50/75/100/125 percent cap
+M03_PROBE PASS: combo expiration resets deterministically
+MERGE L2 +20  COMBO x1 +0  (toplam: 260)
+M03_PROBE PASS: post-window merge restarts at x1
+M03_PROBE PASS: initial active To-Go target starts at owner-directed L5
+M03_PROBE PASS: To-Go target stays in L6-L12 and avoids immediate repeat
+M03_REWARD_TABLE L6 expected=1000 observed=1000; L7 expected=1800 observed=1800; L8 expected=3000 observed=3000; L9 expected=5000 observed=5000; L10 expected=8000 observed=8000; L11 expected=12000 observed=12000; L12 expected=18000 observed=18000
+M03_PROBE PASS: owner-approved To-Go reward table L6-L12 is exact
+MERGE L6 +350  COMBO x1 +0  (toplam: 350)
+TO-GO ORDER L6 +1000  (toplam: 1350)
+M03_IMMEDIATE_ORDER L6 merge=350 reward=1000 expected_total=1350 observed_total=1350
+M03_PROBE PASS: newly created L6 matching drink fulfills active order exactly once
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+TO-GO ORDER L7 +1800  (toplam: 2400)
+M03_IMMEDIATE_ORDER L7 merge=600 reward=1800 expected_total=2400 observed_total=2400
+M03_PROBE PASS: newly created L7 matching drink fulfills active order exactly once
+MERGE L8 +1000  COMBO x1 +0  (toplam: 1000)
+TO-GO ORDER L8 +3000  (toplam: 4000)
+M03_IMMEDIATE_ORDER L8 merge=1000 reward=3000 expected_total=4000 observed_total=4000
+M03_PROBE PASS: newly created L8 matching drink fulfills active order exactly once
+MERGE L9 +1600  COMBO x1 +0  (toplam: 1600)
+TO-GO ORDER L9 +5000  (toplam: 6600)
+M03_IMMEDIATE_ORDER L9 merge=1600 reward=5000 expected_total=6600 observed_total=6600
+M03_PROBE PASS: newly created L9 matching drink fulfills active order exactly once
+MERGE L10 +2500  COMBO x1 +0  (toplam: 2500)
+TO-GO ORDER L10 +8000  (toplam: 10500)
+M03_IMMEDIATE_ORDER L10 merge=2500 reward=8000 expected_total=10500 observed_total=10500
+M03_PROBE PASS: newly created L10 matching drink fulfills active order exactly once
+MERGE L11 +4000  COMBO x1 +0  (toplam: 4000)
+TO-GO ORDER L11 +12000  (toplam: 16000)
+M03_IMMEDIATE_ORDER L11 merge=4000 reward=12000 expected_total=16000 observed_total=16000
+M03_PROBE PASS: newly created L11 matching drink fulfills active order exactly once
+MERGE L12 +6500  COMBO x1 +0  (toplam: 6500)
+TO-GO ORDER L12 +18000  (toplam: 24500)
+M03_IMMEDIATE_ORDER L12 merge=6500 reward=18000 expected_total=24500 observed_total=24500
+M03_PROBE PASS: newly created L12 matching drink fulfills active order exactly once
+TO-GO ORDER L6 +1000  (toplam: 1000)
+M03_STORED_ORDER L6 reward=1000 expected_total=1000 observed_total=1000
+M03_PROBE PASS: stored L6 matching drink receives only the current To-Go reward exactly once
+TO-GO ORDER L7 +1800  (toplam: 1800)
+M03_STORED_ORDER L7 reward=1800 expected_total=1800 observed_total=1800
+M03_PROBE PASS: stored L7 matching drink receives only the current To-Go reward exactly once
+TO-GO ORDER L8 +3000  (toplam: 3000)
+M03_STORED_ORDER L8 reward=3000 expected_total=3000 observed_total=3000
+M03_PROBE PASS: stored L8 matching drink receives only the current To-Go reward exactly once
+TO-GO ORDER L9 +5000  (toplam: 5000)
+M03_STORED_ORDER L9 reward=5000 expected_total=5000 observed_total=5000
+M03_PROBE PASS: stored L9 matching drink receives only the current To-Go reward exactly once
+TO-GO ORDER L10 +8000  (toplam: 8000)
+M03_STORED_ORDER L10 reward=8000 expected_total=8000 observed_total=8000
+M03_PROBE PASS: stored L10 matching drink receives only the current To-Go reward exactly once
+TO-GO ORDER L11 +12000  (toplam: 12000)
+M03_STORED_ORDER L11 reward=12000 expected_total=12000 observed_total=12000
+M03_PROBE PASS: stored L11 matching drink receives only the current To-Go reward exactly once
+TO-GO ORDER L12 +18000  (toplam: 18000)
+M03_STORED_ORDER L12 reward=18000 expected_total=18000 observed_total=18000
+M03_PROBE PASS: stored L12 matching drink receives only the current To-Go reward exactly once
+TO-GO ORDER L10 +8000  (toplam: 8000)
+M03_PROBE PASS: only one of multiple matching stored drinks is consumed
+TO-GO ORDER L12 +18000  (toplam: 18000)
+M03_PROBE PASS: L12 remains stored when not ordered and fulfills a later L12 order
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+M03_PROBE PASS: duplicate merge request cannot double-pay
+M03_PROBE PASS: missing save loads safe best-score default
+M03_PROBE PASS: corrupt save loads safe best-score default without crash
+OYUN BITTI - Skor: 20
+M03_PROBE PASS: danger line waits below one-second tolerance
+M03_PROBE PASS: danger line triggers deterministic Game Over at one second
+M03_PROBE PASS: restart clears session score/state and restores playable scene
+OYUN BITTI - Skor: 321
+M03_PROBE PASS: Game Over with moving drinks freezes run, stops shooting, clears pending work, and shows overlay
+M03_PROBE PASS: Game Over persists best score without corrupting save
+M03_PROBE PASS: restart after moving Game Over preserves best and clears session
+M03_REWARD_STATUS L6=1000 L7=1800 L8=3000 L9=5000 L10=8000 L11=12000 L12=18000
+OWNER-APPROVED REWARD TABLE APPLIED: L6=1000 L7=1800; L8-L12 unchanged
+M03_PROBE_RESULT=PASS

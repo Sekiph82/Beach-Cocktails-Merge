@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M19_R01_CHILD_05 PASS: canonical database loads in FULL mode
+M19_R01_CHILD_05 PASS: all ten theme hooks are immutable and existing
+M19_R01_CHILD_05 PASS: session bridge exposes immutable R04 surface/profile
+M19_R01_CHILD_05 PASS: theme-less legacy fixture falls back safely
+M19_R01_CHILD_05_RESULT=PASS

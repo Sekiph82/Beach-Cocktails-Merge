@@ -1,0 +1,99 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_CHILD_01_PROBE PASS: canonical campaign data loads
+M21_CHILD_01_PROBE PASS: fresh campaign fixture configures
+M21_CHILD_01_PROBE PASS: production navigation accepts fresh campaign fixture
+M21_CHILD_01_PROBE PASS: onboarding surface is visible
+M21_CHILD_01_PROBE PASS: onboarding exposes five pages
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_onboarding
+M21_CHILD_01_CAPTURE name=canonical_720x1280_onboarding path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_onboarding.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: onboarding NEXT/FINISH production control is reachable
+M21_CHILD_01_PROBE PASS: onboarding NEXT/FINISH production control is reachable
+M21_CHILD_01_PROBE PASS: onboarding NEXT/FINISH production control is reachable
+M21_CHILD_01_PROBE PASS: onboarding NEXT/FINISH production control is reachable
+M21_CHILD_01_PROBE PASS: onboarding NEXT/FINISH production control is reachable
+M21_CHILD_01_PROBE PASS: onboarding control path reaches Main Menu
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_main_menu
+M21_CHILD_01_CAPTURE name=canonical_720x1280_main_menu path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_main_menu.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: Settings production control is reachable
+M21_CHILD_01_PROBE PASS: Settings surface opens
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_settings
+M21_CHILD_01_CAPTURE name=canonical_720x1280_settings path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_settings.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: Settings toggle production control is reachable
+M21_CHILD_01_PROBE PASS: Settings toggle persists in presentation state
+M21_CHILD_01_PROBE PASS: Settings close production control is reachable
+M21_CHILD_01_PROBE PASS: PLAY production control is reachable
+M21_CHILD_01_PROBE PASS: PLAY continues the unlocked frontier into gameplay
+M21_CHILD_01_PROBE PASS: PLAY does not misroute into World Map
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_play_gameplay
+M21_CHILD_01_CAPTURE name=canonical_720x1280_play_gameplay path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_play_gameplay.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: Home can be reopened after PLAY
+M21_CHILD_01_PROBE PASS: separate WORLD MAP production control is reachable
+M21_CHILD_01_PROBE PASS: WORLD MAP control reaches World Map without gameplay
+M21_CHILD_01_PROBE PASS: World Map has production island controls
+M21_CHILD_01_PROBE PASS: World Map layout has no horizontal clipping
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_world_map
+M21_CHILD_01_CAPTURE name=canonical_720x1280_world_map path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_world_map.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: locked island production control is reachable
+M21_CHILD_01_PROBE PASS: locked feedback is visible
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_locked_feedback
+M21_CHILD_01_CAPTURE name=canonical_720x1280_locked_feedback path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_locked_feedback.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: Sunny Cove island production control is reachable
+M21_CHILD_01_PROBE PASS: World Map selection reaches Island Map
+M21_CHILD_01_PROBE PASS: 100-level Island Map has no horizontal clipping
+M21_CHILD_01_PROBE PASS: 100-level Island Map is vertically scrollable
+M21_CHILD_01_PROBE PASS: Island Map has no duplicate level nodes
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_island_map_top
+M21_CHILD_01_CAPTURE name=canonical_720x1280_island_map_top path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_island_map_top.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: Island Map scroll path reaches lower levels
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_island_map_bottom
+M21_CHILD_01_CAPTURE name=canonical_720x1280_island_map_bottom path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_island_map_bottom.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: Level selection production control is reachable
+M21_CHILD_01_PROBE PASS: level selection reaches gameplay
+M21_CHILD_01_PROBE PASS: gameplay pause control is reachable
+M21_CHILD_01_PROBE PASS: pause overlay opens
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_pause
+M21_CHILD_01_CAPTURE name=canonical_720x1280_pause path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_pause.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: resume production control is reachable
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_gameplay
+M21_CHILD_01_CAPTURE name=canonical_720x1280_gameplay path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_gameplay.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: LOSE result action surface opens
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_lose_result
+M21_CHILD_01_CAPTURE name=canonical_720x1280_lose_result path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_lose_result.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: RETRY result production action is reachable
+M21_CHILD_01_PROBE PASS: WIN result action surface opens
+M21_CHILD_01_PROBE PASS: capture saved: canonical_720x1280_win_result
+M21_CHILD_01_CAPTURE name=canonical_720x1280_win_result path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/canonical_720x1280_win_result.png dimensions=720x1280 error=0
+M21_CHILD_01_PROBE PASS: ISLAND MAP result production action is reachable
+M21_CHILD_01_PROBE PASS: result action returns to one Island Map
+M21_CHILD_01_PROBE PASS: navigation retains one map pair after repeated flow
+M21_CHILD_01_PROBE PASS: canonical campaign data loads
+M21_CHILD_01_PROBE PASS: fresh campaign fixture configures
+M21_CHILD_01_PROBE PASS: production navigation accepts fresh campaign fixture
+M21_CHILD_01_PROBE PASS: tall presentation starts at onboarding
+M21_CHILD_01_PROBE PASS: tall PLAY continues the unlocked frontier into gameplay
+M21_CHILD_01_PROBE PASS: tall PLAY does not misroute into World Map
+M21_CHILD_01_PROBE PASS: capture saved: tall_720x1440_play_gameplay
+M21_CHILD_01_CAPTURE name=tall_720x1440_play_gameplay path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/tall_720x1440_play_gameplay.png dimensions=720x1440 error=0
+M21_CHILD_01_PROBE PASS: tall Home can be reopened after PLAY
+M21_CHILD_01_PROBE PASS: tall separate WORLD MAP production control is reachable
+M21_CHILD_01_PROBE PASS: tall WORLD MAP control reaches World Map without gameplay
+M21_CHILD_01_PROBE PASS: tall World Map retains all production island entries
+M21_CHILD_01_PROBE PASS: tall World Map has no horizontal clipping
+M21_CHILD_01_PROBE PASS: capture saved: tall_720x1440_world_map
+M21_CHILD_01_CAPTURE name=tall_720x1440_world_map path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/tall_720x1440_world_map.png dimensions=720x1440 error=0
+M21_CHILD_01_PROBE PASS: tall presentation keeps 100-level Island Map reachable
+M21_CHILD_01_PROBE PASS: tall presentation preserves vertical scroll interaction
+M21_CHILD_01_PROBE PASS: capture saved: tall_720x1440_island_map_bottom
+M21_CHILD_01_CAPTURE name=tall_720x1440_island_map_bottom path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/tall_720x1440_island_map_bottom.png dimensions=720x1440 error=0
+M21_CHILD_01_PROBE PASS: tall presentation reaches gameplay without duplicate instance
+M21_CHILD_01_PROBE PASS: capture saved: tall_720x1440_gameplay
+M21_CHILD_01_CAPTURE name=tall_720x1440_gameplay path=res://coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/mobile_qa_run02/tall_720x1440_gameplay.png dimensions=720x1440 error=0
+M21_CHILD_01_TEARDOWN bridges_canceled=true spark_cleared=true renderer_synced=true
+M21_CHILD_01_RESULT=PASS captures=16

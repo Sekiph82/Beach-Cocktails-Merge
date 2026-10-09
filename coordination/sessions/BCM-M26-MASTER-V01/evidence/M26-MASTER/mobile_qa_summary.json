@@ -1,0 +1,24 @@
+{
+  "work_item": "BCM-M21-001",
+  "runs": [
+    {
+      "cleanup_verified": true,
+      "exit_code": 0,
+      "id": "mobile_qa_run01",
+      "result": "M21_CHILD_01_RESULT=PASS captures=16",
+      "captures": 16,
+      "physical_device": false
+    },
+    {
+      "cleanup_verified": true,
+      "exit_code": 0,
+      "id": "mobile_qa_run02",
+      "result": "M21_CHILD_01_RESULT=PASS captures=16",
+      "captures": 16,
+      "physical_device": false
+    }
+  ],
+  "all_checks_failed": [],
+  "owner_hashes_unchanged": true,
+  "note": "Two independent GL compatibility QA runs; physical-device acceptance remains deferred."
+}
