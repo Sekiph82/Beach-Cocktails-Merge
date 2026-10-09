@@ -1,0 +1,3 @@
+# CAL02 Calibration Evidence
+
+Codex: first synchronize with origin/main without replacing local owner edits. Preserve original user saves. Profile the 45 order classes using repeatable seeds and simulation policies. Build a resumable testing workflow. Verify that any optimized trial matches current physics behavior. Report trial costs and success distributions, with uncertainty and separate VIP considerations. Do not enable new limits or change the star formula until calibration evidence is sufficient. Keep TASKS.md read only. Save test evidence and log, commit to main and stop for independent audit. Do not start M26.
