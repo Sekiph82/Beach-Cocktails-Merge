@@ -1,0 +1,2 @@
+# M25-001 Results entrance
+Implement presentation-only WIN/LOSE panel, stars, score and reward reveal on immutable terminal result. Through PresentationFeedbackBridge only, no Spark. 0 particles, <=0.75 s FULL; REDUCED immediate or <=0.12s alpha. One-shot terminal guard, interactive actions throughout, teardown. Keep existing result copy, hitboxes and navigation. Write child log, tests, authentic renderer before/event/settled captures.
