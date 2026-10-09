@@ -4,11 +4,14 @@
 - Start HEAD: `73848db0a4e2863b78926dd897ed0259103a05a3`
 - Integrated source/evidence commit: `0121773` (`Implement M25 campaign result presentation`).
 - Branch / remote: `main` / `origin`
+- End HEAD at publication check: `4606e1f50dc6a8196baef6c8b89d223d571f4538`.
 - Initial sync: canonical `main` was 0 ahead / 0 behind after path-disjoint safe fast-forward to `73848db`; owner-local tracked changes were retained in named tracked-only stash `owner-local-safe-sync-8d6616b` and reapplied, with untracked owner files left untouched.
 - Files in this child scope: result overlay, GameManager, CampaignNavigationController, FeedbackService, PresentationFeedbackBridge, and the focused M25 probe. The final implementation was integrated with M25-002/003 in one source commit; no separate intermediate 001 commit was published.
+- Changed source paths: `scripts/campaign/campaign_feedback_overlay.gd`, `scripts/campaign/campaign_manager.gd`, `scripts/campaign/campaign_navigation_controller.gd`, `scripts/feedback_service.gd`, `scripts/game_manager.gd`, `scripts/presentation_feedback_bridge.gd`, and `tests/m25_result_presentation_probe.gd`; execution evidence is under `coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/`.
 - Implementation: terminal Results presentation is triggered from the guarded production navigation path, sends a copied terminal payload through FeedbackService, and targets an allowlisted local Results title. WIN panel alpha entrance is bounded to 0.24s FULL / 0.10s REDUCED. Existing result copy, score, stars, actions and action rectangles are retained by the probe.
 - Evidence: focused M25 probe passed 22 checks in headless and GL Compatibility runs. `m21_mobile_qa_probe` captured 16 production-shell screens at 720x1280 and 720x1440, with `checks_failed=[]`; WIN/LOSE terminal screens were reached through the campaign session bridge. The M25 before/event/settled GL captures use synthetic result fixtures. Genuine player-operated terminal gameplay and owner acceptance are not evidenced.
 - Limits: the final integrated WIN planner includes M25-002 particle effects, so this run does not provide a separately committed intermediate M25-001 no-Spark build. The mobile QA process printed PASS after 16 captures but exited with Windows status `-1073741819` (access violation); clean shutdown is unverified.
 - Save isolation: `%APPDATA%` and reports were redirected to `C:\Users\sekip\AppData\Local\Temp\BCM-M25-V01-20261009-073144`; the four owner-save SHA-256 values recorded before probes match after probes.
 - `TASKS.md` was not modified.
+- Final publication verification: `git rev-parse HEAD` = `4606e1f50dc6a8196baef6c8b89d223d571f4538`; `git rev-parse origin/main` and `git ls-remote origin refs/heads/main` returned the same SHA; ahead/behind = `0/0`.
 - Acceptance: not self-approved; owner and independent audit remain pending.
