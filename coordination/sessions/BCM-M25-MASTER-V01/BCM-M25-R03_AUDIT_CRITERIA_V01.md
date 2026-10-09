@@ -1,0 +1,6 @@
+# M25-R03 locked audit criteria
+
+1. First determine from current production state machine exactly what triggers LOSE (GameManager, GameplaySessionBridge, fail condition, hearts/moves if any) and whether reachable at current level, without changing rules. Explain prior five WIN outcomes. Identify deterministic physically valid sequence reaching LOSE for FULL and REDUCED. If not reachable under rules, present concrete proof and STOP OWNER_DECISION_REQUIRED, not fabricated LOSE.
+2. Determine actual 1/2/3 star threshold formula and score paths. Identify real gameplay routes producing 1/2 star if reachable. If not reachable, show numerical proof and request owner choice; do not alter star thresholds or inject outcome.
+3. Exercise actual rendered Results Retry and Island Map via scaled GUI event coordinates and touch in 720x1280 and 720x1440, verifying hitbox and 1 route transition each. Guard focus for native mouse and label it UNVERIFIED when not delivered. Differentiate harness bug and real UI bug.
+4. No production gameplay/scoring/level/rules change without explicit owner ruling. Previously approved M23/M24 effects unchanged. New evidence screenshots/logged cause and outcomes, tests isolated APPDATA and owner hashes before first test, regressions, GL M21 2x exit0, 120 frame boot. Codex leaves TASKS.md unchanged and does not start M26.
