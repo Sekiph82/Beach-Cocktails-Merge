@@ -1,0 +1,3 @@
+# M26-001 level unlock and Island Map milestones
+
+Implement only presentation after **new** CampaignManager locked→open and newly reached/claimed island milestone transitions, using authoritative pre/post snapshots. Animate the newly affected LevelButton/marker/milestone, not whole map, with GameFeelFlow and bounded Spark via bridge. Refresh, re-entry, replay and restart must not replay. Preserve all Island Map layouts/hitboxes/access states. Per-effect caps per master criteria: level <=10 particles/.35s; milestone <=18/.55s, REDUCED <=4; total global <=48. Source, automated tests, real GL captures, and dedicated child log; commit/push with same safe preflight and owner protection.
