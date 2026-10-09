@@ -1,8 +1,8 @@
 # Locked M25 PERCENT400 audit criteria
 
-All 100 Sunny Cove levels from canonical campaign JSON must get derived finite theoretical shots T = sum(quantity * 2^(cocktail_level-3)) for mandatory To-Go orders. Audit all 100 inputs; no magic fixed cap, no unbounded entries. Note optional VIP theoretical targets separately without extending the To-Go max budget. move_limit = 4*T.
+All 100 Sunny Cove levels from canonical campaign JSON must get derived finite theoretical shots T = sum(quantity * 2^(cocktail_level-3)) for **mandatory To-Go PLUS configured VIP orders**. T = T_to_go + T_vip. Audit all 100 inputs; no magic fixed cap, no unbounded entries. Show each To-Go/VIP component separately and verify actual overlapping-order delivery semantics. move_limit = 4*T.
 
-Stars for a natural WIN: if actual committed moves < 2*T -> 3; if 2*T <= moves < 3*T -> 2; if 3*T <= moves <= 4*T -> 1. Otherwise 0 for LOSE. This includes exact integer boundaries T=12: 23 ->3, 24 ->2, 35 ->2, 36 ->1, 48 final-shot WIN ->1, 48 incomplete -> LOSE. Handle optional VIP independently without prior VIP third-star gate, as superseded by owner formula. No score input to stars.
+Stars for a natural WIN: if actual committed moves < 2*T -> 3; if 2*T <= moves < 3*T -> 2; if 3*T <= moves <= 4*T -> 1. Otherwise 0 for LOSE. This includes exact integer boundaries T=12: 23 ->3, 24 ->2, 35 ->2, 36 ->1, 48 final-shot WIN ->1, 48 incomplete -> LOSE. For VIP levels use inclusive total, e.g. L8 To-Go=12 VIP=4, T=16, three-star <32, two-star <48, limit=64. For L100 T_to_go=60, T_vip=16, T=76, limit=304. Handle optional VIP independently without prior VIP third-star gate, as superseded by owner formula. No score input to stars.
 
 Count each successful launch once, correctly block extra shots, wait for physics and merge/order delivery to settle, idempotent terminal resolution, final-shot WIN takes priority; natural LOSE reason MOVES_EXHAUSTED. Retry/replay/reset and best-star progression behave properly. Never change physics, order targets, random spawn distributions, timer, economy reward authority or visual effects.
 
