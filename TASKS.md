@@ -7,12 +7,12 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M26
 - Current Sprint: BCM-M26-MASTER-V01
 - Current Task: BCM-M26-001 — Add level-unlock and Island Map milestone presentation from authoritative progression.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M26-001 — CODEX follows `coordination/sessions/BCM-M26-MASTER-V01/CHATGPT_M26_MASTER_PROMPT_V01.md` and stops for audit.
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M26-001 — CODEX runs `coordination/sessions/BCM-M26-MASTER-V01/BCM-M26-001-R01_PROMPT.md` to resolve clean editor import blocking M26-001 verification; do not start M26-002.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M25 owner-approved closure with device QA still unverified. M26 implementation begins with campaign and map presentation.
+- Progress: M25 closed. M26-001 focused GL effect probe PASS (5 captures, 23 dispatches) and M22 97 checks PASS in builder evidence; clean editor import BLOCKED by missing Godot AI addon script. Full regressions/mobile QA remain pending milestone. M26-001-R01 active; M26-002 not started.
 
 ## Blockers/Waits
 
@@ -1242,7 +1242,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M26 — Campaign/map unlocks, island milestones, rewards, and selective UI
 
-- [~] BCM-M26-001 — Add level-unlock and Island Map milestone presentation from authoritative progression.
+- [!] BCM-M26-001 — Add level-unlock and Island Map milestone presentation from authoritative progression.
   - Purpose: highlight genuinely new level/milestone states without animating every refresh.
   - Existing seam: `CampaignManager.progression_changed`, `mark_level_completed()` return `next_level/cumulative_rewards`, `IslandMapController.refresh()/_state_for()`, `LevelButton`, milestone list, summary.
   - Semantic trigger: `level_unlock` only locked→open; `island_milestone` only newly reached/claimed configured threshold.
