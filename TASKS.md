@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M25-MASTER-V01
 - Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M25-003 — CODEX runs `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-R01_CRASH_AND_RESULTS_VALIDATION_PROMPT.md` to resolve native M21 mobile-QA crash and missing genuine gameplay terminal evidence; then GPT re-audit.
+- Next Task/Action: BCM-M25-003 — CODEX executes `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-R02_TERMINAL_ROUTE_MASTER_PROMPT.md` for genuine LOSE, 1/2-star WIN and pointer action routing, then GPT re-audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M24 closed with explicit owner approval. M25-001/002/003 built in one integrated commit and builder 22 checks PASS, but M25 V01 independent audit CHANGES_REQUIRED: mobile GL runner crashed (-1073741819) after 16 captures, genuine player-operated terminal WIN/LOSE not verified, child commits not separated. M25-R01 active. No M26.
+- Progress: M24 closed. M25 R01 audit PARTIAL TECHNICAL PASS: prior GL mobile crash mitigated (2 successful 16-capture/exit 0 runs), regressions PASS, real FULL/REDUCED 3-star WIN captured. Still BLOCKED: no genuine FULL/REDUCED LOSE, no genuine 1/2-star WIN, pointer-driven Results action routing unverified/false. M25-R02 validation prompt published, M26 not started.
 
 ## Blockers/Waits
 
