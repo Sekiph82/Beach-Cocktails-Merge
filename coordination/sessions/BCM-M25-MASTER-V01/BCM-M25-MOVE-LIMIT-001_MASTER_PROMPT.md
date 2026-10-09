@@ -1,0 +1,13 @@
+# BCM-M25-MOVE-LIMIT-001 | Natural LOSE through move budget
+
+Repo Sekiph82/Beach-Cocktails-Merge; local C:\Users\sekip\Desktop\Beach Cocktails - Merge.
+
+Owner authorized a move/shot limit, giving LV6=35 as example. Stars based on moves are under consideration only, NOT yet approved. This task introduces a narrowly scoped real move budget and prepares calibration data, preserving forward-only physics and untimed campaign rules.
+
+FIRST safe sync local/origin/main and check live GitHub main; inventory stashes and owner-local modified/untracked files. No destructive reset/clean/force push. Before ANY test hash actual save and protected files, isolate APPDATA and all outputs. Read AGENTS.md, root TASKS.md READ ONLY, M25 R03 feasibility report, owner move ruling and locked criteria.
+
+Implement schema and runtime move counter tied exclusively to successful shot commit. Instrument `ShotController.shot_fired` -> GameManager/session bridge exactly once. For LV6 use a configurable initial candidate of 35 moves; other levels retain legacy unless a budget explicitly set. Show moves remaining in real HUD; don't cover table or existing order/VIP/Score/Next. On the last allowed shot wait for all collisions, merges and order deliveries to settle, then if incomplete resolve_lose('MOVES_EXHAUSTED') EXACTLY ONCE, else legitimate WIN must take precedence. Prevent 36th launch. Retry restores full budget; pause/navigation stable. Test empty zero, final delivery, both FULL/REDUCED and plugin absence, score/economy/save invariant, actual mouse/touch Retry and Island Map with correct viewport scaling.
+
+CALIBRATION: analyze representative legitimate LV6 routes, objective completion, move distribution, estimate whether 35 is fair; propose budgets for remaining campaign levels, DO NOT activate in bulk before owner signs off. Document separate star-rule option with concrete 24/30/35 example and preserve existing score stars now. If LV6 limit cannot be shown fair or last-shot settlement cannot be safely detected, stop OWNER_CALIBRATION_REQUIRED, don't ship broken loss gating.
+
+Run full milestone regressions isolated from owner outputs, M21 GL QA twice exit 0, real natural LV6 WIN and LOSE in FULL/REDUCED with before/event/settled frames, natural Results Retry and Island Map action pointer/touch, Godot import/120-frame boot. Do not inject outcomes in so-called real proof. Logs per child and master under docs/codex-logs, evidence under coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001. Publish implementation only if locked tests pass, otherwise evidence/stop findings only; push 0/0. Never edit root TASKS.md, never start M26. STOP AWAITING_GPT_M25_MOVE_LIMIT_001_AUDIT.
