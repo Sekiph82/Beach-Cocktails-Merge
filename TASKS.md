@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M25-MASTER-V01
 - Current Task: BCM-M25-003 — Add understated LOSE feedback with no confetti or aggressive punishment.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M25-PERCENT400 — CODEX executes `coordination/sessions/BCM-M25-MASTER-V01/BCM-M25-PERCENT400_MASTER_PROMPT.md` to implement all 100 inclusive To-Go+VIP ideal-L3 percentage budgets (400%) and move-based stars, followed by independent audit.
-- Required Actor: CODEX
+- Next Task/Action: OWNER reviews BCM-M25-PERCENT400 technical audit and decides physical-device QA/visual acceptance. M25 technical gate PASS; no M26 without owner disposition.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner-approved M25-PERCENT400 To-Go+VIP inclusive 100-level formula is active implementation scope. Historical CAL02 calibration workflow stopped, fixed-frame acceleration rejected (non-equivalent). CAL02 testing rotated out TWO owner diagnostic logs in real user-data directory despite APPDATA isolation; owner save and other tracked files preserved. PERCENT400 must verify actual log destination isolation BEFORE Godot tests; if not verifiable stop for owner ruling. M26 blocked.
+- Progress: M25-PERCENT400 source/evidence audit PASS: 100 levels inclusive To-Go+VIP ideal L3 T, move limit 4T, move-derived stars; natural WIN/LOSE GL and regressions reported PASS; 262 protected hashes match, real app logs unchanged. Physical-device QA/human playtest not verified; M25 owner gate pending, M26 blocked.
 
 ## Blockers/Waits
 
