@@ -71,6 +71,11 @@ func _unhandled_input(event: InputEvent) -> void:
     if _input_blocked or not _can_shoot or not _manager.can_launch_campaign_shot() or not is_instance_valid(_current_drink):
         return
 
+    # On touch devices Godot also emits an emulated mouse event for each touch
+    # (device == DEVICE_ID_EMULATION). Handling both fired two glasses per tap.
+    if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device == InputEvent.DEVICE_ID_EMULATION:
+        return
+
     if event is InputEventMouseButton:
         var mouse_button := event as InputEventMouseButton
         if mouse_button.button_index == MOUSE_BUTTON_LEFT:
