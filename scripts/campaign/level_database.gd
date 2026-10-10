@@ -421,10 +421,10 @@ func _validate_theme(theme: Variant, island_id: String) -> bool:
         var path := str(theme[key])
         if not path.begins_with(family_prefix):
             return _fail("theme path is outside island asset family: %s/%s" % [island_id, key])
-        if not FileAccess.file_exists(path):
+        if not ResourceLoader.exists(path):
             return _fail("theme asset does not exist: %s" % path)
     var surface_path := str(theme["gameplay_surface"])
-    if not surface_path.begins_with(family_prefix) or not FileAccess.file_exists(surface_path):
+    if not surface_path.begins_with(family_prefix) or not ResourceLoader.exists(surface_path):
         return _fail("gameplay_surface asset is missing or outside island asset family: %s" % island_id)
     return true
 
@@ -441,18 +441,21 @@ func _validate_surface_profile(profile: Dictionary, island_id: String, expected_
     var source_path := str(profile["r04_source_path"])
     if not source_path.begins_with("assets/ui_assets/campaign/islands/%s/" % island_id) or not source_path.ends_with("/gameplay_surface_v07_r04.png"):
         return _fail("R04 source path is outside its island family: %s" % island_id)
-    var source_res_path := "res://" + source_path
-    if not FileAccess.file_exists(source_res_path):
-        return _fail("R04 source asset is missing: %s" % island_id)
-    var surface_bytes := FileAccess.get_file_as_bytes(expected_surface_path)
-    var source_bytes := FileAccess.get_file_as_bytes(source_res_path)
-    if surface_bytes.is_empty() or source_bytes.is_empty():
-        return _fail("R04 source or runtime surface is unreadable: %s" % island_id)
-    var surface_hash := _sha256(surface_bytes)
-    if surface_hash != str(profile["surface_sha256"]) or surface_hash != str(profile["r04_source_sha256"]):
-        return _fail("R04 surface/profile SHA-256 mismatch: %s" % island_id)
-    if surface_bytes != source_bytes:
-        return _fail("runtime surface is not byte-identical to the island R04 source: %s" % island_id)
+    # Exported builds ship imported textures, not the source PNG bytes; the
+    # byte/SHA-256 integrity gate can only run where the sources exist (editor/tests).
+    if OS.has_feature("editor"):
+        var source_res_path := "res://" + source_path
+        if not FileAccess.file_exists(source_res_path):
+            return _fail("R04 source asset is missing: %s" % island_id)
+        var surface_bytes := FileAccess.get_file_as_bytes(expected_surface_path)
+        var source_bytes := FileAccess.get_file_as_bytes(source_res_path)
+        if surface_bytes.is_empty() or source_bytes.is_empty():
+            return _fail("R04 source or runtime surface is unreadable: %s" % island_id)
+        var surface_hash := _sha256(surface_bytes)
+        if surface_hash != str(profile["surface_sha256"]) or surface_hash != str(profile["r04_source_sha256"]):
+            return _fail("R04 surface/profile SHA-256 mismatch: %s" % island_id)
+        if surface_bytes != source_bytes:
+            return _fail("runtime surface is not byte-identical to the island R04 source: %s" % island_id)
     var surface_texture := load(expected_surface_path) as Texture2D
     if surface_texture == null or surface_texture.get_width() != 720 or surface_texture.get_height() != 1280:
         return _fail("R04 runtime surface must decode at 720x1280: %s" % island_id)

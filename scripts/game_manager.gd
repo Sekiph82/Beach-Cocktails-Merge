@@ -537,11 +537,13 @@ func _apply_campaign_theme(theme: Variant) -> void:
 	if surface_path.is_empty() or not geometry is Dictionary or geometry.is_empty():
 		push_error("R04 gameplay surface/profile missing; split-table fallback is retired.")
 		return
-	var surface_bytes := FileAccess.get_file_as_bytes(surface_path)
-	var expected_surface_hash := str(geometry.get("surface_sha256", ""))
-	if surface_bytes.is_empty() or _sha256_bytes(surface_bytes) != expected_surface_hash:
-		push_error("R04 gameplay surface/profile SHA-256 mismatch: %s" % surface_path)
-		return
+	# Source PNG bytes exist only in editor/tests; exported builds ship imported textures.
+	if OS.has_feature("editor"):
+		var surface_bytes := FileAccess.get_file_as_bytes(surface_path)
+		var expected_surface_hash := str(geometry.get("surface_sha256", ""))
+		if surface_bytes.is_empty() or _sha256_bytes(surface_bytes) != expected_surface_hash:
+			push_error("R04 gameplay surface/profile SHA-256 mismatch: %s" % surface_path)
+			return
 	var texture := load(surface_path) as Texture2D
 	if texture == null or texture.get_width() != 720 or texture.get_height() != 1280:
 		push_error("R04 gameplay surface must load at 720x1280: %s" % surface_path)
