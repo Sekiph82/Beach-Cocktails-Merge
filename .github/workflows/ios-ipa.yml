@@ -60,9 +60,11 @@ jobs:
       - name: Godot export (Xcode projesi)
         run: |
           mkdir -p build/ios
+          # iOS export ETC2/ASTC ister; sadece CI kopyasinda aciliyor
+          printf '\n[rendering]\ntextures/vram_compression/import_etc2_astc=true\n' >> project.godot
           "$GODOT" --headless --import || true
           "$GODOT" --headless --export-release "iOS" "build/ios/${APP_NAME}.ipa" > export.log 2>&1 \
-            || { grep -iE "error|fail|invalid|missing" export.log | tail -25 | sed 's/^/::error::/'; exit 1; }
+            || { grep -iE -A6 "error|fail|invalid|missing" export.log | tail -40 | sed 's/^/::error::/'; exit 1; }
           ls -la build/ios
 
       - name: Xcode build (imzasiz)
