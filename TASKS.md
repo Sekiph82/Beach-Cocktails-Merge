@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M27
 - Current Sprint: BCM-M27-MASTER-V01
-- Current Task: BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
+- Current Task: BCM-M27-002 — Audit every category in FULL and REDUCED and prove accessibility behavior is complete.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M27-001 — CODEX applies M27 master isolation recovery gate and runs no Godot tests until project identity and owner log backups are verified.
+- Next Task/Action: BCM-M27-002 — Produce missing FULL/REDUCED paired category GL captures and complete owner-native iPhone acceptance after IPA build; one milestone final audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M27 first run halted with no commit: sandbox retained CocktailMerge project identity, overwrote real godot.log and rotated away four older diagnostic logs (hashes recorded, bytes unavailable). Owner assets and saves reportedly unchanged. M27 blocked until fail-closed sandbox user-data isolation and byte-for-byte log backups are demonstrated, then milestone execution may resume.
+- Progress: M27 technical function audit PASS (M01-M20 30/30, effect policy 97/97, 100-level progression and plugin fallback), but required paired category visual review is incomplete and owner iPhone review pending. User is preparing iPhone IPA via GitHub Actions, with Ubuntu, Swift, xtool and App Store Connect API key. Never commit signing secrets. M27 not closed.
 
 ## Blockers/Waits
 
@@ -1280,7 +1280,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M27 — Performance, Reduced Motion, failure-mode, and runtime visual closure
 
-- [!] BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
+- [x] BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
   - Purpose: prove rapid merges/deliveries/navigation do not leak or overwhelm portrait mobile.
   - Existing seam: presentation-bridge telemetry, `GameManager.get_terminal_visual_counts()`, `campaign_transient_world_effect`, session/view lifecycle, Spark live pool, GameFeelFlow active effects/`stop_all`.
   - Semantic trigger: stress replay of existing semantic catalog only.
@@ -1292,7 +1292,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: particle/node telemetry, terminal screenshots, performance logs, zero errors.
   - Owner acceptance: feeds M27 final review.
 
-- [ ] BCM-M27-002 — Audit every category in FULL and REDUCED and prove accessibility behavior is complete.
+- [!] BCM-M27-002 — Audit every category in FULL and REDUCED and prove accessibility behavior is complete.
   - Purpose: Reduced Motion becomes a coherent alternative mode, not scattered exceptions.
   - Existing seam: `UserSettings.reduced_motion/presentation_changed`, ApplicationShell settings propagation, `GameManager.apply_presentation_settings()`, shared bridge, gameplay, Results, maps, rewards/CTA.
   - Semantic trigger: complete M22 semantic catalog.
