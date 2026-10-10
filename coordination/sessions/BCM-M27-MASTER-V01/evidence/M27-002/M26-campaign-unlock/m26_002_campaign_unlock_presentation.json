@@ -1,0 +1,348 @@
+{
+	"captures": [],
+	"debug_transition_state": {
+		"island_completion_service_counts": {
+			"island_complete": 1,
+			"island_milestone": 1
+		},
+		"island_completion_trace": {
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"color_lifecycle": {
+				"event_id": "campaign:sunny_cove:100:1:island-complete:sunny_cove",
+				"generation": 1,
+				"kind": "island_complete",
+				"modulate_at_start": "(1.0, 1.0, 1.0, 1.0)",
+				"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"prior_generation_replaced": 0,
+				"requested_color": "(1.0, 0.82, 0.42, 1.0)",
+				"started_ms": 2795,
+				"target_instance_id": 69625448415,
+				"target_path": "/root/CampaignNavigationScene/IslandMapScene/IslandMapHeader/IslandName"
+			},
+			"dispatch_completed_ms": 2795,
+			"dispatch_gate": "enabled",
+			"event_id": "campaign:sunny_cove:100:1:island-complete:sunny_cove",
+			"frames_drawn_at_dispatch": 0,
+			"frames_drawn_at_trigger": 0,
+			"gff_active_effect_count": 0,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(1.0, 0.82, 0.42, 1.0)",
+					"duration": 0.32
+				},
+				"returned": "<null>",
+				"started_ms": 2795
+			},
+			"kind": "island_complete",
+			"mode": "FULL",
+			"payload": {
+				"island_id": "sunny_cove",
+				"new_transition": true,
+				"presentation_target": {
+					"class": "Label",
+					"instance_id": 69625448415,
+					"path": "/root/CampaignNavigationScene/IslandMapScene/IslandMapHeader/IslandName"
+				}
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(1.0, 0.82, 0.42, 1.0)",
+					"duration": 0.32
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 40,
+					"color": "(1.0, 0.78, 0.32, 0.96)",
+					"color2": "(0.84, 0.78, 0.66, 0.0)",
+					"lifetime": 1.1,
+					"size": 4.5,
+					"size_end": 1.0,
+					"speed": 105.0
+				},
+				"spark_preset": "pickup"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 40,
+					"max_lifetime": 1.1,
+					"max_speed": 105.0,
+					"presets": [
+						"confetti",
+						"pickup",
+						"spark"
+					]
+				},
+				"kind": "island_complete",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "ISLAND_COMPLETE"
+			},
+			"render_samples": [],
+			"semantic_sequence": 1,
+			"source_context": {
+				"source": "campaign_island_map"
+			},
+			"spark_call": {
+				"emitter_instance_id": 217030069915,
+				"invoked": true,
+				"options": {
+					"amount": 40,
+					"color": "(1.0, 0.78, 0.32, 0.96)",
+					"color2": "(0.84, 0.78, 0.66, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": -120.0,
+					"lifetime": 1.1,
+					"lifetime_rand": 0.35,
+					"size": 4.5,
+					"size_end": 1.0,
+					"speed": 105.0,
+					"speed_min": 0.35,
+					"spread": 2.82743338823081,
+					"z_index": 100
+				},
+				"pool_children_after": 1,
+				"requested_canvas_position": "(250.0, 69.0)"
+			},
+			"stage": "awaiting_render",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "Label",
+				"clipping_ancestors": [],
+				"global_position": "(250.0, 69.0)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/CampaignNavigationScene/IslandMapScene/IslandMapHeader/IslandName",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(250.0, 69.0)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-2",
+			"trigger_fps": 9.0,
+			"trigger_timestamp_ms": 2795
+		},
+		"navigation_pending": {
+			"completed_island_id": "sunny_cove",
+			"island_completion_transition": false,
+			"newly_unlocked_islands": [],
+			"transition_token": "campaign:sunny_cove:100:1"
+		},
+		"world_entry_count": 10,
+		"world_pending": {},
+		"world_unlock_service_counts": {
+			"island_unlock": 3,
+			"reward_granted": 1
+		},
+		"world_unlock_trace": {
+			"active_particles_before": 0,
+			"capabilities": {
+				"game_feel_flow_methods": {
+					"get_combo": true,
+					"get_combo_names": true,
+					"get_effect": true,
+					"get_effect_names": true,
+					"play": true,
+					"play_combo": true,
+					"play_global": true,
+					"resolve_combo": true,
+					"stop": true,
+					"stop_all": true
+				},
+				"game_feel_flow_present": true,
+				"game_feel_flow_ready": true,
+				"generation": 1,
+				"spark_methods": {
+					"at": true,
+					"burst": true,
+					"clear": true
+				},
+				"spark_present": true,
+				"spark_ready": true
+			},
+			"color_lifecycle": {
+				"event_id": "campaign:sunny_cove:100:1:island-unlock:tiki_island",
+				"generation": 1,
+				"kind": "island_unlock",
+				"modulate_at_start": "(1.0, 1.0, 1.0, 1.0)",
+				"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"prior_generation_replaced": 0,
+				"requested_color": "(0.62, 0.92, 0.76, 1.0)",
+				"started_ms": 4258,
+				"target_instance_id": 217952816375,
+				"target_path": "/root/CampaignNavigationScene/WorldMapScene/MapCanvas/IslandMarkers/@Button@561/IslandArt"
+			},
+			"dispatch_completed_ms": 4259,
+			"dispatch_gate": "enabled",
+			"event_id": "campaign:sunny_cove:100:1:island-unlock:tiki_island",
+			"frames_drawn_at_dispatch": 0,
+			"frames_drawn_at_trigger": 0,
+			"gff_active_effect_count": 0,
+			"gff_call": {
+				"effect": "color",
+				"invoked": true,
+				"params": {
+					"color": "(0.62, 0.92, 0.76, 1.0)",
+					"duration": 0.34
+				},
+				"returned": "<null>",
+				"started_ms": 4258
+			},
+			"kind": "island_unlock",
+			"mode": "FULL",
+			"payload": {
+				"island_id": "tiki_island",
+				"new_transition": true,
+				"presentation_target": {
+					"class": "TextureRect",
+					"instance_id": 217952816375,
+					"path": "/root/CampaignNavigationScene/WorldMapScene/MapCanvas/IslandMarkers/@Button@561/IslandArt"
+				}
+			},
+			"plan": {
+				"gff_effect": "color",
+				"gff_params": {
+					"color": "(0.62, 0.92, 0.76, 1.0)",
+					"duration": 0.34
+				},
+				"mode": "FULL",
+				"spark_overrides": {
+					"amount": 48,
+					"color": "(0.5, 0.88, 0.66, 0.96)",
+					"color2": "(0.84, 0.78, 0.66, 0.0)",
+					"lifetime": 1.6,
+					"size": 4.0,
+					"size_end": 0.9,
+					"speed": 120.0
+				},
+				"spark_preset": "pickup"
+			},
+			"policy": {
+				"budget": {
+					"max_amount": 48,
+					"max_lifetime": 1.6,
+					"max_speed": 120.0,
+					"presets": [
+						"confetti",
+						"pickup",
+						"spark"
+					]
+				},
+				"kind": "island_unlock",
+				"mode": "FULL",
+				"ok": true,
+				"tier": "ISLAND_UNLOCK"
+			},
+			"render_samples": [],
+			"semantic_sequence": 2,
+			"source_context": {
+				"source": "campaign_world_map"
+			},
+			"spark_call": {
+				"emitter_instance_id": 222482665107,
+				"invoked": true,
+				"options": {
+					"amount": 48,
+					"color": "(0.5, 0.88, 0.66, 0.96)",
+					"color2": "(0.84, 0.78, 0.66, 0.0)",
+					"damping": 2.0,
+					"direction": -1.5707963267949,
+					"gravity": -120.0,
+					"lifetime": 1.6,
+					"lifetime_rand": 0.35,
+					"size": 4.0,
+					"size_end": 0.9,
+					"speed": 120.0,
+					"speed_min": 0.35,
+					"spread": 2.82743338823081,
+					"z_index": 100
+				},
+				"pool_children_after": 2,
+				"requested_canvas_position": "(83.5, 348.5)"
+			},
+			"stage": "awaiting_render",
+			"stages": [
+				"semantic_received",
+				"dispatch_validating",
+				"awaiting_render"
+			],
+			"target": {
+				"canvas_item": true,
+				"canvas_layer": {
+					"layer": 0,
+					"path": "default_world_canvas",
+					"visible": true
+				},
+				"class": "TextureRect",
+				"clipping_ancestors": [],
+				"global_position": "(83.5, 348.5)",
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"path": "/root/CampaignNavigationScene/WorldMapScene/MapCanvas/IslandMarkers/@Button@561/IslandArt",
+				"scale": "(1.0, 1.0)",
+				"screen_position": "(83.5, 348.5)",
+				"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"valid": true,
+				"visible_in_tree": true,
+				"z_index": 0
+			},
+			"trace_id": "m23-r02-2",
+			"trigger_fps": 142.0,
+			"trigger_timestamp_ms": 4258
+		}
+	},
+	"failures": [],
+	"human_played_full_campaign": false,
+	"max_observed_active_spark_particles": 48,
+	"owner_visual_acceptance": "PENDING_OWNER_REVIEW",
+	"renderer": "running Godot project viewport with GL Compatibility",
+	"requested_sizes": [
+		[
+			720,
+			1280
+		],
+		[
+			720,
+			1440
+		]
+	],
+	"route": "explicitly fixture-seeded campaign save through production gameplay session terminal bridge",
+	"work_item": "BCM-M26-002"
+}

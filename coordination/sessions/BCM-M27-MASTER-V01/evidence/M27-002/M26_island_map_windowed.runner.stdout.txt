@@ -1,0 +1,84 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 - Build 31.0.101.3616 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M26_001_ISLAND_MAP PASS: real project viewport matches requested 720x1280
+M26_001_ISLAND_MAP PASS: canonical campaign definitions load with full validation
+M26_001_ISLAND_MAP PASS: campaign fixture configures
+M26_001_ISLAND_MAP PASS: navigation accepts campaign fixture
+M26_001_ISLAND_MAP PASS: production Island Map opens
+M26_001_ISLAND_MAP PASS: Island Map bridge enables production dispatch
+M26_001_ISLAND_MAP PASS: level 2 starts locked and cannot be selected
+M26_001_ISLAND_MAP PASS: first level completion advances CampaignManager authority
+M26_001_ISLAND_MAP PASS: new locked-to-open transition updates affected node
+M26_001_ISLAND_MAP PASS: first level unlock enters bridge exactly once
+M26_001_ISLAND_MAP PASS: level unlock keeps the existing button geometry
+M26_001_ISLAND_MAP PASS: real GL framebuffer saved: full_level_unlock_720x1280
+M26_001_ISLAND_MAP PASS: capture is 720x1280
+M26_001_ISLAND_MAP PASS: capture target is the affected production level node
+M26_001_ISLAND_MAP PASS: refresh does not replay level unlock
+M26_001_ISLAND_MAP PASS: refresh keeps node layout and hitbox size
+M26_001_ISLAND_MAP PASS: newly unlocked level accepts normal selection
+M26_001_ISLAND_MAP PASS: return from selected level disposes gameplay through the world-map route
+M26_001_ISLAND_MAP PASS: world-map route restores the production Island Map
+M26_001_ISLAND_MAP PASS: level 2 completion succeeds
+M26_001_ISLAND_MAP PASS: level 3 completion succeeds
+M26_001_ISLAND_MAP PASS: level 4 completion succeeds
+M26_001_ISLAND_MAP PASS: level 5 completion succeeds
+M26_001_ISLAND_MAP PASS: level 6 completion succeeds
+M26_001_ISLAND_MAP PASS: level 7 completion succeeds
+M26_001_ISLAND_MAP PASS: level 8 completion succeeds
+M26_001_ISLAND_MAP PASS: real project viewport matches requested 720x1440
+M26_001_ISLAND_MAP PASS: level 10 milestone is configured from campaign data
+M26_001_ISLAND_MAP PASS: level 8 completion opens level 9
+M26_001_ISLAND_MAP PASS: level 9 completion opens level 10
+M26_001_ISLAND_MAP PASS: level unlock bridge count reaches nine
+M26_001_ISLAND_MAP PASS: real GL framebuffer saved: full_level_unlock_720x1440
+M26_001_ISLAND_MAP PASS: capture is 720x1440
+M26_001_ISLAND_MAP PASS: capture target is the affected production level node
+M26_001_ISLAND_MAP PASS: level 10 first completion is authoritative
+M26_001_ISLAND_MAP PASS: newly reached configured milestone enters bridge
+M26_001_ISLAND_MAP PASS: level 10 completion unlocks level 11
+M26_001_ISLAND_MAP PASS: real GL framebuffer saved: full_milestone_10_720x1440
+M26_001_ISLAND_MAP PASS: capture is 720x1440
+M26_001_ISLAND_MAP PASS: capture target is the affected production level node
+M26_001_ISLAND_MAP PASS: FULL milestone remains within 18 particles and 0.55 seconds
+M26_001_ISLAND_MAP PASS: milestone marker remains a separate visual-only target
+M26_001_ISLAND_MAP PASS: refresh does not replay level or milestone presentation
+M26_001_ISLAND_MAP PASS: new milestone claim enters bridge once
+M26_001_ISLAND_MAP PASS: map re-entry does not replay consumed progress events
+M26_001_ISLAND_MAP PASS: re-entry preserves consumed event counts
+M26_001_ISLAND_MAP PASS: level replay creates no unlock cue
+M26_001_ISLAND_MAP PASS: real project viewport matches requested 720x1280
+M26_001_ISLAND_MAP PASS: reduced motion completes level 11 and opens level 12
+M26_001_ISLAND_MAP PASS: REDUCED level cue has no Spark particles
+M26_001_ISLAND_MAP PASS: real GL framebuffer saved: reduced_level_unlock_720x1280
+M26_001_ISLAND_MAP PASS: capture is 720x1280
+M26_001_ISLAND_MAP PASS: capture target is the affected production level node
+M26_001_ISLAND_MAP PASS: REDUCED level color restores exactly
+M26_001_ISLAND_MAP PASS: reduced level 12 completion succeeds
+M26_001_ISLAND_MAP PASS: reduced level 13 completion succeeds
+M26_001_ISLAND_MAP PASS: reduced level 14 completion succeeds
+M26_001_ISLAND_MAP PASS: reduced level 15 completion succeeds
+M26_001_ISLAND_MAP PASS: reduced level 16 completion succeeds
+M26_001_ISLAND_MAP PASS: reduced level 17 completion succeeds
+M26_001_ISLAND_MAP PASS: reduced level 18 completion succeeds
+M26_001_ISLAND_MAP PASS: reduced level 19 completion succeeds
+M26_001_ISLAND_MAP PASS: real project viewport matches requested 720x1440
+M26_001_ISLAND_MAP PASS: level 20 milestone is newly reached
+M26_001_ISLAND_MAP PASS: REDUCED milestone uses at most four low-speed particles
+M26_001_ISLAND_MAP PASS: real GL framebuffer saved: reduced_milestone_20_720x1440
+M26_001_ISLAND_MAP PASS: capture is 720x1440
+M26_001_ISLAND_MAP PASS: capture target is the affected production level node
+M26_001_ISLAND_MAP PASS: REDUCED milestone color restores exactly
+M26_001_ISLAND_MAP PASS: campaign fixture configures
+M26_001_ISLAND_MAP PASS: navigation accepts campaign fixture
+M26_001_ISLAND_MAP PASS: restored map opens without old level or milestone replay
+M26_001_ISLAND_MAP PASS: restart has no synthetic progression semantic request
+M26_001_ISLAND_MAP PASS: restart retains authoritative unlocked and completed map states
+M26_001_ISLAND_MAP PASS: all emitted bridge effects stay under the global 48-particle cap
+M26_001_ISLAND_MAP_RESULT=PASS captures=5 failures=0 dispatches=23

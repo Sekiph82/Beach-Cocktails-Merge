@@ -1,0 +1,242 @@
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)
+SCRIPT ERROR: Invalid call. Nonexistent function 'tick' in base 'RefCounted (FakeSession)'.
+   at: GameManager._process (res://scripts/game_manager.gd:1031)
+   GDScript backtrace (most recent call first):
+       [0] _process (res://scripts/game_manager.gd:1031)

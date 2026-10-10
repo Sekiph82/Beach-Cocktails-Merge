@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "captured_utc": "2026-10-10T04:10:59.2868531Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+  "project_name": "BCM-M27-MASTER-V01-20261010-Sandbox",
+  "expected_user_data_dir": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox",
+  "expected_log_target": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox\\logs\\godot.log",
+  "sandbox_log_files": [
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox\\logs\\godot.log",
+      "length": 890,
+      "sha256": "C9D4A63DFB1EFBBF7621FAC7FA5BD4FB2DF3B8C82379027212C80F07ECCF584D"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox\\logs\\godot2026-10-10T07.09.07.log",
+      "length": 6358,
+      "sha256": "60D3740419C5F220C9B0F3E0AAA27AFE6BDE3A5E4F09F6DF222A47A8018011F5"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox\\logs\\godot2026-10-10T07.09.23.log",
+      "length": 16610,
+      "sha256": "A851AC0BBDD5BD0BCCFBFCEA63083C53C9E9022E5D354A83629B65869F9FD98D"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox\\logs\\godot2026-10-10T07.10.30.log",
+      "length": 6014,
+      "sha256": "293FFEE5B3DDE4CE469660E577FFCCD1C0AF4939AA0DF680A488CB304B891168"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox\\logs\\godot2026-10-10T07.10.55.log",
+      "length": 23570,
+      "sha256": "837BC49C37380690DA1549D305D663B3B437F16961B224599C86385BE818E857"
+    }
+  ],
+  "owner_userdata_file_count_before_after": 229,
+  "owner_userdata_files_after": 229,
+  "owner_userdata_directories_after": 38,
+  "owner_userdata_byte_hash_and_directory_parity": true,
+  "owner_stage_log_backup": "C:\\Users\\sekip\\.codex\\worktrees\\m27-owner-diagnostics-backup-20261010-v01\\M27-002-stage",
+  "owner_stage_log_backup_verified": true,
+  "runner_result": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-002\\M23_003_combo_final.runner.result.json",
+  "runner_exit_code": 0,
+  "task_owned_process_cleanup_verified": true,
+  "task_owned_processes_remaining": []
+}

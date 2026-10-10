@@ -103,13 +103,13 @@ func show_island_map(island_id: String) -> bool:
 	var restoration: Dictionary = _restoration_by_island.get(island_id, {})
 	if not _island_map.configure_island(island_id, level_database, campaign_manager, restoration):
 		return false
-	if str(_pending_campaign_transition.get("completed_island_id", "")) == island_id:
-		_island_map.present_island_completion(_pending_campaign_transition)
-		_pending_campaign_transition["island_completion_transition"] = false
 	_world_map.visible = false
 	_island_map.visible = true
 	current_view = VIEW_ISLAND_MAP
 	active_island_id = island_id
+	if str(_pending_campaign_transition.get("completed_island_id", "")) == island_id:
+		_island_map.present_island_completion(_pending_campaign_transition)
+		_pending_campaign_transition["island_completion_transition"] = false
 	island_map_entered.emit(island_id)
 	return true
 

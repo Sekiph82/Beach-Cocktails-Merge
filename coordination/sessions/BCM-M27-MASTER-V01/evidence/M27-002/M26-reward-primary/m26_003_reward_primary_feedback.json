@@ -1,0 +1,155 @@
+{
+	"captures": [],
+	"failures": [],
+	"human_played_campaign": false,
+	"play_next_retry_invocations": 5,
+	"reduced_reward_grant": {
+		"booster_id": "",
+		"booster_quantity": 0,
+		"coins_delta": 1,
+		"duplicate": false,
+		"granted": true,
+		"ok": true,
+		"reward_id": "fixture:reduced-reward"
+	},
+	"reduced_reward_trace": {
+		"active_particles_before": 0,
+		"capabilities": {
+			"game_feel_flow_methods": {
+				"get_combo": true,
+				"get_combo_names": true,
+				"get_effect": true,
+				"get_effect_names": true,
+				"play": true,
+				"play_combo": true,
+				"play_global": true,
+				"resolve_combo": true,
+				"stop": true,
+				"stop_all": true
+			},
+			"game_feel_flow_present": true,
+			"game_feel_flow_ready": true,
+			"generation": 1,
+			"spark_methods": {
+				"at": true,
+				"burst": true,
+				"clear": true
+			},
+			"spark_present": true,
+			"spark_ready": true
+		},
+		"color_lifecycle": {
+			"event_id": "reward-granted:fixture:reduced-reward",
+			"generation": 2,
+			"kind": "reward_granted",
+			"modulate_at_start": "(1.0, 1.0, 1.0, 1.0)",
+			"original_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"prior_generation_replaced": 0,
+			"requested_color": "(1.0, 0.98, 0.92, 1.0)",
+			"started_ms": 3245,
+			"target_instance_id": 115645353725,
+			"target_path": "/root/ApplicationShellScene/CampaignNavigation/CampaignResultCanvasLayer/CampaignResultCanvasRoot/CampaignResultFeedback/FeedbackBody"
+		},
+		"dispatch_completed_ms": 3245,
+		"dispatch_gate": "enabled",
+		"event_id": "reward-granted:fixture:reduced-reward",
+		"frames_drawn_at_dispatch": 0,
+		"frames_drawn_at_trigger": 0,
+		"gff_active_effect_count": 1,
+		"gff_call": {
+			"effect": "color",
+			"invoked": true,
+			"params": {
+				"color": "(1.0, 0.98, 0.92, 1.0)",
+				"duration": 0.1
+			},
+			"returned": "<null>",
+			"started_ms": 3244
+		},
+		"kind": "reward_granted",
+		"mode": "REDUCED",
+		"payload": {
+			"newly_granted": true,
+			"presentation_target": {
+				"class": "Label",
+				"instance_id": 115645353725,
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignResultCanvasLayer/CampaignResultCanvasRoot/CampaignResultFeedback/FeedbackBody"
+			},
+			"reward_id": "fixture:reduced-reward"
+		},
+		"plan": {
+			"gff_effect": "color",
+			"gff_params": {
+				"color": "(1.0, 0.98, 0.92, 1.0)",
+				"duration": 0.1
+			},
+			"mode": "REDUCED"
+		},
+		"policy": {
+			"budget": {
+				"max_amount": 4,
+				"max_lifetime": 0.2,
+				"max_speed": 32.0,
+				"presets": [
+					"dust"
+				]
+			},
+			"kind": "reward_granted",
+			"mode": "REDUCED",
+			"ok": true,
+			"tier": "ISLAND_UNLOCK"
+		},
+		"render_samples": [],
+		"semantic_sequence": 7,
+		"source_context": {
+			"source": "m26-003-explicit-reduced-fixture"
+		},
+		"stage": "awaiting_render",
+		"stages": [
+			"semantic_received",
+			"dispatch_validating",
+			"awaiting_render"
+		],
+		"target": {
+			"canvas_item": true,
+			"canvas_layer": {
+				"follow_viewport_enabled": false,
+				"layer": 2,
+				"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignResultCanvasLayer",
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+				"visible": true
+			},
+			"class": "Label",
+			"clipping_ancestors": [],
+			"global_position": "(90.0, 478.0)",
+			"modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"path": "/root/ApplicationShellScene/CampaignNavigation/CampaignResultCanvasLayer/CampaignResultCanvasRoot/CampaignResultFeedback/FeedbackBody",
+			"scale": "(1.0, 1.0)",
+			"screen_position": "(90.0, 478.0)",
+			"self_modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"valid": true,
+			"visible_in_tree": true,
+			"z_index": 0
+		},
+		"trace_id": "m23-r02-7",
+		"trigger_fps": 83.0,
+		"trigger_timestamp_ms": 3244
+	},
+	"renderer": "running Godot project viewport with GL Compatibility",
+	"requested_sizes": [
+		[
+			720,
+			1280
+		],
+		[
+			720,
+			1440
+		]
+	],
+	"route": "production ApplicationShell, CampaignNavigationController, CampaignFeedbackOverlay, CampaignManager and GameEconomy with explicitly fixture-driven session",
+	"semantic_counts": {
+		"reward_granted": 2,
+		"ui_primary": 5
+	},
+	"work_item": "BCM-M26-003"
+}

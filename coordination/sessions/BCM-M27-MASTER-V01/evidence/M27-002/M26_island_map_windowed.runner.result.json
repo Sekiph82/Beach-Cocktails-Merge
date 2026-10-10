@@ -1,0 +1,26 @@
+{
+  "started_utc": "2026-10-10T04:09:23.1381034Z",
+  "finished_utc": "2026-10-10T04:09:42.1601171Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+    "--script",
+    "res://tests/m27_002_island_map_probe.gd"
+  ],
+  "spawned_pids": [
+    10188,
+    20568,
+    21388,
+    40712,
+    42872
+  ],
+  "exit_code": -1073741819,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-002\\M26_island_map_windowed.runner.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-002\\M26_island_map_windowed.runner.stderr.txt"
+}

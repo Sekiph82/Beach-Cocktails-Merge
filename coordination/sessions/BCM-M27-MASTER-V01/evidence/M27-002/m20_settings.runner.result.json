@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-10-10T04:05:07.3680878Z",
+  "finished_utc": "2026-10-10T04:05:23.2756516Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--headless",
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+    "--script",
+    "res://tests/m20_settings_probe.gd"
+  ],
+  "spawned_pids": [
+    3848,
+    31524,
+    36960
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-002\\m20_settings.runner.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-002\\m20_settings.runner.stderr.txt"
+}
