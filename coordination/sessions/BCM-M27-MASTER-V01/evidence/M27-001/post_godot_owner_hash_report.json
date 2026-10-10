@@ -1,0 +1,35 @@
+{
+  "captured_utc": "2026-10-09T22:08:07.1516654Z",
+  "preflight_manifest": "pre_godot_owner_hashes.json",
+  "asset_files_compared": 832,
+  "owner_userdata_files_compared": 229,
+  "owner_local_files_compared": 31,
+  "all_hashes_identical": false,
+  "mismatches": [
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot.log",
+      "before": "DFD47C7FEFDFDC4C6460EB3D9BD9ABB34B09A44CA87BA2F3D08948AEA5583269",
+      "after": "7FB0532EBB394D0FC73AE998A07832099E75D3365457B4385A67932C5DE20C4A",
+      "reason": "hash_changed"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-08T20.36.13.log",
+      "reason": "missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-08T20.36.17.log",
+      "reason": "missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-09T17.33.11.log",
+      "reason": "missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-09T17.33.19.log",
+      "reason": "missing"
+    }
+  ],
+  "sandbox_userdata_root": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox",
+  "actual_sandbox_userdata_created": false,
+  "scope": "canonical owner asset tree, actual owner Godot user save/log tree, and files dirty/untracked in canonical Desktop checkout"
+}

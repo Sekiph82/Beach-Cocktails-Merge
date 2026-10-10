@@ -1,0 +1,8 @@
+WARNING: Locale 'three' does not contain any translation. This locale will be ignored.
+   at: import (editor/import/resource_importer_csv_translation.cpp:239)
+WARNING: Locale 'two' does not contain any translation. This locale will be ignored.
+   at: import (editor/import/resource_importer_csv_translation.cpp:239)
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)

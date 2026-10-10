@@ -1,0 +1,118 @@
+{
+	"active_gff_output_ceiling": 128,
+	"authority_effects_off": {
+		"physics_after": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"physics_before": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"result": {
+			"best_score": 6500,
+			"chain": 1,
+			"chain_timer": 1.5,
+			"score": 6500
+		}
+	},
+	"authority_effects_on": {
+		"physics_after": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"physics_before": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"result": {
+			"best_score": 6500,
+			"chain": 1,
+			"chain_timer": 1.5,
+			"score": 6500
+		}
+	},
+	"bridge_dispatch_count": 13,
+	"bridge_no_op_count": 5,
+	"checks": 32,
+	"diagnostics": [
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"gff_effect_unavailable:punch_scale",
+		"gff_call_failed",
+		"spark_call_failed"
+	],
+	"failures": [],
+	"full_band_results": [
+		{
+			"amount": 10,
+			"band": "BASE",
+			"chain": 1,
+			"lifetime": 0.28,
+			"passed": true
+		},
+		{
+			"amount": 10,
+			"band": "SURGE",
+			"chain": 3,
+			"lifetime": 0.3,
+			"passed": true
+		},
+		{
+			"amount": 18,
+			"band": "PEAK",
+			"chain": 5,
+			"lifetime": 0.35,
+			"passed": true
+		},
+		{
+			"amount": 18,
+			"band": "PEAK hard cap",
+			"chain": 6,
+			"lifetime": 0.35,
+			"passed": true
+		}
+	],
+	"legacy_merge_effect_present": false,
+	"live_particle_ceiling": 48,
+	"owner_visual_status": "PENDING_OWNER_VISUAL_EVIDENCE",
+	"probe": "BCM-M23-002",
+	"reduced_bands": [
+		"BASE",
+		"SURGE",
+		"PEAK"
+	],
+	"reduced_particle_count": 0,
+	"save_fingerprint_after": {
+		"exists": true,
+		"sha256": "0cf8c28a476ff99a8f9b20a576a57a2ed049ce7466d419809a9797940c7ba131"
+	},
+	"save_fingerprint_before": {
+		"exists": true,
+		"sha256": "0cf8c28a476ff99a8f9b20a576a57a2ed049ce7466d419809a9797940c7ba131"
+	},
+	"stress_active_gff_outputs": 4,
+	"stress_active_particles": 40,
+	"stress_dispatch_delta": 4,
+	"visual_capture_count": 0
+}

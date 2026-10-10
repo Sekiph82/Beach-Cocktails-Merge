@@ -1,0 +1,24 @@
+{
+  "started_utc": "2026-10-09T22:06:26.9125674Z",
+  "finished_utc": "2026-10-09T22:06:32.1232492Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+    "--script",
+    "res://tests/m27_001_lifecycle_stress_probe.gd"
+  ],
+  "spawned_pids": [
+    18268,
+    32912,
+    33380
+  ],
+  "exit_code": 1,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-001\\lifecycle_stress_run04.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-001\\lifecycle_stress_run04.stderr.txt"
+}

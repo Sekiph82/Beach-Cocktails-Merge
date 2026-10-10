@@ -1,0 +1,48 @@
+{
+	"captures": [
+		{
+			"height": 1280,
+			"label": "full_before",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/rendered_synthetic/full_before.png",
+			"renderer": "running Godot project viewport",
+			"synthetic_result_fixture": true,
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"label": "full_event",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/rendered_synthetic/full_event.png",
+			"renderer": "running Godot project viewport",
+			"synthetic_result_fixture": true,
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"label": "full_settled",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/rendered_synthetic/full_settled.png",
+			"renderer": "running Godot project viewport",
+			"synthetic_result_fixture": true,
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"label": "reduced_settled",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/rendered_synthetic/reduced_settled.png",
+			"renderer": "running Godot project viewport",
+			"synthetic_result_fixture": true,
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"label": "lose_settled",
+			"path": "res://coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/rendered_synthetic/lose_settled.png",
+			"renderer": "running Godot project viewport",
+			"synthetic_result_fixture": true,
+			"width": 720
+		}
+	],
+	"checks": 22,
+	"failures": [],
+	"production_semantic_duplicate_suppressed": true,
+	"renderer": "Godot viewport when windowed; result is synthetic and not acceptance"
+}

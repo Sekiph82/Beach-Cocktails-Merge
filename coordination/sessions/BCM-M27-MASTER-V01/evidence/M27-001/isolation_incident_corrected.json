@@ -1,0 +1,44 @@
+{
+  "captured_utc": "2026-10-09T22:08:54.3741164Z",
+  "result": "OWNER_USERDATA_INTEGRITY_BLOCKER",
+  "configured_sandbox_project_name": "config/name=\"CocktailMerge\"",
+  "expected_sandbox_userdata_root": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\BCM-M27-MASTER-V01-20261010-Sandbox",
+  "expected_sandbox_userdata_exists": false,
+  "actual_godot_userdata_root": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge",
+  "owner_userdata_files_before": 229,
+  "owner_userdata_files_now": 229,
+  "owner_asset_count": 832,
+  "owner_asset_hashes_unchanged": true,
+  "owner_dirty_files_count": 31,
+  "owner_dirty_file_hashes_unchanged": true,
+  "user_data_differences": [
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot.log",
+      "status": "hash_changed",
+      "pre_sha256": "DFD47C7FEFDFDC4C6460EB3D9BD9ABB34B09A44CA87BA2F3D08948AEA5583269",
+      "current_sha256": "7FB0532EBB394D0FC73AE998A07832099E75D3365457B4385A67932C5DE20C4A"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-08T20.36.13.log",
+      "status": "missing",
+      "pre_sha256": "7420540AA22C4B4AD943E46FD2C03ADB57831DD375779F86087C9D62DCB1921A"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-08T20.36.17.log",
+      "status": "missing",
+      "pre_sha256": "C3A475EF85F667A3F28161FB7CA25056E7C428FD7060EC63C04C11AD9FA82E4B"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-09T17.33.11.log",
+      "status": "missing",
+      "pre_sha256": "DFD47C7FEFDFDC4C6460EB3D9BD9ABB34B09A44CA87BA2F3D08948AEA5583269"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-09T17.33.19.log",
+      "status": "missing",
+      "pre_sha256": "7069AEBD4A8A59F3BA1A863876A3C2FEEF2BFB43C35E5115DDF57EE27DCF96DF"
+    }
+  ],
+  "summary": "Godot ran from the detached worktree with project.godot config/name still set to CocktailMerge. The test-runner process command line was isolated by project path, but Godot user:// data was not. Actual owner log rotation changed godot.log and removed four previously inventoried rotating logs. No further Godot command was run after discovery.",
+  "unrecoverable_without_source": "Four prior rotating log files have no byte backup in the preflight hash manifest; their original contents cannot be restored from hashes."
+}

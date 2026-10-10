@@ -1,0 +1,206 @@
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+SCRIPT ERROR: Parse Error: Could not find type "MergeQueue" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:100)
+SCRIPT ERROR: Parse Error: Could not find type "ShotController" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:101)
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:103)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:148)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:150)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:266)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:907)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:990)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1088)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1749)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1793)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1853)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:2008)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:164)
+SCRIPT ERROR: Parse Error: Identifier "MergeQueue" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:175)
+SCRIPT ERROR: Parse Error: Identifier "ShotController" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:196)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:340)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:588)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:589)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:911)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:911)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:991)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1001)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "base" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1001)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "gained" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1003)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1060)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1073)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1074)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1074)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1091)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1094)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1098)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1101)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "other" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1101)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1105)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "touching_distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1106)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1127)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1128)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1128)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1589)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1599)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "texture" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1599)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1603)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1609)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1629)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1630)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1640)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1664)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "max_level" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1664)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1698)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1702)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1704)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1704)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1707)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1709)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1709)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1712)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1728)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1731)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1733)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1733)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1736)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1738)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1738)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "distance" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1740)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1761)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1763)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1763)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1764)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1766)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1766)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1780)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1783)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1822)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1833)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "order_bonus" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1833)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1881)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "delivered_level" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1882)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1895)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "vip_bonus" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/game_manager.gd:1895)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1946)
+SCRIPT ERROR: Parse Error: Identifier "Drink" not declared in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:1950)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:2003)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://scripts/game_manager.gd:2004)
+ERROR: Failed to load script "res://scripts/game_manager.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Could not find type "GameManager" in the current scope.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:230)
+SCRIPT ERROR: Parse Error: Could not find type "Drink" in the current scope.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:234)
+SCRIPT ERROR: Parse Error: Could not find type "GameManager" in the current scope.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:53)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "manager" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:53)
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:59)
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:60)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "off_drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:71)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "on_drink" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:83)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stress_start" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:137)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "active_particles" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:141)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stress_dispatch_delta" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:142)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stress_active_gff_outputs" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:143)
+SCRIPT ERROR: Parse Error: Identifier "FeedbackService" not declared in the current scope.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:172)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "replacement_service" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:172)
+SCRIPT ERROR: Parse Error: Could not find type "GFFEffect" in the current scope.
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:20)
+SCRIPT ERROR: Parse Error: Could not resolve external class member "create_effect".
+   at: GDScript::reload (res://tests/m23_002_merge_feedback_probe.gd:26)
+ERROR: Failed to load script "res://tests/m23_002_merge_feedback_probe.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

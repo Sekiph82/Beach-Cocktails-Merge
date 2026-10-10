@@ -1,0 +1,138 @@
+{
+	"active_color_outputs_after_cancel": 0,
+	"active_gff_output_ceiling": 128,
+	"active_gff_outputs_after_cancel": 0,
+	"active_spark_outputs_after_cancel": 0,
+	"authority_effects_off": {
+		"physics_after": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"physics_before": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"result": {
+			"best_score": 6500,
+			"chain": 1,
+			"chain_timer": 1.5,
+			"score": 6500
+		}
+	},
+	"authority_effects_on": {
+		"physics_after": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"physics_before": {
+			"body_basis_x": "(1.0, 0.0)",
+			"body_basis_y": "(0.0, 1.0)",
+			"collider_radius": 90.0,
+			"collider_transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)]",
+			"collision_layer": 1,
+			"collision_mask": 1,
+			"velocity": "(0.0, 0.0)"
+		},
+		"result": {
+			"best_score": 6500,
+			"chain": 1,
+			"chain_timer": 1.5,
+			"score": 6500
+		}
+	},
+	"bridge_dispatch_count": 18,
+	"bridge_no_op_count": 60,
+	"checks": 64,
+	"diagnostics": [
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"gff_effect_unavailable:punch_scale",
+		"gff_call_failed",
+		"spark_call_failed",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded",
+		"policy:live_particle_ceiling_exceeded"
+	],
+	"failures": [],
+	"full_band_results": [
+		{
+			"amount": 10,
+			"band": "BASE",
+			"chain": 1,
+			"lifetime": 0.28,
+			"passed": true
+		},
+		{
+			"amount": 10,
+			"band": "SURGE",
+			"chain": 3,
+			"lifetime": 0.3,
+			"passed": true
+		},
+		{
+			"amount": 18,
+			"band": "PEAK",
+			"chain": 5,
+			"lifetime": 0.35,
+			"passed": true
+		},
+		{
+			"amount": 18,
+			"band": "PEAK hard cap",
+			"chain": 6,
+			"lifetime": 0.35,
+			"passed": true
+		}
+	],
+	"legacy_merge_effect_present": false,
+	"listener_count_after_reconfigure_stress": 1,
+	"live_particle_ceiling": 48,
+	"owner_visual_status": "PENDING_OWNER_VISUAL_EVIDENCE",
+	"pending_large_requests_after_cancel": 0,
+	"probe": "BCM-M27-001",
+	"rapid_delivery_active_particles": 44,
+	"rapid_delivery_dispatch_delta": 5,
+	"reduced_bands": [
+		"BASE",
+		"SURGE",
+		"PEAK"
+	],
+	"reduced_particle_count": 0,
+	"save_fingerprint_after": {
+		"exists": false,
+		"sha256": ""
+	},
+	"save_fingerprint_before": {
+		"exists": false,
+		"sha256": ""
+	},
+	"stress_active_gff_outputs": 4,
+	"stress_active_particles": 40,
+	"stress_dispatch_delta": 4,
+	"terminal_cleanup_cycles": 12,
+	"terminal_visible_world_effects_after_cleanup": 0,
+	"visual_capture_count": 0
+}
