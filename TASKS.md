@@ -7,12 +7,12 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M27
 - Current Sprint: BCM-M27-MASTER-V01
 - Current Task: BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M27-001 — CODEX follows `coordination/sessions/BCM-M27-MASTER-V01/CHATGPT_M27_MASTER_PROMPT_V01.md`, completes M27-001/002/003 in one run and stops for milestone audit.
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M27-001 — CODEX applies M27 master isolation recovery gate and runs no Godot tests until project identity and owner log backups are verified.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M26 owner-approved closure after technical 55/55 PASS; unperformed physical device and owner visual QA remain disclosed. M27 continuous milestone active: performance/cleanup, FULL/REDUCED accessibility, plugin-off/authority/visual closure. Owner-native M27 acceptance mandatory before final closure.
+- Progress: M27 first run halted with no commit: sandbox retained CocktailMerge project identity, overwrote real godot.log and rotated away four older diagnostic logs (hashes recorded, bytes unavailable). Owner assets and saves reportedly unchanged. M27 blocked until fail-closed sandbox user-data isolation and byte-for-byte log backups are demonstrated, then milestone execution may resume.
 
 ## Blockers/Waits
 
@@ -1280,7 +1280,7 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M27 — Performance, Reduced Motion, failure-mode, and runtime visual closure
 
-- [~] BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
+- [!] BCM-M27-001 — Enforce mobile budgets, emitter cleanup, overlap/cancellation, and terminal hygiene under stress.
   - Purpose: prove rapid merges/deliveries/navigation do not leak or overwhelm portrait mobile.
   - Existing seam: presentation-bridge telemetry, `GameManager.get_terminal_visual_counts()`, `campaign_transient_world_effect`, session/view lifecycle, Spark live pool, GameFeelFlow active effects/`stop_all`.
   - Semantic trigger: stress replay of existing semantic catalog only.
