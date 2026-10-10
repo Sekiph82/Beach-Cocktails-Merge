@@ -1,0 +1,104 @@
+name: Android APK
+
+# Actions sekmesinden "Run workflow" ile elle calistirilir. Debug-imzali, telefona dogrudan
+# yuklenebilir APK uretir. "ref" ile belirli bir commit derlenebilir (ornegin onayli .ipa'nin commit'i).
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Derlenecek commit/branch"
+        default: main
+
+permissions:
+  contents: read
+
+env:
+  GODOT_VERSION: 4.7.2
+  APP_NAME: BeachCocktails
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/coordination/
+            !/docs/
+            !/tests/
+            !/tools/
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Godot + export templates
+        run: |
+          curl -fsSL -o godot.zip "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q godot.zip -d "$RUNNER_TEMP/godot"
+          echo "GODOT=$RUNNER_TEMP/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64" >> "$GITHUB_ENV"
+          curl -fsSL -o tpl.tpz "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          TPL="$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          mkdir -p "$TPL" && unzip -q tpl.tpz -d "$RUNNER_TEMP/tpl" && mv "$RUNNER_TEMP"/tpl/templates/* "$TPL/"
+          rm -f godot.zip tpl.tpz
+
+      # Debug keystore CI'da uretilir, repoya girmez.
+      - name: Debug keystore + Android SDK ayarlari
+        run: |
+          KS="$RUNNER_TEMP/debug.keystore"
+          keytool -genkeypair -keystore "$KS" -storepass android -keypass android -alias androiddebugkey \
+            -dname "CN=BCM Debug,O=BCM Dev,C=TR" -keyalg RSA -keysize 2048 -validity 3650 >/dev/null 2>&1
+          SDK="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          echo "GODOT_ANDROID_KEYSTORE_DEBUG_PATH=$KS" >> "$GITHUB_ENV"
+          echo "GODOT_ANDROID_KEYSTORE_DEBUG_USER=androiddebugkey" >> "$GITHUB_ENV"
+          echo "GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD=android" >> "$GITHUB_ENV"
+          mkdir -p "$HOME/.config/godot"
+          for f in editor_settings-4.tres editor_settings-4.7.tres; do
+            printf '[gd_resource type="EditorSettings" format=3]\n\n[resource]\nexport/android/android_sdk_path = "%s"\nexport/android/java_sdk_path = "%s"\n' "$SDK" "$JAVA_HOME" > "$HOME/.config/godot/$f"
+          done
+
+      - name: Android export preset
+        run: |
+          cat > export_presets.cfg <<CFG
+          [preset.0]
+          name="Android"
+          platform="Android"
+          runnable=true
+          export_filter="all_resources"
+          include_filter=""
+          exclude_filter="coordination/*, docs/*, tests/*, tools/*, assets/ui_assets/source/*, assets/ui_assets/v04_masters/*, assets/ui_assets/v05_sources/*, *.md, .github/*"
+          export_path="build/${APP_NAME}.apk"
+
+          [preset.0.options]
+          gradle_build/use_gradle_build=false
+          architectures/arm64-v8a=true
+          architectures/armeabi-v7a=false
+          version/code=${GITHUB_RUN_NUMBER}
+          version/name="0.1.${GITHUB_RUN_NUMBER}"
+          package/unique_name="com.sekiph82.beachcocktails"
+          package/name="Beach Cocktails Merge"
+          launcher_icons/main_192x192="res://assets/ui_assets/brand/app_icon.png"
+          CFG
+
+      - name: Godot import + APK export
+        run: |
+          # Android export ETC2/ASTC ister; sadece CI kopyasinda aciliyor
+          printf '\n[rendering]\ntextures/vram_compression/import_etc2_astc=true\n' >> project.godot
+          mkdir -p build
+          "$GODOT" --headless --import > import.log 2>&1 || true
+          "$GODOT" --headless --export-debug "Android" "build/${APP_NAME}.apk" > export.log 2>&1 \
+            || { grep -iE -A6 "error|fail|invalid|missing" export.log | tail -40 | sed 's/^/::error::/'; exit 1; }
+          ls -la build
+          test -s "build/${APP_NAME}.apk"
+          echo "commit: $(git rev-parse --short HEAD)"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.APP_NAME }}-apk
+          path: build/${{ env.APP_NAME }}.apk
