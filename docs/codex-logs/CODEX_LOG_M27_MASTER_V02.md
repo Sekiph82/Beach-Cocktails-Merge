@@ -77,4 +77,3 @@ Status: `BUILDER_SEQUENCE_COMPLETE; INDEPENDENT_MILESTONE_AUDIT_PENDING`.
 - Required marker: `AWAITING_GPT_M27_MILESTONE_AUDIT`.
 - Do not start M28 or edit `TASKS.md` before the independent audit.
 - At final publication verification, local HEAD, `origin/main`, and remote `main` will be recorded as the same SHA. The master-log commit is documentation-only and its SHA is recorded by Git history and the post-push verification.
-
