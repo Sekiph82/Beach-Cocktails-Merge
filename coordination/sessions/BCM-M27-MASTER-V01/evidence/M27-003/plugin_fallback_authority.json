@@ -1,0 +1,132 @@
+{
+	"authority_independence": true,
+	"failures": [],
+	"owner_visual_acceptance": "PENDING_OWNER_NATIVE_REVIEW",
+	"scenario_results": {
+		"BOTH": {
+			"best_score": 6500,
+			"chain": 1,
+			"gff_calls": 2,
+			"injected_failure": false,
+			"physics_after": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"physics_before": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"plugin_mode": "BOTH",
+			"score": 6500,
+			"spark_calls": 1
+		},
+		"GFF_ONLY": {
+			"best_score": 6500,
+			"chain": 1,
+			"gff_calls": 0,
+			"injected_failure": false,
+			"physics_after": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"physics_before": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"plugin_mode": "GFF_ONLY",
+			"score": 6500,
+			"spark_calls": 0
+		},
+		"INJECTED_FAILURE": {
+			"best_score": 6500,
+			"chain": 1,
+			"gff_calls": 1,
+			"injected_failure": true,
+			"physics_after": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"physics_before": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"plugin_mode": "BOTH",
+			"score": 6500,
+			"spark_calls": 0
+		},
+		"NEITHER": {
+			"best_score": 6500,
+			"chain": 1,
+			"gff_calls": 0,
+			"injected_failure": false,
+			"physics_after": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"physics_before": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"plugin_mode": "NEITHER",
+			"score": 6500,
+			"spark_calls": 0
+		},
+		"SPARK_ONLY": {
+			"best_score": 6500,
+			"chain": 1,
+			"gff_calls": 0,
+			"injected_failure": false,
+			"physics_after": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"physics_before": {
+				"layer": 1,
+				"mask": 1,
+				"position": "(350.0, 400.0)",
+				"radius": 90.0,
+				"transform": "[X: (1.0, 0.0), Y: (0.0, 1.0), O: (350.0, 400.0)]",
+				"velocity": "(0.0, 0.0)"
+			},
+			"plugin_mode": "SPARK_ONLY",
+			"score": 6500,
+			"spark_calls": 0
+		}
+	}
+}

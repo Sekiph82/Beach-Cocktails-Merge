@@ -1,0 +1,40 @@
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:28)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:155)
+       [1] _run (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:54)
+       [2] _check_held_body_alignment (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:151)
+SCRIPT ERROR: Cannot call method 'save_png' on a null value.
+   at: _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:157)
+   GDScript backtrace (most recent call first):
+       [0] _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:157)
+       [1] _run (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:54)
+       [2] _check_held_body_alignment (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:151)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:155)
+       [1] _run (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:54)
+       [2] _check_held_body_alignment (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:151)
+SCRIPT ERROR: Cannot call method 'save_png' on a null value.
+   at: _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:157)
+   GDScript backtrace (most recent call first):
+       [0] _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:157)
+       [1] _run (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:54)
+       [2] _check_held_body_alignment (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:151)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:155)
+       [1] _run (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:54)
+       [2] _check_held_body_alignment (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:151)
+SCRIPT ERROR: Cannot call method 'save_png' on a null value.
+   at: _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:157)
+   GDScript backtrace (most recent call first):
+       [0] _save_capture (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:157)
+       [1] _run (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:54)
+       [2] _check_held_body_alignment (res://tests/m27_003_legacy_m07_r06_owner_layout_probe.gd:151)

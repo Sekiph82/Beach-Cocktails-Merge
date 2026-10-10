@@ -1,0 +1,53 @@
+{
+  "captured_utc": "2026-10-10T04:54:59.6416936Z",
+  "result": "PASS_TEST_DRIVEN_GL_CAPTURE_SETS",
+  "note": "Two retained M21 QA runs each contain 16 distinct images, include canonical 720x1280 and tall 720x1440 viewport states, exited normally, and verified task-owned process cleanup. Captures are automated production-path scenarios, not human gameplay or owner-native acceptance. Earlier stale-frame runs remain as failure evidence and are excluded.",
+  "valid_runs": [
+    {
+      "run": "M21_QA_clean_run02",
+      "image_count": 16,
+      "distinct_image_hashes": 16,
+      "runner_exit_code": 0,
+      "runner_cleanup_verified": true,
+      "gl_compatibility": true,
+      "result_marker": true,
+      "dimensions": [
+        "720x1280",
+        "720x1440"
+      ]
+    },
+    {
+      "run": "M21_QA_clean_run04",
+      "image_count": 16,
+      "distinct_image_hashes": 16,
+      "runner_exit_code": 0,
+      "runner_cleanup_verified": true,
+      "gl_compatibility": true,
+      "result_marker": true,
+      "dimensions": [
+        "720x1280",
+        "720x1440"
+      ]
+    }
+  ],
+  "excluded_runs": [
+    {
+      "reason": "stale repeated viewport frames",
+      "run": "M21_QA_clean_run01",
+      "image_count": 16,
+      "distinct_image_hashes": 3
+    },
+    {
+      "reason": "stale repeated viewport frames",
+      "run": "M21_QA_clean_run03",
+      "image_count": 16,
+      "distinct_image_hashes": 2
+    },
+    {
+      "reason": "stale repeated viewport frames",
+      "run": "M21_QA_synced",
+      "image_count": 16,
+      "distinct_image_hashes": 2
+    }
+  ]
+}

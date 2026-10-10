@@ -1,0 +1,1100 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M21_CHILD_03_PROBE PASS: canonical campaign database loads
+M21_CHILD_03_PROBE PASS: true fresh campaign state configures
+M21_CHILD_03_PROBE PASS: production navigation accepts fresh campaign
+M21_CHILD_03_PROBE PASS: production PLAY starts the fresh-session frontier gameplay
+M21_CHILD_03_PROBE PASS: fresh save begins with Sunny Cove only
+M21_CHILD_03_PROBE PASS: L1 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L1 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L1 has a production level control
+M21_CHILD_03_PROBE PASS: L1 starts one active production session
+M21_CHILD_03_PROBE PASS: L1 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L1 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L1 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L1 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L1 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L1
+M21_CHILD_03_PROBE PASS: L1 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L1 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: checkpoint L1 writes through SaveManager
+M21_CHILD_03_PROBE PASS: checkpoint L1 reloads valid state
+M21_CHILD_03_PROBE PASS: checkpoint L1 reloads economy state
+M21_CHILD_03_PROBE PASS: checkpoint L1 reloads CampaignManager state
+M21_CHILD_03_PROBE PASS: checkpoint L1 reconnects production navigation
+M21_CHILD_03_PROBE PASS: checkpoint L1 returns to one World Map
+M21_CHILD_03_PROBE PASS: checkpoint L1 keeps Tiki locked
+M21_CHILD_03_PROBE PASS: L2 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L2 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L2 has a production level control
+M21_CHILD_03_PROBE PASS: L2 starts one active production session
+M21_CHILD_03_PROBE PASS: L2 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L2 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L2 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L2 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L2 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L2
+M21_CHILD_03_PROBE PASS: L2 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L2 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L3 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L3 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L3 has a production level control
+M21_CHILD_03_PROBE PASS: L3 starts one active production session
+M21_CHILD_03_PROBE PASS: L3 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L3 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L3 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L3 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L3 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L3
+M21_CHILD_03_PROBE PASS: L3 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L3 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L4 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L4 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L4 has a production level control
+M21_CHILD_03_PROBE PASS: L4 starts one active production session
+M21_CHILD_03_PROBE PASS: L4 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L4 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L4 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L4 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L4 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L4
+M21_CHILD_03_PROBE PASS: L4 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L4 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L5 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L5 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L5 has a production level control
+M21_CHILD_03_PROBE PASS: L5 starts one active production session
+M21_CHILD_03_PROBE PASS: L5 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L5 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L5 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L5 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L5 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L5
+M21_CHILD_03_PROBE PASS: L5 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L5 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L6 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L6 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L6 has a production level control
+M21_CHILD_03_PROBE PASS: L6 starts one active production session
+M21_CHILD_03_PROBE PASS: L6 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L6 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L6 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L6 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L6 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L6 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L6
+M21_CHILD_03_PROBE PASS: L6 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L6 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L7 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L7 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L7 has a production level control
+M21_CHILD_03_PROBE PASS: L7 starts one active production session
+M21_CHILD_03_PROBE PASS: L7 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L7 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L7 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L7 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L7 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L7
+M21_CHILD_03_PROBE PASS: L7 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L7 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L8 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L8 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L8 has a production level control
+M21_CHILD_03_PROBE PASS: L8 starts one active production session
+M21_CHILD_03_PROBE PASS: L8 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L8 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L8 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L8 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L8 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L8 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L8
+M21_CHILD_03_PROBE PASS: L8 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L8 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L9 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L9 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L9 has a production level control
+M21_CHILD_03_PROBE PASS: L9 starts one active production session
+M21_CHILD_03_PROBE PASS: L9 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L9 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L9 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L9 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L9 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L9
+M21_CHILD_03_PROBE PASS: L9 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L9 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L10 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L10 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L10 has a production level control
+M21_CHILD_03_PROBE PASS: L10 starts one active production session
+M21_CHILD_03_PROBE PASS: L10 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L10 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L10 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L10 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L10 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L10
+M21_CHILD_03_PROBE PASS: L10 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L10 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L11 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L11 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L11 has a production level control
+M21_CHILD_03_PROBE PASS: L11 starts one active production session
+M21_CHILD_03_PROBE PASS: L11 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L11 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L11 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L11 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L11 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L11 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L11
+M21_CHILD_03_PROBE PASS: L11 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L11 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L12 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L12 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L12 has a production level control
+M21_CHILD_03_PROBE PASS: L12 starts one active production session
+M21_CHILD_03_PROBE PASS: L12 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L12 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L12 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L12 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L12 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L12
+M21_CHILD_03_PROBE PASS: L12 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L12 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L13 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L13 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L13 has a production level control
+M21_CHILD_03_PROBE PASS: L13 starts one active production session
+M21_CHILD_03_PROBE PASS: L13 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L13 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L13 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L13 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L13 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L13
+M21_CHILD_03_PROBE PASS: L13 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L13 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L14 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L14 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L14 has a production level control
+M21_CHILD_03_PROBE PASS: L14 starts one active production session
+M21_CHILD_03_PROBE PASS: L14 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L14 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L14 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L14 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L14 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L14 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L14
+M21_CHILD_03_PROBE PASS: L14 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L14 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L15 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L15 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L15 has a production level control
+M21_CHILD_03_PROBE PASS: L15 starts one active production session
+M21_CHILD_03_PROBE PASS: L15 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L15 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L15 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L15 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L15 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L15 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L15
+M21_CHILD_03_PROBE PASS: L15 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L15 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L16 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L16 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L16 has a production level control
+M21_CHILD_03_PROBE PASS: L16 starts one active production session
+M21_CHILD_03_PROBE PASS: L16 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L16 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L16 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L16 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L16 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L16
+M21_CHILD_03_PROBE PASS: L16 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L16 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L17 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L17 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L17 has a production level control
+M21_CHILD_03_PROBE PASS: L17 starts one active production session
+M21_CHILD_03_PROBE PASS: L17 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L17 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L17 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L17 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L17 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L17 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L17
+M21_CHILD_03_PROBE PASS: L17 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L17 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L18 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L18 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L18 has a production level control
+M21_CHILD_03_PROBE PASS: L18 starts one active production session
+M21_CHILD_03_PROBE PASS: L18 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L18 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L18 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L18 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L18 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L18 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L18
+M21_CHILD_03_PROBE PASS: L18 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L18 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L19 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L19 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L19 has a production level control
+M21_CHILD_03_PROBE PASS: L19 starts one active production session
+M21_CHILD_03_PROBE PASS: L19 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L19 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L19 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L19 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L19 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L19 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L19
+M21_CHILD_03_PROBE PASS: L19 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L19 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L20 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L20 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L20 has a production level control
+M21_CHILD_03_PROBE PASS: L20 starts one active production session
+M21_CHILD_03_PROBE PASS: L20 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L20 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L20 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L20 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L20 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L20 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L20
+M21_CHILD_03_PROBE PASS: L20 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L20 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L21 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L21 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L21 has a production level control
+M21_CHILD_03_PROBE PASS: L21 starts one active production session
+M21_CHILD_03_PROBE PASS: L21 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L21 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L21 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L21 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L21 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L21
+M21_CHILD_03_PROBE PASS: L21 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L21 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L22 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L22 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L22 has a production level control
+M21_CHILD_03_PROBE PASS: L22 starts one active production session
+M21_CHILD_03_PROBE PASS: L22 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L22 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L22 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L22 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L22 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L22 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L22
+M21_CHILD_03_PROBE PASS: L22 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L22 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L23 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L23 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L23 has a production level control
+M21_CHILD_03_PROBE PASS: L23 starts one active production session
+M21_CHILD_03_PROBE PASS: L23 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L23 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L23 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L23 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L23 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L23 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L23
+M21_CHILD_03_PROBE PASS: L23 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L23 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L24 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L24 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L24 has a production level control
+M21_CHILD_03_PROBE PASS: L24 starts one active production session
+M21_CHILD_03_PROBE PASS: L24 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L24 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L24 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L24 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L24 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L24 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L24
+M21_CHILD_03_PROBE PASS: L24 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L24 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L25 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L25 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L25 has a production level control
+M21_CHILD_03_PROBE PASS: L25 starts one active production session
+M21_CHILD_03_PROBE PASS: L25 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L25 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L25 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L25 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L25 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L25 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L25
+M21_CHILD_03_PROBE PASS: L25 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L25 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: checkpoint L25 writes through SaveManager
+M21_CHILD_03_PROBE PASS: checkpoint L25 reloads valid state
+M21_CHILD_03_PROBE PASS: checkpoint L25 reloads economy state
+M21_CHILD_03_PROBE PASS: checkpoint L25 reloads CampaignManager state
+M21_CHILD_03_PROBE PASS: checkpoint L25 reconnects production navigation
+M21_CHILD_03_PROBE PASS: checkpoint L25 returns to one World Map
+M21_CHILD_03_PROBE PASS: checkpoint L25 keeps Tiki locked
+M21_CHILD_03_PROBE PASS: L26 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L26 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L26 has a production level control
+M21_CHILD_03_PROBE PASS: L26 starts one active production session
+M21_CHILD_03_PROBE PASS: L26 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L26 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L26 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L26 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L26 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L26
+M21_CHILD_03_PROBE PASS: L26 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L26 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L27 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L27 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L27 has a production level control
+M21_CHILD_03_PROBE PASS: L27 starts one active production session
+M21_CHILD_03_PROBE PASS: L27 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L27 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L27 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L27 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L27 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L27 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L27
+M21_CHILD_03_PROBE PASS: L27 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L27 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L28 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L28 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L28 has a production level control
+M21_CHILD_03_PROBE PASS: L28 starts one active production session
+M21_CHILD_03_PROBE PASS: L28 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L28 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L28 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L28 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L28 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L28 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L28
+M21_CHILD_03_PROBE PASS: L28 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L28 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L29 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L29 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L29 has a production level control
+M21_CHILD_03_PROBE PASS: L29 starts one active production session
+M21_CHILD_03_PROBE PASS: L29 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L29 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L29 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L29 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L29 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L29 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L29 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L29
+M21_CHILD_03_PROBE PASS: L29 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L29 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L30 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L30 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L30 has a production level control
+M21_CHILD_03_PROBE PASS: L30 starts one active production session
+M21_CHILD_03_PROBE PASS: L30 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L30 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L30 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L30 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L30 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L30 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L30
+M21_CHILD_03_PROBE PASS: L30 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L30 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L31 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L31 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L31 has a production level control
+M21_CHILD_03_PROBE PASS: L31 starts one active production session
+M21_CHILD_03_PROBE PASS: L31 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L31 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L31 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L31 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L31 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L31 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L31
+M21_CHILD_03_PROBE PASS: L31 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L31 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L32 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L32 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L32 has a production level control
+M21_CHILD_03_PROBE PASS: L32 starts one active production session
+M21_CHILD_03_PROBE PASS: L32 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L32 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L32 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L32 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L32 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L32 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L32
+M21_CHILD_03_PROBE PASS: L32 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L32 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L33 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L33 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L33 has a production level control
+M21_CHILD_03_PROBE PASS: L33 starts one active production session
+M21_CHILD_03_PROBE PASS: L33 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L33 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L33 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L33 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L33 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L33
+M21_CHILD_03_PROBE PASS: L33 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L33 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L34 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L34 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L34 has a production level control
+M21_CHILD_03_PROBE PASS: L34 starts one active production session
+M21_CHILD_03_PROBE PASS: L34 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L34 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L34 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L34 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L34 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L34 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L34 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L34
+M21_CHILD_03_PROBE PASS: L34 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L34 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L35 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L35 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L35 has a production level control
+M21_CHILD_03_PROBE PASS: L35 starts one active production session
+M21_CHILD_03_PROBE PASS: L35 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L35 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L35 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L35 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L35 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L35 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L35
+M21_CHILD_03_PROBE PASS: L35 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L35 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L36 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L36 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L36 has a production level control
+M21_CHILD_03_PROBE PASS: L36 starts one active production session
+M21_CHILD_03_PROBE PASS: L36 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L36 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L36 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L36 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L36 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L36 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L36
+M21_CHILD_03_PROBE PASS: L36 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L36 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L37 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L37 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L37 has a production level control
+M21_CHILD_03_PROBE PASS: L37 starts one active production session
+M21_CHILD_03_PROBE PASS: L37 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L37 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L37 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L37 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L37 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L37 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L37 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L37
+M21_CHILD_03_PROBE PASS: L37 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L37 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L38 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L38 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L38 has a production level control
+M21_CHILD_03_PROBE PASS: L38 starts one active production session
+M21_CHILD_03_PROBE PASS: L38 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L38 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L38 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L38 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L38 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L38
+M21_CHILD_03_PROBE PASS: L38 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L38 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L39 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L39 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L39 has a production level control
+M21_CHILD_03_PROBE PASS: L39 starts one active production session
+M21_CHILD_03_PROBE PASS: L39 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L39 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L39 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L39 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L39 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L39 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L39 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L39
+M21_CHILD_03_PROBE PASS: L39 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L39 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L40 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L40 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L40 has a production level control
+M21_CHILD_03_PROBE PASS: L40 starts one active production session
+M21_CHILD_03_PROBE PASS: L40 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L40 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L40 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L40 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L40 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L40
+M21_CHILD_03_PROBE PASS: L40 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L40 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L41 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L41 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L41 has a production level control
+M21_CHILD_03_PROBE PASS: L41 starts one active production session
+M21_CHILD_03_PROBE PASS: L41 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L41 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L41 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L41 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L41 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L41 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L41
+M21_CHILD_03_PROBE PASS: L41 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L41 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L42 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L42 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L42 has a production level control
+M21_CHILD_03_PROBE PASS: L42 starts one active production session
+M21_CHILD_03_PROBE PASS: L42 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L42 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L42 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L42 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L42 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L42 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L42 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L42
+M21_CHILD_03_PROBE PASS: L42 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L42 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L43 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L43 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L43 has a production level control
+M21_CHILD_03_PROBE PASS: L43 starts one active production session
+M21_CHILD_03_PROBE PASS: L43 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L43 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L43 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L43 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L43 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L43
+M21_CHILD_03_PROBE PASS: L43 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L43 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L44 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L44 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L44 has a production level control
+M21_CHILD_03_PROBE PASS: L44 starts one active production session
+M21_CHILD_03_PROBE PASS: L44 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L44 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L44 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L44 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L44 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L44 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L44
+M21_CHILD_03_PROBE PASS: L44 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L44 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L45 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L45 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L45 has a production level control
+M21_CHILD_03_PROBE PASS: L45 starts one active production session
+M21_CHILD_03_PROBE PASS: L45 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L45 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L45 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L45 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L45 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L45
+M21_CHILD_03_PROBE PASS: L45 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L45 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L46 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L46 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L46 has a production level control
+M21_CHILD_03_PROBE PASS: L46 starts one active production session
+M21_CHILD_03_PROBE PASS: L46 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L46 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L46 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L46 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L46 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L46 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L46
+M21_CHILD_03_PROBE PASS: L46 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L46 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L47 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L47 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L47 has a production level control
+M21_CHILD_03_PROBE PASS: L47 starts one active production session
+M21_CHILD_03_PROBE PASS: L47 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L47 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L47 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L47 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L47 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L47 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L47
+M21_CHILD_03_PROBE PASS: L47 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L47 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L48 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L48 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L48 has a production level control
+M21_CHILD_03_PROBE PASS: L48 starts one active production session
+M21_CHILD_03_PROBE PASS: L48 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L48 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L48 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L48 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L48 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L48
+M21_CHILD_03_PROBE PASS: L48 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L48 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L49 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L49 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L49 has a production level control
+M21_CHILD_03_PROBE PASS: L49 starts one active production session
+M21_CHILD_03_PROBE PASS: L49 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L49 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L49 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L49 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L49 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L49 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L49
+M21_CHILD_03_PROBE PASS: L49 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L49 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L50 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L50 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L50 has a production level control
+M21_CHILD_03_PROBE PASS: L50 starts one active production session
+M21_CHILD_03_PROBE PASS: L50 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L50 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L50 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L50 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L50 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L50 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L50
+M21_CHILD_03_PROBE PASS: L50 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L50 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: checkpoint L50 writes through SaveManager
+M21_CHILD_03_PROBE PASS: checkpoint L50 reloads valid state
+M21_CHILD_03_PROBE PASS: checkpoint L50 reloads economy state
+M21_CHILD_03_PROBE PASS: checkpoint L50 reloads CampaignManager state
+M21_CHILD_03_PROBE PASS: checkpoint L50 reconnects production navigation
+M21_CHILD_03_PROBE PASS: checkpoint L50 returns to one World Map
+M21_CHILD_03_PROBE PASS: checkpoint L50 keeps Tiki locked
+M21_CHILD_03_PROBE PASS: L51 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L51 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L51 has a production level control
+M21_CHILD_03_PROBE PASS: L51 starts one active production session
+M21_CHILD_03_PROBE PASS: L51 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L51 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L51 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L51 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L51 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L51 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L51 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L51
+M21_CHILD_03_PROBE PASS: L51 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L51 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L52 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L52 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L52 has a production level control
+M21_CHILD_03_PROBE PASS: L52 starts one active production session
+M21_CHILD_03_PROBE PASS: L52 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L52 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L52 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L52 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L52 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L52
+M21_CHILD_03_PROBE PASS: L52 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L52 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L53 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L53 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L53 has a production level control
+M21_CHILD_03_PROBE PASS: L53 starts one active production session
+M21_CHILD_03_PROBE PASS: L53 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L53 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L53 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L53 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L53 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L53 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L53
+M21_CHILD_03_PROBE PASS: L53 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L53 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L54 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L54 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L54 has a production level control
+M21_CHILD_03_PROBE PASS: L54 starts one active production session
+M21_CHILD_03_PROBE PASS: L54 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L54 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L54 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L54 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L54 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L54
+M21_CHILD_03_PROBE PASS: L54 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L54 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L55 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L55 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L55 has a production level control
+M21_CHILD_03_PROBE PASS: L55 starts one active production session
+M21_CHILD_03_PROBE PASS: L55 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L55 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L55 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L55 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L55 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L55 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L55
+M21_CHILD_03_PROBE PASS: L55 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L55 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L56 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L56 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L56 has a production level control
+M21_CHILD_03_PROBE PASS: L56 starts one active production session
+M21_CHILD_03_PROBE PASS: L56 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L56 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L56 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L56 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L56 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L56 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L56
+M21_CHILD_03_PROBE PASS: L56 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L56 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L57 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L57 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L57 has a production level control
+M21_CHILD_03_PROBE PASS: L57 starts one active production session
+M21_CHILD_03_PROBE PASS: L57 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L57 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L57 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L57 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L57 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L57 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L57
+M21_CHILD_03_PROBE PASS: L57 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L57 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L58 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L58 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L58 has a production level control
+M21_CHILD_03_PROBE PASS: L58 starts one active production session
+M21_CHILD_03_PROBE PASS: L58 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L58 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L58 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L58 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L58 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L58 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L58
+M21_CHILD_03_PROBE PASS: L58 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L58 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L59 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L59 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L59 has a production level control
+M21_CHILD_03_PROBE PASS: L59 starts one active production session
+M21_CHILD_03_PROBE PASS: L59 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L59 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L59 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L59 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L59 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L59 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L59
+M21_CHILD_03_PROBE PASS: L59 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L59 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L60 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L60 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L60 has a production level control
+M21_CHILD_03_PROBE PASS: L60 starts one active production session
+M21_CHILD_03_PROBE PASS: L60 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L60 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L60 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L60 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L60 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L60 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L60 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L60
+M21_CHILD_03_PROBE PASS: L60 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L60 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L61 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L61 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L61 has a production level control
+M21_CHILD_03_PROBE PASS: L61 starts one active production session
+M21_CHILD_03_PROBE PASS: L61 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L61 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L61 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L61 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L61 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L61
+M21_CHILD_03_PROBE PASS: L61 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L61 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L62 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L62 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L62 has a production level control
+M21_CHILD_03_PROBE PASS: L62 starts one active production session
+M21_CHILD_03_PROBE PASS: L62 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L62 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L62 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L62 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L62 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L62 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L62
+M21_CHILD_03_PROBE PASS: L62 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L62 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L63 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L63 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L63 has a production level control
+M21_CHILD_03_PROBE PASS: L63 starts one active production session
+M21_CHILD_03_PROBE PASS: L63 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L63 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L63 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L63 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L63 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L63 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L63
+M21_CHILD_03_PROBE PASS: L63 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L63 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L64 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L64 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L64 has a production level control
+M21_CHILD_03_PROBE PASS: L64 starts one active production session
+M21_CHILD_03_PROBE PASS: L64 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L64 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L64 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L64 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L64 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L64 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L64
+M21_CHILD_03_PROBE PASS: L64 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L64 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L65 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L65 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L65 has a production level control
+M21_CHILD_03_PROBE PASS: L65 starts one active production session
+M21_CHILD_03_PROBE PASS: L65 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L65 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L65 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L65 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L65 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L65 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L65
+M21_CHILD_03_PROBE PASS: L65 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L65 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L66 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L66 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L66 has a production level control
+M21_CHILD_03_PROBE PASS: L66 starts one active production session
+M21_CHILD_03_PROBE PASS: L66 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L66 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L66 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L66 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L66 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L66 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L66 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L66
+M21_CHILD_03_PROBE PASS: L66 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L66 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L67 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L67 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L67 has a production level control
+M21_CHILD_03_PROBE PASS: L67 starts one active production session
+M21_CHILD_03_PROBE PASS: L67 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L67 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L67 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L67 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L67 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L67 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L67
+M21_CHILD_03_PROBE PASS: L67 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L67 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L68 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L68 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L68 has a production level control
+M21_CHILD_03_PROBE PASS: L68 starts one active production session
+M21_CHILD_03_PROBE PASS: L68 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L68 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L68 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L68 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L68 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L68 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L68
+M21_CHILD_03_PROBE PASS: L68 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L68 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L69 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L69 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L69 has a production level control
+M21_CHILD_03_PROBE PASS: L69 starts one active production session
+M21_CHILD_03_PROBE PASS: L69 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L69 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L69 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L69 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L69 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L69 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L69
+M21_CHILD_03_PROBE PASS: L69 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L69 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L70 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L70 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L70 has a production level control
+M21_CHILD_03_PROBE PASS: L70 starts one active production session
+M21_CHILD_03_PROBE PASS: L70 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L70 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L70 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L70 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L70 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L70 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L70 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L70
+M21_CHILD_03_PROBE PASS: L70 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L70 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L71 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L71 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L71 has a production level control
+M21_CHILD_03_PROBE PASS: L71 starts one active production session
+M21_CHILD_03_PROBE PASS: L71 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L71 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L71 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L71 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L71 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L71 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L71
+M21_CHILD_03_PROBE PASS: L71 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L71 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L72 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L72 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L72 has a production level control
+M21_CHILD_03_PROBE PASS: L72 starts one active production session
+M21_CHILD_03_PROBE PASS: L72 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L72 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L72 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L72 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L72 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L72 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L72
+M21_CHILD_03_PROBE PASS: L72 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L72 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L73 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L73 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L73 has a production level control
+M21_CHILD_03_PROBE PASS: L73 starts one active production session
+M21_CHILD_03_PROBE PASS: L73 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L73 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L73 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L73 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L73 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L73 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L73 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L73
+M21_CHILD_03_PROBE PASS: L73 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L73 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L74 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L74 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L74 has a production level control
+M21_CHILD_03_PROBE PASS: L74 starts one active production session
+M21_CHILD_03_PROBE PASS: L74 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L74 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L74 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L74 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L74 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L74 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L74
+M21_CHILD_03_PROBE PASS: L74 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L74 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L75 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L75 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L75 has a production level control
+M21_CHILD_03_PROBE PASS: L75 starts one active production session
+M21_CHILD_03_PROBE PASS: L75 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L75 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L75 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L75 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L75 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L75 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L75 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L75
+M21_CHILD_03_PROBE PASS: L75 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L75 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: checkpoint L75 writes through SaveManager
+M21_CHILD_03_PROBE PASS: checkpoint L75 reloads valid state
+M21_CHILD_03_PROBE PASS: checkpoint L75 reloads economy state
+M21_CHILD_03_PROBE PASS: checkpoint L75 reloads CampaignManager state
+M21_CHILD_03_PROBE PASS: checkpoint L75 reconnects production navigation
+M21_CHILD_03_PROBE PASS: checkpoint L75 returns to one World Map
+M21_CHILD_03_PROBE PASS: checkpoint L75 keeps Tiki locked
+M21_CHILD_03_PROBE PASS: L76 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L76 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L76 has a production level control
+M21_CHILD_03_PROBE PASS: L76 starts one active production session
+M21_CHILD_03_PROBE PASS: L76 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L76 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L76 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L76 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L76 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L76 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L76
+M21_CHILD_03_PROBE PASS: L76 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L76 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L77 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L77 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L77 has a production level control
+M21_CHILD_03_PROBE PASS: L77 starts one active production session
+M21_CHILD_03_PROBE PASS: L77 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L77 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L77 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L77 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L77 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L77 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L77
+M21_CHILD_03_PROBE PASS: L77 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L77 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L78 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L78 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L78 has a production level control
+M21_CHILD_03_PROBE PASS: L78 starts one active production session
+M21_CHILD_03_PROBE PASS: L78 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L78 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L78 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L78 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L78 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L78 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L78
+M21_CHILD_03_PROBE PASS: L78 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L78 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L79 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L79 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L79 has a production level control
+M21_CHILD_03_PROBE PASS: L79 starts one active production session
+M21_CHILD_03_PROBE PASS: L79 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L79 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L79 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L79 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L79 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L79 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L79 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L79
+M21_CHILD_03_PROBE PASS: L79 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L79 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L80 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L80 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L80 has a production level control
+M21_CHILD_03_PROBE PASS: L80 starts one active production session
+M21_CHILD_03_PROBE PASS: L80 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L80 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L80 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L80 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L80 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L80 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L80
+M21_CHILD_03_PROBE PASS: L80 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L80 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L81 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L81 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L81 has a production level control
+M21_CHILD_03_PROBE PASS: L81 starts one active production session
+M21_CHILD_03_PROBE PASS: L81 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L81 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L81 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L81 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L81 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L81 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L81
+M21_CHILD_03_PROBE PASS: L81 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L81 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L82 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L82 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L82 has a production level control
+M21_CHILD_03_PROBE PASS: L82 starts one active production session
+M21_CHILD_03_PROBE PASS: L82 normal order 1 accepted
+M21_CHILD_03_PROBE PASS: L82 normal order 2 accepted
+M21_CHILD_03_PROBE PASS: L82 normal order 3 accepted
+M21_CHILD_03_PROBE PASS: L82 completes through GameplaySessionBridge WIN
+M21_CHILD_03_PROBE PASS: L82 does not require VIP completion
+M21_CHILD_03_PROBE PASS: L82 submits authoritative progression result
+M21_CHILD_03_PROBE PASS: L82 persists completion record
+M21_CHILD_03_PROBE PASS: cumulative stars remain monotonic through L82
+M21_CHILD_03_PROBE PASS: L82 result returns through production Island Map action
+M21_CHILD_03_PROBE PASS: L82 leaves one Island Map and no gameplay duplicate
+M21_CHILD_03_PROBE PASS: L83 is unlocked before launch
+M21_CHILD_03_PROBE PASS: L83 enters Island Map through production router
+M21_CHILD_03_PROBE PASS: L83 has a production level control

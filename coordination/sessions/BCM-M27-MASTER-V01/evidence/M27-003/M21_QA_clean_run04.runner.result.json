@@ -1,0 +1,28 @@
+{
+  "started_utc": "2026-10-10T04:54:08.0302729Z",
+  "finished_utc": "2026-10-10T04:54:25.0774943Z",
+  "project_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+  "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "arguments": [
+    "--path",
+    "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+    "--script",
+    "res://tests/m27_003_mobile_qa_probe.gd",
+    "--rendering-method",
+    "gl_compatibility",
+    "--display-driver",
+    "windows"
+  ],
+  "spawned_pids": [
+    14192,
+    15052,
+    31304
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "failure": null,
+  "matching_godot_pids_after_cleanup": [],
+  "cleanup_verified": true,
+  "stdout_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-003\\M21_QA_clean_run04.runner.stdout.txt",
+  "stderr_path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox\\coordination\\sessions\\BCM-M27-MASTER-V01\\evidence\\M27-003\\M21_QA_clean_run04.runner.stderr.txt"
+}

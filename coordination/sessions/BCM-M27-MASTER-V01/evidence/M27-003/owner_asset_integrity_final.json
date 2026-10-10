@@ -1,0 +1,11 @@
+{
+  "captured_utc": "2026-10-10T04:51:53.8426150Z",
+  "baseline": "M27-001/pre_godot_owner_hashes.json",
+  "baseline_asset_count": 832,
+  "checked_count": 832,
+  "missing_count": 0,
+  "changed_count": 0,
+  "result": "PASS",
+  "missing": [],
+  "changed": []
+}

@@ -1,0 +1,128 @@
+{
+	"capture_count": 16,
+	"captures": [
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_onboarding",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_onboarding.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_main_menu",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_main_menu.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_settings",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_settings.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_play_gameplay",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_play_gameplay.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_world_map",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_world_map.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_locked_feedback",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_locked_feedback.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_island_map_top",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_island_map_top.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_island_map_bottom",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_island_map_bottom.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_pause",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_pause.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_gameplay",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_gameplay.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_lose_result",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_lose_result.png",
+			"width": 720
+		},
+		{
+			"height": 1280,
+			"name": "canonical_720x1280_win_result",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/canonical_720x1280_win_result.png",
+			"width": 720
+		},
+		{
+			"height": 1440,
+			"name": "tall_720x1440_play_gameplay",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/tall_720x1440_play_gameplay.png",
+			"width": 720
+		},
+		{
+			"height": 1440,
+			"name": "tall_720x1440_world_map",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/tall_720x1440_world_map.png",
+			"width": 720
+		},
+		{
+			"height": 1440,
+			"name": "tall_720x1440_island_map_bottom",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/tall_720x1440_island_map_bottom.png",
+			"width": 720
+		},
+		{
+			"height": 1440,
+			"name": "tall_720x1440_gameplay",
+			"path": "res://coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-003/M21_QA_clean_run03/tall_720x1440_gameplay.png",
+			"width": 720
+		}
+	],
+	"checks_failed": [],
+	"environment": {
+		"canonical_viewport": [
+			720,
+			1280
+		],
+		"godot": {
+			"build": "official",
+			"hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+			"hex": 263938,
+			"major": 4,
+			"minor": 7,
+			"patch": 2,
+			"status": "stable",
+			"string": "4.7.2-stable (official)",
+			"timestamp": 0
+		},
+		"physical_device": false,
+		"renderer": "GL Compatibility",
+		"tall_viewport": [
+			720,
+			1440
+		]
+	},
+	"physical_device_acceptance": "DEFERRED_TO_OWNER_NATIVE_M21_006",
+	"probe": "tests/m21_mobile_qa_probe.gd",
+	"work_item": "BCM-M21-001"
+}

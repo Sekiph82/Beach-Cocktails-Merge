@@ -1,0 +1,12 @@
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m27_003_main_boot_probe.gd:7)
+ERROR: M27_003_BOOT_FAIL: no GameManager after 120 frames
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m27_003_main_boot_probe.gd:20)
+ERROR: M27_003_BOOT_FAIL: no presentation bridge after 120 frames
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m27_003_main_boot_probe.gd:22)

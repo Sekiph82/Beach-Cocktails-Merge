@@ -71,7 +71,8 @@ if ($GodotArguments -notcontains '--path') { throw 'Refusing Godot launch withou
 $pathIndex = [Array]::IndexOf($GodotArguments, '--path')
 if ($pathIndex -lt 0 -or $pathIndex + 1 -ge $GodotArguments.Count -or [IO.Path]::GetFullPath($GodotArguments[$pathIndex + 1]).TrimEnd('\') -ine $resolvedProject) { throw 'Godot arguments do not point to the verified sandbox.' }
 if ($GodotArguments -contains '--editor') {
-    $gatePath = Join-Path (Split-Path -Parent $OutputPrefix) 'isolation_probe_20261010.guard.json'
+    $evidenceRoot = Split-Path -Parent (Split-Path -Parent $OutputPrefix)
+    $gatePath = Join-Path (Join-Path $evidenceRoot 'M27-001') 'isolation_probe_20261010.guard.json'
     if (-not $AllowEditorAfterIsolationGate -or -not (Test-Path -LiteralPath $gatePath -PathType Leaf)) { throw 'The isolation gate permits no editor launch before the minimal identity probe passes.' }
     $gate = Get-Content -LiteralPath $gatePath -Raw | ConvertFrom-Json
     if ($gate.result -ne 'PASS' -or [IO.Path]::GetFullPath($gate.expected_user_data_dir).TrimEnd('\') -ine [IO.Path]::GetFullPath($expectedRoot).TrimEnd('\') -or -not $gate.owner_userdata_byte_hash_and_directory_parity) { throw 'Editor launch gate proof is missing, mismatched, or failed.' }
@@ -92,16 +93,20 @@ foreach ($relative in $ownerLogs) {
 $oldExpected = $env:BCM_M27_EXPECTED_USER_DATA_DIR
 $env:BCM_M27_EXPECTED_USER_DATA_DIR = [IO.Path]::GetFullPath($expectedRoot)
 $innerPrefix = "$OutputPrefix.runner"
+$runnerError = $null
 try {
     & $runnerPath -GodotPath $GodotPath -ProjectPath $resolvedProject -GodotArguments $GodotArguments -OutputPrefix $innerPrefix -TimeoutSeconds $TimeoutSeconds | Out-Null
+} catch {
+    $runnerError = $_.Exception.Message
 } finally {
     if ($null -eq $oldExpected) { Remove-Item Env:BCM_M27_EXPECTED_USER_DATA_DIR -ErrorAction SilentlyContinue } else { $env:BCM_M27_EXPECTED_USER_DATA_DIR = $oldExpected }
 }
 $runnerRecordPath = "$innerPrefix.result.json"
 if (-not (Test-Path -LiteralPath $runnerRecordPath -PathType Leaf)) { throw 'PID-tracking runner produced no result record.' }
 $runnerRecord = Get-Content -LiteralPath $runnerRecordPath -Raw | ConvertFrom-Json
-if ($runnerRecord.exit_code -ne 0 -or -not $runnerRecord.cleanup_verified -or @($runnerRecord.matching_godot_pids_after_cleanup).Count -ne 0) { throw 'PID-tracking runner failed or did not verify sandbox process cleanup.' }
 Assert-OwnerTreeUnchanged 'post-launch'
+if (-not $runnerRecord.cleanup_verified -or @($runnerRecord.matching_godot_pids_after_cleanup).Count -ne 0) { throw 'PID-tracking runner failed to verify sandbox process cleanup.' }
+if ($runnerRecord.exit_code -ne 0 -or $runnerError) { throw "PID-tracking Godot invocation failed after owner-data integrity was verified: $runnerError" }
 if (-not (Test-Path -LiteralPath $expectedRoot -PathType Container)) { throw 'Godot did not create the resolved sandbox user-data directory.' }
 $logFiles = @(Get-ChildItem -LiteralPath (Join-Path $expectedRoot 'logs') -File -ErrorAction Stop | ForEach-Object { [ordered]@{ path = $_.FullName; length = $_.Length; sha256 = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash } })
 if ($logFiles.Count -eq 0 -or -not ($logFiles.path -contains $expectedLog)) { throw "Godot did not write to the verified expected rotating log target: $expectedLog" }

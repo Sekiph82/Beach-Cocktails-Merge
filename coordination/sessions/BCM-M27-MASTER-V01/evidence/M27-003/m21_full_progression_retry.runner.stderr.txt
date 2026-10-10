@@ -1,0 +1,20 @@
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+SCRIPT ERROR: Left operand of 'is' is a previously freed instance.
+   at: PresentationFeedbackBridge._trace_safe_value (res://scripts/presentation_feedback_bridge.gd:1103)
+   GDScript backtrace (most recent call first):
+       [0] _trace_safe_value (res://scripts/presentation_feedback_bridge.gd:1103)
+       [1] _trace_safe_value (res://scripts/presentation_feedback_bridge.gd:1108)
+       [2] _begin_visual_trace (res://scripts/presentation_feedback_bridge.gd:884)
+       [3] _on_semantic_requested (res://scripts/presentation_feedback_bridge.gd:199)
+       [4] _flush_serialized_large_request (res://scripts/presentation_feedback_bridge.gd:573)
+       [5] _process (res://scripts/presentation_feedback_bridge.gd:102)
+SCRIPT ERROR: Left operand of 'is' is a previously freed instance.
+   at: PresentationFeedbackBridge._begin_visual_trace (res://scripts/presentation_feedback_bridge.gd:884)
+   GDScript backtrace (most recent call first):
+       [0] _begin_visual_trace (res://scripts/presentation_feedback_bridge.gd:884)
+       [1] _on_semantic_requested (res://scripts/presentation_feedback_bridge.gd:199)
+       [2] _flush_serialized_large_request (res://scripts/presentation_feedback_bridge.gd:573)
+       [3] _process (res://scripts/presentation_feedback_bridge.gd:102)

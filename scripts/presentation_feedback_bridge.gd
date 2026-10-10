@@ -894,7 +894,7 @@ func _begin_visual_trace(request: Dictionary) -> String:
 		"mode": _presentation_mode,
 		"stage": "semantic_received",
 		"stages": ["semantic_received"],
-		"target": _canvas_item_snapshot(target_value as Node) if target_value is Node and is_instance_valid(target_value) else {},
+		"target": _canvas_item_snapshot(target_value as Node) if typeof(target_value) == TYPE_OBJECT and is_instance_valid(target_value) and target_value is Node else {},
 		"render_samples": [],
 	})
 	while _visual_trace.size() > MAX_VISUAL_TRACE_EVENTS:
@@ -1100,6 +1100,9 @@ func _gff_active_effect_count() -> int:
 
 
 func _trace_safe_value(value: Variant) -> Variant:
+	if typeof(value) == TYPE_OBJECT:
+		if not is_instance_valid(value):
+			return {"invalid_object": true}
 	if value is Node:
 		return {"path": str(value.get_path()), "class": value.get_class(), "instance_id": value.get_instance_id()}
 	if value is Dictionary:

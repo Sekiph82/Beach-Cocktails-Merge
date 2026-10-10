@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M11_PROBE PASS: first boot returns a fresh default
+M11_PROBE PASS: valid write/read round trip
+M11_PROBE PASS: first persistence write succeeds
+M11_PROBE PASS: second persistence write succeeds
+M11_PROBE PASS: backup contains the last known good primary
+M11_PROBE PASS: malformed primary recovers valid backup
+M11_PROBE PASS: malformed primary and backup use safe fallback
+M11_PROBE PASS: future schema is surfaced as unsupported
+M11_PROBE PASS: older schema uses the migration entry point
+M11_PROBE PASS: legacy best score migrates without rewriting legacy save
+M11_PROBE PASS: higher campaign best is preserved over repeated legacy migration
+M11_PROBE PASS: baseline for failed write is stored
+M11_PROBE PASS: invalid write does not destroy previous valid state
+M11_PROBE PASS: test campaign definitions load in FULL mode
+M11_PROBE PASS: CampaignManager configures from loaded state
+M11_PROBE PASS: completion unlocks next level
+M11_PROBE PASS: worse replay preserves best stars and score without state change
+M11_PROBE PASS: better replay upgrades stars and score
+M11_PROBE PASS: final level unlocks next island by canonical rule
+M11_PROBE PASS: milestone claim is one-time and idempotent
+M11_PROBE PASS: progression state persists
+M11_PROBE PASS: persisted progression reloads identically
+M11_SAVE_MIGRATION_PROGRESSION_RESULT=PASS
