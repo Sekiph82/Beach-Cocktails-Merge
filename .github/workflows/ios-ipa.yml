@@ -34,8 +34,8 @@ jobs:
           runnable=true
           export_filter="all_resources"
           include_filter=""
-          ; Gelistirme/denetim dosyalari oyuna girmesin (coordination 1.2 GB)
-          exclude_filter="coordination/*, docs/*, tests/*, tools/*, assets/ui_assets/source/*, assets/ui_assets/v04_masters/*, assets/ui_assets/v05_sources/*, *.md"
+          ; Gelistirme/denetim dosyalari oyuna girmesin 
+          exclude_filter="docs/*, tests/*, tools/*, assets/ui_assets/source/*, assets/ui_assets/v04_masters/*, assets/ui_assets/v05_sources/*, *.md"
           export_path="build/ios/${APP_NAME}.ipa"
 
           [preset.0.options]
@@ -62,6 +62,8 @@ jobs:
           mkdir -p build/ios
           # iOS export ETC2/ASTC ister; sadece CI kopyasinda aciliyor
           printf '\n[rendering]\ntextures/vram_compression/import_etc2_astc=true\n' >> project.godot
+          # coordination/ 1.2 GB; oyunun okudugu tek dosya Home layout JSON'u (application_shell.gd)
+          find coordination -type f ! -name HOME_TARGET_LAYOUT_R04.json -delete
           "$GODOT" --headless --import || true
           "$GODOT" --headless --export-release "iOS" "build/ios/${APP_NAME}.ipa" > export.log 2>&1 \
             || { grep -iE -A6 "error|fail|invalid|missing" export.log | tail -40 | sed 's/^/::error::/'; exit 1; }
