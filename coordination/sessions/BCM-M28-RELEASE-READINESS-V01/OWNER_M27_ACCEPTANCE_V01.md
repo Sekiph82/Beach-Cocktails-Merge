@@ -1,0 +1,3 @@
+# M27 owner acceptance
+
+Owner reports that Beach Cocktails Merge is satisfactory on their own iPhone in graphics, effects and gameplay, and explicitly authorizes moving forward. This is real-device owner visual and gameplay acceptance. Formal per-effect paired FULL/REDUCED image-matrix evidence was not produced; owner device acceptance supersedes that review as a closure gate, without misrepresenting the automated matrix as complete. M27 technical source/evidence audit had passed its functional checks. Two invalid UID fallback warnings and four historical unrecovered rotating diagnostic logs remain disclosed non-blocking caveats. M27 CLOSED by owner ruling. Do not claim broad public device compatibility from one phone.
