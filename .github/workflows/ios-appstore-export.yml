@@ -1,0 +1,233 @@
+name: iOS App Store signed export (opt-in)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Validate Apple's current toolchain requirement, or prepare a signed IPA"
+        type: choice
+        required: true
+        default: validate_only
+        options:
+          - validate_only
+          - signed_export
+      release_version:
+        description: "Owner-approved marketing version, for example 1.0.0"
+        type: string
+        required: true
+        default: 1.0.0
+      ref:
+        description: "Exact source ref to build"
+        type: string
+        required: true
+        default: main
+
+permissions:
+  contents: read
+
+env:
+  GODOT_VERSION: 4.7.2
+  BUNDLE_ID: com.sekiph82.beachcocktails
+  APP_NAME: BeachCocktails
+  MIN_XCODE_MAJOR: "26"
+  MIN_IOS_SDK_MAJOR: "26"
+
+jobs:
+  validate:
+    runs-on: macos-26
+    steps:
+      - name: Verify current App Store Connect toolchain floor
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcode_version="$(xcodebuild -version | awk '/Xcode / {print $2; exit}')"
+          ios_sdk="$(xcrun --sdk iphoneos --show-sdk-version)"
+          xcode_major="${xcode_version%%.*}"
+          ios_sdk_major="${ios_sdk%%.*}"
+          printf 'Xcode=%s iOS_SDK=%s\n' "$xcode_version" "$ios_sdk"
+          [[ "$xcode_major" =~ ^[0-9]+$ && "$xcode_major" -ge "$MIN_XCODE_MAJOR" ]] || { echo "Xcode 26 or later is required for App Store Connect uploads." >&2; exit 1; }
+          [[ "$ios_sdk_major" =~ ^[0-9]+$ && "$ios_sdk_major" -ge "$MIN_IOS_SDK_MAJOR" ]] || { echo "iOS 26 SDK or later is required for App Store Connect uploads." >&2; exit 1; }
+          test "$BUNDLE_ID" = "com.sekiph82.beachcocktails"
+          echo "Toolchain validation only. No signing, archive, upload, or submission occurred."
+
+  signed-export:
+    if: ${{ inputs.mode == 'signed_export' }}
+    needs: validate
+    runs-on: macos-26
+    environment: app-store-distribution
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - name: Require owner-provided protected Apple signing secrets
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_DISTRIBUTION_P12_B64: ${{ secrets.APPLE_DISTRIBUTION_P12_BASE64 }}
+          APPLE_DISTRIBUTION_P12_PASSWORD: ${{ secrets.APPLE_DISTRIBUTION_P12_PASSWORD }}
+          APPLE_APP_STORE_PROFILE_B64: ${{ secrets.APPLE_APP_STORE_PROFILE_BASE64 }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || { echo "Invalid release_version" >&2; exit 1; }
+          for name in APPLE_TEAM_ID APPLE_DISTRIBUTION_P12_B64 APPLE_DISTRIBUTION_P12_PASSWORD APPLE_APP_STORE_PROFILE_B64; do
+            if [[ -z "${!name}" ]]; then
+              echo "Missing protected Apple distribution secret: $name. No signing or archive was attempted." >&2
+              exit 1
+            fi
+          done
+          [[ "$APPLE_TEAM_ID" =~ ^[A-Z0-9]{10}$ ]] || { echo "APPLE_TEAM_ID must be a 10-character Apple Team ID." >&2; exit 1; }
+
+      - name: Import protected distribution identity and profile
+        id: signing
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_DISTRIBUTION_P12_B64: ${{ secrets.APPLE_DISTRIBUTION_P12_BASE64 }}
+          APPLE_DISTRIBUTION_P12_PASSWORD: ${{ secrets.APPLE_DISTRIBUTION_P12_PASSWORD }}
+          APPLE_APP_STORE_PROFILE_B64: ${{ secrets.APPLE_APP_STORE_PROFILE_BASE64 }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          keychain_path="$RUNNER_TEMP/appstore-signing.keychain-db"
+          keychain_password="$(openssl rand -hex 32)"
+          printf '%s' "$APPLE_DISTRIBUTION_P12_B64" | base64 --decode > "$RUNNER_TEMP/distribution.p12"
+          printf '%s' "$APPLE_APP_STORE_PROFILE_B64" | base64 --decode > "$RUNNER_TEMP/appstore.mobileprovision"
+          security create-keychain -p "$keychain_password" "$keychain_path"
+          security set-keychain-settings -lut 21600 "$keychain_path"
+          security unlock-keychain -p "$keychain_password" "$keychain_path"
+          security import "$RUNNER_TEMP/distribution.p12" -k "$keychain_path" -P "$APPLE_DISTRIBUTION_P12_PASSWORD" -T /usr/bin/codesign -T /usr/bin/security
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$keychain_password" "$keychain_path" >/dev/null
+          security list-keychains -d user -s "$keychain_path"
+          security cms -D -i "$RUNNER_TEMP/appstore.mobileprovision" > "$RUNNER_TEMP/profile.plist"
+          profile_team="$(/usr/libexec/PlistBuddy -c 'Print :TeamIdentifier:0' "$RUNNER_TEMP/profile.plist")"
+          profile_name="$(/usr/libexec/PlistBuddy -c 'Print :Name' "$RUNNER_TEMP/profile.plist")"
+          profile_uuid="$(/usr/libexec/PlistBuddy -c 'Print :UUID' "$RUNNER_TEMP/profile.plist")"
+          app_identifier="$(/usr/libexec/PlistBuddy -c 'Print :Entitlements:application-identifier' "$RUNNER_TEMP/profile.plist")"
+          allow_debug="$(/usr/libexec/PlistBuddy -c 'Print :Entitlements:get-task-allow' "$RUNNER_TEMP/profile.plist" 2>/dev/null || echo true)"
+          [[ "$profile_team" == "$APPLE_TEAM_ID" ]] || { echo "Provisioning profile Team ID mismatch." >&2; exit 1; }
+          [[ "$app_identifier" == "$APPLE_TEAM_ID.$BUNDLE_ID" ]] || { echo "Provisioning profile App ID mismatch." >&2; exit 1; }
+          [[ "$allow_debug" == "false" ]] || { echo "Provisioning profile is not an App Store distribution profile." >&2; exit 1; }
+          if /usr/libexec/PlistBuddy -c 'Print :ProvisionedDevices' "$RUNNER_TEMP/profile.plist" >/dev/null 2>&1; then
+            echo "Provisioning profile is device-limited and is not an App Store distribution profile." >&2
+            exit 1
+          fi
+          security find-identity -v -p codesigning "$keychain_path" | grep -q 'Apple Distribution:' || { echo "Imported keychain has no Apple Distribution identity." >&2; exit 1; }
+          mkdir -p "$HOME/Library/MobileDevice/Provisioning Profiles"
+          cp "$RUNNER_TEMP/appstore.mobileprovision" "$HOME/Library/MobileDevice/Provisioning Profiles/$profile_uuid.mobileprovision"
+          echo "profile_name=$profile_name" >> "$GITHUB_OUTPUT"
+          echo "profile_uuid=$profile_uuid" >> "$GITHUB_OUTPUT"
+          echo "Protected signing assets imported and identity/profile pairing verified."
+
+      - name: Install Godot and matching iOS export templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/godot" "$RUNNER_TEMP/templates"
+          curl --fail --location --silent --show-error -o "$RUNNER_TEMP/godot.zip" "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_macos.universal.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          echo "GODOT=$RUNNER_TEMP/godot/Godot.app/Contents/MacOS/Godot" >> "$GITHUB_ENV"
+          curl --fail --location --silent --show-error -o "$RUNNER_TEMP/templates.tpz" "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          unzip -q "$RUNNER_TEMP/templates.tpz" -d "$RUNNER_TEMP/templates"
+          mkdir -p "$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable"
+          cp "$RUNNER_TEMP/templates/templates/ios.zip" "$HOME/Library/Application Support/Godot/export_templates/${GODOT_VERSION}.stable/"
+
+      - name: Export Xcode project with owner identity and versions
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+          PROFILE_NAME: ${{ steps.signing.outputs.profile_name }}
+          PROFILE_UUID: ${{ steps.signing.outputs.profile_uuid }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/appstore/xcode
+          build_number=$((GITHUB_RUN_NUMBER * 100 + GITHUB_RUN_ATTEMPT))
+          if (( GITHUB_RUN_ATTEMPT >= 100 )); then echo "Workflow run attempt is outside the build-number encoding range." >&2; exit 1; fi
+          cat > export_presets.cfg <<EOF
+          [preset.0]
+          name="iOS App Store"
+          platform="iOS"
+          runnable=false
+          dedicated_server=false
+          custom_features=""
+          export_filter="all_resources"
+          include_filter=""
+          exclude_filter="coordination/*, docs/*, tests/*, tools/*, assets/ui_assets/source/*, assets/ui_assets/v04_masters/*, assets/ui_assets/v05_sources/*, *.md, .github/*"
+          export_path="build/appstore/xcode/BeachCocktails.ipa"
+
+          [preset.0.options]
+          application/app_store_team_id="$APPLE_TEAM_ID"
+          application/bundle_identifier="$BUNDLE_ID"
+          application/export_project_only=true
+          application/provisioning_profile_uuid_release="$PROFILE_UUID"
+          application/provisioning_profile_specifier_release="$PROFILE_NAME"
+          application/short_version="$RELEASE_VERSION"
+          application/version="1.0.$build_number"
+          icons/app_store_1024x1024="res://assets/ui_assets/brand/app_icon.png"
+          icons/icon_1024x1024="res://assets/ui_assets/brand/app_icon.png"
+          EOF
+          "$GODOT" --headless --editor --path . --quit > build/appstore/import.log 2>&1 || { tail -80 build/appstore/import.log; exit 1; }
+          "$GODOT" --headless --path . --export-release "iOS App Store" build/appstore/xcode/BeachCocktails.ipa > build/appstore/export.log 2>&1 || { tail -100 build/appstore/export.log; exit 1; }
+          project="$(find build/appstore/xcode -maxdepth 2 -type d -name '*.xcodeproj' -print -quit)"
+          test -n "$project" && test -d "$project"
+          echo "XCODE_PROJECT=$project" >> "$GITHUB_ENV"
+
+      - name: Archive and export signed App Store IPA (no upload)
+        id: archive
+        env:
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          RELEASE_VERSION: ${{ inputs.release_version }}
+          PROFILE_NAME: ${{ steps.signing.outputs.profile_name }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcode_version="$(xcodebuild -version | awk '/Xcode / {print $2; exit}')"
+          ios_sdk="$(xcrun --sdk iphoneos --show-sdk-version)"
+          [[ "${xcode_version%%.*}" -ge "$MIN_XCODE_MAJOR" && "${ios_sdk%%.*}" -ge "$MIN_IOS_SDK_MAJOR" ]] || { echo "Current Xcode/iOS SDK upload requirement not met." >&2; exit 1; }
+          project="$XCODE_PROJECT"
+          scheme="$(xcodebuild -list -json -project "$project" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d["project"]["schemes"][0])')"
+          [[ -n "$scheme" ]] || { echo "No Xcode scheme exported by Godot." >&2; exit 1; }
+          xcodebuild -project "$project" -scheme "$scheme" -configuration Release \
+            -destination 'generic/platform=iOS' -archivePath "$RUNNER_TEMP/BeachCocktails.xcarchive" archive \
+            CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM="$APPLE_TEAM_ID" CODE_SIGN_IDENTITY="Apple Distribution" \
+            PROVISIONING_PROFILE_SPECIFIER="$PROFILE_NAME" PRODUCT_BUNDLE_IDENTIFIER="$BUNDLE_ID" \
+            MARKETING_VERSION="$RELEASE_VERSION" CURRENT_PROJECT_VERSION="$((GITHUB_RUN_NUMBER * 100 + GITHUB_RUN_ATTEMPT))" \
+            > "$RUNNER_TEMP/archive.log" 2>&1 || { tail -120 "$RUNNER_TEMP/archive.log"; exit 1; }
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>export</string>
+            <key>signingStyle</key><string>manual</string>
+            <key>teamID</key><string>$APPLE_TEAM_ID</string>
+            <key>provisioningProfiles</key><dict><key>$BUNDLE_ID</key><string>$PROFILE_NAME</string></dict>
+            <key>compileBitcode</key><false/>
+          </dict></plist>
+          EOF
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/BeachCocktails.xcarchive" \
+            -exportPath build/appstore/export -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" \
+            > "$RUNNER_TEMP/export.log" 2>&1 || { tail -120 "$RUNNER_TEMP/export.log"; exit 1; }
+          ipa="$(find build/appstore/export -maxdepth 1 -type f -name '*.ipa' -print -quit)"
+          test -n "$ipa" && test -s "$ipa"
+          mkdir -p build/appstore/final
+          cp "$ipa" build/appstore/final/BeachCocktails-AppStore.ipa
+          echo "path=build/appstore/final/BeachCocktails-AppStore.ipa" >> "$GITHUB_OUTPUT"
+          echo "Signed App Store IPA exported. No App Store Connect upload or TestFlight submission occurred."
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BeachCocktails-AppStore-${{ inputs.release_version }}-${{ github.run_number }}
+          path: build/appstore/final/BeachCocktails-AppStore.ipa
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Remove temporary signing material
+        if: always()
+        shell: bash
+        run: |
+          security delete-keychain "$RUNNER_TEMP/appstore-signing.keychain-db" 2>/dev/null || true
+          rm -f "$RUNNER_TEMP/distribution.p12" "$RUNNER_TEMP/appstore.mobileprovision" "$RUNNER_TEMP/profile.plist"
