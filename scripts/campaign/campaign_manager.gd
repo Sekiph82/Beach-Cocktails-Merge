@@ -187,6 +187,8 @@ func is_island_complete(island_id: String) -> bool:
     var level_count := int(island.get("level_count", 0))
     if level_count <= 0:
         return false
+    if level_database.has_method("is_island_content_complete") and not level_database.is_island_content_complete(island_id):
+        return false
     for level_id in range(1, level_count + 1):
         if level_database.get_level(island_id, level_id).is_empty() or not is_level_completed(island_id, level_id):
             return false

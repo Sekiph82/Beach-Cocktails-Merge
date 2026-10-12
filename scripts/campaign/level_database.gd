@@ -26,6 +26,7 @@ var last_error := ""
 var _islands_by_id: Dictionary = {}
 var _levels_by_key: Dictionary = {}
 var _levels_by_island: Dictionary = {}
+var _campaign_contract: Dictionary = {}
 var _loaded := false
 
 
@@ -123,11 +124,48 @@ func get_last_error() -> String:
     return last_error
 
 
+func get_campaign_contract() -> Dictionary:
+    return _copy_read_only(_campaign_contract)
+
+
+func get_campaign_readiness() -> Dictionary:
+    if _campaign_contract.is_empty():
+        return {"status": "UNSPECIFIED", "complete": false, "pending_islands": []}
+    var expected_ids: Array = _campaign_contract.get("ordered_island_ids", [])
+    var pending: Array[String] = []
+    var counts: Dictionary = {}
+    for island_id_variant in expected_ids:
+        var island_id := str(island_id_variant)
+        var expected_count := int(_campaign_contract.get("levels_per_island", 100))
+        var authored_count := int(_levels_by_island.get(island_id, []).size())
+        counts[island_id] = {"authored": authored_count, "required": expected_count}
+        if authored_count != expected_count:
+            pending.append(island_id)
+    return {
+        "status": "READY" if pending.is_empty() else "PENDING_CONTENT",
+        "complete": pending.is_empty(),
+        "target_island_count": int(_campaign_contract.get("island_count", 0)),
+        "target_levels_per_island": int(_campaign_contract.get("levels_per_island", 0)),
+        "target_total_levels": int(_campaign_contract.get("total_levels", 0)),
+        "authored_level_counts": counts,
+        "pending_islands": pending,
+    }
+
+
+func is_island_content_complete(island_id: String) -> bool:
+    var island := get_island(island_id)
+    if island.is_empty():
+        return false
+    var required_count := int(_campaign_contract.get("levels_per_island", island.get("level_count", 0)))
+    return required_count > 0 and int(_levels_by_island.get(island_id, []).size()) == required_count and int(island.get("level_count", 0)) == required_count
+
+
 func _reset() -> void:
     last_error = ""
     _islands_by_id.clear()
     _levels_by_key.clear()
     _levels_by_island.clear()
+    _campaign_contract.clear()
     _loaded = false
 
 
@@ -221,6 +259,41 @@ func _validate_island_root(root: Variant) -> bool:
         var next_id := str(_islands_by_id[island_id]["next_island_id"])
         if not next_id.is_empty() and not _islands_by_id.has(next_id):
             return _fail("unresolved next_island_id %s from %s" % [next_id, island_id])
+    if root.has("campaign_contract"):
+        if not _validate_campaign_contract(root["campaign_contract"]):
+            return false
+    return true
+
+
+func _validate_campaign_contract(contract: Variant) -> bool:
+    if not contract is Dictionary or not contract.has_all(["schema_version", "island_count", "levels_per_island", "total_levels", "ordered_island_ids", "unlock_policy"]):
+        return _fail("campaign_contract is incomplete")
+    if int(contract["schema_version"]) != 1 or int(contract["island_count"]) != 10 or int(contract["levels_per_island"]) != 100 or int(contract["total_levels"]) != 1000:
+        return _fail("campaign_contract must declare ten islands, one hundred levels each, and one thousand total")
+    if str(contract["unlock_policy"]) != "sequential_full_island_completion":
+        return _fail("campaign_contract unlock policy must require sequential full island completion")
+    var ordered_ids: Variant = contract["ordered_island_ids"]
+    if not ordered_ids is Array or ordered_ids.size() != int(contract["island_count"]):
+        return _fail("campaign_contract ordered_island_ids must contain ten island ids")
+    var seen: Dictionary = {}
+    for index in ordered_ids.size():
+        var island_id := str(ordered_ids[index])
+        if island_id.is_empty() or seen.has(island_id) or not _islands_by_id.has(island_id):
+            return _fail("campaign_contract contains a missing or duplicate island id: %s" % island_id)
+        seen[island_id] = true
+        var island: Dictionary = _islands_by_id[island_id]
+        if int(island.get("order_index", 0)) != index + 1:
+            return _fail("campaign order_index differs from campaign_contract: %s" % island_id)
+        var expected_next := str(ordered_ids[index + 1]) if index + 1 < ordered_ids.size() else ""
+        if str(island.get("next_island_id", "")) != expected_next:
+            return _fail("campaign next-island chain is not sequential: %s" % island_id)
+        var unlock_rule: Dictionary = island.get("unlock_rule", {})
+        if index == 0:
+            if str(unlock_rule.get("type", "")) != "default_open":
+                return _fail("first campaign island must be default open")
+        elif str(unlock_rule.get("type", "")) != "requires_island_completion" or str(unlock_rule.get("island_id", "")) != str(ordered_ids[index - 1]) or int(unlock_rule.get("level_id", 0)) != int(contract["levels_per_island"]):
+            return _fail("island must unlock after all one hundred previous-island levels: %s" % island_id)
+    _campaign_contract = contract.duplicate(true)
     return true
 
 
@@ -283,8 +356,18 @@ func _validate_level_roots(roots: Array) -> bool:
     for island_id in _islands_by_id:
         var loaded_levels: Array = _levels_by_island.get(island_id, [])
         loaded_levels.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return int(a["level_id"]) < int(b["level_id"]))
+        for index in loaded_levels.size():
+            if int(loaded_levels[index]["level_id"]) != index + 1:
+                return _fail("level ids must be contiguous from one: %s" % island_id)
         if validation_mode == ValidationMode.FULL and loaded_levels.size() != int(_islands_by_id[island_id]["level_count"]):
             return _fail("declared island level_count mismatch: %s" % island_id)
+        if validation_mode == ValidationMode.FULL and not _campaign_contract.is_empty() and loaded_levels.size() != int(_campaign_contract["levels_per_island"]):
+            return _fail("full campaign content is missing or incomplete: %s" % island_id)
+    if validation_mode == ValidationMode.FULL and not _campaign_contract.is_empty():
+        if _islands_by_id.size() != int(_campaign_contract["island_count"]):
+            return _fail("full campaign must contain exactly ten islands")
+        if _levels_by_key.size() != int(_campaign_contract["total_levels"]):
+            return _fail("full campaign must contain exactly one thousand levels")
     return true
 
 

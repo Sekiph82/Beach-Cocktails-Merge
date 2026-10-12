@@ -1,5 +1,25 @@
 {
     "schema_version": 1,
+    "campaign_contract": {
+        "schema_version": 1,
+        "island_count": 10,
+        "levels_per_island": 100,
+        "total_levels": 1000,
+        "ordered_island_ids": [
+            "sunny_cove",
+            "tiki_island",
+            "azure_bay",
+            "coconut_beach",
+            "sunset_island",
+            "party_beach",
+            "frozen_paradise",
+            "volcano_bay",
+            "billionaire_island",
+            "final_island"
+        ],
+        "unlock_policy": "sequential_full_island_completion",
+        "content_status": "staged_authoring"
+    },
     "islands": [
         {
             "id": "sunny_cove",
