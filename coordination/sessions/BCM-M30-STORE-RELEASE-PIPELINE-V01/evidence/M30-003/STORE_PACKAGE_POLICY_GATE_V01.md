@@ -29,6 +29,7 @@ This is a source/configuration inventory only. No signed AAB or App Store IPA wa
 
 - Configure protected Android upload keystore/alias/password secrets and decide Play App Signing custody in the Google Play owner account.
 - Configure Apple Team ID, App Store distribution certificate and App Store provisioning profile as protected CI secrets; verify account/App ID access.
+- Restrict both GitHub signing environments (`android-play-upload`, `app-store-distribution`) to deployments from canonical `main` before adding release secrets.
 - Decide whether the Godot AI plugin and game-helper autoload should be excluded from store builds; then inspect the exact exported package.
 - Approve privacy policy, data collection/sharing/tracking/retention/deletion answers, target audience/children status, ads status, ratings (including applicable beverage/alcohol themes and chance features), app name/listing, support contacts, markets/locales, content rights and review access.
 - Perform broader device/OS QA and review final manifests, entitlements, SDK inventory and signed artifact provenance.
