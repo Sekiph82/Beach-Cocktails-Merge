@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M32-CAMPAIGN-FOUNDATION-V01
 - Current Task: BCM-M32-004 — Tutorial implemented; M17 regression gate unresolved.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M32-R01 — Diagnose four M17 screening failures and re-audit.
+- Next Task/Action: BCM-M32-R02 — CODEX updates obsolete staged-content assertions, validates current M33 full content and completes graphical tutorial capture; then GPT audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M32 independent audit: implementation largely passed; four M17 assertions red. M33 content generated and integrated, but 899 levels lack physical validation. Game remains incomplete; store release postponed.
+- Progress: M32-R01 independent diagnostic audit PASS: historical M17 fixture staleness demonstrated, new VIP surplus semantics PASS. M32 overall BLOCKED: two obsolete M32 staged-content tests still red after M33 expansion and graphical tutorial capture incomplete. M33 899 level physics qualification pending.
 
 ## Blockers/Waits
 
