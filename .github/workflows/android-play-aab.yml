@@ -1,0 +1,213 @@
+name: Android Play release AAB (opt-in)
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Validate configuration only, or build a signed upload AAB"
+        type: choice
+        required: true
+        default: validate_only
+        options:
+          - validate_only
+          - signed_aab
+      release_version:
+        description: "Owner-approved marketing version, for example 1.0.0"
+        type: string
+        required: true
+        default: 1.0.0
+      ref:
+        description: "Exact source ref to build"
+        type: string
+        required: true
+        default: main
+
+permissions:
+  contents: read
+
+env:
+  GODOT_VERSION: 4.7.2
+  PACKAGE_ID: com.sekiph82.beachcocktails
+  TARGET_API: "36"
+  MIN_API: "24"
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - name: Validate release configuration without signing
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+          RELEASE_MODE: ${{ inputs.mode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+([+-][A-Za-z0-9.-]+)?$ ]] || { echo "Invalid release_version" >&2; exit 1; }
+          test "$PACKAGE_ID" = "com.sekiph82.beachcocktails"
+          test "$TARGET_API" -ge 36
+          grep -Fq 'gradle_build/use_gradle_build=true' .github/workflows/android-play-aab.yml
+          grep -Fq 'gradle_build/export_format=1' .github/workflows/android-play-aab.yml
+          grep -Fq 'package/signed=true' .github/workflows/android-play-aab.yml
+          grep -Fq 'architectures/arm64-v8a=true' .github/workflows/android-play-aab.yml
+          if [[ "$RELEASE_MODE" == "validate_only" ]]; then
+            echo "Configuration validation only. No signing, export, upload, or publishing occurred."
+          fi
+
+  signed-aab:
+    if: ${{ inputs.mode == 'signed_aab' }}
+    needs: validate
+    runs-on: ubuntu-24.04
+    environment: android-play-upload
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - name: Require protected upload signing secrets
+        env:
+          UPLOAD_KEYSTORE_B64: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_BASE64 }}
+          UPLOAD_STORE_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_PASSWORD }}
+          UPLOAD_KEY_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEY_ALIAS }}
+          UPLOAD_KEY_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEY_PASSWORD }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in UPLOAD_KEYSTORE_B64 UPLOAD_STORE_PASSWORD UPLOAD_KEY_ALIAS UPLOAD_KEY_PASSWORD; do
+            if [[ -z "${!name}" ]]; then
+              echo "Missing protected Android upload signing secret: $name. No export was attempted." >&2
+              exit 1
+            fi
+          done
+          if [[ "$UPLOAD_STORE_PASSWORD" != "$UPLOAD_KEY_PASSWORD" ]]; then
+            echo "Godot's Android release export uses one password for the upload store and alias; configure matching owner-held values in both protected secrets. No export was attempted." >&2
+            exit 1
+          fi
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Install Android SDK API 36 toolchain
+        uses: android-actions/setup-android@v3
+
+      - name: Install required Android SDK packages
+        shell: bash
+        run: |
+          set -euo pipefail
+          sdkmanager "platform-tools" "platforms;android-${TARGET_API}" "build-tools;36.0.0"
+
+      - name: Install Godot and matching export templates
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/godot" "$RUNNER_TEMP/templates"
+          curl --fail --location --silent --show-error -o "$RUNNER_TEMP/godot.zip" "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          unzip -q "$RUNNER_TEMP/godot.zip" -d "$RUNNER_TEMP/godot"
+          echo "GODOT=$RUNNER_TEMP/godot/Godot_v${GODOT_VERSION}-stable_linux.x86_64" >> "$GITHUB_ENV"
+          curl --fail --location --silent --show-error -o "$RUNNER_TEMP/templates.tpz" "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/Godot_v${GODOT_VERSION}-stable_export_templates.tpz"
+          unzip -q "$RUNNER_TEMP/templates.tpz" -d "$RUNNER_TEMP/templates"
+          mkdir -p "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable"
+          cp "$RUNNER_TEMP/templates/templates/android_source.zip" "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable/"
+          cp "$RUNNER_TEMP/templates/templates/android_release.apk" "$HOME/.local/share/godot/export_templates/${GODOT_VERSION}.stable/"
+
+      - name: Prepare isolated signing material and Godot SDK settings
+        env:
+          UPLOAD_KEYSTORE_B64: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_BASE64 }}
+          UPLOAD_STORE_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEYSTORE_PASSWORD }}
+          UPLOAD_KEY_ALIAS: ${{ secrets.ANDROID_UPLOAD_KEY_ALIAS }}
+          UPLOAD_KEY_PASSWORD: ${{ secrets.ANDROID_UPLOAD_KEY_PASSWORD }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          printf '%s' "$UPLOAD_KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/play-upload.jks"
+          keytool -list -keystore "$RUNNER_TEMP/play-upload.jks" -storepass "$UPLOAD_STORE_PASSWORD" -alias "$UPLOAD_KEY_ALIAS" >/dev/null
+          mkdir -p "$HOME/.config/godot"
+          for settings in editor_settings-4.tres editor_settings-4.7.tres; do
+            cat > "$HOME/.config/godot/$settings" <<EOF
+          [gd_resource type="EditorSettings" format=3]
+
+          [resource]
+          export/android/android_sdk_path = "$ANDROID_SDK_ROOT"
+          export/android/java_sdk_path = "$JAVA_HOME"
+          EOF
+          done
+          echo "GODOT_ANDROID_KEYSTORE_RELEASE_PATH=$RUNNER_TEMP/play-upload.jks" >> "$GITHUB_ENV"
+          echo "GODOT_ANDROID_KEYSTORE_RELEASE_USER=$UPLOAD_KEY_ALIAS" >> "$GITHUB_ENV"
+          echo "GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD=$UPLOAD_STORE_PASSWORD" >> "$GITHUB_ENV"
+          echo "GODOT_ANDROID_KEYSTORE_DEBUG_PATH=$RUNNER_TEMP/play-upload.jks" >> "$GITHUB_ENV"
+          echo "GODOT_ANDROID_KEYSTORE_DEBUG_USER=$UPLOAD_KEY_ALIAS" >> "$GITHUB_ENV"
+          echo "GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD=$UPLOAD_STORE_PASSWORD" >> "$GITHUB_ENV"
+
+      - name: Create isolated Play AAB export preset
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/release
+          release_version_code=$((GITHUB_RUN_NUMBER * 100 + GITHUB_RUN_ATTEMPT))
+          if (( GITHUB_RUN_ATTEMPT >= 100 )); then echo "Workflow run attempt is outside the build-number encoding range." >&2; exit 1; fi
+          cat > export_presets.cfg <<EOF
+          [preset.0]
+          name="Android Play AAB"
+          platform="Android"
+          runnable=false
+          dedicated_server=false
+          custom_features=""
+          export_filter="all_resources"
+          include_filter=""
+          exclude_filter="coordination/*, docs/*, tests/*, tools/*, assets/ui_assets/source/*, assets/ui_assets/v04_masters/*, assets/ui_assets/v05_sources/*, *.md, .github/*"
+          export_path="build/release/BeachCocktails-Play.aab"
+
+          [preset.0.options]
+          custom_template/debug=""
+          custom_template/release=""
+          gradle_build/use_gradle_build=true
+          gradle_build/export_format=1
+          gradle_build/min_sdk=${MIN_API}
+          gradle_build/target_sdk=${TARGET_API}
+          architectures/arm64-v8a=true
+          architectures/armeabi-v7a=false
+          architectures/x86=false
+          architectures/x86_64=false
+          version/code=${release_version_code}
+          version/name="$RELEASE_VERSION"
+          package/unique_name="$PACKAGE_ID"
+          package/name="Beach Cocktails Merge"
+          package/signed=true
+          keystore/release="$RUNNER_TEMP/play-upload.jks"
+          keystore/release_user="$GODOT_ANDROID_KEYSTORE_RELEASE_USER"
+          keystore/release_password="$GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD"
+          keystore/debug="$RUNNER_TEMP/play-upload.jks"
+          keystore/debug_user="$GODOT_ANDROID_KEYSTORE_DEBUG_USER"
+          keystore/debug_password="$GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD"
+          launcher_icons/main_192x192="res://assets/ui_assets/brand/app_icon.png"
+          EOF
+
+      - name: Fail-closed project import and signed AAB export
+        env:
+          RELEASE_VERSION: ${{ inputs.release_version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p build/release
+          "$GODOT" --headless --editor --path . --quit > build/release/import.log 2>&1 || { tail -80 build/release/import.log; exit 1; }
+          "$GODOT" --headless --path . --export-release "Android Play AAB" build/release/BeachCocktails-Play.aab > build/release/export.log 2>&1 || { tail -100 build/release/export.log; exit 1; }
+          test -s build/release/BeachCocktails-Play.aab
+          jarsigner -verify -strict -certs build/release/BeachCocktails-Play.aab
+          echo "Signed upload AAB prepared. No Play upload or publication occurred."
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: BeachCocktails-Play-AAB-${{ inputs.release_version }}-${{ github.run_number }}
+          path: build/release/BeachCocktails-Play.aab
+          if-no-files-found: error
+          retention-days: 14
