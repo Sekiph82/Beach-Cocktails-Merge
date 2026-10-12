@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M32
 - Current Sprint: BCM-M32-CAMPAIGN-FOUNDATION-V01
-- Current Task: BCM-M32-001 — Establish the 10-island, 100-level-each content foundation.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M32-001 — CODEX executes M32 master through M32-004 and stops for one independent GPT audit.
+- Current Task: BCM-M32-004 — Tutorial implemented; M17 regression gate unresolved.
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M32-R01 — Diagnose four M17 screening failures and re-audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner confirms 10 islands x 100 levels (1000 total), functional Coins/Gems/Shop/Boosters, interactive tutorial. M32 implements campaign foundation, first next-island vertical slice, free economy and playable tutorial. Game incomplete; store work deferred.
+- Progress: M32 independent audit: implementation largely passed; four M17 assertions red. M33 content generated and integrated, but 899 levels lack physical validation. Game remains incomplete; store release postponed.
 
 ## Blockers/Waits
 
