@@ -22,9 +22,9 @@ ISLANDS_PATH = ROOT / "data/campaign/islands.json"
 LEVELS_DIR = ROOT / "data/campaign/levels"
 SUNNY_PATH = LEVELS_DIR / "sunny_cove.json"
 TIKI_SEED_PATH = LEVELS_DIR / "tiki_island.json"
-REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-001/content_generation_report.json"
+REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-005-TIKI-CONTINUITY/continuity_preservation_report.json"
 MANIFEST_PATH = ROOT / "data/campaign/content_manifest_m33.json"
-CONTENT_VERSION = "BCM-M33.1"
+CONTENT_VERSION = "BCM-M33.2"
 
 
 def _sha256(data: bytes) -> str:
@@ -91,6 +91,24 @@ def _theoretical_shots(level: dict[str, Any]) -> int:
             raise ValueError(f"illegal VIP target: {level.get('island_id')}/{level.get('level_id')}")
         total += (1 << (target - 3)) * quantity
     return total
+
+
+def _preserve_m32_tiki_rows(tiki_seed: dict[str, Any]) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for seed_row in tiki_seed["levels"]:
+        level_id = int(seed_row["level_id"])
+        if level_id > 12:
+            break
+        row = json.loads(json.dumps(seed_row))
+        row["global_level_id"] = 101 + level_id - 1
+        row["difficulty_tier"] = "PRESERVED_M32_SEED"
+        theoretical = _theoretical_shots(row)
+        row["theoretical_shots_total"] = theoretical
+        row["move_limit"] = theoretical * 4
+        rows.append(row)
+    if [int(row["level_id"]) for row in rows] != list(range(1, 13)):
+        raise ValueError("M32 Tiki source must provide unchanged local levels 1-12")
+    return rows
 
 
 def _band_for(profile: dict[str, Any], level_id: int) -> dict[str, Any]:
@@ -180,17 +198,19 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
     island_order = [str(row["id"]) for row in islands_root["islands"]]
     island_by_id = {str(row["id"]): row for row in islands_root["islands"]}
 
+    preserved_tiki_rows = _preserve_m32_tiki_rows(tiki_seed)
     used_normal_signatures: set[str] = set()
     sunny_intro_normal = {_normal_signature(row) for row in sunny_root["levels"][:10]}
     used_normal_signatures.update(sunny_intro_normal)
+    used_normal_signatures.update(_normal_signature(row) for row in preserved_tiki_rows)
 
     outputs: dict[str, dict[str, Any]] = {}
     island_reports: list[dict[str, Any]] = []
-    used_signatures: set[str] = set()
+    used_signatures: set[str] = {_signature(row) for row in preserved_tiki_rows}
     for island_id in island_order[1:]:
         profile = profiles["islands"][island_id]
-        rows: list[dict[str, Any]] = []
-        first_new_level = 1
+        rows: list[dict[str, Any]] = list(preserved_tiki_rows) if island_id == "tiki_island" else []
+        first_new_level = 13 if island_id == "tiki_island" else 1
         first_global = (island_order.index(island_id) * 100) + 1
         island_policy = island_by_id[island_id]["target_policy"]
         min_policy = int(island_policy["min_level"])
@@ -223,7 +243,7 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                 "profile_set_sha256": profile_sha,
                 "profile_id": island_id,
                 "global_level_range": profiles["island_global_ranges"][island_id],
-                "preserved_m32_seed_levels": 0,
+                "preserved_m32_seed_levels": len(preserved_tiki_rows) if island_id == "tiki_island" else 0,
             },
             "levels": rows,
         }
@@ -247,7 +267,8 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                 "island_id": island_id,
                 "global_level_range": profiles["island_global_ranges"][island_id],
                 "record_count": len(rows),
-                "first_m32_levels_preserved": 0,
+                "first_m32_levels_preserved": len(preserved_tiki_rows) if island_id == "tiki_island" else 0,
+                "newly_generated_record_count": len(rows) - (len(preserved_tiki_rows) if island_id == "tiki_island" else 0),
                 "unique_full_challenge_signatures": len({_signature(row) for row in rows}),
                 "unique_normal_objective_templates": len(set(normal_signatures)),
                 "normal_template_repeat_records": sum(count - 1 for count in normal_signature_counts.values()),
@@ -262,6 +283,9 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                 "all_generated_normal_templates_avoid_sunny_intro_1_10": all(
                     _normal_signature(row) not in sunny_intro_normal for row in rows if int(row["level_id"]) >= first_new_level
                 ),
+                "preserved_m32_levels_colliding_with_sunny_intro_1_10": sum(
+                    _normal_signature(row) in sunny_intro_normal for row in rows if int(row["level_id"]) < first_new_level
+                ),
             }
         )
 
@@ -273,7 +297,9 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
         "profile_set_sha256": profile_sha,
         "sunny_cove_source_sha256": _sha256(SUNNY_PATH.read_bytes()),
         "m32_tiki_seed_source_sha256": _sha256(TIKI_SEED_PATH.read_bytes()),
-        "required_new_records": 900,
+        "required_campaign_records": 900,
+        "preserved_m32_tiki_records": 12,
+        "required_generated_records": 888,
         "output_record_count": sum(len(root["levels"]) for root in outputs.values()),
         "newly_generated_record_count": sum(
             len(root["levels"]) - int(root["campaign_generation"]["preserved_m32_seed_levels"])
@@ -281,10 +307,12 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
         ),
         "unique_full_challenge_signatures_global": len(used_signatures),
         "sunny_intro_template_collision_count_in_new_records": 0,
+        "preserved_m32_tiki_sunny_intro_template_collision_count": island_reports[0]["preserved_m32_levels_colliding_with_sunny_intro_1_10"],
         "islands": island_reports,
         "limitations": [
             "Deterministic generation and static rule checks do not certify physics reachability or human playability.",
-            "The M32 Tiki seed file is preserved byte-for-byte as historical evidence; the M33 runtime package assigns newly generated records to local levels 1 through 100.",
+            "The M32 Tiki seed file remains byte-identical and its L1-L12 gameplay records are preserved in the M33 runtime package; only M33 global IDs and derived T/move-budget metadata are added.",
+            "The preserved M32 Tiki L1-L12 records are an explicit exception to the no-Sunny-intro-template-reuse rule; generation applies to Tiki L13-L100 and the other 800 campaign records.",
             "Automated content is not owner visual approval or human playtesting.",
         ],
     }
@@ -329,7 +357,7 @@ def main() -> int:
         REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
         REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0 if report["output_record_count"] == 900 and report["newly_generated_record_count"] == 900 else 2
+    return 0 if report["output_record_count"] == 900 and report["newly_generated_record_count"] == 888 else 2
 
 
 if __name__ == "__main__":

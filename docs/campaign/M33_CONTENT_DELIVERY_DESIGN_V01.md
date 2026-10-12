@@ -26,7 +26,9 @@ Do not download or execute arbitrary remote code, scenes, plugins, or resources.
 
 ## M33 packaged authority
 
-`data/campaign/content_manifest_m33.json` is the single read-only package manifest. It records `BCM-M33.1`, Godot compatibility `4.7.x`, the canonical ten-island order, each level-data path/count/SHA-256, and the 1,000-level contract. Startup checks the manifest and every packaged JSON hash before loading the strict `FULL` database or creating the campaign save manager. Runtime consumes the M33 Tiki file at `data/campaign/levels/tiki_island_full.json`; the staged M32 source `tiki_island.json` remains unchanged for historical provenance.
+`data/campaign/content_manifest_m33.json` is the single read-only package manifest. It records `BCM-M33.2`, Godot compatibility `4.7.x`, the canonical ten-island order, each level-data path/count/SHA-256, and the 1,000-level contract. Startup checks the manifest and every packaged JSON hash before loading the strict `FULL` database or creating the campaign save manager. Runtime consumes the M33 Tiki file at `data/campaign/levels/tiki_island_full.json`; the staged M32 source `tiki_island.json` remains byte-identical.
+
+The M33 Tiki runtime file preserves the M32 Tiki L1–L12 gameplay fields and local IDs. M33 adds only the global IDs and derived theoretical-shot/move-budget metadata needed by the 1,000-level package. Their overlap with some Sunny Cove introduction templates is an explicit owner-directed continuity exception; generated Tiki L13–L100 and the other 800 records avoid those templates. The package therefore contains 900 levels: 12 preserved M32 records and 888 newly generated records.
 
 ## Rebuild versus data-only boundary
 

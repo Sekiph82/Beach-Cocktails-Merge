@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generator_version": "BCM-M33-1.0.0",
+  "generator_version": "BCM-M33-1.0.1",
   "batch_seed": 330033,
   "profile_status": "owner_prompt_defined_automated_authoring_profiles_pending_human_balance_review",
   "island_global_ranges": {

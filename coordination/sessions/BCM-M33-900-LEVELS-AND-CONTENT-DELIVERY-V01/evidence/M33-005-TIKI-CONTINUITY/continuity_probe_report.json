@@ -1,0 +1,92 @@
+{
+  "result": "PASS_M32_TIKI_CONTINUITY_PRESERVATION",
+  "content_version": "BCM-M33.2",
+  "generator_version": "BCM-M33-1.0.1",
+  "seed": 330033,
+  "m32_tiki_source_sha256": "AD4AE20C26D482082E9FFD170CC5E66DDE895403FE5E6D260A5BEEC8CFFBFF53",
+  "m33_runtime_tiki_sha256": "F63576FFD128CF0C2B9D6D9C5EDB900876BFD4B93C8588B644E6EF5AF1F149AC",
+  "preserved_local_level_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "preserved_gameplay_fields_unchanged": true,
+  "preserved_source_gameplay_field_names": [
+    "feature_flags",
+    "island_id",
+    "level_id",
+    "orders",
+    "rewards",
+    "score_star_thresholds",
+    "time_limit_sec",
+    "vip"
+  ],
+  "added_m33_metadata": [
+    "global_level_id",
+    "difficulty_tier",
+    "theoretical_shots_total",
+    "move_limit"
+  ],
+  "preserved_levels_with_sunny_intro_template_overlap": [
+    {
+      "tiki_local_level": 1,
+      "global_level": 101,
+      "sunny_intro_level": 2
+    },
+    {
+      "tiki_local_level": 2,
+      "global_level": 102,
+      "sunny_intro_level": 5
+    },
+    {
+      "tiki_local_level": 3,
+      "global_level": 103,
+      "sunny_intro_level": 4
+    },
+    {
+      "tiki_local_level": 5,
+      "global_level": 105,
+      "sunny_intro_level": 10
+    },
+    {
+      "tiki_local_level": 6,
+      "global_level": 106,
+      "sunny_intro_level": 9
+    }
+  ],
+  "preserved_overlap_count": 5,
+  "generated_tiki_levels": 88,
+  "generated_tiki_range": [
+    13,
+    100
+  ],
+  "generated_tiki_sunny_intro_template_collisions": 0,
+  "tiki_full_recipe_unique_count": 100,
+  "campaign_package_records": 900,
+  "preserved_m32_records": 12,
+  "generated_records": 888,
+  "verification": {
+    "python_static_deterministic_validator": "PASS_STATIC_CANDIDATE_CHECKS_PHYSICS_NOT_CERTIFIED",
+    "godot_4_7_2_import_parse": "PASS",
+    "tests/m33_campaign_content_probe.gd": "PASS",
+    "tests/m33_campaign_navigation_probe.gd": "PASS",
+    "tests/m33_content_unavailable_probe.gd": "PASS",
+    "tests/m33_tiki_compatibility_probe.gd": "PASS; real production physics trial on preserved Tiki L1/global 101, seed 32002001",
+    "human_playtest_and_other_899_physics_records": "UNVERIFIED"
+  },
+  "inherited_m32_findings": [
+    "V03A exact-signature reuse",
+    "L4 VIP-second fixture captures the distinct VIP target",
+    "L60 VIP-second fixture captures the distinct VIP target",
+    "L100 VIP-second fixture captures the distinct VIP target"
+  ]
+}

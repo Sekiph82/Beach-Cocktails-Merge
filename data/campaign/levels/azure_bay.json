@@ -2,10 +2,10 @@
   "schema_version": 1,
   "island_id": "azure_bay",
   "campaign_generation": {
-    "generator_version": "BCM-M33-1.0.0",
+    "generator_version": "BCM-M33-1.0.1",
     "seed": 330033,
     "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
-    "profile_set_sha256": "C5DD474E33277AFAA5AD4BB74663400DC6A0AA0FFD04FE9330A532A3A0B8284A",
+    "profile_set_sha256": "F04CF2BF505CC23F7757419822A192643BE8E9AF8FCB333CB5923B4F36096E25",
     "profile_id": "azure_bay",
     "global_level_range": [
       201,
@@ -170,19 +170,14 @@
       "orders": [
         {
           "cocktail_level": 8,
-          "quantity": 1
+          "quantity": 2
         },
         {
-          "cocktail_level": 7,
-          "quantity": 1
+          "cocktail_level": 9,
+          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -193,11 +188,11 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "theoretical_shots_total": 192,
+      "move_limit": 768
     },
     {
       "island_id": "azure_bay",
@@ -278,11 +273,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 9,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 8,
           "quantity": 2
         }
       ],
@@ -300,8 +295,8 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 160,
-      "move_limit": 640
+      "theoretical_shots_total": 128,
+      "move_limit": 512
     },
     {
       "island_id": "azure_bay",
@@ -344,12 +339,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 2
+          "cocktail_level": 8,
+          "quantity": 1
         },
         {
           "cocktail_level": 9,
-          "quantity": 1
+          "quantity": 2
         }
       ],
       "vip": null,
@@ -366,8 +361,8 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 96,
-      "move_limit": 384
+      "theoretical_shots_total": 160,
+      "move_limit": 640
     },
     {
       "island_id": "azure_bay",
@@ -453,20 +448,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 7,
           "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 8,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -477,11 +467,11 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 128,
-      "move_limit": 512
+      "theoretical_shots_total": 96,
+      "move_limit": 384
     },
     {
       "island_id": "azure_bay",
@@ -491,12 +481,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 8,
           "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -562,17 +552,83 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 9,
           "quantity": 2
         },
         {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "azure_bay",
+      "level_id": 17,
+      "global_level_id": 217,
+      "difficulty_tier": "EXPERT_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
           "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 80,
+      "move_limit": 320
+    },
+    {
+      "island_id": "azure_bay",
+      "level_id": 18,
+      "global_level_id": 218,
+      "difficulty_tier": "EXPERT_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
           "quantity": 2
         }
       ],
       "vip": {
         "enabled": true,
-        "cocktail_level": 9,
+        "cocktail_level": 8,
         "quantity": 1,
         "reward": {}
       },
@@ -589,74 +645,8 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 160,
-      "move_limit": 640
-    },
-    {
-      "island_id": "azure_bay",
-      "level_id": 17,
-      "global_level_id": 217,
-      "difficulty_tier": "EXPERT_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 96,
-      "move_limit": 384
-    },
-    {
-      "island_id": "azure_bay",
-      "level_id": 18,
-      "global_level_id": 218,
-      "difficulty_tier": "EXPERT_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 192,
-      "move_limit": 768
+      "theoretical_shots_total": 176,
+      "move_limit": 704
     },
     {
       "island_id": "azure_bay",
@@ -856,44 +846,6 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 8,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 176,
-      "move_limit": 704
-    },
-    {
-      "island_id": "azure_bay",
-      "level_id": 25,
-      "global_level_id": 225,
-      "difficulty_tier": "EXPERT_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
           "cocktail_level": 9,
           "quantity": 2
         },
@@ -923,6 +875,44 @@
       },
       "theoretical_shots_total": 208,
       "move_limit": 832
+    },
+    {
+      "island_id": "azure_bay",
+      "level_id": 25,
+      "global_level_id": 225,
+      "difficulty_tier": "EXPERT_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 128,
+      "move_limit": 512
     },
     {
       "island_id": "azure_bay",

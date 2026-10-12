@@ -1,0 +1,79 @@
+{
+  "island_id": "tiki_island",
+  "global_level_range": [
+    101,
+    200
+  ],
+  "samples": [
+    {
+      "local_level_id": 1,
+      "global_level_id": 101,
+      "difficulty_tier": "PRESERVED_M32_SEED",
+      "preserved_m32_seed": true,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "theoretical_shots_T": 4,
+      "move_limit_4T": 16,
+      "time_limit_sec": 0.0
+    },
+    {
+      "local_level_id": 50,
+      "global_level_id": 150,
+      "difficulty_tier": "ADVANCED_COMBINATIONS",
+      "preserved_m32_seed": false,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "theoretical_shots_T": 88,
+      "move_limit_4T": 352,
+      "time_limit_sec": 0.0
+    },
+    {
+      "local_level_id": 100,
+      "global_level_id": 200,
+      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "preserved_m32_seed": false,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "theoretical_shots_T": 120,
+      "move_limit_4T": 480,
+      "time_limit_sec": 0.0
+    }
+  ],
+  "note": "These supersede the Tiki rows shown in the earlier M33-004 owner sample; L1-L12 preserve M32 gameplay fields, with five intro-template overlaps explicitly exempted by owner direction."
+}

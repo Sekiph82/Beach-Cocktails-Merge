@@ -2,10 +2,10 @@
   "schema_version": 1,
   "island_id": "volcano_bay",
   "campaign_generation": {
-    "generator_version": "BCM-M33-1.0.0",
+    "generator_version": "BCM-M33-1.0.1",
     "seed": 330033,
     "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
-    "profile_set_sha256": "C5DD474E33277AFAA5AD4BB74663400DC6A0AA0FFD04FE9330A532A3A0B8284A",
+    "profile_set_sha256": "F04CF2BF505CC23F7757419822A192643BE8E9AF8FCB333CB5923B4F36096E25",
     "profile_id": "volcano_bay",
     "global_level_range": [
       701,

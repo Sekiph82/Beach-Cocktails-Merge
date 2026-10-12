@@ -70,21 +70,35 @@ def main() -> int:
         fail("island registry does not declare exactly 100 levels per island")
 
     sunny_root = json.loads((ROOT / "data/campaign/levels/sunny_cove.json").read_text(encoding="utf-8"))
+    m32_tiki_seed = json.loads((ROOT / "data/campaign/levels/tiki_island.json").read_text(encoding="utf-8"))
     sunny_intro = {normal_signature(row) for row in sunny_root["levels"][:10]}
     records = 0
+    generated_records = 0
     global_signatures: set[str] = set()
     for island_id, root in outputs_a.items():
         rows = root["levels"]
         if len(rows) != 100 or [int(row["level_id"]) for row in rows] != list(range(1, 101)):
             fail(f"{island_id} is not 100 contiguous local levels")
+        preserved_count = 12 if island_id == "tiki_island" else 0
+        if int(root["campaign_generation"]["preserved_m32_seed_levels"]) != preserved_count:
+            fail(f"{island_id} preserved-seed count is incorrect")
+        if island_id == "tiki_island":
+            for source, packaged in zip(m32_tiki_seed["levels"][:12], rows[:12], strict=True):
+                if any(packaged.get(key) != value for key, value in source.items()):
+                    fail(f"M32 Tiki L{source['level_id']} gameplay fields changed")
+                if int(packaged.get("global_level_id", 0)) != 100 + int(source["level_id"]):
+                    fail(f"M32 Tiki L{source['level_id']} global ID is not mapped correctly")
+                if packaged.get("difficulty_tier") != "PRESERVED_M32_SEED":
+                    fail(f"M32 Tiki L{source['level_id']} provenance metadata is missing")
         if len({full_signature(row) for row in rows}) != 100:
             fail(f"{island_id} repeats a complete challenge recipe")
         policy = next(row["target_policy"] for row in registry if row["id"] == island_id)
         band_metrics = next(row for row in report_a["islands"] if row["island_id"] == island_id)
         if not bool(band_metrics["all_generated_normal_templates_avoid_sunny_intro_1_10"]):
             fail(f"{island_id} repeats a Sunny Cove introduction recipe")
-        if any(normal_signature(row) in sunny_intro for row in rows):
-            fail(f"{island_id} has a direct Sunny Cove introduction collision")
+        generated_rows = rows[preserved_count:]
+        if any(normal_signature(row) in sunny_intro for row in generated_rows):
+            fail(f"{island_id} has a generated Sunny Cove introduction collision")
         if int(band_metrics["record_count"]) != 100:
             fail(f"{island_id} metrics report an incorrect record count")
         normal_counts = Counter(normal_signature(row) for row in rows)
@@ -92,11 +106,13 @@ def main() -> int:
             fail(f"{island_id} repeat-template metric is inconsistent")
         for row in rows:
             records += 1
+            inherited_m32 = island_id == "tiki_island" and int(row["level_id"]) <= 12
+            generated_records += 0 if inherited_m32 else 1
             signature = full_signature(row)
             if signature in global_signatures:
                 fail(f"complete challenge recipe collides across islands: {island_id}/{row['level_id']}")
             global_signatures.add(signature)
-            if str(row["island_id"]) != island_id or float(row["time_limit_sec"]) != 0.0 or len(row["orders"]) < 2:
+            if str(row["island_id"]) != island_id or float(row["time_limit_sec"]) != 0.0 or (not inherited_m32 and len(row["orders"]) < 2):
                 fail(f"{island_id}/{row['level_id']} has invalid identity, timer, or order count")
             order_targets: set[int] = set()
             for order in row["orders"]:
@@ -114,8 +130,8 @@ def main() -> int:
                 fail(f"{island_id}/{row['level_id']} derived move budget is inconsistent")
             if int(row["global_level_id"]) != (EXPECTED_ISLANDS.index(island_id) * 100 + int(row["level_id"])):
                 fail(f"{island_id}/{row['level_id']} global ID is not stable")
-    if records != 900:
-        fail(f"expected 900 generated records, got {records}")
+    if records != 900 or generated_records != 888:
+        fail(f"expected 900 packaged records including 12 inherited and 888 generated, got {records} packaged/{generated_records} generated")
     if len(global_signatures) != records or int(report_a["unique_full_challenge_signatures_global"]) != records:
         fail("global full-challenge recipes are not all unique")
 
@@ -139,7 +155,9 @@ def main() -> int:
     print(json.dumps({
         "result": "PASS_STATIC_CANDIDATE_CHECKS_PHYSICS_NOT_CERTIFIED",
         "deterministic_generation": True,
-        "generated_records": records,
+        "packaged_campaign_records": records,
+        "preserved_m32_tiki_records": records - generated_records,
+        "generated_records": generated_records,
         "globally_unique_full_recipes": len(global_signatures),
         "sunny_cove_sha256": SUNNY_SHA256,
         "island_metrics": [
