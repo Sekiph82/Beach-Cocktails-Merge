@@ -7,6 +7,7 @@ Added `.github/workflows/ios-appstore-export.yml` as a separate opt-in workflow.
 ## Signed export gate
 
 - Pinned app identifier `com.sekiph82.beachcocktails`; owner-entered numeric marketing version and workflow run/attempt build number.
+- Signed mode runs only from canonical `main`; the owner must also restrict the `app-store-distribution` environment's deployment branches to `main` before adding secrets.
 - GitHub-hosted `macos-26`, with runtime checks for Xcode >=26 and iOS SDK >=26. The workflow does not trust the runner label alone.
 - Godot `4.7.2` with matching iOS templates exports an Xcode project.
 - Protected certificate/profile material is imported into a temporary runner keychain; the profile Team ID, exact App ID, and Apple Distribution identity are checked before export.

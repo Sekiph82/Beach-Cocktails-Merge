@@ -16,11 +16,6 @@ on:
         type: string
         required: true
         default: 1.0.0
-      ref:
-        description: "Exact source ref to build"
-        type: string
-        required: true
-        default: main
 
 permissions:
   contents: read
@@ -37,6 +32,8 @@ jobs:
     runs-on: macos-26
     steps:
       - name: Verify current App Store Connect toolchain floor
+        env:
+          RELEASE_MODE: ${{ inputs.mode }}
         shell: bash
         run: |
           set -euo pipefail
@@ -48,17 +45,20 @@ jobs:
           [[ "$xcode_major" =~ ^[0-9]+$ && "$xcode_major" -ge "$MIN_XCODE_MAJOR" ]] || { echo "Xcode 26 or later is required for App Store Connect uploads." >&2; exit 1; }
           [[ "$ios_sdk_major" =~ ^[0-9]+$ && "$ios_sdk_major" -ge "$MIN_IOS_SDK_MAJOR" ]] || { echo "iOS 26 SDK or later is required for App Store Connect uploads." >&2; exit 1; }
           test "$BUNDLE_ID" = "com.sekiph82.beachcocktails"
+          if [[ "$RELEASE_MODE" == "signed_export" && "$GITHUB_REF" != "refs/heads/main" ]]; then
+            echo "Signed release mode is restricted to canonical main." >&2
+            exit 1
+          fi
           echo "Toolchain validation only. No signing, archive, upload, or submission occurred."
 
   signed-export:
-    if: ${{ inputs.mode == 'signed_export' }}
+    if: ${{ inputs.mode == 'signed_export' && github.ref == 'refs/heads/main' }}
     needs: validate
     runs-on: macos-26
     environment: app-store-distribution
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref }}
           persist-credentials: false
 
       - name: Require owner-provided protected Apple signing secrets
