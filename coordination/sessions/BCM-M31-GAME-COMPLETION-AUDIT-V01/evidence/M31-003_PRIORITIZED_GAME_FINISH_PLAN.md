@@ -1,0 +1,44 @@
+# BCM-M31-003 — Prioritized Game-Completion Plan
+
+Status: planning proposal for independent GPT/owner review. This is evidence, not a live tracker, task authorization, or an M32 implementation prompt.
+
+## Owner decisions that must precede content implementation
+
+1. **Campaign scope:** Is the intended game 100 levels total or 100 levels on each island? Are all ten World Map islands intended to be playable at launch? Lock playable level count per island, final-island identity/end state, narrative/theme ownership, unlock order and a minimum playable vertical slice.
+2. **Economy product:** Should the finished game have coins/upgrade boosters only, a free earn/spend loop, a functional Shop/gems, or paid/advertising features? Current Home gem value is static, Shop art is not a shop, and M15 explicitly excluded purchases and ads. M31 does not authorize monetization or store execution.
+3. **Booster behavior:** Decide whether upgrade boosters are a supported player feature and what they do. Keep time extensions retired under the owner’s no-timer ruling. Decide whether to retire any reward grant that will have no player-facing use.
+4. **Onboarding and accessibility:** Confirm whether the current five-step text introduction is sufficient or whether interactive practice is required; define required text scaling, contrast, haptics, reduced-motion and assistive-technology targets.
+5. **Supported devices:** Name minimum OS versions, screen/device classes, performance targets and required acceptance devices. Existing iPhone and one Android device acceptance is narrow and does not define a compatibility matrix.
+
+Until these decisions are recorded in a new owner-authorized prompt/criteria package, do not author guessed island content, store behavior, reward values or accessibility requirements.
+
+## Recommended implementation batches and dependencies
+
+These are proposed coherent master batches; their ordering and exact scope require GPT/owner approval before work starts.
+
+| Order | Proposed batch | Scope and deliverables | Prerequisites / gate |
+| --- | --- | --- | --- |
+| 0 | Product contract and content map | Record campaign total and distribution, all intended island names/end state, core loop and reward/shop policy, tutorial level, and target device/quality envelope. Reconcile current `level_count`, unlock rules, future-island declarations and percent400 contract in one approved product specification. | Owner decisions above. No production code or levels before approval. |
+| 1 | Campaign data foundation and next-island vertical slice | Complete the first post-Sunny island as an end-to-end playable slice: approved theme assets, level definitions, proper map state/unlock, runtime route, objective/results/retry, rewards if in scope, and persistence. Add data validators that fail for missing declared content, invalid level order, placeholder names, unresolved art or malformed rewards. Preserve reusable island architecture. | Batch 0 scope locked; source/asset contract, test strategy and no-timer/4T/VIP rules frozen. Owner reviews art direction before replacing accepted assets. |
+| 2 | Remaining campaign content in staged island groups | Author the rest of the approved islands in data/content batches using the validated schema and shared controllers. Each batch includes all promised levels, theme-specific map/gameplay art, authored unlock/finale flow and production-path navigation evidence. Require full cross-island load and no zero-level declared playable island at final integration. | Batch 1 establishes the tested content pipeline and vertical-slice acceptance. Lock batch boundaries and exact level counts from Batch 0. |
+| 3 | Full-campaign difficulty, mastery and reward economy | Rebalance/audit every approved level against the inclusive To-Go+optional-VIP theoretical shot count and current 4T/3T/2T star rules. Review successive tutorial/difficulty/level arcs, replay, reward pacing and all sources/sinks. Decide whether unused score thresholds should be removed or versioned, without silently changing live star behavior. Implement booster UI/consumption and a shop only if approved. | Batches 0–2 content stable. Owner-approved numerical reward and booster contract. Run deterministic validation, expert review and recorded human playtests; do not substitute solver-only evidence for playability. |
+| 4 | Player learning, loss recovery and accessibility closure | Check first-session learnability, objective and optional-VIP clarity, moves/stars/replay explanation, loss/retry recovery, pause/background lifecycle, settings persistence and approved accessibility targets. Add contextual practice only when required by Batch 0. | Batch 0 acceptance targets and feature-complete vertical slice. No gameplay retune of accepted physics without an explicit owner ruling. |
+| 5 | Full-game regression and owner device acceptance | Run locked source/data regressions across all islands; clean import/boot; production-path input and terminal flows; saves/migrations; performance, lifecycle, touch, reduced motion/high contrast and supported device classes; owner visual and gameplay approval. File every remaining limitation and prove there are no blocking crashes, broken progression routes or placeholders in agreed content. | Batches 1–4 integrated; separate isolated testing prompt, owner-safe sandbox/user data, device matrix and acceptance criteria. This batch is the game-completion GO/NO-GO gate. |
+
+## Product definition of done
+
+The game may be called complete only after independent GPT review confirms all of the following against owner-approved scope:
+
+1. **Complete campaign:** Every intended island has its approved name, theme/art, non-empty playable level set at the exact declared count, working sequential unlocks and a deliberate campaign finale. No intended-playable map opens into an empty map, and no `TBD`/placeholder content remains in the player-facing scope.
+2. **Coherent playable levels:** All levels have valid objectives and data; normal To-Go remains primary; VIP is optional; time limits stay disabled; 4T move budgets and 1/2/3-star cutoffs are consistent; stored eligible drinks, replay and later L12 orders follow the frozen contract. Representative and difficult levels have passed solver/reachability checks and documented human playtests.
+3. **Coherent progression and economy:** Every earned coin/booster/reward has a defined purpose and user-facing representation. Every balance has an approved source/sink or is explicitly out of product scope. No fake/static currency implies a working feature. Duplicate wins/rewards and migration/reload paths remain idempotent. Paid purchases/ads are optional only if the owner explicitly includes them; store publication is not part of this DoD.
+4. **Complete user flow:** First run, Home, settings, World Map, every Island Map, gameplay, pause/resume, WIN/LOSE, Retry/Next/map return and final campaign completion work through actual user input and do not dead-end. Onboarding meets approved learning outcomes.
+5. **Preserved visual/gameplay quality:** Owner-approved Home/maps/R04 gameplay surfaces/HUD and effect style remain intact; approved gameplay physics are unchanged; responsive layout and touch targets meet the approved envelope. Any newly added island art is reviewed under the required owner gate.
+6. **Reliability and accessibility:** Supported saves migrate and survive restart/background transitions; no unresolved P0/P1 crashes, data loss, unusable states, accessibility violations or orphaned effects remain. Reduced Motion, contrast, audio and haptics conform to the approved target matrix.
+7. **Acceptance evidence:** The independent audit can reproduce every closure claim from exact code/data/tests and clean runtime/device evidence. Owner acceptance is explicitly recorded for the completed product. Evidence from one iPhone or Android device is not represented as universal compatibility.
+
+## Current decision
+
+**GAME-COMPLETION GO/NO-GO: NO-GO.** The current repository does not satisfy the first DoD item: nine declared follow-on islands have zero levels and Final Island is TBD. Campaign distribution and economy/shop/booster scope also need owner decisions. Core Sunny Cove gameplay and presentation have substantial engineering coverage and limited owner-device acceptance, but those facts do not close the campaign or establish finished-game scope.
+
+**M31 builder-documentation handoff:** the evidence inventory and plan are ready for independent GPT audit. This completion NO-GO is not an M31 documentation failure; it is the supported product verdict for the requested question. Do not start M32, change root `TASKS.md`, or run M28–M30 release/signing/publishing workflows until the independent audit and a new owner-approved handoff authorize the next work.
