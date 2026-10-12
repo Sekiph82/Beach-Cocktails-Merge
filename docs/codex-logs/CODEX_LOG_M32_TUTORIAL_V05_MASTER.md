@@ -31,7 +31,7 @@
 - Both viewport sets contain six actual runtime frames with exact expected dimensions, verified while building contact sheets.
 - Actual Results RETRY control bounds are on-screen in both sizes; real retry callback was clicked and the tutorial completion persisted after gameplay recreation.
 - Visual evidence reviewed by builder only; independent GPT visual audit and owner acceptance remain outstanding.
-- `git diff --check`, final sync/push and commit SHA verification are recorded at final handoff once executed.
+- `git diff --cached --check`: PASS before implementation commit. Implementation/evidence commit SHA: `031e620770d3f31f78c24ed53ae7b5fe18e7b22e`. The final push and equality of local HEAD, origin/main, and remote main are verified at handoff.
 
 ## Frozen boundaries
 

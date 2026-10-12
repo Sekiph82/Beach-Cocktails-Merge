@@ -45,5 +45,5 @@ No owner save was modified: captures used distinct `%APPDATA%\Godot\app_userdata
 ## Repository truth
 
 - `TASKS.md` was not modified.
-- Final implementation/evidence SHA and remote verification: recorded after publication in the master handoff log.
+- Final implementation/evidence commit SHA: `031e620770d3f31f78c24ed53ae7b5fe18e7b22e`. This immutable log follow-up records that implementation SHA; final remote publication equality is verified during handoff.
 - Required stop marker: `AWAITING_GPT_AND_OWNER_TUTORIAL_V05_VISUAL_REVIEW`.
