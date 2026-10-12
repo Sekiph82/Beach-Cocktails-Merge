@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M28
-- Current Sprint: BCM-M28-RELEASE-READINESS-V01
-- Current Task: BCM-M28-003 — Prepare release candidate manifest, acceptance evidence and open-caveat list.
+- Current Milestone: BCM-M29
+- Current Sprint: BCM-M29-STORE-PREPARATION-V01
+- Current Task: BCM-M29-003 — Store privacy and submission readiness evidence.
 - Current Task Status: TASK_COMPLETE
-- Next Task/Action: BCM-M28-003 — OWNER decides when to initiate separate public Google Play/App Store readiness milestone; Android family device QA remains open.
+- Next Task/Action: BCM-M29-003 — OWNER reviews future store-release signing, package audit and disclosure gates; no public submission authorized.
 - Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M28 independent evidence audit PASS and M28 CLOSED for existing private family-test scope. Android APK and unsigned iOS IPA workflow provenance documented, both successful, no changes. Owner iPhone device acceptance PASS; Android physical QA NOT DONE. Public Play/App Store readiness NO-GO pending store signing/AAB, Apple distribution identity, package privacy audit, listing and broader device QA. No store submission authorized.
+- Progress: M29 independent evidence-only audit PASS; all M29 children closed. Owner approved APK and IPA operation on tested devices. Public Google Play/App Store NO-GO pending release signing/AAB, Apple team/provisioning, package/privacy inspection and store listings.
 
 ## Blockers/Waits
 
@@ -1322,3 +1322,10 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
 - [x] BCM-M28-002 — Validate device-release safety, persistence, lifecycle and privacy requirements.
 - [x] BCM-M28-003 — Prepare release candidate manifest, acceptance evidence and open-caveat list.
+
+
+### M29 — Public store release preparation
+
+- [x] BCM-M29-001 — Android Play production preparation evidence.
+- [x] BCM-M29-002 — Apple App Store signing and upload preparation evidence.
+- [x] BCM-M29-003 — Privacy and store listing requirements evidence.
