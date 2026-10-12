@@ -1,25 +1,19 @@
-# BCM-M28 Master V02 | Actions-first planning HOLD
+# BCM-M28 MASTER V03 | Existing APK + IPA workflows, fast closure
 
-STATUS: OWNER_REVIEW_REQUIRED. Do not give this to Codex for implementation yet. Owner requested discussion before determining M28-001/002/003 scope. Supersedes the previous M28 V01 instruction to start work immediately.
+OWNER AUTHORIZATION: Complete M28-001, M28-002 and M28-003 in ONE continuous Codex milestone run using existing successful CI. Do not create new APK/IPA workflows or rebuild just to repeat an already successful artifact. Do not upload to Play Store, App Store or TestFlight.
 
-## Existing live CI (verified GitHub runs 2026-10-10)
+## Verified workflows and build evidence
+Android: .github/workflows/android-apk.yml, GitHub Actions 38078255160, completed SUCCESS, artifact BeachCocktails-apk (145267886 bytes), debug signed, commit b2e09946c6a9a5d7f8254934425d335ffd6f2edf. Manual workflow_dispatch accepts a ref.
+iPhone: .github/workflows/ios-ipa.yml, Actions 38063815860, completed SUCCESS, artifact BeachCocktails-ipa (146697875 bytes), unsigned macOS Xcode Release, commit c131189a952e5cabfce9a6af326944ffc84defc1. It uses export_project_only and CODE_SIGNING_ALLOWED=NO. Owner already ran IPA on their own iPhone and approved graphics, effects, gameplay. Different artifact commits are intentional due to distinct build times, NOT a bug to resolve. No ref input on iOS workflow.
 
-Android APK: .github/workflows/android-apk.yml; run https://github.com/Sekiph82/Beach-Cocktails-Merge/actions/runs/38078255160, SUCCESS; SHA b2e09946c6a9a5d7f8254934425d335ffd6f2edf; artifact BeachCocktails-apk, 145267886 bytes. ubuntu-latest, Godot 4.7.2, Android export-debug, ephemeral debug keystore, package com.sekiph82.beachcocktails, manually triggered, accepts optional ref input. This is a debug sideload APK, not Google Play release signing.
+## Owner existing Windows iPhone installer (reference, not repo file)
+Owner shared iPhone_Yukle.bat in chat. It accepts a drag-dropped IPA; elevates itself, reads the IPA path from %TEMP%; detaches Apple USB device from usbipd, checks Apple Devices, bridges TCP 27015 via netsh firewall+portproxy to Ubuntu WSL, verifies the phone with idevice_id, and uses Ubuntu xtool install. No requirement to redesign installer, change Windows firewall, or install any new system components. It requires admin/network changes, so treat it as owner-managed outside the repo; do not copy its script into project or execute it. Avoid logging UDIDs and secret signing data. Note its command handling/quoting and broad USB matching may merit a separate optional hardening review, not M28 blocker. Owner's actual successful iPhone operation is the acceptance evidence; do not claim action produced an App-Store-signed IPA.
 
-iOS IPA: .github/workflows/ios-ipa.yml; run https://github.com/Sekiph82/Beach-Cocktails-Merge/actions/runs/38063815860, SUCCESS; SHA c131189a952e5cabfce9a6af326944ffc84defc1; artifact BeachCocktails-ipa, 146697875 bytes. macos-latest, Godot 4.7.2 export_project_only=true, Xcode Release with CODE_SIGNING_ALLOWED=NO then manual Payload zip. The artifact is an UNSIGNED IPA; owner uses xtool or own device-signing process, and has accepted iPhone gameplay/visuals. This workflow is not App Store Connect submission, TestFlight upload, nor an Apple-signed release. The user's Ubuntu/Swift/xtool setup is outside these Actions jobs. Apple API key creation does not imply CI uses that key.
+## Child M28-001: workflow provenance (read-only by default)
+Inventory both exact YAML files, run IDs, artifact IDs, source SHAs, signing modes and reproducible release metadata. Preserve existing working workflows unchanged. Explain debug Android, unsigned iOS, device-installed iPhone via owner's separate WSL/xtool workflow. Neither is Play Store/App Store publishable signed artifact. Warning-only: Godot --import || true; iOS invalid UID fallback warnings; 'two' and 'three' locale warnings; GitHub node/action deprecations. No speculative CI upgrades or duplicates. If genuine security/production defect is found, document for owner approval rather than changing a currently working pipeline.
 
-Both workflows already build functioning artifacts. DO NOT create duplicate APK/IPA workflows, replace existing CI, start a fresh build, or revise a working pipeline without owner authorization. Preserve two canonical paths.
+## Child M28-002: risk-focused release QA
+Use prior M27 approved iPhone device visual/gameplay evidence and tests, no redundant full retesting of unchanged features. Analyze repo evidence for Android/iOS export filters, app identity, icons, privacy/permissions, save lifecycle, background resume and offline mode. Report genuine unverified checks as caveats, not fictitious PASS. Avoid modifying owner-approved visuals, effects, touch/gameplay, physics, stars/4T, UI layout, or appdata. No local Godot calls unless changes truly require tests. If any Godot test is necessary, use established fail-closed unique sandbox project identity, actual isolated user:// log target, backed-up original logs, and PID cleanup. Root TASKS.md READ ONLY.
 
-## Potential M28 discussion items (NOT IMPLEMENTATION AUTHORIZATION)
-
-M28-001: Existing workflow inventory, traceable source SHA and artifact, unsigned-vs-signed delivery distinction, reproducibility and optional signing/release channel only if owner wants. iOS workflow has no ref input, unlike Android; both successful runs build DIFFERENT commits. Avoid calling the two artifacts one matched-version pair. Godot import has || true in workflows; failures could be hidden. Current assets inclusion/exclusion review should be evidence-led, not speculative cleanup.
-
-M28-002: Targeted owner-first mobile release QA for existing Android APK and device-tested iPhone IPA. Prioritize actual remaining release gaps, user data/save lifecycle, privacy/permission/export resources, version/bundle identity. Keep already accepted gameplay, visuals, physics and effects unchanged. Avoid repeating M27 automated testing without cause.
-
-M28-003: Only if owner confirms delivery target (family sideload, TestFlight/App Store, Play Store), collect existing artifact provenance, minimal release-candidate checklist and unresolved caveats. No new upload or publication without explicit owner authorization.
-
-Known low-severity log warnings: iOS invalid UID text-path fallback for scenes/main.tscn and WorldMapScene.tscn; iOS locale 'two'/'three' missing translation; GitHub Node20/action version deprecation. None negated the successful artifacts, and they do not independently justify disrupting working workflows. Do not expose signing keys or App Store Connect API key.
-
-## Next step
-
-Wait for explicit owner M28-001/002/003 decisions. ChatGPT alone updates TASKS.md. No Codex assignment until owner approves revised scoped master.
+## Child M28-003: one compact release evidence package
+Produce one Android/iOS artifact provenance table, go/no-go for current family/device testing versus public-store readiness, owner iPhone PASS scope, minimal release checklist and caveat register. Codex emits three separate child sections/logs and a master log; independent GPT audits ONCE at milestone end. If no code changes warranted, publish **documentation/evidence ONLY**, no rebuild or APK/IPA workflow touch. Push to main, verify 0/0 and protect dirty Desktop owner work (behind main earlier). Do not perform destructive cleanup, do not alter iPhone_Yukle.bat, never echo Apple App Store Connect API keys or other signing credentials. No unauthorized deployment. Stop AWAITING_GPT_M28_MILESTONE_AUDIT.
