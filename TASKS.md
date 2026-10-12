@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M32
-- Current Sprint: BCM-M32-CAMPAIGN-FOUNDATION-V01
-- Current Task: BCM-M32-004 — Tutorial implemented; M17 regression gate unresolved.
+- Current Milestone: BCM-M33
+- Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
+- Current Task: BCM-M33-004 — Verify physical reachability of 899 unqualified levels.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M32-R02 — CODEX updates obsolete staged-content assertions, validates current M33 full content and completes graphical tutorial capture; then GPT audit.
+- Next Task/Action: CODEX — Execute M33 physics qualification remediation after GPT prompt; keep release preparation deferred.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M32-R01 independent diagnostic audit PASS: historical M17 fixture staleness demonstrated, new VIP surplus semantics PASS. M32 overall BLOCKED: two obsolete M32 staged-content tests still red after M33 expansion and graphical tutorial capture incomplete. M33 899 level physics qualification pending.
+- Progress: M32 R02 independent audit PASS; M32 technical milestone CLOSED. Native owner review of new tutorial/shop/Focus still pending. M33 content/integration PASS, 899 generated levels unqualified for physical playability; game completion NO-GO.
 
 ## Blockers/Waits
 
@@ -1347,7 +1347,15 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M32 — Campaign foundation, economy and interactive tutorial
 
-- [~] BCM-M32-001 — Establish 1,000-level campaign schema and verification pipeline.
-- [ ] BCM-M32-002 — Build the next-island playable vertical slice.
-- [ ] BCM-M32-003 — Make free coins, gems, shop and boosters functional.
-- [ ] BCM-M32-004 — Implement an interactive in-game tutorial.
+- [x] BCM-M32-001 — Establish 1,000-level campaign schema and verification pipeline.
+- [x] BCM-M32-002 — Build the next-island playable vertical slice.
+- [x] BCM-M32-003 — Make free coins, gems, shop and boosters functional.
+- [x] BCM-M32-004 — Implement an interactive in-game tutorial.
+
+
+### M33 — 900 additional island levels and safe content delivery
+
+- [x] BCM-M33-001 — Deterministic content generator and nine-island package creation.
+- [x] BCM-M33-002 — Strict static validation, navigation, and save integration.
+- [x] BCM-M33-003 — Versioned bundled update manifest and content-delivery design.
+- [!] BCM-M33-004 — Qualify unverified generated levels for physical reachability and player difficulty.
