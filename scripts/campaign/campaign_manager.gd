@@ -310,12 +310,16 @@ func _normalized_state(progression_state: Dictionary) -> Dictionary:
         state["islands"] = {}
     if not state.has("coins"):
         state["coins"] = 0
+    if not state.has("gems"):
+        state["gems"] = 0
     if not state.has("boosters"):
         state["boosters"] = {}
     if not state.has("legacy_best_score"):
         state["legacy_best_score"] = 0
     if not state.has("reward_ledger"):
         state["reward_ledger"] = []
+    if not state.has("transaction_ledger"):
+        state["transaction_ledger"] = []
     for island_id in state["unlocked_islands"]:
         if not state["islands"].has(island_id):
             state["islands"][island_id] = {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": [], "claimed_star_rewards": []}

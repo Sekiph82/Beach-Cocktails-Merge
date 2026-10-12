@@ -33,7 +33,9 @@ func create_default_state() -> Dictionary:
         "legacy_best_score": 0,
         "boosters": {},
         "coins": 0,
+        "gems": 0,
         "reward_ledger": [],
+        "transaction_ledger": [],
     }
 
 
@@ -54,6 +56,8 @@ func validate_state(state: Variant) -> Dictionary:
         return {"ok": false, "reason": "INVALID_STATE_SHAPE"}
     if not _is_non_negative_number(state["coins"]) or not _is_non_negative_number(state["legacy_best_score"]):
         return {"ok": false, "reason": "NEGATIVE_OR_INVALID_GLOBAL_VALUE"}
+    if not _is_non_negative_number(state.get("gems", 0)) or not is_equal_approx(float(state.get("gems", 0)), float(int(state.get("gems", 0)))):
+        return {"ok": false, "reason": "INVALID_GEMS"}
     for booster_id in state["boosters"]:
         var booster_quantity = state["boosters"][booster_id]
         if typeof(booster_id) != TYPE_STRING or str(booster_id).is_empty() or not _is_non_negative_number(booster_quantity) or not is_equal_approx(float(booster_quantity), float(int(booster_quantity))):
@@ -64,6 +68,12 @@ func validate_state(state: Variant) -> Dictionary:
         for reward_id in state["reward_ledger"]:
             if typeof(reward_id) != TYPE_STRING or str(reward_id).is_empty():
                 return {"ok": false, "reason": "INVALID_REWARD_ID"}
+    if state.has("transaction_ledger"):
+        if not state["transaction_ledger"] is Array:
+            return {"ok": false, "reason": "INVALID_TRANSACTION_LEDGER"}
+        for transaction_id in state["transaction_ledger"]:
+            if typeof(transaction_id) != TYPE_STRING or str(transaction_id).is_empty():
+                return {"ok": false, "reason": "INVALID_TRANSACTION_ID"}
     for island_id in state["unlocked_islands"]:
         if typeof(island_id) != TYPE_STRING or str(island_id).is_empty():
             return {"ok": false, "reason": "INVALID_UNLOCKED_ISLAND"}
@@ -224,8 +234,12 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
         migrated["boosters"] = {}
     if not migrated.has("coins"):
         migrated["coins"] = 0
+    if not migrated.has("gems"):
+        migrated["gems"] = 0
     if not migrated.has("reward_ledger"):
         migrated["reward_ledger"] = []
+    if not migrated.has("transaction_ledger"):
+        migrated["transaction_ledger"] = []
     for island_id in migrated.get("islands", {}):
         var island_state: Dictionary = migrated["islands"][island_id]
         if not island_state.has("completed_levels"):

@@ -11,6 +11,7 @@ signal island_map_entered(island_id: String)
 signal level_selected(island_id: String, level_id: int)
 signal gameplay_session_started(configuration: Dictionary)
 signal gameplay_session_finished(result: Dictionary)
+signal economy_state_changed(state: Dictionary)
 
 const VIEW_WORLD_MAP := "WORLD_MAP"
 const VIEW_ISLAND_MAP := "ISLAND_MAP"
@@ -92,6 +93,16 @@ func configure_campaign(database, manager, configured_economy = null) -> bool:
 	if is_inside_tree():
 		_ensure_map_instances()
 	return true
+
+
+func purchase_booster(transaction_id: String, booster_id: String, quantity: int, currency: String, cost: int) -> Dictionary:
+	if economy == null:
+		return {"ok": false, "reason": "ECONOMY_UNAVAILABLE"}
+	var result: Dictionary = economy.purchase_booster(transaction_id, booster_id, quantity, currency, cost)
+	if bool(result.get("ok", false)) and not bool(result.get("duplicate", false)):
+		_persist_campaign_state()
+		economy_state_changed.emit(economy.export_state())
+	return result
 
 
 func show_island_map(island_id: String) -> bool:
@@ -546,7 +557,9 @@ func _persist_campaign_state() -> Dictionary:
 	var state: Dictionary = campaign_manager.get_progression_state()
 	var economy_state: Dictionary = economy.export_state()
 	state["coins"] = economy_state["coins"]
+	state["gems"] = economy_state["gems"]
 	state["boosters"] = economy_state["boosters"]
 	state["reward_ledger"] = economy_state["reward_ledger"]
+	state["transaction_ledger"] = economy_state["transaction_ledger"]
 	state["schema_version"] = save_manager.schema_version()
 	return save_manager.write_state(state)

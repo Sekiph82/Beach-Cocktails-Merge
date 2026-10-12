@@ -18,10 +18,10 @@ const DEFAULT_SETTINGS_STORAGE_PATH := "user://user_settings.json"
 const ONBOARDING_SCHEMA_VERSION := 1
 const DEFAULT_ONBOARDING_STORAGE_PATH := "user://onboarding_state.json"
 const HOME_LAYOUT_PATH := "res://data/ui/home_layout.json"
+const SHOP_CATALOG_PATH := "res://data/campaign/shop_catalog.json"
 const HOME_ASSET_ROOT := "res://assets/ui_assets/screens/home/"
 const HOME_REFERENCE_SIZE := Vector2(941.0, 1672.0)
 const HOME_ENERGY_DISPLAY_DEFAULT := 100
-const HOME_GEMS_DISPLAY_DEFAULT := 85
 
 var campaign_navigation: CampaignNavigationController
 var current_view := "MAIN_MENU"
@@ -32,6 +32,9 @@ var user_settings
 
 var _menu_layer: Control
 var _settings_layer: Control
+var _shop_layer: Control
+var _shop_status: Label
+var _shop_purchase_serial := 0
 var _settings_controls: Dictionary = {}
 var _onboarding_layer: Control
 var _onboarding_title: Label
@@ -47,6 +50,7 @@ var _home_value_labels: Dictionary = {}
 var _home_layout: Dictionary = {}
 var _home_layout_nodes: Dictionary = {}
 var _home_text_specs: Dictionary = {}
+var _shop_catalog: Dictionary = {}
 
 
 func _ready() -> void:
@@ -54,6 +58,7 @@ func _ready() -> void:
     # unused gameplay pointer events before ShotController can see them.
     mouse_filter = Control.MOUSE_FILTER_PASS
     set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    _shop_catalog = _read_shop_catalog()
     _build_menu()
     _build_onboarding()
     _build_settings()
@@ -65,6 +70,7 @@ func _ready() -> void:
     campaign_navigation.name = "CampaignNavigation"
     campaign_navigation.main_menu_requested.connect(_on_navigation_main_menu_requested)
     campaign_navigation.gameplay_session_started.connect(_on_gameplay_session_started)
+    campaign_navigation.economy_state_changed.connect(func(_state: Dictionary) -> void: _refresh_home_values(); _refresh_shop())
     add_child(campaign_navigation)
     _apply_settings_to_gameplay()
     campaign_navigation.visible = false
@@ -118,6 +124,41 @@ func show_settings() -> bool:
     current_view = "SETTINGS"
     settings_requested.emit()
     return true
+
+
+func show_shop() -> bool:
+    if _shop_layer == null or is_onboarding_visible():
+        return false
+    _menu_layer.visible = false
+    _settings_layer.visible = false
+    _shop_layer.visible = true
+    current_view = "SHOP"
+    _refresh_shop()
+    return true
+
+
+func close_shop() -> bool:
+    if _shop_layer == null or not _shop_layer.visible:
+        return false
+    _shop_layer.visible = false
+    _menu_layer.visible = true
+    current_view = "MAIN_MENU"
+    return true
+
+
+func purchase_shop_booster(currency: String) -> Dictionary:
+    if current_view != "SHOP" or campaign_navigation == null:
+        return {"ok": false, "reason": "SHOP_NOT_OPEN"}
+    _shop_purchase_serial += 1
+    var transaction_id := "shop:focus:%s:%d" % [Time.get_ticks_usec(), _shop_purchase_serial]
+    var item := _shop_item_for_currency(currency)
+    if item.is_empty():
+        return {"ok": false, "reason": "SHOP_ITEM_UNAVAILABLE"}
+    var result: Dictionary = campaign_navigation.purchase_booster(transaction_id, str(item.get("booster_id", "")), int(item.get("quantity", 0)), currency, int(item.get("cost", -1)))
+    if _shop_status != null:
+        _shop_status.text = "FOCUS BOOSTER ADDED" if result.get("purchased", false) else ("ALREADY PURCHASED" if result.get("duplicate", false) else "NOT ENOUGH %s" % currency.to_upper())
+    _refresh_shop()
+    return result
 
 
 func close_settings() -> bool:
@@ -268,6 +309,16 @@ func _build_menu() -> void:
             _home_layout_nodes[node_name] = _menu_settings_button
             _menu_settings_button.pressed.connect(show_settings)
             _menu_layer.add_child(_menu_settings_button)
+        elif node_name == "shop":
+            var shop_button := _make_home_art_button("HomeShop", asset_name, rect, "SHOP")
+            _home_layout_nodes[node_name] = shop_button
+            shop_button.pressed.connect(show_shop)
+            _menu_layer.add_child(shop_button)
+        elif node_name in ["coin_plus", "diamond_plus"]:
+            var wallet_button := _make_home_art_button("HomeWallet_%s" % node_name, asset_name, rect, "FREE SHOP")
+            _home_layout_nodes[node_name] = wallet_button
+            wallet_button.pressed.connect(show_shop)
+            _menu_layer.add_child(wallet_button)
         else:
             _home_layout_nodes[node_name] = _add_home_art(node_name, asset_name, rect)
     for text_value in _home_layout.get("dynamic_text", []):
@@ -293,6 +344,23 @@ func _read_home_layout() -> Dictionary:
         return {}
     var parsed = JSON.parse_string(file.get_as_text())
     return parsed if parsed is Dictionary else {}
+
+
+func _read_shop_catalog() -> Dictionary:
+    if not FileAccess.file_exists(SHOP_CATALOG_PATH):
+        return {}
+    var file := FileAccess.open(SHOP_CATALOG_PATH, FileAccess.READ)
+    if file == null:
+        return {}
+    var parsed = JSON.parse_string(file.get_as_text())
+    return parsed if parsed is Dictionary and int(parsed.get("schema_version", 0)) == 1 else {}
+
+
+func _shop_item_for_currency(currency: String) -> Dictionary:
+    for item_value in _shop_catalog.get("items", []):
+        if item_value is Dictionary and str(item_value.get("currency", "")) == currency:
+            return item_value.duplicate(true)
+    return {}
 
 
 func _home_item_rect(spec: Dictionary) -> Rect2:
@@ -392,7 +460,7 @@ func _refresh_home_values() -> void:
     if _home_value_labels.has("coins"):
         (_home_value_labels["coins"] as Label).text = _format_home_coins(coins)
     if _home_value_labels.has("gems"):
-        (_home_value_labels["gems"] as Label).text = str(HOME_GEMS_DISPLAY_DEFAULT)
+        (_home_value_labels["gems"] as Label).text = str(int(economy.gems)) if economy != null else "0"
     if _home_value_labels.has("continue"):
         (_home_value_labels["continue"] as Label).text = "LEVEL %d" % frontier_level if frontier_level > 0 else "PLAY"
 
@@ -562,6 +630,66 @@ func _build_settings() -> void:
     close.size = Vector2(360.0, 78.0)
     close.pressed.connect(close_settings)
     _settings_layer.add_child(close)
+
+    _build_shop()
+
+
+func _build_shop() -> void:
+    _shop_layer = Control.new()
+    _shop_layer.name = "FreeShop"
+    _shop_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    _shop_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+    _shop_layer.visible = false
+    add_child(_shop_layer)
+    var background := ColorRect.new()
+    background.color = Color("#08283c")
+    background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    _shop_layer.add_child(background)
+    var title := Label.new()
+    title.text = "FREE SHOP"
+    title.position = Vector2(42.0, 110.0)
+    title.size = Vector2(636.0, 70.0)
+    title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    title.add_theme_font_size_override("font_size", 38)
+    title.add_theme_color_override("font_color", Color("#fff0c6"))
+    _shop_layer.add_child(title)
+    _shop_status = Label.new()
+    _shop_status.name = "ShopStatus"
+    _shop_status.text = "FOCUS BOOSTER: HIGHLIGHTS THE CURRENT ORDER"
+    _shop_status.position = Vector2(48.0, 235.0)
+    _shop_status.size = Vector2(624.0, 80.0)
+    _shop_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    _shop_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    _shop_status.add_theme_font_size_override("font_size", 20)
+    _shop_status.add_theme_color_override("font_color", Color("#d7ebe4"))
+    _shop_layer.add_child(_shop_status)
+    var coin_item := _shop_item_for_currency("coins")
+    var coin_buy := _make_menu_button("BUY FOCUS — %d COINS" % int(coin_item.get("cost", 0)), Color("#0e665f"), Color("#ffd166"))
+    coin_buy.name = "ShopBuyCoins"
+    coin_buy.position = Vector2(75.0, 390.0)
+    coin_buy.size = Vector2(570.0, 82.0)
+    coin_buy.pressed.connect(func() -> void: purchase_shop_booster("coins"))
+    _shop_layer.add_child(coin_buy)
+    var gem_item := _shop_item_for_currency("gems")
+    var gem_buy := _make_menu_button("BUY FOCUS — %d GEMS" % int(gem_item.get("cost", 0)), Color("#0e665f"), Color("#73e0d1"))
+    gem_buy.name = "ShopBuyGems"
+    gem_buy.position = Vector2(75.0, 500.0)
+    gem_buy.size = Vector2(570.0, 82.0)
+    gem_buy.pressed.connect(func() -> void: purchase_shop_booster("gems"))
+    _shop_layer.add_child(gem_buy)
+    var close := _make_menu_button("BACK TO MENU", Color("#12354d"), Color("#73e0d1"))
+    close.name = "CloseShopButton"
+    close.position = Vector2(180.0, 1080.0)
+    close.size = Vector2(360.0, 78.0)
+    close.pressed.connect(close_shop)
+    _shop_layer.add_child(close)
+
+
+func _refresh_shop() -> void:
+    if _shop_status == null or campaign_navigation == null or campaign_navigation.economy == null:
+        return
+    var economy = campaign_navigation.economy
+    _shop_status.text = "FOCUS INVENTORY %d  •  COINS %s  •  GEMS %d" % [economy.get_booster_count("focus"), _format_home_coins(economy.coins), economy.gems]
 
 
 func _add_slider_setting(parent: VBoxContainer, label_text: String, key: String) -> void:

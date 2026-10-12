@@ -152,6 +152,7 @@ var _startup_target_index := 0
 var _order_sequence := 0
 var _score_milestones_emitted: Dictionary = {}
 var campaign_session_bridge
+var _focus_booster_button: Button
 var presentation_reduced_motion := false
 var presentation_high_contrast := false
 var _table_y_offset_canonical := 0.0
@@ -256,7 +257,30 @@ func configure_campaign_session(bridge) -> bool:
 	campaign_session_bridge.set_current_score(score)
 	if _pause_button != null:
 		_pause_button.visible = true
+	_refresh_focus_booster_button()
 	return campaign_session_bridge.mark_gameplay_ready()
+
+
+func _use_focus_booster() -> void:
+	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
+		return
+	var result: Dictionary = campaign_session_bridge.economy.consume_booster_once("focus-use:%s" % Time.get_ticks_usec(), "focus", 1)
+	if not bool(result.get("ok", false)):
+		return
+	if is_instance_valid(_to_go_progress_label):
+		_to_go_progress_label.modulate = Color("#ffd166")
+		var tween := create_tween()
+		tween.tween_property(_to_go_progress_label, "modulate", Color.WHITE, 0.45)
+	campaign_session_bridge.economy_changed.emit(campaign_session_bridge.economy.export_state())
+	_refresh_focus_booster_button()
+
+
+func _refresh_focus_booster_button() -> void:
+	if not is_instance_valid(_focus_booster_button):
+		return
+	var count: int = campaign_session_bridge.economy.get_booster_count("focus") if campaign_session_bridge != null and campaign_session_bridge.economy != null else 0
+	_focus_booster_button.text = "FOCUS %d" % count
+	_focus_booster_button.disabled = count <= 0
 
 
 func get_campaign_session_bridge():
@@ -1334,6 +1358,14 @@ func _build_ui() -> void:
 	_next_sprite.position = Vector2(next_width * 0.5, next_height * 0.60)
 	_next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_next_panel.add_child(_next_sprite)
+
+	_focus_booster_button = Button.new()
+	_focus_booster_button.name = "FocusBoosterButton"
+	_focus_booster_button.position = Vector2((board_size.x - 168.0 * ui_scale) * 0.5, to_go_rect.end.y + 8.0 * ui_scale)
+	_focus_booster_button.size = Vector2(168.0 * ui_scale, 48.0 * ui_scale)
+	_focus_booster_button.add_theme_font_size_override("font_size", 17)
+	_focus_booster_button.pressed.connect(_use_focus_booster)
+	_hud.add_child(_focus_booster_button)
 
 	_move_limit_label = _make_label(
 		Vector2((board_size.x - 220.0 * ui_scale) * 0.5, 300.0 * ui_scale),
