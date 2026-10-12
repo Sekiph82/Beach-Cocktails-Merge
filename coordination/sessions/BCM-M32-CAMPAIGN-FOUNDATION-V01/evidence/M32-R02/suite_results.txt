@@ -1,0 +1,27 @@
+START m32_economy_shop_probe.gd
+END m32_economy_shop_probe.gd EXIT=0
+START m32_focus_booster_probe.gd
+END m32_focus_booster_probe.gd EXIT=0
+START m32_economy_tutorial_probe.gd
+END m32_economy_tutorial_probe.gd EXIT=0
+START m32_r01_m17_semantic_coverage_probe.gd
+END m32_r01_m17_semantic_coverage_probe.gd EXIT=0
+START m33_campaign_content_probe.gd
+END m33_campaign_content_probe.gd EXIT=0
+START m33_campaign_navigation_probe.gd
+END m33_campaign_navigation_probe.gd EXIT=0
+START m33_content_unavailable_probe.gd
+END m33_content_unavailable_probe.gd EXIT=0
+START m33_tiki_compatibility_probe.gd
+END m33_tiki_compatibility_probe.gd EXIT=0
+
+test                                   exit_code result
+----                                   --------- ------
+m32_economy_shop_probe.gd                      0 M32_ECONOMY_SHOP_RESULT=PASS
+m32_focus_booster_probe.gd                     0 M32_FOCUS_BOOSTER_RESULT=PASS
+m32_economy_tutorial_probe.gd                  0 M32_ECONOMY_TUTORIAL_RESULT=PASS
+m32_r01_m17_semantic_coverage_probe.gd         0 M32_R01_M17_SEMANTIC_RESULT=PASS
+m33_campaign_content_probe.gd                  0 M33_CONTENT_RESULT=PASS
+m33_campaign_navigation_probe.gd               0 M33_NAV_RESULT=PASS
+m33_content_unavailable_probe.gd               0 M33_UNAVAILABLE_RESULT=PASS
+m33_tiki_compatibility_probe.gd                0 M33_TIKI_COMPAT_RESULT=PASS

@@ -1,0 +1,19 @@
+{
+  "captures": [
+    {
+      "height": 844,
+      "path": "res://coordination/sessions/BCM-M32-CAMPAIGN-FOUNDATION-V01/evidence/M32-R02/tutorial_portrait_390x844.png",
+      "width": 390
+    },
+    {
+      "height": 960,
+      "path": "res://coordination/sessions/BCM-M32-CAMPAIGN-FOUNDATION-V01/evidence/M32-R02/tutorial_portrait_432x960.png",
+      "width": 432
+    }
+  ],
+  "high_contrast": true,
+  "reduced_motion": true,
+  "renderer": "Windows",
+  "result": "PASS",
+  "tutorial_visible": true
+}

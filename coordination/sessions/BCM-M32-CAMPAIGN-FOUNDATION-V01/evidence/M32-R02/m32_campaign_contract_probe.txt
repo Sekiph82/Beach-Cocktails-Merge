@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M32_CONTRACT_PROBE PASS: explicit M32 staged fixture loads in SEED mode
+M32_CONTRACT_PROBE PASS: contract states ten islands and one hundred levels apiece
+M32_CONTRACT_PROBE PASS: the ordered registry contains the ten canonical IDs
+M32_CONTRACT_PROBE PASS: M32 staged fixture reports later-island content as pending
+M32_CONTRACT_PROBE PASS: Sunny Cove remains exactly one hundred authored rows
+M32_CONTRACT_PROBE PASS: Tiki Island exposes its twelve-level first slice without claiming full readiness
+M32_CONTRACT_PROBE PASS: seeded authoring is deterministic
+M32_CONTRACT_PROBE PASS: generated candidates pass production objective, VIP, move-limit and star checks
+M32_CONTRACT_PROBE PASS: FULL mode fails closed for the intentional M32 staged fixture
+M32_CONTRACT_PROBE PASS: current M33 canonical campaign loads in FULL mode
+M32_CONTRACT_PROBE PASS: canonical full content has exactly 100 levels for each of ten islands
+M32_CONTRACT_PROBE PASS: canonical full content contains exactly 1,000 authored levels
+M32_CONTRACT_PROBE_RESULT=PASS

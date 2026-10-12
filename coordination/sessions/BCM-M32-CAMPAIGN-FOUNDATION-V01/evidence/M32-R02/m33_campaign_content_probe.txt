@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M33_CONTENT PASS: read-only manifest validates before campaign save access
+M33_CONTENT PASS: strict canonical FULL database loads all bundled files
+M33_CONTENT PASS: campaign readiness reports exactly 1,000 complete levels
+M33_CONTENT PASS: island order matches the manifest contract
+M33_CONTENT PASS: M32 staged Tiki source remains byte-identical
+M33_CONTENT PASS: M32 Tiki L1-L12 gameplay rows are preserved with additive global/provenance metadata
+M33_CONTENT PASS: sunny_cove has 100 contiguous local IDs
+M33_CONTENT PASS: tiki_island has 100 contiguous local IDs
+M33_CONTENT PASS: tiki_island has 100 distinct full challenge signatures
+M33_CONTENT PASS: azure_bay has 100 contiguous local IDs
+M33_CONTENT PASS: azure_bay has 100 distinct full challenge signatures
+M33_CONTENT PASS: coconut_beach has 100 contiguous local IDs
+M33_CONTENT PASS: coconut_beach has 100 distinct full challenge signatures
+M33_CONTENT PASS: sunset_island has 100 contiguous local IDs
+M33_CONTENT PASS: sunset_island has 100 distinct full challenge signatures
+M33_CONTENT PASS: party_beach has 100 contiguous local IDs
+M33_CONTENT PASS: party_beach has 100 distinct full challenge signatures
+M33_CONTENT PASS: frozen_paradise has 100 contiguous local IDs
+M33_CONTENT PASS: frozen_paradise has 100 distinct full challenge signatures
+M33_CONTENT PASS: volcano_bay has 100 contiguous local IDs
+M33_CONTENT PASS: volcano_bay has 100 distinct full challenge signatures
+M33_CONTENT PASS: billionaire_island has 100 contiguous local IDs
+M33_CONTENT PASS: billionaire_island has 100 distinct full challenge signatures
+M33_CONTENT PASS: final_island has 100 contiguous local IDs
+M33_CONTENT PASS: final_island has 100 distinct full challenge signatures
+M33_CONTENT PASS: all records satisfy 4T, policy, quantity and no-timer rules
+M33_CONTENT PASS: 900 new global campaign levels are present: 12 inherited M32 Tiki plus 888 generated
+M33_CONTENT PASS: all 900 campaign challenge recipes are unique across islands
+M33_CONTENT PASS: Sunny intro-template overlap is limited to the 12 explicitly preserved M32 Tiki records
+M33_CONTENT PASS: final local level is global level 1000
+M33_CONTENT PASS: Sunny Cove remains 100 rows
+M33_CONTENT_RESULT=PASS

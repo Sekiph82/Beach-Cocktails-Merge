@@ -8,6 +8,10 @@ const NAVIGATION_SCENE := preload("res://scenes/campaign/CampaignNavigationScene
 const HARNESS_SCRIPT := preload("res://scripts/campaign/m17_seeded_validation_harness.gd")
 const PROGRESSION_PATH := "user://m32_tiki_vertical_slice_progression.json"
 const PROGRESSION_BACKUP := "user://m32_tiki_vertical_slice_progression.json.bak"
+const STAGED_LEVEL_PATHS := [
+	"res://data/campaign/levels/sunny_cove.json",
+	"res://data/campaign/levels/tiki_island.json",
+]
 
 var failures: Array[String] = []
 
@@ -41,8 +45,8 @@ func _seed_through_sunny_99() -> Dictionary:
 
 func _run() -> void:
 	var database = DATABASE_SCRIPT.new()
-	var loaded := database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED)
-	_check("all currently authored canonical roots load in staged mode", loaded)
+	var loaded := database.load_from_data(_staged_islands_root(), _staged_level_roots(), DATABASE_SCRIPT.ValidationMode.SEED)
+	_check("explicit M32 staged fixture loads in staged mode", loaded)
 	if not loaded:
 		print("M32_DATABASE_ERROR=%s" % database.get_last_error())
 		quit(1)
@@ -126,3 +130,19 @@ func _run() -> void:
 	else:
 		print("M32_TIKI_VERTICAL_SLICE_RESULT=FAIL failures=%s" % JSON.stringify(failures))
 		quit(1)
+
+
+func _staged_islands_root() -> Dictionary:
+	var root: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH)).duplicate(true)
+	for island in root.get("islands", []):
+		var island_id := str(island.get("id", ""))
+		island["level_count"] = 100 if island_id == "sunny_cove" else 12 if island_id == "tiki_island" else 0
+	return root
+
+
+func _staged_level_roots() -> Array[Dictionary]:
+	var roots: Array[Dictionary] = []
+	for path in STAGED_LEVEL_PATHS:
+		var root: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(path))
+		roots.append(root)
+	return roots
