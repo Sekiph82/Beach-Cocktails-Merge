@@ -1,0 +1,3 @@
+# M31 audit criteria
+
+M31-001: evidence-linked feature completeness inventory across campaign, levels, UI, gameplay, progression, settings, economy and accepted mobile experience. M31-002: verified unfinished feature and defect register separating real problems from unverified checks; nondestructive targeted tests only, no false completion claims. M31-003: prioritized game-completion milestone plan with exact owner decisions and objective definition of done; store publication prep parked. Three child logs plus one master log and one independent GPT milestone audit. Preserve owner files and existing working APK/IPA workflows. Codex cannot edit TASKS.md or publish builds.
