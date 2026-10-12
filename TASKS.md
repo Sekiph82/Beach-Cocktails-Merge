@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M29
-- Current Sprint: BCM-M29-STORE-PREPARATION-V01
-- Current Task: BCM-M29-003 — Store privacy and submission readiness evidence.
-- Current Task Status: TASK_COMPLETE
-- Next Task/Action: BCM-M29-003 — OWNER reviews future store-release signing, package audit and disclosure gates; no public submission authorized.
-- Required Actor: OWNER
+- Current Milestone: BCM-M30
+- Current Sprint: BCM-M30-STORE-RELEASE-PIPELINE-V01
+- Current Task: BCM-M30-001 — Prepare separate Google Play AAB release pipeline.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M30-001 — CODEX executes `coordination/sessions/BCM-M30-STORE-RELEASE-PIPELINE-V01/CHATGPT_M30_MASTER_PROMPT_V01.md` continuously through M30-003, then stops for one GPT milestone audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M29 independent evidence-only audit PASS; all M29 children closed. Owner approved APK and IPA operation on tested devices. Public Google Play/App Store NO-GO pending release signing/AAB, Apple team/provisioning, package/privacy inspection and store listings.
+- Progress: M29 evidence-only audit PASS/CLOSED. Android and iPhone accepted on owner's test devices. M30 adds opt-in Play AAB and Apple distribution signing preparation plus privacy/package gates; existing family APK and unsigned IPA workflows preserved; no store publishing authorized.
 
 ## Blockers/Waits
 
@@ -1329,3 +1329,10 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M29-001 — Android Play production preparation evidence.
 - [x] BCM-M29-002 — Apple App Store signing and upload preparation evidence.
 - [x] BCM-M29-003 — Privacy and store listing requirements evidence.
+
+
+### M30 — Production store pipeline preparation
+
+- [~] BCM-M30-001 — Add isolated Google Play release AAB preparation and protected signing gate.
+- [ ] BCM-M30-002 — Add isolated Apple distribution export and protected signing gate.
+- [ ] BCM-M30-003 — Audit release package privacy, SDKs and owner-required listing gates.
