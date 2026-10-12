@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M30
 - Current Sprint: BCM-M30-STORE-RELEASE-PIPELINE-V01
-- Current Task: BCM-M30-001 — Prepare separate Google Play AAB release pipeline.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M30-001 — CODEX executes `coordination/sessions/BCM-M30-STORE-RELEASE-PIPELINE-V01/CHATGPT_M30_MASTER_PROMPT_V01.md` continuously through M30-003, then stops for one GPT milestone audit.
-- Required Actor: CODEX
+- Current Task: BCM-M30-003 — Release package policy review.
+- Current Task Status: TASK_COMPLETE
+- Next Task/Action: BCM-M30-003 — OWNER reviews the M30 audit and signing requirements.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M29 evidence-only audit PASS/CLOSED. Android and iPhone accepted on owner's test devices. M30 adds opt-in Play AAB and Apple distribution signing preparation plus privacy/package gates; existing family APK and unsigned IPA workflows preserved; no store publishing authorized.
+- Progress: M30 preparation audit PASS. Signed builds and store publishing remain blocked pending credentials, validated pipeline execution and package inspections.
 
 ## Blockers/Waits
 
@@ -1333,6 +1333,6 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M30 — Production store pipeline preparation
 
-- [~] BCM-M30-001 — Add isolated Google Play release AAB preparation and protected signing gate.
-- [ ] BCM-M30-002 — Add isolated Apple distribution export and protected signing gate.
-- [ ] BCM-M30-003 — Audit release package privacy, SDKs and owner-required listing gates.
+- [x] BCM-M30-001 — Add isolated Google Play release AAB preparation and protected signing gate.
+- [x] BCM-M30-002 — Add isolated Apple distribution export and protected signing gate.
+- [x] BCM-M30-003 — Audit release package privacy, SDKs and owner-required listing gates.
