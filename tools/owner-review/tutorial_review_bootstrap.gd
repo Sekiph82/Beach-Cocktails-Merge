@@ -27,3 +27,16 @@ func _ready() -> void:
 		return
 	if not gameplay.start_guided_tutorial(true):
 		push_error("Tutorial review bootstrap could not start the production tutorial.")
+		return
+
+	if OS.get_cmdline_user_args().has("--capture-only"):
+		await get_tree().process_frame
+		await RenderingServer.frame_post_draw
+		var screenshot := get_viewport().get_texture().get_image()
+		var screenshot_path := ProjectSettings.globalize_path("user://tutorial_owner_review_capture.png")
+		var error := screenshot.save_png(screenshot_path)
+		if error != OK:
+			push_error("Tutorial review screenshot failed with error %d." % error)
+		else:
+			print("TUTORIAL_OWNER_REVIEW_CAPTURE=%s" % screenshot_path)
+		get_tree().quit(0 if error == OK else 1)
