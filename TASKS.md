@@ -7,12 +7,12 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M28
 - Current Sprint: BCM-M28-RELEASE-READINESS-V01
 - Current Task: BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M28-001 — CODEX executes `coordination/sessions/BCM-M28-RELEASE-READINESS-V01/CHATGPT_M28_MASTER_PROMPT_V01.md` through M28-003 and stops for milestone audit.
-- Required Actor: CODEX
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M28-001 — OWNER reviews two existing successful Android APK and unsigned iOS IPA Actions before authorizing M28 milestone implementation.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M27 owner accepted actual iPhone graphics, effects and gameplay; M27 CLOSED. Individual FULL/REDUCED paired GL matrix not generated, superseded for owner approval by actual device review, not claimed technically completed. M28 release-readiness milestone active; no App Store submission authorized.
+- Progress: M28 planning HOLD. Existing workflows verified: Android APK run 38078255160 SUCCESS debug artifact; iOS IPA run 38063815860 SUCCESS unsigned Xcode-built artifact. Different source SHAs. Working workflows preserved; no duplicate builder or M28 Codex execution until owner discussion of M28-001/002/003.
 
 ## Blockers/Waits
 
@@ -1319,6 +1319,6 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M28 — iOS release readiness and final evidence
 
-- [~] BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
+- [!] BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
 - [ ] BCM-M28-002 — Validate device-release safety, persistence, lifecycle and privacy requirements.
 - [ ] BCM-M28-003 — Prepare release candidate manifest, acceptance evidence and open-caveat list.
