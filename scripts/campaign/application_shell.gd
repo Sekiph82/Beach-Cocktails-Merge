@@ -241,6 +241,16 @@ func press_play_continue() -> bool:
         return false
     if not campaign_navigation.continue_campaign():
         return false
+    var gameplay = campaign_navigation.get_node_or_null("CampaignGameplay")
+    if is_instance_valid(gameplay) and gameplay.has_method("start_guided_tutorial"):
+        var progression: Dictionary = campaign_navigation.campaign_manager.get_progression_state()
+        var established := false
+        for island_state in progression.get("islands", {}).values():
+            if not island_state.get("completed_levels", {}).is_empty():
+                established = true
+                break
+        if not established:
+            gameplay.start_guided_tutorial()
     campaign_navigation.emit_primary_ui_feedback("PLAY", _menu_play_button)
     _menu_layer.visible = false
     campaign_navigation.visible = true
@@ -631,6 +641,13 @@ func _build_settings() -> void:
     close.pressed.connect(close_settings)
     _settings_layer.add_child(close)
 
+    var replay := _make_menu_button("REPLAY GAMEPLAY TUTORIAL", Color("#0e665f"), Color("#ffd166"))
+    replay.name = "ReplayGameplayTutorialButton"
+    replay.position = Vector2(110.0, 970.0)
+    replay.size = Vector2(500.0, 64.0)
+    replay.add_theme_font_size_override("font_size", 18)
+    replay.pressed.connect(_replay_gameplay_tutorial)
+    _settings_layer.add_child(replay)
     _build_shop()
 
 
@@ -690,6 +707,19 @@ func _refresh_shop() -> void:
         return
     var economy = campaign_navigation.economy
     _shop_status.text = "FOCUS INVENTORY %d  •  COINS %s  •  GEMS %d" % [economy.get_booster_count("focus"), _format_home_coins(economy.coins), economy.gems]
+
+
+func _replay_gameplay_tutorial() -> void:
+    if campaign_navigation == null or not campaign_navigation.continue_campaign():
+        return
+    _shop_layer.visible = false
+    _settings_layer.visible = false
+    _menu_layer.visible = false
+    current_view = "CAMPAIGN"
+    campaign_navigation.visible = true
+    var gameplay = campaign_navigation.get_node_or_null("CampaignGameplay")
+    if is_instance_valid(gameplay) and gameplay.has_method("start_guided_tutorial"):
+        gameplay.start_guided_tutorial(true)
 
 
 func _add_slider_setting(parent: VBoxContainer, label_text: String, key: String) -> void:

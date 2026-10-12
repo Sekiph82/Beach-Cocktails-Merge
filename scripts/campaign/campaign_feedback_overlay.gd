@@ -58,6 +58,7 @@ func show_result(result: Dictionary) -> void:
 	if outcome == "WIN":
 		if bool(result.get("next_level_available", false)):
 			actions.append("NEXT_LEVEL")
+		actions.append("RETRY")
 		actions.append("ISLAND_MAP")
 	elif outcome == "LOSE":
 		actions = ["RETRY", "ISLAND_MAP"]

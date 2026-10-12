@@ -56,7 +56,7 @@ func _run() -> void:
     await process_frame
     var result_overlay = navigation.get_result_feedback_overlay()
     _check("LOSE result uses one reusable overlay", result_overlay.visible and result_overlay.get_feedback_kind() == "RESULT_LOSE" and result_overlay.get_visible_actions() == ["RETRY", "ISLAND_MAP"])
-    _check("LOSE exposes only Retry and Island Map", result_overlay.get_title_text() == "LEVEL FAILED" and result_overlay.get_body_text().contains("Level 1"))
+    _check("LOSE copy identifies the actual active level", result_overlay.get_title_text() == "LEVEL FAILED" and result_overlay.get_body_text().contains("Level %d" % bridge.active_level_id))
     _check("Retry action re-enters one production gameplay session", result_overlay.trigger_action("RETRY"))
     for _frame in range(4):
         await process_frame
@@ -74,7 +74,7 @@ func _run() -> void:
     result_overlay = navigation.get_result_feedback_overlay()
     var win_result: Dictionary = bridge.get_terminal_result()
     _check("WIN result uses authoritative bridge outcome and stars", win_result.get("outcome", "") == "WIN" and int(win_result.get("stars", 0)) >= 1 and result_overlay.visible and result_overlay.get_feedback_kind() == "RESULT_WIN")
-    _check("WIN exposes Next Level conditionally plus Island Map", result_overlay.get_visible_actions() == ["NEXT_LEVEL", "ISLAND_MAP"])
+    _check("WIN exposes Next Level, Retry, and Island Map", result_overlay.get_visible_actions() == ["NEXT_LEVEL", "RETRY", "ISLAND_MAP"])
     _check("VIP remains optional on normal WIN", not bool(win_result.get("vip_completed", false)) or int(win_result.get("stars", 0)) >= 1)
     _check("WIN has no ad or purchase continuation", not result_overlay.get_visible_actions().has("ADD_TIME") and not result_overlay.get_visible_actions().has("VIDEO_AD"))
     _check("Island Map action exits result without a duplicate overlay", result_overlay.trigger_action("ISLAND_MAP"))
@@ -86,7 +86,7 @@ func _run() -> void:
     root.add_child(reward_overlay)
     await process_frame
     reward_overlay.show_result({"outcome": "WIN", "level_id": 10, "score": 100, "stars": 2, "next_level_available": false, "progression": {"record": {"stars": 2, "best_score": 100}, "cumulative_rewards": [{"threshold": 10}]}})
-    _check("milestone/reward feedback is represented by the same overlay", reward_overlay.get_body_text().contains("MILESTONE REWARD EARNED") and reward_overlay.get_visible_actions() == ["ISLAND_MAP"])
+    _check("milestone/reward feedback is represented by the same overlay", reward_overlay.get_body_text().contains("MILESTONE REWARD EARNED") and reward_overlay.get_visible_actions() == ["RETRY", "ISLAND_MAP"])
     reward_overlay.queue_free()
     shell.queue_free()
     await process_frame

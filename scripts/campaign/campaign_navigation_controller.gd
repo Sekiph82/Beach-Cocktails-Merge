@@ -464,6 +464,8 @@ func _on_result_feedback_action(action: String) -> void:
 		"RETRY":
 			var target: CanvasItem = _result_feedback.get_action_presentation_target(action) if _result_feedback != null else null
 			emit_primary_ui_feedback("RETRY", target)
+			if is_instance_valid(_gameplay) and _gameplay.has_method("complete_tutorial_retry_step"):
+				_gameplay.complete_tutorial_retry_step()
 			retry_level()
 		"ISLAND_MAP":
 			if _session_bridge != null and _session_bridge.is_terminal():

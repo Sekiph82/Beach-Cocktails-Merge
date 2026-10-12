@@ -66,6 +66,7 @@ const SCORE_VALUE_RECESS_CENTER_Y_PX := 73.0
 const TO_GO_DELIVERY_DURATION := 0.34
 const VIP_DELIVERY_MULTIPLIER := 2
 const TO_GO_PANEL_TEXTURE_PATH := "res://assets/ui/panel_to_go_vip_orders.png"
+const GAMEPLAY_TUTORIAL_SCRIPT := preload("res://scripts/campaign/gameplay_tutorial.gd")
 const TO_GO_PANEL_SOURCE_SIZE := Vector2(1132.0, 1698.0)
 const LAUNCH_ZONE_TEXTURE_PATH := "res://assets/ui/launch_zone.png"
 const TO_GO_NORMAL_TARGET_CENTER_SOURCE := Vector2(358.0, 665.0)
@@ -152,6 +153,7 @@ var _startup_target_index := 0
 var _order_sequence := 0
 var _score_milestones_emitted: Dictionary = {}
 var campaign_session_bridge
+var gameplay_tutorial
 var _focus_booster_button: Button
 var presentation_reduced_motion := false
 var presentation_high_contrast := false
@@ -257,8 +259,29 @@ func configure_campaign_session(bridge) -> bool:
 	campaign_session_bridge.set_current_score(score)
 	if _pause_button != null:
 		_pause_button.visible = true
+	if not is_instance_valid(gameplay_tutorial):
+		gameplay_tutorial = GAMEPLAY_TUTORIAL_SCRIPT.new()
+		gameplay_tutorial.name = "GameplayTutorial"
+		gameplay_tutorial.layer = 3
+		add_child(gameplay_tutorial)
+		gameplay_tutorial.set_presentation_state({"reduced_motion": presentation_reduced_motion, "high_contrast": presentation_high_contrast})
 	_refresh_focus_booster_button()
 	return campaign_session_bridge.mark_gameplay_ready()
+
+
+func start_guided_tutorial(restart: bool = false) -> bool:
+	if not is_instance_valid(gameplay_tutorial):
+		gameplay_tutorial = GAMEPLAY_TUTORIAL_SCRIPT.new()
+		gameplay_tutorial.name = "GameplayTutorial"
+		gameplay_tutorial.layer = 3
+		add_child(gameplay_tutorial)
+		gameplay_tutorial.set_presentation_state({"reduced_motion": presentation_reduced_motion, "high_contrast": presentation_high_contrast})
+	return gameplay_tutorial.restart() if restart else gameplay_tutorial.start()
+
+
+func complete_tutorial_retry_step() -> void:
+	if is_instance_valid(gameplay_tutorial):
+		gameplay_tutorial.on_retry()
 
 
 func _use_focus_booster() -> void:
@@ -290,6 +313,8 @@ func get_campaign_session_bridge():
 func _on_shot_fired(drink: Drink, velocity: Vector2) -> void:
 	if not is_instance_valid(drink):
 		return
+	if is_instance_valid(gameplay_tutorial):
+		gameplay_tutorial.on_shot_launched()
 	if campaign_session_bridge != null and int(campaign_session_bridge.get_move_budget_state().get("move_limit", 0)) > 0:
 		campaign_session_bridge.record_committed_shot(str(drink.get_instance_id()))
 		_refresh_move_limit_hud()
@@ -321,6 +346,8 @@ func _refresh_move_limit_hud() -> void:
 
 
 func _on_normal_delivery_recorded(delivery: Dictionary) -> void:
+	if int(delivery.get("accepted", 0)) > 0 and is_instance_valid(gameplay_tutorial):
+		gameplay_tutorial.on_delivery()
 	if feedback_service == null or int(delivery.get("accepted", 0)) <= 0:
 		return
 	var level := int(delivery.get("level", 0))
@@ -426,6 +453,8 @@ func apply_presentation_settings(state: Dictionary) -> void:
 	if presentation_feedback_bridge != null:
 		presentation_feedback_bridge.set_presentation_mode("REDUCED" if presentation_reduced_motion else "FULL")
 	presentation_high_contrast = bool(state.get("high_contrast", false))
+	if is_instance_valid(gameplay_tutorial):
+		gameplay_tutorial.set_presentation_state(state)
 	if feedback_service != null:
 		feedback_service.set_haptics_enabled(bool(state.get("haptics_enabled", true)))
 
@@ -1014,6 +1043,8 @@ func _emit_score_milestone(milestone: String, threshold: int, target: Variant) -
 
 
 func on_merged(new_level: int, merged_drink: Drink) -> void:
+	if is_instance_valid(gameplay_tutorial):
+		gameplay_tutorial.on_merge()
 	if game_over or new_level < 1 or new_level > Drink.drinks_data.size():
 		return
 	if not is_instance_valid(merged_drink):
