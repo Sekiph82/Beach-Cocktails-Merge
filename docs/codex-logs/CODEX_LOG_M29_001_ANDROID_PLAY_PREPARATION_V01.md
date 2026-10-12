@@ -26,5 +26,6 @@ Status: `SOURCE_INVENTORY_COMPLETE; STORE_SIGNING_AND_PACKAGE_EVIDENCE_OPEN`.
 ## Evidence limits and validation
 
 - Official references reviewed on 2026-10-12: [Android App Bundle and app setup](https://support.google.com/googleplay/android-developer/answer/9859152), [Play App Signing and app bundles](https://support.google.com/googleplay/android-developer/answer/9842756), [target API requirements](https://support.google.com/googleplay/android-developer/answer/11926878?hl=en), [Data safety](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en), [content ratings](https://support.google.com/googleplay/android-developer/answer/9859655?hl=en), and [target audience/App content](https://support.google.com/googleplay/android-developer/answer/9867159?hl=en).
-- No test or build was run. The source and workflow findings are an inventory, not package-level acceptance. The master log records final publication SHA and parity after publication.
+- No test or build was run. The source and workflow findings are an inventory, not package-level acceptance.
+- End HEAD / M29 evidence publication commit: `7c44b008724595de20142f10480ab979ccc1a896`. At that publication, local `HEAD`, `origin/main`, and live `refs/heads/main` matched; ahead/behind was `0/0`. The final repository receipt is in the master log.
 - `TASKS.md` was not modified. This log is builder evidence only; independent audit remains pending.

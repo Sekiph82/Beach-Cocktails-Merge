@@ -50,6 +50,8 @@ Reviewed gameplay paths indicate local saves and no first-party game-service/ads
 - Reviewed synchronized prompt/criteria, root governance and tracker; current Android/iOS workflow YAML; M28 child/master evidence; synchronized project configuration; tracked addon/plugin inventory; targeted source searches; and current official Google/Apple documentation.
 - No tests, Godot runs, exports, workflows, artifact downloads or device checks were performed; no implementation change justified them. Validation is documentation/source evidence only. Run `git diff --check` before committing.
 - Every commit must stage only these four new log files. `TASKS.md` must remain byte-for-byte unchanged. Owner-local diffs and untracked evidence remain outside the commit.
-- Final start/end/commit SHAs and proof that local `HEAD`, `origin/main`, and `git ls-remote origin refs/heads/main` match will be recorded in the publication handoff after push. This master log is builder evidence; independent ChatGPT audit is the stop condition.
+- M29 evidence publication commit/end HEAD: `7c44b008724595de20142f10480ab979ccc1a896`.
+- At publication, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` each returned `7c44b008724595de20142f10480ab979ccc1a896`; `git rev-list --left-right --count HEAD...origin/main` returned `0 0`.
+- The four-log commit changed only the four paths listed above. A follow-up receipt commit records these verified values. `TASKS.md` remained byte-for-byte unchanged; owner-local paths remained unstaged and uncommitted. This master log is builder evidence; independent ChatGPT audit is the stop condition.
 
 Required stop marker: `AWAITING_GPT_M29_MILESTONE_AUDIT`.

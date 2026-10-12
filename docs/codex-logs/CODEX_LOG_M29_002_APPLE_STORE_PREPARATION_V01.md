@@ -26,5 +26,6 @@ Status: `SOURCE_INVENTORY_COMPLETE; DISTRIBUTION_SIGNING_AND_PACKAGE_EVIDENCE_OP
 ## Evidence limits and validation
 
 - Official references reviewed on 2026-10-12: [App Store provisioning profile](https://developer.apple.com/help/account/provisioning-profiles/create-an-app-store-provisioning-profile), [upload builds and Xcode requirements](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds), [manage app privacy](https://developer.apple.com/help/app-store-connect/manage-app-information/manage-app-privacy), [age rating](https://developer.apple.com/help/app-store-connect/manage-app-information/set-an-app-age-rating/), [privacy manifests](https://developer.apple.com/documentation/bundleresources/privacy-manifest-files), and [required-reason APIs](https://developer.apple.com/documentation/bundleresources/describing-use-of-required-reason-api).
-- No test or build was run. Source/workflow inspection is not a signed-package, device, or account acceptance result. The master log records final publication SHA and parity after publication.
+- No test or build was run. Source/workflow inspection is not a signed-package, device, or account acceptance result.
+- End HEAD / M29 evidence publication commit: `7c44b008724595de20142f10480ab979ccc1a896`. At that publication, local `HEAD`, `origin/main`, and live `refs/heads/main` matched; ahead/behind was `0/0`. The final repository receipt is in the master log.
 - `TASKS.md` was not modified. This log is builder evidence only; independent audit remains pending.
