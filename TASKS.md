@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-004 — Verify physical reachability of 899 unqualified levels.
-- Current Task Status: BLOCKED
-- Next Task/Action: CODEX — Execute M33 physics qualification remediation after GPT prompt; keep release preparation deferred.
+- Current Task: BCM-M32-OWNER-TUTORIAL-REVIEW — Open playable tutorial in Godot on Windows for owner acceptance.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: CODEX prepares and launches owner-safe one-click Godot tutorial review; M33 held until owner feedback.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M32 R02 independent audit PASS; M32 technical milestone CLOSED. Native owner review of new tutorial/shop/Focus still pending. M33 content/integration PASS, 899 generated levels unqualified for physical playability; game completion NO-GO.
+- Progress: M32 technical PASS, owner requests actual Godot desktop interactive tutorial review before native device acceptance or M33 physics qualification. M33 paused, not complete.
 
 ## Blockers/Waits
 
