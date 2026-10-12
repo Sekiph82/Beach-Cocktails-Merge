@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M31
 - Current Sprint: BCM-M31-GAME-COMPLETION-AUDIT-V01
-- Current Task: BCM-M31-001 — Audit actual product feature completion.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: CODEX runs M31 game-completion audit master through M31-003 and awaits one independent GPT audit.
-- Required Actor: CODEX
+- Current Task: BCM-M31-003 — Produce prioritized game completion milestones and definition of done.
+- Current Task Status: TASK_COMPLETE
+- Next Task/Action: OWNER — Decide campaign level distribution and island finale plus economy/shop/booster scope before M32 content implementation.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner explicitly says game is unfinished. Store publishing/signing preparation is deferred. M31 inventories game feature gaps and prepares prioritized development milestones; no publication.
+- Progress: M31 independent discovery audit PASS; M31 CLOSED but GAME INCOMPLETE. Ten declared islands, only Sunny Cove has 100 playable levels, nine empty, Final Island TBD. Economy/shop and booster design unresolved. Store release work parked.
 
 ## Blockers/Waits
 
@@ -1340,6 +1340,6 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M31 — Game completion audit
 
-- [~] BCM-M31-001 — Inventory actual features and owner-approved scope.
-- [ ] BCM-M31-002 — Verify remaining gaps, placeholders and runtime risks.
-- [ ] BCM-M31-003 — Produce prioritized game completion milestones and definition of done.
+- [x] BCM-M31-001 — Inventory actual features and owner-approved scope.
+- [x] BCM-M31-002 — Verify remaining gaps, placeholders and runtime risks.
+- [x] BCM-M31-003 — Produce prioritized game completion milestones and definition of done.
