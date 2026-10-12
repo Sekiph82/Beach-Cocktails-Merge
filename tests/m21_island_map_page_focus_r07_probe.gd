@@ -116,7 +116,7 @@ func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(EVIDENCE_DIR))
 	root.size = Vector2i(720, 1280)
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical Sunny Cove database passes full validation", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.FULL))
+	_check("canonical Sunny Cove database loads in staged mode", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.SEED))
 	for boundary in BOUNDARIES:
 		await _verify_boundary(database, boundary)
 	await _verify_old_replay_does_not_lower_frontier(database)

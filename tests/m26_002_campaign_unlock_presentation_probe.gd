@@ -88,7 +88,7 @@ func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(EVIDENCE_DIR))
 	await _set_viewport_size(Vector2i(720, 1280))
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical campaign data validates", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.FULL))
+	_check("canonical authored campaign data validates in staged mode", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.SEED))
 	var manager := CAMPAIGN_SCRIPT.new()
 	var seed_state := _seed_through_level_99()
 	_check("explicit fixture save configures with only Sunny Cove unlocked", manager.configure(database, seed_state) and manager.is_island_unlocked(ISLAND_ID) and not manager.is_island_unlocked(NEXT_ISLAND_ID))

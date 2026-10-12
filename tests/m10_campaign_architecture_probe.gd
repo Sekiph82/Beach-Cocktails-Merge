@@ -126,7 +126,9 @@ func _run() -> void:
     _check("FULL validation rejects positive-count island with zero loaded rows", not empty_rows_database.load_from_data(empty_rows_islands, empty_rows_levels, LevelDatabase.ValidationMode.FULL))
 
     var strict_database = database_script.new()
-    _check("full validation accepts the canonical declared level count", strict_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVELS_PATH, LevelDatabase.ValidationMode.FULL))
+    _check("seed validation accepts currently authored canonical content", strict_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVEL_PATHS, LevelDatabase.ValidationMode.SEED))
+    var incomplete_campaign_database = LevelDatabase.new()
+    _check("full validation rejects the incomplete ten-island campaign", not incomplete_campaign_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVEL_PATHS, LevelDatabase.ValidationMode.FULL))
 
     var campaign = campaign_script.new()
     _check("CampaignManager configures without gameplay scene", campaign.configure(_new_database()))

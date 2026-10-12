@@ -35,7 +35,7 @@ func _sha256(path: String) -> String:
 func _run() -> void:
 	var before_hash := _sha256(LEVELS_PATH)
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical Sunny Cove loads in FULL validation mode", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVELS_PATH, DATABASE_SCRIPT.ValidationMode.FULL))
+	_check("canonical staged campaign data loads", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
 	var levels: Array[Dictionary] = database.get_levels_for_island("sunny_cove")
 	var classes: Array[Dictionary] = MODEL_SCRIPT.build_challenge_classes(levels)
 	_check("canonical dataset has exactly 100 levels", levels.size() == 100)

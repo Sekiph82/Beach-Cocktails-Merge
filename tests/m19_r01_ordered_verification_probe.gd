@@ -127,10 +127,10 @@ func _sunny_state(completed_through: int) -> Dictionary:
 
 func _canonical_database():
     var database = DATABASE_SCRIPT.new()
-    _check("canonical database loads in FULL mode", database.load_canonical(
+    _check("canonical staged database loads", database.load_canonical(
         DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH,
-        DATABASE_SCRIPT.DEFAULT_LEVELS_PATH,
-        DATABASE_SCRIPT.ValidationMode.FULL
+        DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS,
+        DATABASE_SCRIPT.ValidationMode.SEED
     ))
     return database
 

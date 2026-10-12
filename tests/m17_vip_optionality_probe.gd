@@ -83,7 +83,7 @@ func _fixture_state() -> Dictionary:
 
 func _fixture_database():
 	var database = DATABASE_SCRIPT.new()
-	_check("V05 fixture loads in FULL validation", database.load_from_data(_fixture_islands(), _fixture_levels(), DATABASE_SCRIPT.ValidationMode.FULL))
+	_check("V05 fixture loads in staged validation", database.load_from_data(_fixture_islands(), _fixture_levels(), DATABASE_SCRIPT.ValidationMode.SEED))
 	return database
 
 
@@ -146,7 +146,7 @@ func _run_planner_fixtures() -> void:
 	_check("F2 exact L5 remains protected beside unsplittable L8", not MODEL_SCRIPT.candidate_is_surplus({5: 1}, [8, 5], 5))
 
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical data loads for L60/L100 planner fixtures", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVELS_PATH, DATABASE_SCRIPT.ValidationMode.FULL))
+	_check("canonical staged data loads for L60/L100 planner fixtures", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
 	for level_id in [60, 100]:
 		var definition: Dictionary = database.get_level("sunny_cove", level_id)
 		var normal_remaining: Dictionary = {}

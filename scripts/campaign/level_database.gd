@@ -13,6 +13,10 @@ enum ValidationMode {
 
 const DEFAULT_ISLANDS_PATH := "res://data/campaign/islands.json"
 const DEFAULT_LEVELS_PATH := "res://data/campaign/levels/sunny_cove.json"
+const DEFAULT_LEVEL_PATHS := [
+    "res://data/campaign/levels/sunny_cove.json",
+    "res://data/campaign/levels/tiki_island.json",
+]
 const MIN_COCKTAIL_LEVEL := 1
 const MAX_COCKTAIL_LEVEL := 12
 const REQUIRED_THEME_KEYS := [
@@ -32,7 +36,7 @@ var _loaded := false
 
 func load_canonical(
         islands_path: String = DEFAULT_ISLANDS_PATH,
-        levels_path: Variant = DEFAULT_LEVELS_PATH,
+        levels_path: Variant = DEFAULT_LEVEL_PATHS,
         mode: ValidationMode = ValidationMode.SEED
     ) -> bool:
     validation_mode = mode
@@ -253,15 +257,15 @@ func _validate_island_root(root: Variant) -> bool:
             return false
         _islands_by_id[island_id] = raw_island.duplicate(true)
 
+    if root.has("campaign_contract"):
+        if not _validate_campaign_contract(root["campaign_contract"]):
+            return false
     for island_id in _islands_by_id:
         if not _validate_unlock_rule(island_id, _islands_by_id[island_id]["unlock_rule"]):
             return false
         var next_id := str(_islands_by_id[island_id]["next_island_id"])
         if not next_id.is_empty() and not _islands_by_id.has(next_id):
             return _fail("unresolved next_island_id %s from %s" % [next_id, island_id])
-    if root.has("campaign_contract"):
-        if not _validate_campaign_contract(root["campaign_contract"]):
-            return false
     return true
 
 
@@ -359,7 +363,8 @@ func _validate_level_roots(roots: Array) -> bool:
         for index in loaded_levels.size():
             if int(loaded_levels[index]["level_id"]) != index + 1:
                 return _fail("level ids must be contiguous from one: %s" % island_id)
-        if validation_mode == ValidationMode.FULL and loaded_levels.size() != int(_islands_by_id[island_id]["level_count"]):
+        var declared_level_count := int(_islands_by_id[island_id]["level_count"])
+        if declared_level_count > 0 and loaded_levels.size() != declared_level_count:
             return _fail("declared island level_count mismatch: %s" % island_id)
         if validation_mode == ValidationMode.FULL and not _campaign_contract.is_empty() and loaded_levels.size() != int(_campaign_contract["levels_per_island"]):
             return _fail("full campaign content is missing or incomplete: %s" % island_id)
@@ -390,7 +395,7 @@ func _validate_unlock_rule(island_id: String, rule: Variant) -> bool:
     if required_level_value <= 0.0 or not is_equal_approx(required_level_value, float(int(required_level_value))):
         return _fail("completion unlock_rule level_id must be a positive integer: %s" % island_id)
     var required_level_id := int(rule["level_id"])
-    var required_level_count := int(_islands_by_id[required_island_id]["level_count"])
+    var required_level_count := int(_campaign_contract.get("levels_per_island", _islands_by_id[required_island_id]["level_count"]))
     if required_level_count > 0 and required_level_id > required_level_count:
         return _fail("unlock_rule level_id exceeds declared source island range: %s" % island_id)
     return true

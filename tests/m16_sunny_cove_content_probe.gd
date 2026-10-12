@@ -128,8 +128,8 @@ func _run() -> void:
     _check("approved expected table contains 100 order rows", EXPECTED_ORDER_SIGNATURES.size() == 100)
 
     var database = DATABASE_SCRIPT.new()
-    var loaded := database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVELS_PATH, DATABASE_SCRIPT.ValidationMode.FULL)
-    _check("canonical Sunny Cove loads in FULL validation mode", loaded)
+    var loaded := database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED)
+    _check("canonical Sunny Cove loads in SEED validation mode", loaded)
     if not loaded:
         print("M16_DATABASE_ERROR=%s" % database.get_last_error())
     _check("Sunny Cove declares 100 levels", int(database.get_island("sunny_cove").get("level_count", 0)) == 100)

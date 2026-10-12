@@ -227,10 +227,11 @@ func run_trial(
 	rng.seed = seed_value
 	var expected_spawns := MODEL_SCRIPT.expected_spawn_count(MODEL_SCRIPT.normal_objective_cost(level_definition))
 	var max_shots := maxi(12, int(ceil(expected_spawns * MAX_SHOTS_MULTIPLIER)) + 8)
+	var time_limit_sec := float(level_definition.get("time_limit_sec", 0.0))
 	var action_index := 0
 	var elapsed := 0.0
 	var replaying := not action_log_override.is_empty()
-	while not bridge.is_terminal() and not manager.game_over and elapsed < float(level_definition.get("time_limit_sec", 0.0)) + 1.0 and action_index < max_shots:
+	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots:
 		var spawn_level: int
 		var lane_index: int
 		var x_position: float

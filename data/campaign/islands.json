@@ -179,7 +179,7 @@
             "id": "tiki_island",
             "display_name": "Tiki Island",
             "order_index": 2,
-            "level_count": 0,
+            "level_count": 12,
             "unlock_rule": {
                 "type": "requires_island_completion",
                 "island_id": "sunny_cove",
