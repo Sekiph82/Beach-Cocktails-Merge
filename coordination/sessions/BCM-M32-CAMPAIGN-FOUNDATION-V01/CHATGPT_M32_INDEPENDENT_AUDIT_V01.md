@@ -1,0 +1,13 @@
+# BCM-M32 Independent Milestone Audit V01
+
+**Verdict: IMPLEMENTATION MOSTLY PASS; FINAL M32 ACCEPTANCE BLOCKED by four unresolved M17 canonical-screening assertions and pending owner review.** This is an independent review of published GitHub sources and Codex evidence, not a fresh local Godot run.
+
+M32-001 PASS for 10x100 campaign *contract and staged validation*, not 1,000 completed levels. M32-002 PASS for Tiki L1–L12 vertical slice and real production path, with M33 V02 preserving the gameplay fields and local identifiers. M32-003 functional free economy baseline PASS: Coins, Gems, Shop, persisted receipts and purchases, Focus booster consumption; provisional 40 Coins / 1 Gem price and highlight-only effect are not owner-approved final balance. M32-004 technical PASS: six-step touch-first tutorial, gameplay-event progression, Skip, Settings replay, persisted onboarding, reduced-motion/high-contrast and portrait Windows GL captures, not native device approval.
+
+Evidence: docs/codex-logs/CODEX_LOG_M32_MASTER_V01.md, CODEX_LOG_M32_003_V01.md, CODEX_LOG_M32_004_V01.md; targeted tests reported PASS for campaign schema, Tiki slice, economy/shop, Focus, tutorial/mobile capture, migration and selected older M10/M15/M16/M20/M25/M27 probes. User data/owner local tracked and untracked files preserved per Codex logs.
+
+**Hard exception:** tests/m17_canonical_screening_probe.gd exited 1 with four failed assertions: V03A exact-signature reuse; distinct VIP target captured for L4, L60 and L100 second VIP fixture. No successful retest or owner waiver in sources. M33 later re-generated 888 levels and retained original Tiki source; this does not establish M17 repair. Do not close M32 until classification of stale-vs-real failures is demonstrated with traceable evidence and corrected regressions. Owner interactive tutorial and shop device acceptance remain pending.
+
+**Remediation:** First inspect M17 probe fixtures against intended current contracts without rewriting expected outcomes to hide defects. If fixture became stale due authorized changes, preserve a historical legacy probe and add present-day equivalent semantic coverage; if game logic wrong, fix smallest production issue and retest. Test M32 economy, tutorial, Tiki and M33 content integration after any changes, using verified isolated Godot sandbox/user data and preserving files. Present shop/tutorial for owner's native-device decision. No store release.
+
+**Milestone:** M32 remains BLOCKED for final closure; M33 generation integration provisionally passed separately but its 899 unproven physics levels still prevent final content acceptance.
