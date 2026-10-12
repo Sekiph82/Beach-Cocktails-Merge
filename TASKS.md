@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M31
-- Current Sprint: BCM-M31-GAME-COMPLETION-AUDIT-V01
-- Current Task: BCM-M31-003 — Produce prioritized game completion milestones and definition of done.
-- Current Task Status: TASK_COMPLETE
-- Next Task/Action: OWNER — Decide campaign level distribution and island finale plus economy/shop/booster scope before M32 content implementation.
-- Required Actor: OWNER
+- Current Milestone: BCM-M32
+- Current Sprint: BCM-M32-CAMPAIGN-FOUNDATION-V01
+- Current Task: BCM-M32-001 — Establish the 10-island, 100-level-each content foundation.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M32-001 — CODEX executes M32 master through M32-004 and stops for one independent GPT audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M31 independent discovery audit PASS; M31 CLOSED but GAME INCOMPLETE. Ten declared islands, only Sunny Cove has 100 playable levels, nine empty, Final Island TBD. Economy/shop and booster design unresolved. Store release work parked.
+- Progress: Owner confirms 10 islands x 100 levels (1000 total), functional Coins/Gems/Shop/Boosters, interactive tutorial. M32 implements campaign foundation, first next-island vertical slice, free economy and playable tutorial. Game incomplete; store work deferred.
 
 ## Blockers/Waits
 
@@ -1343,3 +1343,11 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M31-001 — Inventory actual features and owner-approved scope.
 - [x] BCM-M31-002 — Verify remaining gaps, placeholders and runtime risks.
 - [x] BCM-M31-003 — Produce prioritized game completion milestones and definition of done.
+
+
+### M32 — Campaign foundation, economy and interactive tutorial
+
+- [~] BCM-M32-001 — Establish 1,000-level campaign schema and verification pipeline.
+- [ ] BCM-M32-002 — Build the next-island playable vertical slice.
+- [ ] BCM-M32-003 — Make free coins, gems, shop and boosters functional.
+- [ ] BCM-M32-004 — Implement an interactive in-game tutorial.
