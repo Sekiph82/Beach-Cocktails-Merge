@@ -126,8 +126,13 @@ func _run() -> void:
 		active_gameplay.gameplay_tutorial._advance_button.pressed.emit()
 		active_gameplay.gameplay_tutorial._advance_button.pressed.emit()
 		_check("the tutorial covers move/star rules and directs to retry", active_gameplay.gameplay_tutorial.current_step == 5)
+		await process_frame
 		var result_overlay = shell.campaign_navigation.get_result_feedback_overlay()
-		_check("the actual Results surface offers Retry for the tutorial", result_overlay.get_visible_actions().has("RETRY"))
+		var retry_button = result_overlay.get_action_presentation_target("RETRY") as Control
+		var viewport_rect := shell.get_viewport().get_visible_rect()
+		var retry_rect := retry_button.get_global_rect() if is_instance_valid(retry_button) else Rect2()
+		_check("the actual Results surface appears after the tutorial card moves to step six", result_overlay.visible and result_overlay.get_visible_actions().has("RETRY") and active_gameplay.gameplay_tutorial.current_step == 5)
+		_check("the real Retry control is on-screen with a nonzero touch target", is_instance_valid(retry_button) and retry_rect.size.x >= 80.0 and retry_rect.size.y >= 48.0 and viewport_rect.encloses(retry_rect))
 		result_overlay.trigger_action("RETRY")
 		_check("the real Retry action completes and saves the one-time tutorial", active_gameplay.gameplay_tutorial.completed)
 	shell.queue_free()

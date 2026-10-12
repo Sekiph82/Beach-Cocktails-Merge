@@ -408,6 +408,12 @@ func _instantiate_gameplay(configuration: Dictionary) -> void:
 	add_child(_gameplay)
 	if _gameplay.has_method("configure_campaign_session"):
 		_gameplay.configure_campaign_session(_session_bridge)
+	var tutorial = _gameplay.get("gameplay_tutorial")
+	if is_instance_valid(tutorial):
+		if tutorial.has_signal("step_changed") and not tutorial.step_changed.is_connected(_on_tutorial_step_changed):
+			tutorial.step_changed.connect(_on_tutorial_step_changed)
+		if tutorial.has_signal("tutorial_completed") and not tutorial.tutorial_completed.is_connected(_on_tutorial_completed):
+			tutorial.tutorial_completed.connect(_on_tutorial_completed)
 	gameplay_session_started.emit(configuration)
 
 
@@ -442,6 +448,10 @@ func _on_session_terminal(result: Dictionary) -> void:
 func _present_pending_terminal_result() -> void:
 	if _pending_terminal_result.is_empty():
 		return
+	if is_instance_valid(_gameplay):
+		var tutorial = _gameplay.get("gameplay_tutorial")
+		if is_instance_valid(tutorial) and tutorial.visible and int(tutorial.current_step) < 5:
+			return
 	if not is_instance_valid(_result_feedback):
 		_ensure_result_feedback()
 		return
@@ -459,6 +469,15 @@ func _present_pending_terminal_result() -> void:
 	_result_presentation_count += 1
 	if is_instance_valid(_gameplay) and _gameplay.has_method("present_campaign_result"):
 		_gameplay.present_campaign_result(result, _result_feedback)
+
+
+func _on_tutorial_step_changed(step: int) -> void:
+	if step >= 5:
+		call_deferred("_present_pending_terminal_result")
+
+
+func _on_tutorial_completed() -> void:
+	call_deferred("_present_pending_terminal_result")
 
 
 func _on_result_feedback_action(action: String) -> void:

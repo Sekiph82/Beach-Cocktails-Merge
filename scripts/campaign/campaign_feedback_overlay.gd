@@ -155,13 +155,15 @@ func _show(title: String, body: String, actions: Array[String], kind: String) ->
 	for action in visible_actions:
 		var button := Button.new()
 		button.text = _action_label(action)
-		button.custom_minimum_size = Vector2(0.0, 68.0)
-		button.add_theme_font_size_override("font_size", 22)
+		button.custom_minimum_size = Vector2(0.0, 56.0)
+		button.add_theme_font_size_override("font_size", 18)
 		button.add_theme_color_override("font_color", Color("#fff0c6"))
 		button.add_theme_stylebox_override("normal", _style(Color("#12354d"), Color("#73e0d1")))
 		button.add_theme_stylebox_override("hover", _style(Color("#185875"), Color("#ffd166")))
 		button.pressed.connect(func() -> void: trigger_action(action))
 		_actions.add_child(button)
+		if action == "RETRY":
+			button.add_to_group("tutorial_retry_button")
 		if action in ["NEXT_LEVEL", "RETRY"]:
 			button.add_to_group("presentation_effect_target")
 			_action_buttons[action] = button
@@ -192,39 +194,63 @@ func _build_shell() -> void:
 	if get_node_or_null("FeedbackCard") == null:
 		var card := PanelContainer.new()
 		card.name = "FeedbackCard"
-		card.position = Vector2(54.0, 300.0)
-		card.size = Vector2(612.0, 650.0)
+		card.anchor_left = 0.06
+		card.anchor_right = 0.94
+		card.anchor_top = 0.17
+		card.anchor_bottom = 0.83
+		card.offset_left = 0.0
+		card.offset_right = 0.0
+		card.offset_top = 0.0
+		card.offset_bottom = 0.0
 		card.add_theme_stylebox_override("panel", _style(Color("#103d52"), Color("#f7d47b")))
 		add_child(card)
 
 	if get_node_or_null("FeedbackTitle") == null:
 		var title_label := Label.new()
 		title_label.name = "FeedbackTitle"
-		title_label.position = Vector2(86.0, 368.0)
-		title_label.size = Vector2(548.0, 76.0)
+		title_label.anchor_left = 0.10
+		title_label.anchor_right = 0.90
+		title_label.anchor_top = 0.20
+		title_label.anchor_bottom = 0.31
+		title_label.offset_left = 0.0
+		title_label.offset_right = 0.0
+		title_label.offset_top = 0.0
+		title_label.offset_bottom = 0.0
 		title_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		title_label.add_theme_font_size_override("font_size", 38)
+		title_label.add_theme_font_size_override("font_size", 28)
 		title_label.add_theme_color_override("font_color", Color("#fff0c6"))
 		add_child(title_label)
 
 	if get_node_or_null("FeedbackBody") == null:
 		var body_label := Label.new()
 		body_label.name = "FeedbackBody"
-		body_label.position = Vector2(90.0, 478.0)
-		body_label.size = Vector2(540.0, 230.0)
+		body_label.anchor_left = 0.12
+		body_label.anchor_right = 0.88
+		body_label.anchor_top = 0.34
+		body_label.anchor_bottom = 0.55
+		body_label.offset_left = 0.0
+		body_label.offset_right = 0.0
+		body_label.offset_top = 0.0
+		body_label.offset_bottom = 0.0
 		body_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		body_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		body_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		body_label.add_theme_font_size_override("font_size", 23)
+		body_label.add_theme_font_size_override("font_size", 18)
 		body_label.add_theme_color_override("font_color", Color("#d7ebe4"))
 		add_child(body_label)
 
 	if get_node_or_null("FeedbackActions") == null:
 		var actions := VBoxContainer.new()
 		actions.name = "FeedbackActions"
-		actions.position = Vector2(140.0, 750.0)
-		actions.size = Vector2(440.0, 168.0)
-		actions.add_theme_constant_override("separation", 14)
+		actions.anchor_left = 0.16
+		actions.anchor_right = 0.84
+		actions.anchor_top = 0.58
+		actions.anchor_bottom = 0.93
+		actions.offset_left = 0.0
+		actions.offset_right = 0.0
+		actions.offset_top = 0.0
+		actions.offset_bottom = 0.0
+		actions.add_theme_constant_override("separation", 8)
 		add_child(actions)
 
 

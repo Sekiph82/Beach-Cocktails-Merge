@@ -265,6 +265,7 @@ func configure_campaign_session(bridge) -> bool:
 		gameplay_tutorial.layer = 3
 		add_child(gameplay_tutorial)
 		gameplay_tutorial.set_presentation_state({"reduced_motion": presentation_reduced_motion, "high_contrast": presentation_high_contrast})
+		gameplay_tutorial.tutorial_completed.connect(_restore_tutorial_hud)
 	_refresh_focus_booster_button()
 	return campaign_session_bridge.mark_gameplay_ready()
 
@@ -276,12 +277,22 @@ func start_guided_tutorial(restart: bool = false) -> bool:
 		gameplay_tutorial.layer = 3
 		add_child(gameplay_tutorial)
 		gameplay_tutorial.set_presentation_state({"reduced_motion": presentation_reduced_motion, "high_contrast": presentation_high_contrast})
-	return gameplay_tutorial.restart() if restart else gameplay_tutorial.start()
+		gameplay_tutorial.tutorial_completed.connect(_restore_tutorial_hud)
+	var started: bool = gameplay_tutorial.restart() if restart else gameplay_tutorial.start()
+	if started and is_instance_valid(_progression_strip):
+		_progression_strip.visible = false
+	return started
 
 
 func complete_tutorial_retry_step() -> void:
 	if is_instance_valid(gameplay_tutorial):
 		gameplay_tutorial.on_retry()
+	_restore_tutorial_hud()
+
+
+func _restore_tutorial_hud() -> void:
+	if is_instance_valid(_progression_strip):
+		_progression_strip.visible = true
 
 
 func _use_focus_booster() -> void:

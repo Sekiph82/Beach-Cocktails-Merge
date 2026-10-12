@@ -1,0 +1,19 @@
+BCM-M32-TUTORIAL-V05
+RESOLUTION=390x844
+RENDERER=Intel(R) Iris(R) Xe Graphics
+TEST_SETUP: disposable save unlocks Levels 1-3 to expose the real Level 4 VIP HUD
+TUTORIAL_START: production Level 4; actual To-Go L6 and optional VIP L5
+CAPTURE: step=01 name=launch size=(390, 844) file=tutorial_01_launch.png
+LAUNCH: dragged and released the real held L3 drink; production shot event advanced to MERGE
+CAPTURE: step=02 name=merge size=(390, 844) file=tutorial_02_merge.png
+MERGE_SETUP: second actual L3 drink spawned beneath the settled launch; both real drink bounds are highlighted
+MERGE: second matching drink moved through production physics and GameManager.on_merged advanced to DELIVER
+CAPTURE: step=03 name=deliver size=(390, 844) file=tutorial_03_deliver.png
+DELIVER: test-only L6 drink entered production target capture/tween, order recorder, and tutorial delivery hook
+CAPTURE: step=04 name=vip_bonus size=(390, 844) file=tutorial_04_vip_bonus.png
+VIP_BONUS: actual optional L5 HUD order shown; Continue tapped without delivering/required VIP
+CAPTURE: step=05 name=moves_stars size=(390, 844) file=tutorial_05_moves_stars.png
+PLAY_AGAIN: actual Results panel visible; RETRY bounds=[P: (62.4, 553.52), S: (265.0, 56.0)]
+CAPTURE: step=06 name=play_again size=(390, 844) file=tutorial_06_play_again.png
+RETRY: real result button click invoked production retry callback and completed the tutorial
+RESULT=PASS
