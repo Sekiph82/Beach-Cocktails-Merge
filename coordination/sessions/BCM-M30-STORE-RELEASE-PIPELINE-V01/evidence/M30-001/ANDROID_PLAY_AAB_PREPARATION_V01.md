@@ -7,6 +7,7 @@ Added `.github/workflows/android-play-aab.yml` as a separate manually dispatched
 ## Locked configuration
 
 - Godot `4.7.2` and matching Android export templates.
+- Signed mode runs only from canonical `main`; the owner must also restrict the `android-play-upload` environment's deployment branches to `main` before adding secrets.
 - Explicit package ID `com.sekiph82.beachcocktails`.
 - Owner-entered semantic `release_version`; version code uses the workflow run number and attempt (`run_number × 100 + run_attempt`) to keep reruns distinct.
 - Minimum API `24`; target API `36`, arm64-v8a only.

@@ -16,11 +16,6 @@ on:
         type: string
         required: true
         default: 1.0.0
-      ref:
-        description: "Exact source ref to build"
-        type: string
-        required: true
-        default: main
 
 permissions:
   contents: read
@@ -37,7 +32,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref }}
           persist-credentials: false
 
       - name: Validate release configuration without signing
@@ -56,17 +50,19 @@ jobs:
           grep -Fq 'architectures/arm64-v8a=true' .github/workflows/android-play-aab.yml
           if [[ "$RELEASE_MODE" == "validate_only" ]]; then
             echo "Configuration validation only. No signing, export, upload, or publishing occurred."
+          elif [[ "$GITHUB_REF" != "refs/heads/main" ]]; then
+            echo "Signed release mode is restricted to canonical main." >&2
+            exit 1
           fi
 
   signed-aab:
-    if: ${{ inputs.mode == 'signed_aab' }}
+    if: ${{ inputs.mode == 'signed_aab' && github.ref == 'refs/heads/main' }}
     needs: validate
     runs-on: ubuntu-24.04
     environment: android-play-upload
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ inputs.ref }}
           persist-credentials: false
 
       - name: Require protected upload signing secrets
