@@ -1,0 +1,11 @@
+# BCM-M28: iOS Release Readiness Master
+
+Read root TASKS.md, M27 owner acceptance, and M28 locked audit criteria. This is a single continuous milestone covering release investigation, safe remediation only if necessary, and final evidence. Codex owns implementation and logs; never edit root TASKS.md.
+
+Preflight: safely fetch and reconcile the Desktop checkout, which was eight commits behind at the M27 handoff, without discarding owner tracked/untracked edits or stashes. Preserve project.godot, source, local saves and existing iPhone release workflows. No broad cleanup. Verify only task-owned processes/windows are closed. When Godot runs are required, use the corrected unique sandbox project identity, actual user:// isolation, byte copies of real rotating logs and PID runner.
+
+Child M28-001: Inspect the CURRENT repository GitHub Actions workflows and IPA build/release artifacts, differentiate workflow passing from installable signed IPA, identify Godot iOS export, any Ubuntu/Swift/xtool steps and external Apple tooling, provenance, reproducibility and release version. Do not edit a functioning iPhone pipeline on speculation. Never read back or print Apple API secrets, signing private keys, provisioning private material. No App Store Connect publishing/submitting, external release, or version bump without owner approval.
+
+Child M28-002: Release QA safety: retain approved gameplay, UI and VFX; examine iOS app resume/background handling, save/load/progression, orientation, touch, compatibility, offline behavior, crash logs, privacy/permissions and final build package metadata. Reuse existing approved owner iPhone acceptance as evidence, with clear limitation to that device. Scope actual fixes narrowly and prove no regressions.
+
+Child M28-003: Assemble release candidate manifest, build/test evidence and unresolved caveats, plus one owner-facing release checklist. If source changes, run all affected tests, full regression where warranted, two M21 QA clean runs and Godot editor boot/import; protect owner hashes and leave zero orphan windows. Per-child commits and separate Codex logs; push to main with local checkout preserved and verified 0/0 for implementation worktree. Stop AWAITING_GPT_M28_MILESTONE_AUDIT. Do not publish to App Store, delete source files or touch TASKS.md.
