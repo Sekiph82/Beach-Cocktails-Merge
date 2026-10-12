@@ -28,8 +28,14 @@ func _ready() -> void:
 	if not gameplay.start_guided_tutorial(true):
 		push_error("Tutorial review bootstrap could not start the production tutorial.")
 		return
+	var tutorial = gameplay.get_node_or_null("GameplayTutorial")
+	if not is_instance_valid(tutorial) or not tutorial.visible:
+		push_error("Tutorial review bootstrap started without a visible production tutorial overlay.")
+		return
+	print("TUTORIAL_OWNER_REVIEW_VISIBLE=true step=%d" % tutorial.current_step)
 
 	if OS.get_cmdline_user_args().has("--capture-only"):
+		await get_tree().process_frame
 		await get_tree().process_frame
 		await RenderingServer.frame_post_draw
 		var screenshot := get_viewport().get_texture().get_image()
