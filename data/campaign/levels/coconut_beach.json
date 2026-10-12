@@ -1,0 +1,3855 @@
+{
+  "schema_version": 1,
+  "island_id": "coconut_beach",
+  "campaign_generation": {
+    "generator_version": "BCM-M33-1.0.0",
+    "seed": 330033,
+    "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
+    "profile_set_sha256": "C5DD474E33277AFAA5AD4BB74663400DC6A0AA0FFD04FE9330A532A3A0B8284A",
+    "profile_id": "coconut_beach",
+    "global_level_range": [
+      301,
+      400
+    ],
+    "preserved_m32_seed_levels": 0
+  },
+  "levels": [
+    {
+      "island_id": "coconut_beach",
+      "level_id": 1,
+      "global_level_id": 301,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 2,
+      "global_level_id": 302,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 224,
+      "move_limit": 896
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 3,
+      "global_level_id": 303,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 192,
+      "move_limit": 768
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 4,
+      "global_level_id": 304,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 208,
+      "move_limit": 832
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 5,
+      "global_level_id": 305,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 6,
+      "global_level_id": 306,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 224,
+      "move_limit": 896
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 7,
+      "global_level_id": 307,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 208,
+      "move_limit": 832
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 8,
+      "global_level_id": 308,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 9,
+      "global_level_id": 309,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 10,
+      "global_level_id": 310,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 176,
+      "move_limit": 704
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 11,
+      "global_level_id": 311,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 12,
+      "global_level_id": 312,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 176,
+      "move_limit": 704
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 13,
+      "global_level_id": 313,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 208,
+      "move_limit": 832
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 14,
+      "global_level_id": 314,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 176,
+      "move_limit": 704
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 15,
+      "global_level_id": 315,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 336,
+      "move_limit": 1344
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 16,
+      "global_level_id": 316,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 17,
+      "global_level_id": 317,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 288,
+      "move_limit": 1152
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 18,
+      "global_level_id": 318,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 224,
+      "move_limit": 896
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 19,
+      "global_level_id": 319,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 224,
+      "move_limit": 896
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 20,
+      "global_level_id": 320,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 208,
+      "move_limit": 832
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 21,
+      "global_level_id": 321,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 288,
+      "move_limit": 1152
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 22,
+      "global_level_id": 322,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 176,
+      "move_limit": 704
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 23,
+      "global_level_id": 323,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 224,
+      "move_limit": 896
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 24,
+      "global_level_id": 324,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 208,
+      "move_limit": 832
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 25,
+      "global_level_id": 325,
+      "difficulty_tier": "EXPERT_PLUS_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 320,
+      "move_limit": 1280
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 26,
+      "global_level_id": 326,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 240,
+      "move_limit": 960
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 27,
+      "global_level_id": 327,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 240,
+      "move_limit": 960
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 28,
+      "global_level_id": 328,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 240,
+      "move_limit": 960
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 29,
+      "global_level_id": 329,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 30,
+      "global_level_id": 330,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 320,
+      "move_limit": 1280
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 31,
+      "global_level_id": 331,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 288,
+      "move_limit": 1152
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 32,
+      "global_level_id": 332,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 272,
+      "move_limit": 1088
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 33,
+      "global_level_id": 333,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 240,
+      "move_limit": 960
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 34,
+      "global_level_id": 334,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 240,
+      "move_limit": 960
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 35,
+      "global_level_id": 335,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 36,
+      "global_level_id": 336,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 37,
+      "global_level_id": 337,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 38,
+      "global_level_id": 338,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 39,
+      "global_level_id": 339,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 176,
+      "move_limit": 704
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 40,
+      "global_level_id": 340,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 128,
+      "move_limit": 512
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 41,
+      "global_level_id": 341,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 272,
+      "move_limit": 1088
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 42,
+      "global_level_id": 342,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 336,
+      "move_limit": 1344
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 43,
+      "global_level_id": 343,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 272,
+      "move_limit": 1088
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 44,
+      "global_level_id": 344,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 45,
+      "global_level_id": 345,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 46,
+      "global_level_id": 346,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 47,
+      "global_level_id": 347,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 272,
+      "move_limit": 1088
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 48,
+      "global_level_id": 348,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 49,
+      "global_level_id": 349,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 50,
+      "global_level_id": 350,
+      "difficulty_tier": "EXPERT_PLUS_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 272,
+      "move_limit": 1088
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 51,
+      "global_level_id": 351,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 52,
+      "global_level_id": 352,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 816,
+      "move_limit": 3264
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 53,
+      "global_level_id": 353,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 336,
+      "move_limit": 1344
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 54,
+      "global_level_id": 354,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 720,
+      "move_limit": 2880
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 55,
+      "global_level_id": 355,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 56,
+      "global_level_id": 356,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 400,
+      "move_limit": 1600
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 57,
+      "global_level_id": 357,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 58,
+      "global_level_id": 358,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 400,
+      "move_limit": 1600
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 59,
+      "global_level_id": 359,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 512,
+      "move_limit": 2048
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 60,
+      "global_level_id": 360,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 544,
+      "move_limit": 2176
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 61,
+      "global_level_id": 361,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 560,
+      "move_limit": 2240
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 62,
+      "global_level_id": 362,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 63,
+      "global_level_id": 363,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 336,
+      "move_limit": 1344
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 64,
+      "global_level_id": 364,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 400,
+      "move_limit": 1600
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 65,
+      "global_level_id": 365,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 66,
+      "global_level_id": 366,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 528,
+      "move_limit": 2112
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 67,
+      "global_level_id": 367,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 68,
+      "global_level_id": 368,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 256,
+      "move_limit": 1024
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 69,
+      "global_level_id": 369,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 384,
+      "move_limit": 1536
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 70,
+      "global_level_id": 370,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 368,
+      "move_limit": 1472
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 71,
+      "global_level_id": 371,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 72,
+      "global_level_id": 372,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 73,
+      "global_level_id": 373,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 432,
+      "move_limit": 1728
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 74,
+      "global_level_id": 374,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 432,
+      "move_limit": 1728
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 75,
+      "global_level_id": 375,
+      "difficulty_tier": "EXPERT_PLUS_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 76,
+      "global_level_id": 376,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 77,
+      "global_level_id": 377,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 78,
+      "global_level_id": 378,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 432,
+      "move_limit": 1728
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 79,
+      "global_level_id": 379,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 80,
+      "global_level_id": 380,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 672,
+      "move_limit": 2688
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 81,
+      "global_level_id": 381,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 82,
+      "global_level_id": 382,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 192,
+      "move_limit": 768
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 83,
+      "global_level_id": 383,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 816,
+      "move_limit": 3264
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 84,
+      "global_level_id": 384,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 464,
+      "move_limit": 1856
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 85,
+      "global_level_id": 385,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 480,
+      "move_limit": 1920
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 86,
+      "global_level_id": 386,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 87,
+      "global_level_id": 387,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 88,
+      "global_level_id": 388,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 89,
+      "global_level_id": 389,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 624,
+      "move_limit": 2496
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 90,
+      "global_level_id": 390,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 432,
+      "move_limit": 1728
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 91,
+      "global_level_id": 391,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 92,
+      "global_level_id": 392,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 432,
+      "move_limit": 1728
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 93,
+      "global_level_id": 393,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 368,
+      "move_limit": 1472
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 94,
+      "global_level_id": 394,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 368,
+      "move_limit": 1472
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 95,
+      "global_level_id": 395,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 560,
+      "move_limit": 2240
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 96,
+      "global_level_id": 396,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 400,
+      "move_limit": 1600
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 97,
+      "global_level_id": 397,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 98,
+      "global_level_id": 398,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 464,
+      "move_limit": 1856
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 99,
+      "global_level_id": 399,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "coconut_beach",
+      "level_id": 100,
+      "global_level_id": 400,
+      "difficulty_tier": "EXPERT_PLUS_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+extends SceneTree
+
+const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
+const MANIFEST_SCRIPT := preload("res://scripts/campaign/campaign_content_manifest.gd")
+
+const EXPECTED_IDS := [
+	"sunny_cove", "tiki_island", "azure_bay", "coconut_beach", "sunset_island",
+	"party_beach", "frozen_paradise", "volcano_bay", "billionaire_island", "final_island",
+]
+const M32_TIKI_SEED_SHA256 := "AD4AE20C26D482082E9FFD170CC5E66DDE895403FE5E6D260A5BEEC8CFFBFF53"
+
+var failures: Array[String] = []
+
+
+func _init() -> void:
+	call_deferred("_run")
+
+
+func _check(label: String, condition: bool) -> void:
+	if condition:
+		print("M33_CONTENT PASS: %s" % label)
+	else:
+		failures.append(label)
+		print("M33_CONTENT FAIL: %s" % label)
+
+
+func _run() -> void:
+	var manifest_validator = MANIFEST_SCRIPT.new()
+	var manifest_result: Dictionary = manifest_validator.validate()
+	_check("read-only manifest validates before campaign save access", bool(manifest_result.get("ok", false)))
+	if not bool(manifest_result.get("ok", false)):
+		print("M33_MANIFEST_ERROR=%s" % str(manifest_result.get("error", "unknown")))
+		quit(1)
+		return
+	var database = DATABASE_SCRIPT.new()
+	var loaded := database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.FULL)
+	_check("strict canonical FULL database loads all bundled files", loaded)
+	if not loaded:
+		print("M33_DATABASE_ERROR=%s" % database.get_last_error())
+		quit(1)
+		return
+	var readiness: Dictionary = database.get_campaign_readiness()
+	_check("campaign readiness reports exactly 1,000 complete levels", readiness.get("status", "") == "READY" and readiness.get("complete", false) and int(readiness.get("target_total_levels", 0)) == 1000)
+	_check("island order matches the manifest contract", database.get_island_ids_in_order() == EXPECTED_IDS)
+	_check("M32 staged Tiki source remains byte-identical", _sha256(FileAccess.get_file_as_bytes("res://data/campaign/levels/tiki_island.json")) == M32_TIKI_SEED_SHA256)
+	var all_full_signatures: Dictionary = {}
+	var generated_record_count := 0
+	var static_valid := true
+	var sunny_intro: Dictionary = {}
+	var sunny_levels: Array[Dictionary] = database.get_levels_for_island("sunny_cove")
+	for level in sunny_levels.slice(0, 10):
+		sunny_intro[_normal_signature(level)] = true
+	for island_index in EXPECTED_IDS.size():
+		var island_id: String = EXPECTED_IDS[island_index]
+		var levels: Array[Dictionary] = database.get_levels_for_island(island_id)
+		_check("%s has 100 contiguous local IDs" % island_id, levels.size() == 100)
+		var policy: Dictionary = database.get_island(island_id).get("target_policy", {})
+		var local_signatures: Dictionary = {}
+		for level_index in levels.size():
+			var level: Dictionary = levels[level_index]
+			var expected_global := island_index * 100 + level_index + 1
+			var global_id := int(level.get("global_level_id", expected_global))
+			var theoretical := 0
+			var objectives: Dictionary = {}
+			var target_valid := true
+			for order in level.get("orders", []):
+				var target := int(order.get("cocktail_level", 0))
+				var quantity := int(order.get("quantity", 0))
+				target_valid = target_valid and target >= int(policy.get("min_level", 1)) and target <= int(policy.get("max_level", 12)) and quantity >= 1 and quantity <= 2
+				theoretical += (1 << (target - 3)) * quantity if target >= 3 else 0
+				objectives[target] = true
+			var vip: Variant = level.get("vip", null)
+			if vip is Dictionary and bool(vip.get("enabled", true)):
+				var vip_target := int(vip.get("cocktail_level", 0))
+				var vip_quantity := int(vip.get("quantity", 0))
+				target_valid = target_valid and vip_target >= int(policy.get("min_level", 1)) and vip_target <= int(policy.get("max_level", 12)) and vip_quantity >= 1 and vip_quantity <= 2 and not objectives.has(vip_target)
+				theoretical += (1 << (vip_target - 3)) * vip_quantity if vip_target >= 3 else 0
+			var new_campaign_level := island_index > 0
+			var recipe_signature := _full_signature(level)
+			local_signatures[recipe_signature] = int(local_signatures.get(recipe_signature, 0)) + 1
+			if new_campaign_level:
+				all_full_signatures[recipe_signature] = true
+			var easy_intro_collision := sunny_intro.has(_normal_signature(level))
+			var record_valid: bool = global_id == expected_global and float(level.get("time_limit_sec", -1.0)) == 0.0 and level.get("orders", []).size() >= 1 and (not new_campaign_level or (level.get("orders", []).size() >= 2 and target_valid)) and int(level.get("theoretical_shots_total", -1)) == theoretical and int(level.get("move_limit", -1)) == theoretical * 4 and not (new_campaign_level and easy_intro_collision)
+			if not record_valid:
+				print("M33_INVALID_RECORD island=%s level=%d global=%d expected=%d target_valid=%s shots=%d expected_shots=%d move=%d expected_move=%d intro=%s" % [island_id, int(level.get("level_id", -1)), global_id, expected_global, target_valid, int(level.get("theoretical_shots_total", -1)), theoretical, int(level.get("move_limit", -1)), theoretical * 4, easy_intro_collision])
+			static_valid = static_valid and record_valid
+			generated_record_count += 1 if new_campaign_level else 0
+		if island_index > 0:
+			_check("%s has 100 distinct full challenge signatures" % island_id, local_signatures.size() == 100)
+	_check("all records satisfy 4T, policy, quantity and no-timer rules", static_valid)
+	_check("all 900 new global levels are present without reusing Sunny intro objectives", generated_record_count == 900)
+	_check("all 900 new challenge recipes are unique across islands", all_full_signatures.size() == 900)
+	_check("final local level is global level 1000", int(database.get_level("final_island", 100).get("global_level_id", 0)) == 1000)
+	_check("Sunny Cove remains 100 rows", database.get_levels_for_island("sunny_cove").size() == 100)
+	if failures.is_empty():
+		print("M33_CONTENT_RESULT=PASS")
+		quit(0)
+	else:
+		print("M33_CONTENT_RESULT=FAIL failures=%s" % JSON.stringify(failures))
+		quit(1)
+
+
+func _normal_signature(level: Dictionary) -> String:
+	var orders: Array = []
+	for row in level.get("orders", []):
+		orders.append({"cocktail_level": int(row.get("cocktail_level", 0)), "quantity": int(row.get("quantity", 0))})
+	return JSON.stringify(orders)
+
+
+func _full_signature(level: Dictionary) -> String:
+	var vip: Variant = level.get("vip", null)
+	var normalized_vip := {"enabled": false, "cocktail_level": 0, "quantity": 0}
+	if vip is Dictionary and bool(vip.get("enabled", true)):
+		normalized_vip = {"enabled": true, "cocktail_level": int(vip.get("cocktail_level", 0)), "quantity": int(vip.get("quantity", 0))}
+	return JSON.stringify({"orders": JSON.parse_string(_normal_signature(level)), "time_limit_sec": float(level.get("time_limit_sec", 0)), "vip": normalized_vip})
+
+
+func _sha256(bytes: PackedByteArray) -> String:
+	var context := HashingContext.new()
+	context.start(HashingContext.HASH_SHA256)
+	context.update(bytes)
+	return context.finish().hex_encode().to_upper()

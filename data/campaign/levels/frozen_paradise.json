@@ -1,0 +1,3834 @@
+{
+  "schema_version": 1,
+  "island_id": "frozen_paradise",
+  "campaign_generation": {
+    "generator_version": "BCM-M33-1.0.0",
+    "seed": 330033,
+    "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
+    "profile_set_sha256": "C5DD474E33277AFAA5AD4BB74663400DC6A0AA0FFD04FE9330A532A3A0B8284A",
+    "profile_id": "frozen_paradise",
+    "global_level_range": [
+      601,
+      700
+    ],
+    "preserved_m32_seed_levels": 0
+  },
+  "levels": [
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 1,
+      "global_level_id": 601,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 512,
+      "move_limit": 2048
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 2,
+      "global_level_id": 602,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 640,
+      "move_limit": 2560
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 3,
+      "global_level_id": 603,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 528,
+      "move_limit": 2112
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 4,
+      "global_level_id": 604,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 5,
+      "global_level_id": 605,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 528,
+      "move_limit": 2112
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 6,
+      "global_level_id": 606,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 7,
+      "global_level_id": 607,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 8,
+      "global_level_id": 608,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 576,
+      "move_limit": 2304
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 9,
+      "global_level_id": 609,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 10,
+      "global_level_id": 610,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 640,
+      "move_limit": 2560
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 11,
+      "global_level_id": 611,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 12,
+      "global_level_id": 612,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 336,
+      "move_limit": 1344
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 13,
+      "global_level_id": 613,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 336,
+      "move_limit": 1344
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 14,
+      "global_level_id": 614,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 15,
+      "global_level_id": 615,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 16,
+      "global_level_id": 616,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 17,
+      "global_level_id": 617,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 544,
+      "move_limit": 2176
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 18,
+      "global_level_id": 618,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 288,
+      "move_limit": 1152
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 19,
+      "global_level_id": 619,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 20,
+      "global_level_id": 620,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 21,
+      "global_level_id": 621,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 22,
+      "global_level_id": 622,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 23,
+      "global_level_id": 623,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 544,
+      "move_limit": 2176
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 24,
+      "global_level_id": 624,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 608,
+      "move_limit": 2432
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 25,
+      "global_level_id": 625,
+      "difficulty_tier": "ELITE_ENTRY",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 672,
+      "move_limit": 2688
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 26,
+      "global_level_id": 626,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 608,
+      "move_limit": 2432
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 27,
+      "global_level_id": 627,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 480,
+      "move_limit": 1920
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 28,
+      "global_level_id": 628,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 704,
+      "move_limit": 2816
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 29,
+      "global_level_id": 629,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 704,
+      "move_limit": 2816
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 30,
+      "global_level_id": 630,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 352,
+      "move_limit": 1408
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 31,
+      "global_level_id": 631,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1248,
+      "move_limit": 4992
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 32,
+      "global_level_id": 632,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 832,
+      "move_limit": 3328
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 33,
+      "global_level_id": 633,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 816,
+      "move_limit": 3264
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 34,
+      "global_level_id": 634,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 544,
+      "move_limit": 2176
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 35,
+      "global_level_id": 635,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 672,
+      "move_limit": 2688
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 36,
+      "global_level_id": 636,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 576,
+      "move_limit": 2304
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 37,
+      "global_level_id": 637,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 848,
+      "move_limit": 3392
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 38,
+      "global_level_id": 638,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 528,
+      "move_limit": 2112
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 39,
+      "global_level_id": 639,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 560,
+      "move_limit": 2240
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 40,
+      "global_level_id": 640,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 416,
+      "move_limit": 1664
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 41,
+      "global_level_id": 641,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 560,
+      "move_limit": 2240
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 42,
+      "global_level_id": 642,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 544,
+      "move_limit": 2176
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 43,
+      "global_level_id": 643,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1296,
+      "move_limit": 5184
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 44,
+      "global_level_id": 644,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 960,
+      "move_limit": 3840
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 45,
+      "global_level_id": 645,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1120,
+      "move_limit": 4480
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 46,
+      "global_level_id": 646,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 640,
+      "move_limit": 2560
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 47,
+      "global_level_id": 647,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 864,
+      "move_limit": 3456
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 48,
+      "global_level_id": 648,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 896,
+      "move_limit": 3584
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 49,
+      "global_level_id": 649,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 832,
+      "move_limit": 3328
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 50,
+      "global_level_id": 650,
+      "difficulty_tier": "ELITE_MIX",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 400,
+      "move_limit": 1600
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 51,
+      "global_level_id": 651,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 224,
+      "move_limit": 896
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 52,
+      "global_level_id": 652,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1248,
+      "move_limit": 4992
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 53,
+      "global_level_id": 653,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 544,
+      "move_limit": 2176
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 54,
+      "global_level_id": 654,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 704,
+      "move_limit": 2816
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 55,
+      "global_level_id": 655,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 400,
+      "move_limit": 1600
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 56,
+      "global_level_id": 656,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 608,
+      "move_limit": 2432
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 57,
+      "global_level_id": 657,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1104,
+      "move_limit": 4416
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 58,
+      "global_level_id": 658,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1040,
+      "move_limit": 4160
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 59,
+      "global_level_id": 659,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 896,
+      "move_limit": 3584
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 60,
+      "global_level_id": 660,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 336,
+      "move_limit": 1344
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 61,
+      "global_level_id": 661,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1088,
+      "move_limit": 4352
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 62,
+      "global_level_id": 662,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 656,
+      "move_limit": 2624
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 63,
+      "global_level_id": 663,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 928,
+      "move_limit": 3712
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 64,
+      "global_level_id": 664,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1184,
+      "move_limit": 4736
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 65,
+      "global_level_id": 665,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 368,
+      "move_limit": 1472
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 66,
+      "global_level_id": 666,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 576,
+      "move_limit": 2304
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 67,
+      "global_level_id": 667,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 960,
+      "move_limit": 3840
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 68,
+      "global_level_id": 668,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 69,
+      "global_level_id": 669,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 912,
+      "move_limit": 3648
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 70,
+      "global_level_id": 670,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 592,
+      "move_limit": 2368
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 71,
+      "global_level_id": 671,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 800,
+      "move_limit": 3200
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 72,
+      "global_level_id": 672,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 73,
+      "global_level_id": 673,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 928,
+      "move_limit": 3712
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 74,
+      "global_level_id": 674,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 320,
+      "move_limit": 1280
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 75,
+      "global_level_id": 675,
+      "difficulty_tier": "ELITE_VIP",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 736,
+      "move_limit": 2944
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 76,
+      "global_level_id": 676,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 240,
+      "move_limit": 960
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 77,
+      "global_level_id": 677,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 368,
+      "move_limit": 1472
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 78,
+      "global_level_id": 678,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 928,
+      "move_limit": 3712
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 79,
+      "global_level_id": 679,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 7,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 272,
+      "move_limit": 1088
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 80,
+      "global_level_id": 680,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1184,
+      "move_limit": 4736
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 81,
+      "global_level_id": 681,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 448,
+      "move_limit": 1792
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 82,
+      "global_level_id": 682,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1600,
+      "move_limit": 6400
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 83,
+      "global_level_id": 683,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 816,
+      "move_limit": 3264
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 84,
+      "global_level_id": 684,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 832,
+      "move_limit": 3328
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 85,
+      "global_level_id": 685,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 800,
+      "move_limit": 3200
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 86,
+      "global_level_id": 686,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 720,
+      "move_limit": 2880
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 87,
+      "global_level_id": 687,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 640,
+      "move_limit": 2560
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 88,
+      "global_level_id": 688,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 896,
+      "move_limit": 3584
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 89,
+      "global_level_id": 689,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 960,
+      "move_limit": 3840
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 90,
+      "global_level_id": 690,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 672,
+      "move_limit": 2688
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 91,
+      "global_level_id": 691,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 912,
+      "move_limit": 3648
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 92,
+      "global_level_id": 692,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 432,
+      "move_limit": 1728
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 93,
+      "global_level_id": 693,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 928,
+      "move_limit": 3712
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 94,
+      "global_level_id": 694,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 848,
+      "move_limit": 3392
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 95,
+      "global_level_id": 695,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 12,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 1056,
+      "move_limit": 4224
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 96,
+      "global_level_id": 696,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 368,
+      "move_limit": 1472
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 97,
+      "global_level_id": 697,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 592,
+      "move_limit": 2368
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 98,
+      "global_level_id": 698,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 9,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 11,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 8,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 800,
+      "move_limit": 3200
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 99,
+      "global_level_id": 699,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 480,
+      "move_limit": 1920
+    },
+    {
+      "island_id": "frozen_paradise",
+      "level_id": 100,
+      "global_level_id": 700,
+      "difficulty_tier": "ELITE_CAPSTONE",
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 10,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 432,
+      "move_limit": 1728
+    }
+  ]
+}

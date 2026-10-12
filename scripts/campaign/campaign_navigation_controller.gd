@@ -20,6 +20,7 @@ const VIEW_GAMEPLAY := "GAMEPLAY"
 const WORLD_MAP_SCENE := preload("res://scenes/campaign/WorldMapScene.tscn")
 const ISLAND_MAP_SCENE := preload("res://scenes/campaign/IslandMapScene.tscn")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
+const CONTENT_MANIFEST_SCRIPT := preload("res://scripts/campaign/campaign_content_manifest.gd")
 const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
@@ -31,6 +32,7 @@ var level_database
 var campaign_manager
 var economy
 var save_manager
+var content_load_error := ""
 var current_view := VIEW_WORLD_MAP
 var active_island_id := ""
 
@@ -182,6 +184,10 @@ func get_continue_level_label() -> String:
 
 func get_current_view() -> String:
 	return current_view
+
+
+func get_content_load_error() -> String:
+	return content_load_error
 
 
 func get_active_island_id() -> String:
@@ -519,8 +525,15 @@ func _on_session_island_map_requested(island_id: String) -> void:
 
 
 func _configure_default_campaign() -> void:
+	content_load_error = ""
+	var manifest = CONTENT_MANIFEST_SCRIPT.new()
+	var manifest_result: Dictionary = manifest.validate()
+	if not bool(manifest_result.get("ok", false)):
+		content_load_error = str(manifest_result.get("error", "campaign content is unavailable"))
+		return
 	level_database = DATABASE_SCRIPT.new()
-	if not level_database.load_canonical():
+	if not level_database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.FULL):
+		content_load_error = level_database.get_last_error()
 		return
 	save_manager = SAVE_SCRIPT.new()
 	var loaded: Dictionary = save_manager.read_state()
@@ -531,6 +544,7 @@ func _configure_default_campaign() -> void:
 		economy.configure()
 	campaign_manager = CAMPAIGN_SCRIPT.new()
 	if not campaign_manager.configure(level_database, loaded_state, economy):
+		content_load_error = "campaign save state is incompatible"
 		return
 	_persistence_enabled = true
 	_bind_persistence_signals()

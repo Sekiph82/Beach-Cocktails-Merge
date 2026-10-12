@@ -15,7 +15,15 @@ const DEFAULT_ISLANDS_PATH := "res://data/campaign/islands.json"
 const DEFAULT_LEVELS_PATH := "res://data/campaign/levels/sunny_cove.json"
 const DEFAULT_LEVEL_PATHS := [
     "res://data/campaign/levels/sunny_cove.json",
-    "res://data/campaign/levels/tiki_island.json",
+    "res://data/campaign/levels/tiki_island_full.json",
+    "res://data/campaign/levels/azure_bay.json",
+    "res://data/campaign/levels/coconut_beach.json",
+    "res://data/campaign/levels/sunset_island.json",
+    "res://data/campaign/levels/party_beach.json",
+    "res://data/campaign/levels/frozen_paradise.json",
+    "res://data/campaign/levels/volcano_bay.json",
+    "res://data/campaign/levels/billionaire_island.json",
+    "res://data/campaign/levels/final_island.json",
 ]
 const MIN_COCKTAIL_LEVEL := 1
 const MAX_COCKTAIL_LEVEL := 12

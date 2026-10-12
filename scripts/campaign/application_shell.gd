@@ -72,6 +72,15 @@ func _ready() -> void:
     campaign_navigation.gameplay_session_started.connect(_on_gameplay_session_started)
     campaign_navigation.economy_state_changed.connect(func(_state: Dictionary) -> void: _refresh_home_values(); _refresh_shop())
     add_child(campaign_navigation)
+    if not campaign_navigation.get_content_load_error().is_empty():
+        if _menu_play_button != null:
+            _menu_play_button.disabled = true
+            _menu_play_button.tooltip_text = "CAMPAIGN CONTENT UNAVAILABLE"
+        if _menu_world_map_button != null:
+            _menu_world_map_button.disabled = true
+            _menu_world_map_button.tooltip_text = "CAMPAIGN CONTENT UNAVAILABLE"
+        if _home_value_labels.has("continue"):
+            (_home_value_labels["continue"] as Label).text = "CONTENT UNAVAILABLE"
     _apply_settings_to_gameplay()
     campaign_navigation.visible = false
     onboarding_state = _read_onboarding_state()
@@ -472,7 +481,8 @@ func _refresh_home_values() -> void:
     if _home_value_labels.has("gems"):
         (_home_value_labels["gems"] as Label).text = str(int(economy.gems)) if economy != null else "0"
     if _home_value_labels.has("continue"):
-        (_home_value_labels["continue"] as Label).text = "LEVEL %d" % frontier_level if frontier_level > 0 else "PLAY"
+        var content_error := campaign_navigation.get_content_load_error() if campaign_navigation != null else ""
+        (_home_value_labels["continue"] as Label).text = "CONTENT UNAVAILABLE" if not content_error.is_empty() else ("LEVEL %d" % frontier_level if frontier_level > 0 else "PLAY")
 
 
 func _current_frontier_level() -> int:
