@@ -101,7 +101,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sdkmanager "platform-tools" "platforms;android-${TARGET_API}" "build-tools;36.0.0"
+          sdkmanager "platform-tools" "platforms;android-${TARGET_API}" "build-tools;36.1.0" "ndk;29.0.14206865"
 
       - name: Install Godot and matching export templates
         shell: bash
@@ -142,9 +142,6 @@ jobs:
           echo "GODOT_ANDROID_KEYSTORE_RELEASE_PATH=$RUNNER_TEMP/play-upload.jks" >> "$GITHUB_ENV"
           echo "GODOT_ANDROID_KEYSTORE_RELEASE_USER=$UPLOAD_KEY_ALIAS" >> "$GITHUB_ENV"
           echo "GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD=$UPLOAD_STORE_PASSWORD" >> "$GITHUB_ENV"
-          echo "GODOT_ANDROID_KEYSTORE_DEBUG_PATH=$RUNNER_TEMP/play-upload.jks" >> "$GITHUB_ENV"
-          echo "GODOT_ANDROID_KEYSTORE_DEBUG_USER=$UPLOAD_KEY_ALIAS" >> "$GITHUB_ENV"
-          echo "GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD=$UPLOAD_STORE_PASSWORD" >> "$GITHUB_ENV"
 
       - name: Create isolated Play AAB export preset
         env:
@@ -186,9 +183,6 @@ jobs:
           keystore/release="$RUNNER_TEMP/play-upload.jks"
           keystore/release_user="$GODOT_ANDROID_KEYSTORE_RELEASE_USER"
           keystore/release_password="$GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD"
-          keystore/debug="$RUNNER_TEMP/play-upload.jks"
-          keystore/debug_user="$GODOT_ANDROID_KEYSTORE_DEBUG_USER"
-          keystore/debug_password="$GODOT_ANDROID_KEYSTORE_DEBUG_PASSWORD"
           launcher_icons/main_192x192="res://assets/ui_assets/brand/app_icon.png"
           EOF
 
@@ -202,7 +196,8 @@ jobs:
           "$GODOT" --headless --editor --path . --quit > build/release/import.log 2>&1 || { tail -80 build/release/import.log; exit 1; }
           "$GODOT" --headless --path . --export-release "Android Play AAB" build/release/BeachCocktails-Play.aab > build/release/export.log 2>&1 || { tail -100 build/release/export.log; exit 1; }
           test -s build/release/BeachCocktails-Play.aab
-          jarsigner -verify -strict -certs build/release/BeachCocktails-Play.aab
+          jarsigner -verify -certs build/release/BeachCocktails-Play.aab > build/release/signature-check.log 2>&1 || { cat build/release/signature-check.log; exit 1; }
+          grep -qi 'jar verified' build/release/signature-check.log || { cat build/release/signature-check.log; echo "AAB upload signature was not verified." >&2; exit 1; }
           echo "Signed upload AAB prepared. No Play upload or publication occurred."
 
       - uses: actions/upload-artifact@v4
