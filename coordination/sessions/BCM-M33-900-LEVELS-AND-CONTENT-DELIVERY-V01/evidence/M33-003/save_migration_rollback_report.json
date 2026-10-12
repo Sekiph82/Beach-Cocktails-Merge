@@ -1,0 +1,57 @@
+{
+  "result": "PASS_SCHEMA_COMPATIBILITY_CONTRACT; PRIOR_BINARY_ROLLBACK_UNVERIFIED",
+  "save_schema_version": 2,
+  "save_manager_changed_from_task_start": false,
+  "evidence": [
+    {
+      "check": "schema-two state roundtrip with M33 optional unknown field and global-1000 completion",
+      "result": "PASS",
+      "probe": "tests/m33_campaign_navigation_probe.gd"
+    },
+    {
+      "check": "schema-v1-to-current deterministic migration",
+      "result": "PASS",
+      "probe": "tests/m20_migration_probe.gd"
+    },
+    {
+      "check": "legacy best-score migration without source rewrite",
+      "result": "PASS",
+      "probe": "tests/m20_migration_probe.gd"
+    },
+    {
+      "check": "backup recovery from corrupt primary",
+      "result": "PASS",
+      "probe": "tests/m20_migration_probe.gd"
+    },
+    {
+      "check": "unsupported future schema remains non-destructive",
+      "result": "PASS",
+      "probe": "tests/m20_migration_probe.gd"
+    },
+    {
+      "check": "malformed/incompatible content rejected before campaign save manager is created",
+      "result": "PASS",
+      "probe": "tests/m33_content_unavailable_probe.gd"
+    }
+  ],
+  "rollback_contract": {
+    "m33_keeps_schema_two": true,
+    "m33_changes_to_save_manager": false,
+    "campaign_save_receives_content_manifest_or_level_definitions": false,
+    "prior_runtime_file_identity": "unchanged from synchronized task-start HEAD 009262117f9d45dfeabe13ade1b6183c5ae0a34a",
+    "previous_app_binary_run": false,
+    "status": "UNVERIFIED_ON_OLDER_INSTALLED_BINARY; CODE_CONTRACT_AND_MIGRATION_PROBES_PASS"
+  },
+  "content_manifest": {
+    "version": "BCM-M33.1",
+    "island_count": 10,
+    "levels_per_island": 100,
+    "total_levels": 1000,
+    "read_only": true
+  },
+  "workflows": {
+    "android_private_apk_unchanged": true,
+    "ios_private_ipa_unchanged": true,
+    "store_workflows_invoked": false
+  }
+}

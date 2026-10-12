@@ -1,0 +1,67 @@
+{
+  "result": "PASS_BUILDER_INTEGRATION_WITH_PLAYABILITY_LIMITS",
+  "engine": "Godot 4.7.2.stable.official.ed1daf0bf",
+  "sandbox": "C:/Users/sekip/.codex/sandboxes/BCM-M33-VALIDATION-20261012-01",
+  "isolated_user_data": true,
+  "checks": [
+    {
+      "id": "strict_full_content",
+      "result": "PASS",
+      "probe": "tests/m33_campaign_content_probe.gd",
+      "details": "10 islands x 100 levels; all hashes, IDs, R04 references and 4T fields load"
+    },
+    {
+      "id": "all_island_navigation",
+      "result": "PASS",
+      "probe": "tests/m33_campaign_navigation_probe.gd",
+      "details": "real production World Map selection opened all ten Island Maps; levels 1, 50, 100 were enabled and present on each"
+    },
+    {
+      "id": "campaign_unlock_finale",
+      "result": "PASS",
+      "probe": "tests/m33_campaign_navigation_probe.gd",
+      "details": "in-memory production CampaignManager progression completed sequential 100-level islands through final_island/100 global 1000"
+    },
+    {
+      "id": "save_roundtrip",
+      "result": "PASS",
+      "probe": "tests/m33_campaign_navigation_probe.gd",
+      "details": "schema-two progress, final-island completion and an unknown optional field survived write/read"
+    },
+    {
+      "id": "content_failure_fallback",
+      "result": "PASS",
+      "probe": "tests/m33_content_unavailable_probe.gd",
+      "details": "corrupt manifest stopped before campaign save-manager creation and disabled Play/World Map with visible unavailable state"
+    },
+    {
+      "id": "legacy_save_migration",
+      "result": "PASS",
+      "probe": "tests/m20_migration_probe.gd",
+      "details": "v1 migration, legacy score, backup recovery and unsupported-future safety passed"
+    },
+    {
+      "id": "seeded_physics",
+      "result": "PASS_ONE_LEVEL",
+      "probe": "tests/m33_tiki_compatibility_probe.gd",
+      "details": "Tiki local 1/global 101 completed through production GameManager/Drink physics and M17 merge-aware policy; seed 32002001"
+    },
+    {
+      "id": "default_application_boot",
+      "result": "PASS",
+      "command": "godot_console --headless --path <sandbox> --quit-after 5"
+    }
+  ],
+  "unverified": [
+    "human playtesting for all generated records",
+    "physics reachability of 899 generated records",
+    "owner mobile visual approval/captures",
+    "prior installed app binary rollback execution"
+  ],
+  "inherited_m32_screening_open_findings": [
+    "V03A source levels exact-signature reuse",
+    "L4 production VIP-second fixture captures the distinct VIP target",
+    "L60 production VIP-second fixture captures the distinct VIP target",
+    "L100 production VIP-second fixture captures the distinct VIP target"
+  ]
+}
