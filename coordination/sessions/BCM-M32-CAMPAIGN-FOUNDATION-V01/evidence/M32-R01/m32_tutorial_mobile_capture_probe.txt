@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M32_TUTORIAL_MOBILE PASS: campaign application shell is available for phone layout capture
+M32_TUTORIAL_MOBILE PASS: real gameplay tutorial is visible in the campaign shell
+M32_TUTORIAL_MOBILE PASS: prompt is fully inside 390x844 portrait viewport
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m32_tutorial_mobile_capture_probe.gd:59)
+       [1] _set_size (res://tests/m32_tutorial_mobile_capture_probe.gd:33)
+       [2] _frames (res://tests/m32_tutorial_mobile_capture_probe.gd:25)
+SCRIPT ERROR: Cannot call method 'is_empty' on a null value.
+   at: _run (res://tests/m32_tutorial_mobile_capture_probe.gd:61)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m32_tutorial_mobile_capture_probe.gd:61)
+       [1] _set_size (res://tests/m32_tutorial_mobile_capture_probe.gd:33)
+       [2] _frames (res://tests/m32_tutorial_mobile_capture_probe.gd:25)

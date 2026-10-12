@@ -1,0 +1,9 @@
+Godot: 4.7.2.stable.official.ed1daf0bf
+Sandbox project: C:\Users\sekip\.codex\worktrees\bcm-m32-r01-canonical-screening
+Detached base: 89a2a27157356f9a7669ec1f553f65c032319d59
+Project identity: BCM-M32-R01-Isolated-20261012
+Custom user-data path: C:\Users\sekip\AppData\Roaming\BCM-M32-R01-Isolated-20261012
+Before first launch, that unique user-data path did not exist, so it contained no prior saves or rotating Godot logs to back up. Owner saves and logs were not opened or modified.
+Clean editor import: exit 0. Warnings: two invalid scene UID references fell back to their explicit text paths; no parse/import errors remained.
+Process cleanup: after every run, the task-owned Godot command line was checked against this sandbox path; final process query returned no sandbox Godot process.
+Sandbox campaign JSON inputs were normalized from CRLF to the exact checked-in LF bytes because Git autocrlf had altered the manifest-hashed bytes on worktree creation. This affected only the private sandbox; canonical source and manifest remain unchanged.

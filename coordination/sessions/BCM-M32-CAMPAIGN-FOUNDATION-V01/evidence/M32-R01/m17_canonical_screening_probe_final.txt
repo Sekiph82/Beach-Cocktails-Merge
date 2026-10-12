@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M17_V04_PROBE PASS: canonical staged campaign data loads
+M17_V04_PROBE PASS: canonical dataset has exactly 100 levels
+M17_V04_PROBE PASS: canonical dataset has exactly 45 challenge classes
+M17_V04_PROBE PASS: all 100 levels map to exactly one class
+M17_V04_PROBE PASS: each class representative is its lowest level id
+M17_V04_PROBE PASS: spawn/merge reachability closure contains L1-L12
+M17_V04_PROBE PASS: all normal objectives are mathematically reachable with positive quantity/timer
+M17_V04_PROBE PASS: timer scan covers all 100 levels
+M17_V04_PROBE PASS: timer planning does not fabricate mathematical impossibility
+M17_V04_PROBE PASS: L4 analytical VIP interception risk is positive
+M17_V04_PROBE PASS: L4 normal-first route is authoritative
+M17_V04_PROBE PASS: L4 VIP-second route is authoritative
+M17_V04_PROBE PASS: L60 analytical VIP interception risk is positive
+M17_V04_PROBE PASS: L60 normal-first route is authoritative
+M17_V04_PROBE PASS: L60 VIP-second route is authoritative
+M17_V04_PROBE PASS: L100 analytical VIP interception risk is positive
+M17_V04_PROBE PASS: L100 normal-first route is authoritative
+M17_V04_PROBE PASS: L100 VIP-second route is authoritative
+M17_V04_PROBE PASS: V04 report is present and machine-readable
+M17_V04_PROBE PASS: V04 report records 100 levels and 45 classes
+M17_V04_PROBE PASS: V04 report reuses six V03A five-trial sources
+M17_V04_PROBE PASS: V04 report runs 39 new one-trial class screens
+M17_V04_PROBE PASS: V04 report uses canonical physics scale 1.0
+M17_V04_PROBE PASS: every reported level has a classification
+M17_V04_PROBE PASS: every reported class has evidence and a classification
+M17_V04_PROBE FAIL: V03A source levels are exact-signature reuse
+MERGE L6 +350  COMBO x1 +0  (toplam: 350)
+TO-GO ORDER L6 +1000  (toplam: 1350)
+M17_V04_PROBE PASS: L4 production normal-first fixture routes the mandatory target normally
+MERGE L5 +200  COMBO x1 +0  (toplam: 200)
+M17_V04_PROBE FAIL: L4 production VIP-second fixture captures the distinct VIP target
+MERGE L5 +200  COMBO x1 +0  (toplam: 200)
+TO-GO ORDER L5 +0  (toplam: 200)
+M17_V04_PROBE PASS: L60 production normal-first fixture routes the mandatory target normally
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+M17_V04_PROBE FAIL: L60 production VIP-second fixture captures the distinct VIP target
+MERGE L5 +200  COMBO x1 +0  (toplam: 200)
+TO-GO ORDER L5 +0  (toplam: 200)
+M17_V04_PROBE PASS: L100 production normal-first fixture routes the mandatory target normally
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+M17_V04_PROBE FAIL: L100 production VIP-second fixture captures the distinct VIP target
+M17_V04_PROBE PASS: canonical Sunny Cove JSON is byte-for-byte unchanged
+M17_CANONICAL_SCREENING_RESULT=FAIL failures=["V03A source levels are exact-signature reuse", "L4 production VIP-second fixture captures the distinct VIP target", "L60 production VIP-second fixture captures the distinct VIP target", "L100 production VIP-second fixture captures the distinct VIP target"]

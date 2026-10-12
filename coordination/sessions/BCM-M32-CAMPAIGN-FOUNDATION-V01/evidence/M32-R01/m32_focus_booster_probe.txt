@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M32_FOCUS_BOOSTER PASS: staged campaign and initial booster state configure
+M32_FOCUS_BOOSTER PASS: Sunny Cove training-level gameplay session starts
+M32_FOCUS_BOOSTER PASS: production GameManager binds the active campaign session
+M32_FOCUS_BOOSTER PASS: Focus booster inventory is displayed in the live gameplay HUD
+M32_FOCUS_BOOSTER PASS: using Focus consumes one persisted booster and gives order feedback
+M32_FOCUS_BOOSTER PASS: Focus leaves the active level objective and move budget unchanged
+M32_FOCUS_BOOSTER_RESULT=PASS

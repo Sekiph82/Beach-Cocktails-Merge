@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M32-R01",
+  "start_head": "89a2a27157356f9a7669ec1f553f65c032319d59",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "historical_signature_finding": {
+    "classification": "STALE_CURRENT_COMPARATOR; HISTORICAL_PROVENANCE_PARTIAL",
+    "original_assertion": "V03A source levels are exact-signature reuse",
+    "actual": "V04 uses the same five-trial arrays as V03 for all six source levels; the report and V03 timer agree. Current canonical levels have time_limit_sec=0, while historical timers are 20,80,60,180,140,300 seconds. Normal orders match current data, and the current semantic probe confirms changing only the timer normalizes the signatures.",
+    "authority": "M21 owner runtime change removed the timer; current AGENTS.md and M32 owner ruling preserve no-timer gameplay.",
+    "report_digest": "V04 declares canonical_data_sha256 9feabee63be44cfbb2b9db7527a06b1b0e3f072c6859f4e7b8c6b3d7d9f25495; raw Sunny Cove file at V04 publication commit is 23d3948d31289a67e38ae3f7e1b3a595467531a2e704ea0ab8d616eebfb220d9; current raw source is 573b5ca14ca75bec04f40a5b7d00aa441534a266569b200e36e78b28d3591128.",
+    "limitation": "Because the V04 declared digest does not match the file at its publication commit, the full canonical-data binding of that historical report remains unverified. The original assertion remains intact and red; this remediation does not claim physical-screening evidence for the untimed signatures.",
+    "source_levels": [
+      {
+        "level_id": 1,
+        "v03_trial_count": 5,
+        "v04_evidence_source": "V03A_5_TRIAL",
+        "v04_trial_count": 5,
+        "v03_timer_sec": 20.0,
+        "v04_signature_timer_sec": 20.0,
+        "current_time_limit_sec": 0,
+        "v04_orders_match_current": true,
+        "trial_payload_exact_reuse_confirmed_by_probe": true
+      },
+      {
+        "level_id": 10,
+        "v03_trial_count": 5,
+        "v04_evidence_source": "V03A_5_TRIAL",
+        "v04_trial_count": 5,
+        "v03_timer_sec": 80.0,
+        "v04_signature_timer_sec": 80.0,
+        "current_time_limit_sec": 0,
+        "v04_orders_match_current": true,
+        "trial_payload_exact_reuse_confirmed_by_probe": true
+      },
+      {
+        "level_id": 11,
+        "v03_trial_count": 5,
+        "v04_evidence_source": "V03A_5_TRIAL",
+        "v04_trial_count": 5,
+        "v03_timer_sec": 60.0,
+        "v04_signature_timer_sec": 60.0,
+        "current_time_limit_sec": 0,
+        "v04_orders_match_current": true,
+        "trial_payload_exact_reuse_confirmed_by_probe": true
+      },
+      {
+        "level_id": 50,
+        "v03_trial_count": 5,
+        "v04_evidence_source": "V03A_5_TRIAL",
+        "v04_trial_count": 5,
+        "v03_timer_sec": 180.0,
+        "v04_signature_timer_sec": 180.0,
+        "current_time_limit_sec": 0,
+        "v04_orders_match_current": true,
+        "trial_payload_exact_reuse_confirmed_by_probe": true
+      },
+      {
+        "level_id": 51,
+        "v03_trial_count": 5,
+        "v04_evidence_source": "V03A_5_TRIAL",
+        "v04_trial_count": 5,
+        "v03_timer_sec": 140.0,
+        "v04_signature_timer_sec": 140.0,
+        "current_time_limit_sec": 0,
+        "v04_orders_match_current": true,
+        "trial_payload_exact_reuse_confirmed_by_probe": true
+      },
+      {
+        "level_id": 100,
+        "v03_trial_count": 5,
+        "v04_evidence_source": "V03A_5_TRIAL",
+        "v04_trial_count": 5,
+        "v03_timer_sec": 300.0,
+        "v04_signature_timer_sec": 300.0,
+        "current_time_limit_sec": 0,
+        "v04_orders_match_current": true,
+        "trial_payload_exact_reuse_confirmed_by_probe": true
+      }
+    ]
+  },
+  "vip_finding": {
+    "classification": "STALE_FIXTURE_EXPECTATION; PRODUCTION_GUARD_CONFIRMED",
+    "expected_by_original_fixture": "Any distinct VIP level merged as a second target must be captured.",
+    "actual": "A VIP candidate is captured only if surplus to all remaining mandatory normal objectives. The original fixtures provide no supporting reserve inventory.",
+    "cases": [
+      {
+        "level": 4,
+        "vip_level": 5,
+        "normal_remaining": {
+          "6": 1
+        },
+        "candidate_alone_surplus": false,
+        "actual_delivered_alone": 0,
+        "surplus_reserve_board": [
+          5,
+          5
+        ],
+        "actual_delivered_surplus": 1
+      },
+      {
+        "level": 60,
+        "vip_level": 7,
+        "normal_remaining": {
+          "6": 1,
+          "5": 1,
+          "8": 1
+        },
+        "candidate_alone_surplus": false,
+        "actual_delivered_alone": 0,
+        "surplus_reserve_board": [
+          7,
+          7,
+          6,
+          5
+        ],
+        "actual_delivered_surplus": 1
+      },
+      {
+        "level": 100,
+        "vip_level": 7,
+        "normal_remaining": {
+          "6": 1,
+          "7": 1,
+          "5": 1,
+          "8": 1
+        },
+        "candidate_alone_surplus": false,
+        "actual_delivered_alone": 0,
+        "surplus_reserve_board": [
+          7,
+          7,
+          7,
+          6,
+          5
+        ],
+        "actual_delivered_surplus": 1
+      }
+    ],
+    "source": "CHATGPT_AUDIT_CRITERIA_V05.md Gates B-E and scripts/campaign/m17_vip_optionality_model.gd",
+    "result": "New semantic probe confirms reserve candidates remain uncaptured, true surplus candidates use on_merged direct route, VIP advances once, and normal_remaining stays unchanged."
+  },
+  "related_probe_results": {
+    "m32_campaign_contract": "FAIL: stale staged-content expectations; current repo includes completed M33 campaign data.",
+    "m32_tiki_vertical_slice": "Core production vertical slice, retry, persistence, and unlock passed; two stale checks still expect exactly 12 levels/nodes.",
+    "m32_economy_shop": "PASS",
+    "m32_focus_booster": "PASS",
+    "m32_economy_tutorial": "PASS",
+    "m32_tutorial_mobile_capture": "INCOMPLETE: headless dummy renderer returned null screenshot texture after shell/tutorial and 390x844 fit passed; not a product verdict.",
+    "m33_tiki_compatibility": "PASS: preserved M32 Tiki L1/global 101 physics scenario.",
+    "m33_campaign_content": "PASS after sandbox data was restored to checked-in LF bytes.",
+    "m33_campaign_navigation": "PASS",
+    "m33_content_unavailable": "PASS"
+  },
+  "scope_limit": "No claim is made that the 899 remaining M33 levels have physical reachability or human playtest proof."
+}

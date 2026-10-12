@@ -1,0 +1,55 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M32_R01_M17_SEMANTIC PASS: canonical campaign data loads
+M32_R01_M17_SEMANTIC PASS: historical V03 and V04 reports are readable
+M32_R01_M17_SEMANTIC PASS: L1 V04 preserves its historical five-trial V03A source record
+M32_R01_M17_SEMANTIC PASS: L1 V04 trial payload exactly reuses V03A rows
+M32_R01_M17_SEMANTIC PASS: L1 current campaign obeys the untimed owner contract
+M32_R01_M17_SEMANTIC PASS: L1 historical signature differs from current only by retired timer
+M32_R01_M17_SEMANTIC PASS: L10 V04 preserves its historical five-trial V03A source record
+M32_R01_M17_SEMANTIC PASS: L10 V04 trial payload exactly reuses V03A rows
+M32_R01_M17_SEMANTIC PASS: L10 current campaign obeys the untimed owner contract
+M32_R01_M17_SEMANTIC PASS: L10 historical signature differs from current only by retired timer
+M32_R01_M17_SEMANTIC PASS: L11 V04 preserves its historical five-trial V03A source record
+M32_R01_M17_SEMANTIC PASS: L11 V04 trial payload exactly reuses V03A rows
+M32_R01_M17_SEMANTIC PASS: L11 current campaign obeys the untimed owner contract
+M32_R01_M17_SEMANTIC PASS: L11 historical signature differs from current only by retired timer
+M32_R01_M17_SEMANTIC PASS: L50 V04 preserves its historical five-trial V03A source record
+M32_R01_M17_SEMANTIC PASS: L50 V04 trial payload exactly reuses V03A rows
+M32_R01_M17_SEMANTIC PASS: L50 current campaign obeys the untimed owner contract
+M32_R01_M17_SEMANTIC PASS: L50 historical signature differs from current only by retired timer
+M32_R01_M17_SEMANTIC PASS: L51 V04 preserves its historical five-trial V03A source record
+M32_R01_M17_SEMANTIC PASS: L51 V04 trial payload exactly reuses V03A rows
+M32_R01_M17_SEMANTIC PASS: L51 current campaign obeys the untimed owner contract
+M32_R01_M17_SEMANTIC PASS: L51 historical signature differs from current only by retired timer
+M32_R01_M17_SEMANTIC PASS: L100 V04 preserves its historical five-trial V03A source record
+M32_R01_M17_SEMANTIC PASS: L100 V04 trial payload exactly reuses V03A rows
+M32_R01_M17_SEMANTIC PASS: L100 current campaign obeys the untimed owner contract
+M32_R01_M17_SEMANTIC PASS: L100 historical signature differs from current only by retired timer
+MERGE L5 +200  COMBO x1 +0  (toplam: 200)
+M32_R01_VIP_DETAIL protected level=4 vip=5 normal_remaining={ 6: 1 } candidate_surplus=false delivered=0 unchanged=true
+M32_R01_M17_SEMANTIC PASS: L4 reserve-contributing VIP candidate remains uncaptured
+MERGE L5 +200  COMBO x1 +0  (toplam: 200)
+VIP DELIVERY L5 +1/1 BONUS 0 (toplam: 200)
+M32_R01_VIP_DETAIL surplus level=4 vip=5 reserve=[5, 5] normal_remaining={ 6: 1 } candidate_surplus=true direct_route=true delivered=1 unchanged=true
+M32_R01_M17_SEMANTIC PASS: L4 distinct VIP candidate is captured on the real merged-surplus route
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+M32_R01_VIP_DETAIL protected level=60 vip=7 normal_remaining={ 8: 1, 6: 1, 5: 1 } candidate_surplus=false delivered=0 unchanged=true
+M32_R01_M17_SEMANTIC PASS: L60 reserve-contributing VIP candidate remains uncaptured
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+VIP DELIVERY L7 +1/1 BONUS 3600 (toplam: 4200)
+M32_R01_VIP_DETAIL surplus level=60 vip=7 reserve=[7, 7, 6, 5] normal_remaining={ 8: 1, 6: 1, 5: 1 } candidate_surplus=true direct_route=true delivered=1 unchanged=true
+M32_R01_M17_SEMANTIC PASS: L60 distinct VIP candidate is captured on the real merged-surplus route
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+M32_R01_VIP_DETAIL protected level=100 vip=7 normal_remaining={ 8: 1, 7: 1, 6: 1, 5: 1 } candidate_surplus=false delivered=0 unchanged=true
+M32_R01_M17_SEMANTIC PASS: L100 reserve-contributing VIP candidate remains uncaptured
+MERGE L7 +600  COMBO x1 +0  (toplam: 600)
+VIP DELIVERY L7 +1/1 BONUS 3600 (toplam: 4200)
+M32_R01_VIP_DETAIL surplus level=100 vip=7 reserve=[7, 7, 7, 6, 5] normal_remaining={ 8: 1, 7: 1, 6: 1, 5: 1 } candidate_surplus=true direct_route=true delivered=1 unchanged=true
+M32_R01_M17_SEMANTIC PASS: L100 distinct VIP candidate is captured on the real merged-surplus route
+M32_R01_M17_SEMANTIC_RESULT=PASS
