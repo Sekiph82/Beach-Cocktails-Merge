@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M28
 - Current Sprint: BCM-M28-RELEASE-READINESS-V01
-- Current Task: BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M28-001 — CODEX executes existing-workflows master V03 through M28-003 in one run; preserves successful APK/IPA pipelines, then requests one independent milestone audit.
-- Required Actor: CODEX
+- Current Task: BCM-M28-003 — Prepare release candidate manifest, acceptance evidence and open-caveat list.
+- Current Task Status: TASK_COMPLETE
+- Next Task/Action: BCM-M28-003 — OWNER decides when to initiate separate public Google Play/App Store readiness milestone; Android family device QA remains open.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner authorized rapid M28 completion using working APK action 38078255160, unsigned IPA action 38063815860, and existing owner iPhone WSL/xtool installation flow. Different build SHAs are intentional. No duplicate builds or workflow edits by default; M28-001/002/003 one continuous evidence-led milestone.
+- Progress: M28 independent evidence audit PASS and M28 CLOSED for existing private family-test scope. Android APK and unsigned iOS IPA workflow provenance documented, both successful, no changes. Owner iPhone device acceptance PASS; Android physical QA NOT DONE. Public Play/App Store readiness NO-GO pending store signing/AAB, Apple distribution identity, package privacy audit, listing and broader device QA. No store submission authorized.
 
 ## Blockers/Waits
 
@@ -1319,6 +1319,6 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M28 — iOS release readiness and final evidence
 
-- [~] BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
-- [ ] BCM-M28-002 — Validate device-release safety, persistence, lifecycle and privacy requirements.
-- [ ] BCM-M28-003 — Prepare release candidate manifest, acceptance evidence and open-caveat list.
+- [x] BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
+- [x] BCM-M28-002 — Validate device-release safety, persistence, lifecycle and privacy requirements.
+- [x] BCM-M28-003 — Prepare release candidate manifest, acceptance evidence and open-caveat list.
