@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M30
-- Current Sprint: BCM-M30-STORE-RELEASE-PIPELINE-V01
-- Current Task: BCM-M30-003 — Release package policy review.
-- Current Task Status: TASK_COMPLETE
-- Next Task/Action: BCM-M30-003 — OWNER reviews the M30 audit and signing requirements.
-- Required Actor: OWNER
+- Current Milestone: BCM-M31
+- Current Sprint: BCM-M31-GAME-COMPLETION-AUDIT-V01
+- Current Task: BCM-M31-001 — Audit actual product feature completion.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: CODEX runs M31 game-completion audit master through M31-003 and awaits one independent GPT audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M30 preparation audit PASS. Signed builds and store publishing remain blocked pending credentials, validated pipeline execution and package inspections.
+- Progress: Owner explicitly says game is unfinished. Store publishing/signing preparation is deferred. M31 inventories game feature gaps and prepares prioritized development milestones; no publication.
 
 ## Blockers/Waits
 
@@ -1336,3 +1336,10 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M30-001 — Add isolated Google Play release AAB preparation and protected signing gate.
 - [x] BCM-M30-002 — Add isolated Apple distribution export and protected signing gate.
 - [x] BCM-M30-003 — Audit release package privacy, SDKs and owner-required listing gates.
+
+
+### M31 — Game completion audit
+
+- [~] BCM-M31-001 — Inventory actual features and owner-approved scope.
+- [ ] BCM-M31-002 — Verify remaining gaps, placeholders and runtime risks.
+- [ ] BCM-M31-003 — Produce prioritized game completion milestones and definition of done.
