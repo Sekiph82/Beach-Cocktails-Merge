@@ -1,0 +1,11 @@
+# BCM-M31 independent milestone audit V01
+
+**Verdict: M31-001 / M31-002 / M31-003 PASS for source-based completeness discovery and planning; product completion NO-GO.** Reviewed the live M31 feature matrix, verified gap register, prioritized finish plan, and Codex master handoff, against the owner’s declared intent that the game is unfinished. This is not a fresh Godot runtime or device audit.
+
+**Confirmed critical content gap:** Current canonical campaign contains ten island declarations but only Sunny Cove has playable levels (L1–L100). Nine later islands have level_count 0, and Final Island is named TBD. A working reusable island-map/controller does not make those islands playable. Release and game completion cannot be claimed. The owner must decide whether to implement 100 levels per island, some other distribution, or a narrower campaign.
+
+**Other findings:** Coin/reward accounting exists but per-level Sunny Cove coin payout is zero; Home gems are static, and there is no proven functional purchase/shop loop. Booster grants/inventory exist but no production consumer of consume_booster was identified. A retired time booster must NOT be re-enabled because the game has no timer by owner decision. Onboarding text exists; its educational completeness is unverified. Audio/haptic and broad-device validation remain bounded. M31 logs correctly distinguish missing/partial/unverified/owner decisions and do not claim freshly executed tests.
+
+**Audit limitation:** This finding is grounded in canonical source/config and prior evidence documented by Codex. The independent audit read published reports, not a new full playthrough nor raw generated package bytes. No builds or tests were undertaken in M31, which was intentionally documentation-only; no owner gameplay changes were made.
+
+**Disposition:** M31 evidence and planning work CLOSED. The GAME remains INCOMPLETE. M28–M30 store delivery/publishing work stays deferred until product completion is separately approved. Before creating any M32 feature implementation prompt, get explicit owner decisions on campaign level distribution, islands/finale, economy/shop and usable boosters, and optional tutorial scope. Future implementation should preserve accepted Sunny Cove physics, To-Go/VIP, 4T star budgets, maps and presentation.
