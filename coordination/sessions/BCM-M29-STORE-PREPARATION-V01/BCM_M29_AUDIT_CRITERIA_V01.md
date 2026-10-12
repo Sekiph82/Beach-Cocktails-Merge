@@ -1,0 +1,3 @@
+# M29 audit criteria
+
+One continuous three-child milestone, one GPT audit. Preserve existing working family APK and IPA workflows and owner assets. M29-001 Android: document production AAB, Play signing and version/permissions gaps. M29-002 iOS: document Apple distribution signing, provisioning, build/version and package metadata gaps. M29-003: document observed data collection, SDK/privacy, store listings, ratings and owner-required decisions without inventing compliance. No store deployment. Protect credentials, saves, tracked and untracked owner changes. Every change logged and verified; no unnecessary builds. Codex never edits TASKS.md.
