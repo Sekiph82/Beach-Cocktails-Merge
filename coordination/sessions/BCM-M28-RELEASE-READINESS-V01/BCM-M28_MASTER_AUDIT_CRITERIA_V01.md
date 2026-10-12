@@ -1,0 +1,5 @@
+# M28 release readiness criteria
+
+M28 is release readiness and evidence closure, not a redesign. Preserve owner-approved iPhone visuals, effects, gameplay, percent400 move limits and stars, map layouts, economy, user saves and all production physics. Audit actual GitHub Actions IPA pipeline and signed artifact evidence without downloading or exposing signing secrets. Apple App Store Connect API key/private keys must remain protected in CI secrets, never in repository logs or compiled assets. Check bundle ID, build version, provisioning/signing/export and IPA installability only from verifiable evidence; do not claim App Store approval.
+
+Review iOS privacy declarations, permissions, platform minimums, orientation, assets/icon, launch, crash and log handling, save persistence, recovery from app resume/interruption and offline conditions with tests or explicit owner QA caveats. Run the established full regression and two GL QA suites only when code changes justify them. Preserve original owner data and zero task-owned sandbox processes, no destructive cleanup. Commit child logs/evidence separately; a single GPT milestone audit at end. TASKS.md GPT only.
