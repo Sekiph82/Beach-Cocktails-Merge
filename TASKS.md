@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M27
-- Current Sprint: BCM-M27-MASTER-V01
-- Current Task: BCM-M27-002 — Audit every category in FULL and REDUCED and prove accessibility behavior is complete.
-- Current Task Status: BLOCKED
-- Next Task/Action: BCM-M27-002 — Produce missing FULL/REDUCED paired category GL captures and complete owner-native iPhone acceptance after IPA build; one milestone final audit.
+- Current Milestone: BCM-M28
+- Current Sprint: BCM-M28-RELEASE-READINESS-V01
+- Current Task: BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M28-001 — CODEX executes `coordination/sessions/BCM-M28-RELEASE-READINESS-V01/CHATGPT_M28_MASTER_PROMPT_V01.md` through M28-003 and stops for milestone audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M27 technical function audit PASS (M01-M20 30/30, effect policy 97/97, 100-level progression and plugin fallback), but required paired category visual review is incomplete and owner iPhone review pending. User is preparing iPhone IPA via GitHub Actions, with Ubuntu, Swift, xtool and App Store Connect API key. Never commit signing secrets. M27 not closed.
+- Progress: M27 owner accepted actual iPhone graphics, effects and gameplay; M27 CLOSED. Individual FULL/REDUCED paired GL matrix not generated, superseded for owner approval by actual device review, not claimed technically completed. M28 release-readiness milestone active; no App Store submission authorized.
 
 ## Blockers/Waits
 
@@ -1292,7 +1292,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: particle/node telemetry, terminal screenshots, performance logs, zero errors.
   - Owner acceptance: feeds M27 final review.
 
-- [!] BCM-M27-002 — Audit every category in FULL and REDUCED and prove accessibility behavior is complete.
+- [x] BCM-M27-002 — Audit every category in FULL and REDUCED and prove accessibility behavior is complete.
   - Purpose: Reduced Motion becomes a coherent alternative mode, not scattered exceptions.
   - Existing seam: `UserSettings.reduced_motion/presentation_changed`, ApplicationShell settings propagation, `GameManager.apply_presentation_settings()`, shared bridge, gameplay, Results, maps, rewards/CTA.
   - Semantic trigger: complete M22 semantic catalog.
@@ -1304,7 +1304,7 @@ These are presentation tiers only and never influence gameplay values.
   - Godot AI evidence: paired FULL/REDUCED frames for launch, contact, merge/combo, ORDER, VIP, WIN, MASTERY, LOSE, level/island unlock, reward, CTA; clean logs.
   - Owner acceptance: mandatory paired-matrix review.
 
-- [ ] BCM-M27-003 — Close presentation with authority regression, plugin-failure fallback, Godot AI evidence, and owner-native visual acceptance.
+- [x] BCM-M27-003 — Close presentation with authority regression, plugin-failure fallback, Godot AI evidence, and owner-native visual acceptance.
   - Purpose: prove GameFeelFlow/Spark remain removable presentation layers and close only after production-flow owner acceptance.
   - Existing seam: full regression suite, FeedbackService telemetry, presentation bridge, GameplaySessionBridge results, CampaignManager state, SaveManager output, Results/maps/settings, plugin/autoload presence.
   - Semantic trigger: representative end-to-end flows across all tiers.
@@ -1315,3 +1315,10 @@ These are presentation tiers only and never influence gameplay values.
   - Automated regression: physics/trajectory/merge/scoring/To-Go/VIP/no-timer/stars/rewards/unlocks/persistence parity with presentation disabled; injected plugin failure no-op; zero red Godot errors.
   - Godot AI evidence: complete production navigation captures, representative effect frames, clean logs, plugin-failure runs, cleanup reports, owner-native mobile package.
   - Owner acceptance: mandatory; builder self-audit cannot close M27.
+
+
+### M28 — iOS release readiness and final evidence
+
+- [~] BCM-M28-001 — Audit current iOS IPA pipeline, artifact signing and release provenance.
+- [ ] BCM-M28-002 — Validate device-release safety, persistence, lifecycle and privacy requirements.
+- [ ] BCM-M28-003 — Prepare release candidate manifest, acceptance evidence and open-caveat list.
