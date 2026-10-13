@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "status": "OWNER_APPROVAL_AND_VERIFIED_PROVIDER_REQUIRED",
+  "products": [
+    {"key": "remove_ads", "kind": "non_consumable", "android_product_id": "", "ios_product_id": "", "price": null, "buyable": false},
+    {"key": "currency_pack_placeholder", "kind": "consumable", "android_product_id": "", "ios_product_id": "", "price": null, "buyable": false}
+  ]
+}
