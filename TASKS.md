@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-001 — Audit and repair end-to-end game feature integration.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-001 — Codex executes authoritative V02 master across seven child tasks, including proven-safe cleanup, rewarded ads, and IAP guarded integrations.
+- Next Task/Action: BCM-M34-001 — Codex executes authoritative V03 master across eight child tasks, including approved energy, full economy analysis, safe cleanup, ads and IAP.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M33 R06 owner review OK; M33-004 physical/human fairness qualification remains open. Owner extended M34 to prove-and-remove unused tracked assets/code and safely inventory local import cache; add opt-in rewarded ads and disabled-until-approved IAP via verified platform integrations. No unverified live ad/payment claims, no Desktop-root items.
+- Progress: BCM economy source review found HOME ENERGY hardcoded 100, GameEconomy Coins/Gems/booster ledgers, provisional Focus 40 coins/1 gem, and sampled first-clear rewards 0 coins. Prior BCM owner ruling: 100 max, 20 per attempt/retry, +1 energy/3min, 25 gems refill, verified ad +20, Daily Rewards 5 slots (1 free +4 rewarded). Other amounts proposed, NOT approved. M33-004 measured QA remains open.
 
 ## Blockers/Waits
 
@@ -1370,3 +1370,4 @@ These are presentation tiers only and never influence gameplay values.
 - [ ] BCM-M34-005 — Inventory and safely clean provably unused tracked game assets, dead code, modules and orphan import metadata.
 - [ ] BCM-M34-006 — Integrate guarded Android/iOS ads and opt-in rewarded video services with SDK provenance and consent.
 - [ ] BCM-M34-007 — Build guarded Google Play Billing/Apple StoreKit purchase infrastructure and verified entitlement boundary.
+- [ ] BCM-M34-008 — Implement previously approved BCM energy rules and audit total coin/gem/booster/Daily Rewards balance; hold new numeric economy decisions for owner approval.
