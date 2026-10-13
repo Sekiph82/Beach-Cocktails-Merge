@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R04 — Apply owner-approved T<=56 difficulty design to 888 generated levels; enforce desktop boundary.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: CODEX executes M33-R04 master; verify exact unauthorized tutorial Desktop shortcut removal and no new Desktop items; await GPT audit.
+- Current Task: BCM-M33-R04-R01 — Repair generated objective L5 bridge, cross-island recipe repetition and audit count discrepancy.
+- Current Task Status: BLOCKED
+- Next Task/Action: CODEX executes M33-R04-R01 design-contract remediation and returns evidence for independent audit; no mass physics simulation.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner approved T<=56 for ordinary levels, rare L9-L12 capstones/VIP, human 2-5min and p90<=8min goals, and unchanged optional-VIP-inclusive 4T/stars. Owner strictly forbids ANY new Desktop root files/shortcuts; only existing Desktop/Beach Cocktails - Merge is authorized.
+- Progress: M33-R04 generation published, audit CONDITIONAL/BLOCKED: generated normal orders include L5 bridges despite owner L6+ direction, 361 cross-island full-recipe repeats, README 870/879 count inconsistent. Physics/human playability unverified. Desktop shortcut reported absent and auto-creation disabled.
 
 ## Blockers/Waits
 
