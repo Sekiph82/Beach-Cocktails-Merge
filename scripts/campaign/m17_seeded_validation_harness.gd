@@ -60,6 +60,8 @@ func telemetry_schema_keys() -> Array[String]:
 		"danger_line_exposure_sec", "normal_objective_complete", "vip_complete",
 		"action_log", "policy_name", "unique_x_positions", "lateral_variation_eligible",
 		"lateral_variation", "decision_reason_counts", "terminal_reason", "physics_hook",
+	"moves_used", "move_limit", "moves_remaining", "stars", "normal_orders_completed",
+	"normal_orders_remaining", "vip_state",
 	]
 
 
@@ -94,6 +96,13 @@ func new_telemetry(island_id: String, level_id: int, seed_value: int) -> Diction
 		"decision_reason_counts": {},
 		"terminal_reason": "",
 		"physics_hook": "production GameManager.spawn_drink + Drink.launch_up + Godot physics frames",
+		"moves_used": 0,
+		"move_limit": 0,
+		"moves_remaining": 0,
+		"stars": 0,
+		"normal_orders_completed": {},
+		"normal_orders_remaining": {},
+		"vip_state": {"enabled": false, "status": "HIDDEN", "completed": false},
 	}
 
 
@@ -172,7 +181,11 @@ func run_trial(
 	level_id: int,
 	seed_value: int,
 	action_log_override: Array = [],
-	policy_name: String = POLICY_WEAK_V02
+	policy_name: String = POLICY_WEAK_V02,
+	max_shots_override: int = 0,
+	use_production_shot_controller: bool = false,
+	no_timer: bool = false,
+	max_wall_time_sec: float = 0.0
 ) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
 	telemetry["policy_name"] = policy_name
@@ -227,11 +240,14 @@ func run_trial(
 	rng.seed = seed_value
 	var expected_spawns := MODEL_SCRIPT.expected_spawn_count(MODEL_SCRIPT.normal_objective_cost(level_definition))
 	var max_shots := maxi(12, int(ceil(expected_spawns * MAX_SHOTS_MULTIPLIER)) + 8)
-	var time_limit_sec := float(level_definition.get("time_limit_sec", 0.0))
+	if max_shots_override > 0:
+		max_shots = mini(max_shots, max_shots_override)
+	var time_limit_sec := 0.0 if no_timer else float(level_definition.get("time_limit_sec", 0.0))
+	var wall_start_msec := Time.get_ticks_msec()
 	var action_index := 0
 	var elapsed := 0.0
 	var replaying := not action_log_override.is_empty()
-	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots:
+	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots and (not use_production_shot_controller or bridge.can_commit_shot()) and (max_wall_time_sec <= 0.0 or float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 < max_wall_time_sec):
 		var spawn_level: int
 		var lane_index: int
 		var x_position: float
@@ -280,7 +296,15 @@ func run_trial(
 			break
 		_attach_drink(launched, state)
 		launched.position.x = x_position
-		launched.launch_up(SHOT_SPEED)
+		if use_production_shot_controller:
+			# Exercise ShotController's actual launch path. It emits shot_fired,
+			# which records the committed move through GameManager, then replaces
+			# the held preview exactly as a normal launch does.
+			manager.shot_controller.stop_shooting()
+			manager.shot_controller._current_drink = launched
+			manager.shot_controller._launch()
+		else:
+			launched.launch_up(SHOT_SPEED)
 		telemetry["shot_count"] = int(telemetry["shot_count"]) + 1
 		var merges_before := int(state["merge_count"])
 		for _frame in range(FRAMES_PER_ACTION):
@@ -305,13 +329,20 @@ func run_trial(
 
 	if bridge.is_terminal():
 		var terminal: Dictionary = bridge.get_terminal_result()
-		var classified := classify_trial_outcome(terminal, manager.game_over, elapsed, float(level_definition.get("time_limit_sec", 0.0)))
+		var classified := classify_trial_outcome(terminal, manager.game_over, elapsed, time_limit_sec)
 		telemetry["outcome"] = classified["outcome"]
 		telemetry["terminal_reason"] = classified["terminal_reason"]
 	else:
-		var classified := classify_trial_outcome({}, manager.game_over, elapsed, float(level_definition.get("time_limit_sec", 0.0)))
+		var classified := classify_trial_outcome({}, manager.game_over, elapsed, time_limit_sec)
 		telemetry["outcome"] = classified["outcome"]
-		telemetry["terminal_reason"] = classified["terminal_reason"]
+		if use_production_shot_controller and not bridge.can_commit_shot():
+			telemetry["terminal_reason"] = "MOVE_BUDGET_EXHAUSTED"
+		elif action_index >= max_shots:
+			telemetry["terminal_reason"] = "PER_LEVEL_SHOT_BUDGET"
+		elif max_wall_time_sec > 0.0 and float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 >= max_wall_time_sec:
+			telemetry["terminal_reason"] = "PER_LEVEL_WALL_BUDGET"
+		else:
+			telemetry["terminal_reason"] = classified["terminal_reason"]
 
 	telemetry["elapsed_sec"] = elapsed
 	telemetry["remaining_sec"] = maxf(0.0, float(bridge.timer_remaining_sec))
@@ -337,6 +368,14 @@ func run_trial(
 	var objective_state: Dictionary = bridge.get_objective_state()
 	telemetry["normal_objective_complete"] = bridge.is_terminal() and str(bridge.get_terminal_result().get("outcome", "")) == "WIN"
 	telemetry["vip_complete"] = bool(objective_state.get("vip_completed", false))
+	var move_state: Dictionary = bridge.get_move_budget_state()
+	telemetry["moves_used"] = int(move_state.get("moves_used", 0))
+	telemetry["move_limit"] = int(move_state.get("move_limit", 0))
+	telemetry["moves_remaining"] = int(move_state.get("moves_remaining", 0))
+	telemetry["normal_orders_completed"] = objective_state.get("normal_completed", {}).duplicate(true)
+	telemetry["normal_orders_remaining"] = objective_state.get("normal_remaining", {}).duplicate(true)
+	telemetry["vip_state"] = bridge.get_vip_state().duplicate(true)
+	telemetry["stars"] = int(bridge.get_terminal_result().get("stars", 0)) if bridge.is_terminal() else 0
 
 	manager.queue_free()
 	await _root.get_tree().process_frame

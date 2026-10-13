@@ -1,0 +1,20 @@
+{
+	"content_version": "BCM-M33.2",
+	"global_wall_budget_sec": 120.0,
+	"godot_version": "4.7.2-stable (official)",
+	"isolated_user_data": true,
+	"manifest_sha256": "0BA2F7C552DD7FC6F5CC691CD5AC53438AB5BE6519BD105FA71B1F1CF4E25F22",
+	"max_shots_per_trial": 60,
+	"per_trial_wall_budget_sec": 30.0,
+	"physics_scale": 1.0,
+	"policy": "MERGE_AWARE_V01",
+	"project_name": "CocktailMerge-M33-R01-PhysicsSandbox-6962732-20261013",
+	"requested_level_ids": [
+		201,
+		1000
+	],
+	"requested_trials_per_level": 2,
+	"runner_version": "BCM-M33-R01-QUALIFICATION-1.0.0",
+	"seed_base": 33040100,
+	"seed_formula": "seed_base + global_level_id * 100 + trial_index"
+}
