@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "runner": "BCM-M33-R03-NECESSARY-CONDITION-1.0.0",
+  "scope": "read-only static campaign analysis; no physics or Godot runtime simulation",
+  "python_version": "3.12.10",
+  "input_bytes": 781178,
+  "input_sha256": {
+    "data/campaign/islands.json": "0FED6B12C39E078E8B0B24689DADD6ABF3EAB6B60BAED8A2D5C55512ACA29A2C",
+    "data/campaign/content_manifest_m33.json": "0BA2F7C552DD7FC6F5CC691CD5AC53438AB5BE6519BD105FA71B1F1CF4E25F22",
+    "data/campaign/levels/sunny_cove.json": "573B5CA14CA75BEC04F40A5B7D00AA441534A266569B200E36E78B28D3591128",
+    "data/campaign/levels/tiki_island_full.json": "F63576FFD128CF0C2B9D6D9C5EDB900876BFD4B93C8588B644E6EF5AF1F149AC",
+    "data/campaign/levels/azure_bay.json": "A2F34B2A4A469F045069EAF6134E72036777033002D39033B6900D3F1FAC4BC9",
+    "data/campaign/levels/coconut_beach.json": "03D4E2BCD92DE406F44044420F325E0F32621F132D2747E4F2A5FF76F4BA228A",
+    "data/campaign/levels/sunset_island.json": "B48F987158561CC7E51BE45383B84C486AE1B93B6DBEAC33C15E38D2AC06D66C",
+    "data/campaign/levels/party_beach.json": "090041556E9312C15967D61FA24FC14E509A135F6C89E6B985A5B43EA228B3FE",
+    "data/campaign/levels/frozen_paradise.json": "E127E24925AAD1BB18DB9D5416E9CB9856531AA1323D09A55049FE10B50C6854",
+    "data/campaign/levels/volcano_bay.json": "33FEDB86322A3E70DD34AA17151AAEEA6ED6EDD0DB97B6AF4DA9621E7D30C487",
+    "data/campaign/levels/billionaire_island.json": "7FFCB9B8D47B2C7DABF7E8DE982D8417ECC8F197A63B5C1BB3A4E3FE082F633A",
+    "data/campaign/levels/final_island.json": "88D2B7A8801FF093F12C5389CDD3BC645220A409A479C7B22916B17646AB137D"
+  },
+  "source_sha256": {
+    "tools/campaign/m33_r03_difficulty_analytics.py": "BC2EC89F744D7E7D73966EF5936EF665C6227D10E934CAFF6DD98DF627A78CB4",
+    "scripts/campaign/level_database.gd": "CDD149370984CA2F93AB9F5B600331116F9F79C8BA6603AE0490FA9A20700A80",
+    "scripts/campaign/m17_difficulty_model.gd": "C6F8DA668093BD42112AFE0BBC894170E3456E1045D2AB22BD1E4657E3CC8750",
+    "scripts/campaign/m17_vip_optionality_model.gd": "BD1C9C4C827C075E4201E9B2135592933B0E9981B5299D0F945C1FA7B7A11541",
+    "scripts/campaign/m17_canonical_screening_model.gd": "16992A1A6E7E521B767B2ED676A14FF601751F103C518AC9777FDFE86E7E9481",
+    "scripts/campaign/gameplay_session_bridge.gd": "6724657753206568F4C5AA1AFE9D0769400C8D04FA0DA652B3BF5EA4375D254E",
+    "tools/validate_m33_campaign_content.py": "5B2934C2811E51FCE1E743E3CDBACD80EA115ACF328AD10F5CE4490EC7E3438B",
+    "tests/test_m33_r03_difficulty_analytics.py": "1C74A9843DB7AEFD721D967711A307CC0FF63794C8FE02405756518FE8DC2CE3"
+  },
+  "outputs_before_this_metadata_file": {
+    "all_level_difficulty_analysis.json": 157246,
+    "candidate_validator_report.json": 470974,
+    "all_1000_levels.csv": 342596
+  },
+  "output_bytes_before_metadata": 970816,
+  "evidence_payload_files_before_metadata": {
+    "all_1000_levels.csv": 342596,
+    "all_level_difficulty_analysis.json": 157246,
+    "candidate_validator_report.json": 470974,
+    "owner_difficulty_redesign_proposal.md": 11139,
+    "README.md": 7421
+  },
+  "evidence_payload_bytes_before_metadata": 989376,
+  "wall_elapsed_seconds": 0.068313,
+  "process_cpu_seconds": 0.0625
+}
