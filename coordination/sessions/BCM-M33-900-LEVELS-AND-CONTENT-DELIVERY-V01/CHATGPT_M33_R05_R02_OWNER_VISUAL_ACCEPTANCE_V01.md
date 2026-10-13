@@ -1,0 +1,5 @@
+# BCM-M33-R05-R02 Owner Visual Acceptance V01
+
+Owner explicitly reviewed and approved the two current nine-island screenshot galleries at 390x844 and 432x960, shared directly in the conversation on 2026-10-13. **OWNER_VISUAL_ACCEPTED** for those 18 empty/populated representative layouts and the reviewed starter size/position aesthetic. GPT also inspected these actual uploaded gallery pixels and concurs that the conspicuous giant starter problem in V01 has been corrected: current starting drinks are substantially smaller, readable, sit above the danger boundary without obscuring HUD or launch drink, with island themes intact.
+
+This is a **bounded visual/layout acceptance**, not a blanket guarantee for all 888 individual levels, tap targets, human win rates, 2–5 minute/p90 goals, device compatibility or full game completion. The prior Codex R05-R02 Godot L6 same-level geometry telemetry and probes remain builder-reported evidence. No user authorization to modify files on the Desktop root or create test shortcuts. R05-R02 can be marked visually closed while M33 product qualification remains open.
