@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-001 — Audit and repair end-to-end game feature integration.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-001 — Codex executes authoritative V03 master across eight child tasks, including approved energy, full economy analysis, safe cleanup, ads and IAP.
+- Next Task/Action: BCM-M34-001 — Codex follows the authoritative updated M34 V03 master including owner decision to remove Focus entirely, frame MOVES, implement locked economy, and complete safe cleanup/ads/IAP integration work.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: BCM economy source review found HOME ENERGY hardcoded 100, GameEconomy Coins/Gems/booster ledgers, provisional Focus 40 coins/1 gem, and sampled first-clear rewards 0 coins. Prior BCM owner ruling: 100 max, 20 per attempt/retry, +1 energy/3min, 25 gems refill, verified ad +20, Daily Rewards 5 slots (1 free +4 rewarded). Other amounts proposed, NOT approved. M33-004 measured QA remains open.
+- Progress: Owner cancelled Focus booster and approved BCM starting Energy100/Coins100/Gems5, energy20 per attempt, +1/3min, refill25 Gems, verified ad+20, star coins20/30/40, every fifth 3star+1 Gem, island+200 Coins/+10 Gems. Remove Focus Shop/UI/logic without damaging saves; MOVES gets themed frame. Daily slot3 replacement OWNER_REQUIRED, no Focus reward. M33-004 fairness QA remains open.
 
 ## Blockers/Waits
 
@@ -1365,9 +1365,10 @@ These are presentation tiers only and never influence gameplay values.
 
 - [~] BCM-M34-001 — Audit and repair complete player journey, campaign, shop, boosts and tutorial integration.
 - [ ] BCM-M34-002 — Verify production progression, save and representative nine-island gameplay.
-- [ ] BCM-M34-003 — Validate free economy, Shop, Focus and boosters transaction integrity.
+- [ ] BCM-M34-003 — Validate Coins/Gems/Energy, Daily Rewards and remaining booster transaction integrity; remove Focus.
 - [ ] BCM-M34-004 — Validate tutorial, usability and accessibility regressions.
 - [ ] BCM-M34-005 — Inventory and safely clean provably unused tracked game assets, dead code, modules and orphan import metadata.
 - [ ] BCM-M34-006 — Integrate guarded Android/iOS ads and opt-in rewarded video services with SDK provenance and consent.
 - [ ] BCM-M34-007 — Build guarded Google Play Billing/Apple StoreKit purchase infrastructure and verified entitlement boundary.
-- [ ] BCM-M34-008 — Implement previously approved BCM energy rules and audit total coin/gem/booster/Daily Rewards balance; hold new numeric economy decisions for owner approval.
+- [ ] BCM-M34-008 — Implement owner-approved BCM energy and numeric economy rewards; Daily slot3 replacement awaits owner ruling.
+- [ ] BCM-M34-009 — Remove Focus fully, migrate its old inventory safely and frame MOVES display in owner-accepted HUD.
