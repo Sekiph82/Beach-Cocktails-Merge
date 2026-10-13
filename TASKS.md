@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R04-R01 — Feasibility audit PASS; new recipe-diversity policy requires owner decision.
-- Current Task Status: BLOCKED_OWNER_DESIGN_DECISION
-- Next Task/Action: OWNER chooses controlled repeats under L6+/T56, or broader gameplay/mechanics/schema, or revised duration ceiling; then GPT publishes single Codex master prompt.
-- Required Actor: OWNER
+- Current Task: BCM-M33-R05 — Controlled recipe repeats plus owner-approved actual pre-placed tabletop cocktails for generated levels.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: CODEX executes M33-R05 master and supplies real Godot tabletop screenshots and gameplay/save evidence for GPT and owner review.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R04-R01 exhaustive existing-schema design-space analysis PASS: at most 100 order-sensitive full signatures under L6+/T56 for 879 ordinary levels; 717 current ordinary records still contain L5; all 879 meet T<=56; 361 cross-island duplicates. No regeneration pending owner ruling.
+- Progress: Owner APPROVED A controlled recipe repetition and a single B variation: cocktails already physically placed on tabletop at level start with compatible To-Go goals. No obstacles or other mechanics. Existing 4T/star/VIP, T<=56 ordinary, capstone exceptions and protected Sunny/Tiki remain; R05 pending tests and owner visual review.
 
 ## Blockers/Waits
 
