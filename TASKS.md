@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R03 — Analyze real player effort and feasible difficulty for 899 generated levels.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: CODEX executes M33-R03 analytic gameplay difficulty review and awaits independent GPT audit plus owner decision before any recipe changes.
-- Required Actor: CODEX
+- Current Task: BCM-M33-R03 — Analytic difficulty audit PASS; owner difficulty-policy decision pending.
+- Current Task Status: BLOCKED
+- Next Task/Action: OWNER — Decide target normal T, high-level L9-L12 normal order policy, human session goals, and optional VIP treatment in 4T/stars before M33 content redesign.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M33-R02 calibration AUDIT PASS, campaign still unverified. No candidate pilot victories (0/3); full 899-seed physics sweep projected 200–211h. Mass runs stopped; analytic difficulty/user-session feasibility gate active.
+- Progress: M33-R03 independent analytic audit PASS (1000 level records, 899 candidates legal, 865 workload flags, 307 VIP-intermediate warnings). All 899 still physics and fairness UNVERIFIED; redesign awaits owner decisions. Game completion NO-GO.
 
 ## Blockers/Waits
 
