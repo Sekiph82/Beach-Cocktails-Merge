@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "provider_status": "NOT_DEVICE_VERIFIED",
+  "default_enabled": false,
+  "consent_required_before_request": true,
+  "age_directed_status": "OWNER_DECISION_REQUIRED",
+  "placements": {
+    "energy_20": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
+    "daily_slot_2": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
+    "daily_slot_3": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
+    "daily_slot_4": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
+    "daily_slot_5": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
+    "banner": {"format": "banner", "opt_in_only": true, "enabled": false},
+    "interstitial": {"format": "interstitial", "opt_in_only": true, "enabled": false}
+  },
+  "required_owner_setup": ["provider app IDs", "test unit IDs", "privacy policy wording", "age-directed status", "platform consent and tracking decisions"]
+}
