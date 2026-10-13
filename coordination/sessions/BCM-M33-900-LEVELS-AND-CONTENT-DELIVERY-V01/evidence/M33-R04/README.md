@@ -4,7 +4,7 @@ This report compares the R03 analytic baseline with the deterministic R04 candid
 
 ## Summary
 
-- Generated rows: 888; ordinary rows with normal T ≤56: 870/879; nine marked level-100 capstones exceed the ordinary ceiling.
+- Generated rows: 888; ordinary generated rows with normal T ≤56: 879/879; nine marked level-100 capstones are excluded from that ordinary ceiling.
 - Normal T median/p90/max: 352/1040/1600 before; 44/56/80 after (capstones included).
 - Planning-only expected normal launches use 12T/7: median duration at 1.5–3 seconds/launch is 1.89–3.77 minutes after. This estimate omits human variance, physics failures, merges, interruptions, and retries.
 - The 2–5 minute typical and ≤8 minute p90 human targets remain unmeasured; schedule the playtest below before claiming fairness.

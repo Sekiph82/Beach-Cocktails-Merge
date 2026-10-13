@@ -1,0 +1,540 @@
+{
+  "result": "BLOCKED_OWNER_DESIGN_DECISION_REQUIRED",
+  "work_item": "BCM-M33-R04-R01",
+  "scope_note": "No regenerated campaign package is published because the requested uniqueness and L6+/T56 design constraints are mutually infeasible.",
+  "locked_constraints": {
+    "newly_generated_records": 888,
+    "ordinary_records": 879,
+    "marked_level_100_capstones": 9,
+    "ordinary_normal_T_max": 56,
+    "minimum_ordinary_normal_target_level": 6,
+    "normal_order_count": "2..3 distinct target levels",
+    "quantity_per_target": "1..2",
+    "optional_VIP": "only listed higher-level targets; quantity 1"
+  },
+  "shot_costs": {
+    "L6": 8,
+    "L7": 16,
+    "L8": 32,
+    "L9": 64,
+    "L10": 128,
+    "L11": 256,
+    "L12": 512
+  },
+  "recipe_space_upper_bound": {
+    "canonical_normal_recipe_sets_ignoring_display_order": 8,
+    "normal_signatures_counting_order_array_positions": 20,
+    "full_recipe_sets_including_optional_VIP_ignoring_display_order": 40,
+    "full_signatures_counting_order_array_positions_and_VIP": 100,
+    "per_band": [
+      {
+        "island_id": "tiki_island",
+        "tier": "ADVANCED_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 4,
+        "max_order_sensitive_normal_signatures": 8,
+        "max_semantic_full_recipes_with_VIP": 8,
+        "max_order_sensitive_full_signatures_with_VIP": 16
+      },
+      {
+        "island_id": "tiki_island",
+        "tier": "ADVANCED_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 14,
+        "max_order_sensitive_full_signatures_with_VIP": 28
+      },
+      {
+        "island_id": "tiki_island",
+        "tier": "ADVANCED_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 14,
+        "max_order_sensitive_full_signatures_with_VIP": 28
+      },
+      {
+        "island_id": "tiki_island",
+        "tier": "ADVANCED_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 16,
+        "max_order_sensitive_full_signatures_with_VIP": 40
+      },
+      {
+        "island_id": "azure_bay",
+        "tier": "EXPERT_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "azure_bay",
+        "tier": "EXPERT_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "azure_bay",
+        "tier": "EXPERT_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "azure_bay",
+        "tier": "EXPERT_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "coconut_beach",
+        "tier": "EXPERT_PLUS_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "coconut_beach",
+        "tier": "EXPERT_PLUS_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "coconut_beach",
+        "tier": "EXPERT_PLUS_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "coconut_beach",
+        "tier": "EXPERT_PLUS_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "sunset_island",
+        "tier": "MASTER_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "sunset_island",
+        "tier": "MASTER_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "sunset_island",
+        "tier": "MASTER_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "sunset_island",
+        "tier": "MASTER_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "party_beach",
+        "tier": "MASTER_PLUS_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "party_beach",
+        "tier": "MASTER_PLUS_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "party_beach",
+        "tier": "MASTER_PLUS_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "party_beach",
+        "tier": "MASTER_PLUS_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "frozen_paradise",
+        "tier": "ELITE_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "frozen_paradise",
+        "tier": "ELITE_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "frozen_paradise",
+        "tier": "ELITE_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "frozen_paradise",
+        "tier": "ELITE_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "volcano_bay",
+        "tier": "ELITE_PLUS_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "volcano_bay",
+        "tier": "ELITE_PLUS_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "volcano_bay",
+        "tier": "ELITE_PLUS_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "volcano_bay",
+        "tier": "ELITE_PLUS_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "billionaire_island",
+        "tier": "GRANDMASTER_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "billionaire_island",
+        "tier": "GRANDMASTER_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "billionaire_island",
+        "tier": "GRANDMASTER_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "billionaire_island",
+        "tier": "GRANDMASTER_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "final_island",
+        "tier": "FINAL_ENTRY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "final_island",
+        "tier": "FINAL_MIX",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 7,
+        "max_order_sensitive_normal_signatures": 14,
+        "max_semantic_full_recipes_with_VIP": 35,
+        "max_order_sensitive_full_signatures_with_VIP": 70
+      },
+      {
+        "island_id": "final_island",
+        "tier": "FINAL_MASTERY",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      },
+      {
+        "island_id": "final_island",
+        "tier": "FINAL_FINALE",
+        "eligible_normal_targets_after_L6_floor_and_T56": [
+          6,
+          7,
+          8
+        ],
+        "max_semantic_normal_recipes": 8,
+        "max_order_sensitive_normal_signatures": 20,
+        "max_semantic_full_recipes_with_VIP": 40,
+        "max_order_sensitive_full_signatures_with_VIP": 100
+      }
+    ]
+  },
+  "infeasibility": {
+    "ordinary_records_requiring_unique_full_signatures": 879,
+    "maximum_order_sensitive_full_signatures_even_counting_every_VIP_and_order_permutation": 100,
+    "unique_signature_shortfall": 779,
+    "meaningful_normal_recipe_ceiling_counting_order_array_permutations_but_not_VIP": 20,
+    "meaningful_normal_recipe_ceiling_ignoring_order_array_permutations": 8,
+    "proof": "L9 costs 64 T, exceeding the ordinary T56 ceiling; L6-L8 are the only possible normal targets. Exhaustive enumeration of all distinct 2- and 3-target combinations, quantities 1 or 2, profile bands, and every permitted optional VIP yields the stated strict upper bound, already counting order-array permutations as distinct."
+  },
+  "current_package_audit": {
+    "current_content_version": "BCM-M33.3",
+    "generator_version": "BCM-M33-1.1.0",
+    "batch_seed": 330044,
+    "deterministic_regeneration_matches": true,
+    "generated_records": 888,
+    "ordinary_generated_records": 879,
+    "marked_capstones": 9,
+    "ordinary_generated_records_with_at_least_one_L5": 717,
+    "ordinary_generated_L5_target_rows": 717,
+    "ordinary_generated_records_over_T56": 0,
+    "current_generated_unique_full_signatures": 527,
+    "current_generated_duplicate_groups": 147,
+    "current_generated_duplicate_records": 361,
+    "source_hashes": {
+      "sunny_cove_sha256": "573B5CA14CA75BEC04F40A5B7D00AA441534A266569B200E36E78B28D3591128",
+      "m32_tiki_seed_sha256": "AD4AE20C26D482082E9FFD170CC5E66DDE895403FE5E6D260A5BEEC8CFFBFF53"
+    },
+    "existing_36_recipe_examples": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R04/representative_level_examples.csv",
+    "cross_island_duplicate_examples_csv": "cross_island_duplicate_examples.csv"
+  },
+  "owner_decision_options": [
+    "Keep L6+ and T56, then explicitly permit campaign-wide normal-recipe repeats and define an approved variety/pacing measure that does not count VIP-only changes as distinct gameplay.",
+    "Raise the ordinary T ceiling enough to admit additional mandatory target levels (L9 paired with minimum L6 requires at least T72), then approve the resulting difficulty and measured-playtest risk before regeneration.",
+    "Change the recipe schema/design space (for example, goal-count or repeat-target rules) and approve its gameplay consequences before regeneration.",
+    "Reduce or rescope the number of newly generated ordinary records."
+  ],
+  "not_performed": [
+    "No campaign regeneration or content-version/manifest change.",
+    "No physics sweeps or mass gameplay simulations.",
+    "No owner visual review or human playtest."
+  ]
+}
