@@ -1,0 +1,15 @@
+# BCM-M33 R04 Independent Audit V01
+
+**Verdict: CONDITIONAL / REMEDIATION REQUIRED. Technical generation and navigation checks PASS as builder evidence; owner-approved design is NOT fully satisfied, physics and human fairness remain UNVERIFIED.**
+
+Reviewed live GitHub R04 README, qualification notes, generation_report.json and V01/V02 builder logs. Generator delivered 888 regenerated recipes, M33.3 manifest, nine marked L9 capstones, T median 44 / p90 56 / max 80 (generated set), and preserves original Sunny Cove, 12 Tiki seeds, no timer, 4T/VIP-inclusive stars/save IDs. Godot content/navigation/synthetic-save and static validator PASS per log. No gameplay/real device tests conducted in this independent audit.
+
+**Important design discrepancies:**
+1. The owner-approved normal targets were to remain L6+ after the seed block, but R04 generator explicitly permits and uses L5 'bridge' normal objectives (generation_report target_quantity_histogram shows >100 L5 objectives in each generated island). A level containing at least one L6 is not the same as requiring ALL routine mandatory To-Go targets to be L6+. This must be corrected or explicitly approved by owner.
+2. Only 539 globally distinct full signatures across 900 Tiki-to-Final records, with **361 cross-island repeats**. Per-island uniqueness PASS does not establish campaign-wide meaningful recipe diversity. Need controlled global-dedup approach or explicit owner sign-off; retain all existing 12 seed records and 9 capstones, and avoid arbitrary expensive computation.
+3. R04 README says 'ordinary rows with normal T<=56: 870/879'; by the declared 888 generated / 9 capstones, 879 ordinary should be at/below ceiling. Based on per-island 99 <=56 (including each capstone exclusion), this appears to be a denominator/reporting error, not necessarily nine actual ordinary violations. Reconcile exact machine-readable counts, fix the report, and add a deterministic check for zero non-capstone >56.
+4. Intended duration 2–5 minutes and p90 <=8 remain planning estimates, no human measurement. Physics samples: 12 trials stopped after 6 shots; 9 entry trials after 26 shots, no candidate wins. Not proof of unreachable content. Initial run overshot 90s budget by 6.57s, improve stop-boundary guard if continuing tests.
+
+**Desktop rule:** V02 log reports the former exact tutorial shortcut absent before and after, launcher auto-creation removed, and no new top-level Desktop items. However, absence does not prove the owner personally reviewed or elected to remove the shortcut. Do not recreate or delete anything on Desktop. Existing in-project launcher may be used only on explicit owner request; disclose all owner-test artifacts.
+
+**Decision:** Hold M33 R04 full product acceptance. Require a short deterministic R04-R01 correction for (a) L6+ normal targets without L5 bridges, (b) global recipe collisions and quantified diversity with justified exemptions, and (c) contradictory normal-cap count/report. No repeat brute-force physics runs, no gameplay economy or 4T change. Owner explicitly to review regenerated examples and runtime when ready.
