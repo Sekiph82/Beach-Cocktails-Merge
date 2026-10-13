@@ -1,8 +1,0 @@
-{
-  "schema_version": 1,
-  "status": "provisional_free_baseline",
-  "items": [
-    {"id": "focus_for_coins", "booster_id": "focus", "quantity": 1, "currency": "coins", "cost": 40, "effect": "highlight_current_order"},
-    {"id": "focus_for_gems", "booster_id": "focus", "quantity": 1, "currency": "gems", "cost": 1, "effect": "highlight_current_order"}
-  ]
-}
