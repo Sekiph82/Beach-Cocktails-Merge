@@ -1,0 +1,173 @@
+{
+  "capture_origin": "Godot 4.7.2 production main scene logical viewport texture scaled to target window output dimensions; no compositing",
+  "captures": [
+    {
+      "initial_starters": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "level_id": 13,
+      "move_limit": 96,
+      "moves_label": "MOVES 96",
+      "name": "phone_390_one_starter",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-004/mobile-captures/phone_390_one_starter.png",
+      "save_error": 0,
+      "tutorial_visible": false,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "initial_starters": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "level_id": 13,
+      "move_limit": 96,
+      "moves_label": "MOVES 95",
+      "name": "phone_390_one_starter_after_touch_input",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-004/mobile-captures/phone_390_one_starter_after_touch_input.png",
+      "save_error": 0,
+      "tutorial_visible": false,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "initial_starters": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "level_id": 27,
+      "move_limit": 128,
+      "moves_label": "MOVES 128",
+      "name": "phone_432_two_starters",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-004/mobile-captures/phone_432_two_starters.png",
+      "save_error": 0,
+      "tutorial_visible": false,
+      "viewport": [
+        432,
+        960
+      ]
+    },
+    {
+      "initial_starters": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "level_id": 27,
+      "move_limit": 128,
+      "moves_label": "MOVES 127",
+      "name": "phone_432_two_starters_after_touch_input",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-004/mobile-captures/phone_432_two_starters_after_touch_input.png",
+      "save_error": 0,
+      "tutorial_visible": false,
+      "viewport": [
+        432,
+        960
+      ]
+    },
+    {
+      "initial_starters": [],
+      "island_id": "tiki_island",
+      "level_id": 1,
+      "move_limit": 16,
+      "moves_label": "MOVES 16",
+      "name": "reference_720_no_starter",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-004/mobile-captures/reference_720_no_starter.png",
+      "save_error": 0,
+      "tutorial_visible": false,
+      "viewport": [
+        720,
+        1280
+      ]
+    },
+    {
+      "initial_starters": [],
+      "island_id": "tiki_island",
+      "level_id": 1,
+      "move_limit": 16,
+      "moves_label": "MOVES 15",
+      "name": "reference_720_no_starter_after_touch_input",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-004/mobile-captures/reference_720_no_starter_after_touch_input.png",
+      "save_error": 0,
+      "tutorial_visible": false,
+      "viewport": [
+        720,
+        1280
+      ]
+    },
+    {
+      "initial_starters": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "level_id": 13,
+      "move_limit": 96,
+      "moves_label": "MOVES 96",
+      "name": "phone_390_tutorial_overlay",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-004/mobile-captures/phone_390_tutorial_overlay.png",
+      "save_error": 0,
+      "tutorial_visible": true,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ],
+  "failures": [],
+  "logical_viewport": [
+    720,
+    1280
+  ],
+  "owner_visual_review": "PENDING",
+  "physical_device": false,
+  "renderer": "Windows",
+  "result": "PASS"
+}
