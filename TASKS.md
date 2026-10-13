@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-001 — Audit and repair end-to-end game feature integration.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-001 — Codex executes M34 master across all five child tasks and returns audit-ready evidence.
+- Next Task/Action: BCM-M34-001 — Codex executes authoritative V02 master across seven child tasks, including proven-safe cleanup, rewarded ads, and IAP guarded integrations.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M33 R06 owner review OK; M33-004 physical/human fairness qualification remains open. M34 checks production Home/maps/gameplay/tutorial/shop/boosters/save integration; no store work or Desktop-root items.
+- Progress: M33 R06 owner review OK; M33-004 physical/human fairness qualification remains open. Owner extended M34 to prove-and-remove unused tracked assets/code and safely inventory local import cache; add opt-in rewarded ads and disabled-until-approved IAP via verified platform integrations. No unverified live ad/payment claims, no Desktop-root items.
 
 ## Blockers/Waits
 
@@ -1367,4 +1367,6 @@ These are presentation tiers only and never influence gameplay values.
 - [ ] BCM-M34-002 — Verify production progression, save and representative nine-island gameplay.
 - [ ] BCM-M34-003 — Validate free economy, Shop, Focus and boosters transaction integrity.
 - [ ] BCM-M34-004 — Validate tutorial, usability and accessibility regressions.
-- [ ] BCM-M34-005 — Deliver independent audit evidence and owner test handoff.
+- [ ] BCM-M34-005 — Inventory and safely clean provably unused tracked game assets, dead code, modules and orphan import metadata.
+- [ ] BCM-M34-006 — Integrate guarded Android/iOS ads and opt-in rewarded video services with SDK provenance and consent.
+- [ ] BCM-M34-007 — Build guarded Google Play Billing/Apple StoreKit purchase infrastructure and verified entitlement boundary.
