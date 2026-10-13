@@ -1,0 +1,11 @@
+# BCM-M33-R03 Independent GPT Audit V01
+
+**Verdict: PASS for read-only analytics / proposal scope. M33 game-content completion remains NO-GO pending owner decisions.**
+
+Reviewed the current main README, owner_difficulty_redesign_proposal.md and CODEX_LOG_M33_R03_001_V01.md. Reported deterministic analyzer covers 1,000 levels, including 899 candidate globals 102–1000 (11 inherited Tiki L2–L12 and 888 generated records), with 0 data-structure violations and 899 structurally legal candidates. Exactly 865/899 flagged workload/intermediate review and 307 conservative VIP-intermediate warnings. All 899 are explicitly PHYSICS_UNVERIFIED and HUMAN_FAIRNESS_UNVERIFIED. The six Python analytics tests, existing content validator and diff check passed per builder record; the independent audit has not independently run the user's local test environment.
+
+**Material product finding:** Candidate median normal T=352, median expected launches about 604; max expected launches=2,743 under an explicitly provisional independent uniform spawn mix. Of candidates, 864 project >=100 launches, 532 >=500, 286 >=1000. Median time estimate of 15–30 minutes is a *launch-cadence scenario*, not measured completion time. Large adjacent jumps include 903 to 904 (T 96->1024). Original generated content is likely unsuitable for short casual sessions without owner accepting much longer levels, but analytic flags are NOT proofs of physical impossibility.
+
+**Proposal status:** Normal To-Go T<=56 with L6+ targets, uncommon optional high-target VIP/capstones and a 2–5 minute ordinary-session human test recommendation are PROPOSALS ONLY. Preserve original recipes and 4T / star / optional-VIP mechanics until owner rules. Specific decisions needed: T ceiling (56 vs 72 or custom), role of mandatory L9–L12, human playtime/completion gate, and whether VIP T stays included in 4T/stars. Note: Existing 4T includes enabled VIP T even if the VIP is skipped; changing it would be a separate gameplay policy decision.
+
+**Boundary:** This audit confirms analytical handoff completeness and transparent limits; no claims of 899 physically qualified games, human fairness, native-device acceptance, 1000-level game completion, or release readiness. No data/gameplay were changed by Codex. GPT must update root TASKS.md, not Codex. Owner decision required before redesign implementation.
