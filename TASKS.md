@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R05-R02 — Technical scale/layout evidence reviewed; owner and GPT screenshot visual acceptance pending.
-- Current Task Status: AWAITING_OWNER_VISUAL_REVIEW
-- Next Task/Action: OWNER shares current 390x844/432x960 R05-R02 galleries and Tiki contrast for independent visual assessment before further content changes.
-- Required Actor: OWNER
+- Current Task: BCM-M33 — R05-R02 owner visual acceptance completed; human/device playability validation outstanding.
+- Current Task Status: VISUAL_ACCEPTED_QUALIFICATION_PENDING
+- Next Task/Action: Plan focused actual owner gameplay sampling and measured session duration checks before full M33 product acceptance.
+- Required Actor: CHATGPT / OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R05-R02 builder reports L6 starter/ordinary same-level render and collision ratio 1.0, 38 Godot captures, probes PASS. Campaign starters are now L5/L6 (685/176), no L7/L8. Actual PNG/JPG visual inspection and owner acceptance pending; M33 open.
+- Progress: OWNER explicitly approved both current 390x844 and 432x960 R05-R02 nine-island visual galleries; R05-R02 VISUAL CLOSED. 888 levels still not human-playability or device certified; 4T/VIP rules preserved. No Desktop root artifacts authorized.
 
 ## Blockers/Waits
 
