@@ -66,11 +66,11 @@ No objective infeasibility was found by necessary structural checks, and the pil
 
 ### Final repository evidence
 
-- Implementation/evidence commit: `fd0bbeff7356db8f4ff0b98dcdf07854b9fa70de` (`Add bounded BCM-M33 R02 calibration evidence`). The separate immutable log commit and final parity values are reported in the closing response after publication.
-- `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main`: captured after push and recorded in the closing response.
+- Implementation/evidence commit: `fd0bbeff7356db8f4ff0b98dcdf07854b9fa70de` (`Add bounded BCM-M33 R02 calibration evidence`). Initial publication/log commit: `73b09ba2f56f685801f9de665f4fb4872d9d7a8a` (`Record BCM-M33 R02 calibration execution log`).
+- Initial publication parity proof: `git rev-parse HEAD` = `73b09ba2f56f685801f9de665f4fb4872d9d7a8a`; `git rev-parse origin/main` = the same; `git ls-remote origin refs/heads/main` returned the same SHA. A final closeout log amendment follows this initial proof; the final pushed SHA is reported in the closing response.
 - `TASKS.md` worktree SHA-256: `5BF6F1E22A534FB0036226B2929DFDA2169836FB710797FC2BCC477E4F64E4EB`; no edit made.
 - Branch/remote: existing `codex/m33-r01-physics` worktree branch; publish to existing `origin/main`, no new branch.
-- Canonical Desktop post-push sync and owner-local restoration: captured after publication and recorded in the closing response.
+- Canonical Desktop post-push sync: fast-forwarded `44adda7d69cf6ea83adfa5697c761da2a0072703` to `73b09ba2f56f685801f9de665f4fb4872d9d7a8a`. The seven tracked owner changes were reapplied from the uniquely named `owner-local-safe-sync-44adda7` stash and hash-verified against its tree. All five untracked owner paths remained present. The stash was retained, no owner paths were staged/committed, and the canonical checkout shows `main...origin/main` with expected owner-local modifications only.
 
 ## Stop marker
 
