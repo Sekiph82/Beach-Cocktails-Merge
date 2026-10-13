@@ -1,0 +1,17 @@
+# BCM-M34 MASTER | Whole-game completion integration audit and bounded gap fixes
+
+Owner approved R05-R02 visuals and indicated the R06 playtest is OK; this is NOT a measured human fairness certification. Continue the actual game, **not store distribution**. M33-004 remains open for representative human/physical reachability and measured time evidence; do not silently close it.
+
+Execute in ONE continuous milestone, sequential children with evidence/commits and ONE final independent GPT audit:
+
+M34-001 INTEGRATION INVENTORY: inspect actual GitHub main game end-to-end (Home/World Map/Island Map/1,000 level campaign, To-Go, VIP, Results/Retry/Next, tutorial, free Coins/Gems/Shop/Focus boosters, progress/unlocks, inventory, settings and save). Compare current implementation against owner-accepted contracts and M31 outstanding gaps, not assumptions. Build a factual PASS/PARTIAL/BLOCKED feature matrix as milestone evidence, NOT parallel live tracker. Identify placeholders, unreachable screens, non-functional buttons, and mismatches.
+
+M34-002 AUTHORITATIVE RUNTIME FLOW: use true production Godot 4.7.2 flow and isolated `user://` to test launch through maps → sample real gameplay on each of 10 islands → victory/defeat/results → Retry/Next → progression/save-reload. Include seeded test scenario only with disclosure and no fake product success. Run honest bounded probes; distinguish static/nav successes from actual human win evidence. Cover start-inventory no-starter/one/two and capstones without 899-level simulation.
+
+M34-003 ECONOMY AND BOOSTERS: verify free Coins/Gems earn/spend/balance, Shop price/stock/Focus actual effect, persistence, rollback, transaction idempotency, insufficient funds, offline behavior. Fix small reproducible implementation defects within existing rules; DO NOT add real-money IAP, ads, currency purchases or unauthorized new reward values.
+
+M34-004 TUTORIAL/UX: verify six interactive tutorial steps remain compatible with campaign initial inventory, with Skip/replay, reduced motion and high contrast. Verify 390x844 and 432x960 layout, readability and click targets; preserve owner-accepted artwork/HUD/table. Fix only objective integration flaws, no wide aesthetic redesign.
+
+M34-005 USER HANDOFF: provide one in-project graphical walkthrough/test selector (reuse R06, don't duplicate it), fresh current screenshots/short owner checklist, clear bounded QA caveats, and a prioritized next-product-development proposal based on actual gaps. If everything implementation-wise passes, report no fabricated follow-on feature. Commit child logs and final master evidence then STOP `AWAITING_GPT_M34_INDEPENDENT_AUDIT_AND_OWNER_REVIEW`.
+
+Hard rules: root TASKS.md is ChatGPT-only, never Codex. Preserve owner dirty tracked/untracked files, stashes, existing project saves, windows and artwork with non-destructive origin/main synchronization. Existing only authorized Desktop location: `C:\Users\sekip\Desktop\Beach Cocktails - Merge`; NEVER create Desktop-root files or shortcuts. Godot sandbox under non-Desktop AppData/.codex, verify actual independent user://. No full campaign physics sweeps, GPU/CPU abuse, endless retries, store release, APK/IPA, signing, paid services, destructive cleanup or branch sprawl. Explicit audit acceptance criteria: documented real tested paths, source diff of every fix, focused regressions, trace/log/screenshot, owner-facing explanation of how to use installed tool and measured vs unmeasured evidence.
