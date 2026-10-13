@@ -355,6 +355,8 @@ func _validate_level_roots(roots: Array) -> bool:
                 return _fail("score_star_thresholds must be an object: %s/%d" % [island_id, level_id])
             if not raw_level["feature_flags"] is Dictionary:
                 return _fail("feature_flags must be an object: %s/%d" % [island_id, level_id])
+            if not _validate_initial_tabletop_drinks(raw_level, island_id, level_id):
+                return false
             var copy: Dictionary = raw_level.duplicate(true)
             var move_budget := calculate_ideal_l3_move_budget(copy)
             if move_budget.is_empty():
@@ -381,6 +383,59 @@ func _validate_level_roots(roots: Array) -> bool:
             return _fail("full campaign must contain exactly ten islands")
         if _levels_by_key.size() != int(_campaign_contract["total_levels"]):
             return _fail("full campaign must contain exactly one thousand levels")
+    return true
+
+
+func _validate_initial_tabletop_drinks(level: Dictionary, island_id: String, level_id: int) -> bool:
+    # Legacy records have no schema marker and remain equivalent to an empty list.
+    if not level.has("initial_tabletop_drinks") and not level.has("initial_tabletop_drinks_version"):
+        return true
+    if int(level.get("initial_tabletop_drinks_version", 0)) != 1:
+        return _fail("initial_tabletop_drinks_version must be 1 when tabletop data is present: %s/%d" % [island_id, level_id])
+    var drinks: Variant = level.get("initial_tabletop_drinks", null)
+    if not drinks is Array:
+        return _fail("initial_tabletop_drinks must be an array: %s/%d" % [island_id, level_id])
+    var normal_remaining: Dictionary = {}
+    var normal_total := 0
+    for order in level.get("orders", []):
+        var target := int(order.get("cocktail_level", 0))
+        var quantity := int(order.get("quantity", 0))
+        normal_remaining[target] = int(normal_remaining.get(target, 0)) + quantity
+        normal_total += quantity
+    var vip: Variant = level.get("vip", null)
+    var circles: Array[Dictionary] = []
+    var claimed_direct: Dictionary = {}
+    for drink in drinks:
+        if not drink is Dictionary or not drink.has_all(["cocktail_level", "position"]):
+            return _fail("initial tabletop drink requires cocktail_level and position: %s/%d" % [island_id, level_id])
+        var target := int(drink["cocktail_level"])
+        var position: Variant = drink["position"]
+        var compatible_target := target if normal_remaining.has(target) else (target + 1 if normal_remaining.has(target + 1) else 0)
+        if target < 3 or target > 12 or compatible_target <= 0:
+            return _fail("initial tabletop level must match or feed a normal target: %s/%d L%d" % [island_id, level_id, target])
+        if vip is Dictionary and bool(vip.get("enabled", true)) and target == int(vip.get("cocktail_level", 0)):
+            return _fail("initial tabletop drink must not match VIP: %s/%d L%d" % [island_id, level_id, target])
+        if not position is Array or position.size() != 2:
+            return _fail("initial tabletop position must be normalized [x,y]: %s/%d" % [island_id, level_id])
+        var x := float(position[0])
+        var y := float(position[1])
+        # R04 safe-area coordinates: central tabletop only, clear of HUD, shelf,
+        # lower launch lane, and side rails at supported portrait sizes.
+        if x < 0.30 or x > 0.70 or y < 0.48 or y > 0.56:
+            return _fail("initial tabletop position is outside its safe area: %s/%d" % [island_id, level_id])
+        if compatible_target == target and int(claimed_direct.get(target, 0)) >= int(normal_remaining[target]):
+            return _fail("initial tabletop inventory exceeds normal target quantity: %s/%d L%d" % [island_id, level_id, target])
+        if compatible_target == target:
+            claimed_direct[target] = int(claimed_direct.get(target, 0)) + 1
+        circles.append({"position": Vector2(x, y), "radius": float([20, 23, 27, 31, 36, 42, 49, 56, 64, 72, 80, 90][target - 1]) / 720.0})
+    var stock_count: int = drinks.size()
+    if stock_count >= normal_total:
+        return _fail("initial tabletop inventory may not complete all normal objectives: %s/%d" % [island_id, level_id])
+    for i in circles.size():
+        for j in range(i + 1, circles.size()):
+            var required_distance: float = circles[i]["radius"] + circles[j]["radius"] + 0.015
+            if circles[i]["position"].distance_to(circles[j]["position"]) < required_distance:
+                return _fail("initial tabletop placements overlap: %s/%d" % [island_id, level_id])
     return true
 
 

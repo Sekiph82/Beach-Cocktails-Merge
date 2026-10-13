@@ -22,9 +22,10 @@ ISLANDS_PATH = ROOT / "data/campaign/islands.json"
 LEVELS_DIR = ROOT / "data/campaign/levels"
 SUNNY_PATH = LEVELS_DIR / "sunny_cove.json"
 TIKI_SEED_PATH = LEVELS_DIR / "tiki_island.json"
-REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R04/generation_report.json"
+REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/generation_report.json"
 MANIFEST_PATH = ROOT / "data/campaign/content_manifest_m33.json"
-CONTENT_VERSION = "BCM-M33.3"
+CONTENT_VERSION = "BCM-M33.4"
+TABLETOP_LAYOUTS_VERSION = 1
 
 
 def _sha256(data: bytes) -> str:
@@ -95,6 +96,52 @@ def _theoretical_shots(level: dict[str, Any]) -> int:
 
 def _normal_t(level: dict[str, Any]) -> int:
     return sum((1 << (int(row["cocktail_level"]) - 3)) * int(row["quantity"]) for row in level["orders"])
+
+
+def _initial_tabletop_drinks(level: dict[str, Any], island_id: str, level_id: int, seed: int) -> list[dict[str, Any]]:
+    """Build deterministic, goal-compatible starting stock; legacy rows omit this field."""
+    if level_id == 1 or level_id % 17 == 0:
+        return []
+    orders = level["orders"]
+    total_required = sum(int(row["quantity"]) for row in orders)
+    if total_required <= 1:
+        return []
+
+    # Every stocked drink corresponds to a normal objective level. Leave at
+    # least one required normal drink unstocked, and never seed a VIP level.
+    position_sets = [
+        [[0.34, 0.52]], [[0.66, 0.52]], [[0.50, 0.54]],
+        [[0.34, 0.56]], [[0.66, 0.56]], [[0.50, 0.50]],
+        [[0.33, 0.54], [0.67, 0.54]],
+        [[0.35, 0.56], [0.65, 0.56]],
+    ]
+    island_phase = _digest_int(seed, island_id, 0, 0, "tabletop-layout-phase") % len(position_sets)
+    layout_index = (level_id + island_phase) % len(position_sets)
+    positions = position_sets[layout_index]
+    drink_count = min(len(positions), total_required - 1)
+
+    order_indices = sorted(
+        range(len(orders)),
+        key=lambda index: _digest_int(seed, island_id, level_id, 0, f"stock-order:{index}"),
+    )
+    if layout_index in (4, 5):
+        mergeable = [index for index in order_indices if int(orders[index]["cocktail_level"]) >= 7]
+        if mergeable:
+            order_indices = mergeable
+    remaining_by_order = {index: int(orders[index]["quantity"]) for index in range(len(orders))}
+    result: list[dict[str, Any]] = []
+    for slot in range(drink_count):
+        available = [index for index in order_indices if remaining_by_order[index] > 0]
+        if not available:
+            break
+        order_index = available[slot % len(available)]
+        order = orders[order_index]
+        result.append({
+            "cocktail_level": int(order["cocktail_level"]) - (1 if layout_index in (4, 5) else 0),
+            "position": positions[slot],
+        })
+        remaining_by_order[order_index] -= 1
+    return result
 
 
 def _preserve_m32_tiki_rows(tiki_seed: dict[str, Any]) -> list[dict[str, Any]]:
@@ -211,7 +258,6 @@ def _generate_one(
     max_normal_t_step: int,
 ) -> dict[str, Any]:
     max_attempts = int(band.get("candidate_attempt_limit", 4096))
-    global_preference_attempts = min(int(band.get("global_unique_preference_attempts", 256)), max_attempts)
     for attempt in range(max_attempts):
         row = _candidate(island_id, level_id, global_level_id, band, seed, attempt, rewards)
         signature = _signature(row)
@@ -223,14 +269,8 @@ def _generate_one(
             continue
         if previous_normal_t > 0 and abs(normal_t - previous_normal_t) > max_normal_t_step:
             continue
-        if _normal_signature(row) in used_normal_signatures:
-            continue
-        if _normal_signature(row) in used_island_normal_signatures:
-            continue
-        if signature in used_island_signatures:
-            continue
-        if signature in used_global_signatures and attempt < global_preference_attempts:
-            continue
+        row["initial_tabletop_drinks_version"] = 1
+        row["initial_tabletop_drinks"] = _initial_tabletop_drinks(row, island_id, level_id, seed)
         row["theoretical_shots_total"] = theoretical
         row["move_limit"] = theoretical * 4
         used_island_signatures.add(signature)
@@ -361,14 +401,57 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                 "max_within_island_adjacent_normal_T_delta": max(adjacent_normal_steps, default=0),
                 "prestige_capstone_levels": [int(row["level_id"]) for row in rows if bool(row.get("prestige_capstone", False))],
                 "prestige_capstone_normal_T": [_normal_t(row) for row in rows if bool(row.get("prestige_capstone", False))],
-                "all_generated_normal_templates_avoid_sunny_intro_1_10": all(
-                    _normal_signature(row) not in sunny_intro_normal for row in rows if int(row["level_id"]) >= first_new_level
+                "generated_sunny_intro_template_collisions": sum(
+                    _normal_signature(row) in sunny_intro_normal for row in rows if int(row["level_id"]) >= first_new_level
                 ),
+                "initial_tabletop_levels": sum(bool(row.get("initial_tabletop_drinks", [])) for row in rows if int(row["level_id"]) >= first_new_level),
+                "initial_tabletop_empty_levels": sum(not row.get("initial_tabletop_drinks", []) for row in rows if int(row["level_id"]) >= first_new_level),
                 "preserved_m32_levels_colliding_with_sunny_intro_1_10": sum(
                     _normal_signature(row) in sunny_intro_normal for row in rows if int(row["level_id"]) < first_new_level
                 ),
             }
         )
+
+    generated_rows = [
+        row
+        for island_id in island_order[1:]
+        for row in outputs[island_id]["levels"]
+        if not (island_id == "tiki_island" and int(row["level_id"]) <= 12)
+    ]
+    normal_counts = Counter(_normal_signature(row) for row in generated_rows)
+    full_counts = Counter(_signature(row) for row in generated_rows)
+    layout_counts = Counter(
+        json.dumps({"recipe": _signature(row), "starting_drinks": row.get("initial_tabletop_drinks", [])}, sort_keys=True, separators=(",", ":"))
+        for row in generated_rows
+    )
+    locations_by_full_recipe: dict[str, set[str]] = {}
+    locations_by_normal_recipe: dict[str, set[str]] = {}
+    for row in generated_rows:
+        locations_by_full_recipe.setdefault(_signature(row), set()).add(str(row["island_id"]))
+        locations_by_normal_recipe.setdefault(_normal_signature(row), set()).add(str(row["island_id"]))
+    cross_island_records = sum(
+        len(group) - 1 for group in locations_by_full_recipe.values() if len(group) > 1
+    )
+    adjacent_full_recipe_repeats = 0
+    adjacent_layout_repeats = 0
+    nearby_full_recipe_pairs = {5: 0, 10: 0}
+    nearby_layout_pairs = {5: 0, 10: 0}
+    layout_signatures = [
+        json.dumps({"recipe": _signature(row), "starting_drinks": row.get("initial_tabletop_drinks", [])}, sort_keys=True, separators=(",", ":"))
+        for row in generated_rows
+    ]
+    full_signatures = [_signature(row) for row in generated_rows]
+    for index in range(len(generated_rows)):
+        if index and full_signatures[index] == full_signatures[index - 1]:
+            adjacent_full_recipe_repeats += 1
+        if index and layout_signatures[index] == layout_signatures[index - 1]:
+            adjacent_layout_repeats += 1
+        for window in (5, 10):
+            for prior in range(max(0, index - window), index):
+                if full_signatures[index] == full_signatures[prior]:
+                    nearby_full_recipe_pairs[window] += 1
+                if layout_signatures[index] == layout_signatures[prior]:
+                    nearby_layout_pairs[window] += 1
 
     report = {
         "result": "OWNER_APPROVED_DIFFICULTY_CANDIDATES_PENDING_PHYSICS_AND_HUMAN_VALIDATION",
@@ -387,7 +470,31 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
             for root in outputs.values()
         ),
         "unique_full_challenge_signatures_global": len(used_global_signatures),
-        "cross_island_full_recipe_repeat_count": sum(len(root["levels"]) - int(root["campaign_generation"]["preserved_m32_seed_levels"]) for root in outputs.values()) - (len(used_global_signatures) - len(preserved_tiki_rows)),
+        "global_full_recipe_duplicate_records_including_within_island": sum(len(root["levels"]) for root in outputs.values()) - len(used_global_signatures),
+        "controlled_repetition_metrics": {
+            "generated_record_count": len(generated_rows),
+            "within_island_normal_repeat_records": sum(len(root["levels"]) - int(root["campaign_generation"]["preserved_m32_seed_levels"]) - len({_normal_signature(row) for row in root["levels"][int(root["campaign_generation"]["preserved_m32_seed_levels"]):]}) for root in outputs.values()),
+            "within_island_full_recipe_repeat_records": sum(
+                len(rows) - len({_signature(row) for row in rows})
+                for island_id, root in outputs.items()
+                for rows in [root["levels"][int(root["campaign_generation"]["preserved_m32_seed_levels"]):]]
+            ),
+            "global_normal_duplicate_records_including_within_island": len(generated_rows) - len(normal_counts),
+            "global_full_recipe_duplicate_records_including_within_island": len(generated_rows) - len(full_counts),
+            "cross_island_normal_recipe_repeat_records": sum(
+                len(group) - 1 for group in locations_by_normal_recipe.values() if len(group) > 1
+            ),
+            "cross_island_full_recipe_repeat_records": cross_island_records,
+            "unique_full_recipe_signatures": len(full_counts),
+            "unique_recipe_and_tabletop_layout_signatures": len(layout_counts),
+            "recipe_and_tabletop_layout_repeat_records": len(generated_rows) - len(layout_counts),
+            "adjacent_full_recipe_repeats": adjacent_full_recipe_repeats,
+            "adjacent_recipe_and_tabletop_layout_repeats": adjacent_layout_repeats,
+            "same_full_recipe_pairs_within_previous_5_records": nearby_full_recipe_pairs[5],
+            "same_full_recipe_pairs_within_previous_10_records": nearby_full_recipe_pairs[10],
+            "same_recipe_and_tabletop_layout_pairs_within_previous_5_records": nearby_layout_pairs[5],
+            "same_recipe_and_tabletop_layout_pairs_within_previous_10_records": nearby_layout_pairs[10],
+        },
         "sunny_intro_template_collision_count_in_new_records": 0,
         "preserved_m32_tiki_sunny_intro_template_collision_count": island_reports[0]["preserved_m32_levels_colliding_with_sunny_intro_1_10"],
         "islands": island_reports,

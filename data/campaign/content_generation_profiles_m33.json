@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generator_version": "BCM-M33-1.1.0",
+  "generator_version": "BCM-M33-R05-controlled-repeat-tabletop-v1",
   "batch_seed": 330044,
   "profile_status": "owner_approved_T56_ordinary_rare_L9_prestige_capstones_high_optional_VIP_pending_physics_and_human_validation",
   "design_contract": {
@@ -24,7 +24,10 @@
     ],
     "optional_mixed_bridge_target_level": 5,
     "maximum_L5_targets_per_ordinary_level": 1,
-    "every_ordinary_level_requires_L6_plus": true
+    "every_ordinary_level_requires_L6_plus": true,
+    "ordinary_minimum_normal_target_level": 6,
+    "initial_tabletop_drinks_schema_version": 1,
+    "controlled_recipe_repeats": true
   },
   "island_global_ranges": {
     "tiki_island": [
@@ -77,7 +80,6 @@
           "tier": "ADVANCED_ENTRY",
           "challenge_axis": "two_goal_bridge",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -92,10 +94,10 @@
           "vip_percent": 8,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 33,
@@ -103,7 +105,6 @@
           "tier": "ADVANCED_MIX",
           "challenge_axis": "two_goal_bridge",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -118,10 +119,10 @@
           "vip_percent": 10,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 56,
@@ -129,7 +130,6 @@
           "tier": "ADVANCED_MASTERY",
           "challenge_axis": "two_goal_bridge",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -144,10 +144,10 @@
           "vip_percent": 12,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 79,
@@ -155,7 +155,6 @@
           "tier": "ADVANCED_FINALE",
           "challenge_axis": "two_goal_bridge",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -170,10 +169,10 @@
           "vip_percent": 14,
           "quantity_two_percent": 16,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -215,7 +214,6 @@
           "tier": "EXPERT_ENTRY",
           "challenge_axis": "three_goal_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -233,10 +231,10 @@
           "vip_percent": 10,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -244,7 +242,6 @@
           "tier": "EXPERT_MIX",
           "challenge_axis": "three_goal_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -262,10 +259,10 @@
           "vip_percent": 12,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -273,7 +270,6 @@
           "tier": "EXPERT_MASTERY",
           "challenge_axis": "three_goal_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -291,10 +287,10 @@
           "vip_percent": 14,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -302,7 +298,6 @@
           "tier": "EXPERT_FINALE",
           "challenge_axis": "three_goal_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -320,10 +315,10 @@
           "vip_percent": 16,
           "quantity_two_percent": 15,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -369,7 +364,6 @@
           "tier": "EXPERT_PLUS_ENTRY",
           "challenge_axis": "quantity_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -387,10 +381,10 @@
           "vip_percent": 12,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -398,7 +392,6 @@
           "tier": "EXPERT_PLUS_MIX",
           "challenge_axis": "quantity_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -416,10 +409,10 @@
           "vip_percent": 14,
           "quantity_two_percent": 14,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -427,7 +420,6 @@
           "tier": "EXPERT_PLUS_MASTERY",
           "challenge_axis": "quantity_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -445,10 +437,10 @@
           "vip_percent": 16,
           "quantity_two_percent": 18,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -456,7 +448,6 @@
           "tier": "EXPERT_PLUS_FINALE",
           "challenge_axis": "quantity_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -474,10 +465,10 @@
           "vip_percent": 18,
           "quantity_two_percent": 20,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -523,7 +514,6 @@
           "tier": "MASTER_ENTRY",
           "challenge_axis": "alternating_objectives",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -541,10 +531,10 @@
           "vip_percent": 12,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -552,7 +542,6 @@
           "tier": "MASTER_MIX",
           "challenge_axis": "alternating_objectives",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -570,10 +559,10 @@
           "vip_percent": 14,
           "quantity_two_percent": 15,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -581,7 +570,6 @@
           "tier": "MASTER_MASTERY",
           "challenge_axis": "alternating_objectives",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -599,10 +587,10 @@
           "vip_percent": 16,
           "quantity_two_percent": 18,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -610,7 +598,6 @@
           "tier": "MASTER_FINALE",
           "challenge_axis": "alternating_objectives",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -628,10 +615,10 @@
           "vip_percent": 18,
           "quantity_two_percent": 20,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -677,7 +664,6 @@
           "tier": "MASTER_PLUS_ENTRY",
           "challenge_axis": "combo_volume",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -695,10 +681,10 @@
           "vip_percent": 14,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -706,7 +692,6 @@
           "tier": "MASTER_PLUS_MIX",
           "challenge_axis": "combo_volume",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -724,10 +709,10 @@
           "vip_percent": 16,
           "quantity_two_percent": 16,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -735,7 +720,6 @@
           "tier": "MASTER_PLUS_MASTERY",
           "challenge_axis": "combo_volume",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -753,10 +737,10 @@
           "vip_percent": 18,
           "quantity_two_percent": 20,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -764,7 +748,6 @@
           "tier": "MASTER_PLUS_FINALE",
           "challenge_axis": "combo_volume",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -782,10 +765,10 @@
           "vip_percent": 20,
           "quantity_two_percent": 22,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -831,7 +814,6 @@
           "tier": "ELITE_ENTRY",
           "challenge_axis": "reserve_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -849,10 +831,10 @@
           "vip_percent": 14,
           "quantity_two_percent": 12,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -860,7 +842,6 @@
           "tier": "ELITE_MIX",
           "challenge_axis": "reserve_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -878,10 +859,10 @@
           "vip_percent": 16,
           "quantity_two_percent": 16,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -889,7 +870,6 @@
           "tier": "ELITE_MASTERY",
           "challenge_axis": "reserve_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -907,10 +887,10 @@
           "vip_percent": 18,
           "quantity_two_percent": 20,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -918,7 +898,6 @@
           "tier": "ELITE_FINALE",
           "challenge_axis": "reserve_planning",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -936,10 +915,10 @@
           "vip_percent": 20,
           "quantity_two_percent": 22,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -985,7 +964,6 @@
           "tier": "ELITE_PLUS_ENTRY",
           "challenge_axis": "precision_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1003,10 +981,10 @@
           "vip_percent": 16,
           "quantity_two_percent": 14,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -1014,7 +992,6 @@
           "tier": "ELITE_PLUS_MIX",
           "challenge_axis": "precision_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1032,10 +1009,10 @@
           "vip_percent": 18,
           "quantity_two_percent": 18,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -1043,7 +1020,6 @@
           "tier": "ELITE_PLUS_MASTERY",
           "challenge_axis": "precision_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1061,10 +1037,10 @@
           "vip_percent": 20,
           "quantity_two_percent": 20,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -1072,7 +1048,6 @@
           "tier": "ELITE_PLUS_FINALE",
           "challenge_axis": "precision_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1090,10 +1065,10 @@
           "vip_percent": 22,
           "quantity_two_percent": 24,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -1139,7 +1114,6 @@
           "tier": "GRANDMASTER_ENTRY",
           "challenge_axis": "mastery_sequence",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1157,10 +1131,10 @@
           "vip_percent": 18,
           "quantity_two_percent": 14,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -1168,7 +1142,6 @@
           "tier": "GRANDMASTER_MIX",
           "challenge_axis": "mastery_sequence",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1186,10 +1159,10 @@
           "vip_percent": 20,
           "quantity_two_percent": 18,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -1197,7 +1170,6 @@
           "tier": "GRANDMASTER_MASTERY",
           "challenge_axis": "mastery_sequence",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1215,10 +1187,10 @@
           "vip_percent": 22,
           "quantity_two_percent": 22,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -1226,7 +1198,6 @@
           "tier": "GRANDMASTER_FINALE",
           "challenge_axis": "mastery_sequence",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1244,10 +1215,10 @@
           "vip_percent": 24,
           "quantity_two_percent": 24,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,
@@ -1293,7 +1264,6 @@
           "tier": "FINAL_ENTRY",
           "challenge_axis": "finale_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1311,10 +1281,10 @@
           "vip_percent": 20,
           "quantity_two_percent": 16,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 26,
@@ -1322,7 +1292,6 @@
           "tier": "FINAL_MIX",
           "challenge_axis": "finale_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1340,10 +1309,10 @@
           "vip_percent": 22,
           "quantity_two_percent": 20,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 51,
@@ -1351,7 +1320,6 @@
           "tier": "FINAL_MASTERY",
           "challenge_axis": "finale_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1369,10 +1337,10 @@
           "vip_percent": 24,
           "quantity_two_percent": 24,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 76,
@@ -1380,7 +1348,6 @@
           "tier": "FINAL_FINALE",
           "challenge_axis": "finale_mix",
           "target_levels": [
-            5,
             6,
             7,
             8
@@ -1398,10 +1365,10 @@
           "vip_percent": 26,
           "quantity_two_percent": 26,
           "prestige_capstone": false,
-          "bridge_target_level": 5,
-          "bridge_target_percent": 30,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
           "minimum_normal_target_level": 6,
-          "maximum_targets_below_minimum": 1
+          "maximum_targets_below_minimum": 0
         },
         {
           "first_level": 100,

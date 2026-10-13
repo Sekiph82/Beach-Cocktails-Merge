@@ -2,10 +2,10 @@
   "schema_version": 1,
   "island_id": "final_island",
   "campaign_generation": {
-    "generator_version": "BCM-M33-1.1.0",
+    "generator_version": "BCM-M33-R05-controlled-repeat-tabletop-v1",
     "seed": 330044,
     "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
-    "profile_set_sha256": "EF3997B3AB853317470585B96EA2FA735E6087F002363140C3C9EE532D9CB19E",
+    "profile_set_sha256": "BDEB61794EFEBFB08C6F36BBE0E2463AAE60C9D1B61597EF84442D5EF15A22AB",
     "profile_id": "final_island",
     "global_level_range": [
       901,
@@ -24,15 +24,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
           "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -50,8 +46,10 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "final_island",
@@ -63,12 +61,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -85,8 +83,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
@@ -98,12 +106,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 2
+          "cocktail_level": 8,
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -120,6 +128,16 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
       "theoretical_shots_total": 48,
       "move_limit": 192
     },
@@ -133,11 +151,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -155,13 +173,68 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "final_island",
       "level_id": 5,
       "global_level_id": 905,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 6,
+      "global_level_id": 906,
       "difficulty_tier": "FINAL_ENTRY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
@@ -190,43 +263,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 6,
-      "global_level_id": 906,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 8,
-          "quantity": 1
+          "position": [
+            0.66,
+            0.52
+          ]
         }
       ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
@@ -239,7 +287,7 @@
       "orders": [
         {
           "cocktail_level": 7,
-          "quantity": 2
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
@@ -260,8 +308,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "final_island",
@@ -273,11 +331,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -295,6 +353,16 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
       "theoretical_shots_total": 24,
       "move_limit": 96
     },
@@ -308,15 +376,20 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 0
       },
@@ -327,11 +400,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 560,
+      "move_limit": 2240
     },
     {
       "island_id": "final_island",
@@ -343,8 +426,8 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         },
         {
           "cocktail_level": 8,
@@ -365,6 +448,16 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
       "theoretical_shots_total": 48,
       "move_limit": 192
     },
@@ -378,12 +471,8 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
         },
         {
           "cocktail_level": 6,
@@ -404,8 +493,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "final_island",
@@ -423,427 +522,6 @@
         {
           "cocktail_level": 6,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 13,
-      "global_level_id": 913,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 14,
-      "global_level_id": 914,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 15,
-      "global_level_id": 915,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 16,
-      "global_level_id": 916,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 17,
-      "global_level_id": 917,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 18,
-      "global_level_id": 918,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 19,
-      "global_level_id": 919,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 20,
-      "global_level_id": 920,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 21,
-      "global_level_id": 921,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 22,
-      "global_level_id": 922,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 23,
-      "global_level_id": 923,
-      "difficulty_tier": "FINAL_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
         }
       ],
       "vip": {
@@ -865,8 +543,520 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 304,
-      "move_limit": 1216
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 280,
+      "move_limit": 1120
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 13,
+      "global_level_id": 913,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 112,
+      "move_limit": 448
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 14,
+      "global_level_id": 914,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 552,
+      "move_limit": 2208
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 15,
+      "global_level_id": 915,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 16,
+      "global_level_id": 916,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 17,
+      "global_level_id": 917,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 18,
+      "global_level_id": 918,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 536,
+      "move_limit": 2144
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 19,
+      "global_level_id": 919,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 20,
+      "global_level_id": 920,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 21,
+      "global_level_id": 921,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 22,
+      "global_level_id": 922,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 23,
+      "global_level_id": 923,
+      "difficulty_tier": "FINAL_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
@@ -882,20 +1072,11 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -906,11 +1087,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 556,
-      "move_limit": 2224
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "final_island",
@@ -923,859 +1114,10 @@
       "orders": [
         {
           "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 26,
-      "global_level_id": 926,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 27,
-      "global_level_id": 927,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 532,
-      "move_limit": 2128
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 28,
-      "global_level_id": 928,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 29,
-      "global_level_id": 929,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 172,
-      "move_limit": 688
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 30,
-      "global_level_id": 930,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 31,
-      "global_level_id": 931,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 180,
-      "move_limit": 720
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 32,
-      "global_level_id": 932,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 33,
-      "global_level_id": 933,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 34,
-      "global_level_id": 934,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 560,
-      "move_limit": 2240
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 35,
-      "global_level_id": 935,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
           "quantity": 1
         },
         {
           "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 116,
-      "move_limit": 464
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 36,
-      "global_level_id": 936,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 37,
-      "global_level_id": 937,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 20,
-      "move_limit": 80
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 38,
-      "global_level_id": 938,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 540,
-      "move_limit": 2160
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 39,
-      "global_level_id": 939,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 40,
-      "global_level_id": 940,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 564,
-      "move_limit": 2256
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 41,
-      "global_level_id": 941,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 42,
-      "global_level_id": 942,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 100,
-      "move_limit": 400
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 43,
-      "global_level_id": 943,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 180,
-      "move_limit": 720
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 44,
-      "global_level_id": 944,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 45,
-      "global_level_id": 945,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 46,
-      "global_level_id": 946,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -1798,8 +1140,977 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 276,
-      "move_limit": 1104
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 296,
+      "move_limit": 1184
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 26,
+      "global_level_id": 926,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 27,
+      "global_level_id": 927,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 28,
+      "global_level_id": 928,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 29,
+      "global_level_id": 929,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 552,
+      "move_limit": 2208
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 30,
+      "global_level_id": 930,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 31,
+      "global_level_id": 931,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 32,
+      "global_level_id": 932,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 33,
+      "global_level_id": 933,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 34,
+      "global_level_id": 934,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 35,
+      "global_level_id": 935,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 36,
+      "global_level_id": 936,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 37,
+      "global_level_id": 937,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 38,
+      "global_level_id": 938,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 39,
+      "global_level_id": 939,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 40,
+      "global_level_id": 940,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 41,
+      "global_level_id": 941,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 176,
+      "move_limit": 704
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 42,
+      "global_level_id": 942,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 43,
+      "global_level_id": 943,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 44,
+      "global_level_id": 944,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 45,
+      "global_level_id": 945,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 46,
+      "global_level_id": 946,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
@@ -1815,11 +2126,16 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 6,
+          "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 0
       },
@@ -1830,11 +2146,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 24,
-      "move_limit": 96
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 152,
+      "move_limit": 608
     },
     {
       "island_id": "final_island",
@@ -1846,15 +2172,106 @@
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 49,
+      "global_level_id": 949,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
           "cocktail_level": 7,
           "quantity": 1
         },
         {
           "cocktail_level": 6,
           "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 160,
+      "move_limit": 640
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 50,
+      "global_level_id": 950,
+      "difficulty_tier": "FINAL_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -1872,96 +2289,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 49,
-      "global_level_id": 949,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 116,
-      "move_limit": 464
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 50,
-      "global_level_id": 950,
-      "difficulty_tier": "FINAL_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
+          "position": [
+            0.5,
+            0.5
+          ]
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 300,
-      "move_limit": 1200
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "final_island",
@@ -1977,12 +2316,49 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 52,
+      "global_level_id": 952,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
         }
       ],
       "vip": {
@@ -2004,13 +2380,30 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 560,
+      "move_limit": 2240
     },
     {
       "island_id": "final_island",
-      "level_id": 52,
-      "global_level_id": 952,
+      "level_id": 53,
+      "global_level_id": 953,
       "difficulty_tier": "FINAL_MASTERY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
@@ -2022,6 +2415,190 @@
         },
         {
           "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 54,
+      "global_level_id": 954,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 55,
+      "global_level_id": 955,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 56,
+      "global_level_id": 956,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 57,
+      "global_level_id": 957,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
@@ -2048,218 +2625,18 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 312,
-      "move_limit": 1248
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 53,
-      "global_level_id": 953,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
+          "position": [
+            0.66,
+            0.56
+          ]
         }
       ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 54,
-      "global_level_id": 954,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 552,
-      "move_limit": 2208
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 55,
-      "global_level_id": 955,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 56,
-      "global_level_id": 956,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 100,
-      "move_limit": 400
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 57,
-      "global_level_id": 957,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 184,
-      "move_limit": 736
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
     },
     {
       "island_id": "final_island",
@@ -2271,24 +2648,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 7,
-          "quantity": 1
+          "quantity": 2
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 6,
+          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -2299,11 +2667,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 168,
-      "move_limit": 672
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
@@ -2315,10 +2693,6 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 8,
           "quantity": 1
         },
@@ -2327,12 +2701,7 @@
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -2343,11 +2712,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
@@ -2367,7 +2746,304 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 61,
+      "global_level_id": 961,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 62,
+      "global_level_id": 962,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 63,
+      "global_level_id": 963,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 64,
+      "global_level_id": 964,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 65,
+      "global_level_id": 965,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 66,
+      "global_level_id": 966,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -2390,24 +3066,38 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 308,
-      "move_limit": 1232
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 312,
+      "move_limit": 1248
     },
     {
       "island_id": "final_island",
-      "level_id": 61,
-      "global_level_id": 961,
+      "level_id": 67,
+      "global_level_id": 967,
       "difficulty_tier": "FINAL_MASTERY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         },
         {
           "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -2425,29 +3115,174 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "final_island",
-      "level_id": 62,
-      "global_level_id": 962,
+      "level_id": 68,
+      "global_level_id": 968,
       "difficulty_tier": "FINAL_MASTERY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 69,
+      "global_level_id": 969,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
         },
         {
           "cocktail_level": 8,
           "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 176,
+      "move_limit": 704
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 70,
+      "global_level_id": 970,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 71,
+      "global_level_id": 971,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
         }
       ],
       "vip": {
@@ -2469,20 +3304,75 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 116,
-      "move_limit": 464
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 104,
+      "move_limit": 416
     },
     {
       "island_id": "final_island",
-      "level_id": 63,
-      "global_level_id": 963,
+      "level_id": 72,
+      "global_level_id": 972,
       "difficulty_tier": "FINAL_MASTERY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 73,
+      "global_level_id": 973,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
@@ -2490,7 +3380,52 @@
           "quantity": 1
         },
         {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
           "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 74,
+      "global_level_id": 974,
+      "difficulty_tier": "FINAL_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
           "quantity": 2
         }
       ],
@@ -2508,25 +3443,100 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
-      "level_id": 64,
-      "global_level_id": 964,
+      "level_id": 75,
+      "global_level_id": 975,
       "difficulty_tier": "FINAL_MASTERY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 184,
+      "move_limit": 736
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 76,
+      "global_level_id": 976,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
       "vip": {
@@ -2548,484 +3558,25 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 536,
-      "move_limit": 2144
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 65,
-      "global_level_id": 965,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 66,
-      "global_level_id": 966,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
+          "position": [
+            0.35,
+            0.56
+          ]
         },
         {
           "cocktail_level": 7,
-          "quantity": 1
+          "position": [
+            0.65,
+            0.56
+          ]
         }
       ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 67,
-      "global_level_id": 967,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 68,
-      "global_level_id": 968,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 69,
-      "global_level_id": 969,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 116,
-      "move_limit": 464
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 70,
-      "global_level_id": 970,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 71,
-      "global_level_id": 971,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 72,
-      "global_level_id": 972,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 312,
-      "move_limit": 1248
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 73,
-      "global_level_id": 973,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 296,
-      "move_limit": 1184
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 74,
-      "global_level_id": 974,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 180,
-      "move_limit": 720
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 75,
-      "global_level_id": 975,
-      "difficulty_tier": "FINAL_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 76,
-      "global_level_id": 976,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "theoretical_shots_total": 568,
+      "move_limit": 2272
     },
     {
       "island_id": "final_island",
@@ -3037,251 +3588,7 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 296,
-      "move_limit": 1184
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 78,
-      "global_level_id": 978,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 79,
-      "global_level_id": 979,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 96,
-      "move_limit": 384
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 80,
-      "global_level_id": 980,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 81,
-      "global_level_id": 981,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 24,
-      "move_limit": 96
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 82,
-      "global_level_id": 982,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 83,
-      "global_level_id": 983,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
           "quantity": 1
         },
         {
@@ -3308,8 +3615,305 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 180,
-      "move_limit": 720
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 168,
+      "move_limit": 672
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 78,
+      "global_level_id": 978,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 79,
+      "global_level_id": 979,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 80,
+      "global_level_id": 980,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 81,
+      "global_level_id": 981,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 304,
+      "move_limit": 1216
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 82,
+      "global_level_id": 982,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 83,
+      "global_level_id": 983,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "final_island",
@@ -3321,19 +3925,20 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "cocktail_level": 7,
           "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 10,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 0
       },
@@ -3344,11 +3949,28 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 160,
+      "move_limit": 640
     },
     {
       "island_id": "final_island",
@@ -3360,15 +3982,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -3386,6 +4004,8 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
       "theoretical_shots_total": 40,
       "move_limit": 160
     },
@@ -3403,134 +4023,7 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 272,
-      "move_limit": 1088
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 87,
-      "global_level_id": 987,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 88,
-      "global_level_id": 988,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 564,
-      "move_limit": 2256
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 89,
-      "global_level_id": 989,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -3553,53 +4046,23 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 90,
-      "global_level_id": 990,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 548,
-      "move_limit": 2192
+      "theoretical_shots_total": 88,
+      "move_limit": 352
     },
     {
       "island_id": "final_island",
-      "level_id": 91,
-      "global_level_id": 991,
+      "level_id": 87,
+      "global_level_id": 987,
       "difficulty_tier": "FINAL_FINALE",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
@@ -3612,18 +4075,9 @@
         {
           "cocktail_level": 6,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -3634,16 +4088,26 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 300,
-      "move_limit": 1200
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "final_island",
-      "level_id": 92,
-      "global_level_id": 992,
+      "level_id": 88,
+      "global_level_id": 988,
       "difficulty_tier": "FINAL_FINALE",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
@@ -3658,7 +4122,97 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 89,
+      "global_level_id": 989,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 90,
+      "global_level_id": 990,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
           "quantity": 2
         }
       ],
@@ -3676,6 +4230,128 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 91,
+      "global_level_id": 991,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 92,
+      "global_level_id": 992,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
       "theoretical_shots_total": 56,
       "move_limit": 224
     },
@@ -3693,11 +4369,7 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -3715,8 +4387,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "final_island",
@@ -3728,226 +4410,16 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 6,
+          "quantity": 1
         },
         {
           "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 95,
-      "global_level_id": 995,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
           "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 556,
-      "move_limit": 2224
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 96,
-      "global_level_id": 996,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 564,
-      "move_limit": 2256
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 97,
-      "global_level_id": 997,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 98,
-      "global_level_id": 998,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "final_island",
-      "level_id": 99,
-      "global_level_id": 999,
-      "difficulty_tier": "FINAL_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
         }
       ],
       "vip": {
@@ -3969,8 +4441,247 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 116,
-      "move_limit": 464
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 120,
+      "move_limit": 480
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 95,
+      "global_level_id": 995,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 96,
+      "global_level_id": 996,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 97,
+      "global_level_id": 997,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 98,
+      "global_level_id": 998,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "final_island",
+      "level_id": 99,
+      "global_level_id": 999,
+      "difficulty_tier": "FINAL_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "final_island",
@@ -3982,20 +4693,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 9,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -4006,11 +4712,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 200,
-      "move_limit": 800
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 9,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 72,
+      "move_limit": 288
     }
   ]
 }

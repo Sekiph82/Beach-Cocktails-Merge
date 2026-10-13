@@ -2,10 +2,10 @@
   "schema_version": 1,
   "island_id": "billionaire_island",
   "campaign_generation": {
-    "generator_version": "BCM-M33-1.1.0",
+    "generator_version": "BCM-M33-R05-controlled-repeat-tabletop-v1",
     "seed": 330044,
     "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
-    "profile_set_sha256": "EF3997B3AB853317470585B96EA2FA735E6087F002363140C3C9EE532D9CB19E",
+    "profile_set_sha256": "BDEB61794EFEBFB08C6F36BBE0E2463AAE60C9D1B61597EF84442D5EF15A22AB",
     "profile_id": "billionaire_island",
     "global_level_range": [
       801,
@@ -24,16 +24,229 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 2,
+      "global_level_id": 802,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
           "cocktail_level": 7,
-          "quantity": 2
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 3,
+      "global_level_id": 803,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 4,
+      "global_level_id": 804,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 5,
+      "global_level_id": 805,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 6,
+      "global_level_id": 806,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
       "vip": {
@@ -55,192 +268,18 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 172,
-      "move_limit": 688
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 2,
-      "global_level_id": 802,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 6,
-          "quantity": 1
+          "position": [
+            0.66,
+            0.56
+          ]
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 296,
-      "move_limit": 1184
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 3,
-      "global_level_id": 803,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 4,
-      "global_level_id": 804,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 5,
-      "global_level_id": 805,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 6,
-      "global_level_id": 806,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
+      "theoretical_shots_total": 152,
+      "move_limit": 608
     },
     {
       "island_id": "billionaire_island",
@@ -253,14 +292,10 @@
       "orders": [
         {
           "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -278,8 +313,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -292,10 +337,10 @@
       "orders": [
         {
           "cocktail_level": 7,
-          "quantity": 2
+          "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -313,8 +358,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -326,11 +381,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -348,8 +403,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 20,
-      "move_limit": 80
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -369,12 +434,7 @@
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -385,11 +445,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -401,24 +471,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
           "cocktail_level": 6,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -429,11 +490,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 108,
-      "move_limit": 432
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -467,6 +538,16 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
       "theoretical_shots_total": 40,
       "move_limit": 160
     },
@@ -480,12 +561,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 2
+          "cocktail_level": 8,
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -502,8 +583,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -519,16 +610,11 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -539,11 +625,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -556,139 +652,7 @@
       "orders": [
         {
           "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 548,
-      "move_limit": 2192
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 16,
-      "global_level_id": 816,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 96,
-      "move_limit": 384
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 17,
-      "global_level_id": 817,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 540,
-      "move_limit": 2160
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 18,
-      "global_level_id": 818,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
         },
         {
           "cocktail_level": 7,
@@ -709,13 +673,23 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
-      "level_id": 19,
-      "global_level_id": 819,
+      "level_id": 16,
+      "global_level_id": 816,
       "difficulty_tier": "GRANDMASTER_ENTRY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
@@ -726,48 +700,8 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 272,
-      "move_limit": 1088
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 20,
-      "global_level_id": 820,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 7,
-          "quantity": 2
+          "quantity": 1
         }
       ],
       "vip": {
@@ -789,96 +723,28 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 164,
-      "move_limit": 656
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 21,
-      "global_level_id": 821,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
+          "position": [
+            0.33,
+            0.54
+          ]
         }
       ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
+      "theoretical_shots_total": 152,
+      "move_limit": 608
     },
     {
       "island_id": "billionaire_island",
-      "level_id": 22,
-      "global_level_id": 822,
+      "level_id": 17,
+      "global_level_id": 817,
       "difficulty_tier": "GRANDMASTER_ENTRY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 23,
-      "global_level_id": 823,
-      "difficulty_tier": "GRANDMASTER_ENTRY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
         {
           "cocktail_level": 7,
           "quantity": 1
@@ -902,8 +768,280 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 18,
+      "global_level_id": 818,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 19,
+      "global_level_id": 819,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 20,
+      "global_level_id": 820,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 21,
+      "global_level_id": 821,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 22,
+      "global_level_id": 822,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 23,
+      "global_level_id": 823,
+      "difficulty_tier": "GRANDMASTER_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 32,
+      "move_limit": 128
     },
     {
       "island_id": "billionaire_island",
@@ -919,11 +1057,7 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -941,8 +1075,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -954,94 +1098,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 560,
-      "move_limit": 2240
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 26,
-      "global_level_id": 826,
-      "difficulty_tier": "GRANDMASTER_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 27,
-      "global_level_id": 827,
-      "difficulty_tier": "GRANDMASTER_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -1064,20 +1125,75 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 180,
-      "move_limit": 720
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 176,
+      "move_limit": 704
     },
     {
       "island_id": "billionaire_island",
-      "level_id": 28,
-      "global_level_id": 828,
+      "level_id": 26,
+      "global_level_id": 826,
       "difficulty_tier": "GRANDMASTER_MIX",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 27,
+      "global_level_id": 827,
+      "difficulty_tier": "GRANDMASTER_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
@@ -1099,8 +1215,63 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 20,
-      "move_limit": 80
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 28,
+      "global_level_id": 828,
+      "difficulty_tier": "GRANDMASTER_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -1118,13 +1289,14 @@
         {
           "cocktail_level": 6,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 11,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 0
       },
@@ -1135,11 +1307,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 280,
+      "move_limit": 1120
     },
     {
       "island_id": "billionaire_island",
@@ -1151,167 +1333,7 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 31,
-      "global_level_id": 831,
-      "difficulty_tier": "GRANDMASTER_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 32,
-      "global_level_id": 832,
-      "difficulty_tier": "GRANDMASTER_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 33,
-      "global_level_id": 833,
-      "difficulty_tier": "GRANDMASTER_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 34,
-      "global_level_id": 834,
-      "difficulty_tier": "GRANDMASTER_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
           "quantity": 1
         },
         {
@@ -1338,28 +1360,131 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 540,
-      "move_limit": 2160
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 560,
+      "move_limit": 2240
     },
     {
       "island_id": "billionaire_island",
-      "level_id": 35,
-      "global_level_id": 835,
+      "level_id": 31,
+      "global_level_id": 831,
       "difficulty_tier": "GRANDMASTER_MIX",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 32,
+      "global_level_id": 832,
+      "difficulty_tier": "GRANDMASTER_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
           "quantity": 2
-        },
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 33,
+      "global_level_id": 833,
+      "difficulty_tier": "GRANDMASTER_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -1382,8 +1507,100 @@
         "vip": true,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
       "theoretical_shots_total": 296,
       "move_limit": 1184
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 34,
+      "global_level_id": 834,
+      "difficulty_tier": "GRANDMASTER_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 35,
+      "global_level_id": 835,
+      "difficulty_tier": "GRANDMASTER_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -1399,11 +1616,7 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -1421,8 +1634,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -1434,20 +1657,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 2
         },
         {
-          "cocktail_level": 7,
-          "quantity": 2
+          "cocktail_level": 6,
+          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -1458,11 +1676,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 296,
-      "move_limit": 1184
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -1474,20 +1702,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 2
+          "cocktail_level": 6,
+          "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -1498,11 +1721,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 168,
-      "move_limit": 672
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -1514,10 +1747,6 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 7,
           "quantity": 1
         },
@@ -1540,8 +1769,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 32,
-      "move_limit": 128
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -1553,15 +1792,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -1579,8 +1814,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -1592,24 +1837,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
           "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -1620,11 +1856,28 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 308,
-      "move_limit": 1232
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -1636,24 +1889,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
           "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -1664,11 +1908,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 308,
-      "move_limit": 1232
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -1680,24 +1934,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 6,
+          "quantity": 1
         },
         {
           "cocktail_level": 7,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -1708,11 +1953,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 168,
-      "move_limit": 672
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -1725,7 +1980,7 @@
       "orders": [
         {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         },
         {
           "cocktail_level": 8,
@@ -1746,8 +2001,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -1759,15 +2024,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
           "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -1785,8 +2046,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -1798,16 +2069,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
           "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
         }
       ],
       "vip": null,
@@ -1824,8 +2091,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 28,
-      "move_limit": 112
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -1837,21 +2114,17 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
       "vip": {
         "enabled": true,
-        "cocktail_level": 12,
+        "cocktail_level": 10,
         "quantity": 1,
         "reward": {}
       },
@@ -1868,8 +2141,18 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 552,
-      "move_limit": 2208
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 176,
+      "move_limit": 704
     },
     {
       "island_id": "billionaire_island",
@@ -1881,47 +2164,8 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
           "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 49,
-      "global_level_id": 849,
-      "difficulty_tier": "GRANDMASTER_MIX",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
         },
         {
           "cocktail_level": 7,
@@ -1942,6 +2186,61 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 49,
+      "global_level_id": 849,
+      "difficulty_tier": "GRANDMASTER_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
       "theoretical_shots_total": 24,
       "move_limit": 96
     },
@@ -1955,103 +2254,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
           "quantity": 1
         },
         {
           "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 156,
-      "move_limit": 624
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 51,
-      "global_level_id": 851,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 312,
-      "move_limit": 1248
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 52,
-      "global_level_id": 852,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -2069,6 +2276,102 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 51,
+      "global_level_id": 851,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 52,
+      "global_level_id": 852,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
       "theoretical_shots_total": 56,
       "move_limit": 224
     },
@@ -2086,55 +2389,11 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 54,
-      "global_level_id": 854,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -2152,6 +2411,65 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 54,
+      "global_level_id": 854,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
       "theoretical_shots_total": 56,
       "move_limit": 224
     },
@@ -2165,60 +2483,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 56,
-      "global_level_id": 856,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -2235,8 +2505,63 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 56,
+      "global_level_id": 856,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -2254,54 +2579,6 @@
         {
           "cocktail_level": 8,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 58,
-      "global_level_id": 858,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
         }
       ],
       "vip": {
@@ -2323,8 +2600,63 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 552,
+      "move_limit": 2208
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 58,
+      "global_level_id": 858,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -2336,85 +2668,7 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 60,
-      "global_level_id": 860,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 61,
-      "global_level_id": 861,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
           "quantity": 1
         },
         {
@@ -2422,7 +2676,7 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -2445,28 +2699,38 @@
         "vip": true,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
       "theoretical_shots_total": 312,
       "move_limit": 1248
     },
     {
       "island_id": "billionaire_island",
-      "level_id": 62,
-      "global_level_id": 862,
+      "level_id": 60,
+      "global_level_id": 860,
       "difficulty_tier": "GRANDMASTER_MASTERY",
       "level_type": "ORDINARY",
       "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
           "quantity": 1
         },
         {
           "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -2484,6 +2748,110 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 61,
+      "global_level_id": 861,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 62,
+      "global_level_id": 862,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
       "theoretical_shots_total": 56,
       "move_limit": 224
     },
@@ -2501,20 +2869,11 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 7,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -2525,11 +2884,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 176,
-      "move_limit": 704
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -2545,8 +2914,12 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -2563,8 +2936,25 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 24,
-      "move_limit": 96
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -2576,24 +2966,19 @@
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         },
         {
           "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -2604,11 +2989,28 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 116,
-      "move_limit": 464
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -2620,15 +3022,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
           "quantity": 2
         },
         {
           "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -2646,8 +3044,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -2659,60 +3067,16 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
           "cocktail_level": 7,
-          "quantity": 2
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
           "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 300,
-      "move_limit": 1200
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 68,
-      "global_level_id": 868,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
         }
       ],
       "vip": null,
@@ -2729,8 +3093,59 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 68,
+      "global_level_id": 868,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -2742,24 +3157,19 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 7,
           "quantity": 1
         },
         {
           "cocktail_level": 8,
           "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -2770,11 +3180,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -2787,19 +3207,14 @@
       "orders": [
         {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -2810,11 +3225,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 536,
-      "move_limit": 2144
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -2827,14 +3252,10 @@
       "orders": [
         {
           "cocktail_level": 7,
-          "quantity": 1
+          "quantity": 2
         },
         {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -2852,8 +3273,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -2865,24 +3296,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
           "cocktail_level": 8,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -2893,11 +3315,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 108,
-      "move_limit": 432
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -2909,49 +3341,6 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 74,
-      "global_level_id": 874,
-      "difficulty_tier": "GRANDMASTER_MASTERY",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 7,
           "quantity": 1
         },
@@ -2974,8 +3363,63 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 74,
+      "global_level_id": 874,
+      "difficulty_tier": "GRANDMASTER_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -2991,15 +3435,16 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 8,
           "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 12,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 0
       },
@@ -3010,11 +3455,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 44,
-      "move_limit": 176
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 552,
+      "move_limit": 2208
     },
     {
       "island_id": "billionaire_island",
@@ -3026,15 +3481,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -3057,8 +3512,18 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 176,
-      "move_limit": 704
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 184,
+      "move_limit": 736
     },
     {
       "island_id": "billionaire_island",
@@ -3070,139 +3535,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
+          "cocktail_level": 8,
           "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 148,
-      "move_limit": 592
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 78,
-      "global_level_id": 878,
-      "difficulty_tier": "GRANDMASTER_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
         },
         {
           "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 11,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 304,
-      "move_limit": 1216
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 79,
-      "global_level_id": 879,
-      "difficulty_tier": "GRANDMASTER_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 180,
-      "move_limit": 720
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 80,
-      "global_level_id": 880,
-      "difficulty_tier": "GRANDMASTER_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
           "quantity": 1
         }
       ],
@@ -3220,8 +3557,173 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 78,
+      "global_level_id": 878,
+      "difficulty_tier": "GRANDMASTER_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 120,
+      "move_limit": 480
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 79,
+      "global_level_id": 879,
+      "difficulty_tier": "GRANDMASTER_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 80,
+      "global_level_id": 880,
+      "difficulty_tier": "GRANDMASTER_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -3241,16 +3743,11 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -3261,11 +3758,28 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -3277,12 +3791,8 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 7,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
         },
         {
           "cocktail_level": 8,
@@ -3303,6 +3813,16 @@
         "vip": false,
         "boosters": false
       },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
       "theoretical_shots_total": 48,
       "move_limit": 192
     },
@@ -3316,24 +3836,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
           "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
           "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -3344,11 +3855,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -3360,8 +3881,8 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         },
         {
           "cocktail_level": 8,
@@ -3382,8 +3903,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -3399,11 +3930,7 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -3421,8 +3948,10 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -3434,16 +3963,16 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 6,
           "quantity": 1
         },
         {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
           "cocktail_level": 7,
-          "quantity": 2
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -3460,8 +3989,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -3473,12 +4012,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
-          "quantity": 1
+          "cocktail_level": 6,
+          "quantity": 2
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -3495,8 +4034,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "theoretical_shots_total": 32,
+      "move_limit": 128
     },
     {
       "island_id": "billionaire_island",
@@ -3508,60 +4057,21 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 5,
+          "cocktail_level": 6,
           "quantity": 1
         },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 89,
-      "global_level_id": 889,
-      "difficulty_tier": "GRANDMASTER_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
         {
           "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
       "vip": {
         "enabled": true,
-        "cocktail_level": 11,
+        "cocktail_level": 9,
         "quantity": 1,
         "reward": {}
       },
@@ -3578,8 +4088,77 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 312,
-      "move_limit": 1248
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 120,
+      "move_limit": 480
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 89,
+      "global_level_id": 889,
+      "difficulty_tier": "GRANDMASTER_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -3592,14 +4171,14 @@
       "orders": [
         {
           "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -3617,8 +4196,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 8,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -3630,16 +4219,12 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 8,
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -3656,8 +4241,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "billionaire_island",
@@ -3669,15 +4264,15 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
           "cocktail_level": 6,
-          "quantity": 2
+          "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -3695,8 +4290,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "billionaire_island",
@@ -3708,15 +4313,11 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -3734,8 +4335,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 36,
-      "move_limit": 144
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "billionaire_island",
@@ -3751,8 +4362,53 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 5,
-          "quantity": 2
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.66,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 95,
+      "global_level_id": 895,
+      "difficulty_tier": "GRANDMASTER_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
         },
         {
           "cocktail_level": 7,
@@ -3778,52 +4434,18 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 288,
-      "move_limit": 1152
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 95,
-      "global_level_id": 895,
-      "difficulty_tier": "GRANDMASTER_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 6,
-          "quantity": 2
+          "position": [
+            0.5,
+            0.5
+          ]
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 12,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 568,
-      "move_limit": 2272
+      "theoretical_shots_total": 312,
+      "move_limit": 1248
     },
     {
       "island_id": "billionaire_island",
@@ -3839,12 +4461,8 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
         }
       ],
       "vip": null,
@@ -3861,8 +4479,18 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.33,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "billionaire_island",
@@ -3874,11 +4502,67 @@
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 2
+          "cocktail_level": 8,
+          "quantity": 1
         },
         {
-          "cocktail_level": 5,
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.35,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 7,
+          "position": [
+            0.65,
+            0.56
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 98,
+      "global_level_id": 898,
+      "difficulty_tier": "GRANDMASTER_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
@@ -3886,9 +4570,58 @@
           "quantity": 1
         }
       ],
+      "vip": null,
+      "rewards": {
+        "coins": 0
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "billionaire_island",
+      "level_id": 99,
+      "global_level_id": 899,
+      "difficulty_tier": "GRANDMASTER_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
       "vip": {
         "enabled": true,
-        "cocktail_level": 12,
+        "cocktail_level": 11,
         "quantity": 1,
         "reward": {}
       },
@@ -3905,86 +4638,18 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 564,
-      "move_limit": 2256
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 98,
-      "global_level_id": 898,
-      "difficulty_tier": "GRANDMASTER_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
         {
           "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 1
+          "position": [
+            0.66,
+            0.52
+          ]
         }
       ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 52,
-      "move_limit": 208
-    },
-    {
-      "island_id": "billionaire_island",
-      "level_id": 99,
-      "global_level_id": 899,
-      "difficulty_tier": "GRANDMASTER_FINALE",
-      "level_type": "ORDINARY",
-      "prestige_capstone": false,
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 5,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 0
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "theoretical_shots_total": 312,
+      "move_limit": 1248
     },
     {
       "island_id": "billionaire_island",
@@ -4000,16 +4665,11 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 10,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 0
       },
@@ -4020,11 +4680,21 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 208,
-      "move_limit": 832
+      "initial_tabletop_drinks_version": 1,
+      "initial_tabletop_drinks": [
+        {
+          "cocktail_level": 6,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "theoretical_shots_total": 72,
+      "move_limit": 288
     }
   ]
 }

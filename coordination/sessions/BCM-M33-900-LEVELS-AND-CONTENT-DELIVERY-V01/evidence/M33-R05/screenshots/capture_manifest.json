@@ -1,0 +1,740 @@
+{
+  "result": "PASS",
+  "capture_origin": "Godot 4.7.2 running production gameplay scene; viewport texture saved directly; no image compositing",
+  "capture_sets": [
+    "390x844",
+    "432x960"
+  ],
+  "capture_count": 38,
+  "by_viewport": {
+    "390x844": 19,
+    "432x960": 19
+  },
+  "no_compositing": true,
+  "captures": [
+    {
+      "initial_drinks": [],
+      "island_id": "tiki_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/tiki_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "A346263C9E5170275F2EF4B9135DAA9E9B4B2362F80AD5B4A5D853C9C762D63D"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "kind": "populated",
+      "level_id": 13,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/tiki_island_L013_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "AFF214FD671E6C29453DAAC34517CBFF9431B2755A61666B831A318554CA67CD"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "azure_bay",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/azure_bay_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "420528A647B8A1CF136587D7A6DEB2F31BE79A7C7777CB445C0A0DA0A1C6EB0A"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "azure_bay",
+      "kind": "populated",
+      "level_id": 4,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/azure_bay_L004_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "4AFF0050F91A7BF0536B19BAC2529F8BA441E40DB95819EBF14216F291B68115"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "coconut_beach",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/coconut_beach_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "EAD40CB1EBEC600F5E8219388E51C41CFA96F6DF4791CE31E971286906376F59"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "coconut_beach",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/coconut_beach_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "0BE778AD22BE02FA61C59C56E374E2625F4856B9613F1289C46D47E9507C85FE"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "sunset_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/sunset_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "7E8FC9FB273F8F0BDF44A552863B835E8A981892F7737B300356A86994578901"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "island_id": "sunset_island",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/sunset_island_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "C22CF26078CD00B83E6E6CD6E1B3A072481FEEAAB63152CCA1E04496A7633C5B"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "party_beach",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/party_beach_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "223BFB15DC49A338B3FDE66EEEE649BC360161311058914931CF24E266C702C7"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "island_id": "party_beach",
+      "kind": "populated",
+      "level_id": 4,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/party_beach_L004_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "0D48EF1725407FF5CB34E21231985C36D598A403B2DB9053D2BAC26D43253854"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "frozen_paradise",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/frozen_paradise_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "660917428FFCD54FE7A559D1328BFC2EAEBE6F38FBC0065437D61EE0A3A90A51"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "frozen_paradise",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/frozen_paradise_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "9D56DAC20FDCA29B3E6E2A17C5A4738A01E388246E19AE62634FA7441E0AC146"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "volcano_bay",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/volcano_bay_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "D0227AE1ECA4E7CC0124E3D6E4468F7F6B4125F78852234EF6622207518BDB73"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "volcano_bay",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/volcano_bay_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "AAB9AE21D9679465785EF54C2AF2D10E023C8C6DD14C16471F2CC802B7C1507D"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "billionaire_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/billionaire_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "ADED1133FCA7706BA193F35C476B4EFF707FD9CABBF3EDDD8200142195237C33"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "island_id": "billionaire_island",
+      "kind": "populated",
+      "level_id": 4,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/billionaire_island_L004_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "F6AC1B2C6C6A46E433D55B10D3F59054CDCE6C5BC4C2B0E881D715FDB48ACD34"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "final_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/final_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "CEAF0870917FA19DB76858D2A2F577E237E5300488B56847C0A4C969C023FFEB"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "island_id": "final_island",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/final_island_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "CD07E02D60AAFA0F27DEF215BA51E9006382F28FE7EE236592FFA038BA9BA552"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 6.0,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "kind": "contrast_two_drinks",
+      "level_id": 27,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/tiki_island_L027_contrast_two_drinks.png",
+      "viewport": [
+        390,
+        844
+      ],
+      "sha256": "E1008A15BF70C8465D0F9C2DCB2EC436B6273937368646D229FCD9EC288BA5AB"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "tiki_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/tiki_island_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "0DC64B2C7569FBB2533F85FAD776723C8C400E410E531E9580603403EA730524"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "kind": "populated",
+      "level_id": 13,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/tiki_island_L013_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "760AADB7B015B51423460B52CD300B3CDBC774602AEB37C6A6E36A24ABBB3EEC"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "azure_bay",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/azure_bay_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "01478D8734B6572CC678F06769DDF648A87AB76C755D9C2C3AADBCC332F2DCDA"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "azure_bay",
+      "kind": "populated",
+      "level_id": 4,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/azure_bay_L004_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "7E841F20A2471D658A89C0D70BBC7A16C4C9903458372A2A07454854781A5D7A"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "coconut_beach",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/coconut_beach_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "0B881E3B3AFBA330B5CC383ED44106DB849480C9FB044EFC4C7E447685FAFD63"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.35,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "coconut_beach",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/coconut_beach_L002_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "0F8E4D6EBAC2876F92FCCB9EC7D90BEAF1E25BBDD39F1CAD39444CDF912C1814"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "sunset_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/sunset_island_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "E72AF1C65BC5E82393CD06E447E4B1F3D867746688FF1F5E7203CBCA713DA073"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.66,
+            0.52
+          ]
+        }
+      ],
+      "island_id": "sunset_island",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/sunset_island_L002_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "A180A6147CDD09A2C271AD97897708F12127BE2DCCA27F1DC786C56F89B47D99"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "party_beach",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/party_beach_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "ED1AFD5D35650181A0D446B9769231D5E5A55A704961B1D094105893EFD27B54"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.34,
+            0.52
+          ]
+        }
+      ],
+      "island_id": "party_beach",
+      "kind": "populated",
+      "level_id": 4,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/party_beach_L004_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "1D5613E3CD73893662F2B1CBDC12DCD55AE595B6B86452AC8C6272F438FC2966"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "frozen_paradise",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/frozen_paradise_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "251BFAEDE81FB2E56383B65F0D9BC0E44B623DF1A45115B81389394EFBA23C7D"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "frozen_paradise",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/frozen_paradise_L002_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "2D863D8AF6779FA9BF58CBFC12E11F8AD090DE6A7D910EBF56AF5A6B9D5023DE"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "volcano_bay",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/volcano_bay_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "A103194D834DC9361EF588264C20EB3A3EF5AFB12E4349B7A06C4641A2840CD5"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.34,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "volcano_bay",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/volcano_bay_L002_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "1E48B1097398C2878683BADD7600571C22398A3FE872EA7DAF46C9A657E47D53"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "billionaire_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/billionaire_island_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "05AE535729657A71DE43C079D8AB67367CDB938BA6B7ED1FC3DEABB7E8966485"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 8.0,
+          "position": [
+            0.5,
+            0.54
+          ]
+        }
+      ],
+      "island_id": "billionaire_island",
+      "kind": "populated",
+      "level_id": 4,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/billionaire_island_L004_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "F6B314F3BBB3B59EC27E435A342D5DA1EC98CD4B65CEFA4D6D4DFDAB9FE4262C"
+    },
+    {
+      "initial_drinks": [],
+      "island_id": "final_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/final_island_L001_empty.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "913F0D506F72C01C4F82433BE3DD1FF037AC09D6E58B97B51686B576FAE75016"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.5,
+            0.5
+          ]
+        }
+      ],
+      "island_id": "final_island",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/final_island_L002_populated.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "04DDCA5916642284E2EFC496650692B259626A834F5764CB4220435F42369A7A"
+    },
+    {
+      "initial_drinks": [
+        {
+          "cocktail_level": 6.0,
+          "position": [
+            0.33,
+            0.54
+          ]
+        },
+        {
+          "cocktail_level": 7.0,
+          "position": [
+            0.67,
+            0.54
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "kind": "contrast_two_drinks",
+      "level_id": 27,
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/tiki_island_L027_contrast_two_drinks.png",
+      "viewport": [
+        432,
+        960
+      ],
+      "sha256": "868C70EE4C2BD15F211A706AA845A05D2EB6A60D4AA222A818B5C2240D531084"
+    }
+  ],
+  "superseded_artifacts": [
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/azure_bay_L013_populated.png",
+      "sha256": "2E851F5E2E2E9AFB3894C791D6B1A0D3FD4167ADAFC5E87B13D71A34BC447FEC",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/billionaire_island_L014_populated.png",
+      "sha256": "F50511255CD9743145A16856DC9C4275B9AC70181EB16F210C8BADAA138E4662",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/final_island_L081_populated.png",
+      "sha256": "8C6B92CB6666540358F98D250F2050324989D1FD15E1E1ACEFD11528E5E61508",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/frozen_paradise_L084_populated.png",
+      "sha256": "70732FA2508BEB06AC6E6E88A03BA61662704D9671F42741D2E2D088A88FAFBE",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/party_beach_L016_populated.png",
+      "sha256": "233759CB464411D5001B0A7F31C21C4475ED90BC85E479D97E7348DB1D576725",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/sunset_island_L037_populated.png",
+      "sha256": "3A85DC6FACDD15E785114227873619BA1ECF64D6C684D41E8081297F8AF8A645",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/tiki_island_L057_populated.png",
+      "sha256": "6C226E234DECC40F06E92CF4BC1B8194DEC6E8CD34AD00AE1295DBD4C33EF8E3",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/390x844/volcano_bay_L011_populated.png",
+      "sha256": "F2D6B64C7F8A7ED06522272DD1E3509CEE2476BC2DCD86540B514A2EE25780C0",
+      "viewport": [
+        390,
+        844
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    },
+    {
+      "path": "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/screenshots/432x960/azure_bay_L013_populated.png",
+      "sha256": "DE43B24FBB817AEA8D97DB100F728CDF7EA82DF205C065D32B6A34AC7187D246",
+      "viewport": [
+        432,
+        960
+      ],
+      "status": "SUPERSEDED_CAPTURE",
+      "reason": "Earlier R05 capture pass before the final tabletop y-boundary correction; retained because the app safety review blocked deletion."
+    }
+  ],
+  "active_review_capture_count": 38,
+  "total_png_file_count_in_capture_directories": 47
+}

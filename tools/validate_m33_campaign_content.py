@@ -100,23 +100,12 @@ def main() -> int:
                     fail(f"M32 Tiki L{source['level_id']} global ID is not mapped correctly")
                 if packaged.get("difficulty_tier") != "PRESERVED_M32_SEED":
                     fail(f"M32 Tiki L{source['level_id']} provenance metadata is missing")
-        local_full = {full_signature(row) for row in rows}
-        if len(local_full) != 100:
-            fail(f"{island_id} does not have 100 distinct full challenge recipes")
         policy = next(row["target_policy"] for row in registry if row["id"] == island_id)
         band_metrics = next(row for row in report_a["islands"] if row["island_id"] == island_id)
-        if not bool(band_metrics["all_generated_normal_templates_avoid_sunny_intro_1_10"]):
-            fail(f"{island_id} repeats a Sunny Cove introduction recipe")
         generated_rows = rows[preserved_count:]
-        if any(normal_signature(row) in sunny_intro for row in generated_rows):
-            fail(f"{island_id} has a generated Sunny Cove introduction collision")
         if int(band_metrics["record_count"]) != 100:
             fail(f"{island_id} metrics report an incorrect record count")
         normal_counts = Counter(normal_signature(row) for row in generated_rows)
-        if len(normal_counts) != len(generated_rows):
-            fail(f"{island_id} repeats a normal objective template within that island")
-        if int(band_metrics["normal_template_repeat_records"]) != 0:
-            fail(f"{island_id} metrics claim intra-island normal repeats")
         for row in rows:
             records += 1
             inherited_m32 = island_id == "tiki_island" and int(row["level_id"]) <= 12
@@ -144,10 +133,28 @@ def main() -> int:
                     if normal_t <= 56 or normal_t > 80 or 9 not in order_targets:
                         fail(f"{island_id}/{row['level_id']} capstone is outside the L9 / T68-T80 contract")
                 else:
-                    if normal_t > 56 or any(int(order["cocktail_level"]) > 8 for order in row["orders"]):
+                    if normal_t > 56 or any(int(order["cocktail_level"]) < 6 or int(order["cocktail_level"]) > 8 for order in row["orders"]):
                         fail(f"{island_id}/{row['level_id']} ordinary normal objectives exceed T56/L8")
-                    if not any(int(order["cocktail_level"]) >= 6 for order in row["orders"]) or sum(int(order["cocktail_level"]) < 6 for order in row["orders"]) > 1:
-                        fail(f"{island_id}/{row['level_id']} resets to low-only objectives")
+                    if not any(int(order["cocktail_level"]) >= 6 for order in row["orders"]):
+                        fail(f"{island_id}/{row['level_id']} has no ordinary L6+ target")
+                if row.get("initial_tabletop_drinks_version") != 1 or not isinstance(row.get("initial_tabletop_drinks"), list):
+                    fail(f"{island_id}/{row['level_id']} is missing versioned initial tabletop data")
+                normal_quantities: Counter[int] = Counter()
+                stock_quantities: Counter[int] = Counter()
+                for order in row["orders"]:
+                    normal_quantities[int(order["cocktail_level"])] += int(order["quantity"])
+                for drink in row["initial_tabletop_drinks"]:
+                    target = int(drink["cocktail_level"])
+                    position = drink["position"]
+                    if target not in normal_quantities and target + 1 not in normal_quantities or not isinstance(position, list) or len(position) != 2:
+                        fail(f"{island_id}/{row['level_id']} has an incompatible tabletop drink")
+                    if not 0.30 <= float(position[0]) <= 0.70 or not 0.48 <= float(position[1]) <= 0.56:
+                        fail(f"{island_id}/{row['level_id']} tabletop placement is outside the safe area")
+                    if isinstance(row.get("vip"), dict) and bool(row["vip"].get("enabled", True)) and target == int(row["vip"]["cocktail_level"]):
+                        fail(f"{island_id}/{row['level_id']} tabletop stock can claim VIP")
+                    stock_quantities[target] += 1
+                if sum(stock_quantities.values()) >= sum(normal_quantities.values()) or any(stock_quantities[target] > normal_quantities[target] for target in stock_quantities if target in normal_quantities):
+                    fail(f"{island_id}/{row['level_id']} tabletop stock can complete or exceed normal goals")
             vip = row.get("vip")
             if isinstance(vip, dict) and vip.get("enabled", True):
                 target, quantity = int(vip["cocktail_level"]), int(vip["quantity"])
@@ -168,8 +175,8 @@ def main() -> int:
         fail("global full-recipe diversity report is inconsistent")
     if capstone_count != 9:
         fail(f"expected one marked prestige capstone per generated island, got {capstone_count}")
-    if int(report_a.get("cross_island_full_recipe_repeat_count", -1)) != records - len(global_signatures):
-        fail("cross-island full-recipe repeat metric is inconsistent")
+    if int(report_a.get("global_full_recipe_duplicate_records_including_within_island", -1)) != records - len(global_signatures):
+        fail("global full-recipe duplicate metric is inconsistent")
     generated_normal_t: list[int] = []
     for island_id, root in outputs_a.items():
         first_generated = 12 if island_id == "tiki_island" else 0
@@ -183,8 +190,8 @@ def main() -> int:
         fail("manifest campaign contract is inconsistent")
     if len(manifest.get("islands", [])) != 10:
         fail("manifest is missing island records")
-    if manifest.get("content_version") != "BCM-M33.3":
-        fail("R04 campaign content version was not advanced")
+    if manifest.get("content_version") != "BCM-M33.4":
+        fail("R05 campaign content version was not advanced")
     if report_a.get("profile_set_sha256") != profile_sha:
         fail("generation report does not bind to the current profile bytes")
     for item in manifest["islands"]:

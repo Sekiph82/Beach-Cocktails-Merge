@@ -252,6 +252,8 @@ func configure_campaign_session(bridge) -> bool:
 	})
 	_apply_campaign_theme(configuration.get("island_theme", {}))
 	_refresh_move_limit_hud()
+	if not _spawn_initial_tabletop_drinks(configuration.get("level_definition", {})):
+		return false
 	_target_level = campaign_session_bridge.get_next_required_order_level()
 	if _target_level > 0:
 		_refresh_merge_target_visual()
@@ -268,6 +270,39 @@ func configure_campaign_session(bridge) -> bool:
 		gameplay_tutorial.tutorial_completed.connect(_restore_tutorial_hud)
 	_refresh_focus_booster_button()
 	return campaign_session_bridge.mark_gameplay_ready()
+
+
+func _spawn_initial_tabletop_drinks(level_definition: Variant) -> bool:
+	if not level_definition is Dictionary:
+		return false
+	var placements: Variant = level_definition.get("initial_tabletop_drinks", [])
+	if not placements is Array:
+		return false
+	var size := get_board_size()
+	var planned: Array[Dictionary] = []
+	for entry in placements:
+		if not entry is Dictionary or not entry.has_all(["cocktail_level", "position"]):
+			return false
+		var normalized: Variant = entry["position"]
+		if not normalized is Array or normalized.size() != 2:
+			return false
+		var level := int(entry["cocktail_level"])
+		var position := Vector2(float(normalized[0]) * size.x, float(normalized[1]) * size.y)
+		var radius := Drink.collider_radius_for_level(level)
+		if level < 1 or radius <= 0.0:
+			return false
+		for existing in planned:
+			if position.distance_to(existing["position"]) <= radius + float(existing["radius"]) + 8.0:
+				return false
+		if position.distance_to(get_spawn_position(size.x * 0.5)) <= radius + Drink.collider_radius_for_level(1) + 24.0:
+			return false
+		planned.append({"level": level, "position": position, "radius": radius})
+	for placement in planned:
+		var drink := spawn_drink(int(placement["level"]), placement["position"], false)
+		if drink == null or drink.position.distance_to(placement["position"]) > 1.0:
+			push_error("Initial tabletop drink could not be safely placed at its authored position.")
+			return false
+	return true
 
 
 func start_guided_tutorial(restart: bool = false) -> bool:
