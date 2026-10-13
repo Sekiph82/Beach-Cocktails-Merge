@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R05 — Controlled recipe repeats plus owner-approved actual pre-placed tabletop cocktails for generated levels.
+- Current Task: BCM-M33-R05-R01 — Publish clearly labeled current tabletop screenshot galleries for owner visual review.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: CODEX executes M33-R05 master and supplies real Godot tabletop screenshots and gameplay/save evidence for GPT and owner review.
+- Next Task/Action: CODEX creates owner-facing nine-island gallery from 38 active screenshots ONLY; owner reviews layouts before M33 closure.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner APPROVED A controlled recipe repetition and a single B variation: cocktails already physically placed on tabletop at level start with compatible To-Go goals. No obstacles or other mechanics. Existing 4T/star/VIP, T<=56 ordinary, capstone exceptions and protected Sunny/Tiki remain; R05 pending tests and owner visual review.
+- Progress: R05 technical evidence audit PASS for generated content/tabletop bridge checks, but owner visual acceptance and human/device playability unverified. 38 current Godot screenshots; 9 superseded excluded. Controlled repeats approved; review pending.
 
 ## Blockers/Waits
 
