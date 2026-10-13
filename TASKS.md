@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R04-R01 — Repair generated objective L5 bridge, cross-island recipe repetition and audit count discrepancy.
-- Current Task Status: BLOCKED
-- Next Task/Action: CODEX executes M33-R04-R01 design-contract remediation and returns evidence for independent audit; no mass physics simulation.
-- Required Actor: CODEX
+- Current Task: BCM-M33-R04-R01 — Feasibility audit PASS; new recipe-diversity policy requires owner decision.
+- Current Task Status: BLOCKED_OWNER_DESIGN_DECISION
+- Next Task/Action: OWNER chooses controlled repeats under L6+/T56, or broader gameplay/mechanics/schema, or revised duration ceiling; then GPT publishes single Codex master prompt.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M33-R04 generation published, audit CONDITIONAL/BLOCKED: generated normal orders include L5 bridges despite owner L6+ direction, 361 cross-island full-recipe repeats, README 870/879 count inconsistent. Physics/human playability unverified. Desktop shortcut reported absent and auto-creation disabled.
+- Progress: R04-R01 exhaustive existing-schema design-space analysis PASS: at most 100 order-sensitive full signatures under L6+/T56 for 879 ordinary levels; 717 current ordinary records still contain L5; all 879 meet T<=56; 361 cross-island duplicates. No regeneration pending owner ruling.
 
 ## Blockers/Waits
 
