@@ -54,7 +54,8 @@ No physical-device, owner visual acceptance, or 888-level manual playability swe
 
 ## Finalization record
 
-- Implementation/evidence commit: to be recorded after commit.
-- Documentation-only follow-up commit: to be recorded after commit.
-- End HEAD, `origin/main`, and remote `refs/heads/main`: to be recorded after push verification.
+- Implementation/evidence commit: `a22e28c333ba345ff496c86bc3a4dedfa9d600bd`.
+- After that commit was pushed and fetched, local HEAD, `origin/main`, and remote `refs/heads/main` all matched `a22e28c333ba345ff496c86bc3a4dedfa9d600bd`.
+- This log is being published in a documentation-only follow-up commit; parity will be verified again after that push.
+- `git ls-remote origin refs/heads/main` confirmed the remote ref before the documentation-only follow-up.
 - `TASKS.md` was not modified.
