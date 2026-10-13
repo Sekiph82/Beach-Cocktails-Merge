@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M32-OWNER-TUTORIAL-REVIEW — Open playable tutorial in Godot on Windows for owner acceptance.
+- Current Task: BCM-M33-R01 — Bounded actual production-physics qualification for 899 unverified campaign levels.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: CODEX prepares and launches owner-safe one-click Godot tutorial review; M33 held until owner feedback.
+- Next Task/Action: CODEX executes M33-R01 master, publishes per-level reachability outcomes and stops for GPT independent audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M32 technical PASS, owner requests actual Godot desktop interactive tutorial review before native device acceptance or M33 physics qualification. M33 paused, not complete.
+- Progress: Owner authorizes proceeding after GPT V05 desktop visual review; tutorial visually accepted for current development, mobile/device QA remains pending. M33: 899 level production-physics qualification active, gameplay completion unverified.
 
 ## Blockers/Waits
 
@@ -1358,4 +1358,4 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M33-001 — Deterministic content generator and nine-island package creation.
 - [x] BCM-M33-002 — Strict static validation, navigation, and save integration.
 - [x] BCM-M33-003 — Versioned bundled update manifest and content-delivery design.
-- [!] BCM-M33-004 — Qualify unverified generated levels for physical reachability and player difficulty.
+- [~] BCM-M33-004 — Qualify unverified generated levels for physical reachability and player difficulty.
