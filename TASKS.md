@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R03 — Analytic difficulty audit PASS; owner difficulty-policy decision pending.
-- Current Task Status: BLOCKED
-- Next Task/Action: OWNER — Decide target normal T, high-level L9-L12 normal order policy, human session goals, and optional VIP treatment in 4T/stars before M33 content redesign.
-- Required Actor: OWNER
+- Current Task: BCM-M33-R04 — Apply owner-approved T<=56 difficulty design to 888 generated levels; enforce desktop boundary.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: CODEX executes M33-R04 master; verify exact unauthorized tutorial Desktop shortcut removal and no new Desktop items; await GPT audit.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M33-R03 independent analytic audit PASS (1000 level records, 899 candidates legal, 865 workload flags, 307 VIP-intermediate warnings). All 899 still physics and fairness UNVERIFIED; redesign awaits owner decisions. Game completion NO-GO.
+- Progress: Owner approved T<=56 for ordinary levels, rare L9-L12 capstones/VIP, human 2-5min and p90<=8min goals, and unchanged optional-VIP-inclusive 4T/stars. Owner strictly forbids ANY new Desktop root files/shortcuts; only existing Desktop/Beach Cocktails - Merge is authorized.
 
 ## Blockers/Waits
 
