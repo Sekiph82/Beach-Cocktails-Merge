@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R02 — Calibrate level-relative production-physics qualification with a small, resource-bounded pilot.
-- Current Task Status: BLOCKED
-- Next Task/Action: CODEX runs M33-R02 calibration pilot (up to 15 minutes) and hands back honest feasibility/cost evidence for GPT audit.
+- Current Task: BCM-M33-R03 — Analyze real player effort and feasible difficulty for 899 generated levels.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: CODEX executes M33-R03 analytic gameplay difficulty review and awaits independent GPT audit plus owner decision before any recipe changes.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M33-R01 independent audit PARTIAL/BLOCKED. Of 899 candidates: 11 sampled under inadequate 15–30s budgets, 0 completed, 888 not run; no impossibility established. R02 calibration required before expensive bulk qualification.
+- Progress: M33-R02 calibration AUDIT PASS, campaign still unverified. No candidate pilot victories (0/3); full 899-seed physics sweep projected 200–211h. Mass runs stopped; analytic difficulty/user-session feasibility gate active.
 
 ## Blockers/Waits
 
