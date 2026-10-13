@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R05-R01 — Publish clearly labeled current tabletop screenshot galleries for owner visual review.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: CODEX creates owner-facing nine-island gallery from 38 active screenshots ONLY; owner reviews layouts before M33 closure.
+- Current Task: BCM-M33-R05-R02 — Correct oversized preplaced tabletop drink rendering and safe layout.
+- Current Task Status: BLOCKED_VISUAL_REMEDIATION
+- Next Task/Action: CODEX runs R05-R02 scale/layout remediation and returns new real Godot galleries for GPT and owner acceptance.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R05 technical evidence audit PASS for generated content/tabletop bridge checks, but owner visual acceptance and human/device playability unverified. 38 current Godot screenshots; 9 superseded excluded. Controlled repeats approved; review pending.
+- Progress: GPT directly inspected owner-uploaded 390x844/432x960 nine-island and Tiki images: R05-R01 VISUAL FAIL. Starter drinks dwarf launch drinks and occupy disproportionate board area near danger line. Technical evidence preserved; no owner visual PASS.
 
 ## Blockers/Waits
 
