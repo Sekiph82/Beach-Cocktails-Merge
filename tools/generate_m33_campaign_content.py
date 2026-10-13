@@ -22,9 +22,9 @@ ISLANDS_PATH = ROOT / "data/campaign/islands.json"
 LEVELS_DIR = ROOT / "data/campaign/levels"
 SUNNY_PATH = LEVELS_DIR / "sunny_cove.json"
 TIKI_SEED_PATH = LEVELS_DIR / "tiki_island.json"
-REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-005-TIKI-CONTINUITY/continuity_preservation_report.json"
+REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R04/generation_report.json"
 MANIFEST_PATH = ROOT / "data/campaign/content_manifest_m33.json"
-CONTENT_VERSION = "BCM-M33.2"
+CONTENT_VERSION = "BCM-M33.3"
 
 
 def _sha256(data: bytes) -> str:
@@ -93,6 +93,10 @@ def _theoretical_shots(level: dict[str, Any]) -> int:
     return total
 
 
+def _normal_t(level: dict[str, Any]) -> int:
+    return sum((1 << (int(row["cocktail_level"]) - 3)) * int(row["quantity"]) for row in level["orders"])
+
+
 def _preserve_m32_tiki_rows(tiki_seed: dict[str, Any]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for seed_row in tiki_seed["levels"]:
@@ -127,10 +131,38 @@ def _candidate(
     attempt: int,
     rewards: dict[str, int],
 ) -> dict[str, Any]:
-    targets = list(range(int(band["target_min"]), int(band["target_max"]) + 1))
+    raw_targets = band.get("target_levels")
+    if raw_targets is None:
+        raw_targets = range(int(band["target_min"]), int(band["target_max"]) + 1)
+    targets = [int(x) for x in raw_targets]
+    bridge_target = int(band.get("bridge_target_level", 0))
+    if bridge_target in targets and _digest_int(seed, island_id, level_id, attempt, "bridge_target") % 100 >= int(band.get("bridge_target_percent", 0)):
+        targets = [target for target in targets if target != bridge_target]
     order_count = int(_choose(list(range(int(band["orders_min"]), int(band["orders_max"]) + 1)), seed, island_id, level_id, attempt, "order_count"))
+    required_targets = [int(x) for x in band.get("required_target_levels", [])]
+    if order_count < len(required_targets) or any(target not in targets for target in required_targets):
+        raise ValueError(f"required target policy is infeasible for {island_id}/{level_id}")
     ranked_targets = sorted(targets, key=lambda target: _digest_int(seed, island_id, level_id, attempt, f"target:{target}"))
-    chosen_targets = ranked_targets[:order_count]
+    chosen_targets = list(required_targets)
+    for target in ranked_targets:
+        if len(chosen_targets) >= order_count:
+            break
+        if target not in chosen_targets:
+            chosen_targets.append(target)
+    if not bool(band.get("prestige_capstone", False)):
+        minimum_level = int(band.get("minimum_normal_target_level", 6))
+        maximum_below_minimum = int(band.get("maximum_targets_below_minimum", 1))
+        high_targets = [target for target in ranked_targets if target >= minimum_level]
+        if not high_targets:
+            raise ValueError(f"ordinary recipe has no target at or above L{minimum_level}")
+        while not any(target >= minimum_level for target in chosen_targets):
+            low_index = next(index for index, target in enumerate(chosen_targets) if target < minimum_level)
+            replacement = next(target for target in high_targets if target not in chosen_targets)
+            chosen_targets[low_index] = replacement
+        while sum(target < minimum_level for target in chosen_targets) > maximum_below_minimum:
+            low_index = next(index for index, target in enumerate(chosen_targets) if target < minimum_level)
+            replacement = next(target for target in high_targets if target not in chosen_targets)
+            chosen_targets[low_index] = replacement
     order_rows: list[dict[str, int]] = []
     for slot, target in enumerate(chosen_targets):
         quantity = 2 if _digest_int(seed, island_id, level_id, attempt, f"quantity:{slot}") % 100 < int(band["quantity_two_percent"]) else 1
@@ -138,8 +170,12 @@ def _candidate(
     order_rows.sort(key=lambda row: _digest_int(seed, island_id, level_id, attempt, f"order-sequence:{row['cocktail_level']}:{row['quantity']}"))
 
     vip: dict[str, Any] | None = None
+    normal_max_target = max(row["cocktail_level"] for row in order_rows)
     if _digest_int(seed, island_id, level_id, attempt, "vip") % 100 < int(band["vip_percent"]):
-        remaining = [target for target in targets if target not in {row["cocktail_level"] for row in order_rows}]
+        remaining = [
+            int(target) for target in band.get("vip_target_levels", [])
+            if int(target) not in {row["cocktail_level"] for row in order_rows} and int(target) > normal_max_target
+        ]
         if remaining:
             vip_target = int(_choose(remaining, seed, island_id, level_id, attempt, "vip_target"))
             vip = {"enabled": True, "cocktail_level": vip_target, "quantity": 1, "reward": {}}
@@ -149,6 +185,8 @@ def _candidate(
         "level_id": level_id,
         "global_level_id": global_level_id,
         "difficulty_tier": str(band["tier"]),
+        "level_type": "PRESTIGE_CAPSTONE" if bool(band.get("prestige_capstone", False)) else "ORDINARY",
+        "prestige_capstone": bool(band.get("prestige_capstone", False)),
         "time_limit_sec": 0,
         "orders": order_rows,
         "vip": vip,
@@ -164,27 +202,46 @@ def _generate_one(
     global_level_id: int,
     band: dict[str, Any],
     seed: int,
-    used_signatures: set[str],
+    used_island_signatures: set[str],
+    used_island_normal_signatures: set[str],
+    used_global_signatures: set[str],
     used_normal_signatures: set[str],
     rewards: dict[str, int],
+    previous_normal_t: int,
+    max_normal_t_step: int,
 ) -> dict[str, Any]:
-    for attempt in range(100_000):
+    max_attempts = int(band.get("candidate_attempt_limit", 4096))
+    global_preference_attempts = min(int(band.get("global_unique_preference_attempts", 256)), max_attempts)
+    for attempt in range(max_attempts):
         row = _candidate(island_id, level_id, global_level_id, band, seed, attempt, rewards)
         signature = _signature(row)
         theoretical = _theoretical_shots(row)
         if len(row["orders"]) < 2:
             continue
-        if theoretical > int(band["max_theoretical_shots"]):
+        normal_t = _normal_t(row)
+        if not int(band["min_normal_T"]) <= normal_t <= int(band["max_normal_T"]):
+            continue
+        if previous_normal_t > 0 and abs(normal_t - previous_normal_t) > max_normal_t_step:
             continue
         if _normal_signature(row) in used_normal_signatures:
             continue
-        if signature in used_signatures:
+        if _normal_signature(row) in used_island_normal_signatures:
+            continue
+        if signature in used_island_signatures:
+            continue
+        if signature in used_global_signatures and attempt < global_preference_attempts:
             continue
         row["theoretical_shots_total"] = theoretical
         row["move_limit"] = theoretical * 4
-        used_signatures.add(signature)
+        used_island_signatures.add(signature)
+        used_island_normal_signatures.add(_normal_signature(row))
+        used_global_signatures.add(signature)
         return row
-    raise RuntimeError(f"exhausted deterministic unique candidates: {island_id}/{level_id} tier={band['tier']}")
+    raise RuntimeError(
+        f"exhausted {max_attempts} deterministic candidate attempts: {island_id}/{level_id} tier={band['tier']} "
+        f"previous_normal_T={previous_normal_t} allowed_normal_T={band['min_normal_T']}..{band['max_normal_T']} "
+        f"max_adjacent_delta={max_normal_t_step} used_full_signatures={len(used_signatures)}"
+    )
 
 
 def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
@@ -206,7 +263,9 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
 
     outputs: dict[str, dict[str, Any]] = {}
     island_reports: list[dict[str, Any]] = []
-    used_signatures: set[str] = {_signature(row) for row in preserved_tiki_rows}
+    used_global_signatures: set[str] = {_signature(row) for row in preserved_tiki_rows}
+    previous_normal_t = _normal_t(preserved_tiki_rows[-1])
+    max_normal_t_step = int(profiles["design_contract"]["max_adjacent_normal_T_delta"])
     for island_id in island_order[1:]:
         profile = profiles["islands"][island_id]
         rows: list[dict[str, Any]] = list(preserved_tiki_rows) if island_id == "tiki_island" else []
@@ -215,9 +274,13 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
         island_policy = island_by_id[island_id]["target_policy"]
         min_policy = int(island_policy["min_level"])
         max_policy = int(island_policy["max_level"])
+        used_island_signatures: set[str] = {_signature(row) for row in preserved_tiki_rows} if island_id == "tiki_island" else set()
+        used_island_normal_signatures: set[str] = {_normal_signature(row) for row in preserved_tiki_rows} if island_id == "tiki_island" else set()
         for level_id in range(first_new_level, 101):
             band = _band_for(profile, level_id)
-            if int(band["target_min"]) < min_policy or int(band["target_max"]) > max_policy:
+            targets = [int(x) for x in band["target_levels"]]
+            vip_targets = [int(x) for x in band.get("vip_target_levels", [])]
+            if any(target < min_policy or target > max_policy for target in targets + vip_targets):
                 raise ValueError(f"profile target range exceeds policy for {island_id}/{level_id}")
             generated = _generate_one(
                 island_id=island_id,
@@ -225,11 +288,16 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                 global_level_id=first_global + level_id - 1,
                 band=band,
                 seed=seed,
-                used_signatures=used_signatures,
+                used_island_signatures=used_island_signatures,
+                used_island_normal_signatures=used_island_normal_signatures,
+                used_global_signatures=used_global_signatures,
                 used_normal_signatures=used_normal_signatures,
                 rewards={"coins": 10, "gems": 1} if island_id == "tiki_island" else {"coins": 0},
+                previous_normal_t=previous_normal_t,
+                max_normal_t_step=max_normal_t_step,
             )
             rows.append(generated)
+            previous_normal_t = _normal_t(generated)
 
         if len(rows) != 100 or [int(row["level_id"]) for row in rows] != list(range(1, 101)):
             raise ValueError(f"generated output is not exactly 100 contiguous records: {island_id}")
@@ -255,6 +323,8 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
         target_counts: Counter[str] = Counter()
         vip_count = 0
         theoretical: list[int] = []
+        normal_theoretical: list[int] = []
+        adjacent_normal_steps: list[int] = []
         for row in rows:
             for order in row["orders"]:
                 target_counts[str(order["cocktail_level"])] += int(order["quantity"])
@@ -262,6 +332,9 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                 vip_count += 1
                 target_counts[f"VIP_L{row['vip']['cocktail_level']}"] += int(row["vip"]["quantity"])
             theoretical.append(_theoretical_shots(row))
+            normal_theoretical.append(_normal_t(row))
+        for left, right in zip(rows, rows[1:]):
+            adjacent_normal_steps.append(abs(_normal_t(right) - _normal_t(left)))
         island_reports.append(
             {
                 "island_id": island_id,
@@ -280,6 +353,14 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                 "theoretical_shots_min": min(theoretical),
                 "theoretical_shots_median": sorted(theoretical)[len(theoretical) // 2],
                 "theoretical_shots_max": max(theoretical),
+                "normal_T_min": min(normal_theoretical),
+                "normal_T_median": sorted(normal_theoretical)[len(normal_theoretical) // 2],
+                "normal_T_p90": sorted(normal_theoretical)[int(len(normal_theoretical) * 0.9) - 1],
+                "normal_T_max": max(normal_theoretical),
+                "normal_T_at_most_56_count": sum(value <= 56 for value in normal_theoretical if value is not None),
+                "max_within_island_adjacent_normal_T_delta": max(adjacent_normal_steps, default=0),
+                "prestige_capstone_levels": [int(row["level_id"]) for row in rows if bool(row.get("prestige_capstone", False))],
+                "prestige_capstone_normal_T": [_normal_t(row) for row in rows if bool(row.get("prestige_capstone", False))],
                 "all_generated_normal_templates_avoid_sunny_intro_1_10": all(
                     _normal_signature(row) not in sunny_intro_normal for row in rows if int(row["level_id"]) >= first_new_level
                 ),
@@ -290,7 +371,7 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
         )
 
     report = {
-        "result": "GENERATED_STATIC_CANDIDATES_PENDING_GODOT_AND_PHYSICS_SCREENING",
+        "result": "OWNER_APPROVED_DIFFICULTY_CANDIDATES_PENDING_PHYSICS_AND_HUMAN_VALIDATION",
         "content_version": CONTENT_VERSION,
         "generator_version": generator_version,
         "seed": seed,
@@ -305,7 +386,8 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
             len(root["levels"]) - int(root["campaign_generation"]["preserved_m32_seed_levels"])
             for root in outputs.values()
         ),
-        "unique_full_challenge_signatures_global": len(used_signatures),
+        "unique_full_challenge_signatures_global": len(used_global_signatures),
+        "cross_island_full_recipe_repeat_count": sum(len(root["levels"]) - int(root["campaign_generation"]["preserved_m32_seed_levels"]) for root in outputs.values()) - (len(used_global_signatures) - len(preserved_tiki_rows)),
         "sunny_intro_template_collision_count_in_new_records": 0,
         "preserved_m32_tiki_sunny_intro_template_collision_count": island_reports[0]["preserved_m32_levels_colliding_with_sunny_intro_1_10"],
         "islands": island_reports,

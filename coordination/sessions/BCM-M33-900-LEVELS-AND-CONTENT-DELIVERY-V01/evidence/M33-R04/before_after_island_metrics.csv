@@ -1,0 +1,10 @@
+island_id,generated_rows,before_normal_T_median,after_normal_T_median,before_normal_T_p90,after_normal_T_p90,before_normal_T_max,after_normal_T_max,before_rows_over_T56,after_ordinary_rows_over_T56,before_vip_rows,after_vip_rows_optional,before_full_recipe_repeat_rows,after_intra_island_full_recipe_repeat_rows,after_generated_normal_T_step_max,after_generated_normal_T56_or_less,after_capstone_normal_T
+tiki_island,88,92,44,144,56,176,72,68,0,26,13,0,0,36,87,72
+azure_bay,100,192,44,288,56,352,80,98,0,36,58,0,0,36,99,80
+coconut_beach,100,304,44,448,56,800,72,100,0,52,74,0,0,32,99,72
+sunset_island,100,408,44,832,56,1216,80,100,0,44,64,0,0,32,99,80
+party_beach,100,432,44,896,56,1344,80,99,0,51,64,0,0,32,99,80
+frozen_paradise,100,560,44,1040,56,1600,80,100,0,52,50,0,0,48,99,80
+volcano_bay,100,544,44,1056,56,1344,72,100,0,56,40,0,0,36,99,72
+billionaire_island,100,648,44,1184,56,1568,80,99,0,48,44,0,0,32,99,80
+final_island,100,672,44,1216,56,1552,72,100,0,66,42,0,0,32,99,72

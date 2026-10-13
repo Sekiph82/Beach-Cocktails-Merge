@@ -17,7 +17,6 @@ $applicationIdentity = if ($CaptureOnly) { 'BCM32TutorialOwnerReviewCapture' } e
 $projectFolder = if ($CaptureOnly) { 'capture-project' } else { 'project' }
 $reviewProject = Join-Path $reviewRoot $projectFolder
 $archivePath = Join-Path $reviewRoot 'canonical-source.tar'
-$desktopShortcut = Join-Path ([Environment]::GetFolderPath('Desktop')) 'Beach Cocktails Tutorial Owner Review.lnk'
 New-Item -ItemType Directory -Path $reviewProject -Force | Out-Null
 
 # Export only committed source from this review worktree. This excludes the
@@ -81,17 +80,6 @@ if ($needsCache) {
     }
 }
 
-# Keep a one-click shortcut available on the owner's Desktop. It points to
-# this versioned launcher in the detached review worktree.
-$shell = New-Object -ComObject WScript.Shell
-$shortcut = $shell.CreateShortcut($desktopShortcut)
-$shortcut.TargetPath = (Get-Command 'powershell.exe').Source
-$shortcut.Arguments = '-NoProfile -ExecutionPolicy Bypass -File "' + (Join-Path $PSScriptRoot 'launch_tutorial_review.ps1') + '"'
-$shortcut.WorkingDirectory = $PSScriptRoot
-$shortcut.IconLocation = "$godotPath,0"
-$shortcut.Description = 'Open the isolated interactive Beach Cocktails gameplay tutorial for owner review.'
-$shortcut.Save()
-
 # The process is intentionally left running for owner interaction. Do not add
 # --headless, --quit, or automatic process cleanup to this graphical launch.
 $gameArgs = @('--path', $reviewProject, '--rendering-method', 'gl_compatibility')
@@ -115,7 +103,6 @@ if ($CaptureOnly) {
 else {
     $game = Start-Process -FilePath $godotPath -ArgumentList $gameArgs -PassThru
     Write-Output "Tutorial review window started (PID $($game.Id))."
-    Write-Output "Desktop shortcut: $desktopShortcut"
     Write-Output "Isolated project: $reviewProject"
     Write-Output "Isolated Godot user data: %APPDATA%\Godot\app_userdata\$applicationIdentity"
 }

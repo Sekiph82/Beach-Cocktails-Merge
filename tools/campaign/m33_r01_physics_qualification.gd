@@ -7,7 +7,7 @@ extends SceneTree
 const DATABASE_SCRIPT = preload("res://scripts/campaign/level_database.gd")
 const HARNESS_SCRIPT = preload("res://scripts/campaign/m17_seeded_validation_harness.gd")
 const MANIFEST_PATH := "res://data/campaign/content_manifest_m33.json"
-const RUNNER_VERSION := "BCM-M33-R01-QUALIFICATION-1.0.0"
+const RUNNER_VERSION := "BCM-M33-R01-QUALIFICATION-1.1.0"
 const POLICY := HARNESS_SCRIPT.POLICY_MERGE_AWARE_V01
 const LEVEL_FIRST := 101
 const LEVEL_LAST := 1000
@@ -63,7 +63,7 @@ func _run() -> void:
 
 	var identity := {
 		"runner_version": RUNNER_VERSION,
-		"content_version": "BCM-M33.2",
+		"content_version": str(JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH)).get("content_version", "UNKNOWN")),
 		"manifest_sha256": manifest_sha,
 		"godot_version": Engine.get_version_info().string,
 		"physics_scale": harness.get_time_scale(),

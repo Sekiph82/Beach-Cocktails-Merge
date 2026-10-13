@@ -2,10 +2,10 @@
   "schema_version": 1,
   "island_id": "tiki_island",
   "campaign_generation": {
-    "generator_version": "BCM-M33-1.0.1",
-    "seed": 330033,
+    "generator_version": "BCM-M33-1.1.0",
+    "seed": 330044,
     "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
-    "profile_set_sha256": "F04CF2BF505CC23F7757419822A192643BE8E9AF8FCB333CB5923B4F36096E25",
+    "profile_set_sha256": "EF3997B3AB853317470585B96EA2FA735E6087F002363140C3C9EE532D9CB19E",
     "profile_id": "tiki_island",
     "global_level_range": [
       101,
@@ -418,220 +418,8 @@
       "level_id": 13,
       "global_level_id": 113,
       "difficulty_tier": "ADVANCED_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 8,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 72,
-      "move_limit": 288
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 14,
-      "global_level_id": 114,
-      "difficulty_tier": "ADVANCED_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 64,
-      "move_limit": 256
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 15,
-      "global_level_id": 115,
-      "difficulty_tier": "ADVANCED_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 72,
-      "move_limit": 288
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 16,
-      "global_level_id": 116,
-      "difficulty_tier": "ADVANCED_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 17,
-      "global_level_id": 117,
-      "difficulty_tier": "ADVANCED_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 18,
-      "global_level_id": 118,
-      "difficulty_tier": "ADVANCED_ENTRY",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 40,
-      "move_limit": 160
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 19,
-      "global_level_id": 119,
-      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -663,13 +451,15 @@
     },
     {
       "island_id": "tiki_island",
-      "level_id": 20,
-      "global_level_id": 120,
+      "level_id": 14,
+      "global_level_id": 114,
       "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
@@ -692,23 +482,253 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 15,
+      "global_level_id": 115,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 20,
+      "move_limit": 80
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 16,
+      "global_level_id": 116,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 17,
+      "global_level_id": 117,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 18,
+      "global_level_id": 118,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 36,
+      "move_limit": 144
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 19,
+      "global_level_id": 119,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 20,
+      "global_level_id": 120,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 28,
+      "move_limit": 112
     },
     {
       "island_id": "tiki_island",
       "level_id": 21,
       "global_level_id": 121,
       "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
-          "quantity": 1
+          "cocktail_level": 5,
+          "quantity": 2
         }
       ],
       "vip": null,
@@ -726,22 +746,28 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 80,
-      "move_limit": 320
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "tiki_island",
       "level_id": 22,
       "global_level_id": 122,
       "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -760,23 +786,29 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 80,
-      "move_limit": 320
+      "theoretical_shots_total": 28,
+      "move_limit": 112
     },
     {
       "island_id": "tiki_island",
       "level_id": 23,
       "global_level_id": 123,
       "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
-          "quantity": 2
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -794,31 +826,28 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 144,
-      "move_limit": 576
+      "theoretical_shots_total": 28,
+      "move_limit": 112
     },
     {
       "island_id": "tiki_island",
       "level_id": 24,
       "global_level_id": 124,
       "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
-          "quantity": 1
+          "cocktail_level": 6,
+          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 6,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -830,25 +859,27 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
+      "theoretical_shots_total": 32,
+      "move_limit": 128
     },
     {
       "island_id": "tiki_island",
       "level_id": 25,
       "global_level_id": 125,
       "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 1
+          "cocktail_level": 7,
+          "quantity": 2
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -867,18 +898,20 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 96,
-      "move_limit": 384
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "tiki_island",
       "level_id": 26,
       "global_level_id": 126,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "quantity": 2
         },
         {
@@ -901,358 +934,16 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "tiki_island",
       "level_id": 27,
       "global_level_id": 127,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 28,
-      "global_level_id": 128,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 29,
-      "global_level_id": 129,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 128,
-      "move_limit": 512
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 30,
-      "global_level_id": 130,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 31,
-      "global_level_id": 131,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 96,
-      "move_limit": 384
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 32,
-      "global_level_id": 132,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 33,
-      "global_level_id": 133,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 72,
-      "move_limit": 288
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 34,
-      "global_level_id": 134,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 35,
-      "global_level_id": 135,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 36,
-      "global_level_id": 136,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -1284,13 +975,15 @@
     },
     {
       "island_id": "tiki_island",
-      "level_id": 37,
-      "global_level_id": 137,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
+      "level_id": 28,
+      "global_level_id": 128,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
@@ -1299,92 +992,6 @@
         },
         {
           "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 8,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 128,
-      "move_limit": 512
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 38,
-      "global_level_id": 138,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 128,
-      "move_limit": 512
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 39,
-      "global_level_id": 139,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -1403,170 +1010,20 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
+      "theoretical_shots_total": 28,
+      "move_limit": 112
     },
     {
       "island_id": "tiki_island",
-      "level_id": 40,
-      "global_level_id": 140,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
+      "level_id": 29,
+      "global_level_id": 129,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 41,
-      "global_level_id": 141,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 42,
-      "global_level_id": 142,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 43,
-      "global_level_id": 143,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 44,
-      "global_level_id": 144,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
@@ -1574,83 +1031,6 @@
           "quantity": 2
         },
         {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 45,
-      "global_level_id": 145,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 46,
-      "global_level_id": 146,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 7,
           "quantity": 1
         }
@@ -1670,172 +1050,16 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "theoretical_shots_total": 36,
+      "move_limit": 144
     },
     {
       "island_id": "tiki_island",
-      "level_id": 47,
-      "global_level_id": 147,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 48,
-      "global_level_id": 148,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 49,
-      "global_level_id": 149,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 50,
-      "global_level_id": 150,
-      "difficulty_tier": "ADVANCED_COMBINATIONS",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 51,
-      "global_level_id": 151,
-      "difficulty_tier": "ADVANCED_VIP",
+      "level_id": 30,
+      "global_level_id": 130,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -1867,9 +1091,51 @@
     },
     {
       "island_id": "tiki_island",
-      "level_id": 52,
-      "global_level_id": 152,
-      "difficulty_tier": "ADVANCED_VIP",
+      "level_id": 31,
+      "global_level_id": 131,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 28,
+      "move_limit": 112
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 32,
+      "global_level_id": 132,
+      "difficulty_tier": "ADVANCED_ENTRY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -1881,8 +1147,200 @@
           "quantity": 1
         },
         {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 28,
+      "move_limit": 112
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 33,
+      "global_level_id": 133,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
           "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 34,
+      "global_level_id": 134,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
           "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 35,
+      "global_level_id": 135,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 44,
+      "move_limit": 176
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 36,
+      "global_level_id": 136,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 44,
+      "move_limit": 176
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 37,
+      "global_level_id": 137,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
         }
       ],
       "vip": {
@@ -1905,31 +1363,622 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 152,
-      "move_limit": 608
+      "theoretical_shots_total": 108,
+      "move_limit": 432
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 38,
+      "global_level_id": 138,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 39,
+      "global_level_id": 139,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 40,
+      "global_level_id": 140,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 36,
+      "move_limit": 144
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 41,
+      "global_level_id": 141,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 42,
+      "global_level_id": 142,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 108,
+      "move_limit": 432
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 43,
+      "global_level_id": 143,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 44,
+      "global_level_id": 144,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 36,
+      "move_limit": 144
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 45,
+      "global_level_id": 145,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 44,
+      "move_limit": 176
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 46,
+      "global_level_id": 146,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 44,
+      "move_limit": 176
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 47,
+      "global_level_id": 147,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 48,
+      "global_level_id": 148,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 49,
+      "global_level_id": 149,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 50,
+      "global_level_id": 150,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 20,
+      "move_limit": 80
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 51,
+      "global_level_id": 151,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 44,
+      "move_limit": 176
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 52,
+      "global_level_id": 152,
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 108,
+      "move_limit": 432
     },
     {
       "island_id": "tiki_island",
       "level_id": 53,
       "global_level_id": 153,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 6,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -1941,26 +1990,28 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
+      "theoretical_shots_total": 44,
+      "move_limit": 176
     },
     {
       "island_id": "tiki_island",
       "level_id": 54,
       "global_level_id": 154,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
-          "quantity": 1
+          "cocktail_level": 7,
+          "quantity": 2
         },
         {
-          "cocktail_level": 9,
-          "quantity": 2
+          "cocktail_level": 5,
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
@@ -1982,27 +2033,25 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 168,
-      "move_limit": 672
+      "theoretical_shots_total": 44,
+      "move_limit": 176
     },
     {
       "island_id": "tiki_island",
       "level_id": 55,
       "global_level_id": 155,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MIX",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 1
+          "quantity": 2
         },
         {
           "cocktail_level": 7,
-          "quantity": 1
+          "quantity": 2
         }
       ],
       "vip": null,
@@ -2020,35 +2069,28 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "tiki_island",
       "level_id": 56,
       "global_level_id": 156,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 1
+          "quantity": 2
         },
         {
-          "cocktail_level": 7,
-          "quantity": 1
+          "cocktail_level": 5,
+          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 9,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2060,34 +2102,35 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "tiki_island",
       "level_id": 57,
       "global_level_id": 157,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2099,30 +2142,32 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
       "level_id": 58,
       "global_level_id": 158,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
           "cocktail_level": 6,
-          "quantity": 1
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
         }
       ],
       "vip": null,
@@ -2140,27 +2185,29 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
+      "theoretical_shots_total": 40,
+      "move_limit": 160
     },
     {
       "island_id": "tiki_island",
       "level_id": 59,
       "global_level_id": 159,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 2
+          "cocktail_level": 5,
+          "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
           "cocktail_level": 7,
-          "quantity": 2
+          "quantity": 1
         }
       ],
       "vip": null,
@@ -2178,26 +2225,28 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 168,
-      "move_limit": 672
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
       "level_id": 60,
       "global_level_id": 160,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
         {
           "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "quantity": 1
         }
       ],
@@ -2216,14 +2265,16 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
       "level_id": 61,
       "global_level_id": 161,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -2231,11 +2282,11 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
@@ -2254,14 +2305,16 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
       "level_id": 62,
       "global_level_id": 162,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -2269,15 +2322,20 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2289,35 +2347,33 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "theoretical_shots_total": 116,
+      "move_limit": 464
     },
     {
       "island_id": "tiki_island",
       "level_id": 63,
       "global_level_id": 163,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
         {
           "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
-          "quantity": 1
+          "cocktail_level": 5,
+          "quantity": 2
         }
       ],
       "vip": {
         "enabled": true,
-        "cocktail_level": 8,
+        "cocktail_level": 9,
         "quantity": 1,
         "reward": {}
       },
@@ -2335,18 +2391,20 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
+      "theoretical_shots_total": 80,
+      "move_limit": 320
     },
     {
       "island_id": "tiki_island",
       "level_id": 64,
       "global_level_id": 164,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
@@ -2373,35 +2431,32 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
       "level_id": 65,
       "global_level_id": 165,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 5,
           "quantity": 2
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 6,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2413,25 +2468,27 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 184,
-      "move_limit": 736
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "tiki_island",
       "level_id": 66,
       "global_level_id": 166,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 1
+          "cocktail_level": 5,
+          "quantity": 2
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
@@ -2439,12 +2496,7 @@
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2456,26 +2508,28 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
+      "theoretical_shots_total": 32,
+      "move_limit": 128
     },
     {
       "island_id": "tiki_island",
       "level_id": 67,
       "global_level_id": 167,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 2
+          "cocktail_level": 5,
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
-          "quantity": 1
+          "quantity": 2
         }
       ],
       "vip": null,
@@ -2493,27 +2547,25 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 136,
-      "move_limit": 544
+      "theoretical_shots_total": 20,
+      "move_limit": 80
     },
     {
       "island_id": "tiki_island",
       "level_id": 68,
       "global_level_id": 168,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 7,
-          "quantity": 1
+          "quantity": 2
         },
         {
-          "cocktail_level": 9,
-          "quantity": 1
+          "cocktail_level": 6,
+          "quantity": 2
         }
       ],
       "vip": null,
@@ -2531,30 +2583,33 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
+      "theoretical_shots_total": 48,
+      "move_limit": 192
     },
     {
       "island_id": "tiki_island",
       "level_id": 69,
       "global_level_id": 169,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
           "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
           "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2566,33 +2621,40 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
+      "theoretical_shots_total": 88,
+      "move_limit": 352
     },
     {
       "island_id": "tiki_island",
       "level_id": 70,
       "global_level_id": 170,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
         {
           "cocktail_level": 7,
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 6,
-          "quantity": 1
+          "quantity": 2
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2604,29 +2666,31 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
+      "theoretical_shots_total": 100,
+      "move_limit": 400
     },
     {
       "island_id": "tiki_island",
       "level_id": 71,
       "global_level_id": 171,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
           "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
           "quantity": 1
         }
       ],
@@ -2645,26 +2709,24 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "theoretical_shots_total": 44,
+      "move_limit": 176
     },
     {
       "island_id": "tiki_island",
       "level_id": 72,
       "global_level_id": 172,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
           "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
           "quantity": 2
         }
       ],
@@ -2688,26 +2750,28 @@
         "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 128,
-      "move_limit": 512
+      "theoretical_shots_total": 100,
+      "move_limit": 400
     },
     {
       "island_id": "tiki_island",
       "level_id": 73,
       "global_level_id": 173,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
+          "cocktail_level": 7,
           "quantity": 1
         },
         {
           "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
           "quantity": 1
         }
       ],
@@ -2726,27 +2790,25 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
       "level_id": 74,
       "global_level_id": 174,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
           "cocktail_level": 7,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 2
         }
       ],
       "vip": null,
@@ -2764,27 +2826,29 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 144,
-      "move_limit": 576
+      "theoretical_shots_total": 24,
+      "move_limit": 96
     },
     {
       "island_id": "tiki_island",
       "level_id": 75,
       "global_level_id": 175,
-      "difficulty_tier": "ADVANCED_VIP",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
         },
         {
           "cocktail_level": 6,
           "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 2
         }
       ],
       "vip": null,
@@ -2802,35 +2866,32 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 152,
-      "move_limit": 608
+      "theoretical_shots_total": 44,
+      "move_limit": 176
     },
     {
       "island_id": "tiki_island",
       "level_id": 76,
       "global_level_id": 176,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
           "quantity": 2
         },
         {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 6,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2842,33 +2903,40 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 152,
-      "move_limit": 608
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
       "level_id": 77,
       "global_level_id": 177,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
         {
           "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
           "quantity": 1
         }
       ],
-      "vip": null,
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2880,38 +2948,35 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": false,
+        "vip": true,
         "boosters": false
       },
-      "theoretical_shots_total": 56,
-      "move_limit": 224
+      "theoretical_shots_total": 116,
+      "move_limit": 464
     },
     {
       "island_id": "tiki_island",
       "level_id": 78,
       "global_level_id": 178,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "difficulty_tier": "ADVANCED_MASTERY",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
         {
           "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 7,
           "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -2923,29 +2988,31 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
+      "theoretical_shots_total": 32,
+      "move_limit": 128
     },
     {
       "island_id": "tiki_island",
       "level_id": 79,
       "global_level_id": 179,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 9,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -2964,26 +3031,28 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 152,
-      "move_limit": 608
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "tiki_island",
       "level_id": 80,
       "global_level_id": 180,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
-          "quantity": 2
+          "cocktail_level": 7,
+          "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -3002,14 +3071,16 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 136,
-      "move_limit": 544
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "tiki_island",
       "level_id": 81,
       "global_level_id": 181,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -3017,20 +3088,15 @@
           "quantity": 1
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "quantity": 1
         },
         {
-          "cocktail_level": 9,
+          "cocktail_level": 8,
           "quantity": 1
         }
       ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 6,
-        "quantity": 1,
-        "reward": {}
-      },
+      "vip": null,
       "rewards": {
         "coins": 10,
         "gems": 1
@@ -3042,473 +3108,19 @@
       },
       "feature_flags": {
         "timed": false,
-        "vip": true,
+        "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 120,
-      "move_limit": 480
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "tiki_island",
       "level_id": 82,
       "global_level_id": 182,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 168,
-      "move_limit": 672
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 83,
-      "global_level_id": 183,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 84,
-      "global_level_id": 184,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 64,
-      "move_limit": 256
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 85,
-      "global_level_id": 185,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 64,
-      "move_limit": 256
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 86,
-      "global_level_id": 186,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 152,
-      "move_limit": 608
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 87,
-      "global_level_id": 187,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 144,
-      "move_limit": 576
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 88,
-      "global_level_id": 188,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 6,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 89,
-      "global_level_id": 189,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 7,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 128,
-      "move_limit": 512
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 90,
-      "global_level_id": 190,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 48,
-      "move_limit": 192
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 91,
-      "global_level_id": 191,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 168,
-      "move_limit": 672
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 92,
-      "global_level_id": 192,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 6,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 88,
-      "move_limit": 352
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 93,
-      "global_level_id": 193,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        }
-      ],
-      "vip": {
-        "enabled": true,
-        "cocktail_level": 8,
-        "quantity": 1,
-        "reward": {}
-      },
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": true,
-        "boosters": false
-      },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 94,
-      "global_level_id": 194,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -3544,93 +3156,23 @@
     },
     {
       "island_id": "tiki_island",
-      "level_id": 95,
-      "global_level_id": 195,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "level_id": 83,
+      "global_level_id": 183,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
-          "cocktail_level": 7,
-          "quantity": 2
-        },
-        {
           "cocktail_level": 8,
-          "quantity": 2
+          "quantity": 1
         },
         {
           "cocktail_level": 6,
-          "quantity": 1
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 104,
-      "move_limit": 416
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 96,
-      "global_level_id": 196,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 9,
           "quantity": 1
         },
         {
           "cocktail_level": 7,
-          "quantity": 2
-        }
-      ],
-      "vip": null,
-      "rewards": {
-        "coins": 10,
-        "gems": 1
-      },
-      "score_star_thresholds": {
-        "one_star": 0,
-        "two_stars": 0,
-        "three_stars": 0
-      },
-      "feature_flags": {
-        "timed": false,
-        "vip": false,
-        "boosters": false
-      },
-      "theoretical_shots_total": 96,
-      "move_limit": 384
-    },
-    {
-      "island_id": "tiki_island",
-      "level_id": 97,
-      "global_level_id": 197,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
-      "time_limit_sec": 0,
-      "orders": [
-        {
-          "cocktail_level": 6,
-          "quantity": 2
-        },
-        {
-          "cocktail_level": 8,
-          "quantity": 1
-        },
-        {
-          "cocktail_level": 9,
           "quantity": 1
         }
       ],
@@ -3649,22 +3191,193 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 112,
-      "move_limit": 448
+      "theoretical_shots_total": 56,
+      "move_limit": 224
     },
     {
       "island_id": "tiki_island",
-      "level_id": 98,
-      "global_level_id": 198,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "level_id": 84,
+      "global_level_id": 184,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 120,
+      "move_limit": 480
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 85,
+      "global_level_id": 185,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 86,
+      "global_level_id": 186,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
         {
           "cocktail_level": 6,
           "quantity": 2
         },
         {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 87,
+      "global_level_id": 187,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 36,
+      "move_limit": 144
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 88,
+      "global_level_id": 188,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
           "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
           "quantity": 1
         }
       ],
@@ -3688,9 +3401,11 @@
     },
     {
       "island_id": "tiki_island",
-      "level_id": 99,
-      "global_level_id": 199,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "level_id": 89,
+      "global_level_id": 189,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
         {
@@ -3698,7 +3413,7 @@
           "quantity": 2
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "quantity": 1
         },
         {
@@ -3721,26 +3436,28 @@
         "vip": false,
         "boosters": false
       },
-      "theoretical_shots_total": 64,
-      "move_limit": 256
+      "theoretical_shots_total": 52,
+      "move_limit": 208
     },
     {
       "island_id": "tiki_island",
-      "level_id": 100,
-      "global_level_id": 200,
-      "difficulty_tier": "ADVANCED_CAPSTONE",
+      "level_id": 90,
+      "global_level_id": 190,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
       "time_limit_sec": 0,
       "orders": [
-        {
-          "cocktail_level": 7,
-          "quantity": 1
-        },
         {
           "cocktail_level": 8,
           "quantity": 1
         },
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
           "quantity": 1
         }
       ],
@@ -3766,6 +3483,408 @@
       },
       "theoretical_shots_total": 120,
       "move_limit": 480
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 91,
+      "global_level_id": 191,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 56,
+      "move_limit": 224
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 92,
+      "global_level_id": 192,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 52,
+      "move_limit": 208
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 93,
+      "global_level_id": 193,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 48,
+      "move_limit": 192
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 94,
+      "global_level_id": 194,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 52,
+      "move_limit": 208
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 95,
+      "global_level_id": 195,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 96,
+      "global_level_id": 196,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 2
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 40,
+      "move_limit": 160
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 97,
+      "global_level_id": 197,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 32,
+      "move_limit": 128
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 98,
+      "global_level_id": 198,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 120,
+      "move_limit": 480
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 99,
+      "global_level_id": 199,
+      "difficulty_tier": "ADVANCED_FINALE",
+      "level_type": "ORDINARY",
+      "prestige_capstone": false,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 8,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 7,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 5,
+          "quantity": 2
+        }
+      ],
+      "vip": {
+        "enabled": true,
+        "cocktail_level": 9,
+        "quantity": 1,
+        "reward": {}
+      },
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": true,
+        "boosters": false
+      },
+      "theoretical_shots_total": 120,
+      "move_limit": 480
+    },
+    {
+      "island_id": "tiki_island",
+      "level_id": 100,
+      "global_level_id": 200,
+      "difficulty_tier": "ADVANCED_PRESTIGE_CAPSTONE",
+      "level_type": "PRESTIGE_CAPSTONE",
+      "prestige_capstone": true,
+      "time_limit_sec": 0,
+      "orders": [
+        {
+          "cocktail_level": 6,
+          "quantity": 1
+        },
+        {
+          "cocktail_level": 9,
+          "quantity": 1
+        }
+      ],
+      "vip": null,
+      "rewards": {
+        "coins": 10,
+        "gems": 1
+      },
+      "score_star_thresholds": {
+        "one_star": 0,
+        "two_stars": 0,
+        "three_stars": 0
+      },
+      "feature_flags": {
+        "timed": false,
+        "vip": false,
+        "boosters": false
+      },
+      "theoretical_shots_total": 72,
+      "move_limit": 288
     }
   ]
 }

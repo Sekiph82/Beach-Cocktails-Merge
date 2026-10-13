@@ -1,8 +1,31 @@
 {
-  "schema_version": 1,
-  "generator_version": "BCM-M33-1.0.1",
-  "batch_seed": 330033,
-  "profile_status": "owner_prompt_defined_automated_authoring_profiles_pending_human_balance_review",
+  "schema_version": 2,
+  "generator_version": "BCM-M33-1.1.0",
+  "batch_seed": 330044,
+  "profile_status": "owner_approved_T56_ordinary_rare_L9_prestige_capstones_high_optional_VIP_pending_physics_and_human_validation",
+  "design_contract": {
+    "ordinary_normal_T_max": 56,
+    "prestige_capstone_local_level": 100,
+    "prestige_capstone_required_normal_target_level": 9,
+    "max_adjacent_normal_T_delta": 48,
+    "move_budget_includes_optional_vip_T": true,
+    "star_rule_unchanged": true,
+    "timers_disabled": true,
+    "human_typical_completion_target_minutes": [
+      2,
+      5
+    ],
+    "human_p90_target_minutes_max": 8,
+    "human_targets_measured": false,
+    "ordinary_default_target_levels": [
+      6,
+      7,
+      8
+    ],
+    "optional_mixed_bridge_target_level": 5,
+    "maximum_L5_targets_per_ordinary_level": 1,
+    "every_ordinary_level_requires_L6_plus": true
+  },
   "island_global_ranges": {
     "tiki_island": [
       101,
@@ -44,488 +67,1371 @@
   "islands": {
     "tiki_island": {
       "output_file": "tiki_island_full.json",
-      "preserve_m32_seed_levels_1_through_12": false,
+      "preserve_m32_seed_levels_1_through_12": true,
       "minimum_orders": 2,
+      "challenge_axis": "two_goal_bridge",
       "bands": [
         {
-          "first_level": 1,
-          "last_level": 25,
+          "first_level": 13,
+          "last_level": 32,
           "tier": "ADVANCED_ENTRY",
-          "target_min": 6,
-          "target_max": 9,
+          "challenge_axis": "two_goal_bridge",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 40,
+          "vip_target_levels": [
+            9
+          ],
+          "vip_percent": 8,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 33,
+          "last_level": 55,
+          "tier": "ADVANCED_MIX",
+          "challenge_axis": "two_goal_bridge",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9
+          ],
           "vip_percent": 10,
-          "max_theoretical_shots": 512,
-          "quantity_two_percent": 5
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
-          "first_level": 26,
-          "last_level": 50,
-          "tier": "ADVANCED_COMBINATIONS",
-          "target_min": 6,
-          "target_max": 9,
+          "first_level": 56,
+          "last_level": 78,
+          "tier": "ADVANCED_MASTERY",
+          "challenge_axis": "two_goal_bridge",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 15,
-          "max_theoretical_shots": 512,
-          "quantity_two_percent": 8
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9
+          ],
+          "vip_percent": 12,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
-          "first_level": 51,
-          "last_level": 75,
-          "tier": "ADVANCED_VIP",
-          "target_min": 6,
-          "target_max": 9,
+          "first_level": 79,
+          "last_level": 99,
+          "tier": "ADVANCED_FINALE",
+          "challenge_axis": "two_goal_bridge",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 20,
-          "max_theoretical_shots": 512,
-          "quantity_two_percent": 10
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9
+          ],
+          "vip_percent": 14,
+          "quantity_two_percent": 16,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
-          "first_level": 76,
+          "first_level": 100,
           "last_level": 100,
-          "tier": "ADVANCED_CAPSTONE",
-          "target_min": 6,
-          "target_max": 9,
+          "tier": "ADVANCED_PRESTIGE_CAPSTONE",
+          "challenge_axis": "two_goal_bridge_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 22,
-          "max_theoretical_shots": 512,
-          "quantity_two_percent": 12
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [],
+          "vip_percent": 0,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "azure_bay": {
       "output_file": "azure_bay.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "three_goal_mix",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "EXPERT_ENTRY",
-          "target_min": 7,
-          "target_max": 9,
+          "challenge_axis": "three_goal_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 18,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 8
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 10,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
-          "tier": "EXPERT_COMBINATIONS",
-          "target_min": 7,
-          "target_max": 10,
+          "tier": "EXPERT_MIX",
+          "challenge_axis": "three_goal_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 20,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 10
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 12,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "EXPERT_VIP",
-          "target_min": 7,
-          "target_max": 10,
-          "orders_min": 3,
+          "tier": "EXPERT_MASTERY",
+          "challenge_axis": "three_goal_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 22,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 12
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 14,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "EXPERT_CAPSTONE",
-          "target_min": 7,
-          "target_max": 10,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "EXPERT_FINALE",
+          "challenge_axis": "three_goal_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 25,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 14
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 16,
+          "quantity_two_percent": 15,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "EXPERT_PRESTIGE_CAPSTONE",
+          "challenge_axis": "three_goal_mix_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 14,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "coconut_beach": {
       "output_file": "coconut_beach.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "quantity_planning",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "EXPERT_PLUS_ENTRY",
-          "target_min": 7,
-          "target_max": 10,
+          "challenge_axis": "quantity_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 20,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 10
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 12,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
           "tier": "EXPERT_PLUS_MIX",
-          "target_min": 7,
-          "target_max": 10,
+          "challenge_axis": "quantity_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 22,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 12
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 14,
+          "quantity_two_percent": 14,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "EXPERT_PLUS_VIP",
-          "target_min": 7,
-          "target_max": 11,
-          "orders_min": 3,
+          "tier": "EXPERT_PLUS_MASTERY",
+          "challenge_axis": "quantity_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 24,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 12
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 16,
+          "quantity_two_percent": 18,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "EXPERT_PLUS_CAPSTONE",
-          "target_min": 7,
-          "target_max": 11,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "EXPERT_PLUS_FINALE",
+          "challenge_axis": "quantity_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 26,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 14
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 18,
+          "quantity_two_percent": 20,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "EXPERT_PLUS_PRESTIGE_CAPSTONE",
+          "challenge_axis": "quantity_planning_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 16,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "sunset_island": {
       "output_file": "sunset_island.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "alternating_objectives",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "MASTER_ENTRY",
-          "target_min": 7,
-          "target_max": 10,
+          "challenge_axis": "alternating_objectives",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 22,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 10
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 12,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
           "tier": "MASTER_MIX",
-          "target_min": 7,
-          "target_max": 11,
+          "challenge_axis": "alternating_objectives",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 24,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 12
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 14,
+          "quantity_two_percent": 15,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "MASTER_VIP",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "tier": "MASTER_MASTERY",
+          "challenge_axis": "alternating_objectives",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 26,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 14
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 16,
+          "quantity_two_percent": 18,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "MASTER_CAPSTONE",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "MASTER_FINALE",
+          "challenge_axis": "alternating_objectives",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 28,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 16
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 18,
+          "quantity_two_percent": 20,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "MASTER_PRESTIGE_CAPSTONE",
+          "challenge_axis": "alternating_objectives_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 18,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "party_beach": {
       "output_file": "party_beach.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "combo_volume",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "MASTER_PLUS_ENTRY",
-          "target_min": 7,
-          "target_max": 11,
+          "challenge_axis": "combo_volume",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 24,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 12
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 14,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
           "tier": "MASTER_PLUS_MIX",
-          "target_min": 7,
-          "target_max": 11,
+          "challenge_axis": "combo_volume",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 26,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 14
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 16,
+          "quantity_two_percent": 16,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "MASTER_PLUS_VIP",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "tier": "MASTER_PLUS_MASTERY",
+          "challenge_axis": "combo_volume",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 28,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 15
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 18,
+          "quantity_two_percent": 20,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "MASTER_PLUS_CAPSTONE",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "MASTER_PLUS_FINALE",
+          "challenge_axis": "combo_volume",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 30,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 16
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 22,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "MASTER_PLUS_PRESTIGE_CAPSTONE",
+          "challenge_axis": "combo_volume_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "frozen_paradise": {
       "output_file": "frozen_paradise.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "reserve_planning",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "ELITE_ENTRY",
-          "target_min": 7,
-          "target_max": 11,
+          "challenge_axis": "reserve_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 26,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 14
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 14,
+          "quantity_two_percent": 12,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
           "tier": "ELITE_MIX",
-          "target_min": 7,
-          "target_max": 12,
+          "challenge_axis": "reserve_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 28,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 16
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 16,
+          "quantity_two_percent": 16,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "ELITE_VIP",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "tier": "ELITE_MASTERY",
+          "challenge_axis": "reserve_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 30,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 16
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 18,
+          "quantity_two_percent": 20,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "ELITE_CAPSTONE",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "ELITE_FINALE",
+          "challenge_axis": "reserve_planning",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 32,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 18
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 22,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "ELITE_PRESTIGE_CAPSTONE",
+          "challenge_axis": "reserve_planning_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "volcano_bay": {
       "output_file": "volcano_bay.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "precision_mix",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "ELITE_PLUS_ENTRY",
-          "target_min": 7,
-          "target_max": 11,
+          "challenge_axis": "precision_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 28,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 16
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 16,
+          "quantity_two_percent": 14,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
           "tier": "ELITE_PLUS_MIX",
-          "target_min": 7,
-          "target_max": 12,
+          "challenge_axis": "precision_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 30,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 18
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 18,
+          "quantity_two_percent": 18,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "ELITE_PLUS_VIP",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "tier": "ELITE_PLUS_MASTERY",
+          "challenge_axis": "precision_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 32,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 18
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 20,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "ELITE_PLUS_CAPSTONE",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "ELITE_PLUS_FINALE",
+          "challenge_axis": "precision_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 34,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 20
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 22,
+          "quantity_two_percent": 24,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "ELITE_PLUS_PRESTIGE_CAPSTONE",
+          "challenge_axis": "precision_mix_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "billionaire_island": {
       "output_file": "billionaire_island.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "mastery_sequence",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "GRANDMASTER_ENTRY",
-          "target_min": 7,
-          "target_max": 12,
+          "challenge_axis": "mastery_sequence",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 30,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 18
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 18,
+          "quantity_two_percent": 14,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
           "tier": "GRANDMASTER_MIX",
-          "target_min": 7,
-          "target_max": 12,
+          "challenge_axis": "mastery_sequence",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 32,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 20
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 18,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "GRANDMASTER_VIP",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "tier": "GRANDMASTER_MASTERY",
+          "challenge_axis": "mastery_sequence",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 34,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 20
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 22,
+          "quantity_two_percent": 22,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "GRANDMASTER_CAPSTONE",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "GRANDMASTER_FINALE",
+          "challenge_axis": "mastery_sequence",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 36,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 22
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 24,
+          "quantity_two_percent": 24,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "GRANDMASTER_PRESTIGE_CAPSTONE",
+          "challenge_axis": "mastery_sequence_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     },
     "final_island": {
       "output_file": "final_island.json",
+      "preserve_m32_seed_levels_1_through_12": false,
       "minimum_orders": 2,
+      "challenge_axis": "finale_mix",
       "bands": [
         {
           "first_level": 1,
           "last_level": 25,
           "tier": "FINAL_ENTRY",
-          "target_min": 7,
-          "target_max": 12,
+          "challenge_axis": "finale_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
-          "orders_max": 2,
-          "vip_percent": 42,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 35
+          "orders_max": 3,
+          "min_normal_T": 8,
+          "max_normal_T": 48,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 16,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 26,
           "last_level": 50,
           "tier": "FINAL_MIX",
-          "target_min": 7,
-          "target_max": 12,
+          "challenge_axis": "finale_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
           "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 46,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 38
+          "min_normal_T": 8,
+          "max_normal_T": 52,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 22,
+          "quantity_two_percent": 20,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 51,
           "last_level": 75,
-          "tier": "FINAL_VIP",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "tier": "FINAL_MASTERY",
+          "challenge_axis": "finale_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 50,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 42
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 24,
+          "quantity_two_percent": 24,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
         },
         {
           "first_level": 76,
-          "last_level": 100,
-          "tier": "FINAL_CAPSTONE",
-          "target_min": 7,
-          "target_max": 12,
-          "orders_min": 3,
+          "last_level": 99,
+          "tier": "FINAL_FINALE",
+          "challenge_axis": "finale_mix",
+          "target_levels": [
+            5,
+            6,
+            7,
+            8
+          ],
+          "orders_min": 2,
           "orders_max": 3,
-          "vip_percent": 52,
-          "max_theoretical_shots": 2048,
-          "quantity_two_percent": 45
+          "min_normal_T": 8,
+          "max_normal_T": 56,
+          "vip_target_levels": [
+            9,
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 26,
+          "quantity_two_percent": 26,
+          "prestige_capstone": false,
+          "bridge_target_level": 5,
+          "bridge_target_percent": 30,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 1
+        },
+        {
+          "first_level": 100,
+          "last_level": 100,
+          "tier": "FINAL_PRESTIGE_CAPSTONE",
+          "challenge_axis": "finale_mix_prestige",
+          "target_levels": [
+            6,
+            7,
+            9
+          ],
+          "required_target_levels": [
+            9
+          ],
+          "orders_min": 2,
+          "orders_max": 3,
+          "min_normal_T": 68,
+          "max_normal_T": 80,
+          "vip_target_levels": [
+            10,
+            11,
+            12
+          ],
+          "vip_percent": 20,
+          "quantity_two_percent": 20,
+          "prestige_capstone": true,
+          "bridge_target_level": 0,
+          "bridge_target_percent": 0,
+          "minimum_normal_target_level": 6,
+          "maximum_targets_below_minimum": 0
         }
       ]
     }

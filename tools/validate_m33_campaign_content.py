@@ -48,6 +48,10 @@ def theoretical_shots(row: dict) -> int:
     return total
 
 
+def normal_theoretical_shots(row: dict) -> int:
+    return sum((1 << (int(order["cocktail_level"]) - 3)) * int(order["quantity"]) for order in row["orders"])
+
+
 def fail(message: str) -> None:
     raise SystemExit(f"M33_STATIC_VALIDATION=FAIL {message}")
 
@@ -71,10 +75,16 @@ def main() -> int:
 
     sunny_root = json.loads((ROOT / "data/campaign/levels/sunny_cove.json").read_text(encoding="utf-8"))
     m32_tiki_seed = json.loads((ROOT / "data/campaign/levels/tiki_island.json").read_text(encoding="utf-8"))
+    profile = json.loads((ROOT / "data/campaign/content_generation_profiles_m33.json").read_text(encoding="utf-8"))
+    profile_sha = sha256((ROOT / "data/campaign/content_generation_profiles_m33.json").read_bytes())
+    contract = profile.get("design_contract", {})
+    if int(contract.get("ordinary_normal_T_max", 0)) != 56 or int(contract.get("prestige_capstone_local_level", 0)) != 100:
+        fail("owner-approved T56 / level-100 capstone contract is missing")
     sunny_intro = {normal_signature(row) for row in sunny_root["levels"][:10]}
     records = 0
     generated_records = 0
     global_signatures: set[str] = set()
+    capstone_count = 0
     for island_id, root in outputs_a.items():
         rows = root["levels"]
         if len(rows) != 100 or [int(row["level_id"]) for row in rows] != list(range(1, 101)):
@@ -90,8 +100,9 @@ def main() -> int:
                     fail(f"M32 Tiki L{source['level_id']} global ID is not mapped correctly")
                 if packaged.get("difficulty_tier") != "PRESERVED_M32_SEED":
                     fail(f"M32 Tiki L{source['level_id']} provenance metadata is missing")
-        if len({full_signature(row) for row in rows}) != 100:
-            fail(f"{island_id} repeats a complete challenge recipe")
+        local_full = {full_signature(row) for row in rows}
+        if len(local_full) != 100:
+            fail(f"{island_id} does not have 100 distinct full challenge recipes")
         policy = next(row["target_policy"] for row in registry if row["id"] == island_id)
         band_metrics = next(row for row in report_a["islands"] if row["island_id"] == island_id)
         if not bool(band_metrics["all_generated_normal_templates_avoid_sunny_intro_1_10"]):
@@ -101,16 +112,16 @@ def main() -> int:
             fail(f"{island_id} has a generated Sunny Cove introduction collision")
         if int(band_metrics["record_count"]) != 100:
             fail(f"{island_id} metrics report an incorrect record count")
-        normal_counts = Counter(normal_signature(row) for row in rows)
-        if int(band_metrics["normal_template_repeat_records"]) != sum(count - 1 for count in normal_counts.values()):
-            fail(f"{island_id} repeat-template metric is inconsistent")
+        normal_counts = Counter(normal_signature(row) for row in generated_rows)
+        if len(normal_counts) != len(generated_rows):
+            fail(f"{island_id} repeats a normal objective template within that island")
+        if int(band_metrics["normal_template_repeat_records"]) != 0:
+            fail(f"{island_id} metrics claim intra-island normal repeats")
         for row in rows:
             records += 1
             inherited_m32 = island_id == "tiki_island" and int(row["level_id"]) <= 12
             generated_records += 0 if inherited_m32 else 1
             signature = full_signature(row)
-            if signature in global_signatures:
-                fail(f"complete challenge recipe collides across islands: {island_id}/{row['level_id']}")
             global_signatures.add(signature)
             if str(row["island_id"]) != island_id or float(row["time_limit_sec"]) != 0.0 or (not inherited_m32 and len(row["orders"]) < 2):
                 fail(f"{island_id}/{row['level_id']} has invalid identity, timer, or order count")
@@ -120,11 +131,32 @@ def main() -> int:
                 if not 3 <= level <= 12 or not int(policy["min_level"]) <= level <= int(policy["max_level"]) or not 1 <= quantity <= 2:
                     fail(f"{island_id}/{row['level_id']} has an out-of-policy To-Go target or quantity")
                 order_targets.add(level)
+            if not inherited_m32:
+                expected_rewards = {"coins": 10, "gems": 1} if island_id == "tiki_island" else {"coins": 0}
+                if row.get("rewards") != expected_rewards:
+                    fail(f"{island_id}/{row['level_id']} changed the established campaign reward payload")
+                normal_t = normal_theoretical_shots(row)
+                is_capstone = int(row["level_id"]) == 100
+                if bool(row.get("prestige_capstone", False)) != is_capstone or str(row.get("level_type", "")) != ("PRESTIGE_CAPSTONE" if is_capstone else "ORDINARY"):
+                    fail(f"{island_id}/{row['level_id']} lacks the explicit ordinary/capstone marker")
+                if is_capstone:
+                    capstone_count += 1
+                    if normal_t <= 56 or normal_t > 80 or 9 not in order_targets:
+                        fail(f"{island_id}/{row['level_id']} capstone is outside the L9 / T68-T80 contract")
+                else:
+                    if normal_t > 56 or any(int(order["cocktail_level"]) > 8 for order in row["orders"]):
+                        fail(f"{island_id}/{row['level_id']} ordinary normal objectives exceed T56/L8")
+                    if not any(int(order["cocktail_level"]) >= 6 for order in row["orders"]) or sum(int(order["cocktail_level"]) < 6 for order in row["orders"]) > 1:
+                        fail(f"{island_id}/{row['level_id']} resets to low-only objectives")
             vip = row.get("vip")
             if isinstance(vip, dict) and vip.get("enabled", True):
                 target, quantity = int(vip["cocktail_level"]), int(vip["quantity"])
                 if target in order_targets or not int(policy["min_level"]) <= target <= int(policy["max_level"]) or not 1 <= quantity <= 2:
                     fail(f"{island_id}/{row['level_id']} VIP is not optional or policy-legal")
+                if vip.get("reward") != {}:
+                    fail(f"{island_id}/{row['level_id']} changed the existing optional VIP reward payload")
+                if not inherited_m32 and target <= max(order_targets):
+                    fail(f"{island_id}/{row['level_id']} VIP can be produced as a normal objective intermediate")
             shots = theoretical_shots(row)
             if shots != int(row["theoretical_shots_total"]) or int(row["move_limit"]) != shots * 4:
                 fail(f"{island_id}/{row['level_id']} derived move budget is inconsistent")
@@ -132,33 +164,61 @@ def main() -> int:
                 fail(f"{island_id}/{row['level_id']} global ID is not stable")
     if records != 900 or generated_records != 888:
         fail(f"expected 900 packaged records including 12 inherited and 888 generated, got {records} packaged/{generated_records} generated")
-    if len(global_signatures) != records or int(report_a["unique_full_challenge_signatures_global"]) != records:
-        fail("global full-challenge recipes are not all unique")
+    if int(report_a["unique_full_challenge_signatures_global"]) != len(global_signatures):
+        fail("global full-recipe diversity report is inconsistent")
+    if capstone_count != 9:
+        fail(f"expected one marked prestige capstone per generated island, got {capstone_count}")
+    if int(report_a.get("cross_island_full_recipe_repeat_count", -1)) != records - len(global_signatures):
+        fail("cross-island full-recipe repeat metric is inconsistent")
+    generated_normal_t: list[int] = []
+    for island_id, root in outputs_a.items():
+        first_generated = 12 if island_id == "tiki_island" else 0
+        generated_normal_t.extend(normal_theoretical_shots(row) for row in root["levels"][first_generated:])
+    max_normal_step = int(contract["max_adjacent_normal_T_delta"])
+    if any(abs(right - left) > max_normal_step for left, right in zip(generated_normal_t, generated_normal_t[1:])):
+        fail("generated cross-island normal-T transition exceeds the locked adjacent-step ceiling")
 
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     if manifest.get("ordered_island_ids") != EXPECTED_ISLANDS or int(manifest.get("total_levels", 0)) != 1000:
         fail("manifest campaign contract is inconsistent")
     if len(manifest.get("islands", [])) != 10:
         fail("manifest is missing island records")
+    if manifest.get("content_version") != "BCM-M33.3":
+        fail("R04 campaign content version was not advanced")
+    if report_a.get("profile_set_sha256") != profile_sha:
+        fail("generation report does not bind to the current profile bytes")
     for item in manifest["islands"]:
         path = ROOT / str(item["path"]).removeprefix("res://")
         if not path.is_file() or sha256(path.read_bytes()) != str(item["sha256"]).upper():
             fail(f"manifest checksum mismatch: {item.get('id')}")
         packaged = json.loads(path.read_text(encoding="utf-8"))
+        if item["id"] != "sunny_cove" and packaged.get("campaign_generation", {}).get("profile_set_sha256") != profile_sha:
+            fail(f"packaged profile checksum mismatch: {item['id']}")
         if packaged != outputs_a.get(item["id"], packaged) and item["id"] != "sunny_cove":
             fail(f"packaged output differs from deterministic generator: {item['id']}")
         if len(packaged.get("levels", [])) != 100 or str(packaged.get("island_id", "")) != str(item["id"]):
             fail(f"packaged content identity/count mismatch: {item['id']}")
+    for island in registry:
+        for asset_key in ("map_asset", "playable_geometry_profile"):
+            asset_path = ROOT / str(island[asset_key]).removeprefix("res://")
+            if not asset_path.is_file():
+                fail(f"registered campaign asset is missing: {island['id']} {asset_key}")
+        for theme_key in ("island_map_background", "gameplay_surface", "playable_geometry_profile"):
+            asset_path = ROOT / str(island["theme"][theme_key]).removeprefix("res://")
+            if not asset_path.is_file():
+                fail(f"registered theme asset is missing: {island['id']} {theme_key}")
     sunny_bytes = (ROOT / "data/campaign/levels/sunny_cove.json").read_bytes()
     if sha256(sunny_bytes) != SUNNY_SHA256 or next(row for row in manifest["islands"] if row["id"] == "sunny_cove")["sha256"] != SUNNY_SHA256:
         fail("Sunny Cove content bytes changed")
     print(json.dumps({
-        "result": "PASS_STATIC_CANDIDATE_CHECKS_PHYSICS_NOT_CERTIFIED",
+        "result": "PASS_OWNER_APPROVED_DIFFICULTY_STATIC_CHECKS_PHYSICS_NOT_CERTIFIED",
         "deterministic_generation": True,
         "packaged_campaign_records": records,
         "preserved_m32_tiki_records": records - generated_records,
         "generated_records": generated_records,
         "globally_unique_full_recipes": len(global_signatures),
+        "cross_island_full_recipe_repeats": records - len(global_signatures),
+        "marked_prestige_capstones": capstone_count,
         "sunny_cove_sha256": SUNNY_SHA256,
         "island_metrics": [
             {
@@ -168,6 +228,10 @@ def main() -> int:
                 "normal_template_repeat_rate": row["normal_template_repeat_rate"],
                 "max_normal_template_repetition": row["max_repetition_of_one_normal_template"],
                 "vip_levels": row["vip_enabled_levels"],
+                "normal_T_median": row["normal_T_median"],
+                "normal_T_p90": row["normal_T_p90"],
+                "normal_T_max": row["normal_T_max"],
+                "normal_T_at_most_56_count": row["normal_T_at_most_56_count"],
                 "theoretical_shots_median": row["theoretical_shots_median"],
             }
             for row in report_a["islands"]
