@@ -4,7 +4,7 @@ extends RefCounted
 ## Schema-versioned campaign persistence. Gameplay's legacy ConfigFile remains
 ## owned by GameManager; this service only reads it during campaign migration.
 
-const SCHEMA_VERSION := 2
+const SCHEMA_VERSION := 3
 const DEFAULT_SAVE_PATH := "user://campaign_save.json"
 const DEFAULT_BACKUP_PATH := "user://campaign_save.json.bak"
 const DEFAULT_LEGACY_PATH := "user://save.cfg"
@@ -32,8 +32,12 @@ func create_default_state() -> Dictionary:
         },
         "legacy_best_score": 0,
         "boosters": {},
-        "coins": 0,
-        "gems": 0,
+        "coins": 100,
+        "gems": 5,
+        "energy": 100,
+        "energy_last_update_unix": int(Time.get_unix_time_from_system()),
+        "energy_regen_remainder_sec": 0,
+        "retired_focus_inventory": 0,
         "reward_ledger": [],
         "transaction_ledger": [],
     }
@@ -49,13 +53,15 @@ func validate_state(state: Variant) -> Dictionary:
     var schema_value = state.get("schema_version", null)
     if (typeof(schema_value) != TYPE_INT and typeof(schema_value) != TYPE_FLOAT) or int(schema_value) != SCHEMA_VERSION or not is_equal_approx(float(schema_value), float(SCHEMA_VERSION)):
         return {"ok": false, "reason": "UNSUPPORTED_SCHEMA_VERSION"}
-    for key in ["unlocked_islands", "islands", "legacy_best_score", "boosters", "coins"]:
+    for key in ["unlocked_islands", "islands", "legacy_best_score", "boosters", "coins", "energy", "energy_last_update_unix", "energy_regen_remainder_sec", "retired_focus_inventory"]:
         if not state.has(key):
             return {"ok": false, "reason": "MISSING_KEY:%s" % key}
     if not state["unlocked_islands"] is Array or not state["islands"] is Dictionary or not state["boosters"] is Dictionary:
         return {"ok": false, "reason": "INVALID_STATE_SHAPE"}
     if not _is_non_negative_number(state["coins"]) or not _is_non_negative_number(state["legacy_best_score"]):
         return {"ok": false, "reason": "NEGATIVE_OR_INVALID_GLOBAL_VALUE"}
+    if not _is_non_negative_integer(state["energy"]) or int(state["energy"]) > 100 or not _is_non_negative_integer(state["energy_last_update_unix"]) or not _is_non_negative_integer(state["energy_regen_remainder_sec"]) or int(state["energy_regen_remainder_sec"]) >= 180 or not _is_non_negative_integer(state["retired_focus_inventory"]):
+        return {"ok": false, "reason": "INVALID_ENERGY_OR_RETIRED_INVENTORY"}
     if not _is_non_negative_number(state.get("gems", 0)) or not is_equal_approx(float(state.get("gems", 0)), float(int(state.get("gems", 0)))):
         return {"ok": false, "reason": "INVALID_GEMS"}
     for booster_id in state["boosters"]:
@@ -224,7 +230,7 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
         if current_validation["ok"]:
             return {"ok": true, "state": state.duplicate(true), "changed": false, "reason": "CURRENT_SCHEMA"}
         return {"ok": false, "reason": current_validation["reason"]}
-    if from_version != 1:
+    if from_version != 1 and from_version != 2:
         return {"ok": false, "reason": "UNSUPPORTED_SCHEMA_VERSION"}
     var migrated := state.duplicate(true)
     migrated["schema_version"] = SCHEMA_VERSION
@@ -240,6 +246,19 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
         migrated["reward_ledger"] = []
     if not migrated.has("transaction_ledger"):
         migrated["transaction_ledger"] = []
+    if not migrated.has("energy"):
+        migrated["energy"] = 100
+    if not migrated.has("energy_last_update_unix"):
+        migrated["energy_last_update_unix"] = int(Time.get_unix_time_from_system())
+    if not migrated.has("energy_regen_remainder_sec"):
+        migrated["energy_regen_remainder_sec"] = 0
+    if not migrated.has("retired_focus_inventory"):
+        migrated["retired_focus_inventory"] = 0
+    var legacy_boosters: Dictionary = migrated.get("boosters", {}).duplicate(true)
+    if legacy_boosters.has("focus"):
+        migrated["retired_focus_inventory"] = int(migrated["retired_focus_inventory"]) + maxi(0, int(legacy_boosters["focus"]))
+        legacy_boosters.erase("focus")
+        migrated["boosters"] = legacy_boosters
     for island_id in migrated.get("islands", {}):
         var island_state: Dictionary = migrated["islands"][island_id]
         if not island_state.has("completed_levels"):
@@ -377,6 +396,10 @@ func _is_bounded_stars(value: Variant) -> bool:
 
 func _is_positive_integer(value: Variant) -> bool:
     return _is_non_negative_number(value) and is_equal_approx(float(value), float(int(value))) and int(value) > 0
+
+
+func _is_non_negative_integer(value: Variant) -> bool:
+    return _is_non_negative_number(value) and is_equal_approx(float(value), float(int(value)))
 
 
 func _normalize_json_numbers(value: Variant) -> Variant:

@@ -139,6 +139,7 @@ func mark_level_completed(island_id: String, level_id: int, result: Dictionary =
     var completed: Dictionary = island_state["completed_levels"].duplicate(true)
     var key := str(level_id)
     var old_record: Dictionary = completed.get(key, {})
+    var was_island_complete := is_island_complete(island_id)
     var old_highest_level := int(island_state.get("highest_unlocked_level", 1))
     var new_record: Dictionary = old_record.duplicate(true)
     var old_stars := clampi(int(old_record.get("stars", 0)), 0, 3)
@@ -157,6 +158,24 @@ func mark_level_completed(island_id: String, level_id: int, result: Dictionary =
         island_state["highest_unlocked_level"] = maxi(int(island_state.get("highest_unlocked_level", 1)), level_id + 1)
     _set_island_state(island_id, island_state)
     var changed := old_record != new_record or int(island_state.get("highest_unlocked_level", 1)) != old_highest_level
+    var star_economy_reward: Dictionary = {"ok": true, "granted": false}
+    if economy != null and int(new_record["stars"]) > old_stars:
+        var level_definition: Dictionary = level_database.get_level(island_id, level_id)
+        var global_level_id := int(level_definition.get("global_level_id", 0))
+        if global_level_id <= 0:
+            global_level_id = _resolve_global_level_id(island_id, level_id)
+        if global_level_id > 0 and economy.has_method("apply_level_star_reward"):
+            star_economy_reward = economy.apply_level_star_reward(global_level_id, old_stars, int(new_record["stars"]))
+            if not bool(star_economy_reward.get("ok", false)):
+                return {"ok": false, "reason": "STAR_ECONOMY_REWARD_REJECTED", "changed": changed, "economy_reward": star_economy_reward}
+            changed = changed or bool(star_economy_reward.get("granted", false)) or bool(star_economy_reward.get("three_star_gem", false))
+    var completed_now := is_island_complete(island_id)
+    var island_economy_reward: Dictionary = {"ok": true, "granted": false}
+    if economy != null and completed_now and not was_island_complete and economy.has_method("grant_island_completion_once"):
+        island_economy_reward = economy.grant_island_completion_once(island_id)
+        if not bool(island_economy_reward.get("ok", false)):
+            return {"ok": false, "reason": "ISLAND_ECONOMY_REWARD_REJECTED", "changed": changed, "economy_reward": island_economy_reward}
+        changed = changed or bool(island_economy_reward.get("granted", false))
     var cumulative_rewards := _claim_cumulative_star_rewards(island_id)
     changed = changed or not cumulative_rewards.is_empty()
     var unlock_changed := _refresh_island_unlocks()
@@ -173,6 +192,8 @@ func mark_level_completed(island_id: String, level_id: int, result: Dictionary =
         "next_island": resolve_next_island(island_id),
         "cumulative_stars": get_cumulative_stars(island_id),
         "cumulative_rewards": cumulative_rewards,
+        "star_economy_reward": star_economy_reward,
+        "island_economy_reward": island_economy_reward,
     }
 
 
@@ -312,6 +333,14 @@ func _normalized_state(progression_state: Dictionary) -> Dictionary:
         state["coins"] = 0
     if not state.has("gems"):
         state["gems"] = 0
+    if not state.has("energy"):
+        state["energy"] = 100
+    if not state.has("energy_last_update_unix"):
+        state["energy_last_update_unix"] = int(Time.get_unix_time_from_system())
+    if not state.has("energy_regen_remainder_sec"):
+        state["energy_regen_remainder_sec"] = 0
+    if not state.has("retired_focus_inventory"):
+        state["retired_focus_inventory"] = 0
     if not state.has("boosters"):
         state["boosters"] = {}
     if not state.has("legacy_best_score"):
@@ -346,6 +375,19 @@ func _set_island_state(island_id: String, island_state: Dictionary) -> void:
     var islands: Dictionary = _state.get("islands", {}).duplicate(true)
     islands[island_id] = island_state.duplicate(true)
     _state["islands"] = islands
+
+
+func _resolve_global_level_id(island_id: String, level_id: int) -> int:
+    # Pre-M33 Sunny Cove records do not carry global IDs. Resolve them through
+    # canonical campaign order so they share the global reward ledger.
+    if level_database == null or level_id < 1:
+        return 0
+    var ordered_islands: Array[String] = level_database.get_island_ids_in_order()
+    var island_index := ordered_islands.find(island_id)
+    var levels_per_island := int(level_database.get_campaign_contract().get("levels_per_island", 0))
+    if island_index < 0 or levels_per_island <= 0 or level_id > levels_per_island:
+        return 0
+    return island_index * levels_per_island + level_id
 
 
 func _milestone_reward(island: Dictionary, milestone_id: Variant) -> Dictionary:

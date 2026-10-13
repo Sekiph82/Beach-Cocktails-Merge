@@ -5,17 +5,29 @@ extends RefCounted
 ## monetized services are intentionally outside this bounded M15 surface.
 
 const BOOSTER_TIME := "time"
+const ENERGY_CAP := 100
+const ENERGY_PER_ATTEMPT := 20
+const ENERGY_REGEN_INTERVAL_SEC := 180
+const ENERGY_REFILL_GEM_COST := 25
 
 var coins := 0
 var gems := 0
+var energy := ENERGY_CAP
+var energy_last_update_unix := 0
+var energy_regen_remainder_sec := 0
+var retired_focus_inventory := 0
 var boosters: Dictionary = {}
 var _granted_reward_ids: Dictionary = {}
 var _transaction_ids: Dictionary = {}
 
 
-func configure(initial_coins: int = 0, initial_boosters: Dictionary = {}, initial_reward_ledger: Array = [], initial_gems: int = 0, initial_transaction_ledger: Array = []) -> void:
+func configure(initial_coins: int = 0, initial_boosters: Dictionary = {}, initial_reward_ledger: Array = [], initial_gems: int = 0, initial_transaction_ledger: Array = [], initial_energy: int = ENERGY_CAP, initial_energy_last_update_unix: int = 0, initial_energy_regen_remainder_sec: int = 0, initial_retired_focus_inventory: int = 0) -> void:
     coins = maxi(0, initial_coins)
     gems = maxi(0, initial_gems)
+    energy = clampi(initial_energy, 0, ENERGY_CAP)
+    energy_last_update_unix = maxi(0, initial_energy_last_update_unix)
+    energy_regen_remainder_sec = clampi(initial_energy_regen_remainder_sec, 0, ENERGY_REGEN_INTERVAL_SEC - 1)
+    retired_focus_inventory = maxi(0, initial_retired_focus_inventory)
     boosters = _sanitize_boosters(initial_boosters)
     _granted_reward_ids.clear()
     for reward_id in initial_reward_ledger:
@@ -34,12 +46,124 @@ func configure_from_state(state: Dictionary) -> Dictionary:
         "reward_ledger": state.get("reward_ledger", state.get("granted_reward_ids", [])),
         "gems": state.get("gems", 0),
         "transaction_ledger": state.get("transaction_ledger", []),
+        "energy": state.get("energy", ENERGY_CAP),
+        "energy_last_update_unix": state.get("energy_last_update_unix", 0),
+        "energy_regen_remainder_sec": state.get("energy_regen_remainder_sec", 0),
+        "retired_focus_inventory": state.get("retired_focus_inventory", 0),
     }
     var validation := validate_state(candidate)
     if not validation["ok"]:
         return validation
-    configure(int(candidate["coins"]), candidate["boosters"], candidate["reward_ledger"], int(candidate["gems"]), candidate["transaction_ledger"])
+    configure(int(candidate["coins"]), candidate["boosters"], candidate["reward_ledger"], int(candidate["gems"]), candidate["transaction_ledger"], int(candidate["energy"]), int(candidate["energy_last_update_unix"]), int(candidate["energy_regen_remainder_sec"]), int(candidate["retired_focus_inventory"]))
+    if energy_last_update_unix <= 0:
+        energy_last_update_unix = _now_unix()
     return {"ok": true, "reason": "ECONOMY_CONFIGURED"}
+
+
+func refresh_energy(now_unix: int = -1) -> Dictionary:
+    var now := now_unix if now_unix >= 0 else _now_unix()
+    if energy_last_update_unix <= 0:
+        energy_last_update_unix = now
+        energy_regen_remainder_sec = 0
+        return get_energy_state()
+    # A rollback never lowers the durable high-water mark or grants energy.
+    if now < energy_last_update_unix:
+        return get_energy_state()
+    var elapsed := now - energy_last_update_unix
+    if energy >= ENERGY_CAP:
+        energy = ENERGY_CAP
+        energy_regen_remainder_sec = 0
+        energy_last_update_unix = now
+        return get_energy_state()
+    var accumulated := energy_regen_remainder_sec + elapsed
+    var earned := int(accumulated / ENERGY_REGEN_INTERVAL_SEC)
+    if earned > 0:
+        energy = mini(ENERGY_CAP, energy + earned)
+        energy_last_update_unix = now
+        energy_regen_remainder_sec = 0 if energy >= ENERGY_CAP else accumulated % ENERGY_REGEN_INTERVAL_SEC
+    return get_energy_state()
+
+
+func get_energy_state(now_unix: int = -1) -> Dictionary:
+    if now_unix >= 0:
+        refresh_energy(now_unix)
+    var now := now_unix if now_unix >= 0 else _now_unix()
+    var seconds_to_next := 0
+    if energy < ENERGY_CAP:
+        var elapsed := maxi(0, now - energy_last_update_unix)
+        seconds_to_next = maxi(0, ENERGY_REGEN_INTERVAL_SEC - ((energy_regen_remainder_sec + elapsed) % ENERGY_REGEN_INTERVAL_SEC))
+    return {"energy": energy, "cap": ENERGY_CAP, "seconds_to_next": seconds_to_next, "last_update_unix": energy_last_update_unix, "remainder_sec": energy_regen_remainder_sec}
+
+
+func start_attempt_once(transaction_id: String, now_unix: int = -1) -> Dictionary:
+    if transaction_id.is_empty():
+        return {"ok": false, "reason": "TRANSACTION_ID_REQUIRED"}
+    if _transaction_ids.has(transaction_id):
+        return {"ok": true, "duplicate": true, "transaction_id": transaction_id, "energy": energy}
+    refresh_energy(now_unix)
+    if energy < ENERGY_PER_ATTEMPT:
+        return {"ok": false, "reason": "INSUFFICIENT_ENERGY", "energy": energy, "required": ENERGY_PER_ATTEMPT}
+    energy -= ENERGY_PER_ATTEMPT
+    _transaction_ids[transaction_id] = true
+    return {"ok": true, "started": true, "duplicate": false, "transaction_id": transaction_id, "energy": energy}
+
+
+func buy_full_energy_refill(transaction_id: String, now_unix: int = -1) -> Dictionary:
+    if transaction_id.is_empty():
+        return {"ok": false, "reason": "TRANSACTION_ID_REQUIRED"}
+    if _transaction_ids.has(transaction_id):
+        return {"ok": true, "duplicate": true, "transaction_id": transaction_id, "energy": energy, "gems": gems}
+    refresh_energy(now_unix)
+    if energy >= ENERGY_CAP:
+        return {"ok": false, "reason": "ENERGY_ALREADY_FULL", "energy": energy}
+    if gems < ENERGY_REFILL_GEM_COST:
+        return {"ok": false, "reason": "INSUFFICIENT_GEMS", "available": gems, "required": ENERGY_REFILL_GEM_COST}
+    gems -= ENERGY_REFILL_GEM_COST
+    energy = ENERGY_CAP
+    energy_regen_remainder_sec = 0
+    energy_last_update_unix = now_unix if now_unix >= 0 else _now_unix()
+    _transaction_ids[transaction_id] = true
+    return {"ok": true, "refilled": true, "energy": energy, "gems": gems, "transaction_id": transaction_id}
+
+
+func grant_verified_ad_energy(transaction_id: String, verified_provider_receipt: String, now_unix: int = -1) -> Dictionary:
+    if transaction_id.is_empty() or verified_provider_receipt.is_empty():
+        return {"ok": false, "reason": "VERIFIED_AD_RECEIPT_REQUIRED"}
+    if _transaction_ids.has(transaction_id):
+        return {"ok": true, "duplicate": true, "transaction_id": transaction_id, "energy": energy}
+    refresh_energy(now_unix)
+    if energy >= ENERGY_CAP:
+        return {"ok": false, "reason": "ENERGY_ALREADY_FULL", "energy": energy}
+    var before_energy := energy
+    energy = mini(ENERGY_CAP, energy + 20)
+    energy_regen_remainder_sec = 0 if energy >= ENERGY_CAP else energy_regen_remainder_sec
+    _transaction_ids[transaction_id] = true
+    return {"ok": true, "granted": true, "energy_delta": energy - before_energy, "energy": energy, "transaction_id": transaction_id}
+
+
+func apply_level_star_reward(global_level_id: int, old_stars: int, new_stars: int) -> Dictionary:
+    if global_level_id <= 0 or new_stars <= old_stars:
+        return {"ok": true, "granted": false, "reason": "NO_STAR_IMPROVEMENT"}
+    var payout := [0, 20, 30, 40]
+    var delta: int = payout[clampi(new_stars, 0, 3)] - payout[clampi(old_stars, 0, 3)]
+    var result := {"ok": true, "granted": false, "coins_delta": 0, "gems_delta": 0}
+    if delta > 0:
+        result = grant_reward("level-stars:%d:%d" % [global_level_id, new_stars], {"coins": delta})
+        if not bool(result.get("ok", false)):
+            return result
+    if new_stars >= 3 and global_level_id % 5 == 0:
+        var gem_result := grant_reward("level-first-three-star:%d" % global_level_id, {"gems": 1})
+        if not bool(gem_result.get("ok", false)):
+            return gem_result
+        result["gems_delta"] = int(gem_result.get("gems_delta", 0))
+        result["three_star_gem"] = gem_result.get("granted", false)
+    return result
+
+
+func grant_island_completion_once(island_id: String) -> Dictionary:
+    if island_id.is_empty():
+        return {"ok": false, "reason": "ISLAND_ID_REQUIRED"}
+    return grant_reward("island-complete:%s" % island_id, {"coins": 200, "gems": 10})
 
 
 func get_booster_count(booster_id: String) -> int:
@@ -53,6 +177,8 @@ func get_booster_inventory() -> Dictionary:
 func grant_booster(booster_id: String, quantity: int) -> Dictionary:
     if booster_id.is_empty():
         return {"ok": false, "reason": "BOOSTER_ID_REQUIRED"}
+    if booster_id == "focus":
+        return {"ok": false, "reason": "BOOSTER_RETIRED"}
     if quantity <= 0:
         return {"ok": false, "reason": "BOOSTER_QUANTITY_MUST_BE_POSITIVE"}
     boosters[booster_id] = get_booster_count(booster_id) + quantity
@@ -62,6 +188,8 @@ func grant_booster(booster_id: String, quantity: int) -> Dictionary:
 func consume_booster(booster_id: String, quantity: int = 1) -> Dictionary:
     if booster_id.is_empty():
         return {"ok": false, "reason": "BOOSTER_ID_REQUIRED"}
+    if booster_id == "focus":
+        return {"ok": false, "reason": "BOOSTER_RETIRED"}
     if quantity <= 0:
         return {"ok": false, "reason": "BOOSTER_QUANTITY_MUST_BE_POSITIVE"}
     var current := get_booster_count(booster_id)
@@ -96,6 +224,8 @@ func spend_gems(transaction_id: String, quantity: int) -> Dictionary:
 func purchase_booster(transaction_id: String, booster_id: String, quantity: int, currency: String, cost: int) -> Dictionary:
     if transaction_id.is_empty() or booster_id.is_empty() or quantity <= 0 or cost < 0 or currency not in ["coins", "gems"]:
         return {"ok": false, "reason": "INVALID_PURCHASE"}
+    if booster_id == "focus":
+        return {"ok": false, "reason": "BOOSTER_RETIRED"}
     if _transaction_ids.has(transaction_id):
         return {"ok": true, "duplicate": true, "transaction_id": transaction_id}
     var available := coins if currency == "coins" else gems
@@ -178,6 +308,10 @@ func export_state() -> Dictionary:
     return {
         "coins": coins,
         "gems": gems,
+        "energy": energy,
+        "energy_last_update_unix": energy_last_update_unix,
+        "energy_regen_remainder_sec": energy_regen_remainder_sec,
+        "retired_focus_inventory": retired_focus_inventory,
         "boosters": boosters.duplicate(true),
         "reward_ledger": ledger,
         "transaction_ledger": _sorted_transaction_ids(),
@@ -195,6 +329,8 @@ func get_ledger_state() -> Dictionary:
 func validate_state(state: Dictionary) -> Dictionary:
     if not _is_non_negative_integer(state.get("coins", -1)) or not _is_non_negative_integer(state.get("gems", 0)):
         return {"ok": false, "reason": "INVALID_COINS"}
+    if not _is_non_negative_integer(state.get("energy", ENERGY_CAP)) or int(state.get("energy", ENERGY_CAP)) > ENERGY_CAP or not _is_non_negative_integer(state.get("energy_last_update_unix", 0)) or not _is_non_negative_integer(state.get("energy_regen_remainder_sec", 0)) or int(state.get("energy_regen_remainder_sec", 0)) >= ENERGY_REGEN_INTERVAL_SEC or not _is_non_negative_integer(state.get("retired_focus_inventory", 0)):
+        return {"ok": false, "reason": "INVALID_ENERGY_STATE"}
     if not state.get("boosters", {}) is Dictionary:
         return {"ok": false, "reason": "INVALID_BOOSTER_INVENTORY"}
     for booster_id in state.get("boosters", {}):
@@ -270,9 +406,16 @@ func _sanitize_boosters(value: Dictionary) -> Dictionary:
         if typeof(booster_id) != TYPE_STRING or str(booster_id).is_empty():
             continue
         var quantity := int(value[booster_id])
+        if str(booster_id) == "focus":
+            retired_focus_inventory += maxi(0, quantity)
+            continue
         if quantity > 0:
             sanitized[str(booster_id)] = quantity
     return sanitized
+
+
+func _now_unix() -> int:
+    return int(Time.get_unix_time_from_system())
 
 
 func _is_positive_integer(value: Variant) -> bool:

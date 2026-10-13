@@ -79,6 +79,13 @@ func start_session(island_id: String, level_id: int) -> Dictionary:
     if level.is_empty():
         return {}
 
+    if economy != null and economy.has_method("start_attempt_once"):
+        var attempt_transaction := "energy-attempt:%d:%d:%s:%d" % [Time.get_unix_time_from_system(), Time.get_ticks_usec(), island_id, level_id]
+        var energy_charge: Dictionary = economy.start_attempt_once(attempt_transaction)
+        if not bool(energy_charge.get("ok", false)):
+            return {}
+        economy_changed.emit(economy.export_state())
+
     _session_serial += 1
     active_island_id = island_id
     active_level_id = level_id
