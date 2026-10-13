@@ -1,0 +1,128 @@
+{
+	"by_island": {
+		"azure_bay": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 352,
+				"median": 192,
+				"minimum": 48
+			},
+			"vip_count": 36
+		},
+		"billionaire_island": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 1568,
+				"median": 656,
+				"minimum": 48
+			},
+			"vip_count": 48
+		},
+		"coconut_beach": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 800,
+				"median": 304,
+				"minimum": 80
+			},
+			"vip_count": 52
+		},
+		"final_island": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 1552,
+				"median": 672,
+				"minimum": 96
+			},
+			"vip_count": 66
+		},
+		"frozen_paradise": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 1600,
+				"median": 560,
+				"minimum": 96
+			},
+			"vip_count": 52
+		},
+		"party_beach": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 1344,
+				"median": 448,
+				"minimum": 48
+			},
+			"vip_count": 51
+		},
+		"sunset_island": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 1216,
+				"median": 416,
+				"minimum": 64
+			},
+			"vip_count": 44
+		},
+		"tiki_island": {
+			"candidate_count": 99,
+			"normal_T_summary": {
+				"maximum": 176,
+				"median": 88,
+				"minimum": 4
+			},
+			"vip_count": 29
+		},
+		"volcano_bay": {
+			"candidate_count": 100,
+			"normal_T_summary": {
+				"maximum": 1344,
+				"median": 544,
+				"minimum": 80
+			},
+			"vip_count": 56
+		}
+	},
+	"candidate_levels_checked": 899,
+	"candidate_range": {
+		"first": 102,
+		"last": 1000
+	},
+	"conclusion": "No objective infeasibility was found by the checked input, target-closure, island-policy, 4T-budget, and untimed invariants. This is necessary-condition data validation, not a proof of physical placement reachability, policy solvability, human fairness, or campaign acceptance.",
+	"conservative_vip_intermediate_heuristic_flag_count": 307,
+	"enabled_vip_record_count": 434,
+	"merge_closure_through_max_level": [
+		1,
+		2,
+		3,
+		4,
+		5,
+		6,
+		7,
+		8,
+		9,
+		10,
+		11,
+		12
+	],
+	"milestone": "BCM-M33-R02",
+	"move_limit_definition": "4 * (normal_T + enabled_VIP_T)",
+	"normal_T_definition": "sum(2^(target_level - 3) * quantity), the L3-equivalent normal To-Go lower bound",
+	"normal_T_global_summary": {
+		"maximum": 1600,
+		"median": 352,
+		"minimum": 4,
+		"p90": 1040
+	},
+	"production_spawn_levels": [
+		1,
+		2,
+		3
+	],
+	"records_checked_including_control_101": 900,
+	"schema_version": 1,
+	"static_infeasible_count": 0,
+	"static_infeasible_records": [],
+	"time_limit_sec_expected": 0,
+	"vip_T_definition": "same L3-equivalent lower bound, reported separately and excluded from normal To-Go objective",
+	"vip_heuristic_note": "m17_canonical_screening_model.vip_interception_analysis flags higher mandatory orders that can create VIP-level intermediates; it is a conservative recipe heuristic, not a runtime proof that VIP delivery is forced. Production GameManager uses M17VipOptionalityModel mandatory-reserve checks before optional VIP capture."
+}

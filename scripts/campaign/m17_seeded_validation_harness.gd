@@ -62,6 +62,7 @@ func telemetry_schema_keys() -> Array[String]:
 		"lateral_variation", "decision_reason_counts", "terminal_reason", "physics_hook",
 	"moves_used", "move_limit", "moves_remaining", "stars", "normal_orders_completed",
 	"normal_orders_remaining", "vip_state",
+		"progress_curve",
 	]
 
 
@@ -103,6 +104,7 @@ func new_telemetry(island_id: String, level_id: int, seed_value: int) -> Diction
 		"normal_orders_completed": {},
 		"normal_orders_remaining": {},
 		"vip_state": {"enabled": false, "status": "HIDDEN", "completed": false},
+		"progress_curve": [],
 	}
 
 
@@ -318,6 +320,24 @@ func run_trial(
 			# request resolved during this action's physics window.
 			state["failed_merge_approach_count"] = int(state.get("failed_merge_approach_count", 0)) + 1
 		action_index += 1
+		var progress_state: Dictionary = bridge.get_objective_state()
+		var normal_remaining: Dictionary = progress_state.get("normal_remaining", {})
+		var remaining_t := _remaining_normal_t(normal_remaining)
+		var normal_t_start := int(ceil(float(MODEL_SCRIPT.normal_objective_cost(level_definition)) / 4.0))
+		var move_state: Dictionary = bridge.get_move_budget_state()
+		var moves_used := int(move_state.get("moves_used", 0))
+		telemetry["progress_curve"].append({
+			"action_count": action_index,
+			"simulated_seconds": snappedf(elapsed, 0.001),
+			"normal_T_start": normal_t_start,
+			"normal_T_remaining": remaining_t,
+			"normal_T_progressed": maxi(0, normal_t_start - remaining_t),
+			"moves_used": moves_used,
+			"normal_T_progress_per_move": snappedf(float(maxi(0, normal_t_start - remaining_t)) / float(maxi(1, moves_used)), 0.001),
+			"merge_count": int(state["merge_count"]),
+			"normal_orders_completed": progress_state.get("normal_completed", {}).duplicate(true),
+			"vip_state": bridge.get_vip_state().duplicate(true),
+		})
 
 	if not bridge.is_terminal() and not manager.game_over:
 		for _frame in range(MAX_EXTRA_SETTLE_FRAMES):
@@ -461,6 +481,15 @@ func _has_same_level(manager, level: int) -> bool:
 		if child is Drink and not child.is_queued_for_deletion() and child.motion_state != Drink.MotionState.HELD and child.level == level:
 			return true
 	return false
+
+
+func _remaining_normal_t(normal_remaining: Dictionary) -> int:
+	var remaining := 0
+	for raw_level in normal_remaining:
+		var level := int(raw_level)
+		if level >= 3:
+			remaining += (1 << (level - 3)) * int(normal_remaining[raw_level])
+	return remaining
 
 
 func tag_drink_instance(drink: Drink, stable_id: int) -> void:

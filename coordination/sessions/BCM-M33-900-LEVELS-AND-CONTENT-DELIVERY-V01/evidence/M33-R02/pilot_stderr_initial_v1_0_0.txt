@@ -1,0 +1,5 @@
+ERROR: Parse JSON failed. Error at line 0: Unknown error getting token
+   at: parse_string (core/io/json.cpp:629)
+   GDScript backtrace (most recent call first):
+       [0] _load_processed (res://tools/campaign/m33_r02_calibration_pilot.gd:265)
+       [1] _run (res://tools/campaign/m33_r02_calibration_pilot.gd:91)
