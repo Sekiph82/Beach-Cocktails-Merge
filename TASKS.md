@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33 — R05-R02 owner visual acceptance completed; human/device playability validation outstanding.
-- Current Task Status: VISUAL_ACCEPTED_QUALIFICATION_PENDING
-- Next Task/Action: Plan focused actual owner gameplay sampling and measured session duration checks before full M33 product acceptance.
-- Required Actor: CHATGPT / OWNER
+- Current Task: BCM-M33-R06 — In-project owner real-play test launcher and timed nine-island representative sampling.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: CODEX completes M33-R06 master and provides exact in-project launcher path, sample selection and telemetry for owner to play.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: OWNER explicitly approved both current 390x844 and 432x960 R05-R02 nine-island visual galleries; R05-R02 VISUAL CLOSED. 888 levels still not human-playability or device certified; 4T/VIP rules preserved. No Desktop root artifacts authorized.
+- Progress: R05-R02 visuals owner approved; R06 active for real gameplay testing, timed sessions and protected sandbox saves. No Desktop root artifacts or automatic shortcuts.
 
 ## Blockers/Waits
 
