@@ -1,0 +1,11 @@
+# BCM-M33-R05-R02 Independent Audit V01
+
+**Verdict: TECHNICAL REMEDIATION EVIDENCE PASS (bounded); ACTUAL VISUAL ACCEPTANCE PENDING.**
+
+Reviewed current published CODEX_LOG_M33_R05_R02_V01.md and evidence visual_review_index.md. Builder reports BCM-M33.5 regenerates 888 campaign records and preserves 100 Sunny plus 12 Tiki seed payloads. Star/4T/VIP/timer rules unchanged. Rather than placing high-target drinks of L7/L8 already on board, new generated starting stock uses a precursor one merge step below the lowest ordinary objective, with L5 (685 entries) and L6 (176 entries). This is a gameplay content/design shift, not just a graphics scaling correction: audit must explicitly disclose it to owner.
+
+Reported same-level L6 controlled Godot comparison at 390x844 and 432x960: actual starter vs naturally settled production Drink sprite visual/root/world transforms, alpha bounds, collision dimensions and shadow ratios 1.0. This directly supports L6 parity but does NOT validate L5 visually or L7/L8 because no L7/L8 starters exist in current campaign. Builder also reports production-safe bounding checks relative to dangerous line, HUD, rails, launch lane, other starters, with bounded merge/delivery, content, navigation/save, session bridge, and 38 graphical captures passing. Device/touch/human play remains unverified.
+
+**Visual constraint:** The connected GitHub binary-image fetch does not expose PNG/JPG pixels for independent visual inspection in this context, so this is NOT an aesthetic visual PASS. The two actual overview JPGs, Tiki two-starter captures and same-level L6 comparisons must be inspected by GPT and owner visually before closure. Reviewer must not infer that L5 starters are visually correct based only on L6 1:1 technical telemetry; examine same-level L5 or accept after actual screenshot review.
+
+**Next action:** Owner provides the 390x844 and 432x960 gallery images plus Tiki contrast, and preferably same-level comparison images in chat, or a supported readable image delivery path. If visual problems remain, issue focused remediation after seeing the pixels. No new Desktop-root files. Keep M33 OPEN, do not launch brute-force physics sweep or store activity.
