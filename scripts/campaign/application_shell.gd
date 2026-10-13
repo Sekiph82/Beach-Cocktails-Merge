@@ -14,6 +14,7 @@ signal settings_closed
 
 const NAVIGATION_SCENE := preload("res://scenes/campaign/CampaignNavigationScene.tscn")
 const SETTINGS_SCRIPT := preload("res://scripts/campaign/user_settings.gd")
+const OWNER_PLAYTEST_CONSOLE_SCRIPT := preload("res://scripts/campaign/owner_playtest_console.gd")
 const DEFAULT_SETTINGS_STORAGE_PATH := "user://user_settings.json"
 const ONBOARDING_SCHEMA_VERSION := 1
 const DEFAULT_ONBOARDING_STORAGE_PATH := "user://onboarding_state.json"
@@ -51,6 +52,7 @@ var _home_layout: Dictionary = {}
 var _home_layout_nodes: Dictionary = {}
 var _home_text_specs: Dictionary = {}
 var _shop_catalog: Dictionary = {}
+var _owner_playtest_console
 
 
 func _ready() -> void:
@@ -84,7 +86,14 @@ func _ready() -> void:
     _apply_settings_to_gameplay()
     campaign_navigation.visible = false
     onboarding_state = _read_onboarding_state()
-    if not bool(onboarding_state.get("completed", false)):
+    if not OS.get_environment("BCM_M33_OWNER_PLAYTEST").is_empty():
+        _menu_layer.visible = false
+        _onboarding_layer.visible = false
+        _owner_playtest_console = OWNER_PLAYTEST_CONSOLE_SCRIPT.new()
+        _owner_playtest_console.name = "OwnerPlaytestConsole"
+        _owner_playtest_console.configure(campaign_navigation)
+        add_child(_owner_playtest_console)
+    elif not bool(onboarding_state.get("completed", false)):
         show_onboarding()
     else:
         show_main_menu()

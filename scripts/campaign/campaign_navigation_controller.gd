@@ -218,6 +218,17 @@ func get_save_manager():
 	return save_manager
 
 
+func launch_owner_playtest_sample(island_id: String, level_id: int) -> bool:
+	## Explicit R06 selector entry point. The owner-test profile configures an
+	## in-memory sample progression state and never enables campaign persistence.
+	if not OS.get_environment("BCM_M33_OWNER_PLAYTEST").is_empty() and _persistence_enabled == false:
+		if not _launch_selected_level(island_id, level_id):
+			return false
+		visible = true
+		return true
+	return false
+
+
 func get_result_feedback_overlay():
 	return _result_feedback
 
@@ -555,6 +566,26 @@ func _configure_default_campaign() -> void:
 		content_load_error = level_database.get_last_error()
 		return
 	save_manager = SAVE_SCRIPT.new()
+	if not OS.get_environment("BCM_M33_OWNER_PLAYTEST").is_empty():
+		var test_state: Dictionary = save_manager.create_default_state()
+		for island_id in level_database.get_island_ids():
+			test_state["unlocked_islands"].append(island_id)
+			test_state["islands"][island_id] = {
+				"highest_unlocked_level": int(level_database.get_island(island_id).get("level_count", 1)),
+				"completed_levels": {},
+				"claimed_milestones": [],
+				"claimed_star_rewards": [],
+			}
+		test_state["unlocked_islands"] = level_database.get_island_ids()
+		economy = ECONOMY_SCRIPT.new()
+		economy.configure_from_state(test_state)
+		campaign_manager = CAMPAIGN_SCRIPT.new()
+		if not campaign_manager.configure(level_database, test_state, economy):
+			content_load_error = "isolated owner playtest campaign state is unavailable"
+			return
+		_persistence_enabled = false
+		_bind_persistence_signals()
+		return
 	var loaded: Dictionary = save_manager.read_state()
 	var loaded_state: Dictionary = loaded.get("state", save_manager.create_default_state())
 	economy = ECONOMY_SCRIPT.new()
