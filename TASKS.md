@@ -4,15 +4,15 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 ## Project Status
 
-- Current Milestone: BCM-M33
-- Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R06 — Owner satisfied with playtest kit; proceed to next development planning.
-- Current Task Status: OWNER_REVIEW_OK_MEASURED_QA_PENDING
-- Next Task/Action: GPT scopes next development milestone; keep full human playtime, mobile device and level-wide reachability qualification explicitly open.
-- Required Actor: CHATGPT
+- Current Milestone: BCM-M34
+- Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
+- Current Task: BCM-M34-001 — Audit and repair end-to-end game feature integration.
+- Current Task Status: IN_PROGRESS
+- Next Task/Action: BCM-M34-001 — Codex executes M34 master across all five child tasks and returns audit-ready evidence.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner states R06 looks OK; no fixes requested. R05-R02 galleries visually accepted; R06 builder probes passed. No playtest attempts.csv or measured durations provided; 899-level reachability and device QA remain UNVERIFIED.
+- Progress: M33 R06 owner review OK; M33-004 physical/human fairness qualification remains open. M34 checks production Home/maps/gameplay/tutorial/shop/boosters/save integration; no store work or Desktop-root items.
 
 ## Blockers/Waits
 
@@ -1359,3 +1359,12 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M33-002 — Strict static validation, navigation, and save integration.
 - [x] BCM-M33-003 — Versioned bundled update manifest and content-delivery design.
 - [~] BCM-M33-004 — Qualify unverified generated levels for physical reachability and player difficulty.
+
+
+### M34 — End-to-end game integration completion
+
+- [~] BCM-M34-001 — Audit and repair complete player journey, campaign, shop, boosts and tutorial integration.
+- [ ] BCM-M34-002 — Verify production progression, save and representative nine-island gameplay.
+- [ ] BCM-M34-003 — Validate free economy, Shop, Focus and boosters transaction integrity.
+- [ ] BCM-M34-004 — Validate tutorial, usability and accessibility regressions.
+- [ ] BCM-M34-005 — Deliver independent audit evidence and owner test handoff.
