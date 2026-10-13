@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M33
 - Current Sprint: BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01
-- Current Task: BCM-M33-R05-R02 — Correct oversized preplaced tabletop drink rendering and safe layout.
-- Current Task Status: BLOCKED_VISUAL_REMEDIATION
-- Next Task/Action: CODEX runs R05-R02 scale/layout remediation and returns new real Godot galleries for GPT and owner acceptance.
-- Required Actor: CODEX
+- Current Task: BCM-M33-R05-R02 — Technical scale/layout evidence reviewed; owner and GPT screenshot visual acceptance pending.
+- Current Task Status: AWAITING_OWNER_VISUAL_REVIEW
+- Next Task/Action: OWNER shares current 390x844/432x960 R05-R02 galleries and Tiki contrast for independent visual assessment before further content changes.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: GPT directly inspected owner-uploaded 390x844/432x960 nine-island and Tiki images: R05-R01 VISUAL FAIL. Starter drinks dwarf launch drinks and occupy disproportionate board area near danger line. Technical evidence preserved; no owner visual PASS.
+- Progress: R05-R02 builder reports L6 starter/ordinary same-level render and collision ratio 1.0, 38 Godot captures, probes PASS. Campaign starters are now L5/L6 (685/176), no L7/L8. Actual PNG/JPG visual inspection and owner acceptance pending; M33 open.
 
 ## Blockers/Waits
 
