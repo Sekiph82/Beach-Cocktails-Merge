@@ -1,9 +1,7 @@
 extends SceneTree
 
-const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")
-const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
+const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
-const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
 const GAME_MANAGER_SCRIPT := preload("res://scripts/game_manager.gd")
 
 var failures: Array[String] = []
@@ -15,37 +13,35 @@ func _init() -> void:
 
 func _check(label: String, condition: bool) -> void:
 	if condition:
-		print("M32_FOCUS_BOOSTER PASS: %s" % label)
+		print("M34_FOCUS_REMOVAL PASS: %s" % label)
 	else:
 		failures.append(label)
-		print("M32_FOCUS_BOOSTER FAIL: %s" % label)
+		print("M34_FOCUS_REMOVAL FAIL: %s" % label)
 
 
 func _run() -> void:
-	var database = DATABASE_SCRIPT.new()
-	var loaded: bool = database.load_canonical()
+	var save := SAVE_SCRIPT.new()
+	var legacy := save.create_default_state()
+	legacy["schema_version"] = 2
+	legacy["boosters"] = {"focus": 4, "upgrade": 2}
+	legacy.erase("energy")
+	legacy.erase("energy_last_update_unix")
+	legacy.erase("energy_regen_remainder_sec")
+	legacy.erase("retired_focus_inventory")
+	var migration: Dictionary = save.migrate_state(legacy, 2)
+	_check("schema-two Focus value is retained without conversion or loss", migration.get("ok", false) and migration.get("state", {}).get("retired_focus_inventory", -1) == 4 and migration.get("state", {}).get("boosters", {}).get("upgrade", 0) == 2 and not migration.get("state", {}).get("boosters", {}).has("focus"))
 	var economy = ECONOMY_SCRIPT.new()
-	economy.configure(0, {"focus": 1})
-	var campaign = CAMPAIGN_SCRIPT.new()
-	var state := {"schema_version": 2, "unlocked_islands": ["sunny_cove"], "islands": {"sunny_cove": {"highest_unlocked_level": 1, "completed_levels": {}, "claimed_milestones": [], "claimed_star_rewards": []}}, "coins": 0, "gems": 0, "boosters": {"focus": 1}, "reward_ledger": [], "transaction_ledger": []}
-	_check("staged campaign and initial booster state configure", loaded and campaign.configure(database, state, economy))
-	var bridge = BRIDGE_SCRIPT.new()
-	_check("Sunny Cove training-level gameplay session starts", bridge.configure(database, campaign, economy) and not bridge.start_session("sunny_cove", 1).is_empty())
+	economy.configure_from_state(migration.get("state", {}))
+	_check("retired Focus cannot re-enter grant, purchase, or consumption flows", not economy.grant_booster("focus", 1).get("ok", false) and not economy.purchase_booster("legacy-focus", "focus", 1, "coins", 1).get("ok", false) and not economy.consume_booster_once("use-focus", "focus").get("ok", false) and economy.retired_focus_inventory == 4)
 	var game = GAME_MANAGER_SCRIPT.new()
 	root.add_child(game)
 	await process_frame
-	_check("production GameManager binds the active campaign session", game.configure_campaign_session(bridge))
-	var button := game.get_node_or_null("UI/HUD/FocusBoosterButton") as Button
-	_check("Focus booster inventory is displayed in the live gameplay HUD", is_instance_valid(button) and button.text == "FOCUS 1" and not button.disabled)
-	if is_instance_valid(button):
-		button.pressed.emit()
-	_check("using Focus consumes one persisted booster and gives order feedback", economy.get_booster_count("focus") == 0 and button.text == "FOCUS 0" and game._to_go_progress_label.modulate != Color.WHITE)
-	_check("Focus leaves the active level objective and move budget unchanged", bridge.get_session_configuration().get("level_id", 0) == 1 and bridge.get_move_budget_state().get("moves_used", -1) == 0 and bridge.get_objective_state().get("normal_remaining", {}).get(5, 0) == 1)
+	_check("production gameplay HUD has no Focus button or label", game.get_node_or_null("UI/HUD/FocusBoosterButton") == null and game.get_node_or_null("UI/HUD/FocusButton") == null)
 	game.queue_free()
 	await process_frame
 	if failures.is_empty():
-		print("M32_FOCUS_BOOSTER_RESULT=PASS")
+		print("M34_FOCUS_REMOVAL_RESULT=PASS")
 		quit(0)
 	else:
-		print("M32_FOCUS_BOOSTER_RESULT=FAIL failures=%s" % JSON.stringify(failures))
+		print("M34_FOCUS_REMOVAL_RESULT=FAIL failures=%s" % JSON.stringify(failures))
 		quit(1)

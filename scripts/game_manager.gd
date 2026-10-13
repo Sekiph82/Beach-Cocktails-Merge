@@ -154,7 +154,7 @@ var _order_sequence := 0
 var _score_milestones_emitted: Dictionary = {}
 var campaign_session_bridge
 var gameplay_tutorial
-var _focus_booster_button: Button
+var _move_limit_frame: Panel
 var presentation_reduced_motion := false
 var presentation_high_contrast := false
 var _table_y_offset_canonical := 0.0
@@ -268,7 +268,6 @@ func configure_campaign_session(bridge) -> bool:
 		add_child(gameplay_tutorial)
 		gameplay_tutorial.set_presentation_state({"reduced_motion": presentation_reduced_motion, "high_contrast": presentation_high_contrast})
 		gameplay_tutorial.tutorial_completed.connect(_restore_tutorial_hud)
-	_refresh_focus_booster_button()
 	return campaign_session_bridge.mark_gameplay_ready()
 
 
@@ -326,7 +325,7 @@ func _initial_drink_visual_bounds_are_safe(drink: Drink, previous: Array[Drink])
 	var launch_clearance := Drink.collider_radius_for_level(1) + drink.radius + margin
 	if bounds.position.x <= launch_x + launch_clearance and bounds.end.x >= launch_x - launch_clearance:
 		return false
-	var hud_controls: Array[Control] = [_best_panel, _score_panel, _to_go_panel, _next_panel, _focus_booster_button, _progression_strip]
+	var hud_controls: Array[Control] = [_best_panel, _score_panel, _to_go_panel, _next_panel, _move_limit_frame, _progression_strip]
 	if _move_limit_label != null and _move_limit_label.visible:
 		hud_controls.append(_move_limit_label)
 	for control in hud_controls:
@@ -365,28 +364,6 @@ func _restore_tutorial_hud() -> void:
 		_progression_strip.visible = true
 
 
-func _use_focus_booster() -> void:
-	if campaign_session_bridge == null or not campaign_session_bridge.is_session_active():
-		return
-	var result: Dictionary = campaign_session_bridge.economy.consume_booster_once("focus-use:%s" % Time.get_ticks_usec(), "focus", 1)
-	if not bool(result.get("ok", false)):
-		return
-	if is_instance_valid(_to_go_progress_label):
-		_to_go_progress_label.modulate = Color("#ffd166")
-		var tween := create_tween()
-		tween.tween_property(_to_go_progress_label, "modulate", Color.WHITE, 0.45)
-	campaign_session_bridge.economy_changed.emit(campaign_session_bridge.economy.export_state())
-	_refresh_focus_booster_button()
-
-
-func _refresh_focus_booster_button() -> void:
-	if not is_instance_valid(_focus_booster_button):
-		return
-	var count: int = campaign_session_bridge.economy.get_booster_count("focus") if campaign_session_bridge != null and campaign_session_bridge.economy != null else 0
-	_focus_booster_button.text = "FOCUS %d" % count
-	_focus_booster_button.disabled = count <= 0
-
-
 func get_campaign_session_bridge():
 	return campaign_session_bridge
 
@@ -417,6 +394,8 @@ func _refresh_move_limit_hud() -> void:
 	var state: Dictionary = campaign_session_bridge.get_move_budget_state() if campaign_session_bridge != null and campaign_session_bridge.has_method("get_move_budget_state") else {}
 	var enabled := bool(state.get("enabled", false))
 	_move_limit_label.visible = enabled
+	if is_instance_valid(_move_limit_frame):
+		_move_limit_frame.visible = enabled
 	if not enabled:
 		return
 	var remaining := int(state.get("moves_remaining", 0))
@@ -1471,17 +1450,28 @@ func _build_ui() -> void:
 	_next_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_next_panel.add_child(_next_sprite)
 
-	_focus_booster_button = Button.new()
-	_focus_booster_button.name = "FocusBoosterButton"
-	_focus_booster_button.position = Vector2((board_size.x - 168.0 * ui_scale) * 0.5, to_go_rect.end.y + 8.0 * ui_scale)
-	_focus_booster_button.size = Vector2(168.0 * ui_scale, 48.0 * ui_scale)
-	_focus_booster_button.add_theme_font_size_override("font_size", 17)
-	_focus_booster_button.pressed.connect(_use_focus_booster)
-	_hud.add_child(_focus_booster_button)
+	var move_frame_size := Vector2(244.0 * ui_scale, 50.0 * ui_scale)
+	var move_frame_position := Vector2((board_size.x - move_frame_size.x) * 0.5, 294.0 * ui_scale)
+	_move_limit_frame = Panel.new()
+	_move_limit_frame.name = "MoveLimitFrame"
+	_move_limit_frame.position = move_frame_position
+	_move_limit_frame.size = move_frame_size
+	_move_limit_frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_move_limit_frame.visible = false
+	var move_frame_style := StyleBoxFlat.new()
+	move_frame_style.bg_color = Color("#164f54")
+	move_frame_style.border_color = Color("#f5cd67")
+	move_frame_style.set_border_width_all(3)
+	move_frame_style.set_corner_radius_all(14)
+	move_frame_style.shadow_color = Color(0.03, 0.10, 0.12, 0.72)
+	move_frame_style.shadow_size = 5
+	move_frame_style.shadow_offset = Vector2(0, 3)
+	_move_limit_frame.add_theme_stylebox_override("panel", move_frame_style)
+	_hud.add_child(_move_limit_frame)
 
 	_move_limit_label = _make_label(
-		Vector2((board_size.x - 220.0 * ui_scale) * 0.5, 300.0 * ui_scale),
-		Vector2(220.0 * ui_scale, 38.0 * ui_scale),
+		move_frame_position + Vector2(12.0 * ui_scale, 5.0 * ui_scale),
+		Vector2(220.0 * ui_scale, 40.0 * ui_scale),
 		22,
 		HORIZONTAL_ALIGNMENT_CENTER
 	)

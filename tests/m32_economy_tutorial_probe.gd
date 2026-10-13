@@ -22,21 +22,10 @@ func _check(label: String, condition: bool) -> void:
 
 func _run() -> void:
 	var economy = ECONOMY_SCRIPT.new()
-	economy.configure(100, {"focus": 1}, [], 2, [])
-	var purchase: Dictionary = economy.purchase_booster("shop:test:coin", "focus", 1, "coins", 40)
-	_check("coin purchase atomically spends and adds booster", purchase.get("purchased", false) and economy.coins == 60 and economy.get_booster_count("focus") == 2)
-	var duplicate: Dictionary = economy.purchase_booster("shop:test:coin", "focus", 1, "coins", 40)
-	_check("purchase replay is idempotent", duplicate.get("duplicate", false) and economy.coins == 60 and economy.get_booster_count("focus") == 2)
-	var no_funds: Dictionary = economy.purchase_booster("shop:test:large", "focus", 5, "gems", 3)
-	_check("insufficient gem funds leave all balances and inventory untouched", not no_funds.get("ok", false) and economy.gems == 2 and economy.get_booster_count("focus") == 2)
-	var gem_purchase: Dictionary = economy.purchase_booster("shop:test:gem", "focus", 1, "gems", 1)
-	_check("gem purchase is functional", gem_purchase.get("purchased", false) and economy.gems == 1 and economy.get_booster_count("focus") == 3)
-	var use_once: Dictionary = economy.consume_booster_once("focus-use:test", "focus")
-	var use_duplicate: Dictionary = economy.consume_booster_once("focus-use:test", "focus")
-	_check("booster consumption is idempotent", use_once.get("consumed", false) and use_duplicate.get("duplicate", false) and economy.get_booster_count("focus") == 2)
+	economy.configure(100, {"upgrade": 1}, [], 5, [], 60, int(Time.get_unix_time_from_system()))
 	var reward: Dictionary = economy.grant_reward("tiki:first-clear:1", {"coins": 10, "gems": 1})
 	var replay_reward: Dictionary = economy.grant_reward("tiki:first-clear:1", {"coins": 10, "gems": 1})
-	_check("first-clear currency grant is replay safe", reward.get("granted", false) and replay_reward.get("duplicate", false) and economy.coins == 70 and economy.gems == 2)
+	_check("currency award is replay safe without Focus transactions", reward.get("granted", false) and replay_reward.get("duplicate", false) and economy.coins == 110 and economy.gems == 6)
 	var save := SAVE_SCRIPT.new()
 	var state := save.create_default_state()
 	state["coins"] = economy.coins
@@ -47,7 +36,13 @@ func _run() -> void:
 	var legacy := state.duplicate(true)
 	legacy.erase("gems")
 	legacy.erase("transaction_ledger")
-	_check("existing schema two saves without gems migrate with earned assets unchanged", save.validate_state(legacy).get("ok", false) and legacy["coins"] == state["coins"] and legacy["boosters"] == state["boosters"])
+	legacy["schema_version"] = 2
+	legacy.erase("energy")
+	legacy.erase("energy_last_update_unix")
+	legacy.erase("energy_regen_remainder_sec")
+	legacy.erase("retired_focus_inventory")
+	var legacy_migration: Dictionary = save.migrate_state(legacy, 2)
+	_check("schema-two save migration preserves earned assets and unrelated boosters", legacy_migration.get("ok", false) and legacy_migration.get("state", {}).get("coins", -1) == state["coins"] and legacy_migration.get("state", {}).get("boosters", {}) == state["boosters"])
 	var tutorial = TUTORIAL_SCRIPT.new()
 	tutorial.storage_path = "user://m32_economy_tutorial_probe.json"
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(tutorial.storage_path))
@@ -73,19 +68,19 @@ func _run() -> void:
 	if shell.is_onboarding_visible():
 		shell.skip_onboarding()
 	var shell_economy = shell.campaign_navigation.economy
-	shell_economy.configure(100, {}, [], 2, [])
+	shell_economy.configure(100, {}, [], 25, [], 60, int(Time.get_unix_time_from_system()))
 	shell._refresh_home_values()
-	_check("Home Gems display reads the saved economy balance", shell._home_value_labels.get("gems").text == "2")
+	_check("Home Energy and Gems display read the saved economy balances", shell._home_value_labels.get("energy").text == "60" and shell._home_value_labels.get("gems").text == "25")
 	var shop_button = shell.get_node_or_null("MainMenu/HomeShop") as BaseButton
 	if shop_button != null:
 		shop_button.pressed.emit()
 	_check("Home Shop art opens the live free Shop", shop_button != null and shell.get_current_view() == "SHOP")
-	var coin_purchase_button = shell.get_node_or_null("FreeShop/ShopBuyCoins") as BaseButton
-	if coin_purchase_button != null:
-		coin_purchase_button.pressed.emit()
-	_check("Shop touch purchase updates currency and booster inventory", coin_purchase_button != null and shell_economy.coins == 60 and shell_economy.get_booster_count("focus") == 1)
+	var refill_button = shell.get_node_or_null("FreeShop/ShopEnergyRefill") as BaseButton
+	if refill_button != null:
+		refill_button.pressed.emit()
+	_check("Shop touch refill spends the approved 25 Gems and restores Energy", refill_button != null and shell_economy.energy == 100 and shell_economy.gems == 0 and shell.get_node_or_null("FreeShop/ShopBuyCoins") == null)
 	var saved_economy: Dictionary = SAVE_SCRIPT.new().read_state().get("state", {})
-	_check("Shop transaction and balances persist after purchase", saved_economy.get("coins", -1) == 60 and saved_economy.get("boosters", {}).get("focus", 0) == 1 and not saved_economy.get("transaction_ledger", []).is_empty())
+	_check("Shop Energy and Gem balances persist after refill", saved_economy.get("energy", -1) == 100 and saved_economy.get("gems", -1) == 0)
 	shell.close_shop()
 	var settings_button = shell.get_node_or_null("MainMenu/HomeSettings") as BaseButton
 	if settings_button != null:

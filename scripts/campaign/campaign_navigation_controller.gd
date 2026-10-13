@@ -25,12 +25,16 @@ const CAMPAIGN_SCRIPT := preload("res://scripts/campaign/campaign_manager.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
+const ADS_SCRIPT := preload("res://scripts/campaign/ads_service.gd")
+const STORE_SCRIPT := preload("res://scripts/campaign/store_service.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
 
 var level_database
 var campaign_manager
 var economy
+var ads_service: AdsService
+var store_service: StoreService
 var save_manager
 var content_load_error := ""
 var current_view := VIEW_WORLD_MAP
@@ -63,6 +67,13 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if not visibility_changed.is_connected(_on_campaign_navigation_visibility_changed):
 		visibility_changed.connect(_on_campaign_navigation_visibility_changed)
+	ads_service = ADS_SCRIPT.new()
+	ads_service.name = "AdsService"
+	ads_service.verified_rewarded.connect(_on_verified_ad_reward)
+	add_child(ads_service)
+	store_service = STORE_SCRIPT.new()
+	store_service.name = "StoreService"
+	add_child(store_service)
 	if level_database == null or campaign_manager == null:
 		_configure_default_campaign()
 	_ensure_map_instances()
@@ -105,6 +116,36 @@ func purchase_booster(transaction_id: String, booster_id: String, quantity: int,
 		_persist_campaign_state()
 		economy_state_changed.emit(economy.export_state())
 	return result
+
+
+func purchase_energy_refill(transaction_id: String) -> Dictionary:
+	if economy == null:
+		return {"ok": false, "reason": "ECONOMY_UNAVAILABLE"}
+	var result: Dictionary = economy.buy_full_energy_refill(transaction_id)
+	if bool(result.get("ok", false)) and not bool(result.get("duplicate", false)):
+		_persist_campaign_state()
+		economy_state_changed.emit(economy.export_state())
+	return result
+
+
+func refresh_energy() -> Dictionary:
+	if economy == null:
+		return {"ok": false, "reason": "ECONOMY_UNAVAILABLE"}
+	var before := int(economy.energy)
+	economy.refresh_energy()
+	if int(economy.energy) != before:
+		_persist_campaign_state()
+		economy_state_changed.emit(economy.export_state())
+	return {"ok": true, "state": economy.get_energy_state()}
+
+
+func request_energy_rewarded_ad(transaction_id: String) -> Dictionary:
+	if ads_service == null:
+		return {"ok": false, "reason": "ADS_SERVICE_UNAVAILABLE"}
+	var requested: Dictionary = ads_service.request_rewarded("energy_20", transaction_id)
+	if not bool(requested.get("ok", false)):
+		return requested
+	return ads_service.show_rewarded()
 
 
 func show_island_map(island_id: String) -> bool:
@@ -615,6 +656,16 @@ func _on_campaign_changed(_island_id: String, _level_id: int) -> void:
 
 func _on_economy_changed(_state: Dictionary) -> void:
 	_persist_campaign_state()
+	economy_state_changed.emit(economy.export_state())
+
+
+func _on_verified_ad_reward(placement_id: String, transaction_id: String, provider_receipt: String) -> void:
+	if placement_id != "energy_20" or economy == null:
+		return
+	var grant: Dictionary = economy.grant_verified_ad_energy(transaction_id, provider_receipt)
+	if bool(grant.get("ok", false)) and not bool(grant.get("duplicate", false)):
+		_persist_campaign_state()
+		economy_state_changed.emit(economy.export_state())
 
 
 func _persist_campaign_state() -> Dictionary:
@@ -624,6 +675,10 @@ func _persist_campaign_state() -> Dictionary:
 	var economy_state: Dictionary = economy.export_state()
 	state["coins"] = economy_state["coins"]
 	state["gems"] = economy_state["gems"]
+	state["energy"] = economy_state["energy"]
+	state["energy_last_update_unix"] = economy_state["energy_last_update_unix"]
+	state["energy_regen_remainder_sec"] = economy_state["energy_regen_remainder_sec"]
+	state["retired_focus_inventory"] = economy_state["retired_focus_inventory"]
 	state["boosters"] = economy_state["boosters"]
 	state["reward_ledger"] = economy_state["reward_ledger"]
 	state["transaction_ledger"] = economy_state["transaction_ledger"]

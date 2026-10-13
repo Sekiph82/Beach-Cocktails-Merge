@@ -19,10 +19,9 @@ const DEFAULT_SETTINGS_STORAGE_PATH := "user://user_settings.json"
 const ONBOARDING_SCHEMA_VERSION := 1
 const DEFAULT_ONBOARDING_STORAGE_PATH := "user://onboarding_state.json"
 const HOME_LAYOUT_PATH := "res://data/ui/home_layout.json"
-const SHOP_CATALOG_PATH := "res://data/campaign/shop_catalog.json"
 const HOME_ASSET_ROOT := "res://assets/ui_assets/screens/home/"
 const HOME_REFERENCE_SIZE := Vector2(941.0, 1672.0)
-const HOME_ENERGY_DISPLAY_DEFAULT := 100
+const DAILY_REWARDS_SCRIPT := preload("res://scripts/campaign/daily_reward_service.gd")
 
 var campaign_navigation: CampaignNavigationController
 var current_view := "MAIN_MENU"
@@ -35,7 +34,11 @@ var _menu_layer: Control
 var _settings_layer: Control
 var _shop_layer: Control
 var _shop_status: Label
-var _shop_purchase_serial := 0
+var _daily_layer: Control
+var _daily_status: Label
+var _daily_reward_service: DailyRewardService
+var _economy_refresh_elapsed := 0.0
+var _energy_transaction_serial := 0
 var _settings_controls: Dictionary = {}
 var _onboarding_layer: Control
 var _onboarding_title: Label
@@ -51,7 +54,6 @@ var _home_value_labels: Dictionary = {}
 var _home_layout: Dictionary = {}
 var _home_layout_nodes: Dictionary = {}
 var _home_text_specs: Dictionary = {}
-var _shop_catalog: Dictionary = {}
 var _owner_playtest_console
 
 
@@ -60,10 +62,10 @@ func _ready() -> void:
     # unused gameplay pointer events before ShotController can see them.
     mouse_filter = Control.MOUSE_FILTER_PASS
     set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    _shop_catalog = _read_shop_catalog()
     _build_menu()
     _build_onboarding()
     _build_settings()
+    _build_daily_rewards()
     user_settings = SETTINGS_SCRIPT.new()
     user_settings.load_settings(settings_storage_path)
     user_settings.changed.connect(_on_setting_changed)
@@ -164,19 +166,45 @@ func close_shop() -> bool:
     return true
 
 
-func purchase_shop_booster(currency: String) -> Dictionary:
+func purchase_energy_refill() -> Dictionary:
     if current_view != "SHOP" or campaign_navigation == null:
         return {"ok": false, "reason": "SHOP_NOT_OPEN"}
-    _shop_purchase_serial += 1
-    var transaction_id := "shop:focus:%s:%d" % [Time.get_ticks_usec(), _shop_purchase_serial]
-    var item := _shop_item_for_currency(currency)
-    if item.is_empty():
-        return {"ok": false, "reason": "SHOP_ITEM_UNAVAILABLE"}
-    var result: Dictionary = campaign_navigation.purchase_booster(transaction_id, str(item.get("booster_id", "")), int(item.get("quantity", 0)), currency, int(item.get("cost", -1)))
+    _energy_transaction_serial += 1
+    var transaction_id := "energy-refill:%d:%d" % [Time.get_ticks_usec(), _energy_transaction_serial]
+    var result: Dictionary = campaign_navigation.purchase_energy_refill(transaction_id)
     if _shop_status != null:
-        _shop_status.text = "FOCUS BOOSTER ADDED" if result.get("purchased", false) else ("ALREADY PURCHASED" if result.get("duplicate", false) else "NOT ENOUGH %s" % currency.to_upper())
+        _shop_status.text = "ENERGY REFILLED" if result.get("refilled", false) else "REFILL UNAVAILABLE: %s" % str(result.get("reason", "UNKNOWN"))
     _refresh_shop()
     return result
+
+
+func request_energy_rewarded_ad() -> Dictionary:
+    if current_view != "SHOP" or campaign_navigation == null:
+        return {"ok": false, "reason": "SHOP_NOT_OPEN"}
+    _energy_transaction_serial += 1
+    var transaction_id := "energy-ad:%d:%d" % [Time.get_ticks_usec(), _energy_transaction_serial]
+    return campaign_navigation.request_energy_rewarded_ad(transaction_id)
+
+
+func show_daily_rewards() -> bool:
+    if _daily_layer == null or is_onboarding_visible():
+        return false
+    _menu_layer.visible = false
+    _settings_layer.visible = false
+    _shop_layer.visible = false
+    _daily_layer.visible = true
+    current_view = "DAILY_REWARDS"
+    _refresh_daily_rewards()
+    return true
+
+
+func close_daily_rewards() -> bool:
+    if _daily_layer == null or not _daily_layer.visible:
+        return false
+    _daily_layer.visible = false
+    _menu_layer.visible = true
+    current_view = "MAIN_MENU"
+    return true
 
 
 func close_settings() -> bool:
@@ -342,6 +370,11 @@ func _build_menu() -> void:
             _home_layout_nodes[node_name] = shop_button
             shop_button.pressed.connect(show_shop)
             _menu_layer.add_child(shop_button)
+        elif node_name == "daily_rewards":
+            var daily_button := _make_home_art_button("HomeDailyRewards", asset_name, rect, "DAILY REWARDS")
+            _home_layout_nodes[node_name] = daily_button
+            daily_button.pressed.connect(show_daily_rewards)
+            _menu_layer.add_child(daily_button)
         elif node_name in ["coin_plus", "diamond_plus"]:
             var wallet_button := _make_home_art_button("HomeWallet_%s" % node_name, asset_name, rect, "FREE SHOP")
             _home_layout_nodes[node_name] = wallet_button
@@ -372,23 +405,6 @@ func _read_home_layout() -> Dictionary:
         return {}
     var parsed = JSON.parse_string(file.get_as_text())
     return parsed if parsed is Dictionary else {}
-
-
-func _read_shop_catalog() -> Dictionary:
-    if not FileAccess.file_exists(SHOP_CATALOG_PATH):
-        return {}
-    var file := FileAccess.open(SHOP_CATALOG_PATH, FileAccess.READ)
-    if file == null:
-        return {}
-    var parsed = JSON.parse_string(file.get_as_text())
-    return parsed if parsed is Dictionary and int(parsed.get("schema_version", 0)) == 1 else {}
-
-
-func _shop_item_for_currency(currency: String) -> Dictionary:
-    for item_value in _shop_catalog.get("items", []):
-        if item_value is Dictionary and str(item_value.get("currency", "")) == currency:
-            return item_value.duplicate(true)
-    return {}
 
 
 func _home_item_rect(spec: Dictionary) -> Rect2:
@@ -481,10 +497,11 @@ func _refresh_home_values() -> void:
     var frontier_level := _current_frontier_level()
     var economy = campaign_navigation.economy if campaign_navigation != null else null
     var coins := int(economy.coins) if economy != null else 0
+    var energy := int(economy.energy) if economy != null else 0
     if _home_value_labels.has("level"):
         (_home_value_labels["level"] as Label).text = str(frontier_level) if frontier_level > 0 else "1"
     if _home_value_labels.has("energy"):
-        (_home_value_labels["energy"] as Label).text = str(HOME_ENERGY_DISPLAY_DEFAULT)
+        (_home_value_labels["energy"] as Label).text = str(energy)
     if _home_value_labels.has("coins"):
         (_home_value_labels["coins"] as Label).text = _format_home_coins(coins)
     if _home_value_labels.has("gems"):
@@ -511,7 +528,12 @@ func _format_home_coins(value: int) -> String:
     return ".".join(groups)
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
+    if campaign_navigation != null:
+        _economy_refresh_elapsed += delta
+        if _economy_refresh_elapsed >= 1.0:
+            _economy_refresh_elapsed = 0.0
+            campaign_navigation.refresh_energy()
     if _menu_layer != null and _menu_layer.visible:
         _refresh_home_values()
 
@@ -682,7 +704,7 @@ func _build_shop() -> void:
     background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     _shop_layer.add_child(background)
     var title := Label.new()
-    title.text = "FREE SHOP"
+    title.text = "FREE ECONOMY"
     title.position = Vector2(42.0, 110.0)
     title.size = Vector2(636.0, 70.0)
     title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -691,7 +713,7 @@ func _build_shop() -> void:
     _shop_layer.add_child(title)
     _shop_status = Label.new()
     _shop_status.name = "ShopStatus"
-    _shop_status.text = "FOCUS BOOSTER: HIGHLIGHTS THE CURRENT ORDER"
+    _shop_status.text = "COINS, GEMS AND ENERGY"
     _shop_status.position = Vector2(48.0, 235.0)
     _shop_status.size = Vector2(624.0, 80.0)
     _shop_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -699,20 +721,30 @@ func _build_shop() -> void:
     _shop_status.add_theme_font_size_override("font_size", 20)
     _shop_status.add_theme_color_override("font_color", Color("#d7ebe4"))
     _shop_layer.add_child(_shop_status)
-    var coin_item := _shop_item_for_currency("coins")
-    var coin_buy := _make_menu_button("BUY FOCUS — %d COINS" % int(coin_item.get("cost", 0)), Color("#0e665f"), Color("#ffd166"))
-    coin_buy.name = "ShopBuyCoins"
-    coin_buy.position = Vector2(75.0, 390.0)
-    coin_buy.size = Vector2(570.0, 82.0)
-    coin_buy.pressed.connect(func() -> void: purchase_shop_booster("coins"))
-    _shop_layer.add_child(coin_buy)
-    var gem_item := _shop_item_for_currency("gems")
-    var gem_buy := _make_menu_button("BUY FOCUS — %d GEMS" % int(gem_item.get("cost", 0)), Color("#0e665f"), Color("#73e0d1"))
-    gem_buy.name = "ShopBuyGems"
-    gem_buy.position = Vector2(75.0, 500.0)
-    gem_buy.size = Vector2(570.0, 82.0)
-    gem_buy.pressed.connect(func() -> void: purchase_shop_booster("gems"))
-    _shop_layer.add_child(gem_buy)
+    var refill := _make_menu_button("FULL ENERGY REFILL — 25 GEMS", Color("#0e665f"), Color("#ffd166"))
+    refill.name = "ShopEnergyRefill"
+    refill.position = Vector2(75.0, 390.0)
+    refill.size = Vector2(570.0, 82.0)
+    refill.pressed.connect(purchase_energy_refill)
+    _shop_layer.add_child(refill)
+    var watch_ad := _make_menu_button("WATCH REWARDED AD — +20 ENERGY", Color("#0e665f"), Color("#73e0d1"))
+    watch_ad.name = "ShopEnergyRewardedAd"
+    watch_ad.position = Vector2(75.0, 500.0)
+    watch_ad.size = Vector2(570.0, 82.0)
+    watch_ad.disabled = campaign_navigation == null or campaign_navigation.ads_service == null or campaign_navigation.ads_service.provider_adapter == null
+    watch_ad.tooltip_text = "REWARDED ADS ARE UNAVAILABLE UNTIL PROVIDER AND CONSENT SETUP IS APPROVED"
+    watch_ad.pressed.connect(request_energy_rewarded_ad)
+    _shop_layer.add_child(watch_ad)
+    var products := Label.new()
+    products.name = "ShopStoreStatus"
+    products.text = "STORE ITEMS ARE DISABLED UNTIL OWNER CATALOG AND RECEIPT VERIFICATION SETUP"
+    products.position = Vector2(60.0, 650.0)
+    products.size = Vector2(600.0, 100.0)
+    products.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    products.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    products.add_theme_font_size_override("font_size", 18)
+    products.add_theme_color_override("font_color", Color("#d7ebe4"))
+    _shop_layer.add_child(products)
     var close := _make_menu_button("BACK TO MENU", Color("#12354d"), Color("#73e0d1"))
     close.name = "CloseShopButton"
     close.position = Vector2(180.0, 1080.0)
@@ -725,7 +757,113 @@ func _refresh_shop() -> void:
     if _shop_status == null or campaign_navigation == null or campaign_navigation.economy == null:
         return
     var economy = campaign_navigation.economy
-    _shop_status.text = "FOCUS INVENTORY %d  •  COINS %s  •  GEMS %d" % [economy.get_booster_count("focus"), _format_home_coins(economy.coins), economy.gems]
+    var energy_state: Dictionary = economy.get_energy_state()
+    var next_regen := int(energy_state.get("seconds_to_next", 0))
+    var regen_text := "FULL" if int(economy.energy) >= 100 else "%d:%02d TO NEXT ENERGY" % [int(next_regen / 60), next_regen % 60]
+    _shop_status.text = "ENERGY %d/100  •  COINS %s  •  GEMS %d\n%s" % [economy.energy, _format_home_coins(economy.coins), economy.gems, regen_text]
+    var refill := _shop_layer.get_node_or_null("ShopEnergyRefill") as BaseButton
+    if refill != null:
+        refill.disabled = int(economy.energy) >= 100 or int(economy.gems) < 25
+
+
+func _build_daily_rewards() -> void:
+    _daily_reward_service = DAILY_REWARDS_SCRIPT.new()
+    _daily_layer = Control.new()
+    _daily_layer.name = "DailyRewards"
+    _daily_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    _daily_layer.mouse_filter = Control.MOUSE_FILTER_STOP
+    _daily_layer.visible = false
+    add_child(_daily_layer)
+    var background := TextureRect.new()
+    background.name = "DailyRewardBackground"
+    background.texture = load("res://assets/ui_assets/screens/daily_reward/daily_reward_background.png") as Texture2D
+    background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    background.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    background.stretch_mode = TextureRect.STRETCH_SCALE
+    _daily_layer.add_child(background)
+    var panel := TextureRect.new()
+    panel.name = "DailyRewardPanelArt"
+    panel.texture = load("res://assets/ui_assets/screens/daily_reward/daily_reward_panel.png") as Texture2D
+    panel.position = Vector2(30.0, 170.0)
+    panel.size = Vector2(660.0, 900.0)
+    panel.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    panel.stretch_mode = TextureRect.STRETCH_SCALE
+    _daily_layer.add_child(panel)
+    var title := Label.new()
+    title.name = "DailyRewardTitle"
+    title.text = "DAILY REWARDS"
+    title.position = Vector2(60.0, 195.0)
+    title.size = Vector2(600.0, 70.0)
+    title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    title.add_theme_font_size_override("font_size", 36)
+    title.add_theme_color_override("font_color", Color("#fff0c6"))
+    _daily_layer.add_child(title)
+    _daily_status = Label.new()
+    _daily_status.name = "DailyRewardStatus"
+    _daily_status.position = Vector2(72.0, 270.0)
+    _daily_status.size = Vector2(576.0, 90.0)
+    _daily_status.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+    _daily_status.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+    _daily_status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    _daily_status.add_theme_font_size_override("font_size", 17)
+    _daily_status.add_theme_color_override("font_color", Color("#fff5e7"))
+    _daily_layer.add_child(_daily_status)
+    for slot in range(1, 6):
+        var slot_y := 380.0 + float(slot - 1) * 112.0
+        var slot_art := TextureRect.new()
+        slot_art.name = "DailySlotArt%d" % slot
+        slot_art.texture = load("res://assets/ui_assets/screens/daily_reward/daily_day_slot.png") as Texture2D
+        slot_art.position = Vector2(85.0, slot_y)
+        slot_art.size = Vector2(550.0, 94.0)
+        slot_art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+        slot_art.stretch_mode = TextureRect.STRETCH_SCALE
+        _daily_layer.add_child(slot_art)
+        var label := Label.new()
+        label.name = "DailySlotLabel%d" % slot
+        label.position = Vector2(112.0, slot_y + 8.0)
+        label.size = Vector2(350.0, 78.0)
+        label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+        label.add_theme_font_size_override("font_size", 19)
+        label.add_theme_color_override("font_color", Color("#fff5e7"))
+        _daily_layer.add_child(label)
+        var claim := _make_menu_button("UNAVAILABLE", Color("#315661"), Color("#d7ebe4"))
+        claim.name = "DailySlotClaim%d" % slot
+        claim.position = Vector2(465.0, slot_y + 21.0)
+        claim.size = Vector2(145.0, 52.0)
+        claim.disabled = true
+        claim.pressed.connect(_claim_daily_slot.bind(slot))
+        _daily_layer.add_child(claim)
+    var close := _make_menu_button("BACK TO MENU", Color("#12354d"), Color("#73e0d1"))
+    close.name = "CloseDailyRewardsButton"
+    close.position = Vector2(180.0, 1095.0)
+    close.size = Vector2(360.0, 78.0)
+    close.pressed.connect(close_daily_rewards)
+    _daily_layer.add_child(close)
+    _refresh_daily_rewards()
+
+
+func _refresh_daily_rewards() -> void:
+    if _daily_layer == null or _daily_reward_service == null:
+        return
+    _daily_status.text = "CLAIMS ARE PAUSED UNTIL THE OWNER SETS THE DAILY RESET TIME. REWARDED SLOTS ALSO NEED AN APPROVED PROVIDER AND CONSENT."
+    var rewards := {1: "40 COINS · FREE", 2: "+20 ENERGY · AD", 3: "REPLACEMENT REWARD PENDING", 4: "2 GEMS · AD", 5: "80 COINS · AD"}
+    for slot in range(1, 6):
+        var state := _daily_reward_service.get_slot_state(slot, campaign_navigation.ads_service if campaign_navigation != null else null)
+        var label := _daily_layer.get_node_or_null("DailySlotLabel%d" % slot) as Label
+        var claim := _daily_layer.get_node_or_null("DailySlotClaim%d" % slot) as BaseButton
+        if label != null:
+            label.text = "DAY %d  ·  %s" % [slot, rewards[slot]]
+        if claim != null:
+            claim.text = "PENDING" if slot == 3 else "UNAVAILABLE"
+            claim.disabled = not bool(state.get("available", false))
+
+
+func _claim_daily_slot(slot: int) -> void:
+    var economy = campaign_navigation.economy if campaign_navigation != null else null
+    var ads = campaign_navigation.ads_service if campaign_navigation != null else null
+    var result: Dictionary = _daily_reward_service.claim(slot, economy, ads)
+    if _daily_status != null:
+        _daily_status.text = "CLAIM PAUSED: %s" % str(result.get("reason", "UNAVAILABLE"))
 
 
 func _replay_gameplay_tutorial() -> void:
