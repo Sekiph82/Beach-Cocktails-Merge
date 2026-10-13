@@ -297,10 +297,45 @@ func _spawn_initial_tabletop_drinks(level_definition: Variant) -> bool:
 		if position.distance_to(get_spawn_position(size.x * 0.5)) <= radius + Drink.collider_radius_for_level(1) + 24.0:
 			return false
 		planned.append({"level": level, "position": position, "radius": radius})
+	var spawned: Array[Drink] = []
 	for placement in planned:
 		var drink := spawn_drink(int(placement["level"]), placement["position"], false)
-		if drink == null or drink.position.distance_to(placement["position"]) > 1.0:
-			push_error("Initial tabletop drink could not be safely placed at its authored position.")
+		if drink == null or drink.position.distance_to(placement["position"]) > 1.0 or not _initial_drink_visual_bounds_are_safe(drink, spawned):
+			for prior in spawned:
+				prior.queue_free()
+			if drink != null:
+				drink.queue_free()
+			push_error("Initial tabletop drink failed the live sprite, HUD, rail, danger-line, or spacing bounds check.")
+			return false
+		spawned.append(drink)
+	return true
+
+
+func _initial_drink_visual_bounds_are_safe(drink: Drink, previous: Array[Drink]) -> bool:
+	var bounds := drink.get_visible_sprite_bounds_in_canvas()
+	if bounds.size.x <= 0.0 or bounds.size.y <= 0.0 or bounds.position.y < rear_table_y:
+		return false
+	var margin := 12.0
+	if bounds.end.y > death_line_y - margin or bounds.position.x < margin or bounds.end.x > get_board_size().x - margin:
+		return false
+	for y_value in [bounds.position.y, bounds.get_center().y, bounds.end.y]:
+		var rails := get_table_rail_bounds_at_y(float(y_value))
+		if rails == Vector2.ZERO or bounds.position.x < rails.x + margin or bounds.end.x > rails.y - margin:
+			return false
+	var launch_x := get_spawn_position(get_board_size().x * 0.5).x
+	var launch_clearance := Drink.collider_radius_for_level(1) + drink.radius + margin
+	if bounds.position.x <= launch_x + launch_clearance and bounds.end.x >= launch_x - launch_clearance:
+		return false
+	var hud_controls: Array[Control] = [_best_panel, _score_panel, _to_go_panel, _next_panel, _focus_booster_button, _progression_strip]
+	if _move_limit_label != null and _move_limit_label.visible:
+		hud_controls.append(_move_limit_label)
+	for control in hud_controls:
+		if is_instance_valid(control) and control.visible and bounds.intersects(control.get_global_rect().grow(margin)):
+			return false
+	for prior in previous:
+		if bounds.grow(margin).intersects(prior.get_visible_sprite_bounds_in_canvas()):
+			return false
+		if drink.position.distance_to(prior.position) <= drink.radius + prior.radius + margin:
 			return false
 	return true
 

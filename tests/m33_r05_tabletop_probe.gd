@@ -79,9 +79,11 @@ func _run() -> void:
 	await create_timer(0.8).timeout
 	var objective_state: Dictionary = direct_bridge.get_objective_state()
 	var budget_state: Dictionary = direct_bridge.get_move_budget_state()
-	_check("a compatible preplaced target is physically delivered through To-Go", int(objective_state["normal_completed"].get(first_target, 0)) >= 1)
-	_check("free preplaced delivery leaves the exact existing 4T budget and star denominator untouched", int(budget_state.get("moves_used", -1)) == 0 and int(budget_state.get("move_limit", -1)) == int(direct_level["move_limit"]) and int(direct_level["move_limit"]) == int(direct_level["theoretical_shots_total"]) * 4)
-	_check("preplaced delivery cannot auto-complete the whole normal objective", not direct_bridge.is_terminal())
+	var starter_rows: Array = direct_level.get("initial_tabletop_drinks", [])
+	var starter_is_precursor := starter_rows.size() == 1 and int(starter_rows[0].get("cocktail_level", 0)) + 1 == first_target
+	_check("generated opening stock is one merge below its lowest normal objective and remains on the table", starter_is_precursor and int(objective_state["normal_completed"].get(first_target, 0)) == 0)
+	_check("unmerged starter does not consume the exact existing 4T budget or star denominator", int(budget_state.get("moves_used", -1)) == 0 and int(budget_state.get("move_limit", -1)) == int(direct_level["move_limit"]) and int(direct_level["move_limit"]) == int(direct_level["theoretical_shots_total"]) * 4)
+	_check("precursor starter cannot auto-complete normal objectives", not direct_bridge.is_terminal())
 	await _dispose(direct_game)
 
 	if failures.is_empty():

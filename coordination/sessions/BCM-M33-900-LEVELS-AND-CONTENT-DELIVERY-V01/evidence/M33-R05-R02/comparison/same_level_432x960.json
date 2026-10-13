@@ -1,0 +1,107 @@
+{
+  "cocktail_level": 6,
+  "comparison": "preplaced versus ordinary production Drink at same level and tabletop depth",
+  "failures": [],
+  "island_id": "azure_bay",
+  "level_id": 8,
+  "ordinary_settled": {
+    "alpha_source_rect": [
+      65,
+      32,
+      1133,
+      1192
+    ],
+    "level": 6,
+    "motion_state": 2,
+    "position_world": [
+      518.400024414063,
+      716.799987792969
+    ],
+    "shadow_world_size": [
+      86.5199966430664,
+      32.8775978088379
+    ],
+    "source_collision_diameter": 84.0,
+    "source_collision_radius": 42.0,
+    "sprite_local_scale": [
+      0.119999997317791,
+      0.119999997317791
+    ],
+    "visible_bounds_canvas": [
+      451.793304443359,
+      631.566955566406,
+      133.567108154297,
+      140.522521972656
+    ],
+    "visual_root_scale": [
+      0.982400000095367,
+      0.982400000095367
+    ],
+    "world_render_scale": [
+      1.0,
+      1.0
+    ]
+  },
+  "preplaced": {
+    "alpha_source_rect": [
+      65,
+      32,
+      1133,
+      1192
+    ],
+    "level": 6,
+    "motion_state": 2,
+    "position_world": [
+      208.800003051758,
+      716.799987792969
+    ],
+    "shadow_world_size": [
+      86.5199966430664,
+      32.8775978088379
+    ],
+    "source_collision_diameter": 84.0,
+    "source_collision_radius": 42.0,
+    "sprite_local_scale": [
+      0.119999997317791,
+      0.119999997317791
+    ],
+    "visible_bounds_canvas": [
+      142.193298339844,
+      631.566955566406,
+      133.567077636719,
+      140.522521972656
+    ],
+    "visual_root_scale": [
+      0.982400000095367,
+      0.982400000095367
+    ],
+    "world_render_scale": [
+      1.0,
+      1.0
+    ]
+  },
+  "result": "PASS",
+  "scale_ratios": {
+    "alpha_bounds": [
+      0.999999771518763,
+      1.0
+    ],
+    "render": [
+      1.0,
+      1.0
+    ],
+    "shadow": [
+      1.0,
+      1.0
+    ],
+    "sprite": [
+      1.0,
+      1.0
+    ]
+  },
+  "screenshot": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/comparison/same_level_432x960.png",
+  "viewport": [
+    432,
+    960
+  ]
+}

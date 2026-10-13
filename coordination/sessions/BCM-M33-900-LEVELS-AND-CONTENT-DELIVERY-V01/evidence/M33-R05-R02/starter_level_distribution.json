@@ -1,0 +1,24 @@
+{
+  "result": "PASS",
+  "scope": "all campaign level JSON files",
+  "preplaced_starter_counts_by_cocktail_level": {
+    "5": 685,
+    "6": 176
+  },
+  "tiers_present": [
+    5,
+    6
+  ],
+  "tiers_absent": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ]
+}

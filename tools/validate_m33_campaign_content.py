@@ -146,9 +146,9 @@ def main() -> int:
                 for drink in row["initial_tabletop_drinks"]:
                     target = int(drink["cocktail_level"])
                     position = drink["position"]
-                    if target not in normal_quantities and target + 1 not in normal_quantities or not isinstance(position, list) or len(position) != 2:
+                    if target in normal_quantities or target + 1 not in normal_quantities or not isinstance(position, list) or len(position) != 2:
                         fail(f"{island_id}/{row['level_id']} has an incompatible tabletop drink")
-                    if not 0.30 <= float(position[0]) <= 0.70 or not 0.48 <= float(position[1]) <= 0.56:
+                    if target > 8 or not 0.27 <= float(position[0]) <= 0.73 or not 0.55 <= float(position[1]) <= 0.57:
                         fail(f"{island_id}/{row['level_id']} tabletop placement is outside the safe area")
                     if isinstance(row.get("vip"), dict) and bool(row["vip"].get("enabled", True)) and target == int(row["vip"]["cocktail_level"]):
                         fail(f"{island_id}/{row['level_id']} tabletop stock can claim VIP")
@@ -190,8 +190,8 @@ def main() -> int:
         fail("manifest campaign contract is inconsistent")
     if len(manifest.get("islands", [])) != 10:
         fail("manifest is missing island records")
-    if manifest.get("content_version") != "BCM-M33.4":
-        fail("R05 campaign content version was not advanced")
+    if manifest.get("content_version") != "BCM-M33.5":
+        fail("R05-R02 campaign content version was not advanced")
     if report_a.get("profile_set_sha256") != profile_sha:
         fail("generation report does not bind to the current profile bytes")
     for item in manifest["islands"]:

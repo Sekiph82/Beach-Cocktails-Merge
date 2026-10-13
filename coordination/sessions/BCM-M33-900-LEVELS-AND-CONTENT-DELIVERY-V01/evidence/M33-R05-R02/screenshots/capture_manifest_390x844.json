@@ -1,0 +1,1481 @@
+{
+  "capture_origin": "Godot 4.7.2 production scene rendered in a 720x1280 SubViewport and scaled by SubViewportContainer into the exact client viewport; root viewport texture saved directly; no post-capture resizing or compositing",
+  "captures": [
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "tiki_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/tiki_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            201.600006103516,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            120.159942626953,
+            617.709167480469,
+            159.895050048828,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "kind": "populated",
+      "level_id": 13,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/tiki_island_L013_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "azure_bay",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/azure_bay_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            518.400024414063,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            436.9599609375,
+            617.709167480469,
+            159.895080566406,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "azure_bay",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/azure_bay_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "coconut_beach",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/coconut_beach_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            208.800003051758,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            127.359939575195,
+            617.709167480469,
+            159.895065307617,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.29,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "coconut_beach",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/coconut_beach_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "sunset_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/sunset_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            518.400024414063,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            436.9599609375,
+            617.709167480469,
+            159.895080566406,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "sunset_island",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/sunset_island_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            20,
+            1240,
+            1204
+          ],
+          "level": 3,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            55.6199951171875,
+            21.1356010437012
+          ],
+          "source_collision_diameter": 54.0,
+          "source_collision_radius": 27.0,
+          "sprite_local_scale": [
+            0.0861244052648544,
+            0.0861244052648544
+          ],
+          "visible_bounds_canvas": [
+            306.151214599609,
+            877.44580078125,
+            105.736328125,
+            102.666564941406
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "party_beach",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/party_beach_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            20,
+            1240,
+            1204
+          ],
+          "level": 3,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            55.6199951171875,
+            21.1356010437012
+          ],
+          "source_collision_diameter": 54.0,
+          "source_collision_radius": 27.0,
+          "sprite_local_scale": [
+            0.0861244052648544,
+            0.0861244052648544
+          ],
+          "visible_bounds_canvas": [
+            306.151214599609,
+            877.44580078125,
+            105.736328125,
+            102.666564941406
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            65,
+            32,
+            1133,
+            1192
+          ],
+          "level": 6,
+          "motion_state": 2,
+          "position_world": [
+            201.600006103516,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            86.5199966430664,
+            32.8775978088379
+          ],
+          "source_collision_diameter": 84.0,
+          "source_collision_radius": 42.0,
+          "sprite_local_scale": [
+            0.119999997317791,
+            0.119999997317791
+          ],
+          "visible_bounds_canvas": [
+            134.993286132813,
+            631.566955566406,
+            133.567108154297,
+            140.522521972656
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 6.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "party_beach",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/party_beach_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "frozen_paradise",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/frozen_paradise_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            518.400024414063,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            436.9599609375,
+            617.709167480469,
+            159.895080566406,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "frozen_paradise",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/frozen_paradise_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "volcano_bay",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/volcano_bay_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            65,
+            32,
+            1133,
+            1192
+          ],
+          "level": 6,
+          "motion_state": 2,
+          "position_world": [
+            518.400024414063,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            86.5199966430664,
+            32.8775978088379
+          ],
+          "source_collision_diameter": 84.0,
+          "source_collision_radius": 42.0,
+          "sprite_local_scale": [
+            0.119999997317791,
+            0.119999997317791
+          ],
+          "visible_bounds_canvas": [
+            451.793304443359,
+            631.566955566406,
+            133.567108154297,
+            140.522521972656
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 6.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "volcano_bay",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/volcano_bay_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "billionaire_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/billionaire_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            65,
+            32,
+            1133,
+            1192
+          ],
+          "level": 6,
+          "motion_state": 2,
+          "position_world": [
+            201.600006103516,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            86.5199966430664,
+            32.8775978088379
+          ],
+          "source_collision_diameter": 84.0,
+          "source_collision_radius": 42.0,
+          "sprite_local_scale": [
+            0.119999997317791,
+            0.119999997317791
+          ],
+          "visible_bounds_canvas": [
+            134.993286132813,
+            631.566955566406,
+            133.567108154297,
+            140.522521972656
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 6.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "billionaire_island",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/billionaire_island_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [],
+      "island_id": "final_island",
+      "kind": "empty",
+      "level_id": 1,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/final_island_L001_empty.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            0,
+            61,
+            1165,
+            1185
+          ],
+          "level": 1,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            41.1999931335449,
+            15.6560001373291
+          ],
+          "source_collision_diameter": 40.0,
+          "source_collision_radius": 20.0,
+          "sprite_local_scale": [
+            0.0579710155725479,
+            0.0579710155725479
+          ],
+          "visible_bounds_canvas": [
+            326.135925292969,
+            905.503845214844,
+            66.8671875,
+            68.01513671875
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            518.400024414063,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            436.9599609375,
+            617.709167480469,
+            159.895080566406,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "final_island",
+      "kind": "populated",
+      "level_id": 2,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/final_island_L002_populated.png",
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "drink_telemetry": [
+        {
+          "alpha_source_rect": [
+            61,
+            21,
+            1171,
+            1209
+          ],
+          "level": 2,
+          "motion_state": 0,
+          "position_world": [
+            360.0,
+            963.0
+          ],
+          "shadow_world_size": [
+            47.379997253418,
+            18.0044021606445
+          ],
+          "source_collision_diameter": 46.0,
+          "source_collision_radius": 23.0,
+          "sprite_local_scale": [
+            0.0634482726454735,
+            0.0634482726454735
+          ],
+          "visible_bounds_canvas": [
+            325.354919433594,
+            896.804077148438,
+            73.5619201660156,
+            75.9490356445313
+          ],
+          "visual_root_scale": [
+            0.990093767642975,
+            0.990093767642975
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            201.600006103516,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            120.159942626953,
+            617.709167480469,
+            159.895050048828,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "alpha_source_rect": [
+            0,
+            19,
+            1232,
+            1235
+          ],
+          "level": 5,
+          "motion_state": 2,
+          "position_world": [
+            518.400024414063,
+            716.799987792969
+          ],
+          "shadow_world_size": [
+            74.1600036621094,
+            28.1808013916016
+          ],
+          "source_collision_diameter": 72.0,
+          "source_collision_radius": 36.0,
+          "sprite_local_scale": [
+            0.132110089063644,
+            0.132110089063644
+          ],
+          "visible_bounds_canvas": [
+            436.9599609375,
+            617.709167480469,
+            159.895080566406,
+            160.284423828125
+          ],
+          "visual_root_scale": [
+            0.982400000095367,
+            0.982400000095367
+          ],
+          "world_render_scale": [
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "initial_drinks": [
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.28,
+            0.56
+          ]
+        },
+        {
+          "cocktail_level": 5.0,
+          "position": [
+            0.72,
+            0.56
+          ]
+        }
+      ],
+      "island_id": "tiki_island",
+      "kind": "contrast_two_drinks",
+      "level_id": 27,
+      "path": "res://coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/390x844/tiki_island_L027_contrast_two_drinks.png",
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ],
+  "failures": [],
+  "result": "PASS"
+}

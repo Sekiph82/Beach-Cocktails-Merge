@@ -5,7 +5,7 @@ extends RefCounted
 
 const MANIFEST_PATH := "res://data/campaign/content_manifest_m33.json"
 const ISLANDS_PATH := "res://data/campaign/islands.json"
-const CONTENT_VERSION := "BCM-M33.4"
+const CONTENT_VERSION := "BCM-M33.5"
 const SUPPORTED_GAME_VERSION := "4.7.x"
 const EXPECTED_ISLANDS := [
 	"sunny_cove",

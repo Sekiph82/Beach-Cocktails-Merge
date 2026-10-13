@@ -1,0 +1,485 @@
+{
+  "result": "OWNER_APPROVED_DIFFICULTY_CANDIDATES_PENDING_PHYSICS_AND_HUMAN_VALIDATION",
+  "content_version": "BCM-M33.5",
+  "generator_version": "BCM-M33-R05-R02-starter-scale-layout-v1",
+  "seed": 330044,
+  "profile_set_sha256": "21D572229828AF923464ADD846FA9E8AD2BCB50F51DFC051D57E58A3CC859663",
+  "sunny_cove_source_sha256": "573B5CA14CA75BEC04F40A5B7D00AA441534A266569B200E36E78B28D3591128",
+  "m32_tiki_seed_source_sha256": "AD4AE20C26D482082E9FFD170CC5E66DDE895403FE5E6D260A5BEEC8CFFBFF53",
+  "required_campaign_records": 900,
+  "preserved_m32_tiki_records": 12,
+  "required_generated_records": 888,
+  "output_record_count": 900,
+  "newly_generated_record_count": 888,
+  "unique_full_challenge_signatures_global": 86,
+  "global_full_recipe_duplicate_records_including_within_island": 814,
+  "controlled_repetition_metrics": {
+    "generated_record_count": 888,
+    "within_island_normal_repeat_records": 718,
+    "within_island_full_recipe_repeat_records": 603,
+    "global_normal_duplicate_records_including_within_island": 863,
+    "global_full_recipe_duplicate_records_including_within_island": 812,
+    "cross_island_normal_recipe_repeat_records": 145,
+    "cross_island_full_recipe_repeat_records": 209,
+    "unique_full_recipe_signatures": 76,
+    "unique_recipe_and_tabletop_layout_signatures": 181,
+    "recipe_and_tabletop_layout_repeat_records": 707,
+    "adjacent_full_recipe_repeats": 71,
+    "adjacent_recipe_and_tabletop_layout_repeats": 0,
+    "same_full_recipe_pairs_within_previous_5_records": 310,
+    "same_full_recipe_pairs_within_previous_10_records": 569,
+    "same_recipe_and_tabletop_layout_pairs_within_previous_5_records": 73,
+    "same_recipe_and_tabletop_layout_pairs_within_previous_10_records": 182
+  },
+  "sunny_intro_template_collision_count_in_new_records": 0,
+  "preserved_m32_tiki_sunny_intro_template_collision_count": 5,
+  "islands": [
+    {
+      "island_id": "tiki_island",
+      "global_level_range": [
+        101,
+        200
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 12,
+      "newly_generated_record_count": 88,
+      "unique_full_challenge_signatures": 33,
+      "unique_normal_objective_templates": 28,
+      "normal_template_repeat_records": 72,
+      "normal_template_repeat_rate": 0.72,
+      "max_repetition_of_one_normal_template": 16,
+      "normal_order_count_distribution": {
+        "1": 6,
+        "2": 84,
+        "3": 10
+      },
+      "vip_enabled_levels": 9,
+      "target_quantity_histogram": {
+        "5": 8,
+        "6": 92,
+        "7": 62,
+        "8": 60,
+        "9": 1,
+        "VIP_L8": 1,
+        "VIP_L9": 8
+      },
+      "theoretical_shots_min": 4,
+      "theoretical_shots_median": 40,
+      "theoretical_shots_max": 112,
+      "normal_T_min": 4,
+      "normal_T_median": 40,
+      "normal_T_p90": 56,
+      "normal_T_max": 72,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 32,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        72
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 83,
+      "initial_tabletop_empty_levels": 5,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 5
+    },
+    {
+      "island_id": "azure_bay",
+      "global_level_range": [
+        201,
+        300
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 31,
+      "unique_normal_objective_templates": 18,
+      "normal_template_repeat_records": 82,
+      "normal_template_repeat_rate": 0.82,
+      "max_repetition_of_one_normal_template": 16,
+      "normal_order_count_distribution": {
+        "2": 83,
+        "3": 17
+      },
+      "vip_enabled_levels": 16,
+      "target_quantity_histogram": {
+        "6": 79,
+        "7": 73,
+        "8": 74,
+        "9": 1,
+        "VIP_L10": 7,
+        "VIP_L11": 2,
+        "VIP_L12": 3,
+        "VIP_L9": 4
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 48,
+      "theoretical_shots_max": 568,
+      "normal_T_min": 24,
+      "normal_T_median": 40,
+      "normal_T_p90": 56,
+      "normal_T_max": 80,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 48,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        80
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    },
+    {
+      "island_id": "coconut_beach",
+      "global_level_range": [
+        301,
+        400
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 33,
+      "unique_normal_objective_templates": 18,
+      "normal_template_repeat_records": 82,
+      "normal_template_repeat_rate": 0.82,
+      "max_repetition_of_one_normal_template": 19,
+      "normal_order_count_distribution": {
+        "2": 85,
+        "3": 15
+      },
+      "vip_enabled_levels": 18,
+      "target_quantity_histogram": {
+        "6": 94,
+        "7": 79,
+        "8": 58,
+        "9": 1,
+        "VIP_L10": 6,
+        "VIP_L11": 2,
+        "VIP_L12": 6,
+        "VIP_L9": 4
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 40,
+      "theoretical_shots_max": 568,
+      "normal_T_min": 24,
+      "normal_T_median": 40,
+      "normal_T_p90": 56,
+      "normal_T_max": 80,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 48,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        80
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    },
+    {
+      "island_id": "sunset_island",
+      "global_level_range": [
+        401,
+        500
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 27,
+      "unique_normal_objective_templates": 19,
+      "normal_template_repeat_records": 81,
+      "normal_template_repeat_rate": 0.81,
+      "max_repetition_of_one_normal_template": 19,
+      "normal_order_count_distribution": {
+        "2": 82,
+        "3": 18
+      },
+      "vip_enabled_levels": 11,
+      "target_quantity_histogram": {
+        "6": 87,
+        "7": 72,
+        "8": 75,
+        "9": 1,
+        "VIP_L10": 2,
+        "VIP_L11": 2,
+        "VIP_L12": 4,
+        "VIP_L9": 3
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 48,
+      "theoretical_shots_max": 560,
+      "normal_T_min": 24,
+      "normal_T_median": 40,
+      "normal_T_p90": 56,
+      "normal_T_max": 80,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 32,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        80
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    },
+    {
+      "island_id": "party_beach",
+      "global_level_range": [
+        501,
+        600
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 31,
+      "unique_normal_objective_templates": 19,
+      "normal_template_repeat_records": 81,
+      "normal_template_repeat_rate": 0.81,
+      "max_repetition_of_one_normal_template": 14,
+      "normal_order_count_distribution": {
+        "2": 78,
+        "3": 22
+      },
+      "vip_enabled_levels": 13,
+      "target_quantity_histogram": {
+        "6": 85,
+        "7": 83,
+        "8": 68,
+        "9": 1,
+        "VIP_L10": 3,
+        "VIP_L11": 4,
+        "VIP_L12": 3,
+        "VIP_L9": 3
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 48,
+      "theoretical_shots_max": 568,
+      "normal_T_min": 24,
+      "normal_T_median": 48,
+      "normal_T_p90": 56,
+      "normal_T_max": 80,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 32,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        80
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    },
+    {
+      "island_id": "frozen_paradise",
+      "global_level_range": [
+        601,
+        700
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 34,
+      "unique_normal_objective_templates": 19,
+      "normal_template_repeat_records": 81,
+      "normal_template_repeat_rate": 0.81,
+      "max_repetition_of_one_normal_template": 18,
+      "normal_order_count_distribution": {
+        "2": 85,
+        "3": 15
+      },
+      "vip_enabled_levels": 19,
+      "target_quantity_histogram": {
+        "6": 86,
+        "7": 78,
+        "8": 61,
+        "9": 1,
+        "VIP_L10": 7,
+        "VIP_L11": 4,
+        "VIP_L12": 3,
+        "VIP_L9": 5
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 48,
+      "theoretical_shots_max": 568,
+      "normal_T_min": 24,
+      "normal_T_median": 40,
+      "normal_T_p90": 56,
+      "normal_T_max": 80,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 40,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        80
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    },
+    {
+      "island_id": "volcano_bay",
+      "global_level_range": [
+        701,
+        800
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 35,
+      "unique_normal_objective_templates": 20,
+      "normal_template_repeat_records": 80,
+      "normal_template_repeat_rate": 0.8,
+      "max_repetition_of_one_normal_template": 15,
+      "normal_order_count_distribution": {
+        "2": 83,
+        "3": 17
+      },
+      "vip_enabled_levels": 18,
+      "target_quantity_histogram": {
+        "6": 98,
+        "7": 73,
+        "8": 65,
+        "9": 1,
+        "VIP_L10": 4,
+        "VIP_L11": 2,
+        "VIP_L12": 6,
+        "VIP_L9": 6
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 48,
+      "theoretical_shots_max": 568,
+      "normal_T_min": 24,
+      "normal_T_median": 40,
+      "normal_T_p90": 56,
+      "normal_T_max": 72,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 32,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        72
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    },
+    {
+      "island_id": "billionaire_island",
+      "global_level_range": [
+        801,
+        900
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 32,
+      "unique_normal_objective_templates": 20,
+      "normal_template_repeat_records": 80,
+      "normal_template_repeat_rate": 0.8,
+      "max_repetition_of_one_normal_template": 11,
+      "normal_order_count_distribution": {
+        "2": 77,
+        "3": 23
+      },
+      "vip_enabled_levels": 15,
+      "target_quantity_histogram": {
+        "6": 90,
+        "7": 84,
+        "8": 68,
+        "9": 1,
+        "VIP_L10": 5,
+        "VIP_L11": 5,
+        "VIP_L12": 3,
+        "VIP_L9": 2
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 48,
+      "theoretical_shots_max": 560,
+      "normal_T_min": 24,
+      "normal_T_median": 48,
+      "normal_T_p90": 56,
+      "normal_T_max": 72,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 32,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        72
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    },
+    {
+      "island_id": "final_island",
+      "global_level_range": [
+        901,
+        1000
+      ],
+      "record_count": 100,
+      "first_m32_levels_preserved": 0,
+      "newly_generated_record_count": 100,
+      "unique_full_challenge_signatures": 39,
+      "unique_normal_objective_templates": 19,
+      "normal_template_repeat_records": 81,
+      "normal_template_repeat_rate": 0.81,
+      "max_repetition_of_one_normal_template": 17,
+      "normal_order_count_distribution": {
+        "2": 79,
+        "3": 21
+      },
+      "vip_enabled_levels": 23,
+      "target_quantity_histogram": {
+        "6": 91,
+        "7": 89,
+        "8": 57,
+        "9": 1,
+        "VIP_L10": 8,
+        "VIP_L11": 5,
+        "VIP_L12": 6,
+        "VIP_L9": 4
+      },
+      "theoretical_shots_min": 24,
+      "theoretical_shots_median": 48,
+      "theoretical_shots_max": 568,
+      "normal_T_min": 24,
+      "normal_T_median": 40,
+      "normal_T_p90": 56,
+      "normal_T_max": 72,
+      "normal_T_at_most_56_count": 99,
+      "max_within_island_adjacent_normal_T_delta": 48,
+      "prestige_capstone_levels": [
+        100
+      ],
+      "prestige_capstone_normal_T": [
+        72
+      ],
+      "generated_sunny_intro_template_collisions": 0,
+      "initial_tabletop_levels": 94,
+      "initial_tabletop_empty_levels": 6,
+      "preserved_m32_levels_colliding_with_sunny_intro_1_10": 0
+    }
+  ],
+  "limitations": [
+    "Deterministic generation and static rule checks do not certify physics reachability or human playability.",
+    "The M32 Tiki seed file remains byte-identical and its L1-L12 gameplay records are preserved in the M33 runtime package; only M33 global IDs and derived T/move-budget metadata are added.",
+    "The preserved M32 Tiki L1-L12 records are an explicit exception to the no-Sunny-intro-template-reuse rule; generation applies to Tiki L13-L100 and the other 800 campaign records.",
+    "Automated content is not owner visual approval or human playtesting."
+  ]
+}

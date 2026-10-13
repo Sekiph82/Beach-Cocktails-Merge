@@ -308,6 +308,62 @@ func get_table_footprint_local() -> PackedVector2Array:
 	return PackedVector2Array([Vector2(x_min, foot_y), Vector2(x_max, foot_y)])
 
 
+func get_visible_sprite_bounds_in_canvas() -> Rect2:
+	"""Return the alpha-used cocktail sprite bounds after the live render transforms."""
+	if _cocktail_sprite == null or _cocktail_sprite.texture == null:
+		return Rect2()
+	var image := _cocktail_sprite.texture.get_image()
+	if image == null:
+		return Rect2()
+	var used := image.get_used_rect()
+	if used.size.x <= 0 or used.size.y <= 0:
+		return Rect2()
+	var texture_size := Vector2(_cocktail_sprite.texture.get_width(), _cocktail_sprite.texture.get_height())
+	var source_rect := Rect2(Vector2(used.position) - texture_size * 0.5, Vector2(used.size))
+	var local_to_body := _visual_root.transform * _cocktail_sprite.transform
+	var body_to_canvas := get_global_transform_with_canvas()
+	var local_corners := [source_rect.position, Vector2(source_rect.end.x, source_rect.position.y), source_rect.end, Vector2(source_rect.position.x, source_rect.end.y)]
+	var first: Vector2 = body_to_canvas * (local_to_body * local_corners[0])
+	var min_point: Vector2 = first
+	var max_point: Vector2 = first
+	for corner in local_corners:
+		var local_corner: Vector2 = corner
+		var point: Vector2 = body_to_canvas * (local_to_body * local_corner)
+		min_point = min_point.min(point)
+		max_point = max_point.max(point)
+	return Rect2(min_point, max_point - min_point)
+
+
+func get_visual_qualification_telemetry() -> Dictionary:
+	var world_transform := get_global_transform_with_canvas()
+	var shadow_size := Vector2.ZERO
+	if _shadow != null and not _shadow.polygon.is_empty():
+		var shadow_bounds := Rect2(_shadow.polygon[0], Vector2.ZERO)
+		for point in _shadow.polygon:
+			shadow_bounds = shadow_bounds.expand(point)
+		shadow_size = shadow_bounds.size * _shadow.scale
+	var alpha_bounds := Rect2i()
+	if _cocktail_sprite != null and _cocktail_sprite.texture != null:
+		alpha_bounds = _cocktail_sprite.texture.get_image().get_used_rect()
+	return {
+		"level": level,
+		"position_world": [global_position.x, global_position.y],
+		"source_collision_radius": radius,
+		"source_collision_diameter": radius * 2.0,
+		"sprite_local_scale": [_cocktail_sprite.scale.x, _cocktail_sprite.scale.y] if _cocktail_sprite != null else [0.0, 0.0],
+		"visual_root_scale": [_visual_root.scale.x, _visual_root.scale.y] if _visual_root != null else [0.0, 0.0],
+		"world_render_scale": [world_transform.x.length(), world_transform.y.length()],
+		"shadow_world_size": [shadow_size.x * world_transform.x.length(), shadow_size.y * world_transform.y.length()],
+		"alpha_source_rect": [alpha_bounds.position.x, alpha_bounds.position.y, alpha_bounds.size.x, alpha_bounds.size.y],
+		"visible_bounds_canvas": _rect_to_array(get_visible_sprite_bounds_in_canvas()),
+		"motion_state": motion_state,
+	}
+
+
+static func _rect_to_array(rect: Rect2) -> Array[float]:
+	return [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
+
+
 func get_boundary_contact_hull_local() -> PackedVector2Array:
 	return _source_points_to_visual_local(boundary_contact_hull_source_for_level(level))
 

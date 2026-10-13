@@ -404,13 +404,12 @@ func _validate_initial_tabletop_drinks(level: Dictionary, island_id: String, lev
         normal_total += quantity
     var vip: Variant = level.get("vip", null)
     var circles: Array[Dictionary] = []
-    var claimed_direct: Dictionary = {}
     for drink in drinks:
         if not drink is Dictionary or not drink.has_all(["cocktail_level", "position"]):
             return _fail("initial tabletop drink requires cocktail_level and position: %s/%d" % [island_id, level_id])
         var target := int(drink["cocktail_level"])
         var position: Variant = drink["position"]
-        var compatible_target := target if normal_remaining.has(target) else (target + 1 if normal_remaining.has(target + 1) else 0)
+        var compatible_target := target + 1 if normal_remaining.has(target + 1) and not normal_remaining.has(target) else 0
         if target < 3 or target > 12 or compatible_target <= 0:
             return _fail("initial tabletop level must match or feed a normal target: %s/%d L%d" % [island_id, level_id, target])
         if vip is Dictionary and bool(vip.get("enabled", true)) and target == int(vip.get("cocktail_level", 0)):
@@ -419,14 +418,10 @@ func _validate_initial_tabletop_drinks(level: Dictionary, island_id: String, lev
             return _fail("initial tabletop position must be normalized [x,y]: %s/%d" % [island_id, level_id])
         var x := float(position[0])
         var y := float(position[1])
-        # R04 safe-area coordinates: central tabletop only, clear of HUD, shelf,
-        # lower launch lane, and side rails at supported portrait sizes.
-        if x < 0.30 or x > 0.70 or y < 0.48 or y > 0.56:
+        # R05-R02 normalized candidate area; runtime confirms actual sprite alpha,
+        # HUD, launch-lane, rail, danger-line, and collision bounds at viewport size.
+        if x < 0.27 or x > 0.73 or y < 0.55 or y > 0.57:
             return _fail("initial tabletop position is outside its safe area: %s/%d" % [island_id, level_id])
-        if compatible_target == target and int(claimed_direct.get(target, 0)) >= int(normal_remaining[target]):
-            return _fail("initial tabletop inventory exceeds normal target quantity: %s/%d L%d" % [island_id, level_id, target])
-        if compatible_target == target:
-            claimed_direct[target] = int(claimed_direct.get(target, 0)) + 1
         circles.append({"position": Vector2(x, y), "radius": float([20, 23, 27, 31, 36, 42, 49, 56, 64, 72, 80, 90][target - 1]) / 720.0})
     var stock_count: int = drinks.size()
     if stock_count >= normal_total:

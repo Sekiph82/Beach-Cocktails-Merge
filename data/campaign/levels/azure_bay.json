@@ -2,10 +2,10 @@
   "schema_version": 1,
   "island_id": "azure_bay",
   "campaign_generation": {
-    "generator_version": "BCM-M33-R05-controlled-repeat-tabletop-v1",
+    "generator_version": "BCM-M33-R05-R02-starter-scale-layout-v1",
     "seed": 330044,
     "profile_set_path": "res://data/campaign/content_generation_profiles_m33.json",
-    "profile_set_sha256": "BDEB61794EFEBFB08C6F36BBE0E2463AAE60C9D1B61597EF84442D5EF15A22AB",
+    "profile_set_sha256": "21D572229828AF923464ADD846FA9E8AD2BCB50F51DFC051D57E58A3CC859663",
     "profile_id": "azure_bay",
     "global_level_range": [
       201,
@@ -86,10 +86,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -131,10 +131,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -176,9 +176,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -221,9 +221,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -266,10 +266,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -311,10 +311,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -356,9 +356,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -401,10 +401,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -446,10 +446,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -496,10 +496,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -546,9 +546,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -593,7 +593,7 @@
         {
           "cocktail_level": 6,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -636,10 +636,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -681,17 +681,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
-          ]
-        },
-        {
-          "cocktail_level": 7,
-          "position": [
-            0.67,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -733,9 +726,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -815,10 +808,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -860,10 +853,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -905,9 +898,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -950,9 +943,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -995,10 +988,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -1040,10 +1033,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1085,16 +1078,16 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         },
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.65,
+            0.71,
             0.56
           ]
         }
@@ -1137,10 +1130,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1182,10 +1175,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -1227,10 +1220,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1277,9 +1270,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -1322,9 +1315,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -1367,10 +1360,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -1412,10 +1405,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1457,9 +1450,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -1502,10 +1495,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1589,10 +1582,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1634,9 +1627,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -1679,9 +1672,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -1726,8 +1719,8 @@
         {
           "cocktail_level": 6,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -1774,10 +1767,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1819,9 +1812,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -1864,10 +1857,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1909,10 +1902,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -1954,10 +1947,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -1999,9 +1992,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -2049,9 +2042,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -2096,8 +2089,8 @@
         {
           "cocktail_level": 6,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -2139,17 +2132,17 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         },
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.67,
-            0.54
+            0.72,
+            0.56
           ]
         }
       ],
@@ -2191,9 +2184,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -2236,10 +2229,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -2286,10 +2279,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -2372,9 +2365,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -2417,9 +2410,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -2462,10 +2455,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -2507,10 +2500,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -2557,9 +2550,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -2607,10 +2600,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -2652,10 +2645,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -2697,10 +2690,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -2742,9 +2735,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -2787,9 +2780,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -2832,10 +2825,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -2881,17 +2874,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
-          ]
-        },
-        {
-          "cocktail_level": 6,
-          "position": [
-            0.67,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -2937,16 +2923,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.35,
-            0.56
-          ]
-        },
-        {
-          "cocktail_level": 6,
-          "position": [
-            0.65,
+            0.29,
             0.56
           ]
         }
@@ -2994,10 +2973,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3043,10 +3022,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -3097,10 +3076,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3179,9 +3158,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -3228,10 +3207,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -3273,10 +3252,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3318,9 +3297,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -3363,10 +3342,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3408,10 +3387,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -3457,10 +3436,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3506,9 +3485,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -3551,9 +3530,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -3596,10 +3575,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -3641,10 +3620,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 6,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3686,9 +3665,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.35,
+            0.29,
             0.56
           ]
         }
@@ -3731,10 +3710,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3780,10 +3759,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -3825,10 +3804,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 6,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -3875,9 +3854,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -3966,10 +3945,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -4011,10 +3990,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -4060,16 +4039,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.35,
-            0.56
-          ]
-        },
-        {
-          "cocktail_level": 7,
-          "position": [
-            0.65,
+            0.29,
             0.56
           ]
         }
@@ -4116,10 +4088,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -4161,10 +4133,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -4210,10 +4182,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -4259,9 +4231,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }
@@ -4304,9 +4276,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.66,
+            0.28,
             0.56
           ]
         }
@@ -4349,10 +4321,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.5
+            0.72,
+            0.56
           ]
         }
       ],
@@ -4394,17 +4366,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.33,
-            0.54
-          ]
-        },
-        {
-          "cocktail_level": 7,
-          "position": [
-            0.67,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -4455,16 +4420,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.35,
-            0.56
-          ]
-        },
-        {
-          "cocktail_level": 6,
-          "position": [
-            0.65,
+            0.29,
             0.56
           ]
         }
@@ -4511,10 +4469,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 6,
+          "cocktail_level": 5,
           "position": [
-            0.34,
-            0.52
+            0.28,
+            0.56
           ]
         }
       ],
@@ -4565,10 +4523,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 8,
+          "cocktail_level": 5,
           "position": [
-            0.66,
-            0.52
+            0.72,
+            0.56
           ]
         }
       ],
@@ -4615,10 +4573,10 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 7,
+          "cocktail_level": 5,
           "position": [
-            0.5,
-            0.54
+            0.28,
+            0.56
           ]
         }
       ],
@@ -4660,9 +4618,9 @@
       "initial_tabletop_drinks_version": 1,
       "initial_tabletop_drinks": [
         {
-          "cocktail_level": 9,
+          "cocktail_level": 6,
           "position": [
-            0.34,
+            0.72,
             0.56
           ]
         }

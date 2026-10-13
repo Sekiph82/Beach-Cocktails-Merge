@@ -22,9 +22,9 @@ ISLANDS_PATH = ROOT / "data/campaign/islands.json"
 LEVELS_DIR = ROOT / "data/campaign/levels"
 SUNNY_PATH = LEVELS_DIR / "sunny_cove.json"
 TIKI_SEED_PATH = LEVELS_DIR / "tiki_island.json"
-REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05/generation_report.json"
+REPORT_PATH = ROOT / "coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/generation_report.json"
 MANIFEST_PATH = ROOT / "data/campaign/content_manifest_m33.json"
-CONTENT_VERSION = "BCM-M33.4"
+CONTENT_VERSION = "BCM-M33.5"
 TABLETOP_LAYOUTS_VERSION = 1
 
 
@@ -109,11 +109,14 @@ def _initial_tabletop_drinks(level: dict[str, Any], island_id: str, level_id: in
 
     # Every stocked drink corresponds to a normal objective level. Leave at
     # least one required normal drink unstocked, and never seed a VIP level.
+    # Keep starting stock in the HUD-clear tabletop band with a clear center
+    # launch lane and visible margin above the danger line. Paired layouts use
+    # symmetric lateral positions with a wide gap.
     position_sets = [
-        [[0.34, 0.52]], [[0.66, 0.52]], [[0.50, 0.54]],
-        [[0.34, 0.56]], [[0.66, 0.56]], [[0.50, 0.50]],
-        [[0.33, 0.54], [0.67, 0.54]],
-        [[0.35, 0.56], [0.65, 0.56]],
+        [[0.28, 0.56]], [[0.72, 0.56]], [[0.28, 0.56]],
+        [[0.72, 0.56]], [[0.28, 0.56]], [[0.72, 0.56]],
+        [[0.28, 0.56], [0.72, 0.56]],
+        [[0.29, 0.56], [0.71, 0.56]],
     ]
     island_phase = _digest_int(seed, island_id, 0, 0, "tabletop-layout-phase") % len(position_sets)
     layout_index = (level_id + island_phase) % len(position_sets)
@@ -124,10 +127,8 @@ def _initial_tabletop_drinks(level: dict[str, Any], island_id: str, level_id: in
         range(len(orders)),
         key=lambda index: _digest_int(seed, island_id, level_id, 0, f"stock-order:{index}"),
     )
-    if layout_index in (4, 5):
-        mergeable = [index for index in order_indices if int(orders[index]["cocktail_level"]) >= 7]
-        if mergeable:
-            order_indices = mergeable
+    lowest_normal_target = min(int(order["cocktail_level"]) for order in orders)
+    order_indices = [index for index in order_indices if int(orders[index]["cocktail_level"]) == lowest_normal_target]
     remaining_by_order = {index: int(orders[index]["quantity"]) for index in range(len(orders))}
     result: list[dict[str, Any]] = []
     for slot in range(drink_count):
@@ -137,7 +138,9 @@ def _initial_tabletop_drinks(level: dict[str, Any], island_id: str, level_id: in
         order_index = available[slot % len(available)]
         order = orders[order_index]
         result.append({
-            "cocktail_level": int(order["cocktail_level"]) - (1 if layout_index in (4, 5) else 0),
+            # A starter is always one step below the lowest normal target, so
+            # it stays on the table and cannot auto-deliver into another order.
+            "cocktail_level": int(order["cocktail_level"]) - 1,
             "position": positions[slot],
         })
         remaining_by_order[order_index] -= 1
