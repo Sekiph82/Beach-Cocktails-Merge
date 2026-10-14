@@ -35,7 +35,7 @@ The older `disk_inventory.csv` contains an exploratory worktree deletion proposa
 - `git -c core.whitespace=cr-at-eol diff --cached --check`: passed for the staged implementation/evidence commit. The option treats captured Windows CRLF as line endings.
 - Tests/probes: exact results above; no additional tests are claimed.
 - Start HEAD: `eb05ddc6c48ed700f0bc6ddbf21f533101e305b3`.
-- Final implementation/evidence commit SHA: `3f133029baf418f005f948933b51fb98eaa2eaea`.
+- Final implementation/evidence commit SHA: `3f1330220b27cbae8012d7ddeb303486c4c72419`.
 - This builder log is a separate documentation-only commit following the implementation/evidence commit; final local HEAD, `origin/main`, and remote `main` will be verified after push and reported in the handoff.
 - Explicit confirmation: root `TASKS.md` was not modified or staged.
 
