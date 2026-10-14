@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Advance native Android rewarded-ad integration and device-readiness.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-006 — Codex executes R06 V02: forensically verify and remove only unused BCM Temp/AppData/worktree/cache data, measure actual reclaimed bytes, then install bounded Android tools if >=25 GiB remains free.
+- Next Task/Action: BCM-M34-006 — Codex executes R07 post-Android-install regression recovery: current Daily and navigation probes FAIL; restore green then attempt nonproduction debug APK.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R05 safe Desktop sync and evidence audit PASS, native ads still blocked. Owner reports C: free space decreased approximately 200 GB to 81.2 GB and NOW AUTHORIZES proved-unused BCM Temp/AppData/worktree cleanup BEFORE approved Android development tool installation. Preserve seven owner-dirty tracked files, 15 untracked owner files, 69 existing stashes and R05 sole recovery backup. No indiscriminate deletions, verify disk bytes and reserve >=25 GiB after tools install. R06 V02 supersedes earlier no-install hold; no native ads payouts until SSV/backend/device proven.
+- Progress: R06 V02 corrected independent audit PARTIAL PASS: Android JDK17/SDK35/NDK/CMake/Godot4.7.2 templates installed; 10 clean worktrees and 6 caches safely removed, owner files preserved. Current newer tests: Economy 24/24 PASS, Daily 35 then FAIL, M33 navigation 4 then FAIL due unresolved script classes/parse issue; clean editor import ends with access violation. R07 remediation published. Production ads/SSV/IAP and device proof blocked. MOVES/tutorial accepted, 23 media KEEP.
 
 ## Blockers/Waits
 
