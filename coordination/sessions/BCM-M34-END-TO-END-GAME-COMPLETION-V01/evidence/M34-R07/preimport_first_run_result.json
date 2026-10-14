@@ -1,0 +1,11 @@
+{
+  "worktree": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r07-preimport",
+  "start_head": "5adf38dbee38e244d0933f4c4cee47ed7bc47882",
+  "cache_before_first_run": false,
+  "cache_after_first_run": false,
+  "cache_sha256_after": null,
+  "daily_exit_code": -1,
+  "daily_pass_markers": 35,
+  "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\daily_preimport_first_run.stdout.txt",
+  "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\daily_preimport_first_run.stderr.txt"
+}

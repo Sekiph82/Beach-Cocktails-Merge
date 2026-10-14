@@ -1,0 +1,15 @@
+Unable to open Android 'build-tools' directory.
+ERROR: Cannot export project with preset "R07 Nonproduction Debug Validation" due to configuration errors:
+No export template found at the expected path:
+C:/Users/sekip/AppData/Local/BCM-M34-R07-Clean-Import-AppData/Godot/export_templates/4.7.2.stable/android_debug.apk
+No export template found at the expected path:
+C:/Users/sekip/AppData/Local/BCM-M34-R07-Clean-Import-AppData/Godot/export_templates/4.7.2.stable/android_release.apk
+A valid Java SDK path is required in Editor Settings.
+Invalid Android SDK path in Editor Settings. Missing 'platform-tools' directory!
+Unable to find Android SDK platform-tools' adb command. Please check in the Android SDK directory specified in Editor Settings.
+Invalid Android SDK path in Editor Settings. Missing 'build-tools' directory!
+Unable to find Android SDK build-tools' apksigner command. Please check in the Android SDK directory specified in Editor Settings.
+
+   at: _fs_changed (editor/editor_node.cpp:1401)
+ERROR: Project export for preset "R07 Nonproduction Debug Validation" failed.
+   at: _fs_changed (editor/editor_node.cpp:1417)

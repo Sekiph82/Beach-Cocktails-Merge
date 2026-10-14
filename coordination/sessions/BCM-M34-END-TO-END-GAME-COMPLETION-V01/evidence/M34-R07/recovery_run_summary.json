@@ -1,0 +1,26 @@
+[
+  {
+    "test": "tests/m34_daily_rewards_probe.gd",
+    "exit_code": 0,
+    "pass_lines": 38,
+    "result": "PASS",
+    "stdout": "m34_daily_rewards_probe.recovery.stdout.txt",
+    "stderr": "m34_daily_rewards_probe.recovery.stderr.txt"
+  },
+  {
+    "test": "tests/m34_economy_closure_probe.gd",
+    "exit_code": 0,
+    "pass_lines": 24,
+    "result": "PASS",
+    "stdout": "m34_economy_closure_probe.recovery.stdout.txt",
+    "stderr": "m34_economy_closure_probe.recovery.stderr.txt"
+  },
+  {
+    "test": "tests/m33_campaign_navigation_probe.gd",
+    "exit_code": 0,
+    "pass_lines": 17,
+    "result": "PASS",
+    "stdout": "m33_campaign_navigation_probe.recovery.stdout.txt",
+    "stderr": "m33_campaign_navigation_probe.recovery.stderr.txt"
+  }
+]

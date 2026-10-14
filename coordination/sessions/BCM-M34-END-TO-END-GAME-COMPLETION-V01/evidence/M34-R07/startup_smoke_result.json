@@ -1,0 +1,6 @@
+{
+  "command": "godot_console.exe --headless --path <clean detached worktree> --quit-after 3",
+  "exit_code": 0,
+  "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\startup_smoke.stdout.txt",
+  "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\startup_smoke.stderr.txt"
+}

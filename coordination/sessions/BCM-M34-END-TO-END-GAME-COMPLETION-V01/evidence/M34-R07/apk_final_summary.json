@@ -1,0 +1,13 @@
+{
+  "apk_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+  "sha256": "EDDDDB44CBEFF9FA8C653BEB6621C6168D4D948B66C14559C7D91D5F580A93F5",
+  "bytes": 1353331251,
+  "package": "org.example.bcm.r07debugvalidation",
+  "application_label": "BCM R07 Debug Validation",
+  "debug_signature_verified": true,
+  "installed_on_device": false,
+  "release_signing_key_created": false,
+  "export_preset_sha256": "F8A8B30DDDF737E4FFCD97C3DAA1F24F50AEBC62D613827F12018C1A51BD761E",
+  "temporary_etc2_project_change_restored": true,
+  "project_godot_final_sha256": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A"
+}

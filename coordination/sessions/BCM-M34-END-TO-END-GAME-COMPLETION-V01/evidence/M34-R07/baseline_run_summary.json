@@ -1,0 +1,26 @@
+[
+  {
+    "test": "tests/m34_daily_rewards_probe.gd",
+    "exit_code": 0,
+    "pass_lines": 38,
+    "result": "PASS",
+    "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\m34_daily_rewards_probe.baseline.stdout.txt",
+    "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\m34_daily_rewards_probe.baseline.stderr.txt"
+  },
+  {
+    "test": "tests/m34_economy_closure_probe.gd",
+    "exit_code": 0,
+    "pass_lines": 24,
+    "result": "PASS",
+    "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\m34_economy_closure_probe.baseline.stdout.txt",
+    "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\m34_economy_closure_probe.baseline.stderr.txt"
+  },
+  {
+    "test": "tests/m33_campaign_navigation_probe.gd",
+    "exit_code": 0,
+    "pass_lines": 17,
+    "result": "PASS",
+    "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\m33_campaign_navigation_probe.baseline.stdout.txt",
+    "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\m33_campaign_navigation_probe.baseline.stderr.txt"
+  }
+]

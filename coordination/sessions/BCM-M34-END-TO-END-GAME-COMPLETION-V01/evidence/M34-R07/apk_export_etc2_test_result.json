@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "temporary_project_setting": "rendering/textures/vram_compression/import_etc2_astc=true",
+  "temporary_project_godot_sha256": "8DD01D7E810E3549AAFADA91837BE2E3519658A2466D78AD610DDE6E7E9306C1",
+  "project_godot_sha256_after_export": "EFBC6231B1619C6203E35A571544FF94FF5403B0C396E1B147D7EA91814B1091",
+  "project_godot_sha256_restored": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A",
+  "apk": {
+    "FullName": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+    "Length": 1353331251,
+    "LastWriteTime": "2026-10-14T23:43:25.652103+03:00"
+  },
+  "apk_sha256": "EDDDDB44CBEFF9FA8C653BEB6621C6168D4D948B66C14559C7D91D5F580A93F5",
+  "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\apk_export_etc2_test.stdout.txt",
+  "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\apk_export_etc2_test.stderr.txt",
+  "project_godot_sha256_final_restore": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A"
+}

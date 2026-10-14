@@ -1,0 +1,7 @@
+{
+  "apk": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+  "apksigner_exit_code": 0,
+  "java_version": "openjdk version \"17.0.20.1\" 2026-08-18",
+  "apksigner": "Verifies\r\nVerified using v1 scheme (JAR signing): false\r\nVerified using v2 scheme (APK Signature Scheme v2): true\r\nVerified using v3 scheme (APK Signature Scheme v3): true\r\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\r\nVerified using v4 scheme (APK Signature Scheme v4): false\r\nVerified for SourceStamp: false\r\nNumber of signers: 1\r\nSigner #1 certificate DN: CN=Godot, OU=Godot Engine, O=Stichting Godot, C=NL\r\nSigner #1 certificate SHA-256 digest: 34a58243aa51471eccbe94ad2560d4fbdbf3043a4ef327bd720501f5e3c2f1dc\r\nSigner #1 certificate SHA-1 digest: 56c1d65ad0ea1fbe6171ca95818b34e695c264c7\r\nSigner #1 certificate MD5 digest: c27913c156550a1b871e2bd36b26dc66\r\nSigner #1 key algorithm: RSA\r\nSigner #1 key size (bits): 2048\r\nSigner #1 public key SHA-256 digest: 088f89001a65b265f693e8b3cbef55cbf4e2c82a3bd3ce65ac7c0f5780fe71fd\r\nSigner #1 public key SHA-1 digest: 20ffc365084b5e91f2873ed1b7e421e159c2e5ef\r\nSigner #1 public key MD5 digest: 0b8e72a2689a7981b711a444e03b4b3e\r\n",
+  "stderr": null
+}

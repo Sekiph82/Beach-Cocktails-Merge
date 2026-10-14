@@ -1,0 +1,27 @@
+{
+  "pre_import_probe_cache_present": false,
+  "post_import_cache_sha256": "6C4941C2A9EA7D7ECFB82D15E89347E50C7A8F5916A677140DBAE9E4DDB57022",
+  "classes": [
+    {
+      "class_name": "AdsService",
+      "registered_in_fresh_cache": true
+    },
+    {
+      "class_name": "StoreService",
+      "registered_in_fresh_cache": true
+    },
+    {
+      "class_name": "DailyRewardService",
+      "registered_in_fresh_cache": true
+    }
+  ],
+  "pre_import_daily_exit": -1,
+  "pre_import_daily_pass_count": 35,
+  "post_import_daily_exit": 0,
+  "post_import_daily_pass_count": 38,
+  "post_import_economy_exit": 0,
+  "post_import_economy_pass_count": 24,
+  "post_import_navigation_exit": 0,
+  "post_import_navigation_pass_count": 17,
+  "interpretation": "Cold --script invocation before Godot editor import lacks resource loaders and global class registration; importing the project creates the cache and focused suites pass. No production code change was required."
+}

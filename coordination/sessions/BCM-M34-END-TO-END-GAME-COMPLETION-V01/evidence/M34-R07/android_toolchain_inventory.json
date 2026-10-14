@@ -1,0 +1,51 @@
+{
+  "captured_utc": "2026-10-14T20:51:48.7286309Z",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "java_home": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\jdk17\\jdk-17.0.20.1+1",
+  "android_sdk": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk",
+  "sdkmanager": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk\\cmdline-tools\\latest\\bin\\sdkmanager.bat",
+  "sdkmanager_exit_code": 0,
+  "paths": [
+    {
+      "label": "JDK",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\jdk17\\jdk-17.0.20.1+1"
+    },
+    {
+      "label": "SDK",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk"
+    },
+    {
+      "label": "SDKMANAGER",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk\\cmdline-tools\\latest\\bin\\sdkmanager.bat"
+    },
+    {
+      "label": "ADB",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk\\platform-tools\\adb.exe"
+    },
+    {
+      "label": "APKSIGNER",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk\\build-tools\\35.0.1\\apksigner.bat"
+    },
+    {
+      "label": "TEMPLATE_DEBUG",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable\\android_debug.apk"
+    },
+    {
+      "label": "TEMPLATE_RELEASE",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable\\android_release.apk"
+    },
+    {
+      "label": "TEMPLATE_SOURCE",
+      "exists": true,
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable\\android_source.zip"
+    }
+  ],
+  "reinstall_or_download_attempted": false
+}

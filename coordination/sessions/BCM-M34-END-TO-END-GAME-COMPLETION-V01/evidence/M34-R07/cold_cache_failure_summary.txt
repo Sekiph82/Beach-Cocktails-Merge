@@ -1,0 +1,51 @@
+--- daily_preimport_first_run.stderr.txt
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v02.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_clouds_back.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_clouds_front.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/route_line.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_title_panel.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_compass.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_boat.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Could not find type "CampaignFeedbackOverlay" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/ui/gameplay/vip_badge.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "AdsService" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/campaign_navigation_controller.gd:36)
+SCRIPT ERROR: Parse Error: Could not find type "StoreService" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/campaign_navigation_controller.gd:37)
+ERROR: Failed to load script "res://scripts/campaign/campaign_navigation_controller.gd" with error "Parse error".
+SCRIPT ERROR: Parse Error: Could not find type "DailyRewardService" in the current scope.
+SCRIPT ERROR: Parse Error: Cannot infer the type of "state" variable because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/campaign/application_shell.gd:865)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+--- navigation_preimport_first_run.stderr.txt
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v02.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_clouds_back.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_clouds_front.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/route_line.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_title_panel.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_compass.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/campaign/world_map/world_map_boat.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Could not find type "CampaignFeedbackOverlay" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Preload file "res://assets/ui_assets/ui/gameplay/vip_badge.png" has no resource loaders (unrecognized file extension).
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "FeedbackService" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "PresentationFeedbackBridge" in the current scope.
+SCRIPT ERROR: Parse Error: Could not find type "AdsService" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/campaign_navigation_controller.gd:36)
+SCRIPT ERROR: Parse Error: Could not find type "StoreService" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/campaign_navigation_controller.gd:37)

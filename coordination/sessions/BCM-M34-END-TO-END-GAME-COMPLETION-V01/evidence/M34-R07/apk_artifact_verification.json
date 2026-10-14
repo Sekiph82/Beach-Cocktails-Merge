@@ -1,0 +1,9 @@
+{
+  "apk": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+  "apk_sha256": "EDDDDB44CBEFF9FA8C653BEB6621C6168D4D948B66C14559C7D91D5F580A93F5",
+  "apk_bytes": 1353331251,
+  "apksigner_exit_code": 1,
+  "aapt_badging_exit_code": 0,
+  "apksigner": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk\\build-tools\\35.0.1\\apksigner.bat",
+  "aapt": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk\\build-tools\\35.0.1\\aapt.exe"
+}

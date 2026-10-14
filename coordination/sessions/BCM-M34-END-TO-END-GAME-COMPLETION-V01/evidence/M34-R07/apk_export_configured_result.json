@@ -1,0 +1,10 @@
+{
+  "command": "godot_console.exe --headless --path <clean detached worktree> --export-debug \"R07 Nonproduction Debug Validation\" <isolated APK path>",
+  "exit_code": 1,
+  "apk": null,
+  "apk_sha256": null,
+  "project_godot_sha256_before": "ED58FA3652B475BEAD57D31651BD5E8F2C386C3577B7DA2B9CFB575C23532226",
+  "project_godot_sha256_after": "ED58FA3652B475BEAD57D31651BD5E8F2C386C3577B7DA2B9CFB575C23532226",
+  "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\apk_export_configured.stdout.txt",
+  "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R07\\apk_export_configured.stderr.txt"
+}

@@ -1,0 +1,5 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M33_NAV FAIL: strict full data is available to production navigation
+M33_NAV_DATABASE_ERROR=theme asset does not exist: res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png

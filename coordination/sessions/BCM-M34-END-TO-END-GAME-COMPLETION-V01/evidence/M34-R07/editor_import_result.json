@@ -1,0 +1,9 @@
+{
+  "command": "godot_console.exe --headless --editor --import --path <isolated worktree>",
+  "version": "4.7.2.stable.official.ed1daf0bf",
+  "exit_code": 0,
+  "project_godot_sha256_before": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A",
+  "project_godot_sha256_after": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD",
+  "class_cache_sha256": "6C4941C2A9EA7D7ECFB82D15E89347E50C7A8F5916A677140DBAE9E4DDB57022",
+  "import_log_sha256": "3C40AEAEFA235BDD6B31E0EBCCA70024D530CEB5E4EAFA7457632A9DA93BB416"
+}

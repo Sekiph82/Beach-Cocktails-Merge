@@ -1,0 +1,14 @@
+[
+  {
+    "ProcessId": 15728,
+    "ParentProcessId": 5204,
+    "Name": "Godot_v4.7.2-stable_win64_console.exe",
+    "CommandLine": "\"C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe\" --headless --path C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r07-preimport --script res://tests/m34_daily_rewards_probe.gd"
+  },
+  {
+    "ProcessId": 13808,
+    "ParentProcessId": 15728,
+    "Name": "Godot_v4.7.2-stable_win64.exe",
+    "CommandLine": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot.exe --headless --path C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r07-preimport --script res://tests/m34_daily_rewards_probe.gd"
+  }
+]

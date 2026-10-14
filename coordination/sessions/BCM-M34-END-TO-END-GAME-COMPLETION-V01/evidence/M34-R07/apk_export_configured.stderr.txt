@@ -1,0 +1,6 @@
+ERROR: Cannot export project with preset "R07 Nonproduction Debug Validation" due to configuration errors:
+ETC2/ASTC texture compression is required for Android export. In Project Settings, search for 'ETC2' in the search field, or enable 'Advanced Settings' and go to Rendering > Textures > VRAM Compression to enable 'Import ETC2 ASTC'.
+
+   at: _fs_changed (editor/editor_node.cpp:1401)
+ERROR: Project export for preset "R07 Nonproduction Debug Validation" failed.
+   at: _fs_changed (editor/editor_node.cpp:1417)

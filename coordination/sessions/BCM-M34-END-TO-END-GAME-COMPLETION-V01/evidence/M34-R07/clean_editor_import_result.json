@@ -1,0 +1,11 @@
+{
+  "command": "godot_console.exe --headless --editor --import --path <clean detached worktree>",
+  "version": "4.7.2.stable.official.ed1daf0bf",
+  "exit_code": 0,
+  "reimport_steps": 1688,
+  "project_godot_sha256_before": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A",
+  "project_godot_sha256_after": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A",
+  "class_cache_sha256": "6C4941C2A9EA7D7ECFB82D15E89347E50C7A8F5916A677140DBAE9E4DDB57022",
+  "stdout": "clean_editor_import.stdout.txt",
+  "stderr": "clean_editor_import.stderr.txt"
+}
