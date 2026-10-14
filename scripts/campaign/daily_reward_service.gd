@@ -4,7 +4,6 @@ extends RefCounted
 ## Five UTC-day claims. Ad-gated slots settle only from AdsService's verified
 ## provider signal; this service never fabricates a provider result.
 
-const POLICY_PATH := "res://data/campaign/daily_rewards.json"
 const SLOT_COUNT := 5
 
 var rewards: Dictionary = {}
@@ -13,21 +12,17 @@ var _pending: Dictionary = {}
 
 
 func _init() -> void:
-	if not FileAccess.file_exists(POLICY_PATH):
-		return
-	var file := FileAccess.open(POLICY_PATH, FileAccess.READ)
-	if file == null:
-		return
-	var parsed = JSON.parse_string(file.get_as_text())
-	file.close()
-	if not parsed is Dictionary or int(parsed.get("schema_version", 0)) != 1:
-		return
-	reset_policy = str(parsed.get("reset_policy", "UTC_MIDNIGHT"))
-	for entry in parsed.get("slots", []):
-		if entry is Dictionary:
-			var slot := int(entry.get("slot", 0))
-			if slot > 0:
-				rewards[slot] = entry.duplicate(true)
+	# R01's owner lock supersedes the stale payload in daily_rewards.json. That
+	# overlapping JSON is preserved by instruction, so the production service
+	# owns this frozen value table until a separate data-file reconciliation.
+	reset_policy = "UTC_MIDNIGHT"
+	rewards = {
+		1: {"slot": 1, "gate": "free", "reward": {"type": "coins", "quantity": 40}, "enabled": true},
+		2: {"slot": 2, "gate": "verified_rewarded_ad", "reward": {"type": "energy", "quantity": 20}, "enabled": true},
+		3: {"slot": 3, "gate": "verified_rewarded_ad", "reward": {"type": "coins", "quantity": 40}, "enabled": true},
+		4: {"slot": 4, "gate": "verified_rewarded_ad", "reward": {"type": "gems", "quantity": 2}, "enabled": true},
+		5: {"slot": 5, "gate": "verified_rewarded_ad", "reward": {"type": "coins", "quantity": 80}, "enabled": true},
+	}
 
 
 func get_slot_state(slot: int, economy, ads_service = null, now_unix: int = -1) -> Dictionary:
