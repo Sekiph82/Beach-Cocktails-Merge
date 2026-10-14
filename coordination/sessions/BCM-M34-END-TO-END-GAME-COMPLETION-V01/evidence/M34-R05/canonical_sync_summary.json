@@ -1,0 +1,29 @@
+{
+  "work_item": "BCM-M34-R05-001",
+  "canonical_checkout": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge",
+  "branch": "main",
+  "pre_sync_head": "5cff38a7b360b917739616aaebf79c13987b8d8c",
+  "origin_main_and_post_sync_head": "63c8633ccfcd8c702fa21eec379b0392fa2010d9",
+  "divergence_before_sync": "0 ahead / 50 behind",
+  "incoming_paths": 100,
+  "modified_tracked_paths": 7,
+  "head_blob_matches_origin_for_all_modified_paths": true,
+  "tracked_incoming_overlaps": 0,
+  "untracked_owner_paths": 15,
+  "incoming_untracked_clashes": 0,
+  "original_stash_entries_inventoried": 69,
+  "new_tracked_only_stash": {
+    "commit": "4a312a11c822ca68d220f0cdfb6ef33098b0598d",
+    "message": "owner-local-safe-sync-5cff38a",
+    "applied_without_drop": true
+  },
+  "non_desktop_backup": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R05-CanonicalSync-20261014-5cff38a",
+  "backup_manifest_sha256": "0BB75BFA2A9D2E6702B74258E0026C14B43BF43BBDBA310C3045F1940FA7C662",
+  "tracked_patch_sha256": "7CC4DBBCC56D255DC33F0E9CBBDD6FE6F71B729F534D5FD76FA4C01CBF62C347",
+  "owner_tracked_bytes_verified_identical_after_apply": 7,
+  "owner_untracked_hashes_verified_unchanged_after_apply": 15,
+  "owner_paths_staged": 0,
+  "final_divergence": "0 ahead / 0 behind",
+  "result": "SUCCESS; verified path-disjoint fast-forward with reversible tracked-only preservation",
+  "evidence_note": "The full untracked SHA256/size/time inventory, seven-file patch, owner file copies, and all original stash ref/commit/message records are retained in this non-Desktop backup. No owner-local files or Desktop root files are included in this task commit."
+}

@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M33_NAV PASS: strict full data is available to production navigation
+M33_NAV PASS: campaign manager accepts schema-two state
+M33_NAV PASS: all ordered islands unlock only after the prior 100-level completion
+M33_NAV PASS: final island completion reaches local 100 / global 1000
+M33_NAV PASS: production campaign navigator accepts validated campaign state
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels sunny_cove
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels tiki_island
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels azure_bay
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels coconut_beach
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels sunset_island
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels party_beach
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels frozen_paradise
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels volcano_bay
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels billionaire_island
+M33_NAV PASS: production World Map to Island Map exposes first/mid/final levels final_island
+M33_NAV PASS: all ten production islands expose playable representative levels
+M33_NAV PASS: schema-two save roundtrip preserves campaign and unknown optional M33 field
+M33_NAV_RESULT=PASS

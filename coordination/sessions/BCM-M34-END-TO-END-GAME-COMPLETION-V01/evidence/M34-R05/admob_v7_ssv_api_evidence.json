@@ -1,0 +1,22 @@
+{
+  "work_item": "BCM-M34-R05-003",
+  "repository": "https://github.com/godot-sdk-integrations/godot-admob",
+  "release": "v7.0",
+  "tag_commit": "4b4ddceab0be81f0dcb12a6313038dba6cf9eacf",
+  "archive": {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R04-Plugin-Inspection\\AdmobPlugin-Android-v7.0.zip",
+    "sha256": "CE38B75AEB4BB870FDA8B74E1513D807696D8485D237C263B7B7A9613493AEE8",
+    "bytes": 265845
+  },
+  "evidence": {
+    "gdscript_reward_callback": "Admob.gd declares rewarded_ad_user_earned_reward(ad_info, reward_data) at line 34; wrapper forwards native event at lines 1411-1412. RewardItem exposes amount/type.",
+    "request_custom_data": "LoadAdRequest.gd defines set_custom_data/get_custom_data and set_user_id/get_user_id (lines 208-223); Admob.gd load_rewarded_ad forwards get_raw_data() to native singleton (lines 942-946).",
+    "native_binary": "Debug and release AAR classes.jar constant pools both include RewardedVideo and RewardedInterstitial references to ServerSideVerificationOptions, setServerSideVerificationOptions, createServerSideVerificationOptions, and Builder.setCustomData; LoadAdRequest native model includes custom_data, user_id and ServerSideVerificationOptions.Builder.setCustomData references. This is positive API/binary evidence the v7.0 package exposes an SSV custom-data path; it is not end-to-end device proof that the field is applied or reaches a backend.",
+    "limitations": [
+      "GDScript reward signal exposes AdInfo plus reward amount/type, not AdMob SSV transaction_id or cryptographically verified receipt.",
+      "No backend SSV endpoint is present in the project.",
+      "No Android SDK/templates/device installed, so no native build or callback-to-server verification was performed.",
+      "AAR API evidence was inspected as class constant-pool strings, not decompiled instruction-by-instruction."
+    ]
+  }
+}

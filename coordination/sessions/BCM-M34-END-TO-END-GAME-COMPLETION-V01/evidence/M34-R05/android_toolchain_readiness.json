@@ -1,0 +1,68 @@
+{
+  "work_item": "BCM-M34-R05-002",
+  "checked_local_date": "2026-10-14",
+  "scope": "Read-only current machine inventory; no installations or global PATH changes",
+  "godot": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe"
+  },
+  "android_export_templates": {
+    "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable",
+    "android_template": "ABSENT",
+    "installed_templates": [
+      "version.txt",
+      "web_debug.zip",
+      "web_dlink_debug.zip",
+      "web_dlink_nothreads_debug.zip",
+      "web_dlink_nothreads_release.zip",
+      "web_dlink_release.zip",
+      "web_nothreads_debug.zip",
+      "web_nothreads_release.zip",
+      "web_release.zip"
+    ]
+  },
+  "components": {
+    "jdk17": "ABSENT (R04 standard-path scan; java command absent)",
+    "sdk": "ABSENT (R04 standard-path scan)",
+    "adb": "ABSENT (command absent)",
+    "sdkmanager": "ABSENT (command absent)",
+    "build_tools_35_0_1": "ABSENT",
+    "platform_android_35": "ABSENT",
+    "ndk_28_1_13356709": "ABSENT",
+    "cmake_3_10_2_4988404": "ABSENT",
+    "gradle": "ABSENT (command absent)",
+    "export_presets_cfg": "ABSENT",
+    "android_device": "NOT_VERIFIED"
+  },
+  "disk": {
+    "drive": "C:",
+    "free_gib": 82.22,
+    "sufficient_by_capacity_only": true,
+    "conservative_reserve_gib": {
+      "low": 8,
+      "high": 15
+    },
+    "basis": "Planning estimate for JDK, Android command-line tools, platform/build tools, NDK, CMake, Android templates, Gradle caches and temporary archives. Exact package sizes are not stated in the cited Godot setup instructions and were not downloaded or measured."
+  },
+  "exact_install_plan": {
+    "jdk": "Install an owner-approved OpenJDK 17 distribution into a task-specific path under %LOCALAPPDATA% (not system-wide); verify java -version.",
+    "sdkmanager_bootstrap": "Install Android SDK Command-line Tools (latest) into a task-specific Android SDK root under %LOCALAPPDATA%.",
+    "packages": "sdkmanager --sdk_root=<isolated_android_sdk_root> \"platform-tools\" \"build-tools;35.0.1\" \"platforms;android-35\" \"cmdline-tools;latest\" \"cmake;3.10.2.4988404\" \"ndk;28.1.13356709\"",
+    "licenses": "Owner must review and accept Android SDK package licenses using sdkmanager --licenses.",
+    "godot_templates": "Download/install Android export templates matching Godot 4.7.2 using the editor template manager after owner approval.",
+    "godot_config": "Configure Godot Java SDK Path and Android SDK Path to isolated roots; do not edit global PATH.",
+    "verification": "Check java -version, sdkmanager --list_installed, adb version, cmake --version, NDK source.properties, Godot Android templates and export preset; run debug export only after approval."
+  },
+  "time_budget": {
+    "hands_on_setup_minutes": "45-90 (estimate)",
+    "download_unpack_minutes": "20-120+ (network/CDN dependent; not measured)",
+    "first_build_and_device_smoke_minutes": "30-60 after device and USB authorization (estimate)",
+    "status": "ESTIMATES_ONLY_NOT_MEASURED"
+  },
+  "approval": "OWNER_APPROVAL_REQUIRED for multi-gigabyte downloads, license acceptance, SDK/JDK/template install, editor settings and device export/install.",
+  "sources": [
+    "https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_android.html",
+    "https://docs.godotengine.org/en/4.7/about/system_requirements.html",
+    "https://developer.android.com/tools/sdkmanager"
+  ]
+}
