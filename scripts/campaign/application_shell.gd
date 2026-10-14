@@ -861,13 +861,12 @@ func _refresh_daily_rewards() -> void:
     _daily_status.text = "RESETS AT 00:00 UTC · CLAIM EACH SLOT ONCE PER UTC DAY. REWARDED CLAIMS REQUIRE A VERIFIED AD PROVIDER."
     if campaign_navigation != null and not _daily_claims_persistence_ready:
         _daily_status.text = "DAILY CLAIMS UNAVAILABLE · SAVE COULD NOT BE VERIFIED. REOPEN TO RETRY."
-    var rewards := {1: "40 COINS · FREE", 2: "+20 ENERGY · REWARDED AD", 3: "40 COINS · REWARDED AD", 4: "2 GEMS · REWARDED AD", 5: "80 COINS · REWARDED AD"}
     for slot in range(1, 6):
         var state := _daily_reward_service.get_slot_state(slot, economy, campaign_navigation.ads_service if campaign_navigation != null else null)
         var label := _daily_layer.get_node_or_null("DailySlotLabel%d" % slot) as Label
         var claim := _daily_layer.get_node_or_null("DailySlotClaim%d" % slot) as BaseButton
         if label != null:
-            label.text = "SLOT %d  ·  %s" % [slot, rewards[slot]]
+            label.text = "SLOT %d  ·  %s" % [slot, _daily_reward_service.describe_slot(slot)]
         if claim != null:
             if bool(state.get("claimed", false)):
                 claim.text = "CLAIMED"

@@ -31,8 +31,18 @@ func _utc(year: int, month: int, day: int, hour: int, minute: int, second: int) 
 	return int(Time.get_unix_time_from_datetime_dict({"year": year, "month": month, "day": day, "hour": hour, "minute": minute, "second": second}))
 
 
+func _write_json(path: String, value: Variant) -> bool:
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		return false
+	file.store_string(JSON.stringify(value))
+	file.close()
+	return true
+
+
 func _run() -> void:
 	var daily = DAILY_SCRIPT.new()
+	_check("tracked Daily Rewards JSON loads as the runtime source of truth", daily.config_valid and daily.config_error.is_empty())
 	var economy = ECONOMY_SCRIPT.new()
 	economy.configure(100, {}, [], 5, [], 80, _utc(2026, 10, 14, 23, 0, 0))
 	var boundary_before := _utc(2026, 10, 14, 23, 59, 59)
@@ -58,7 +68,54 @@ func _run() -> void:
 	economy.energy = 80
 	for slot in [2, 3, 4, 5]:
 		_check("rewarded slot %d never claims without a provider" % slot, not daily.claim(slot, economy, unavailable_ads, boundary_after).get("ok", false) and not economy.daily_slot_claimed("2026-10-15", slot))
-	_check("UTC reset and all five owner-locked rewards are loaded", daily.reset_policy == "UTC_MIDNIGHT" and int(daily.rewards[1]["reward"].get("quantity", -1)) == 40 and str(daily.rewards[1]["reward"].get("type", "")) == "coins" and int(daily.rewards[2]["reward"].get("quantity", -1)) == 20 and str(daily.rewards[2]["reward"].get("type", "")) == "energy" and int(daily.rewards[3]["reward"].get("quantity", -1)) == 40 and str(daily.rewards[3]["reward"].get("type", "")) == "coins" and int(daily.rewards[4]["reward"].get("quantity", -1)) == 2 and str(daily.rewards[4]["reward"].get("type", "")) == "gems" and int(daily.rewards[5]["reward"].get("quantity", -1)) == 80 and str(daily.rewards[5]["reward"].get("type", "")) == "coins")
+	_check("runtime JSON supplies UTC reset and all five locked values", daily.reset_policy == "UTC_MIDNIGHT" and int(daily.rewards[1]["reward"].get("quantity", -1)) == 40 and str(daily.rewards[1]["reward"].get("type", "")) == "coins" and int(daily.rewards[2]["reward"].get("quantity", -1)) == 20 and str(daily.rewards[2]["reward"].get("type", "")) == "energy" and int(daily.rewards[3]["reward"].get("quantity", -1)) == 40 and str(daily.rewards[3]["reward"].get("type", "")) == "coins" and int(daily.rewards[4]["reward"].get("quantity", -1)) == 2 and str(daily.rewards[4]["reward"].get("type", "")) == "gems" and int(daily.rewards[5]["reward"].get("quantity", -1)) == 80 and str(daily.rewards[5]["reward"].get("type", "")) == "coins")
+	_check("Daily Rewards labels are derived from the loaded config", daily.describe_slot(1) == "40 COINS · FREE" and daily.describe_slot(2) == "+20 ENERGY · REWARDED AD" and daily.describe_slot(3) == "40 COINS · REWARDED AD")
+
+	var slot3_economy = ECONOMY_SCRIPT.new()
+	slot3_economy.configure(10, {}, [], 0, [], 80, boundary_after)
+	var slot3_ads = ADS_SCRIPT.new()
+	slot3_ads.set_provider_adapter(TestRewardProvider.new(), "GRANTED_NONPERSONALIZED")
+	var slot3_service = DAILY_SCRIPT.new()
+	slot3_ads.verified_rewarded.connect(func(placement: String, transaction: String, receipt: String) -> void: slot3_service.accept_verified_reward(placement, transaction, receipt, slot3_economy, boundary_after))
+	var slot3_pending: Dictionary = slot3_service.claim(3, slot3_economy, slot3_ads, boundary_after)
+	var slot3_receipt: Dictionary = slot3_ads.accept_provider_reward(str(slot3_pending.get("transaction_id", "")), "slot3-provider-receipt")
+	_check("verified slot 3 callback grants exactly +40 Coins from config", slot3_pending.get("pending", false) and slot3_receipt.get("verified", false) and slot3_economy.coins == 50 and slot3_economy.daily_slot_claimed("2026-10-15", 3))
+	_check("slot 3 duplicate receipt cannot grant twice", not slot3_ads.accept_provider_reward(str(slot3_pending.get("transaction_id", "")), "slot3-provider-receipt").get("ok", false) and slot3_economy.coins == 50)
+	slot3_ads.free()
+
+	var tamper_root := "user://m34_r02_config_%d" % Time.get_ticks_usec()
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(tamper_root))
+	var config_file := FileAccess.open(DAILY_SCRIPT.CONFIG_PATH, FileAccess.READ)
+	var canonical_config: Dictionary = JSON.parse_string(config_file.get_as_text())
+	config_file.close()
+	var tampered_config: Dictionary = canonical_config.duplicate(true)
+	tampered_config["slots"][2]["reward"]["quantity"] = "40"
+	var tampered_path := tamper_root + "/tampered.json"
+	var tampered_written := _write_json(tampered_path, tampered_config)
+	var tampered_service = DAILY_SCRIPT.new()
+	var tampered_loaded: bool = tampered_service.load_config(tampered_path)
+	_check("invalid tampered reward field is rejected and service fails closed", tampered_written and not tampered_loaded and not tampered_service.config_valid and tampered_service.get_slot_state(3, economy, null, boundary_after).get("reason", "") == "CONFIG_INVALID" and not tampered_service.claim(3, economy, null, boundary_after).get("ok", false))
+	var bad_policy: Dictionary = canonical_config.duplicate(true)
+	bad_policy["reset_policy"] = "LOCAL_MIDNIGHT"
+	var bad_policy_path := tamper_root + "/bad_policy.json"
+	var policy_written := _write_json(bad_policy_path, bad_policy)
+	_check("invalid reset policy is rejected", policy_written and not tampered_service.load_config(bad_policy_path) and not tampered_service.config_valid)
+	_check("missing config file fails closed", not tampered_service.load_config(tamper_root + "/missing.json") and tampered_service.config_error == "CONFIG_MISSING")
+	var alternate_config: Dictionary = canonical_config.duplicate(true)
+	alternate_config["slots"][2]["reward"]["quantity"] = 41
+	var alternate_path := tamper_root + "/alternate_valid.json"
+	var alternate_written := _write_json(alternate_path, alternate_config)
+	var alternate_service = DAILY_SCRIPT.new()
+	var alternate_loaded := alternate_service.load_config(alternate_path)
+	var alternate_economy = ECONOMY_SCRIPT.new()
+	alternate_economy.configure(0, {}, [], 0, [], 80, boundary_after)
+	var alternate_ads = ADS_SCRIPT.new()
+	alternate_ads.set_provider_adapter(TestRewardProvider.new(), "GRANTED_NONPERSONALIZED")
+	alternate_ads.verified_rewarded.connect(func(placement: String, transaction: String, receipt: String) -> void: alternate_service.accept_verified_reward(placement, transaction, receipt, alternate_economy, boundary_after))
+	var alternate_pending: Dictionary = alternate_service.claim(3, alternate_economy, alternate_ads, boundary_after)
+	var alternate_receipt: Dictionary = alternate_ads.accept_provider_reward(str(alternate_pending.get("transaction_id", "")), "alternate-provider-receipt")
+	_check("settlement consumes loaded config quantity instead of a second hardcoded reward table", alternate_written and alternate_loaded and alternate_receipt.get("verified", false) and alternate_economy.coins == 41)
+	alternate_ads.free()
 
 	var cancel_ads := ADS_SCRIPT.new()
 	cancel_ads.set_provider_adapter(TestRewardProvider.new(), "GRANTED_NONPERSONALIZED")

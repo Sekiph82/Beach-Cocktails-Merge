@@ -1,0 +1,85 @@
+WorkerThreadPool: 16 threads, 4 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Using "default" pen tablet driver...
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: res://tests/m34_economy_closure_probe.gd remapped: res://tests/m34_economy_closure_probe.gd
+Completed load for: 'res://tests/m34_economy_closure_probe.gd' remapped 'res://tests/m34_economy_closure_probe.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://addons/saltmire_spark/spark.gd remapped: res://addons/saltmire_spark/spark.gd
+Completed load for: 'res://addons/saltmire_spark/spark.gd' remapped 'res://addons/saltmire_spark/spark.gd' at thread -1
+Loading resource: res://addons/game_feel_flow/core/game_feel_flow.gd remapped: res://addons/game_feel_flow/core/game_feel_flow.gd
+Loading resource: res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader remapped: res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader
+Completed load for: 'res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader' remapped 'res://addons/game_feel_flow/shaders/gff_canvas_flash.gdshader' at thread -1
+Completed load for: 'res://addons/game_feel_flow/core/game_feel_flow.gd' remapped 'res://addons/game_feel_flow/core/game_feel_flow.gd' at thread -1
+Loading resource: res://addons/godot_ai/runtime/game_helper.gd remapped: res://addons/godot_ai/runtime/game_helper.gd
+Completed load for: 'res://addons/godot_ai/runtime/game_helper.gd' remapped 'res://addons/godot_ai/runtime/game_helper.gd' at thread -1
+Loaded system CA certificates
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M34_ECONOMY PASS: legacy Focus inventory is preserved in a retired counter with unrelated boosters intact
+M34_ECONOMY PASS: Focus cannot be granted, spent, or purchased
+M34_ECONOMY PASS: started attempt costs 20 Energy once even if transaction is replayed
+M34_ECONOMY PASS: energy regenerates one every 180 seconds and preserves partial interval
+M34_ECONOMY PASS: clock rollback does not grant energy or lower the stored high-water mark
+M34_ECONOMY PASS: full refill spends 25 Gems and caps Energy at 100
+M34_ECONOMY PASS: full Energy prevents an additional refill charge
+M34_ECONOMY PASS: verified rewarded callback grants +20 once; empty receipt is rejected
+M34_ECONOMY PASS: rewarded Energy is capped at 100
+M34_ECONOMY PASS: schema-two migration preserves balances, ledgers and non-Focus boosters while retiring Focus
+M34_ECONOMY PASS: fresh wallet matches owner-approved 100 Energy, 100 Coins and 5 Gems
+Loading resource: res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-3f8c388023af3e95154368951d02abc3.ctex remapped: res://.godot/imported/gameplay_surface.png-3f8c388023af3e95154368951d02abc3.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/tiki_island/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/tiki_island/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-a76ec1331f374bda1cebe56a03ae0505.ctex remapped: res://.godot/imported/gameplay_surface.png-a76ec1331f374bda1cebe56a03ae0505.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/tiki_island/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/tiki_island/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/azure_bay/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/azure_bay/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-9cd2300ded327f7d0d343ee65f7d7c7e.ctex remapped: res://.godot/imported/gameplay_surface.png-9cd2300ded327f7d0d343ee65f7d7c7e.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/azure_bay/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/azure_bay/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-b3594364d941da3bbbb497e766ffd2e9.ctex remapped: res://.godot/imported/gameplay_surface.png-b3594364d941da3bbbb497e766ffd2e9.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/sunset_island/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/sunset_island/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-57cbc01eb27e6bb4d15f03862f8869a0.ctex remapped: res://.godot/imported/gameplay_surface.png-57cbc01eb27e6bb4d15f03862f8869a0.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/sunset_island/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/sunset_island/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/party_beach/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/party_beach/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-6a417eee5c17b1355d3d38485adfe529.ctex remapped: res://.godot/imported/gameplay_surface.png-6a417eee5c17b1355d3d38485adfe529.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/party_beach/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/party_beach/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-a9e664c3055e5fa983bca24a166d9c92.ctex remapped: res://.godot/imported/gameplay_surface.png-a9e664c3055e5fa983bca24a166d9c92.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-d55fca5d20139394d15d59124ba327d5.ctex remapped: res://.godot/imported/gameplay_surface.png-d55fca5d20139394d15d59124ba327d5.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-e7df50361b80dda5e0b2e6e2495c18e2.ctex remapped: res://.godot/imported/gameplay_surface.png-e7df50361b80dda5e0b2e6e2495c18e2.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png' at thread -1
+Loading resource: res://assets/ui_assets/campaign/islands/final_island/gameplay_surface.png remapped: res://assets/ui_assets/campaign/islands/final_island/gameplay_surface.png
+Loading resource: res://.godot/imported/gameplay_surface.png-168800cf50cb873d9e157e4daaeea9eb.ctex remapped: res://.godot/imported/gameplay_surface.png-168800cf50cb873d9e157e4daaeea9eb.ctex
+Completed load for: 'res://assets/ui_assets/campaign/islands/final_island/gameplay_surface.png' remapped 'res://assets/ui_assets/campaign/islands/final_island/gameplay_surface.png' at thread -1
+M34_ECONOMY PASS: canonical campaign database validates for production session charges
+M34_ECONOMY PASS: campaign accepts current economy state
+M34_ECONOMY PASS: production bridge starts first Sunny Cove attempt and charges 20
+M34_ECONOMY PASS: production Retry starts a fresh attempt and charges another 20
+M34_ECONOMY PASS: legacy Sunny Cove IDs resolve globally and star improvements pay 20/30/40 cumulative Coins plus one fifth-level Gem
+M34_ECONOMY PASS: same-star replay and VIP completion grant no extra currency
+M34_ECONOMY PASS: rewarded Ads fail closed without explicit consent and provider
+M34_ECONOMY PASS: mocked opt-in rewarded callback grants only after matching displayed transaction
+M34_ECONOMY PASS: mocked duplicate receipt and skip/close yield no extra verified reward
+M34_ECONOMY PASS: skip/close cancels the active ad and cannot later pay
+M34_ECONOMY PASS: IAP placeholders have no buyable products or local purchase fulfillment
+M34_ECONOMY PASS: even a mocked verifier cannot grant an unapproved nonbuyable placeholder
+M34_ECONOMY PASS: Daily Rewards use the locked five rewards while ad claims stay unavailable without a provider
+M34_ECONOMY_RESULT=PASS
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+EXIT_CODE=0

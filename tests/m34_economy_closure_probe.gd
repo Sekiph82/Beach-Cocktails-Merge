@@ -118,6 +118,11 @@ func _run() -> void:
 	_check("even a mocked verifier cannot grant an unapproved nonbuyable placeholder", not store.accept_verified_transaction({"product_key": "remove_ads", "transaction_id": "mock-paid"}).get("ok", false) and store.entitlements.is_empty())
 	var daily = DAILY_SCRIPT.new()
 	_check("Daily Rewards use the locked five rewards while ad claims stay unavailable without a provider", [1, 2, 3, 4, 5].all(func(slot): return daily.rewards.has(slot)) and daily.rewards[3]["reward"].get("quantity", 0) == 40 and daily.rewards[3]["reward"].get("type", "") == "coins" and not daily.claim(3, economy).get("ok", false) and daily.get_slot_state(3, economy).get("reason", "") == "REWARDED_AD_PROVIDER_UNAVAILABLE")
+	# AdsService and StoreService are Nodes in production. Release all three
+	# standalone probe nodes before SceneTree shutdown to avoid fixture leaks.
+	ads.free()
+	mocked_ads.free()
+	store.free()
 	if failures.is_empty():
 		print("M34_ECONOMY_RESULT=PASS")
 		quit(0)

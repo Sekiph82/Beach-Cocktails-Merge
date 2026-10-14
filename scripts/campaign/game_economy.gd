@@ -160,9 +160,17 @@ func daily_slot_claimed(day: String, slot: int) -> bool:
     return daily_claim_ledger.has("%s:%d" % [day, slot])
 
 
-func claim_daily_reward_once(day: String, slot: int, transaction_id: String, provider_receipt: String = "", now_unix: int = -1) -> Dictionary:
+func claim_daily_reward_once(day: String, slot: int, transaction_id: String, provider_receipt: String = "", now_unix: int = -1, reward_config: Dictionary = {}) -> Dictionary:
     if slot < 1 or slot > 5 or not _is_utc_date(day) or transaction_id != "daily:%s:%d" % [day, slot]:
         return {"ok": false, "reason": "INVALID_DAILY_CLAIM"}
+    if reward_config.size() != 2 or typeof(reward_config.get("type")) != TYPE_STRING:
+        return {"ok": false, "reason": "DAILY_REWARD_CONFIG_REQUIRED"}
+    var configured_quantity = reward_config.get("quantity")
+    if (typeof(configured_quantity) != TYPE_INT and typeof(configured_quantity) != TYPE_FLOAT) or int(configured_quantity) <= 0 or float(configured_quantity) != float(int(configured_quantity)):
+        return {"ok": false, "reason": "DAILY_REWARD_CONFIG_INVALID"}
+    var expected_type := "energy" if slot == 2 else ("gems" if slot == 4 else "coins")
+    if str(reward_config["type"]) != expected_type:
+        return {"ok": false, "reason": "DAILY_REWARD_TYPE_INVALID"}
     var current_day := effective_utc_date(now_unix)
     if day != current_day:
         return {"ok": false, "reason": "UTC_DAY_CHANGED"}
@@ -179,12 +187,7 @@ func claim_daily_reward_once(day: String, slot: int, transaction_id: String, pro
         if energy >= ENERGY_CAP:
             return {"ok": false, "reason": "ENERGY_ALREADY_FULL"}
     var reward := {}
-    match slot:
-        1: reward = {"coins": 40}
-        2: reward = {"energy": 20}
-        3: reward = {"coins": 40}
-        4: reward = {"gems": 2}
-        5: reward = {"coins": 80}
+    reward[expected_type] = int(configured_quantity)
     if slot == 2:
         var before_energy := energy
         energy = mini(ENERGY_CAP, energy + int(reward["energy"]))
