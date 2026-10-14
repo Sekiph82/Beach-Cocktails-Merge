@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Advance native Android rewarded-ad integration and device-readiness.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-006 — Codex runs R05 safe canonical sync verification and native rewarded-ad trust/toolchain readiness master; provider remains blocked pending build/device evidence.
+- Next Task/Action: BCM-M34-006 — Codex runs R06 Ads SSV secure trust blueprint and Android setup preflight WITHOUT downloading 8-15 GiB toolchain absent owner approval.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R04 independent investigative audit PASS, but no native AdMob SDK integration or Android build/device proof. SDK/JDK/templates absent. Official AdMob v7.0 archive provenance/hash verified, callback receipt trust mismatch unresolved. R04 read-only 3-way found zero incoming overlaps across 7 owner-dirty tracked files at observed remote tip; canonical remains unsynced. Daily/Economy/M33 probes builder PASS; MOVES and tutorial owner accepted, 23 media KEEP, IAP and M33 fairness open.
+- Progress: M34-R05 bounded independent audit PASS. Canonical Desktop safely synced pre-publication to 63c8633 with 7 tracked/15 untracked owner files preserved and external backup; newer remote commits not yet synced. AdMob v7 SSV API static evidence PASS, no backend/native device verification. Android JDK/SDK/NDK/templates absent; estimated 8-15 GiB install requires OWNER APPROVAL. Daily/Economy/M33 assertions 38/24/17 builder PASS; IAP, 23 KEEP media, UID warnings, M33 human fairness and physical device gates open.
 
 ## Blockers/Waits
 
