@@ -1,0 +1,37 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M34_ECONOMY PASS: legacy Focus inventory is preserved in a retired counter with unrelated boosters intact
+M34_ECONOMY PASS: Focus cannot be granted, spent, or purchased
+M34_ECONOMY PASS: started attempt costs 20 Energy once even if transaction is replayed
+M34_ECONOMY PASS: energy regenerates one every 180 seconds and preserves partial interval
+M34_ECONOMY PASS: clock rollback does not grant energy or lower the stored high-water mark
+M34_ECONOMY PASS: full refill spends 25 Gems and caps Energy at 100
+M34_ECONOMY PASS: full Energy prevents an additional refill charge
+M34_ECONOMY PASS: verified rewarded callback grants +20 once; empty receipt is rejected
+M34_ECONOMY PASS: rewarded Energy is capped at 100
+M34_ECONOMY PASS: schema-two migration preserves balances, ledgers and non-Focus boosters while retiring Focus
+M34_ECONOMY PASS: fresh wallet matches owner-approved 100 Energy, 100 Coins and 5 Gems
+M34_ECONOMY PASS: canonical campaign database validates for production session charges
+M34_ECONOMY PASS: campaign accepts current economy state
+M34_ECONOMY PASS: production bridge starts first Sunny Cove attempt and charges 20
+M34_ECONOMY PASS: production Retry starts a fresh attempt and charges another 20
+M34_ECONOMY PASS: legacy Sunny Cove IDs resolve globally and star improvements pay 20/30/40 cumulative Coins plus one fifth-level Gem
+M34_ECONOMY PASS: same-star replay and VIP completion grant no extra currency
+M34_ECONOMY PASS: rewarded Ads fail closed without explicit consent and provider
+M34_ECONOMY PASS: mocked opt-in rewarded callback grants only after matching displayed transaction
+M34_ECONOMY PASS: mocked duplicate receipt and skip/close yield no extra verified reward
+M34_ECONOMY PASS: skip/close cancels the active ad and cannot later pay
+M34_ECONOMY PASS: IAP placeholders have no buyable products or local purchase fulfillment
+M34_ECONOMY PASS: even a mocked verifier cannot grant an unapproved nonbuyable placeholder
+M34_ECONOMY PASS: Daily Rewards use the locked five rewards while ad claims stay unavailable without a provider
+M34_ECONOMY_RESULT=PASS
+WARNING: 15 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 3 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+EXIT_CODE=0

@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M34_DAILY PASS: slot 1 grants 40 Coins once at 23:59:59 UTC
+M34_DAILY PASS: duplicate free claim is idempotent
+M34_DAILY PASS: exact UTC midnight opens a new dated claim key
+M34_DAILY PASS: free slot resets at UTC midnight and records a distinct day key
+M34_DAILY PASS: clock rollback retains UTC high-water and blocks old-day replay
+M34_DAILY PASS: local timezone changes cannot alter the UTC date key
+M34_DAILY PASS: offline free claim is saved and full Energy cannot consume slot 2
+M34_DAILY PASS: ad slot remains unavailable offline without consuming claim
+M34_DAILY PASS: slot 2 is unavailable at full Energy without consuming its date key
+M34_DAILY PASS: rewarded slot 2 never claims without a provider
+M34_DAILY PASS: rewarded slot 3 never claims without a provider
+M34_DAILY PASS: rewarded slot 4 never claims without a provider
+M34_DAILY PASS: rewarded slot 5 never claims without a provider
+M34_DAILY PASS: UTC reset and all five owner-locked rewards are loaded
+M34_DAILY PASS: ad skip/cancel leaves claim unpaid and removes pending claim
+M34_DAILY PASS: late and replay callback without an active claim is rejected
+M34_DAILY PASS: missing provider receipt cannot settle a rewarded claim
+M34_DAILY PASS: ad failure without consent returns unavailable without reward
+M34_DAILY PASS: schema 1 migrates to schema 4 preserving wallet and adding daily ledger
+M34_DAILY PASS: schema 1 on-disk save loads and persists its schema 4 upgrade
+M34_DAILY PASS: schema 2 migrates to schema 4 preserving wallet and adding daily ledger
+M34_DAILY PASS: schema 2 on-disk save loads and persists its schema 4 upgrade
+M34_DAILY PASS: schema 3 migrates to schema 4 preserving wallet and adding daily ledger
+M34_DAILY PASS: schema 3 on-disk save loads and persists its schema 4 upgrade
+M34_DAILY PASS: unsupported pre-schema saves fail safely
+M34_DAILY PASS: claim ledger and UTC high-water persist through save close/reopen
+M34_DAILY PASS: new default saves validate and retain schema 4
+M34_DAILY PASS: claims UI fits 390x844 viewport with visible final slot and back control
+M34_DAILY PASS: claims UI fits 432x960 viewport with visible final slot and back control
+M34_DAILY PASS: Daily Rewards panel opens, closes, and reopens
+M34_DAILY_RESULT=PASS
+EXIT_CODE=0

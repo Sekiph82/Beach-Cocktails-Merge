@@ -37,6 +37,7 @@ var _shop_status: Label
 var _daily_layer: Control
 var _daily_status: Label
 var _daily_reward_service: DailyRewardService
+var _daily_claims_persistence_ready := false
 var _economy_refresh_elapsed := 0.0
 var _energy_transaction_serial := 0
 var _settings_controls: Dictionary = {}
@@ -76,6 +77,8 @@ func _ready() -> void:
     campaign_navigation.gameplay_session_started.connect(_on_gameplay_session_started)
     campaign_navigation.economy_state_changed.connect(func(_state: Dictionary) -> void: _refresh_home_values(); _refresh_shop())
     add_child(campaign_navigation)
+    campaign_navigation.ads_service.verified_rewarded.connect(_on_daily_reward_verified)
+    campaign_navigation.ads_service.state_changed.connect(_on_daily_ad_state_changed)
     if not campaign_navigation.get_content_load_error().is_empty():
         if _menu_play_button != null:
             _menu_play_button.disabled = true
@@ -194,6 +197,12 @@ func show_daily_rewards() -> bool:
     _shop_layer.visible = false
     _daily_layer.visible = true
     current_view = "DAILY_REWARDS"
+    if campaign_navigation != null and campaign_navigation.economy != null:
+        campaign_navigation.economy.effective_utc_date()
+        var persisted: Dictionary = campaign_navigation.persist_current_state()
+        _daily_claims_persistence_ready = bool(persisted.get("ok", false))
+    else:
+        _daily_claims_persistence_ready = campaign_navigation == null
     _refresh_daily_rewards()
     return true
 
@@ -839,31 +848,104 @@ func _build_daily_rewards() -> void:
     close.size = Vector2(360.0, 78.0)
     close.pressed.connect(close_daily_rewards)
     _daily_layer.add_child(close)
+    _daily_layer.resized.connect(_resize_daily_rewards)
     _refresh_daily_rewards()
+    if is_inside_tree():
+        call_deferred("_resize_daily_rewards")
 
 
 func _refresh_daily_rewards() -> void:
     if _daily_layer == null or _daily_reward_service == null:
         return
-    _daily_status.text = "CLAIMS ARE PAUSED UNTIL THE OWNER SETS THE DAILY RESET TIME. REWARDED SLOTS ALSO NEED AN APPROVED PROVIDER AND CONSENT."
-    var rewards := {1: "40 COINS · FREE", 2: "+20 ENERGY · AD", 3: "REPLACEMENT REWARD PENDING", 4: "2 GEMS · AD", 5: "80 COINS · AD"}
+    var economy = campaign_navigation.economy if campaign_navigation != null else null
+    _daily_status.text = "RESETS AT 00:00 UTC · CLAIM EACH SLOT ONCE PER UTC DAY. REWARDED CLAIMS REQUIRE A VERIFIED AD PROVIDER."
+    if campaign_navigation != null and not _daily_claims_persistence_ready:
+        _daily_status.text = "DAILY CLAIMS UNAVAILABLE · SAVE COULD NOT BE VERIFIED. REOPEN TO RETRY."
+    var rewards := {1: "40 COINS · FREE", 2: "+20 ENERGY · REWARDED AD", 3: "40 COINS · REWARDED AD", 4: "2 GEMS · REWARDED AD", 5: "80 COINS · REWARDED AD"}
     for slot in range(1, 6):
-        var state := _daily_reward_service.get_slot_state(slot, campaign_navigation.ads_service if campaign_navigation != null else null)
+        var state := _daily_reward_service.get_slot_state(slot, economy, campaign_navigation.ads_service if campaign_navigation != null else null)
         var label := _daily_layer.get_node_or_null("DailySlotLabel%d" % slot) as Label
         var claim := _daily_layer.get_node_or_null("DailySlotClaim%d" % slot) as BaseButton
         if label != null:
-            label.text = "DAY %d  ·  %s" % [slot, rewards[slot]]
+            label.text = "SLOT %d  ·  %s" % [slot, rewards[slot]]
         if claim != null:
-            claim.text = "PENDING" if slot == 3 else "UNAVAILABLE"
-            claim.disabled = not bool(state.get("available", false))
+            if bool(state.get("claimed", false)):
+                claim.text = "CLAIMED"
+            elif bool(state.get("available", false)):
+                claim.text = "CLAIM" if slot == 1 else "WATCH AD"
+            else:
+                claim.text = "FULL" if str(state.get("reason", "")) == "ENERGY_ALREADY_FULL" else "UNAVAILABLE"
+            claim.disabled = not _daily_claims_persistence_ready or not bool(state.get("available", false))
 
 
 func _claim_daily_slot(slot: int) -> void:
+    if not _daily_claims_persistence_ready:
+        return
     var economy = campaign_navigation.economy if campaign_navigation != null else null
     var ads = campaign_navigation.ads_service if campaign_navigation != null else null
+    var before_state: Dictionary = economy.export_state() if economy != null else {}
     var result: Dictionary = _daily_reward_service.claim(slot, economy, ads)
     if _daily_status != null:
-        _daily_status.text = "CLAIM PAUSED: %s" % str(result.get("reason", "UNAVAILABLE"))
+        if bool(result.get("pending", false)):
+            _daily_status.text = "REWARDED AD OPEN · CLAIM SETTLES ONLY AFTER VERIFIED COMPLETION."
+        elif bool(result.get("ok", false)):
+            var persisted := campaign_navigation.persist_current_state()
+            if bool(persisted.get("ok", false)):
+                _daily_status.text = "CLAIMED · SAVED"
+            else:
+                economy.configure_from_state(before_state)
+                _daily_status.text = "CLAIM NOT SAVED · TRY AGAIN"
+        else:
+            _daily_status.text = "CLAIM UNAVAILABLE: %s" % str(result.get("reason", "UNAVAILABLE"))
+    _refresh_daily_rewards()
+
+
+func _on_daily_reward_verified(placement_id: String, transaction_id: String, provider_receipt: String) -> void:
+    if _daily_reward_service == null or campaign_navigation == null or campaign_navigation.economy == null:
+        return
+    var economy = campaign_navigation.economy
+    var before_state: Dictionary = economy.export_state()
+    var result: Dictionary = _daily_reward_service.accept_verified_reward(placement_id, transaction_id, provider_receipt, economy)
+    if bool(result.get("ok", false)) and not bool(result.get("duplicate", false)):
+        var persisted := campaign_navigation.persist_current_state()
+        if _daily_status != null:
+            if bool(persisted.get("ok", false)):
+                _daily_status.text = "REWARD CLAIMED · SAVED"
+            else:
+                economy.configure_from_state(before_state)
+                _daily_status.text = "CLAIM NOT SAVED · TRY AGAIN"
+    elif _daily_status != null:
+        _daily_status.text = "REWARD NOT SETTLED: %s" % str(result.get("reason", "UNVERIFIED"))
+    _refresh_daily_rewards()
+
+
+func _on_daily_ad_state_changed(state: String, placement_id: String) -> void:
+    if not placement_id.begins_with("daily_slot_") or not state in ["FAILED", "CANCELLED"]:
+        return
+    if _daily_reward_service != null:
+        _daily_reward_service.cancel_pending()
+    if _daily_status != null:
+        _daily_status.text = "NO REWARD GRANTED · %s" % state
+    _refresh_daily_rewards()
+
+
+func _resize_daily_rewards() -> void:
+    if _daily_layer == null:
+        return
+    var viewport_size := _daily_layer.size
+    if viewport_size.x <= 0.0 or viewport_size.y <= 0.0:
+        return
+    var scale_factor := minf(viewport_size.x / 720.0, viewport_size.y / 1280.0)
+    var offset := Vector2((viewport_size.x - 720.0 * scale_factor) * 0.5, (viewport_size.y - 1280.0 * scale_factor) * 0.5)
+    for child in _daily_layer.get_children():
+        if child.name == "DailyRewardBackground":
+            child.position = Vector2.ZERO
+            continue
+        if not child.has_meta("daily_base_rect"):
+            child.set_meta("daily_base_rect", {"position": child.position, "size": child.size})
+        var base: Dictionary = child.get_meta("daily_base_rect")
+        child.position = offset + Vector2(base["position"]) * scale_factor
+        child.size = Vector2(base["size"]) * scale_factor
 
 
 func _replay_gameplay_tutorial() -> void:

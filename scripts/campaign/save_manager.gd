@@ -4,7 +4,7 @@ extends RefCounted
 ## Schema-versioned campaign persistence. Gameplay's legacy ConfigFile remains
 ## owned by GameManager; this service only reads it during campaign migration.
 
-const SCHEMA_VERSION := 3
+const SCHEMA_VERSION := 4
 const DEFAULT_SAVE_PATH := "user://campaign_save.json"
 const DEFAULT_BACKUP_PATH := "user://campaign_save.json.bak"
 const DEFAULT_LEGACY_PATH := "user://save.cfg"
@@ -40,6 +40,8 @@ func create_default_state() -> Dictionary:
         "retired_focus_inventory": 0,
         "reward_ledger": [],
         "transaction_ledger": [],
+        "daily_claim_ledger": {},
+        "daily_high_water_utc_date": "",
     }
 
 
@@ -53,7 +55,7 @@ func validate_state(state: Variant) -> Dictionary:
     var schema_value = state.get("schema_version", null)
     if (typeof(schema_value) != TYPE_INT and typeof(schema_value) != TYPE_FLOAT) or int(schema_value) != SCHEMA_VERSION or not is_equal_approx(float(schema_value), float(SCHEMA_VERSION)):
         return {"ok": false, "reason": "UNSUPPORTED_SCHEMA_VERSION"}
-    for key in ["unlocked_islands", "islands", "legacy_best_score", "boosters", "coins", "energy", "energy_last_update_unix", "energy_regen_remainder_sec", "retired_focus_inventory"]:
+    for key in ["unlocked_islands", "islands", "legacy_best_score", "boosters", "coins", "energy", "energy_last_update_unix", "energy_regen_remainder_sec", "retired_focus_inventory", "daily_claim_ledger", "daily_high_water_utc_date"]:
         if not state.has(key):
             return {"ok": false, "reason": "MISSING_KEY:%s" % key}
     if not state["unlocked_islands"] is Array or not state["islands"] is Dictionary or not state["boosters"] is Dictionary:
@@ -80,6 +82,23 @@ func validate_state(state: Variant) -> Dictionary:
         for transaction_id in state["transaction_ledger"]:
             if typeof(transaction_id) != TYPE_STRING or str(transaction_id).is_empty():
                 return {"ok": false, "reason": "INVALID_TRANSACTION_ID"}
+    if not state["daily_claim_ledger"] is Dictionary or not _valid_utc_date_or_empty(str(state["daily_high_water_utc_date"])):
+        return {"ok": false, "reason": "INVALID_DAILY_REWARD_STATE"}
+    for claim_key in state["daily_claim_ledger"]:
+        var entry = state["daily_claim_ledger"][claim_key]
+        if typeof(claim_key) != TYPE_STRING or not _valid_daily_claim_key(str(claim_key)) or not entry is Dictionary or typeof(entry.get("transaction_id", null)) != TYPE_STRING or typeof(entry.get("receipt", null)) != TYPE_STRING:
+            return {"ok": false, "reason": "INVALID_DAILY_CLAIM_ENTRY"}
+        var split_at := str(claim_key).rfind(":")
+        var slot := int(str(claim_key).substr(split_at + 1))
+        var expected_transaction := "daily:%s:%d" % [str(claim_key).substr(0, split_at), slot]
+        var transactions: Array = state.get("transaction_ledger", [])
+        if str(entry["transaction_id"]) != expected_transaction or not transactions.has(expected_transaction):
+            return {"ok": false, "reason": "INVALID_DAILY_CLAIM_TRANSACTION"}
+        var receipt := str(entry["receipt"])
+        if slot == 1 and not receipt.is_empty():
+            return {"ok": false, "reason": "INVALID_FREE_DAILY_RECEIPT"}
+        if slot > 1 and (receipt.is_empty() or not transactions.has("daily-provider-receipt:%s" % receipt)):
+            return {"ok": false, "reason": "INVALID_REWARDED_DAILY_RECEIPT"}
     for island_id in state["unlocked_islands"]:
         if typeof(island_id) != TYPE_STRING or str(island_id).is_empty():
             return {"ok": false, "reason": "INVALID_UNLOCKED_ISLAND"}
@@ -230,10 +249,14 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
         if current_validation["ok"]:
             return {"ok": true, "state": state.duplicate(true), "changed": false, "reason": "CURRENT_SCHEMA"}
         return {"ok": false, "reason": current_validation["reason"]}
-    if from_version != 1 and from_version != 2:
+    if from_version < 1 or from_version > 3:
         return {"ok": false, "reason": "UNSUPPORTED_SCHEMA_VERSION"}
     var migrated := state.duplicate(true)
     migrated["schema_version"] = SCHEMA_VERSION
+    if not migrated.has("daily_claim_ledger"):
+        migrated["daily_claim_ledger"] = {}
+    if not migrated.has("daily_high_water_utc_date"):
+        migrated["daily_high_water_utc_date"] = ""
     if not migrated.has("legacy_best_score"):
         migrated["legacy_best_score"] = 0
     if not migrated.has("boosters"):
@@ -363,11 +386,43 @@ func _normalize_m15_fields(value: Variant) -> Variant:
         # Current-schema saves from before M15 are valid and intentionally load
         # with an empty ledger; no progression fields are rewritten or dropped.
         normalized["reward_ledger"] = []
+    if not normalized.has("daily_claim_ledger"):
+        normalized["daily_claim_ledger"] = {}
+    if not normalized.has("daily_high_water_utc_date"):
+        normalized["daily_high_water_utc_date"] = ""
     if normalized.has("islands") and normalized["islands"] is Dictionary:
         for island_id in normalized["islands"]:
             if normalized["islands"][island_id] is Dictionary and not normalized["islands"][island_id].has("claimed_star_rewards"):
                 normalized["islands"][island_id]["claimed_star_rewards"] = []
     return normalized
+
+
+func _valid_utc_date_or_empty(value: String) -> bool:
+    return value.is_empty() or _valid_utc_date(value)
+
+
+func _valid_utc_date(value: String) -> bool:
+    if value.length() != 10 or value[4] != "-" or value[7] != "-":
+        return false
+    var parts := value.split("-")
+    if parts.size() != 3 or not parts[0].is_valid_int() or not parts[1].is_valid_int() or not parts[2].is_valid_int():
+        return false
+    var year := int(parts[0])
+    var month := int(parts[1])
+    var day := int(parts[2])
+    if month < 1 or month > 12 or day < 1 or day > 31:
+        return false
+    var unix := Time.get_unix_time_from_datetime_dict({"year": year, "month": month, "day": day, "hour": 0, "minute": 0, "second": 0})
+    var normalized: Dictionary = Time.get_datetime_dict_from_unix_time(unix)
+    return int(normalized.get("year", -1)) == year and int(normalized.get("month", -1)) == month and int(normalized.get("day", -1)) == day
+
+
+func _valid_daily_claim_key(value: String) -> bool:
+    var split_at := value.rfind(":")
+    if split_at != 10 or not _valid_utc_date(value.substr(0, split_at)):
+        return false
+    var slot := value.substr(split_at + 1)
+    return slot.is_valid_int() and int(slot) >= 1 and int(slot) <= 5
 
 
 func _resolve_backup_path(path: String, backup_path: String) -> String:

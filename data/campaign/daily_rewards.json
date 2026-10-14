@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "reset_policy": "OWNER_DECISION_REQUIRED",
+  "reset_policy": "UTC_MIDNIGHT",
   "slots": [
     {"slot": 1, "gate": "free", "reward": {"type": "coins", "quantity": 40}, "enabled": true},
     {"slot": 2, "gate": "verified_rewarded_ad", "reward": {"type": "energy", "quantity": 20}, "enabled": true},
-    {"slot": 3, "gate": "verified_rewarded_ad", "reward": null, "enabled": false, "owner_decision_required": true},
+    {"slot": 3, "gate": "verified_rewarded_ad", "reward": {"type": "coins", "quantity": 40}, "enabled": true},
     {"slot": 4, "gate": "verified_rewarded_ad", "reward": {"type": "gems", "quantity": 2}, "enabled": true},
     {"slot": 5, "gate": "verified_rewarded_ad", "reward": {"type": "coins", "quantity": 80}, "enabled": true}
   ]

@@ -19,15 +19,19 @@ var retired_focus_inventory := 0
 var boosters: Dictionary = {}
 var _granted_reward_ids: Dictionary = {}
 var _transaction_ids: Dictionary = {}
+var daily_claim_ledger: Dictionary = {}
+var daily_high_water_utc_date := ""
 
 
-func configure(initial_coins: int = 0, initial_boosters: Dictionary = {}, initial_reward_ledger: Array = [], initial_gems: int = 0, initial_transaction_ledger: Array = [], initial_energy: int = ENERGY_CAP, initial_energy_last_update_unix: int = 0, initial_energy_regen_remainder_sec: int = 0, initial_retired_focus_inventory: int = 0) -> void:
+func configure(initial_coins: int = 0, initial_boosters: Dictionary = {}, initial_reward_ledger: Array = [], initial_gems: int = 0, initial_transaction_ledger: Array = [], initial_energy: int = ENERGY_CAP, initial_energy_last_update_unix: int = 0, initial_energy_regen_remainder_sec: int = 0, initial_retired_focus_inventory: int = 0, initial_daily_claim_ledger: Dictionary = {}, initial_daily_high_water_utc_date: String = "") -> void:
     coins = maxi(0, initial_coins)
     gems = maxi(0, initial_gems)
     energy = clampi(initial_energy, 0, ENERGY_CAP)
     energy_last_update_unix = maxi(0, initial_energy_last_update_unix)
     energy_regen_remainder_sec = clampi(initial_energy_regen_remainder_sec, 0, ENERGY_REGEN_INTERVAL_SEC - 1)
     retired_focus_inventory = maxi(0, initial_retired_focus_inventory)
+    daily_claim_ledger = initial_daily_claim_ledger.duplicate(true)
+    daily_high_water_utc_date = initial_daily_high_water_utc_date
     boosters = _sanitize_boosters(initial_boosters)
     _granted_reward_ids.clear()
     for reward_id in initial_reward_ledger:
@@ -50,11 +54,13 @@ func configure_from_state(state: Dictionary) -> Dictionary:
         "energy_last_update_unix": state.get("energy_last_update_unix", 0),
         "energy_regen_remainder_sec": state.get("energy_regen_remainder_sec", 0),
         "retired_focus_inventory": state.get("retired_focus_inventory", 0),
+        "daily_claim_ledger": state.get("daily_claim_ledger", {}),
+        "daily_high_water_utc_date": state.get("daily_high_water_utc_date", ""),
     }
     var validation := validate_state(candidate)
     if not validation["ok"]:
         return validation
-    configure(int(candidate["coins"]), candidate["boosters"], candidate["reward_ledger"], int(candidate["gems"]), candidate["transaction_ledger"], int(candidate["energy"]), int(candidate["energy_last_update_unix"]), int(candidate["energy_regen_remainder_sec"]), int(candidate["retired_focus_inventory"]))
+    configure(int(candidate["coins"]), candidate["boosters"], candidate["reward_ledger"], int(candidate["gems"]), candidate["transaction_ledger"], int(candidate["energy"]), int(candidate["energy_last_update_unix"]), int(candidate["energy_regen_remainder_sec"]), int(candidate["retired_focus_inventory"]), candidate["daily_claim_ledger"], str(candidate["daily_high_water_utc_date"]))
     if energy_last_update_unix <= 0:
         energy_last_update_unix = _now_unix()
     return {"ok": true, "reason": "ECONOMY_CONFIGURED"}
@@ -139,6 +145,60 @@ func grant_verified_ad_energy(transaction_id: String, verified_provider_receipt:
     energy_regen_remainder_sec = 0 if energy >= ENERGY_CAP else energy_regen_remainder_sec
     _transaction_ids[transaction_id] = true
     return {"ok": true, "granted": true, "energy_delta": energy - before_energy, "energy": energy, "transaction_id": transaction_id}
+
+
+func effective_utc_date(now_unix: int = -1) -> String:
+    var now := now_unix if now_unix >= 0 else _now_unix()
+    var parts: Dictionary = Time.get_datetime_dict_from_unix_time(now)
+    var candidate := "%04d-%02d-%02d" % [int(parts.get("year", 1970)), int(parts.get("month", 1)), int(parts.get("day", 1))]
+    if candidate > daily_high_water_utc_date:
+        daily_high_water_utc_date = candidate
+    return daily_high_water_utc_date
+
+
+func daily_slot_claimed(day: String, slot: int) -> bool:
+    return daily_claim_ledger.has("%s:%d" % [day, slot])
+
+
+func claim_daily_reward_once(day: String, slot: int, transaction_id: String, provider_receipt: String = "", now_unix: int = -1) -> Dictionary:
+    if slot < 1 or slot > 5 or not _is_utc_date(day) or transaction_id != "daily:%s:%d" % [day, slot]:
+        return {"ok": false, "reason": "INVALID_DAILY_CLAIM"}
+    var current_day := effective_utc_date(now_unix)
+    if day != current_day:
+        return {"ok": false, "reason": "UTC_DAY_CHANGED"}
+    var claim_key := "%s:%d" % [day, slot]
+    if daily_claim_ledger.has(claim_key):
+        return {"ok": true, "duplicate": true, "claim_key": claim_key}
+    if slot > 1:
+        if provider_receipt.is_empty():
+            return {"ok": false, "reason": "VERIFIED_PROVIDER_RECEIPT_REQUIRED"}
+        if _transaction_ids.has("daily-provider-receipt:%s" % provider_receipt):
+            return {"ok": false, "reason": "DUPLICATE_PROVIDER_RECEIPT"}
+    if slot == 2:
+        refresh_energy(now_unix)
+        if energy >= ENERGY_CAP:
+            return {"ok": false, "reason": "ENERGY_ALREADY_FULL"}
+    var reward := {}
+    match slot:
+        1: reward = {"coins": 40}
+        2: reward = {"energy": 20}
+        3: reward = {"coins": 40}
+        4: reward = {"gems": 2}
+        5: reward = {"coins": 80}
+    if slot == 2:
+        var before_energy := energy
+        energy = mini(ENERGY_CAP, energy + int(reward["energy"]))
+        if energy == before_energy:
+            return {"ok": false, "reason": "ENERGY_ALREADY_FULL"}
+    else:
+        var granted := grant_reward("daily:%s:%d" % [day, slot], reward)
+        if not bool(granted.get("ok", false)) or bool(granted.get("duplicate", false)):
+            return {"ok": false, "reason": "DAILY_REWARD_LEDGER_REJECTED"}
+    if slot > 1:
+        _transaction_ids["daily-provider-receipt:%s" % provider_receipt] = true
+    _transaction_ids[transaction_id] = true
+    daily_claim_ledger[claim_key] = {"transaction_id": transaction_id, "receipt": provider_receipt}
+    return {"ok": true, "granted": true, "duplicate": false, "claim_key": claim_key, "reward": reward}
 
 
 func apply_level_star_reward(global_level_id: int, old_stars: int, new_stars: int) -> Dictionary:
@@ -315,6 +375,8 @@ func export_state() -> Dictionary:
         "boosters": boosters.duplicate(true),
         "reward_ledger": ledger,
         "transaction_ledger": _sorted_transaction_ids(),
+        "daily_claim_ledger": daily_claim_ledger.duplicate(true),
+        "daily_high_water_utc_date": daily_high_water_utc_date,
     }
 
 
@@ -348,6 +410,22 @@ func validate_state(state: Dictionary) -> Dictionary:
     for transaction_id in transactions:
         if typeof(transaction_id) != TYPE_STRING or str(transaction_id).is_empty():
             return {"ok": false, "reason": "INVALID_TRANSACTION_ID"}
+    if not state.get("daily_claim_ledger", {}) is Dictionary or not _is_utc_date_or_empty(str(state.get("daily_high_water_utc_date", ""))):
+        return {"ok": false, "reason": "INVALID_DAILY_REWARD_STATE"}
+    for claim_key in state.get("daily_claim_ledger", {}):
+        var entry = state["daily_claim_ledger"][claim_key]
+        if typeof(claim_key) != TYPE_STRING or not _is_daily_claim_key(str(claim_key)) or not entry is Dictionary or typeof(entry.get("transaction_id", null)) != TYPE_STRING or typeof(entry.get("receipt", null)) != TYPE_STRING:
+            return {"ok": false, "reason": "INVALID_DAILY_CLAIM_ENTRY"}
+        var split_at := str(claim_key).rfind(":")
+        var slot := int(str(claim_key).substr(split_at + 1))
+        var expected_transaction := "daily:%s:%d" % [str(claim_key).substr(0, split_at), slot]
+        if str(entry["transaction_id"]) != expected_transaction or not transactions.has(expected_transaction):
+            return {"ok": false, "reason": "INVALID_DAILY_CLAIM_TRANSACTION"}
+        var receipt := str(entry["receipt"])
+        if slot == 1 and not receipt.is_empty():
+            return {"ok": false, "reason": "INVALID_FREE_DAILY_RECEIPT"}
+        if slot > 1 and (receipt.is_empty() or not transactions.has("daily-provider-receipt:%s" % receipt)):
+            return {"ok": false, "reason": "INVALID_REWARDED_DAILY_RECEIPT"}
     return {"ok": true, "reason": "VALID"}
 
 
@@ -426,3 +504,31 @@ func _is_non_negative_integer(value: Variant) -> bool:
     if typeof(value) != TYPE_INT and typeof(value) != TYPE_FLOAT:
         return false
     return float(value) >= 0.0 and is_equal_approx(float(value), float(int(value)))
+
+
+func _is_utc_date_or_empty(value: String) -> bool:
+    return value.is_empty() or _is_utc_date(value)
+
+
+func _is_utc_date(value: String) -> bool:
+    if value.length() != 10 or value[4] != "-" or value[7] != "-":
+        return false
+    var parts := value.split("-")
+    if parts.size() != 3 or not parts[0].is_valid_int() or not parts[1].is_valid_int() or not parts[2].is_valid_int():
+        return false
+    var year := int(parts[0])
+    var month := int(parts[1])
+    var day := int(parts[2])
+    if month < 1 or month > 12 or day < 1 or day > 31:
+        return false
+    var unix := Time.get_unix_time_from_datetime_dict({"year": year, "month": month, "day": day, "hour": 0, "minute": 0, "second": 0})
+    var normalized: Dictionary = Time.get_datetime_dict_from_unix_time(unix)
+    return int(normalized.get("year", -1)) == year and int(normalized.get("month", -1)) == month and int(normalized.get("day", -1)) == day
+
+
+func _is_daily_claim_key(value: String) -> bool:
+    var split_at := value.rfind(":")
+    if split_at != 10 or not _is_utc_date(value.substr(0, split_at)):
+        return false
+    var slot := value.substr(split_at + 1)
+    return slot.is_valid_int() and int(slot) >= 1 and int(slot) <= 5

@@ -259,6 +259,13 @@ func get_save_manager():
 	return save_manager
 
 
+func persist_current_state() -> Dictionary:
+	var result := _persist_campaign_state()
+	if bool(result.get("ok", false)) and economy != null:
+		economy_state_changed.emit(economy.export_state())
+	return result
+
+
 func launch_owner_playtest_sample(island_id: String, level_id: int) -> bool:
 	## Explicit R06 selector entry point. The owner-test profile configures an
 	## in-memory sample progression state and never enables campaign persistence.
@@ -682,5 +689,7 @@ func _persist_campaign_state() -> Dictionary:
 	state["boosters"] = economy_state["boosters"]
 	state["reward_ledger"] = economy_state["reward_ledger"]
 	state["transaction_ledger"] = economy_state["transaction_ledger"]
+	state["daily_claim_ledger"] = economy_state["daily_claim_ledger"]
+	state["daily_high_water_utc_date"] = economy_state["daily_high_water_utc_date"]
 	state["schema_version"] = save_manager.schema_version()
 	return save_manager.write_state(state)
