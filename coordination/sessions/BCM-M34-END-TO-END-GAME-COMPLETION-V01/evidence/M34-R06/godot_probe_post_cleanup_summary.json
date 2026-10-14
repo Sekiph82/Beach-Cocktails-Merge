@@ -1,0 +1,748 @@
+{
+  "work_item": "BCM-M34-R06V02-004",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "isolated_profiles_root": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R06V02-Godot-Runs",
+  "results": [
+    {
+      "test": "tests/m34_daily_rewards_probe.gd",
+      "exit_code": 0,
+      "pass": true,
+      "pass_markers": 38,
+      "stdout": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R06\\m34_daily_rewards_probe.post_cleanup.stdout.txt",
+      "stderr": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R06\\m34_daily_rewards_probe.post_cleanup.stderr.txt",
+      "warnings": [
+        "WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID",
+        "WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID"
+      ]
+    },
+    {
+      "test": "tests/m34_economy_closure_probe.gd",
+      "exit_code": 0,
+      "pass": true,
+      "pass_markers": 24,
+      "stdout": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R06\\m34_economy_closure_probe.post_cleanup.stdout.txt",
+      "stderr": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R06\\m34_economy_closure_probe.post_cleanup.stderr.txt",
+      "warnings": []
+    },
+    {
+      "test": "tests/m33_campaign_navigation_probe.gd",
+      "exit_code": 0,
+      "pass": true,
+      "pass_markers": 17,
+      "stdout": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R06\\m33_campaign_navigation_probe.post_cleanup.stdout.txt",
+      "stderr": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R06\\m33_campaign_navigation_probe.post_cleanup.stderr.txt",
+      "warnings": [
+        "WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID",
+        "WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID"
+      ]
+    }
+  ],
+  "uid_fallback_warnings": [
+    "WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID",
+    "WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID",
+    "WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID",
+    "WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID"
+  ],
+  "shutdown_warnings": [],
+  "TASKS_before": "AB9A8C81D41C4595349A80507E31A611A79DD38848E2DCFEC73E02F7DA01CD9E",
+  "TASKS_after": "AB9A8C81D41C4595349A80507E31A611A79DD38848E2DCFEC73E02F7DA01CD9E",
+  "TASKS_unchanged": true,
+  "project_before": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A",
+  "project_after": "16AEFDC52E70FFEC68CF7BA5726806A607A7BE0B1D0884906CF0E224419EE66A",
+  "project_unchanged": true,
+  "godot_user_data_before": [
+    {
+      "path": "godot-user-data\\godot-import.err.txt",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\godot-import.out.txt",
+      "bytes": 1221,
+      "sha256": "5907C9D3F039570C6C8BD616D9D6BFA9325D01693F1AAE645C81255DE8A7FF7F"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\campaign_save.json",
+      "bytes": 605,
+      "sha256": "C161B1CC0FC5219CC9067A9976F3A0878B4AFEA7D42AFFB4EDB450EC38CEC4BD"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\campaign_save.json.bak",
+      "bytes": 754,
+      "sha256": "930756A354B2D63B7A3F24950B632DC77B86ECE4D779898F1B6B2043E6C484E2"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\gameplay_tutorial_state.json",
+      "bytes": 54,
+      "sha256": "7BCB866DE1BFE828CA6B4F80BDF755FF74B6651BAFFC1A842ACADDB553FE9A2D"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot.log",
+      "bytes": 1988,
+      "sha256": "700E81624644260F27EC8E80484888B5789B9DB5C3B346AFD8CAE6723EFD4E53"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.15.18.log",
+      "bytes": 6164,
+      "sha256": "738EA82A5CDF8D53458DAD2252A98A2A6638333CEE405905D6B22145B6918EB0"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.15.24.log",
+      "bytes": 430,
+      "sha256": "8B5443DA62ACD46084CC3712984CB128894B89D5B714033111C41A8C29984A43"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.16.13.log",
+      "bytes": 6026,
+      "sha256": "1DFD2FE7728771B5F84242949685436F7FAAB614056D886EAF7C49C49CE53E8F"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.16.19.log",
+      "bytes": 619,
+      "sha256": "98D1DAFB4A887C186F21CBF2595C3EE553B6EE8C3F300864BD56828202E34171"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m32_economy_tutorial_probe.json",
+      "bytes": 54,
+      "sha256": "7BCB866DE1BFE828CA6B4F80BDF755FF74B6651BAFFC1A842ACADDB553FE9A2D"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_campaign_navigation_probe.json",
+      "bytes": 84956,
+      "sha256": "EB8DD2963B8E2C7E14DD9D3E2B907322AEA6A40976559152AAECF16C0F9009F6"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_campaign_navigation_probe.json.bak",
+      "bytes": 84956,
+      "sha256": "8457FEB145673856171EBC70015DEA0785913C71DFAFAED367550449E94FA60A"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_tiki_compat_progression.json",
+      "bytes": 9044,
+      "sha256": "AE195F681A0408EE5F468E083F260BA2B89C94B9DBBF6F3F35E3F95CB3719DB3"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_tiki_compat_progression.json.bak",
+      "bytes": 9044,
+      "sha256": "74499658DC53D8FBAA941B9245E793FB7159DC46D76733D0E1B04B666FDE4AFA"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save.json",
+      "bytes": 3038,
+      "sha256": "53E1580B2F04F6B666F2B99A8C162607DCF55E5EE8DE27EB1C06D24C0DFEC448"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save.json.bak",
+      "bytes": 3038,
+      "sha256": "72C64D9B913C9F5D4E25403D173A2D56B632911566E3B163DCF312334B699775"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\onboarding_state.json",
+      "bytes": 37,
+      "sha256": "CC5C92B93914CF185A0CC18ECEE67059F363AB9FB52BCBBE15A9E0B3ADE6E607"
+    },
+    {
+      "path": "godot-user-data\\Godot\\editor_settings-4.7.tres",
+      "bytes": 17763,
+      "sha256": "12656F2E2EE92CBFDB01E73F2B04F839F0F2E6BFE6F5CCC2F6069541EF6E9E4F"
+    },
+    {
+      "path": "godot-user-data\\m34_capture.stderr.log",
+      "bytes": 1322,
+      "sha256": "942D8295808D6AB11C39AC1657504B1E71CE49339B953739D8625833C5707788"
+    },
+    {
+      "path": "godot-user-data\\m34_capture.stdout.log",
+      "bytes": 696,
+      "sha256": "347BBB853ADFB3FE06E4E4FEFBE8159DCA1D97C33C9F491CAE126EE626026011"
+    },
+    {
+      "path": "godot-user-data\\m34_routes.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34_routes.stdout.log",
+      "bytes": 5668,
+      "sha256": "E6076703B0F90A2C75EE266FB75E67A1C5290D12ABD449117323E9D4F2FE4332"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\clean_import.log",
+      "bytes": 2816,
+      "sha256": "A4A77D4E4C67A98AD174614E780C315C6A8DB3D998470B204B271243CDB33993"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_campaign_contract_probe.log",
+      "bytes": 1374,
+      "sha256": "9539A75B0F77636D15AE97636BF00FD9624688DF7E4B9C09B33AD62A374A8DC0"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_campaign_contract_probe.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_campaign_contract_probe.stdout.log",
+      "bytes": 1374,
+      "sha256": "9539A75B0F77636D15AE97636BF00FD9624688DF7E4B9C09B33AD62A374A8DC0"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.log",
+      "bytes": 1132,
+      "sha256": "F0BDE4EB86F1E210DFCA06203381D44847CAECE897835B7E077FA9D83E463A2C"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.rerun.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.rerun.stdout.log",
+      "bytes": 696,
+      "sha256": "DF5B8ED165912F60F55DA10C58A17D9773069CE526A10B8525206168D3A580F1"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.stdout.log",
+      "bytes": 767,
+      "sha256": "4F0A4FD7B3F6BA7B635EC7A61F5EEA58EA5461B9C4E16D00DB76386EAFEFC8FB"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_tutorial_probe.log",
+      "bytes": 2583,
+      "sha256": "F308109A5456FA33AF0B8BD8328E7B45A0262C5F8B471B1754F27032253EFA90"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_tutorial_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_tutorial_probe.stdout.log",
+      "bytes": 2147,
+      "sha256": "30509C2CA1A6EEECAE7BF902CF38DFCCAD4896DBD2886D0AAF984944CD8E4DC5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_focus_booster_probe.log",
+      "bytes": 611,
+      "sha256": "DA2E34C30DCE0EC80CAA93F4476821B2D304DE65C76D5B8E5062BC586587C75A"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_focus_booster_probe.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_focus_booster_probe.stdout.log",
+      "bytes": 611,
+      "sha256": "DA2E34C30DCE0EC80CAA93F4476821B2D304DE65C76D5B8E5062BC586587C75A"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_content_probe.log",
+      "bytes": 2657,
+      "sha256": "A55E76CF98666B8F7B562375208BE599E39BB2094F81087407DAD4978EDB0C1F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_content_probe.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_content_probe.stdout.log",
+      "bytes": 2657,
+      "sha256": "A55E76CF98666B8F7B562375208BE599E39BB2094F81087407DAD4978EDB0C1F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_navigation_probe.log",
+      "bytes": 2253,
+      "sha256": "03E3E15DD67E19BC01680BDF48C66A335837AF97E88D99C1FF98EBC5AC664B49"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_navigation_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_navigation_probe.stdout.log",
+      "bytes": 1817,
+      "sha256": "C0D49DFC48A2B570719ADB1B68F9183492506AB246B44C024B0631EF8B2299DA"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.final.log",
+      "bytes": 3106,
+      "sha256": "10D21AA663D86080D60445B3942C5545045EFA5E24A8F59B42E2164287616CA5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.final2.log",
+      "bytes": 8850,
+      "sha256": "C5B0C435DE04E667CDF8DE70378052A37EFBE745AC7E3F023D32A5A902387D7F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.log",
+      "bytes": 3108,
+      "sha256": "E9C19544B91870498101175B0826257F0DABB6DB30FC8D94B0831247D845A4BA"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.rerun.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.rerun.stdout.log",
+      "bytes": 2589,
+      "sha256": "1A16D65B32B21901C4C87508FE14D3C7EA518ABFC5A8D52B0708013F3746166E"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.rerun2.log",
+      "bytes": 3106,
+      "sha256": "10D21AA663D86080D60445B3942C5545045EFA5E24A8F59B42E2164287616CA5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.stdout.log",
+      "bytes": 2645,
+      "sha256": "46446D1019E74FC81AAF6C25C7C9DE9AA3B0DDD70D4B5BD2F72A8ED56DD95379"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_economy_closure_probe.log",
+      "bytes": 2680,
+      "sha256": "20CC68611B382FBCDAA8EA6A8F4D195F240E2A2A3BF765FB76DD6D8D8BF44253"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_economy_closure_probe.stderr.log",
+      "bytes": 249,
+      "sha256": "43AB7E1A9540D018BF589901116F08CAA00DE945EF2249DBD28B7C18B8D728EF"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_economy_closure_probe.stdout.log",
+      "bytes": 2075,
+      "sha256": "F8440D26F59AE80BF906F4DED5010138BD62DA5227BCDA4E83306F0817A0426F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.final.stderr.log",
+      "bytes": 200,
+      "sha256": "B5C12EA7F93E667C175484F207CB4496447B37A9023550F20416A366403DB406"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.final.stdout.log",
+      "bytes": 2220,
+      "sha256": "3B7E3AEB570B86E56970BAF798B399857A01233F22292657C4E4DE3F03AF4EAF"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.stderr.log",
+      "bytes": 1883,
+      "sha256": "DD175B57D14CFEE1ACDC25074C3432006279C2A06692F01E6CF1E34E63702C0B"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.stdout.log",
+      "bytes": 1278,
+      "sha256": "02A2669BBD48258CAC4481FD295D5A1FC7C913B6BC92BF302D14D1A3BD01131C"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.final.log",
+      "bytes": 8977,
+      "sha256": "B7B4B7343357F830322801152E8022CA3A0C8CD69DF86BBCF31D9FA9B0E18FC5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.final2.log",
+      "bytes": 8888,
+      "sha256": "A50A794155FB8145249EECD31823BE1D1C34BF435785593BC3E71C38BCC57A93"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.log",
+      "bytes": 6187,
+      "sha256": "F8B472D1F720F1BFD5046FCBCCE0B08A86EE7E3D36E1497D96EA8470D1FA044F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.rerun.log",
+      "bytes": 8977,
+      "sha256": "20F96C8080E696A261455B38AACAC571AF02821972509C0EE2CBB36DCED0DC70"
+    },
+    {
+      "path": "godot-user-data\\tests_m32_campaign_contract_probe_gd.err.txt",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\tests_m32_campaign_contract_probe_gd.out.txt",
+      "bytes": 1374,
+      "sha256": "9539A75B0F77636D15AE97636BF00FD9624688DF7E4B9C09B33AD62A374A8DC0"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_content_probe_gd.err.txt",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_content_probe_gd.out.txt",
+      "bytes": 2657,
+      "sha256": "A55E76CF98666B8F7B562375208BE599E39BB2094F81087407DAD4978EDB0C1F"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_navigation_probe_gd.err.txt",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_navigation_probe_gd.out.txt",
+      "bytes": 1817,
+      "sha256": "C0D49DFC48A2B570719ADB1B68F9183492506AB246B44C024B0631EF8B2299DA"
+    }
+  ],
+  "godot_user_data_after": [
+    {
+      "path": "godot-user-data\\godot-import.err.txt",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\godot-import.out.txt",
+      "bytes": 1221,
+      "sha256": "5907C9D3F039570C6C8BD616D9D6BFA9325D01693F1AAE645C81255DE8A7FF7F"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\campaign_save.json",
+      "bytes": 605,
+      "sha256": "C161B1CC0FC5219CC9067A9976F3A0878B4AFEA7D42AFFB4EDB450EC38CEC4BD"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\campaign_save.json.bak",
+      "bytes": 754,
+      "sha256": "930756A354B2D63B7A3F24950B632DC77B86ECE4D779898F1B6B2043E6C484E2"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\gameplay_tutorial_state.json",
+      "bytes": 54,
+      "sha256": "7BCB866DE1BFE828CA6B4F80BDF755FF74B6651BAFFC1A842ACADDB553FE9A2D"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot.log",
+      "bytes": 1988,
+      "sha256": "700E81624644260F27EC8E80484888B5789B9DB5C3B346AFD8CAE6723EFD4E53"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.15.18.log",
+      "bytes": 6164,
+      "sha256": "738EA82A5CDF8D53458DAD2252A98A2A6638333CEE405905D6B22145B6918EB0"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.15.24.log",
+      "bytes": 430,
+      "sha256": "8B5443DA62ACD46084CC3712984CB128894B89D5B714033111C41A8C29984A43"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.16.13.log",
+      "bytes": 6026,
+      "sha256": "1DFD2FE7728771B5F84242949685436F7FAAB614056D886EAF7C49C49CE53E8F"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-14T01.16.19.log",
+      "bytes": 619,
+      "sha256": "98D1DAFB4A887C186F21CBF2595C3EE553B6EE8C3F300864BD56828202E34171"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m32_economy_tutorial_probe.json",
+      "bytes": 54,
+      "sha256": "7BCB866DE1BFE828CA6B4F80BDF755FF74B6651BAFFC1A842ACADDB553FE9A2D"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_campaign_navigation_probe.json",
+      "bytes": 84956,
+      "sha256": "EB8DD2963B8E2C7E14DD9D3E2B907322AEA6A40976559152AAECF16C0F9009F6"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_campaign_navigation_probe.json.bak",
+      "bytes": 84956,
+      "sha256": "8457FEB145673856171EBC70015DEA0785913C71DFAFAED367550449E94FA60A"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_tiki_compat_progression.json",
+      "bytes": 9044,
+      "sha256": "AE195F681A0408EE5F468E083F260BA2B89C94B9DBBF6F3F35E3F95CB3719DB3"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m33_tiki_compat_progression.json.bak",
+      "bytes": 9044,
+      "sha256": "74499658DC53D8FBAA941B9245E793FB7159DC46D76733D0E1B04B666FDE4AFA"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save.json",
+      "bytes": 3038,
+      "sha256": "53E1580B2F04F6B666F2B99A8C162607DCF55E5EE8DE27EB1C06D24C0DFEC448"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save.json.bak",
+      "bytes": 3038,
+      "sha256": "72C64D9B913C9F5D4E25403D173A2D56B632911566E3B163DCF312334B699775"
+    },
+    {
+      "path": "godot-user-data\\Godot\\app_userdata\\CocktailMerge\\onboarding_state.json",
+      "bytes": 37,
+      "sha256": "CC5C92B93914CF185A0CC18ECEE67059F363AB9FB52BCBBE15A9E0B3ADE6E607"
+    },
+    {
+      "path": "godot-user-data\\Godot\\editor_settings-4.7.tres",
+      "bytes": 17763,
+      "sha256": "12656F2E2EE92CBFDB01E73F2B04F839F0F2E6BFE6F5CCC2F6069541EF6E9E4F"
+    },
+    {
+      "path": "godot-user-data\\m34_capture.stderr.log",
+      "bytes": 1322,
+      "sha256": "942D8295808D6AB11C39AC1657504B1E71CE49339B953739D8625833C5707788"
+    },
+    {
+      "path": "godot-user-data\\m34_capture.stdout.log",
+      "bytes": 696,
+      "sha256": "347BBB853ADFB3FE06E4E4FEFBE8159DCA1D97C33C9F491CAE126EE626026011"
+    },
+    {
+      "path": "godot-user-data\\m34_routes.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34_routes.stdout.log",
+      "bytes": 5668,
+      "sha256": "E6076703B0F90A2C75EE266FB75E67A1C5290D12ABD449117323E9D4F2FE4332"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\clean_import.log",
+      "bytes": 2816,
+      "sha256": "A4A77D4E4C67A98AD174614E780C315C6A8DB3D998470B204B271243CDB33993"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_campaign_contract_probe.log",
+      "bytes": 1374,
+      "sha256": "9539A75B0F77636D15AE97636BF00FD9624688DF7E4B9C09B33AD62A374A8DC0"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_campaign_contract_probe.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_campaign_contract_probe.stdout.log",
+      "bytes": 1374,
+      "sha256": "9539A75B0F77636D15AE97636BF00FD9624688DF7E4B9C09B33AD62A374A8DC0"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.log",
+      "bytes": 1132,
+      "sha256": "F0BDE4EB86F1E210DFCA06203381D44847CAECE897835B7E077FA9D83E463A2C"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.rerun.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.rerun.stdout.log",
+      "bytes": 696,
+      "sha256": "DF5B8ED165912F60F55DA10C58A17D9773069CE526A10B8525206168D3A580F1"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_shop_probe.stdout.log",
+      "bytes": 767,
+      "sha256": "4F0A4FD7B3F6BA7B635EC7A61F5EEA58EA5461B9C4E16D00DB76386EAFEFC8FB"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_tutorial_probe.log",
+      "bytes": 2583,
+      "sha256": "F308109A5456FA33AF0B8BD8328E7B45A0262C5F8B471B1754F27032253EFA90"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_tutorial_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_economy_tutorial_probe.stdout.log",
+      "bytes": 2147,
+      "sha256": "30509C2CA1A6EEECAE7BF902CF38DFCCAD4896DBD2886D0AAF984944CD8E4DC5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_focus_booster_probe.log",
+      "bytes": 611,
+      "sha256": "DA2E34C30DCE0EC80CAA93F4476821B2D304DE65C76D5B8E5062BC586587C75A"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_focus_booster_probe.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m32_focus_booster_probe.stdout.log",
+      "bytes": 611,
+      "sha256": "DA2E34C30DCE0EC80CAA93F4476821B2D304DE65C76D5B8E5062BC586587C75A"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_content_probe.log",
+      "bytes": 2657,
+      "sha256": "A55E76CF98666B8F7B562375208BE599E39BB2094F81087407DAD4978EDB0C1F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_content_probe.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_content_probe.stdout.log",
+      "bytes": 2657,
+      "sha256": "A55E76CF98666B8F7B562375208BE599E39BB2094F81087407DAD4978EDB0C1F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_navigation_probe.log",
+      "bytes": 2253,
+      "sha256": "03E3E15DD67E19BC01680BDF48C66A335837AF97E88D99C1FF98EBC5AC664B49"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_navigation_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_campaign_navigation_probe.stdout.log",
+      "bytes": 1817,
+      "sha256": "C0D49DFC48A2B570719ADB1B68F9183492506AB246B44C024B0631EF8B2299DA"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.final.log",
+      "bytes": 3106,
+      "sha256": "10D21AA663D86080D60445B3942C5545045EFA5E24A8F59B42E2164287616CA5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.final2.log",
+      "bytes": 8850,
+      "sha256": "C5B0C435DE04E667CDF8DE70378052A37EFBE745AC7E3F023D32A5A902387D7F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.log",
+      "bytes": 3108,
+      "sha256": "E9C19544B91870498101175B0826257F0DABB6DB30FC8D94B0831247D845A4BA"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.rerun.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.rerun.stdout.log",
+      "bytes": 2589,
+      "sha256": "1A16D65B32B21901C4C87508FE14D3C7EA518ABFC5A8D52B0708013F3746166E"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.rerun2.log",
+      "bytes": 3106,
+      "sha256": "10D21AA663D86080D60445B3942C5545045EFA5E24A8F59B42E2164287616CA5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.stderr.log",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m33_tiki_compatibility_probe.stdout.log",
+      "bytes": 2645,
+      "sha256": "46446D1019E74FC81AAF6C25C7C9DE9AA3B0DDD70D4B5BD2F72A8ED56DD95379"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_economy_closure_probe.log",
+      "bytes": 2680,
+      "sha256": "20CC68611B382FBCDAA8EA6A8F4D195F240E2A2A3BF765FB76DD6D8D8BF44253"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_economy_closure_probe.stderr.log",
+      "bytes": 249,
+      "sha256": "43AB7E1A9540D018BF589901116F08CAA00DE945EF2249DBD28B7C18B8D728EF"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_economy_closure_probe.stdout.log",
+      "bytes": 2075,
+      "sha256": "F8440D26F59AE80BF906F4DED5010138BD62DA5227BCDA4E83306F0817A0426F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.final.stderr.log",
+      "bytes": 200,
+      "sha256": "B5C12EA7F93E667C175484F207CB4496447B37A9023550F20416A366403DB406"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.final.stdout.log",
+      "bytes": 2220,
+      "sha256": "3B7E3AEB570B86E56970BAF798B399857A01233F22292657C4E4DE3F03AF4EAF"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.stderr.log",
+      "bytes": 1883,
+      "sha256": "DD175B57D14CFEE1ACDC25074C3432006279C2A06692F01E6CF1E34E63702C0B"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_mobile_gui.stdout.log",
+      "bytes": 1278,
+      "sha256": "02A2669BBD48258CAC4481FD295D5A1FC7C913B6BC92BF302D14D1A3BD01131C"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.final.log",
+      "bytes": 8977,
+      "sha256": "B7B4B7343357F830322801152E8022CA3A0C8CD69DF86BBCF31D9FA9B0E18FC5"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.final2.log",
+      "bytes": 8888,
+      "sha256": "A50A794155FB8145249EECD31823BE1D1C34BF435785593BC3E71C38BCC57A93"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.log",
+      "bytes": 6187,
+      "sha256": "F8B472D1F720F1BFD5046FCBCCE0B08A86EE7E3D36E1497D96EA8470D1FA044F"
+    },
+    {
+      "path": "godot-user-data\\m34-test-logs\\m34_production_routes_probe.rerun.log",
+      "bytes": 8977,
+      "sha256": "20F96C8080E696A261455B38AACAC571AF02821972509C0EE2CBB36DCED0DC70"
+    },
+    {
+      "path": "godot-user-data\\tests_m32_campaign_contract_probe_gd.err.txt",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\tests_m32_campaign_contract_probe_gd.out.txt",
+      "bytes": 1374,
+      "sha256": "9539A75B0F77636D15AE97636BF00FD9624688DF7E4B9C09B33AD62A374A8DC0"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_content_probe_gd.err.txt",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_content_probe_gd.out.txt",
+      "bytes": 2657,
+      "sha256": "A55E76CF98666B8F7B562375208BE599E39BB2094F81087407DAD4978EDB0C1F"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_navigation_probe_gd.err.txt",
+      "bytes": 436,
+      "sha256": "E4D81E6AD86BCA280BBF461B64C3304C26FA877225A4315838EB998D666B45F5"
+    },
+    {
+      "path": "godot-user-data\\tests_m33_campaign_navigation_probe_gd.out.txt",
+      "bytes": 1817,
+      "sha256": "C0D49DFC48A2B570719ADB1B68F9183492506AB246B44C024B0631EF8B2299DA"
+    }
+  ],
+  "godot_user_data_unchanged": true
+}

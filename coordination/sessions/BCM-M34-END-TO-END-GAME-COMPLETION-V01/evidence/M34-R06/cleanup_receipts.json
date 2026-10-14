@@ -1,0 +1,130 @@
+[
+  {
+    "targets": [
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-Owner-Review\\capture-project\\.godot",
+        "bytes": 1182289226,
+        "files": 2983
+      },
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BeachCocktails\\BCM-M32-Tutorial-Owner-Review\\capture-project\\.godot",
+        "bytes": 1182289226,
+        "files": 2983
+      }
+    ],
+    "removed_via": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-Owner-Review\\capture-project\\.godot",
+    "shared_alias_paths_absent": true,
+    "free_before_bytes": 90416025600,
+    "free_after_bytes": 91084537856,
+    "free_delta_bytes": 668512256,
+    "free_before_gib": 84.206,
+    "free_after_gib": 84.829,
+    "tool_note": "Remove-Item on base path removed both same-file-ID app-cache aliases; second alias was already absent, no retry."
+  },
+  {
+    "targets": [
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-Owner-Review\\project\\.godot",
+        "bytes": 1182843516,
+        "files": 2992
+      },
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BeachCocktails\\BCM-M32-Tutorial-Owner-Review\\project\\.godot",
+        "bytes": 1182843516,
+        "files": 2992
+      }
+    ],
+    "removed_via": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-Owner-Review\\project\\.godot",
+    "shared_alias_paths_absent": true,
+    "free_before_bytes": 90431680512,
+    "free_after_bytes": 91600556032,
+    "free_delta_bytes": 1168875520,
+    "free_before_gib": 84.221,
+    "free_after_gib": 85.31,
+    "tool_note": "Exact task-owned .godot generated cache removed; source, assets, logs and save data retained."
+  },
+  {
+    "targets": [
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-V04-SixStep-Evidence\\390x844\\.godot",
+        "bytes": 1182288637,
+        "files": 2982
+      },
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BeachCocktails\\BCM-M32-Tutorial-V04-SixStep-Evidence\\390x844\\.godot",
+        "bytes": 1182288637,
+        "files": 2982
+      }
+    ],
+    "removed_via": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-V04-SixStep-Evidence\\390x844\\.godot",
+    "shared_alias_paths_absent": true,
+    "free_before_bytes": 91592663040,
+    "free_after_bytes": 92765188096,
+    "free_delta_bytes": 1172525056,
+    "free_before_gib": 85.302,
+    "free_after_gib": 86.394,
+    "tool_note": "Exact task-owned .godot generated cache removed; source, assets, logs and save data retained."
+  },
+  {
+    "targets": [
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-V04-SixStep-Evidence\\432x960\\.godot",
+        "bytes": 1182288637,
+        "files": 2982
+      },
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BeachCocktails\\BCM-M32-Tutorial-V04-SixStep-Evidence\\432x960\\.godot",
+        "bytes": 1182288637,
+        "files": 2982
+      }
+    ],
+    "removed_via": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-V04-SixStep-Evidence\\432x960\\.godot",
+    "shared_alias_paths_absent": true,
+    "free_before_bytes": 92756209664,
+    "free_after_bytes": 93898125312,
+    "free_delta_bytes": 1141915648,
+    "free_before_gib": 86.386,
+    "free_after_gib": 87.449,
+    "tool_note": "Exact task-owned .godot generated cache removed; source, assets, logs and save data retained."
+  },
+  {
+    "targets": [
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-V05-Visual-Remediation\\390x844\\.godot",
+        "bytes": 1173491457,
+        "files": 3120
+      },
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BeachCocktails\\BCM-M32-Tutorial-V05-Visual-Remediation\\390x844\\.godot",
+        "bytes": 1173491457,
+        "files": 3120
+      }
+    ],
+    "removed_via": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails\\BCM-M32-Tutorial-V05-Visual-Remediation\\390x844\\.godot",
+    "shared_alias_paths_absent": true,
+    "free_before_bytes": 93887049728,
+    "free_after_bytes": 94991482880,
+    "free_delta_bytes": 1104433152,
+    "free_before_gib": 87.439,
+    "free_after_gib": 88.468,
+    "tool_note": "Exact task-owned .godot generated cache removed; source, assets, logs and save data retained."
+  },
+  {
+    "targets": [
+      {
+        "path": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-PERCENT400-20261009-182322\\.godot",
+        "bytes": 1234704014,
+        "files": 3103
+      },
+      null
+    ],
+    "removed_via": "C:\\Users\\sekip\\AppData\\Local\\Temp\\BCM-M25-PERCENT400-20261009-182322\\.godot",
+    "shared_alias_paths_absent": true,
+    "free_before_bytes": 94981713920,
+    "free_after_bytes": 96164192256,
+    "free_delta_bytes": 1182478336,
+    "free_before_gib": 88.459,
+    "free_after_gib": 89.56,
+    "tool_note": "Exact task-owned .godot generated cache removed; source, assets, logs and save data retained."
+  }
+]
