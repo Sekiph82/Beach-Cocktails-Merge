@@ -71,7 +71,7 @@
 
 - Focused commands: `git status --short --branch`; `git remote -v`; `git fetch origin main`; `git rev-list --left-right --count HEAD...origin/main`; `git diff --check`; the four Godot commands above; read-only `rg` scans over runtime/config/data/tests/tools and source-provenance files; `git hash-object`/`Get-FileHash` for preservation and candidate evidence.
 - Intended task-owned changes: this log; `tests/m34_r03_owner_review_capture.gd`; `evidence/M34-R03/cleanup_review_r03.csv`; `evidence/M34-R03/script_module_scan_r03.csv`; the four probe/capture run logs; `evidence/M34-R03/owner-review/` manifest and eight PNGs. No `TASKS.md`, production scenes, accepted art, `project.godot`, economy, Daily Rewards JSON, save data, cache, or owner-local work was modified.
-- Child commits: `bdb1190f` — owner-review probe and eight captures; `7bd237820dce62a879ccd31d22d8e61a9adcd36f` — cleanup/script review inventory and focused probe logs.
+- Child commits: `bdb11902382d7ae628686415227c80e03a3c25ab` — owner-review probe and eight captures; `7bd237820dce62a879ccd31d22d8e61a9adcd36f` — cleanup/script review inventory and focused probe logs.
 - Start HEAD: `741e251ecd6870dbf22b5f2b883c65a1d2532068`.
 - Task-content publication SHA: `831be253a1f99aba56e7a1fab203a013940202bd`.
 - After pushing that changeset, verified `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `831be253a1f99aba56e7a1fab203a013940202bd`; ahead/behind was `0/0`; `git diff --check` and `git diff --cached --check` passed. A final log-only amendment is being published after this verification snapshot; its resulting HEAD is reported in the task handoff.
