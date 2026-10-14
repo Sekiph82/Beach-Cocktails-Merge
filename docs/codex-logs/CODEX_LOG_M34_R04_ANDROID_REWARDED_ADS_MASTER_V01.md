@@ -44,5 +44,6 @@ No production gameplay/economy/plugin configuration was changed. No cleanup cand
 ## Final repository state
 
 - Files changed are limited to R04 evidence and this execution log; implementation files, `TASKS.md`, Desktop files, R03 cleanup candidate assets, MOVES/tutorial assets, `project.godot`, and owner save data were not changed.
+- R04 evidence/content commit: `13484940d1cb4f88223963ea191f5c8bac468b0e`. This follow-up commit records the publication parity for the immutable master log.
 - `git diff --check` passed after writing the evidence. JSON parse checks passed for `android_toolchain_inventory.json`, `admob_plugin_review.json`, and `regression_summary.json`. Stage-path inspection, commit SHA, push result, final `HEAD`/`origin/main`/remote SHA parity, and `0/0` divergence are recorded after publication below.
 - The builder stop marker after publication is `AWAITING_GPT_M34_R04_INDEPENDENT_AUDIT_AND_NATIVE_DEVICE_GATE`.
