@@ -1,0 +1,13 @@
+# BCM-M34-R06 MASTER | Native Ads SSV Backend Blueprint and Safe Android Setup Preflight
+
+One Codex master, R06-001..R06-004, continuous execution. R05 independent audit PASS for bounded sync/inventory/evidence only. The OWNER HAS NOT YET APPROVED 8-15 GiB Android toolchain installation. **DO NOT download/install Android SDK/NDK/CMake/JDK/templates or request admin permission without new explicit owner approval.** Never edit root TASKS.md, canonical Desktop owner-dirty files, stashes, saves, project.godot or godot-user-data. No Desktop-root files.
+
+R06-001: Study the R05 AdMob v7.0 SSV package/API evidence and official AdMob SSV specification. Produce actionable server-side trust protocol with Google-signed callback verification, certificate fetch/caching/rotation, transaction_id replay ledger, bounded replay/expiry/nonce/user association/placement matching, error/duplicate handling, privacy/age-consent, and secrets isolated to secure backend. Distinguish Google callback cryptographic verification from merely using client earned_reward. Define minimum viable backend architecture with least cost; do not assume a provider/backend already exists, and do not require unapproved paid services.
+
+R06-002: Implement **isolated automated protocol tests / backend mock only** in non-shipping test directories if meaningful, covering signature invalid, duplicate, stale, callback reorder, replay across users, and amount mismatch; never grant Coins/Gems/Energy in production without live trusted verification. Keep existing fail-closed AdsService and all five Daily Rewards unchanged. A local mock success is not device proof.
+
+R06-003: Prepare concise fully scripted **non-executed** Android JDK/SDK/templates setup and footprint preflight for Windows + Godot 4.7.2, explicit 8-15 GiB disk and bandwidth approval, exact official URLs/pkg versions, per-step checks, rollback, no global PATH changes. No actual large downloads. If environment changed independently, report facts but do not install anything. Isolate all planned paths outside Desktop root.
+
+R06-004: Canonical Desktop sync report read-only: R05 prepublication sync to 63c8633, newer remote SHA, tracked 7 owner modifications and untracked 15, 69 stashes previously inventoried; inventory fresh state without mutation. Do not assume zero collisions after remote advanced. Run bounded Daily/Economy/M33 probes in isolated worktree, commit task-owned documentation/tests, fast-forward nonforce push and provide master log with exact evidence. Do not touch UID warnings without scoped approval; no source deletions of 23 KEEP assets.
+
+Stop marker: AWAITING_GPT_M34_R06_INDEPENDENT_AUDIT_AND_OWNER_ANDROID_SETUP_APPROVAL.
