@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M34
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
-- Current Task: BCM-M34-005 — Expand evidence-backed project cleanup and confirm remaining unverified integrations.
+- Current Task: BCM-M34-006 — Advance native Android rewarded-ad integration and device-readiness.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-009 — Owner reviews MOVES frame and tutorial HUD captures; plan safe Android test environment and canonical worktree sync.
-- Required Actor: CHATGPT / OWNER
+- Next Task/Action: BCM-M34-006 — Codex executes R04 Android toolchain and verified rewarded ads master, preserving owner data.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M34-R03 source/evidence AUDITED PASS (investigation only). 23 candidates KEEP, 0 deletes, 64,001,602 bytes reviewed; expanded unused asset/code/import cleanup and export-size proof remain open. Daily/Economy/10-island/navigation/8-frame probes builder PASS, owner visual review pending. UID fallback warnings diagnosed but deferred. Native Ads/IAP/device unverified, canonical Desktop sync owner-dirty and behind. M33-004 human fairness remains OPEN.
+- Progress: Owner APPROVED R03 MOVES frame and tutorial visuals; M34-004 and M34-009 accepted for scoped visual review. R03 audit passed investigative scope. 23 media KEEP, 0 deleted. Native Ads SDK/device, IAP, canonical Desktop safe sync and M33-004 human fairness still OPEN.
 
 ## Blockers/Waits
 
@@ -1366,9 +1366,9 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M34-001 — Audit and repair complete player journey, campaign, shop, boosts and tutorial integration (bounded integration audit).
 - [x] BCM-M34-002 — Verify bounded production progression, save and representative nine-island gameplay (human fairness still M33-004).
 - [x] BCM-M34-003 — Validate bounded Coins/Gems/Energy transactions and remove Focus; Daily rewards remain separate M34-008 gate.
-- [ ] BCM-M34-004 — Validate tutorial, usability and accessibility regressions.
+- [x] BCM-M34-004 — Tutorial and gameplay HUD visual review owner accepted; real mobile device accessibility remains release QA.
 - [~] BCM-M34-005 — Expand proven-unused assets/dead-code/local-import inventory and safe cleanup beyond one removed catalog.
 - [~] BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated.
 - [~] BCM-M34-007 — Complete gated native billing/receipt verification; currently blocked until approved catalog/backend.
 - [~] BCM-M34-008 — Owner-locked UTC Daily Rewards R01 conditionally passed; fix stale JSON authority and probe warnings in R02 before closure.
-- [~] BCM-M34-009 — Focus removed and old inventory migrated; MOVES frame owner visual acceptance pending.
+- [x] BCM-M34-009 — Focus removed, old inventory migrated and MOVES frame owner visually accepted.
