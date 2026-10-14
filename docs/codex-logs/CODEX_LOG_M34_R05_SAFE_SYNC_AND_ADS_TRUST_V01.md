@@ -29,5 +29,5 @@ Prompt: `coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/CHATGPT_M3
 ## Final repository state
 
 - Only the R05 evidence files and this new master log are intended for commit. Existing untracked R03 outputs and `godot-user-data/` remain untouched and unstaged.
-- `git diff --check`, JSON parsing, exact staged path review, normal fast-forward publication and three-way SHA parity are required before closeout. Evidence/content commit SHA and final publication SHA will be recorded in the final handoff after publication.
+- `git diff --check`, JSON parsing, exact staged path review, normal fast-forward publication and three-way SHA parity are required before closeout. Evidence/content commit SHA: `95066a1b49a8d95f3816e0c71c5fef472c06d588`. The log-closeout publication commit follows this evidence commit; final remote SHA and three-way parity are reported in the handoff.
 - Builder stop marker: `AWAITING_GPT_M34_R05_INDEPENDENT_AUDIT`.
