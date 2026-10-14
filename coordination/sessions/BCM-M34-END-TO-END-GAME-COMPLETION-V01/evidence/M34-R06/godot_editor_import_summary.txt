@@ -1,0 +1,7 @@
+Command: godot_console.exe --headless --editor --path . --quit
+Godot: 4.7.2.stable.official.ed1daf0bf
+Exit code: -1073741819 (native shutdown crash)
+Import result: 1,283 reimport steps reached [DONE] reimport; editor layout then loaded before the crash.
+Observed side effect: Godot changed the isolated worktree's GameFeelFlow autoload from the source path to a UID. That generated one-line project.godot change was restored; the file now matches HEAD.
+Raw local console SHA-256: 775CB38090E81EC16AC6FF2678F538D30DAB0194ABCECC602391B152A90FB738
+Raw local console file: godot_headless_editor_import.console.txt (retained in the task worktree; excluded from commit due to generated progress output and whitespace padding).

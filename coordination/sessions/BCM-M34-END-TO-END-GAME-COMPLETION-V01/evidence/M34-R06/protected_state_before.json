@@ -1,0 +1,136 @@
+{
+  "stash_count": 72,
+  "tasks_sha256": "AB9A8C81D41C4595349A80507E31A611A79DD38848E2DCFEC73E02F7DA01CD9E",
+  "volume_c_free_bytes": 86409519104,
+  "untracked_files": [
+    {
+      "path": "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png",
+      "bytes": 2824137,
+      "sha256": "87ACDF4CF5F3FE043EF9EE5C2AAF625B5FD0734E10B23C7314326E2FE1645A35"
+    },
+    {
+      "path": "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png",
+      "bytes": 2768479,
+      "sha256": "D8C9A18F7612FF968DD65E7B8E1ADAC1A2AE145BAB79A6432B60DC90AABE5ADB"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa_initial_headless.txt",
+      "bytes": 322,
+      "sha256": "E2E53A81B0690E3641346E4F0DE57ED0105D219BE3680CD81F753BF9AF2DF534"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/00_initial_live_frame.png",
+      "bytes": 2252450,
+      "sha256": "10A85EA67B48811720A5AAF44BEEE5F1F7A7D97D9D6930FF959EC3330F61B546"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/01_after_level_click.png",
+      "bytes": 1666283,
+      "sha256": "3876CA176CFD32AC903C47FC88FD86D7512A2A8A28D9908BC89D0ED25D03F0CA"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/02_after_home_play.png",
+      "bytes": 2231758,
+      "sha256": "964DCD2ED6EEA5D2E6A7EE9FA7954559545E8C2359A635F347634EC744F6392B"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/03_baseline_gameplay.png",
+      "bytes": 734398,
+      "sha256": "9AF88F59B6E22473A4474BB1F451466C1ABB794E31C265F738692BDC375B57E5"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/04_baseline_gameplay_real.png",
+      "bytes": 1668846,
+      "sha256": "52C4918ED6D9A6AAB822FC266A388D09238A4AF97F209EA2CA2222EF0ACFF3EC"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_00.png",
+      "bytes": 1679228,
+      "sha256": "46E85EF216679F27A024E21A971AFC0FF9A514ED1A40E136274315C46A9402B4"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_01.png",
+      "bytes": 1677201,
+      "sha256": "1A2A5CF8140FD2110CE50C092D086B2B2765EC97A85BB337A7F8C3A1D46DD32B"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_02.png",
+      "bytes": 1677974,
+      "sha256": "BF8546B531C8D491AB7B51C772411DB7F2CA745D0747FAAAD80C425168CC8E00"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_03.png",
+      "bytes": 1678214,
+      "sha256": "9AE79BF8771B98C8CFDFD02CDC3D8CEC571CB03C5A2138584CBFE81EA6E3A528"
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_04.png",
+      "bytes": 1677883,
+      "sha256": "35001D297290EBC2F6F13D4CDDB9A7E5B2B89EA53A1586D00CA65A3E2189602B"
+    },
+    {
+      "path": "docs/codex-logs/CODEX_LOG_M23_R01_V01.md",
+      "bytes": 1325,
+      "sha256": "128E4FB22FFB962CEF4F2A3941EA7FF3157F743DBAC186D8E2D6C40C5F0A801B"
+    },
+    {
+      "path": "f647e4ff-b906-40e7-93f8-3c4b59d95b23.png",
+      "bytes": 2119556,
+      "sha256": "09E69A503E29EEFCF25CB023A62BFD9D0F74F8ECEC90F95F7519868EAEF53EEF"
+    }
+  ],
+  "tracked_dirty": [
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+      "sha256": "731471296573B2D3CFAFAF7516DFA149D5CE1A639D0DB05BFD53A61D86DE2E34"
+    },
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+      "sha256": "56518013B4395FD002E0D485C68B6DC9CD41AC8ACBA6A8F5A739F497248FA30F"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+      "sha256": "5034AA86CE34CE29075B60A7F07FC45B8AA80FAA8CEDF63A864BBE002189DEA3"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+      "sha256": "8D8071716DA72F0C2529249B93A2F7C270A3193E6E158390FE19365E493C550C"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+      "sha256": "5A2F2653E0D76DB7BF1BBBE260CF362F2AE50C14ABF4BB474611310BC456CE01"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+      "sha256": "B9E9CF230B72F3969621B3B4F4E4D24BF2CCA890BD95492064557ED4676CADEE"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD"
+    }
+  ],
+  "git_status": [
+    "## main...origin/main",
+    " M coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    " M coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    " M project.godot",
+    "?? \"coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png\"",
+    "?? \"coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png\"",
+    "?? coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa_initial_headless.txt",
+    "?? coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/",
+    "?? docs/codex-logs/CODEX_LOG_M23_R01_V01.md",
+    "?? f647e4ff-b906-40e7-93f8-3c4b59d95b23.png"
+  ],
+  "volume_c_total_bytes": 1022767394816,
+  "project_godot_sha256": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD",
+  "head_tree": "1c029f4de08bab4a44a931acd15affc6eca0de05",
+  "recorded_utc": "2026-10-14T19:55:05.4577079Z",
+  "origin_main": "eb05ddc6c48ed700f0bc6ddbf21f533101e305b3",
+  "head": "eb05ddc6c48ed700f0bc6ddbf21f533101e305b3",
+  "stash_inventory": "bc10fc0f638e29a3adea327a8258edf1abed5a1f\tstash@{0}\tOn main: owner-local-safe-sync-b461439\n8e6efc7f4c89e37cff07197c565bf0e5db860d93\tstash@{1}\tOn main: owner-local-safe-sync-63c8633\n4a312a11c822ca68d220f0cdfb6ef33098b0598d\tstash@{2}\tOn main: owner-local-safe-sync-5cff38a\nc1c5353b7e85962cf5752f180433509520e5f132\tstash@{3}\tOn codex/m34-isolated-20261014-a1: m34-task-safe-sync-9c3ceae\n25118ccd3b05884fb437599f685bc848daa60f58\tstash@{4}\tOn main: owner-local-safe-sync-2f58c21\nc64859226db4e01ac3bcfa74dce7d91f5ecb7ed1\tstash@{5}\tOn main: owner-local-safe-sync-2c3a776\n52b8e8baa2386b836077bfccd74ce9a9d0f5ac28\tstash@{6}\tOn main: owner-local-safe-sync-71c13b0\n57e968d1d6bc31215ac516f763d35b8fb1791e4b\tstash@{7}\tOn main: owner-local-safe-sync-d1e9862\n74ef36e033170ad6761945d80c756091357c4c16\tstash@{8}\tOn main: owner-local-safe-sync-b899dd3\n6996b78480211c72d159157ac059c4f65566114e\tstash@{9}\tOn main: owner-local-safe-sync-eeaf088\n706d2667a436942c106b6c0bb6f87c8b0a996d1a\tstash@{10}\tOn main: owner-local-safe-sync-e615942\n949712dfabd053b6f9225da0f81f64d1d24a6d98\tstash@{11}\tOn main: owner-local-safe-sync-b083119\nf11e8afb51da437e4721a13a5cc2a43e940e7cb2\tstash@{12}\tOn main: owner-local-safe-sync-9878c6d\nb34fc1a516f3d68e8d375f10ad6d36687e8a6955\tstash@{13}\tOn main: owner-local-safe-sync-2243a8c\n47c8c3160d642e4c8af5080de9c672c9989dd11d\tstash@{14}\tOn main: owner-local-safe-sync-ab6fe62\n11dc0ed85ccb7519b44ad40c11e6317aa49ad92a\tstash@{15}\tOn main: owner-local-safe-sync-73b09ba\n290a2bff2617c59ae88131e2ab5f336090572ad2\tstash@{16}\tOn main: owner-local-safe-sync-44adda7\n7a6cd39daa4e8fc2d18970e7be452c0257042ef6\tstash@{17}\tOn main: owner-local-safe-sync-bbd7cd1\na9ed550911a5276775a64b19c7ac5e994e093466\tstash@{18}\tOn main: owner-local-safe-sync-6962732\nca85dfa94729d4a66362326bc89eb86e8ab11aa2\tstash@{19}\tOn main: owner-local-safe-sync-0e4b4b6\n6c9b5b6db89fe7f2afb49e70b96e662e51daeb9b\tstash@{20}\tOn main: owner-local-safe-sync-a64e0f2-post-v05\n3fcf26a1db1e7654e9274d4f964d63c95cbbe98d\tstash@{21}\tOn main: owner-local-safe-sync-ea44344\na3cab55481c63b8940be351f15876195200d130d\tstash@{22}\tOn main: owner-local-safe-sync-0e79cfe\n117c03fc4c78dda3b90cf842cfce2b5ee00c0e95\tstash@{23}\tOn main: owner-local-safe-sync-a1b9aef\ne779fc42612f235bd54eb63bda7c70fff6e6a5d0\tstash@{24}\tOn main: owner-local-safe-sync-8050bd7\n482621bea42de5ef0d58fba8d2f763ac8f9f6da8\tstash@{25}\tOn main: owner-local-safe-sync-9dd0b09\nb1ed6766a3f97cfae6436a1b74b4f20bdf8d5bf3\tstash@{26}\tOn main: owner-local-safe-sync-07a63c4\n5a040105e061e75997983afe3a738e0d8f2bbc9c\tstash@{27}\tOn main: owner-local-safe-sync-95d13ff\nf6fa07baadf9fec78850814af3da25bba274ea86\tstash@{28}\tOn main: owner-local-safe-sync-de922cd\nb3d976087e523f5411fd580b4f52fb1765448eac\tstash@{29}\tOn main: owner-local-safe-sync-22a1dee\n4c7d52f61a36d510191f9f89890cf8ba80e7433d\tstash@{30}\tOn main: owner-local-safe-sync-f8b921c\nf5ff35d0ec32e9343131cfa74447793649e292fa\tstash@{31}\tOn main: owner-local-safe-sync-114d3a9\na4e8c86b0eb5eb1098fb8274c34ade179b8708b2\tstash@{32}\tOn main: owner-local-safe-sync-d4c67f4\n49a72ddf4803714dd40dfe69ba74161a7a12a9b4\tstash@{33}\tOn main: owner-local-safe-sync-f8652a7\n994d323b20b9aac6ea81ad7c97bf0a7a63926106\tstash@{34}\tOn main: owner-local-safe-sync-9667a1c\ncd1fa4cb74a4f70f62788fd56dbc7959e6d5f43a\tstash@{35}\tOn main: owner-local-safe-sync-dffd28d-canonical\nf41eedd2849885b98381d1c04ce22bd5eab8b3e2\tstash@{36}\tOn (no branch): owner-local-safe-sync-dffd28d\n93b5f54525228d14a8bfbad8f792cbcc08099693\tstash@{37}\tOn main: owner-local-safe-sync-b503c25\n89c517df75778c4fb96195788e2c94b341ec5930\tstash@{38}\tOn main: owner-local-safe-sync-929e3fd\na09a4d86b6ec6fea30cf31440dab77fc06fd938c\tstash@{39}\tOn main: owner-local-safe-sync-8685f26\n13c49171a9a6ea198258ccf87135ea9551fda21b\tstash@{40}\tOn main: owner-local-safe-sync-b5a61cf\n02cbbbaebf27bd47895b379ba40d53911781f336\tstash@{41}\tOn main: owner-local-safe-sync-4a68179\n6a0c956d0f2c74bb86557e7bbb1d1c4f9922b82d\tstash@{42}\tOn main: owner-local-safe-sync-8310775\n062ecb0a7ac0b05c7965312205ce40d12b0ab658\tstash@{43}\tOn main: owner-local-safe-sync-db6e839\naeef73fef664226681a5ef4ff225dd26574b18c7\tstash@{44}\tOn main: owner-local-safe-sync-f7c5ba0\n31ab9544ebf0389a9a592e7c429de66f1702bcfc\tstash@{45}\tOn main: owner-local-safe-sync-3801d8c\n0f044d6af102444f467373215d75936ed256d4dd\tstash@{46}\tOn main: owner-local-safe-sync-243739c\na636099bf578a36edafe080552fa7d9e2c0758c0\tstash@{47}\tOn main: owner-local-safe-sync-3f2949d\n6dd8217c73cf0afdaf44a7bafb40c78206cc843f\tstash@{48}\tOn main: owner-local-safe-sync-7c87899\nf3417af0d032d331b492e5e1c26e66ea34bb2a69\tstash@{49}\tOn main: owner-local-safe-sync-8d6616b\nadf3aaa4799fa0f2301b9cca73728ffa514ff0a1\tstash@{50}\tOn main: owner-local-safe-sync-8cc4b22\n9d43f8b7a1c295676e6b9d5ce3da418d737e2989\tstash@{51}\tOn main: owner-local-safe-sync-a3c7ffd\n4f0b38daea3e2c4bbad64f42bd88fcce84f78046\tstash@{52}\tOn main: owner-local-safe-sync-851184c\n91d331cd91de1e92c2397cd326433461ffd35abb\tstash@{53}\tOn main: owner-local-safe-sync-b21bf58\ndc42e4c0df0692800acb7aba3cb819d9105870a2\tstash@{54}\tOn main: owner-local-safe-sync-4ea5f58\n40414eacb243000490a48a4add8c75c276a8c47b\tstash@{55}\tOn main: owner-local-safe-sync-58a5a1b\n2f6bfcc397ed503de29fa2fd677f25893a8a9829\tstash@{56}\tOn main: owner-local-safe-sync-b213fbd\n5a9b2f90289af83336f5c9150f47a69982b20065\tstash@{57}\tOn main: owner-local-safe-sync-dd6f65f\n807bc1eb51f5d76628891a7da28ead65f7471bec\tstash@{58}\tOn main: owner-local-safe-sync-ee2c6d0\n4c8498aa2dee69510ab7ff2894be644af3c2063e\tstash@{59}\tOn main: owner-local-safe-sync-d265865\n407121c574b6d314db25c59cda62bab1638a4923\tstash@{60}\tOn main: owner-local-safe-sync-48ae340\n5858f2a48dbe8d20be5fc9d602b92a57526085f0\tstash@{61}\tOn main: owner-local-safe-sync-6f35b45\n7918591d77c9dad88783f2fd98244a719813c6c0\tstash@{62}\tOn main: owner-local-safe-sync-92c34f7\nd8d86178d0832b5f3d1f33650bbbf532c0e122a2\tstash@{63}\tOn main: owner-local-safe-sync-7783fb9\n3da16538fc6528d6498ad7b4e2eaa8680855a6d6\tstash@{64}\tOn main: owner-local-safe-sync-c147995\nbc19eaafc48770a809a74745208d8f4457187231\tstash@{65}\tOn main: owner-local-safe-sync-7016a98\n39d3ad2f94f04753e36e1daf91b15b7a33832fff\tstash@{66}\tOn main: owner-local-safe-sync-fdd1e53\nab8ff775af61a09afdb16d0c432ff4bc92cc18e1\tstash@{67}\tOn main: owner-local-safe-sync-ac7fb12135bf\nd006f9e3446647a1f422fd8aab03814fd80f3b90\tstash@{68}\tOn main: owner-local-plugin-sync-preserve-4c943b2e7ed8\n882b93db870f37f275bb4b3c014e44827800a6aa\tstash@{69}\tOn main: owner-local-godot-ai-sync-preserve\n2036e54ca81e88a9dc96317ed860af64c3e7379d\tstash@{70}\tOn main: pre-v07-owner-godot-ai-project-settings\n78cb27375bb3e393af99e3f87eb1909b3ea1a7f9\tstash@{71}\tOn main: pre-v04-owner-local-preserve",
+  "stash_inventory_sha256": "9E6915B49919BBA71E8F1A6E201B14B4B9428823A02E0748AE517D9A4EC0E61F"
+}

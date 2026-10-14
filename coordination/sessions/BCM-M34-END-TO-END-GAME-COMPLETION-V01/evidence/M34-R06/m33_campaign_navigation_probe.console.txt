@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://b41edy8ohkeyn - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://scenes/main.tscn:3 - ext_resource, invalid UID: uid://66csd0hftvb2 - using text path instead: res://scripts/game_manager.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+SCRIPT ERROR: Parse Error: Could not find type "AdsService" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/campaign_navigation_controller.gd:36)
+SCRIPT ERROR: Parse Error: Could not find type "StoreService" in the current scope.
+   at: GDScript::reload (res://scripts/campaign/campaign_navigation_controller.gd:37)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://tests/m33_campaign_navigation_probe.gd:0)
+ERROR: Failed to load script "res://tests/m33_campaign_navigation_probe.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M33_NAV PASS: strict full data is available to production navigation
+M33_NAV PASS: campaign manager accepts schema-two state
+M33_NAV PASS: all ordered islands unlock only after the prior 100-level completion
+M33_NAV PASS: final island completion reaches local 100 / global 1000
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+   at: _run (res://tests/m33_campaign_navigation_probe.gd:62)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m33_campaign_navigation_probe.gd:62)

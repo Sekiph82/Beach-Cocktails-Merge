@@ -1,0 +1,159 @@
+{
+  "recorded_utc": "2026-10-14T20:14:04.4094107Z",
+  "canonical_head": "eb05ddc6c48ed700f0bc6ddbf21f533101e305b3",
+  "canonical_status": [
+    "## main...origin/main [behind 3]",
+    " M coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    " M coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    " M coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    " M project.godot",
+    "?? \"coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png\"",
+    "?? \"coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png\"",
+    "?? coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa_initial_headless.txt",
+    "?? coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/",
+    "?? docs/codex-logs/CODEX_LOG_M23_R01_V01.md",
+    "?? f647e4ff-b906-40e7-93f8-3c4b59d95b23.png"
+  ],
+  "tracked_dirty": [
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+      "sha256": "731471296573B2D3CFAFAF7516DFA149D5CE1A639D0DB05BFD53A61D86DE2E34",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+      "sha256": "56518013B4395FD002E0D485C68B6DC9CD41AC8ACBA6A8F5A739F497248FA30F",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+      "sha256": "5034AA86CE34CE29075B60A7F07FC45B8AA80FAA8CEDF63A864BBE002189DEA3",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+      "sha256": "8D8071716DA72F0C2529249B93A2F7C270A3193E6E158390FE19365E493C550C",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+      "sha256": "5A2F2653E0D76DB7BF1BBBE260CF362F2AE50C14ABF4BB474611310BC456CE01",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+      "sha256": "B9E9CF230B72F3969621B3B4F4E4D24BF2CCA890BD95492064557ED4676CADEE",
+      "matches_before": true
+    },
+    {
+      "path": "project.godot",
+      "sha256": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD",
+      "matches_before": true
+    }
+  ],
+  "untracked_files": [
+    {
+      "path": "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png",
+      "bytes": 2824137,
+      "sha256": "87ACDF4CF5F3FE043EF9EE5C2AAF625B5FD0734E10B23C7314326E2FE1645A35",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png",
+      "bytes": 2768479,
+      "sha256": "D8C9A18F7612FF968DD65E7B8E1ADAC1A2AE145BAB79A6432B60DC90AABE5ADB",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa_initial_headless.txt",
+      "bytes": 322,
+      "sha256": "E2E53A81B0690E3641346E4F0DE57ED0105D219BE3680CD81F753BF9AF2DF534",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/00_initial_live_frame.png",
+      "bytes": 2252450,
+      "sha256": "10A85EA67B48811720A5AAF44BEEE5F1F7A7D97D9D6930FF959EC3330F61B546",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/01_after_level_click.png",
+      "bytes": 1666283,
+      "sha256": "3876CA176CFD32AC903C47FC88FD86D7512A2A8A28D9908BC89D0ED25D03F0CA",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/02_after_home_play.png",
+      "bytes": 2231758,
+      "sha256": "964DCD2ED6EEA5D2E6A7EE9FA7954559545E8C2359A635F347634EC744F6392B",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/03_baseline_gameplay.png",
+      "bytes": 734398,
+      "sha256": "9AF88F59B6E22473A4474BB1F451466C1ABB794E31C265F738692BDC375B57E5",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/04_baseline_gameplay_real.png",
+      "bytes": 1668846,
+      "sha256": "52C4918ED6D9A6AAB822FC266A388D09238A4AF97F209EA2CA2222EF0ACFF3EC",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_00.png",
+      "bytes": 1679228,
+      "sha256": "46E85EF216679F27A024E21A971AFC0FF9A514ED1A40E136274315C46A9402B4",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_01.png",
+      "bytes": 1677201,
+      "sha256": "1A2A5CF8140FD2110CE50C092D086B2B2765EC97A85BB337A7F8C3A1D46DD32B",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_02.png",
+      "bytes": 1677974,
+      "sha256": "BF8546B531C8D491AB7B51C772411DB7F2CA745D0747FAAAD80C425168CC8E00",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_03.png",
+      "bytes": 1678214,
+      "sha256": "9AE79BF8771B98C8CFDFD02CDC3D8CEC571CB03C5A2138584CBFE81EA6E3A528",
+      "matches_before": true
+    },
+    {
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_04.png",
+      "bytes": 1677883,
+      "sha256": "35001D297290EBC2F6F13D4CDDB9A7E5B2B89EA53A1586D00CA65A3E2189602B",
+      "matches_before": true
+    },
+    {
+      "path": "docs/codex-logs/CODEX_LOG_M23_R01_V01.md",
+      "bytes": 1325,
+      "sha256": "128E4FB22FFB962CEF4F2A3941EA7FF3157F743DBAC186D8E2D6C40C5F0A801B",
+      "matches_before": true
+    },
+    {
+      "path": "f647e4ff-b906-40e7-93f8-3c4b59d95b23.png",
+      "bytes": 2119556,
+      "sha256": "09E69A503E29EEFCF25CB023A62BFD9D0F74F8ECEC90F95F7519868EAEF53EEF",
+      "matches_before": true
+    }
+  ],
+  "tasks_sha256": "AB9A8C81D41C4595349A80507E31A611A79DD38848E2DCFEC73E02F7DA01CD9E",
+  "expected_tasks_sha256": "AB9A8C81D41C4595349A80507E31A611A79DD38848E2DCFEC73E02F7DA01CD9E",
+  "project_godot_sha256": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD",
+  "expected_project_godot_sha256": "7174030E8BC658C7E0346DD328917905EB36AAFEB7C70D02C6D5B2A00F92D1BD",
+  "stash_count": 72,
+  "expected_stash_count": 72,
+  "stash_inventory_sha256": "9E6915B49919BBA71E8F1A6E201B14B4B9428823A02E0748AE517D9A4EC0E61F",
+  "expected_stash_inventory_sha256": "9E6915B49919BBA71E8F1A6E201B14B4B9428823A02E0748AE517D9A4EC0E61F",
+  "volume_c_free_bytes": 90481975296,
+  "all_owner_checks_pass": true
+}

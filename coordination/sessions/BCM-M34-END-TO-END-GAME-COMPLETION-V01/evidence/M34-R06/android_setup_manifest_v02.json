@@ -1,0 +1,97 @@
+{
+  "captured_utc": "2026-10-14T20:16:41.6227276Z",
+  "install_root": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2",
+  "java_home": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\jdk17\\jdk-17.0.20.1+1",
+  "android_sdk": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk",
+  "java_version": "17.0.20.1+1",
+  "android_cmdline_tools_revision": "22.0",
+  "sdk_packages": [
+    "platform-tools 37.0.1",
+    "platforms;android-35",
+    "build-tools;35.0.1",
+    "ndk;28.1.13356709",
+    "cmake;3.10.2.4988404"
+  ],
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "template_version_file": "4.7.2.stable",
+  "templates": [
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable\\android_debug.apk",
+      "bytes": 127260725,
+      "sha256": "59E0073F0FA59F552684A861D8F4266B0B34B488A140D6657EAC7DD70D1A0A0D"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable\\android_release.apk",
+      "bytes": 104803333,
+      "sha256": "6D1BB2CFA126A1B1C87E064A35B3CBD181BEF0EC784DEC1EFD1D64DFFA8BE6CB"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable\\android_source.zip",
+      "bytes": 214418211,
+      "sha256": "A15416B528EFB0A19A7D187E4D9F4E5336D0689144B111329FB4BD12C4447AD3"
+    }
+  ],
+  "accepted_sdk_license_files": [
+    {
+      "name": "android-googletv-license",
+      "bytes": 42,
+      "sha256": "2F94851435FCFA2CADED7E8B5918AEEF8B66E469A82B7888189783E41DAA5AB6"
+    },
+    {
+      "name": "android-googlexr-license",
+      "bytes": 42,
+      "sha256": "3E7C804ABD463D05F092D3B63294BF2D0DFA8F8EF3A9FD9A3A86B3472297984A"
+    },
+    {
+      "name": "android-sdk-arm-dbt-license",
+      "bytes": 42,
+      "sha256": "2C0FFE53FB4C22628D6E012E025687D28E66A6415CB33B37B8120FFFCE0E4E34"
+    },
+    {
+      "name": "android-sdk-license",
+      "bytes": 42,
+      "sha256": "70FD2713CA385FD6B14C1D5577CE8349996699186A3A216E9643A09098C26DCA"
+    },
+    {
+      "name": "android-sdk-preview-license",
+      "bytes": 42,
+      "sha256": "D4CFD599461E883F49AFE061F4A9E2D4583D5DC420D7ECEFA8AA886A71845522"
+    },
+    {
+      "name": "google-gdk-license",
+      "bytes": 42,
+      "sha256": "538B504AED767C47FE8F43B74F6AD92337FD6478AD2ADA21268F24D27B873CB8"
+    },
+    {
+      "name": "microxr-sysimage-license",
+      "bytes": 42,
+      "sha256": "34EE20F9D5273E38D8CA1F62B8970B25AD22C85A4DA15B7BDE3EC817360904BA"
+    },
+    {
+      "name": "mips-android-sysimage-license",
+      "bytes": 42,
+      "sha256": "1415147BEEAB3758E63AF49EB5FBA304BEF96E1E0D44C2D5784BD67F908EFABE"
+    }
+  ],
+  "download_verifications": [
+    {
+      "status": "verified",
+      "sha256": "e53a79c3c3d86865bd7e787903884331068e71321714ffd44f145785affc7cb0",
+      "artifact": "Temurin JDK 17.0.20.1+1"
+    },
+    {
+      "status": "verified",
+      "sha256": "90ae805d20434428bffcb699c290860f19bb5f66a67e6b330067e3de801fb04a",
+      "artifact": "Android command-line tools 15859902"
+    },
+    {
+      "status": "verified",
+      "sha512": "ca4d71c4d7b81dfc15d1a98baa07534aa95b03fdda78a0075b06672e1648d2e5f40980c9adc28d23e1b92e732ee7bf3461997aa804af74ec2fcd7a93ccb84079",
+      "artifact": "Godot 4.7.2 export templates"
+    }
+  ],
+  "global_path_changed": false,
+  "android_export_preset_present": false,
+  "installer_cleanup": "blocked by execution policy; exact files retained",
+  "free_bytes_after_setup": 90264719360
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "test": "tests/m34_daily_rewards_probe.gd",
+    "exit_code": -1,
+    "pass_lines": 35,
+    "uid_warnings": 2,
+    "result": "FAIL"
+  },
+  {
+    "test": "tests/m34_economy_closure_probe.gd",
+    "exit_code": 0,
+    "pass_lines": 24,
+    "uid_warnings": 0,
+    "result": "PASS"
+  },
+  {
+    "test": "tests/m33_campaign_navigation_probe.gd",
+    "exit_code": -1,
+    "pass_lines": 4,
+    "uid_warnings": 2,
+    "result": "FAIL"
+  }
+]
