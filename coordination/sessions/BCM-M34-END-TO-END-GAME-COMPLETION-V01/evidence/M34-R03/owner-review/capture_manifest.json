@@ -1,0 +1,150 @@
+{
+  "capture_origin": "Godot 4.7.2 production main scene at the requested desktop window outputs; no image compositing",
+  "captures": [
+    {
+      "image_source_size": [
+        390,
+        844
+      ],
+      "moves_label": "MOVES 128",
+      "moves_remaining": 128,
+      "name": "390x844_before_touch",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/390x844_before_touch.png",
+      "physical_device": false,
+      "state": "before_touch",
+      "tutorial_visible": false,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "image_source_size": [
+        390,
+        844
+      ],
+      "moves_label": "MOVES 127",
+      "moves_remaining": 127,
+      "name": "390x844_after_touch",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/390x844_after_touch.png",
+      "physical_device": false,
+      "state": "after_touch",
+      "tutorial_visible": false,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "image_source_size": [
+        390,
+        844
+      ],
+      "moves_label": "MOVES 1",
+      "moves_remaining": 1,
+      "name": "390x844_low_moves",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/390x844_low_moves.png",
+      "physical_device": false,
+      "state": "low_moves",
+      "tutorial_visible": false,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "image_source_size": [
+        390,
+        844
+      ],
+      "moves_label": "MOVES 128",
+      "moves_remaining": 128,
+      "name": "390x844_tutorial",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/390x844_tutorial.png",
+      "physical_device": false,
+      "state": "tutorial",
+      "tutorial_visible": true,
+      "viewport": [
+        390,
+        844
+      ]
+    },
+    {
+      "image_source_size": [
+        432,
+        960
+      ],
+      "moves_label": "MOVES 128",
+      "moves_remaining": 128,
+      "name": "432x960_before_touch",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/432x960_before_touch.png",
+      "physical_device": false,
+      "state": "before_touch",
+      "tutorial_visible": false,
+      "viewport": [
+        432,
+        960
+      ]
+    },
+    {
+      "image_source_size": [
+        432,
+        960
+      ],
+      "moves_label": "MOVES 127",
+      "moves_remaining": 127,
+      "name": "432x960_after_touch",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/432x960_after_touch.png",
+      "physical_device": false,
+      "state": "after_touch",
+      "tutorial_visible": false,
+      "viewport": [
+        432,
+        960
+      ]
+    },
+    {
+      "image_source_size": [
+        432,
+        960
+      ],
+      "moves_label": "MOVES 1",
+      "moves_remaining": 1,
+      "name": "432x960_low_moves",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/432x960_low_moves.png",
+      "physical_device": false,
+      "state": "low_moves",
+      "tutorial_visible": false,
+      "viewport": [
+        432,
+        960
+      ]
+    },
+    {
+      "image_source_size": [
+        432,
+        960
+      ],
+      "moves_label": "MOVES 128",
+      "moves_remaining": 128,
+      "name": "432x960_tutorial",
+      "path": "res://coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R03/owner-review/432x960_tutorial.png",
+      "physical_device": false,
+      "state": "tutorial",
+      "tutorial_visible": true,
+      "viewport": [
+        432,
+        960
+      ]
+    }
+  ],
+  "failures": [],
+  "logical_viewport": [
+    720,
+    1280
+  ],
+  "owner_visual_review": "PENDING",
+  "physical_device": false,
+  "renderer": "Windows",
+  "result": "PASS"
+}
