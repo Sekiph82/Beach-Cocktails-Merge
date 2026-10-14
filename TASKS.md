@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Advance native Android rewarded-ad integration and device-readiness.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-006 — Codex runs R06 Ads SSV secure trust blueprint and Android setup preflight WITHOUT downloading 8-15 GiB toolchain absent owner approval.
+- Next Task/Action: BCM-M34-006 — Codex executes R06 V02: forensically verify and remove only unused BCM Temp/AppData/worktree/cache data, measure actual reclaimed bytes, then install bounded Android tools if >=25 GiB remains free.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M34-R05 bounded independent audit PASS. Canonical Desktop safely synced pre-publication to 63c8633 with 7 tracked/15 untracked owner files preserved and external backup; newer remote commits not yet synced. AdMob v7 SSV API static evidence PASS, no backend/native device verification. Android JDK/SDK/NDK/templates absent; estimated 8-15 GiB install requires OWNER APPROVAL. Daily/Economy/M33 assertions 38/24/17 builder PASS; IAP, 23 KEEP media, UID warnings, M33 human fairness and physical device gates open.
+- Progress: R05 safe Desktop sync and evidence audit PASS, native ads still blocked. Owner reports C: free space decreased approximately 200 GB to 81.2 GB and NOW AUTHORIZES proved-unused BCM Temp/AppData/worktree cleanup BEFORE approved Android development tool installation. Preserve seven owner-dirty tracked files, 15 untracked owner files, 69 existing stashes and R05 sole recovery backup. No indiscriminate deletions, verify disk bytes and reserve >=25 GiB after tools install. R06 V02 supersedes earlier no-install hold; no native ads payouts until SSV/backend/device proven.
 
 ## Blockers/Waits
 
