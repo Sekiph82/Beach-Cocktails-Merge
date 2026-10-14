@@ -1,0 +1,30 @@
+{
+  "work_item": "BCM-M34-R04-001",
+  "inspection_scope": "read-only standard install paths, commands on PATH, Godot template directory",
+  "godot": {
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "console_executable": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.7.2-stable_win64_console.exe"
+  },
+  "android_export_templates": {
+    "directory": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable",
+    "version_file": "4.7.2.stable",
+    "present": ["web_debug.zip", "web_dlink_debug.zip", "web_dlink_nothreads_debug.zip", "web_dlink_nothreads_release.zip", "web_dlink_release.zip", "web_nothreads_debug.zip", "web_nothreads_release.zip", "web_release.zip"],
+    "android_template": "ABSENT"
+  },
+  "android_components": {
+    "jdk17": "ABSENT at standard locations; java command absent",
+    "android_sdk": "ABSENT at standard locations",
+    "platform_tools_adb": "ABSENT; adb command absent",
+    "build_tools_35_0_1": "ABSENT",
+    "platform_android_35": "ABSENT",
+    "cmdline_tools": "ABSENT; sdkmanager command absent",
+    "ndk_28_1_13356709": "ABSENT",
+    "cmake_3_10_2_4988404": "ABSENT",
+    "gradle": "ABSENT; gradle command absent",
+    "export_presets_cfg": "ABSENT"
+  },
+  "device": {"adb_available": false, "device_verified": false, "result": "NOT_DEVICE_VERIFIED"},
+  "installation": {"attempted": false, "reason": "The required SDK command-line bootstrap, Android platform tools, NDK, CMake, and Android export template are not installed. The SDK/NDK/template downloads are large; no unapproved large download or license-acceptance step was initiated. No global PATH, registry, other project, or Desktop path was changed."},
+  "official_godot_4_7_requirements": ["OpenJDK 17", "Android SDK Platform-Tools 35.0.0 or later", "Build-Tools 35.0.1", "Platform 35", "Command-line Tools latest", "CMake 3.10.2.4988404", "NDK r28b 28.1.13356709", "Godot 4.7.2 Android export templates"],
+  "source": "https://docs.godotengine.org/en/4.7/tutorials/export/exporting_for_android.html"
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "m34_daily_rewards_probe",
+    "exit": 0,
+    "output": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R04\\m34_daily_rewards_probe.stdout.txt"
+  },
+  {
+    "name": "m34_economy_closure_probe",
+    "exit": 0,
+    "output": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R04\\m34_economy_closure_probe.stdout.txt"
+  },
+  {
+    "name": "m33_campaign_navigation_probe",
+    "exit": 0,
+    "output": "C:\\Users\\sekip\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R04\\m33_campaign_navigation_probe.stdout.txt"
+  }
+]

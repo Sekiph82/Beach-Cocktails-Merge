@@ -1,0 +1,37 @@
+{
+  "work_item": "BCM-M34-R04-002/003",
+  "repository": "https://github.com/godot-sdk-integrations/godot-admob",
+  "release": "v7.0",
+  "tag_commit": "4b4ddceab0be81f0dcb12a6313038dba6cf9eacf",
+  "release_date": "2026-05-27",
+  "godot_compatibility_claim": "Release says upgraded to Godot 4.7 and tested against/supports Godot 4.7.",
+  "asset": {
+    "name": "AdmobPlugin-Android-v7.0.zip",
+    "url": "https://github.com/godot-sdk-integrations/godot-admob/releases/download/v7.0/AdmobPlugin-Android-v7.0.zip",
+    "size_bytes": 265845,
+    "published_sha256": "ce38b75aeb4bb870fda8b74e1513d807696d8485d237c263b7b7a9613493aee8",
+    "downloaded_sha256": "ce38b75aeb4bb870fda8b74e1513d807696d8485d237c263b7b7a9613493aee8",
+    "inspection_path_outside_repository": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R04-Plugin-Inspection\\AdmobPlugin-Android-v7.0.zip",
+    "sha256_match": true
+  },
+  "archive_contents": {
+    "summary": "Godot GDScript wrapper and model/config files, plus AdmobPlugin-debug.aar and AdmobPlugin-release.aar.",
+    "archive_license_file": false,
+    "aar_contents_checked": ["AndroidManifest.xml", "classes.jar", "res/layout/native_ad.xml", "META-INF/com/android/build/gradle/aar-metadata.properties"],
+    "google_mobile_ads_dependency_version": "NOT_ESTABLISHED from the ZIP alone; no Maven coordinate/build configuration was disclosed by inspected package metadata; no Gradle export was possible.",
+    "published_license": "MIT at the v7.0 source tag; retain copyright and permission notices if plugin source is integrated."
+  },
+  "reward_signal": {
+    "signal": "rewarded_ad_user_earned_reward(ad_info, reward_data)",
+    "reward_data": "RewardItem exposes amount and type.",
+    "server_verifiable_unique_receipt": "NOT_EXPOSED by the inspected GDScript signal contract.",
+    "integration_disposition": "NOT_INTEGRATED; cannot bind the client earned event to the existing receipt-required, duplicate-protected economy contract without a trusted unique receipt/verification design."
+  },
+  "issue_124": {
+    "url": "https://github.com/godot-sdk-integrations/godot-admob/issues/124",
+    "status": "OPEN; labeled reported bug / not investigated at inspection time",
+    "report": "One user reports Android v7.0 failing to initialize on Godot 4.7; reporter later says the AAR was not found until manually copied into android/build/bin.",
+    "interpretation": "A reported issue and an author workaround, not a confirmed general root cause or validation of this project export."
+  },
+  "integration": {"project_files_changed": false, "production_ids_enabled": false, "banner_interstitial_enabled": false, "adapter_integrated": false, "native_export_validated": false, "device_verified": false}
+}
