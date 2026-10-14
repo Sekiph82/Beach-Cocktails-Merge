@@ -47,12 +47,6 @@ This version records work performed after the immutable `CODEX_LOG_M34_R06_V02_D
 
 ## Final repository state
 
-Correction commit: pending.
-
-Final local HEAD: pending.
-
-Final `origin/main`: pending.
-
-Final `git ls-remote origin refs/heads/main`: pending.
+Correction evidence commit: `6c5fef8` (`docs(m34): record R06 Android setup completion`). This versioned builder log is a separate documentation-only followup. The final published `main` SHA and the remote/local equality check are reported in the task handoff.
 
 Builder evidence is not independent acceptance. Stop marker: `AWAITING_GPT_M34_R06V02_DISK_RECOVERY_ANDROID_SETUP_INDEPENDENT_AUDIT`.
