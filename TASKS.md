@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-005 — Expand evidence-backed project cleanup and confirm remaining unverified integrations.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-008 — Codex implements owner-locked Daily Rewards (00:00 UTC, slot3 +40 Coins) via M34-R01 prompt and provides focused evidence for GPT audit.
+- Next Task/Action: BCM-M34-008 — Codex performs R02 reconciliation of stale Daily Rewards JSON and source-of-truth, and investigates Godot probe cleanup warnings.
 - Required Actor: CODEX / OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M34 independent audit PARTIAL PASS. OWNER NOW LOCKED Daily reset 00:00 UTC and slot3 +40 Coins, removing the final Daily Rewards design ambiguity. Daily slots: free 40 Coins, verified ad +20 Energy, verified ad +40 Coins, verified ad +2 Gems, verified ad +80 Coins. Claims implementation pending; no rewarded grants without real SDK completion. MOVES owner visual review, broader safe cleanup, native ads/IAP, Desktop overlap sync, M33-004 fairness remain open.
+- Progress: M34-R01 independent CONDITIONAL PASS: five approved Daily Rewards and UTC 00:00 ledger behavior implemented with focused builder tests PASS. Canonical data/campaign/daily_rewards.json is stale (OWNER_DECISION_REQUIRED; slot3 disabled) while runtime hardcodes +40 Coins; R02 config reconciliation required. Godot economy probe reports 15 ObjectDB leaks/3 resources; review needed. Native ads and device verification pending. M34-005 asset inventory 26 REVIEW, zero new removals. MOVES owner visuals, IAP, Desktop overlap and M33-004 fairness remain open.
 
 ## Blockers/Waits
 
@@ -1370,5 +1370,5 @@ These are presentation tiers only and never influence gameplay values.
 - [~] BCM-M34-005 — Expand proven-unused assets/dead-code/local-import inventory and safe cleanup beyond one removed catalog.
 - [~] BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated.
 - [~] BCM-M34-007 — Complete gated native billing/receipt verification; currently blocked until approved catalog/backend.
-- [~] BCM-M34-008 — Energy and currency implemented; owner-locked five Daily claims with UTC reset/slot3 40 Coins awaiting Codex execution.
+- [~] BCM-M34-008 — Owner-locked UTC Daily Rewards R01 conditionally passed; fix stale JSON authority and probe warnings in R02 before closure.
 - [~] BCM-M34-009 — Focus removed and old inventory migrated; MOVES frame owner visual acceptance pending.
