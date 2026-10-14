@@ -73,9 +73,9 @@
 - Intended task-owned changes: this log; `tests/m34_r03_owner_review_capture.gd`; `evidence/M34-R03/cleanup_review_r03.csv`; `evidence/M34-R03/script_module_scan_r03.csv`; the four probe/capture run logs; `evidence/M34-R03/owner-review/` manifest and eight PNGs. No `TASKS.md`, production scenes, accepted art, `project.godot`, economy, Daily Rewards JSON, save data, cache, or owner-local work was modified.
 - Child commits: `bdb1190f` — owner-review probe and eight captures; `7bd237820dce62a879ccd31d22d8e61a9adcd36f` — cleanup/script review inventory and focused probe logs.
 - Start HEAD: `741e251ecd6870dbf22b5f2b883c65a1d2532068`.
-- End HEAD and final commit SHA: recorded after the master-log commit below.
-- Final local `HEAD`, `origin/main`, and `git ls-remote origin refs/heads/main`: recorded after safe push below.
-- Canonical Desktop synchronization remains a separate owner reconciliation gate. R03 did not fetch, merge, stash, alter, or otherwise synchronize the Desktop checkout. Current release readiness remains blocked on owner review of the captures, the accepted-scene UID decision, Android environment/artifact validation, and native-device ad/store acceptance.
+- Task-content publication SHA: `831be253a1f99aba56e7a1fab203a013940202bd`.
+- After pushing that changeset, verified `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `831be253a1f99aba56e7a1fab203a013940202bd`; ahead/behind was `0/0`; `git diff --check` and `git diff --cached --check` passed. A final log-only amendment is being published after this verification snapshot; its resulting HEAD is reported in the task handoff.
+- Canonical Desktop read-only snapshot (no fetch or mutation): branch `main`, local HEAD `5cff38a7b360b917739616aaebf79c13987b8d8c`, local `origin/main` ref `831be253a1f99aba56e7a1fab203a013940202bd`, status `behind 37`. It has tracked owner modifications in six M21/M22 evidence JSONs and `project.godot`, plus untracked M21 screenshots, M23 evidence/logs, and `f647e4ff-b906-40e7-93f8-3c4b59d95b23.png`. None were touched. This owner-dirty, behind checkout remains a separate reconciliation gate and was not synchronized. Current release readiness remains blocked on owner review of the captures, the accepted-scene UID decision, Android environment/artifact validation, and native-device ad/store acceptance.
 
 ## Builder stop marker
 
