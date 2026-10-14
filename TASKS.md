@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-005 — Expand evidence-backed project cleanup and confirm remaining unverified integrations.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-008 — Codex performs R02 reconciliation of stale Daily Rewards JSON and source-of-truth, and investigates Godot probe cleanup warnings.
-- Required Actor: CODEX / OWNER
+- Next Task/Action: BCM-M34-009 — Owner reviews MOVES frame and tutorial HUD captures; plan safe Android test environment and canonical worktree sync.
+- Required Actor: CHATGPT / OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M34-R01 independent CONDITIONAL PASS: five approved Daily Rewards and UTC 00:00 ledger behavior implemented with focused builder tests PASS. Canonical data/campaign/daily_rewards.json is stale (OWNER_DECISION_REQUIRED; slot3 disabled) while runtime hardcodes +40 Coins; R02 config reconciliation required. Godot economy probe reports 15 ObjectDB leaks/3 resources; review needed. Native ads and device verification pending. M34-005 asset inventory 26 REVIEW, zero new removals. MOVES owner visuals, IAP, Desktop overlap and M33-004 fairness remain open.
+- Progress: M34-R03 source/evidence AUDITED PASS (investigation only). 23 candidates KEEP, 0 deletes, 64,001,602 bytes reviewed; expanded unused asset/code/import cleanup and export-size proof remain open. Daily/Economy/10-island/navigation/8-frame probes builder PASS, owner visual review pending. UID fallback warnings diagnosed but deferred. Native Ads/IAP/device unverified, canonical Desktop sync owner-dirty and behind. M33-004 human fairness remains OPEN.
 
 ## Blockers/Waits
 
