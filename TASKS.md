@@ -6,13 +6,13 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M34
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
-- Current Task: BCM-M34-001 — Audit and repair end-to-end game feature integration.
+- Current Task: BCM-M34-005 — Expand evidence-backed project cleanup and confirm remaining unverified integrations.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-001 — Codex follows the authoritative updated M34 V03 master including owner decision to remove Focus entirely, frame MOVES, implement locked economy, and complete safe cleanup/ads/IAP integration work.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M34-005 — Continue safe asset/code/import audit; collect owner MOVES-frame visual feedback and resolve Daily slot3 and reset-policy decisions separately.
+- Required Actor: CODEX / OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner cancelled Focus booster and approved BCM starting Energy100/Coins100/Gems5, energy20 per attempt, +1/3min, refill25 Gems, verified ad+20, star coins20/30/40, every fifth 3star+1 Gem, island+200 Coins/+10 Gems. Remove Focus Shop/UI/logic without damaging saves; MOVES gets themed frame. Daily slot3 replacement OWNER_REQUIRED, no Focus reward. M33-004 fairness QA remains open.
+- Progress: Independent M34 V01 PARTIAL PASS: core Energy/Coin/Gem rules, no active Focus and framed MOVES implemented; bounded Godot probes builder PASS. M34-005 cleaned only one 359-byte catalog, wider unused asset/cache/code cleanup OPEN. M34-004/009 owner visuals pending; ads native SDK not installed/device-verified; IAP live blocked; Daily claims disabled pending reset and slot3 ruling; canonical Desktop overlap sync pending. M33-004 physical fairness remains open.
 
 ## Blockers/Waits
 
@@ -1363,12 +1363,12 @@ These are presentation tiers only and never influence gameplay values.
 
 ### M34 — End-to-end game integration completion
 
-- [~] BCM-M34-001 — Audit and repair complete player journey, campaign, shop, boosts and tutorial integration.
-- [ ] BCM-M34-002 — Verify production progression, save and representative nine-island gameplay.
-- [ ] BCM-M34-003 — Validate Coins/Gems/Energy, Daily Rewards and remaining booster transaction integrity; remove Focus.
+- [x] BCM-M34-001 — Audit and repair complete player journey, campaign, shop, boosts and tutorial integration (bounded integration audit).
+- [x] BCM-M34-002 — Verify bounded production progression, save and representative nine-island gameplay (human fairness still M33-004).
+- [x] BCM-M34-003 — Validate bounded Coins/Gems/Energy transactions and remove Focus; Daily rewards remain separate M34-008 gate.
 - [ ] BCM-M34-004 — Validate tutorial, usability and accessibility regressions.
-- [ ] BCM-M34-005 — Inventory and safely clean provably unused tracked game assets, dead code, modules and orphan import metadata.
-- [ ] BCM-M34-006 — Integrate guarded Android/iOS ads and opt-in rewarded video services with SDK provenance and consent.
-- [ ] BCM-M34-007 — Build guarded Google Play Billing/Apple StoreKit purchase infrastructure and verified entitlement boundary.
-- [ ] BCM-M34-008 — Implement owner-approved BCM energy and numeric economy rewards; Daily slot3 replacement awaits owner ruling.
-- [ ] BCM-M34-009 — Remove Focus fully, migrate its old inventory safely and frame MOVES display in owner-accepted HUD.
+- [~] BCM-M34-005 — Expand proven-unused assets/dead-code/local-import inventory and safe cleanup beyond one removed catalog.
+- [~] BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated.
+- [~] BCM-M34-007 — Complete gated native billing/receipt verification; currently blocked until approved catalog/backend.
+- [~] BCM-M34-008 — Energy and approved currency rewards implemented; Daily reset and slot3 still owner-gated.
+- [~] BCM-M34-009 — Focus removed and old inventory migrated; MOVES frame owner visual acceptance pending.
