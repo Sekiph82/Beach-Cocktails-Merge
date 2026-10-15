@@ -152,7 +152,7 @@ function Test-R15AdversarialGate {
 	$base = [pscustomobject]@{
 		telemetry = [pscustomobject]@{
 			action_log = @([pscustomobject]@{step=0;lane_index=3;target_instance_id=7})
-			contact_events = @([pscustomobject]@{frame=1;source_instance_id=7;target_instance_id=8;source_level=1;target_level=1})
+			contact_events = @([pscustomobject]@{frame=1;source_instance_id=7;target_instance_id=8;source_level=1;target_kind="drink";target_name="Drink_L01";target_level=1})
 			merge_events = @()
 			outcome = "danger"; terminal_reason = "TABLE_DANGER"; normal_objective_complete=$false; vip_complete=$false
 			normal_orders_completed=@{}; normal_orders_remaining=@{"6"=1}; vip_state=@{}; moves_used=1; moves_remaining=9; merge_count=0; contact_count=1
