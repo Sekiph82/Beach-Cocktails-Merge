@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Advance native Android rewarded-ad integration and device-readiness.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-006 — Codex executes R07 post-Android-install regression recovery: current Daily and navigation probes FAIL; restore green then attempt nonproduction debug APK.
+- Next Task/Action: BCM-M34-006 — Codex executes R08 Android physical-device smoke (if authorized), isolated AdMob native feasibility, safe APK size investigation and fresh import-before-probes regression.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R06 V02 corrected independent audit PARTIAL PASS: Android JDK17/SDK35/NDK/CMake/Godot4.7.2 templates installed; 10 clean worktrees and 6 caches safely removed, owner files preserved. Current newer tests: Economy 24/24 PASS, Daily 35 then FAIL, M33 navigation 4 then FAIL due unresolved script classes/parse issue; clean editor import ends with access violation. R07 remediation published. Production ads/SSV/IAP and device proof blocked. MOVES/tutorial accepted, 23 media KEEP.
+- Progress: Independent R07 bounded audit PASS: fresh import before script probes restores Daily 38/38, Economy 24/24 and M33 Navigation 17/17; startup smoke PASS; editor shutdown crash not reproduced. Android JDK/SDK/templates installed. Nonproduction 1,353,331,251-byte APK exported and debug signature verified, NOT installed or device tested. Native AdMob/SSV/IAP remain unverified; production payouts disabled. MOVES/tutorial owner approved, owner-local files preserved; export diagnostics include missing icon, build-tools fallback and UID/translation warnings. R08 master published.
 
 ## Blockers/Waits
 
