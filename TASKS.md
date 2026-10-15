@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex runs R17 Tiki L30 error triage, append-only pilot evidence integrity and bounded multi-island production-physics qualification.
+- Next Task/Action: BCM-M33-004 — Codex implements R18 development-only visual/manual Level Qualification Studio with production physics, immutable evidence, and headless regressions; GUI owner acceptance pending.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R16 independent evidence audit ACCEPTED as bounded pilot, NOT 1000-level reachability: 12 base attempts across six levels/four islands/two policies, two WIN on Sunny Cove L1 only (9 shots, cap16), nine BUDGET_UNKNOWN, one Tiki L30 subprocess ERROR; two same-seed win replays observed. Static validation 1000/1000 and ten builder regression groups PASS; earlier partial traces overwritten in report recovery. R17 repairs trace immutability and diagnoses exit -1 before more bounded samples. M33-004 OPEN; preserve 8 tracked and 15 untracked Desktop owner changes. No owner GB-safe delete target proven.
+- Progress: R17 independent evidence audit: append-only immutable pilot recorder and adversarial checks builder PASS; archived Tiki L30 exit -1 remains unexplained, reproduction BUDGET_UNKNOWN after 24 actions and 8 units objective progress; first qualification Tiki L10 BUDGET_UNKNOWN after 24 actions and zero progress, no further sampling or new wins; ten regressions builder PASS. Brute-force 4T testing paused in favor of manual/visual Godot Level Qualification Studio R18. M33-004 OPEN. Desktop 8 tracked/15 untracked owner paths protected; R13 44,266-byte cleanup deferred, no GB deletions.
 
 ## Blockers/Waits
 
