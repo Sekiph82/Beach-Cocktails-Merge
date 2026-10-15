@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R15-final_l100_seed_34112100_normal_repeat_b",
+  "status": "EXITED",
+  "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+  "started_utc": "2026-10-15T20:04:43.2442890Z",
+  "finished_utc": "2026-10-15T20:05:01.3135146Z",
+  "wall_elapsed_ms": 18069,
+  "timeout_seconds": 30,
+  "file_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "root_pid": 26060,
+  "root_identity_verified": true,
+  "task_token": "8298cd7589544e30947163ebd1434cd8",
+  "exit_code": 0,
+  "terminated_processes": [],
+  "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nGame Feel Flow: Initializing...\r\nGFFEffectConfigManager: Registered configs\r\nGame Feel Flow: Registered 31 effects\r\nGame Feel Flow: Ready (31 effects, 15 combos)\r\n[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 100)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 200)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 300)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 400)\r\nOYUN BITTI - Skor: 400\r\nM34_R12_PARITY_PROBE_RESULT=PASS mode=normal frames=979 actions=17 merges=4 wall_usec=16649536\r\n",
+  "stderr": "",
+  "partial_progress": null
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R15-REGRESSION-navigation_17",
+  "status": "EXITED",
+  "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+  "started_utc": "2026-10-15T20:09:46.4419022Z",
+  "finished_utc": "2026-10-15T20:10:55.6073973Z",
+  "wall_elapsed_ms": 69166,
+  "timeout_seconds": 180,
+  "file_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "root_pid": 22520,
+  "root_identity_verified": true,
+  "task_token": "5f355a794dd44a61aefdd37b6f8b0efb",
+  "exit_code": 0,
+  "terminated_processes": [],
+  "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nGame Feel Flow: Initializing...\r\nGFFEffectConfigManager: Registered configs\r\nGame Feel Flow: Registered 31 effects\r\nGame Feel Flow: Ready (31 effects, 15 combos)\r\n[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)\r\nM33_NAV PASS: strict full data is available to production navigation\r\nM33_NAV PASS: campaign manager accepts schema-two state\r\nM33_NAV PASS: all ordered islands unlock only after the prior 100-level completion\r\nM33_NAV PASS: final island completion reaches local 100 / global 1000\r\nM33_NAV PASS: production campaign navigator accepts validated campaign state\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels sunny_cove\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels tiki_island\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels azure_bay\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels coconut_beach\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels sunset_island\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels party_beach\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels frozen_paradise\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels volcano_bay\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels billionaire_island\r\nM33_NAV PASS: production World Map to Island Map exposes first/mid/final levels final_island\r\nM33_NAV PASS: all ten production islands expose playable representative levels\r\nM33_NAV PASS: schema-two save roundtrip preserves campaign and unknown optional M33 field\r\nM33_NAV_RESULT=PASS\r\n",
+  "stderr": "",
+  "partial_progress": null
+}
