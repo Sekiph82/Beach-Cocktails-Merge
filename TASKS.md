@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Advance native Android rewarded-ad integration and device-readiness.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-006 — Codex executes R08 Android physical-device smoke (if authorized), isolated AdMob native feasibility, safe APK size investigation and fresh import-before-probes regression.
+- Next Task/Action: BCM-M34-006 — Codex executes R09 persist slim Android export exclusions, build verified debug APK, investigate bounded Gradle/AdMob and test on authorized device if available.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Independent R07 bounded audit PASS: fresh import before script probes restores Daily 38/38, Economy 24/24 and M33 Navigation 17/17; startup smoke PASS; editor shutdown crash not reproduced. Android JDK/SDK/templates installed. Nonproduction 1,353,331,251-byte APK exported and debug signature verified, NOT installed or device tested. Native AdMob/SSV/IAP remain unverified; production payouts disabled. MOVES/tutorial owner approved, owner-local files preserved; export diagnostics include missing icon, build-tools fallback and UID/translation warnings. R08 master published.
+- Progress: R08 independent audit PASS for bounded evidence: filtered debug APK 301,979,173 bytes vs unfiltered 1,353,363,654 (77.69% smaller), only nonruntime export exclusions; production preset not yet persistent. Daily 38/38, Economy 24/24, M33 Navigation 17/17, smoke PASS after fresh import, repeated after Android texture profile. ADB no device; native AdMob Android Gradle/Maven uncached, no SDK runtime verification, SSV mock only 8/8, production rewarded payouts disabled. Owner files preserved. R09 master ready; IAP and M33 human fairness remain open.
 
 ## Blockers/Waits
 
