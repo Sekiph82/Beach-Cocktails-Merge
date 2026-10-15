@@ -539,9 +539,15 @@ func _assign_missing_stable_instance_ids(manager, state: Dictionary) -> void:
 	if manager.world == null:
 		return
 	for child in manager.world.get_children():
-		if child is Drink and not child.is_queued_for_deletion() and not child.has_meta("m17_instance_id"):
-			child.set_meta("m17_instance_id", int(state["next_drink_instance_id"]))
-			state["next_drink_instance_id"] = int(state["next_drink_instance_id"]) + 1
+		if child is Drink and not child.is_queued_for_deletion():
+			_ensure_stable_instance_id(child, state)
+
+
+func _ensure_stable_instance_id(drink: Drink, state: Dictionary) -> int:
+	if not drink.has_meta("m17_instance_id"):
+		drink.set_meta("m17_instance_id", int(state["next_drink_instance_id"]))
+		state["next_drink_instance_id"] = int(state["next_drink_instance_id"]) + 1
+	return int(drink.get_meta("m17_instance_id"))
 
 
 func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> void:
@@ -554,8 +560,10 @@ func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> v
 		return
 	state["merge_pairs"][pair_key] = true
 	state["merge_count"] = int(state["merge_count"]) + 1
-	var first_stable := mini(_stable_instance_id(a), _stable_instance_id(b))
-	var second_stable := maxi(_stable_instance_id(a), _stable_instance_id(b))
+	var a_stable := _ensure_stable_instance_id(a, state)
+	var b_stable := _ensure_stable_instance_id(b, state)
+	var first_stable := mini(a_stable, b_stable)
+	var second_stable := maxi(a_stable, b_stable)
 	state["merge_events"].append({
 		"frame": int(state["physics_frame_index"]),
 		"first_instance_id": first_stable,
@@ -567,10 +575,12 @@ func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> v
 func _on_drink_contact(body: Node, source: Drink, state: Dictionary) -> void:
 	state["contact_count"] = int(state["contact_count"]) + 1
 	if body is Drink and is_instance_valid(source):
+		var source_id := _ensure_stable_instance_id(source, state)
+		var target_id := _ensure_stable_instance_id(body, state)
 		state["contact_events"].append({
 			"frame": int(state["physics_frame_index"]),
-			"source_instance_id": _stable_instance_id(source),
-			"target_instance_id": _stable_instance_id(body),
+			"source_instance_id": source_id,
+			"target_instance_id": target_id,
 			"source_level": source.level,
 			"target_level": body.level,
 		})
@@ -579,6 +589,7 @@ func _on_drink_contact(body: Node, source: Drink, state: Dictionary) -> void:
 func _sample(manager, state: Dictionary) -> void:
 	if manager.world == null:
 		return
+	_assign_missing_stable_instance_ids(manager, state)
 	var live_count := 0
 	var large_count := 0
 	var occupied_area := 0.0
