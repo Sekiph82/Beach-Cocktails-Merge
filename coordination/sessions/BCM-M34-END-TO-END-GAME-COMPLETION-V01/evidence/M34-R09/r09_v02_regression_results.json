@@ -1,0 +1,71 @@
+{
+  "work_item": "BCM-M34-R09-001..005",
+  "worktree_start_head": "c37ee4cd8b9958d38d7cd745970bd94be2358fe0",
+  "godot": "4.7.2.stable.official.ed1daf0bf",
+  "fresh_editor_import": {
+    "command": "godot --headless --editor --path <isolated-worktree> --quit",
+    "exit_code": 0,
+    "result": "PASS",
+    "warning_summary": [
+      "Three CSV locale labels (active, three, two) have no translation and were ignored.",
+      "WorldMapScene.tscn and main.tscn use text-path fallbacks for stale external-resource UIDs."
+    ],
+    "stdout": "fresh_import_v02.stdout.txt",
+    "stderr": "fresh_import_v02.stderr.txt"
+  },
+  "probes": [
+    {
+      "name": "R09 slim-export dynamic content",
+      "script": "tests/m34_r09_slim_export_content_probe.gd",
+      "result": "PASS",
+      "exit_code": 0,
+      "checks": "1,000 campaign level records, ten canonical islands, world/island map assets, gameplay surfaces, R04 profiles, L01-L12, ApplicationShell, retained contact-sheet source, and no coordination runtime dependency",
+      "stdout": "slim_export_content_probe_v02.stdout.txt",
+      "stderr": "slim_export_content_probe_v02.stderr.txt"
+    },
+    {
+      "name": "Daily Rewards",
+      "script": "tests/m34_daily_rewards_probe.gd",
+      "result": "PASS",
+      "assertions_passed": 38,
+      "exit_code": 0,
+      "stdout": "daily_rewards_v02.stdout.txt",
+      "stderr": "daily_rewards_v02.stderr.txt"
+    },
+    {
+      "name": "Economy closure",
+      "script": "tests/m34_economy_closure_probe.gd",
+      "result": "PASS",
+      "assertions_passed": 24,
+      "exit_code": 0,
+      "stdout": "economy_closure_v02.stdout.txt",
+      "stderr": "economy_closure_v02.stderr.txt"
+    },
+    {
+      "name": "M33 campaign navigation",
+      "script": "tests/m33_campaign_navigation_probe.gd",
+      "result": "PASS",
+      "assertions_passed": 17,
+      "exit_code": 0,
+      "stdout": "m33_navigation_v02.stdout.txt",
+      "stderr": "m33_navigation_v02.stderr.txt"
+    },
+    {
+      "name": "Main-scene startup smoke",
+      "command": "godot --headless --path <isolated-worktree> --quit-after 3",
+      "result": "PASS",
+      "exit_code": 0,
+      "stdout": "startup_smoke_v02.stdout.txt",
+      "stderr": "startup_smoke_v02.stderr.txt"
+    }
+  ],
+  "preservation": {
+    "production_gameplay_data_or_economy_changed": false,
+    "project_godot_final_diff": false,
+    "temporary_import_etc2_setting_restored": true,
+    "editor_generated_gamefeel_uid_rewrite_restored": true,
+    "active_focus_or_timer_added": false,
+    "tasks_md_modified": false,
+    "physical_device_testing": "DEFERRED_BY_OWNER_NOT_DEVICE_VERIFIED"
+  }
+}

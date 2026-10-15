@@ -1,0 +1,41 @@
+{
+  "test_project": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject",
+  "production_project_modified": false,
+  "plugin": "Godot AdMob plugin 7.0 (isolated test project pin)",
+  "gradle": "8.11.1",
+  "test_only": true,
+  "real_ads": false,
+  "google_sample_app_id": "ca-app-pub-3940256099942544~3347511713",
+  "package": "org.example.bcm.r09admobtest",
+  "direct_android_dependencies": [
+    "androidx.appcompat:appcompat:1.7.1",
+    "androidx.lifecycle:lifecycle-process:2.8.3",
+    "com.google.android.gms:play-services-ads:24.9.0"
+  ],
+  "resolved_transitive_evidence": [
+    "androidx.appcompat:appcompat-resources:1.7.1",
+    "com.google.android.gms:play-services-ads-api:24.9.0",
+    "com.google.android.gms:play-services-ads-identifier:18.0.0"
+  ],
+  "measured_selected_module_cache_bytes": 8050246,
+  "cache_measurement_scope": "Sum of local Gradle module files for the six listed direct/transitive coordinate-version directories; excludes Gradle transform cache, wrapper, Android SDK, and other transitive modules.",
+  "android_native_export": {
+    "exit_code": 0,
+    "apk_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject\\r09_v02_evidence\\R09_AdMob_Native_Test.apk",
+    "apk_bytes": 96310569,
+    "apk_sha256": "BEA85F2B25AD5E1EABA7B344863803B8168E259073A122F91406387E537C770F",
+    "package_id": "org.example.bcm.r09admobtest",
+    "apksigner_v2_verified": true,
+    "aapt_badging_exit": 0,
+    "google_ads_manifest_and_classes_packaged": true,
+    "export_warning": "Godot logged that no project icon is configured; exit code was 0 and APK was produced."
+  },
+  "consent_gate": "The isolated harness updates consent info, shows a form when available, and initializes ads only for NOT_REQUIRED or OBTAINED consent.",
+  "currency_reward_grant": false,
+  "device_runtime_ad_playback": "DEFERRED_BY_OWNER_NOT_DEVICE_VERIFIED",
+  "harness_source_sha256": "E6D7B15CDC2C3142DE825A75A70B6495FFC26F222A22327FF1C66A4159191ED3",
+  "limitations": [
+    "Native plugin export and APK packaging passed; SDK initialization, consent UI, and test ad playback were not run on a phone.",
+    "No production IDs, production project integration, purchase flow, or server-side verification acceptance was exercised."
+  ]
+}

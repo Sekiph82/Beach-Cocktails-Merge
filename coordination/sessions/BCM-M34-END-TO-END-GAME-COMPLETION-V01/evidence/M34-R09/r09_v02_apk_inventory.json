@@ -1,0 +1,37 @@
+{
+  "artifact_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-V02-Evidence\\BCM_R09_Slim_Nonshipping_Debug_V02.apk",
+  "git_tracked": false,
+  "size_bytes": 301983466,
+  "sha256": "4E00378E3E47843A1B1E8585EBFE6F5B44B50996AF9F6BD0F7D60A9800FCCCC2",
+  "previous_r09_v01_size_bytes": 301983466,
+  "previous_r09_v01_sha256": "D38AC083933D60E6B18A63CEEF708B3AC6C78575D2F3A99DD01B4C13C7C4694C",
+  "same_debug_signing_certificate_as_v01": true,
+  "apk_entry_count": 2161,
+  "package": "org.example.bcm.r09slimdebug",
+  "version_name": "0.0.0-r09-nonshipping",
+  "target_sdk": 36,
+  "r08_filtered_baseline_bytes": 301979173,
+  "delta_bytes": 4293,
+  "delta_percent": 0.0014,
+  "excluded_content": {
+    "coordination_entries": 0,
+    "ui_source_entries": 0,
+    "contact_sheet_entries": 0
+  },
+  "families": [
+    { "family": "main ApplicationShell scene", "present": 1, "pass": true },
+    { "family": "gameplay surface imported textures", "expected": 10, "present": 10, "pass": true },
+    { "family": "R04 geometry profiles", "expected": 10, "present": 10, "pass": true },
+    { "family": "canonical campaign island level files", "expected": 10, "present": 10, "pass": true },
+    { "family": "additional noncanonical tiki level file", "present": 1, "note": "tiki_island_full.json is separately retained; dynamic CampaignContentManifest validation covers the canonical 1,000 records." },
+    { "family": "cocktail L01-L12 import sidecars", "expected": 12, "present": 12, "pass": true },
+    { "family": "HUD panel imported textures", "expected": 4, "present": 4, "pass": true },
+    { "family": "Android APK signature", "aapt_badging_exit": 0, "apksigner_exit": 0, "schemes_verified": ["v2", "v3"], "pass": true }
+  ],
+  "tooling": {
+    "godot": "4.7.2.stable.official.ed1daf0bf",
+    "build_tools": "36.1.0",
+    "icon_warning": "No project icon configured; Godot emitted its existing warning and export completed. No art was invented.",
+    "hash_note": "APK byte size and semantic inventory match V01, but SHA-256 differs. Both use the same debug signing certificate; byte-for-byte reproducibility was not established."
+  }
+}
