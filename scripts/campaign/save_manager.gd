@@ -40,6 +40,7 @@ func create_default_state() -> Dictionary:
         "retired_focus_inventory": 0,
         "reward_ledger": [],
         "transaction_ledger": [],
+        "energy_attempt_ledger": {},
         "daily_claim_ledger": {},
         "daily_high_water_utc_date": "",
     }
@@ -82,6 +83,8 @@ func validate_state(state: Variant) -> Dictionary:
         for transaction_id in state["transaction_ledger"]:
             if typeof(transaction_id) != TYPE_STRING or str(transaction_id).is_empty():
                 return {"ok": false, "reason": "INVALID_TRANSACTION_ID"}
+    if not _valid_energy_attempt_ledger(state.get("energy_attempt_ledger", {})):
+        return {"ok": false, "reason": "INVALID_ENERGY_ATTEMPT_LEDGER"}
     if not state["daily_claim_ledger"] is Dictionary or not _valid_utc_date_or_empty(str(state["daily_high_water_utc_date"])):
         return {"ok": false, "reason": "INVALID_DAILY_REWARD_STATE"}
     for claim_key in state["daily_claim_ledger"]:
@@ -275,6 +278,8 @@ func migrate_state(state: Dictionary, from_version: int) -> Dictionary:
         migrated["energy_last_update_unix"] = int(Time.get_unix_time_from_system())
     if not migrated.has("energy_regen_remainder_sec"):
         migrated["energy_regen_remainder_sec"] = 0
+    if not migrated.has("energy_attempt_ledger"):
+        migrated["energy_attempt_ledger"] = {}
     if not migrated.has("retired_focus_inventory"):
         migrated["retired_focus_inventory"] = 0
     var legacy_boosters: Dictionary = migrated.get("boosters", {}).duplicate(true)
@@ -390,11 +395,35 @@ func _normalize_m15_fields(value: Variant) -> Variant:
         normalized["daily_claim_ledger"] = {}
     if not normalized.has("daily_high_water_utc_date"):
         normalized["daily_high_water_utc_date"] = ""
+    if not normalized.has("energy_attempt_ledger"):
+        normalized["energy_attempt_ledger"] = {}
     if normalized.has("islands") and normalized["islands"] is Dictionary:
         for island_id in normalized["islands"]:
             if normalized["islands"][island_id] is Dictionary and not normalized["islands"][island_id].has("claimed_star_rewards"):
                 normalized["islands"][island_id]["claimed_star_rewards"] = []
     return normalized
+
+
+func _valid_energy_attempt_ledger(value: Variant) -> bool:
+    if not value is Dictionary:
+        return false
+    for attempt_id in value:
+        var record: Variant = value[attempt_id]
+        if typeof(attempt_id) != TYPE_STRING or str(attempt_id).is_empty() or not record is Dictionary:
+            return false
+        var status := str(record.get("status", ""))
+        if not ["ACTIVE", "WIN", "LOSE", "QUIT"].has(status):
+            return false
+        if typeof(record.get("island_id", null)) != TYPE_STRING or not _is_non_negative_integer(record.get("level_id", null)) or not _is_non_negative_integer(record.get("started_at", null)) or not _is_non_negative_integer(record.get("settled_at", null)):
+            return false
+        var energy_delta: Variant = record.get("energy_delta", null)
+        if (typeof(energy_delta) != TYPE_INT and typeof(energy_delta) != TYPE_FLOAT) or not is_equal_approx(float(energy_delta), float(int(energy_delta))):
+            return false
+        if status == "ACTIVE" and int(record.get("settled_at", -1)) != 0:
+            return false
+        if status != "ACTIVE" and int(record.get("settled_at", 0)) <= 0:
+            return false
+    return true
 
 
 func _valid_utc_date_or_empty(value: String) -> bool:

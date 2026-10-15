@@ -1,0 +1,103 @@
+{
+  "profile_root": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge",
+  "candidate_count": 15,
+  "candidate_bytes": 44266.0,
+  "candidates": [
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save_16457363.json",
+      "kind": "file",
+      "bytes": 6365,
+      "last_write": "2026-10-15T18:40:48.1166733+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save_15287576.json",
+      "kind": "file",
+      "bytes": 6364,
+      "last_write": "2026-10-15T18:45:41.5008294+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save_15553819.json",
+      "kind": "file",
+      "bytes": 6364,
+      "last_write": "2026-10-15T18:46:39.5918915+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_production_routes_save_15657424.json",
+      "kind": "file",
+      "bytes": 6364,
+      "last_write": "2026-10-15T18:49:13.5615717+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_r02_config_872911",
+      "kind": "directory",
+      "bytes": 1635,
+      "last_write": "2026-10-15T18:40:49.4608333+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_r02_config_813013",
+      "kind": "directory",
+      "bytes": 1635,
+      "last_write": "2026-10-15T18:49:14.8279016+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_r01_migrations_878775",
+      "kind": "directory",
+      "bytes": 2692,
+      "last_write": "2026-10-15T18:40:49.4787469+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_r01_migrations_818989",
+      "kind": "directory",
+      "bytes": 2692,
+      "last_write": "2026-10-15T18:49:14.8451225+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_r01_daily_probe_896522",
+      "kind": "directory",
+      "bytes": 832,
+      "last_write": "2026-10-15T18:40:49.4827519+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m34_r01_daily_probe_835257",
+      "kind": "directory",
+      "bytes": 832,
+      "last_write": "2026-10-15T18:49:14.8490122+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\m15_economy_probe",
+      "kind": "directory",
+      "bytes": 1659,
+      "last_write": "2026-10-15T18:50:43.2613915+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-15T18.50.24.log",
+      "kind": "file",
+      "bytes": 880,
+      "last_write": "2026-10-15T18:50:24.5652971+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-15T18.50.37.log",
+      "kind": "file",
+      "bytes": 428,
+      "last_write": "2026-10-15T18:50:37.8732500+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-15T18.50.39.log",
+      "kind": "file",
+      "bytes": 548,
+      "last_write": "2026-10-15T18:50:39.8745795+03:00"
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015\\appdata\\Godot\\app_userdata\\CocktailMerge\\logs\\godot2026-10-15T18.50.42.log",
+      "kind": "file",
+      "bytes": 4976,
+      "last_write": "2026-10-15T18:50:42.5157186+03:00"
+    }
+  ],
+  "preexisting_retained": [
+    "campaign_save.json",
+    "m33_campaign_navigation_probe.json",
+    "m33_campaign_navigation_probe.json.bak",
+    "logs/godot.log"
+  ]
+}

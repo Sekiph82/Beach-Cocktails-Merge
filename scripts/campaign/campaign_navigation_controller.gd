@@ -81,6 +81,10 @@ func _ready() -> void:
 
 
 func _exit_tree() -> void:
+	if _session_bridge != null and _session_bridge.has_method("abandon_active_attempt"):
+		var abandonment: Dictionary = _session_bridge.abandon_active_attempt("NAVIGATION_SCENE_UNLOAD")
+		if bool(abandonment.get("ok", false)) and not bool(abandonment.get("duplicate", false)):
+			_persist_campaign_state()
 	if is_instance_valid(_result_canvas_layer):
 		_result_canvas_layer.queue_free()
 
@@ -175,6 +179,8 @@ func show_world_map() -> bool:
 	if current_view == VIEW_ISLAND_MAP and not active_island_id.is_empty():
 		_restoration_by_island[active_island_id] = _island_map.get_restoration_state()
 	if current_view == VIEW_GAMEPLAY:
+		if _session_bridge != null and _session_bridge.has_method("abandon_active_attempt"):
+			_session_bridge.abandon_active_attempt("RETURN_TO_WORLD_MAP")
 		_dispose_gameplay()
 		if _session_bridge != null:
 			_session_bridge.clear_session()
@@ -646,6 +652,9 @@ func _configure_default_campaign() -> void:
 		return
 	_persistence_enabled = true
 	_bind_persistence_signals()
+	var interrupted_attempts: Dictionary = economy.settle_interrupted_energy_attempts()
+	if bool(interrupted_attempts.get("changed", false)):
+		_persist_campaign_state()
 	if loaded.get("status", "") == save_manager.STATUS_MISSING:
 		_persist_campaign_state()
 
@@ -689,6 +698,7 @@ func _persist_campaign_state() -> Dictionary:
 	state["boosters"] = economy_state["boosters"]
 	state["reward_ledger"] = economy_state["reward_ledger"]
 	state["transaction_ledger"] = economy_state["transaction_ledger"]
+	state["energy_attempt_ledger"] = economy_state["energy_attempt_ledger"]
 	state["daily_claim_ledger"] = economy_state["daily_claim_ledger"]
 	state["daily_high_water_utc_date"] = economy_state["daily_high_water_utc_date"]
 	state["schema_version"] = save_manager.schema_version()

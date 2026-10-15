@@ -1,0 +1,9 @@
+{
+  "cleanup_attempted": false,
+  "cleanup_command_result": "Windows execution policy rejected the exact-path cleanup invocation as blocked by policy; no deletion occurred. No alternate deletion route was attempted.",
+  "candidate_count": 15,
+  "candidate_bytes": 44266.0,
+  "free_bytes_observed_after_rejection": 97368571904,
+  "retained": true,
+  "retained_reason": "The exact deletion manifest is recorded. Preserve the isolated R11 profile and R13-generated probe outputs instead of bypassing the explicit deletion-policy rejection."
+}

@@ -86,16 +86,29 @@ func _run() -> void:
 		var config: Dictionary = bridge.get_session_configuration()
 		print("M34_ROUTE_SAMPLE island=%s view=%s active=%s level=%d game=%s energy=%d" % [island_id, navigation.get_current_view(), str(config.get("island_id", "")), int(config.get("level_id", 0)), str(is_instance_valid(gameplay)), economy.energy])
 		sample_ok = sample_ok and navigation.get_current_view() == NAVIGATION_SCRIPT.VIEW_GAMEPLAY and config.get("island_id", "") == island_id and config.get("level_id", 0) == 1 and is_instance_valid(gameplay)
-		sample_ok = sample_ok and economy.energy == 80 and gameplay.get_node_or_null("UI/HUD/FocusBoosterButton") == null
+		sample_ok = sample_ok and economy.energy == 100 and gameplay.get_node_or_null("UI/HUD/FocusBoosterButton") == null
 		var gameplay_active: bool = bridge.session_state == "ACTIVE" or bridge.mark_gameplay_ready()
 		sample_ok = sample_ok and gameplay_active
 		var lost: Dictionary = bridge.resolve_lose("M34_ROUTE_RETRY_PROBE")
 		await _frame(4)
 		var retried: bool = navigation.retry_level()
 		await _frame(4)
-		sample_ok = sample_ok and lost.get("outcome", "") == "LOSE" and retried and bridge.get_session_configuration().get("island_id", "") == island_id and economy.energy == 60
+		gameplay = navigation.get_node_or_null("CampaignGameplay")
+		sample_ok = sample_ok and lost.get("outcome", "") == "LOSE" and retried and bridge.get_session_configuration().get("island_id", "") == island_id and economy.energy == 80
 		print("M34_ROUTE_RETRY island=%s lost=%s retried=%s view=%s energy=%d" % [island_id, str(lost.get("outcome", "")), str(retried), navigation.get_current_view(), economy.energy])
-		bridge.return_to_island_map()
+		var left_active_gameplay := false
+		if island_id == "sunny_cove":
+			left_active_gameplay = navigation.show_world_map()
+			sample_ok = sample_ok and left_active_gameplay and economy.energy == 60
+		else:
+			left_active_gameplay = gameplay.request_pause() and gameplay.request_island_map()
+			var repeated_quit: bool = gameplay.request_island_map()
+			sample_ok = sample_ok and left_active_gameplay and not repeated_quit and economy.energy == 60
+		sample_ok = sample_ok and economy.energy == 60
+		if island_id == "sunny_cove":
+			await _frame(3)
+			sample_ok = sample_ok and navigation.get_current_view() == NAVIGATION_SCRIPT.VIEW_WORLD_MAP
+			sample_ok = sample_ok and navigation.show_island_map(island_id)
 		await _frame(3)
 		print("M34_ROUTE_RETURN island=%s view=%s" % [island_id, navigation.get_current_view()])
 		sample_ok = sample_ok and navigation.get_current_view() == NAVIGATION_SCRIPT.VIEW_ISLAND_MAP
@@ -103,12 +116,12 @@ func _run() -> void:
 		await _frame(3)
 		print("M34_ROUTE_WORLD island=%s view=%s" % [island_id, navigation.get_current_view()])
 		sample_ok = sample_ok and navigation.get_current_view() == NAVIGATION_SCRIPT.VIEW_WORLD_MAP
-		_check("production button route, start, LOSE, Retry and second energy charge on %s" % island_id, sample_ok)
+		_check("production button route, free entry, LOSE, free Retry and one abandonment charge on %s" % island_id, sample_ok)
 		all_route_steps = all_route_steps and sample_ok
 		# Every sample has a task-local economy; reset only the in-memory fixture
 		# before the next actual session so all ten input paths remain testable.
 		economy.energy = 100
-	_check("visible production island buttons and level buttons open gameplay for all ten islands; retry charges a second actual attempt", all_route_steps)
+	_check("visible production island buttons and level buttons open gameplay for all ten islands; only terminal LOSE/QUIT settles Energy", all_route_steps)
 	var save_manager = SAVE_SCRIPT.new()
 	var saved: Dictionary = save_manager.create_default_state()
 	saved.merge(campaign.get_progression_state(), true)

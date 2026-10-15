@@ -1,0 +1,4 @@
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://kf3xtrckwhbr - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tests/m15_vip_boosters_economy_probe.gd:254)

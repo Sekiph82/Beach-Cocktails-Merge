@@ -21,9 +21,10 @@ var _granted_reward_ids: Dictionary = {}
 var _transaction_ids: Dictionary = {}
 var daily_claim_ledger: Dictionary = {}
 var daily_high_water_utc_date := ""
+var energy_attempt_ledger: Dictionary = {}
 
 
-func configure(initial_coins: int = 0, initial_boosters: Dictionary = {}, initial_reward_ledger: Array = [], initial_gems: int = 0, initial_transaction_ledger: Array = [], initial_energy: int = ENERGY_CAP, initial_energy_last_update_unix: int = 0, initial_energy_regen_remainder_sec: int = 0, initial_retired_focus_inventory: int = 0, initial_daily_claim_ledger: Dictionary = {}, initial_daily_high_water_utc_date: String = "") -> void:
+func configure(initial_coins: int = 0, initial_boosters: Dictionary = {}, initial_reward_ledger: Array = [], initial_gems: int = 0, initial_transaction_ledger: Array = [], initial_energy: int = ENERGY_CAP, initial_energy_last_update_unix: int = 0, initial_energy_regen_remainder_sec: int = 0, initial_retired_focus_inventory: int = 0, initial_daily_claim_ledger: Dictionary = {}, initial_daily_high_water_utc_date: String = "", initial_energy_attempt_ledger: Dictionary = {}) -> void:
     coins = maxi(0, initial_coins)
     gems = maxi(0, initial_gems)
     energy = clampi(initial_energy, 0, ENERGY_CAP)
@@ -32,6 +33,7 @@ func configure(initial_coins: int = 0, initial_boosters: Dictionary = {}, initia
     retired_focus_inventory = maxi(0, initial_retired_focus_inventory)
     daily_claim_ledger = initial_daily_claim_ledger.duplicate(true)
     daily_high_water_utc_date = initial_daily_high_water_utc_date
+    energy_attempt_ledger = initial_energy_attempt_ledger.duplicate(true)
     boosters = _sanitize_boosters(initial_boosters)
     _granted_reward_ids.clear()
     for reward_id in initial_reward_ledger:
@@ -56,11 +58,12 @@ func configure_from_state(state: Dictionary) -> Dictionary:
         "retired_focus_inventory": state.get("retired_focus_inventory", 0),
         "daily_claim_ledger": state.get("daily_claim_ledger", {}),
         "daily_high_water_utc_date": state.get("daily_high_water_utc_date", ""),
+        "energy_attempt_ledger": state.get("energy_attempt_ledger", {}),
     }
     var validation := validate_state(candidate)
     if not validation["ok"]:
         return validation
-    configure(int(candidate["coins"]), candidate["boosters"], candidate["reward_ledger"], int(candidate["gems"]), candidate["transaction_ledger"], int(candidate["energy"]), int(candidate["energy_last_update_unix"]), int(candidate["energy_regen_remainder_sec"]), int(candidate["retired_focus_inventory"]), candidate["daily_claim_ledger"], str(candidate["daily_high_water_utc_date"]))
+    configure(int(candidate["coins"]), candidate["boosters"], candidate["reward_ledger"], int(candidate["gems"]), candidate["transaction_ledger"], int(candidate["energy"]), int(candidate["energy_last_update_unix"]), int(candidate["energy_regen_remainder_sec"]), int(candidate["retired_focus_inventory"]), candidate["daily_claim_ledger"], str(candidate["daily_high_water_utc_date"]), candidate["energy_attempt_ledger"])
     if energy_last_update_unix <= 0:
         energy_last_update_unix = _now_unix()
     return {"ok": true, "reason": "ECONOMY_CONFIGURED"}
@@ -102,16 +105,78 @@ func get_energy_state(now_unix: int = -1) -> Dictionary:
 
 
 func start_attempt_once(transaction_id: String, now_unix: int = -1) -> Dictionary:
+    ## Compatibility adapter for older callers. Starting is eligibility-gated
+    ## but free; terminal outcome settlement owns the 20-Energy deduction.
     if transaction_id.is_empty():
         return {"ok": false, "reason": "TRANSACTION_ID_REQUIRED"}
-    if _transaction_ids.has(transaction_id):
-        return {"ok": true, "duplicate": true, "transaction_id": transaction_id, "energy": energy}
+    var result := begin_energy_attempt(transaction_id, "", 0, now_unix)
+    result["transaction_id"] = transaction_id
+    return result
+
+
+func can_start_energy_attempt(now_unix: int = -1) -> Dictionary:
     refresh_energy(now_unix)
     if energy < ENERGY_PER_ATTEMPT:
         return {"ok": false, "reason": "INSUFFICIENT_ENERGY", "energy": energy, "required": ENERGY_PER_ATTEMPT}
-    energy -= ENERGY_PER_ATTEMPT
-    _transaction_ids[transaction_id] = true
-    return {"ok": true, "started": true, "duplicate": false, "transaction_id": transaction_id, "energy": energy}
+    return {"ok": true, "energy": energy, "required": ENERGY_PER_ATTEMPT}
+
+
+func begin_energy_attempt(attempt_id: String, island_id: String, level_id: int, now_unix: int = -1) -> Dictionary:
+    if attempt_id.is_empty():
+        return {"ok": false, "reason": "ATTEMPT_ID_REQUIRED"}
+    if energy_attempt_ledger.has(attempt_id):
+        var existing: Dictionary = energy_attempt_ledger[attempt_id]
+        if str(existing.get("status", "")) != "ACTIVE":
+            return {"ok": false, "reason": "ATTEMPT_ALREADY_SETTLED", "duplicate": true, "attempt_id": attempt_id, "status": str(existing.get("status", "")), "energy": energy}
+        return {"ok": true, "duplicate": true, "attempt_id": attempt_id, "status": "ACTIVE", "energy": energy}
+    refresh_energy(now_unix)
+    if energy < ENERGY_PER_ATTEMPT:
+        return {"ok": false, "reason": "INSUFFICIENT_ENERGY", "energy": energy, "required": ENERGY_PER_ATTEMPT}
+    var started_at := now_unix if now_unix >= 0 else _now_unix()
+    energy_attempt_ledger[attempt_id] = {
+        "status": "ACTIVE",
+        "island_id": island_id,
+        "level_id": level_id,
+        "started_at": started_at,
+        "settled_at": 0,
+        "energy_delta": 0,
+    }
+    return {"ok": true, "started": true, "duplicate": false, "attempt_id": attempt_id, "status": "ACTIVE", "energy": energy}
+
+
+func settle_energy_attempt(attempt_id: String, outcome: String, now_unix: int = -1) -> Dictionary:
+    if not energy_attempt_ledger.has(attempt_id):
+        return {"ok": false, "reason": "UNKNOWN_ATTEMPT", "attempt_id": attempt_id}
+    if not ["WIN", "LOSE", "QUIT"].has(outcome):
+        return {"ok": false, "reason": "INVALID_ATTEMPT_OUTCOME", "attempt_id": attempt_id}
+    var record: Dictionary = energy_attempt_ledger[attempt_id]
+    var previous_status := str(record.get("status", ""))
+    if previous_status != "ACTIVE":
+        return {"ok": true, "duplicate": true, "attempt_id": attempt_id, "status": previous_status, "energy_delta": int(record.get("energy_delta", 0)), "energy": energy}
+    refresh_energy(now_unix)
+    var before_energy := energy
+    if outcome in ["LOSE", "QUIT"]:
+        energy = maxi(0, energy - ENERGY_PER_ATTEMPT)
+    record["status"] = outcome
+    record["settled_at"] = now_unix if now_unix >= 0 else _now_unix()
+    record["energy_delta"] = energy - before_energy
+    energy_attempt_ledger[attempt_id] = record
+    return {"ok": true, "duplicate": false, "attempt_id": attempt_id, "status": outcome, "energy_delta": energy - before_energy, "energy": energy}
+
+
+func settle_interrupted_energy_attempts(now_unix: int = -1) -> Dictionary:
+    var settled: Array[String] = []
+    var total_delta := 0
+    for attempt_value in energy_attempt_ledger.keys():
+        var attempt_id := str(attempt_value)
+        var record: Dictionary = energy_attempt_ledger[attempt_id]
+        if str(record.get("status", "")) != "ACTIVE":
+            continue
+        var settlement := settle_energy_attempt(attempt_id, "QUIT", now_unix)
+        if bool(settlement.get("ok", false)) and not bool(settlement.get("duplicate", false)):
+            settled.append(attempt_id)
+            total_delta += int(settlement.get("energy_delta", 0))
+    return {"ok": true, "changed": not settled.is_empty(), "attempt_ids": settled, "energy_delta": total_delta, "energy": energy}
 
 
 func buy_full_energy_refill(transaction_id: String, now_unix: int = -1) -> Dictionary:
@@ -380,6 +445,7 @@ func export_state() -> Dictionary:
         "transaction_ledger": _sorted_transaction_ids(),
         "daily_claim_ledger": daily_claim_ledger.duplicate(true),
         "daily_high_water_utc_date": daily_high_water_utc_date,
+        "energy_attempt_ledger": energy_attempt_ledger.duplicate(true),
     }
 
 
@@ -415,6 +481,8 @@ func validate_state(state: Dictionary) -> Dictionary:
             return {"ok": false, "reason": "INVALID_TRANSACTION_ID"}
     if not state.get("daily_claim_ledger", {}) is Dictionary or not _is_utc_date_or_empty(str(state.get("daily_high_water_utc_date", ""))):
         return {"ok": false, "reason": "INVALID_DAILY_REWARD_STATE"}
+    if not _is_valid_energy_attempt_ledger(state.get("energy_attempt_ledger", {})):
+        return {"ok": false, "reason": "INVALID_ENERGY_ATTEMPT_LEDGER"}
     for claim_key in state.get("daily_claim_ledger", {}):
         var entry = state["daily_claim_ledger"][claim_key]
         if typeof(claim_key) != TYPE_STRING or not _is_daily_claim_key(str(claim_key)) or not entry is Dictionary or typeof(entry.get("transaction_id", null)) != TYPE_STRING or typeof(entry.get("receipt", null)) != TYPE_STRING:
@@ -430,6 +498,24 @@ func validate_state(state: Dictionary) -> Dictionary:
         if slot > 1 and (receipt.is_empty() or not transactions.has("daily-provider-receipt:%s" % receipt)):
             return {"ok": false, "reason": "INVALID_REWARDED_DAILY_RECEIPT"}
     return {"ok": true, "reason": "VALID"}
+
+
+func _is_valid_energy_attempt_ledger(value: Variant) -> bool:
+    if not value is Dictionary:
+        return false
+    for attempt_id in value:
+        var record: Variant = value[attempt_id]
+        if typeof(attempt_id) != TYPE_STRING or str(attempt_id).is_empty() or not record is Dictionary:
+            return false
+        if not ["ACTIVE", "WIN", "LOSE", "QUIT"].has(str(record.get("status", ""))):
+            return false
+        if typeof(record.get("island_id", null)) != TYPE_STRING or not _is_non_negative_integer(record.get("level_id", null)) or not _is_non_negative_integer(record.get("started_at", null)) or not _is_non_negative_integer(record.get("settled_at", null)) or not _is_integer(record.get("energy_delta", null)):
+            return false
+        if str(record.get("status", "")) == "ACTIVE" and int(record.get("settled_at", -1)) != 0:
+            return false
+        if str(record.get("status", "")) != "ACTIVE" and int(record.get("settled_at", 0)) <= 0:
+            return false
+    return true
 
 
 func _normalize_reward(reward: Dictionary) -> Dictionary:
@@ -501,6 +587,12 @@ func _now_unix() -> int:
 
 func _is_positive_integer(value: Variant) -> bool:
     return _is_non_negative_integer(value) and int(value) > 0
+
+
+func _is_integer(value: Variant) -> bool:
+    if typeof(value) != TYPE_INT and typeof(value) != TYPE_FLOAT:
+        return false
+    return is_equal_approx(float(value), float(int(value)))
 
 
 func _is_non_negative_integer(value: Variant) -> bool:

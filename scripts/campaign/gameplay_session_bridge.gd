@@ -51,6 +51,8 @@ var _current_score := 0
 var _terminal_result: Dictionary = {}
 var _progression_result: Dictionary = {}
 var _session_serial := 0
+var _active_energy_attempt_id := ""
+var _pending_energy_attempt_id := ""
 var _progression_submitted := false
 var _move_limit := 0
 var _moves_used := 0
@@ -79,11 +81,23 @@ func start_session(island_id: String, level_id: int) -> Dictionary:
     if level.is_empty():
         return {}
 
-    if economy != null and economy.has_method("start_attempt_once"):
-        var attempt_transaction := "energy-attempt:%d:%d:%s:%d" % [Time.get_unix_time_from_system(), Time.get_ticks_usec(), island_id, level_id]
-        var energy_charge: Dictionary = economy.start_attempt_once(attempt_transaction)
-        if not bool(energy_charge.get("ok", false)):
+    var attempt_id := _make_energy_attempt_id(island_id, level_id)
+    if economy != null and economy.has_method("can_start_energy_attempt"):
+        var eligibility: Dictionary = economy.can_start_energy_attempt()
+        if not bool(eligibility.get("ok", false)):
             return {}
+        _pending_energy_attempt_id = attempt_id
+    elif economy != null and economy.has_method("begin_energy_attempt"):
+        var energy_start: Dictionary = economy.begin_energy_attempt(attempt_id, island_id, level_id)
+        if not bool(energy_start.get("ok", false)):
+            return {}
+        _active_energy_attempt_id = attempt_id
+        economy_changed.emit(economy.export_state())
+    elif economy != null and economy.has_method("start_attempt_once"):
+        var energy_start: Dictionary = economy.start_attempt_once(attempt_id)
+        if not bool(energy_start.get("ok", false)):
+            return {}
+        _active_energy_attempt_id = attempt_id
         economy_changed.emit(economy.export_state())
 
     _session_serial += 1
@@ -130,6 +144,13 @@ func get_active_island_theme() -> Dictionary:
 func mark_gameplay_ready() -> bool:
     if session_state != STATE_READY:
         return false
+    if economy != null and economy.has_method("begin_energy_attempt") and not _pending_energy_attempt_id.is_empty():
+        var energy_start: Dictionary = economy.begin_energy_attempt(_pending_energy_attempt_id, active_island_id, active_level_id)
+        if not bool(energy_start.get("ok", false)):
+            return false
+        _active_energy_attempt_id = _pending_energy_attempt_id
+        _pending_energy_attempt_id = ""
+        economy_changed.emit(economy.export_state())
     session_state = STATE_ACTIVE
     timer_remaining_sec = 0.0
     timer_updated.emit(timer_remaining_sec)
@@ -416,10 +437,33 @@ func next_level_session() -> Dictionary:
 func return_to_island_map() -> Dictionary:
     if active_island_id.is_empty():
         return {"ok": false, "reason": "NO_ACTIVE_SESSION"}
+    if not is_terminal():
+        abandon_active_attempt("RETURN_TO_ISLAND_MAP")
     var island_id := active_island_id
     clear_session()
     island_map_requested.emit(island_id)
     return {"ok": true, "island_id": island_id}
+
+
+func abandon_active_attempt(reason: String = "ABANDONED") -> Dictionary:
+    if active_island_id.is_empty() or session_state not in [STATE_READY, STATE_ACTIVE, STATE_PAUSED]:
+        return {"ok": false, "reason": "NO_ACTIVE_ATTEMPT", "attempt_id": _active_energy_attempt_id}
+    var settlement := _settle_active_energy_attempt("QUIT") if not _active_energy_attempt_id.is_empty() else {"ok": true, "settled": false, "reason": "GAMEPLAY_NOT_STARTED", "energy_delta": 0}
+    _pending_energy_attempt_id = ""
+    session_state = STATE_TERMINAL
+    timer_remaining_sec = maxf(0.0, timer_remaining_sec)
+    _terminal_result = _deep_read_only({
+        "session_serial": _session_serial,
+        "island_id": active_island_id,
+        "level_id": active_level_id,
+        "outcome": "QUIT",
+        "reason": reason,
+        "retry_available": false,
+        "next_level_available": false,
+        "island_map_available": true,
+        "energy_settlement": settlement.duplicate(true),
+    })
+    return settlement
 
 
 func submit_result(result: Dictionary) -> Dictionary:
@@ -457,6 +501,8 @@ func clear_session() -> void:
     _move_limit = 0
     _moves_used = 0
     _committed_shot_ids.clear()
+    _active_energy_attempt_id = ""
+    _pending_energy_attempt_id = ""
     vip_state_changed.emit(get_vip_state())
 
 
@@ -538,9 +584,13 @@ func _vip_enabled() -> bool:
 func _resolve_terminal(outcome: String, reason: String) -> Dictionary:
     if not _terminal_result.is_empty():
         return _terminal_result.duplicate(true)
+    if session_state == STATE_READY:
+        return {"ok": false, "reason": "GAMEPLAY_NOT_READY"}
     if outcome == OUTCOME_WIN and not _all_normal_orders_complete():
         return {"ok": false, "reason": "NORMAL_ORDERS_INCOMPLETE"}
 
+    var attempt_outcome := "WIN" if outcome == OUTCOME_WIN else "LOSE"
+    var energy_settlement := _settle_active_energy_attempt(attempt_outcome)
     session_state = STATE_TERMINAL
     timer_remaining_sec = maxf(0.0, timer_remaining_sec)
     var mutable_result := {
@@ -558,6 +608,7 @@ func _resolve_terminal(outcome: String, reason: String) -> Dictionary:
         "retry_available": true,
         "next_level_available": false,
         "island_map_available": true,
+        "energy_settlement": energy_settlement.duplicate(true),
     }
     if outcome == OUTCOME_WIN:
         _submit_progression(mutable_result)
@@ -567,6 +618,19 @@ func _resolve_terminal(outcome: String, reason: String) -> Dictionary:
     _terminal_result = _deep_read_only(mutable_result)
     session_terminal.emit(get_terminal_result())
     return get_terminal_result()
+
+
+func _settle_active_energy_attempt(outcome: String) -> Dictionary:
+    if economy == null or _active_energy_attempt_id.is_empty() or not economy.has_method("settle_energy_attempt"):
+        return {"ok": true, "settled": false, "reason": "NO_ECONOMY_ATTEMPT"}
+    var settlement: Dictionary = economy.settle_energy_attempt(_active_energy_attempt_id, outcome)
+    if bool(settlement.get("ok", false)) and not bool(settlement.get("duplicate", false)):
+        economy_changed.emit(economy.export_state())
+    return settlement
+
+
+func _make_energy_attempt_id(island_id: String, level_id: int) -> String:
+    return "energy-attempt:%d:%d:%d:%s:%d" % [Time.get_unix_time_from_system(), Time.get_ticks_usec(), _session_serial + 1, island_id, level_id]
 
 
 func _dispatch_session_rewards() -> Dictionary:
