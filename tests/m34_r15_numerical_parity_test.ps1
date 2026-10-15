@@ -1,5 +1,6 @@
 param(
-	[switch]$SelfTestOnly
+	[switch]$SelfTestOnly,
+	[switch]$RecompareExisting
 )
 
 Set-StrictMode -Version Latest
@@ -34,12 +35,17 @@ foreach ($case in $cases) {
 	$outputPath = Join-Path $evidenceDir "$($case.name).json"
 	$watchdogPath = Join-Path $evidenceDir "$($case.name).watchdog.json"
 	$progressPath = Join-Path $evidenceDir "$($case.name).progress.json"
-	$args = @("--headless", "--path", $repoRoot)
-	if ($case.mode -eq "fixed_fps_60") { $args += @("--fixed-fps", "60") }
-	$args += @("--script", $probe, "--", "--r12-output=$outputPath", "--r12-mode=$($case.mode)", "--r14-island=final_island", "--r14-level=100", "--r14-seed=$($case.seed)", "--r14-action-cap=20", "--r14-policy=WEAK_V02", "--r15-trace-interval=1")
-	$timeout = if ($case.mode -eq "normal") { 30 } else { 15 }
-	& $watchdog -FilePath $godot -ArgumentList $args -TimeoutSeconds $timeout -ResultPath $watchdogPath -ProgressPath $progressPath -TaskName "BCM-M34-R15-$($case.name)"
-	$watchdogExit = $LASTEXITCODE
+	if ($RecompareExisting) {
+		if (-not (Test-Path -LiteralPath $outputPath -PathType Leaf) -or -not (Test-Path -LiteralPath $watchdogPath -PathType Leaf)) { throw "Missing existing R15 run evidence for $($case.name)" }
+		$watchdogExit = 0
+	} else {
+		$args = @("--headless", "--path", $repoRoot)
+		if ($case.mode -eq "fixed_fps_60") { $args += @("--fixed-fps", "60") }
+		$args += @("--script", $probe, "--", "--r12-output=$outputPath", "--r12-mode=$($case.mode)", "--r14-island=final_island", "--r14-level=100", "--r14-seed=$($case.seed)", "--r14-action-cap=20", "--r14-policy=WEAK_V02", "--r15-trace-interval=1")
+		$timeout = if ($case.mode -eq "normal") { 30 } else { 15 }
+		& $watchdog -FilePath $godot -ArgumentList $args -TimeoutSeconds $timeout -ResultPath $watchdogPath -ProgressPath $progressPath -TaskName "BCM-M34-R15-$($case.name)"
+		$watchdogExit = $LASTEXITCODE
+	}
 	$watchdogResult = Get-Content -Raw -LiteralPath $watchdogPath | ConvertFrom-Json
 	$probeResult = $null
 	if (Test-Path -LiteralPath $outputPath -PathType Leaf) {

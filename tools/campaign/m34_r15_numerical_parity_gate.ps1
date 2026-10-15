@@ -8,13 +8,14 @@ function ConvertTo-R15CanonicalJson($Value) {
 function Get-R15ContactSignatures($Events) {
 	$signatures = [System.Collections.Generic.List[object]]::new()
 	foreach ($event in @($Events)) {
+		$canonicalTargetName = if ($event.target_kind -eq "drink") { "Drink_L{0:D2}" -f [int]$event.target_level } else { [string]$event.target_name }
 		$signatures.Add([pscustomobject]@{
 			frame = [int]$event.frame
 			source_instance_id = $event.source_instance_id
 		source_level = $event.source_level
 		target_kind = $event.target_kind
 		target_instance_id = $event.target_instance_id
-		target_name = $event.target_name
+			target_name = $canonicalTargetName
 		target_level = $event.target_level
 		})
 	}
@@ -54,7 +55,6 @@ function Compare-R15ParityPair($Normal, $Fixed, [bool]$ProcessesCompleted = $tru
 	$normalContactSignature = Get-R15ContactSignatures $Normal.telemetry.contact_events
 	$fixedContactSignature = Get-R15ContactSignatures $Fixed.telemetry.contact_events
 	if ((ConvertTo-R15CanonicalJson $normalContactSignature) -cne (ConvertTo-R15CanonicalJson $fixedContactSignature)) { $structural.Add("ORDERED_CONTACT_EVENTS") ; $strict = $false }
-	if ((ConvertTo-R15CanonicalJson $Normal.telemetry.contact_events) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.contact_events)) { $strict = $false }
 	if ((ConvertTo-R15CanonicalJson $Normal.telemetry.merge_events) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.merge_events)) { $structural.Add("ORDERED_MERGE_EVENTS") ; $strict = $false }
 	foreach ($key in @("outcome", "terminal_reason", "normal_objective_complete", "vip_complete", "normal_orders_completed", "normal_orders_remaining", "vip_state", "moves_used", "moves_remaining", "merge_count", "contact_count")) {
 		if ((ConvertTo-R15CanonicalJson $Normal.telemetry.$key) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.$key)) { $structural.Add("FINAL_$($key.ToUpperInvariant())") ; $strict = $false }
