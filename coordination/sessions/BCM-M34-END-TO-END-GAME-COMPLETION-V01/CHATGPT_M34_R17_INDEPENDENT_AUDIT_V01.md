@@ -1,0 +1,13 @@
+# BCM-M34-R17 Independent Audit V01
+
+**Verdict: R17 evidence-integrity implementation ACCEPTED from published builder evidence; physical qualification NOT PASSED; M33-004 OPEN.** Reviewed GitHub R17 implementation log; this audit did not run Godot locally.
+
+Append-only attempt claim, exclusive JSONL manifest, hash verification, no-overwrite atomic completion and read-only deterministic summarization with adversarial duplicate/overwrite checks are reported passing. The archived Tiki L30 exit -1 is still UNKNOWN cause and must remain ERROR; same-seed reproduction finished budget-unknown with 24 actions, 14 merges and 8 objective-progress units. Not a production-failure diagnosis.
+
+R17 selected three-island qualification plan but executed only Tiki L10; 24 actions, 15 merges, 0 objective progress, within its wall budget. This is **BUDGET_UNKNOWN**, not impossible. No new qualified wins, and cross-island inference is prohibited. R16 remains the only observed distinct Sunny Cove L1 victory. The valid R17 two recorded attempts are both BUDGET_UNKNOWN (fault reproduction and Tiki L10); invalid preliminary controller trials were archived, not counted. Early runner argument and watchdog token defects were corrected, but deserve focused coverage.
+
+Fresh editor import and ten regression groups builder PASS including Economy35, Daily38, Navigation17, M14 66, M15 63. Exact test logs were not independently rerun. R17 user-data outputs are untracked and remain 3.4MB; evidence tree 3.63MB; disk free decreased 35,094,528 bytes across recorded interval, not necessarily task attributable. No GB deletion. Desktop eight modified tracked and fifteen untracked owner paths preserved; no post-publication sync.
+
+**Independent decision:** Stop brute-force physics simulation loops. Next R18 should deliver a **manual/visual Godot Level Qualification Test Studio** in existing project (only diagnostics and test UI, no gameplay change): owner-visible selected island/level, exact normal 4T cap and VIP optional, step-by-step shots, objectives/merges/collisions, win/fail and screenshots, reproducible evidence via unique immutable attempt IDs; controls for pause/restart/seed, accessibility. Include headless tests plus explicit honest GUI acceptance gate. An owner screenshot is required before claiming visual acceptance, but coding must continue as far as possible without recurring prompts. Physical mobile/ADB remains owner deferred. No extrapolation to 1000 physically playable levels.
+
+Continue protecting Desktop owner paths; no giant worktree/TEMP creation; 44,266B R13 cleanup is deferred and not a blocker. Root TASKS.md only ChatGPT.
