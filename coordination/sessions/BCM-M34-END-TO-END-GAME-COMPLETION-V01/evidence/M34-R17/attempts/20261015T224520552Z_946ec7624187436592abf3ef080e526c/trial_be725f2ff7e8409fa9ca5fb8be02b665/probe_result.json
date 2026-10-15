@@ -1,0 +1,956 @@
+{
+	"action_count": 24,
+	"action_log": [
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 3,
+			"same_level_target_found": false,
+			"spawn_level": 2,
+			"step": 0,
+			"target_instance_id": null,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 2,
+			"step": 1,
+			"target_instance_id": 2,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 1,
+			"same_level_target_found": false,
+			"spawn_level": 1,
+			"step": 2,
+			"target_instance_id": null,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 1,
+			"step": 3,
+			"target_instance_id": 7,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 4,
+			"target_instance_id": 6,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 2,
+			"step": 5,
+			"target_instance_id": 11,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 6,
+			"target_instance_id": 17,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 0,
+			"same_level_target_found": false,
+			"spawn_level": 3,
+			"step": 7,
+			"target_instance_id": null,
+			"x_position": 150.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 3,
+			"same_level_target_found": false,
+			"spawn_level": 2,
+			"step": 8,
+			"target_instance_id": null,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 9,
+			"target_instance_id": 21,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 2,
+			"step": 10,
+			"target_instance_id": 23,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 0,
+			"same_level_target_found": false,
+			"spawn_level": 1,
+			"step": 11,
+			"target_instance_id": null,
+			"x_position": 150.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 1,
+			"step": 12,
+			"target_instance_id": 32,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 0,
+			"same_level_target_found": false,
+			"spawn_level": 1,
+			"step": 13,
+			"target_instance_id": null,
+			"x_position": 150.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 1,
+			"step": 14,
+			"target_instance_id": 37,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 0,
+			"same_level_target_found": false,
+			"spawn_level": 2,
+			"step": 15,
+			"target_instance_id": null,
+			"x_position": 150.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 16,
+			"target_instance_id": 31,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 2,
+			"step": 17,
+			"target_instance_id": 43,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 3,
+			"same_level_target_found": false,
+			"spawn_level": 1,
+			"step": 18,
+			"target_instance_id": null,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 1,
+			"step": 19,
+			"target_instance_id": 54,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 2,
+			"step": 20,
+			"target_instance_id": 58,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 21,
+			"target_instance_id": 61,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 0,
+			"same_level_target_found": false,
+			"spawn_level": 1,
+			"step": 22,
+			"target_instance_id": null,
+			"x_position": 150.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 3,
+			"same_level_target_found": false,
+			"spawn_level": 2,
+			"step": 23,
+			"target_instance_id": null,
+			"x_position": 360.0
+		}
+	],
+	"action_log_sha256": "be399e87c5644143b2b1ee666f1db982ca83728a0d1ed848e730265fc87a5591",
+	"case": {
+		"island_id": "tiki_island",
+		"level_id": 30,
+		"policy": "MERGE_AWARE_V01",
+		"replay": false,
+		"seed": 34116130
+	},
+	"classification": "BUDGET_UNKNOWN",
+	"contact_count": 30,
+	"elapsed_wall_usec": 23565971,
+	"human_fairness_ux": "NOT_ASSESSED",
+	"merge_count": 14,
+	"merge_events": [
+		{
+			"first_instance_id": 2,
+			"frame": 116,
+			"result_level": 3,
+			"second_instance_id": 4
+		},
+		{
+			"first_instance_id": 7,
+			"frame": 237,
+			"result_level": 2,
+			"second_instance_id": 9
+		},
+		{
+			"first_instance_id": 6,
+			"frame": 295,
+			"result_level": 4,
+			"second_instance_id": 12
+		},
+		{
+			"first_instance_id": 11,
+			"frame": 356,
+			"result_level": 3,
+			"second_instance_id": 15
+		},
+		{
+			"first_instance_id": 17,
+			"frame": 415,
+			"result_level": 4,
+			"second_instance_id": 18
+		},
+		{
+			"first_instance_id": 21,
+			"frame": 593,
+			"result_level": 4,
+			"second_instance_id": 25
+		},
+		{
+			"first_instance_id": 23,
+			"frame": 651,
+			"result_level": 3,
+			"second_instance_id": 28
+		},
+		{
+			"first_instance_id": 32,
+			"frame": 776,
+			"result_level": 2,
+			"second_instance_id": 34
+		},
+		{
+			"first_instance_id": 37,
+			"frame": 896,
+			"result_level": 2,
+			"second_instance_id": 39
+		},
+		{
+			"first_instance_id": 31,
+			"frame": 1008,
+			"result_level": 4,
+			"second_instance_id": 45
+		},
+		{
+			"first_instance_id": 43,
+			"frame": 1075,
+			"result_level": 3,
+			"second_instance_id": 49
+		},
+		{
+			"first_instance_id": 54,
+			"frame": 1197,
+			"result_level": 2,
+			"second_instance_id": 56
+		},
+		{
+			"first_instance_id": 58,
+			"frame": 1256,
+			"result_level": 3,
+			"second_instance_id": 59
+		},
+		{
+			"first_instance_id": 61,
+			"frame": 1315,
+			"result_level": 4,
+			"second_instance_id": 62
+		}
+	],
+	"move_limit_including_optional_vip": 128,
+	"moves_used": 24,
+	"normal_4T_shot_cap": 128,
+	"normal_objective_complete": false,
+	"normal_objective_cost": 128,
+	"normal_orders_completed": {
+		"6": 1,
+		"7": 0
+	},
+	"normal_orders_remaining": {
+		"6": 1,
+		"7": 1
+	},
+	"normal_theoretical_shots_T": 32,
+	"optional_vip_enabled": false,
+	"outcome": "harness_abort",
+	"physics": {
+		"fixed_fps": false,
+		"mode": "standard_fps_production_physics",
+		"physics_ticks_per_second": 60,
+		"run_on_separate_thread": false,
+		"shot_speed_px_per_sec": 700.0,
+		"time_scale": 1.0
+	},
+	"physics_frames_observed": 1389,
+	"production_moves_used": 24,
+	"profile": {
+		"decision_count": 24,
+		"decision_wall_usec": 7038,
+		"decision_wall_usec_per_action": 293.25,
+		"enabled": true,
+		"engine_performance_monitor": "not_sampled; frame wall timers are used because built-in monitors may be stale",
+		"frame_count": 1389,
+		"geometry_cache_misses": 3,
+		"physics_frame_wait_wall_usec": 21269579,
+		"sample_wall_usec": 1546968,
+		"sample_wall_usec_per_frame": 1113.73,
+		"shot_commit_wall_usec": 87283
+	},
+	"progress_curve": [
+		{
+			"action_count": 1,
+			"merge_count": 0,
+			"moves_used": 1,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 1.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 2,
+			"merge_count": 1,
+			"moves_used": 2,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 2.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 3,
+			"merge_count": 1,
+			"moves_used": 3,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 3.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 4,
+			"merge_count": 2,
+			"moves_used": 4,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 4.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 5,
+			"merge_count": 3,
+			"moves_used": 5,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 5.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 6,
+			"merge_count": 4,
+			"moves_used": 6,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 6.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 7,
+			"merge_count": 5,
+			"moves_used": 7,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 7.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 8,
+			"merge_count": 5,
+			"moves_used": 8,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 8.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 9,
+			"merge_count": 5,
+			"moves_used": 9,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 9.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 10,
+			"merge_count": 6,
+			"moves_used": 10,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 10.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 11,
+			"merge_count": 7,
+			"moves_used": 11,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 11.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 12,
+			"merge_count": 7,
+			"moves_used": 12,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 12.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 13,
+			"merge_count": 8,
+			"moves_used": 13,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 13.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 14,
+			"merge_count": 8,
+			"moves_used": 14,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 14.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 15,
+			"merge_count": 9,
+			"moves_used": 15,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 15.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 16,
+			"merge_count": 9,
+			"moves_used": 16,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 16.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 17,
+			"merge_count": 10,
+			"moves_used": 17,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 32,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 0,
+				"7": 0
+			},
+			"simulated_seconds": 17.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 18,
+			"merge_count": 11,
+			"moves_used": 18,
+			"normal_T_progress_per_move": 0.444,
+			"normal_T_progressed": 8,
+			"normal_T_remaining": 24,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 1,
+				"7": 0
+			},
+			"simulated_seconds": 18.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 19,
+			"merge_count": 11,
+			"moves_used": 19,
+			"normal_T_progress_per_move": 0.421,
+			"normal_T_progressed": 8,
+			"normal_T_remaining": 24,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 1,
+				"7": 0
+			},
+			"simulated_seconds": 19.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 20,
+			"merge_count": 12,
+			"moves_used": 20,
+			"normal_T_progress_per_move": 0.4,
+			"normal_T_progressed": 8,
+			"normal_T_remaining": 24,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 1,
+				"7": 0
+			},
+			"simulated_seconds": 20.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 21,
+			"merge_count": 13,
+			"moves_used": 21,
+			"normal_T_progress_per_move": 0.381,
+			"normal_T_progressed": 8,
+			"normal_T_remaining": 24,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 1,
+				"7": 0
+			},
+			"simulated_seconds": 21.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 22,
+			"merge_count": 14,
+			"moves_used": 22,
+			"normal_T_progress_per_move": 0.364,
+			"normal_T_progressed": 8,
+			"normal_T_remaining": 24,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 1,
+				"7": 0
+			},
+			"simulated_seconds": 22.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 23,
+			"merge_count": 14,
+			"moves_used": 23,
+			"normal_T_progress_per_move": 0.348,
+			"normal_T_progressed": 8,
+			"normal_T_remaining": 24,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 1,
+				"7": 0
+			},
+			"simulated_seconds": 23.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 24,
+			"merge_count": 14,
+			"moves_used": 24,
+			"normal_T_progress_per_move": 0.333,
+			"normal_T_progressed": 8,
+			"normal_T_remaining": 24,
+			"normal_T_start": 32,
+			"normal_orders_completed": {
+				"6": 1,
+				"7": 0
+			},
+			"simulated_seconds": 23.133,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		}
+	],
+	"schema_version": 1,
+	"shots_legal_within_normal_4T": true,
+	"shots_used": 24,
+	"simulated_seconds": 23.15,
+	"star_cap_outcome": 0,
+	"static_validation_record_count": 1000,
+	"status": "CASE_COMPLETE",
+	"terminal_reason": "PER_LEVEL_WALL_BUDGET",
+	"vip_state": {
+		"cocktail_level": 0,
+		"completed": false,
+		"delivered": 0,
+		"enabled": false,
+		"quantity": 0,
+		"remaining": 0,
+		"required": 0,
+		"status": "HIDDEN"
+	},
+	"work_item": "BCM-M34-R16"
+}

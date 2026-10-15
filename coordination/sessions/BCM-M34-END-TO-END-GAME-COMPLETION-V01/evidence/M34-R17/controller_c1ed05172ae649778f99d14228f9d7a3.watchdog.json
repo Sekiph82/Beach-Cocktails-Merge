@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R17-CONTROLLER-c1ed05172ae649778f99d14228f9d7a3",
+  "status": "EXITED",
+  "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+  "started_utc": "2026-10-15T22:45:20.1827279Z",
+  "finished_utc": "2026-10-15T22:46:12.5280662Z",
+  "wall_elapsed_ms": 52349,
+  "timeout_seconds": 600,
+  "file_path": "C:\\Users\\sekip\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+  "root_pid": 6112,
+  "root_identity_verified": true,
+  "task_token": "a8cdf309ca734d0281e52228604f3b9c",
+  "exit_code": 0,
+  "terminated_processes": [],
+  "stdout": "R17_TRIAL role=ERROR_REPRODUCTION case=r16_tiki_l30_merge_aware_reproduction outcome=BUDGET_UNKNOWN failure=NONE wall_ms=25063 actions=24 objective_progress=8\r\nR17_TRIAL role=QUALIFICATION_SAMPLE case=early_tiki_l10 outcome=BUDGET_UNKNOWN failure=NONE wall_ms=25100 actions=24 objective_progress=0\r\nR17_ATTEMPT=20261015T224520552Z_946ec7624187436592abf3ef080e526c status=STOPPED_EARLY stop=STOPPED_NO_OBJECTIVE_PROGRESS sample=1/3 elapsed_ms=51772 disk_delta=-1957888 tasks_unchanged=True\r\n",
+  "stderr": "",
+  "partial_progress": null
+}

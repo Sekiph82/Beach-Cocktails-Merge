@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R17-f5150e32bdee4fbab5063efabbe52241",
+  "status": "CHILD_ERROR",
+  "reason": "CHILD_EXIT_CODE_2",
+  "started_utc": "2026-10-15T22:42:55.6039418Z",
+  "finished_utc": "2026-10-15T22:42:56.4859856Z",
+  "wall_elapsed_ms": 882,
+  "timeout_seconds": 35,
+  "file_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "root_pid": 29016,
+  "root_identity_verified": true,
+  "task_token": "e439fd18783d482e95f00c9a902e88b5",
+  "exit_code": 2,
+  "terminated_processes": [],
+  "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nGame Feel Flow: Initializing...\r\nGFFEffectConfigManager: Registered configs\r\nGame Feel Flow: Registered 31 effects\r\nGame Feel Flow: Ready (31 effects, 15 combos)\r\n[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)\r\n",
+  "stderr": "ERROR: R16 pilot requires output, progress, island, level, seed, and an approved policy\r\n   at: push_error (core/variant/variant_utility.cpp:1023)\r\n   GDScript backtrace (most recent call first):\r\n       [0] _run (res://tools/campaign/m34_r16_outcome_pilot.gd:37)\r\n",
+  "partial_progress": null
+}

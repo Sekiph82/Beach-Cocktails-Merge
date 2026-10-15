@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R17-REGRESSIONS-020680a5f57e451b80aaa0981df0c3e4",
+  "status": "EXITED",
+  "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+  "started_utc": "2026-10-15T22:47:46.3133799Z",
+  "finished_utc": "2026-10-15T22:49:53.7209668Z",
+  "wall_elapsed_ms": 127412,
+  "timeout_seconds": 600,
+  "file_path": "C:\\Users\\sekip\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+  "root_pid": 6180,
+  "root_identity_verified": true,
+  "task_token": "8dbcae46d56044b3bf03c4fced9d2f7e",
+  "exit_code": 0,
+  "terminated_processes": [],
+  "stdout": "R17_REGRESSION name=fresh_editor_import status=EXITED exit=0 wall_ms=18842 pass=True\r\nR17_REGRESSION name=economy_35 status=EXITED exit=0 wall_ms=1074 pass=True\r\nR17_REGRESSION name=daily_38 status=EXITED exit=0 wall_ms=1500 pass=True\r\nR17_REGRESSION name=navigation_17 status=EXITED exit=0 wall_ms=71426 pass=True\r\nR17_REGRESSION name=m14_bridge_66 status=EXITED exit=0 wall_ms=2972 pass=True\r\nR17_REGRESSION name=m15_vip_economy_63 status=EXITED exit=0 wall_ms=6354 pass=True\r\nR17_REGRESSION name=production_routes status=EXITED exit=0 wall_ms=18020 pass=True\r\nR17_REGRESSION name=scene_uid status=EXITED exit=0 wall_ms=1048 pass=True\r\nR17_REGRESSION name=slim_content status=EXITED exit=0 wall_ms=637 pass=True\r\nR17_REGRESSION name=vip_optional status=EXITED exit=0 wall_ms=1062 pass=True\r\nR17_REGRESSION name=startup_smoke status=EXITED exit=0 wall_ms=2362 pass=True\r\nR17_REGRESSION_SUMMARY=ALL_REQUESTED_REGRESSIONS_PASS passed=10/10 import=EXITED disk_delta=-2789376 tasks_unchanged=True\r\n",
+  "stderr": "",
+  "partial_progress": null
+}
