@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clmfxxr13bwu2"]
 
-[ext_resource type="Script" uid="uid://b41edy8ohkeyn" path="res://scripts/campaign/world_map_controller.gd" id="1_world_map"]
+[ext_resource type="Script" uid="uid://kf3xtrckwhbr" path="res://scripts/campaign/world_map_controller.gd" id="1_world_map"]
 
 [node name="WorldMapScene" type="Control" unique_id=744989146]
 layout_mode = 3

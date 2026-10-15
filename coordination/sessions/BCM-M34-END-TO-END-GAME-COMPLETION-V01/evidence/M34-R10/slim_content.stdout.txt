@@ -1,0 +1,76 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS: dynamic campaign manifest loads all 1,000 level records: { "ok": true, "content_version": "BCM-M33.5", "supported_game_version": "4.7.x" }
+PASS: res://data/campaign/islands.json parses as JSON object
+PASS: island data contains exactly ten runtime entries
+PASS: campaign entry 0 preserves canonical id sunny_cove
+PASS: sunny_cove dynamic world map art resolves
+PASS: sunny_cove dynamic island-map background resolves
+PASS: sunny_cove dynamic gameplay surface resolves
+PASS: sunny_cove dynamic R04 profile resolves
+PASS: campaign entry 1 preserves canonical id tiki_island
+PASS: tiki_island dynamic world map art resolves
+PASS: tiki_island dynamic island-map background resolves
+PASS: tiki_island dynamic gameplay surface resolves
+PASS: tiki_island dynamic R04 profile resolves
+PASS: campaign entry 2 preserves canonical id azure_bay
+PASS: azure_bay dynamic world map art resolves
+PASS: azure_bay dynamic island-map background resolves
+PASS: azure_bay dynamic gameplay surface resolves
+PASS: azure_bay dynamic R04 profile resolves
+PASS: campaign entry 3 preserves canonical id coconut_beach
+PASS: coconut_beach dynamic world map art resolves
+PASS: coconut_beach dynamic island-map background resolves
+PASS: coconut_beach dynamic gameplay surface resolves
+PASS: coconut_beach dynamic R04 profile resolves
+PASS: campaign entry 4 preserves canonical id sunset_island
+PASS: sunset_island dynamic world map art resolves
+PASS: sunset_island dynamic island-map background resolves
+PASS: sunset_island dynamic gameplay surface resolves
+PASS: sunset_island dynamic R04 profile resolves
+PASS: campaign entry 5 preserves canonical id party_beach
+PASS: party_beach dynamic world map art resolves
+PASS: party_beach dynamic island-map background resolves
+PASS: party_beach dynamic gameplay surface resolves
+PASS: party_beach dynamic R04 profile resolves
+PASS: campaign entry 6 preserves canonical id frozen_paradise
+PASS: frozen_paradise dynamic world map art resolves
+PASS: frozen_paradise dynamic island-map background resolves
+PASS: frozen_paradise dynamic gameplay surface resolves
+PASS: frozen_paradise dynamic R04 profile resolves
+PASS: campaign entry 7 preserves canonical id volcano_bay
+PASS: volcano_bay dynamic world map art resolves
+PASS: volcano_bay dynamic island-map background resolves
+PASS: volcano_bay dynamic gameplay surface resolves
+PASS: volcano_bay dynamic R04 profile resolves
+PASS: campaign entry 8 preserves canonical id billionaire_island
+PASS: billionaire_island dynamic world map art resolves
+PASS: billionaire_island dynamic island-map background resolves
+PASS: billionaire_island dynamic gameplay surface resolves
+PASS: billionaire_island dynamic R04 profile resolves
+PASS: campaign entry 9 preserves canonical id final_island
+PASS: final_island dynamic world map art resolves
+PASS: final_island dynamic island-map background resolves
+PASS: final_island dynamic gameplay surface resolves
+PASS: final_island dynamic R04 profile resolves
+PASS: cocktail L01 resolves
+PASS: cocktail L02 resolves
+PASS: cocktail L03 resolves
+PASS: cocktail L04 resolves
+PASS: cocktail L05 resolves
+PASS: cocktail L06 resolves
+PASS: cocktail L07 resolves
+PASS: cocktail L08 resolves
+PASS: cocktail L09 resolves
+PASS: cocktail L10 resolves
+PASS: cocktail L11 resolves
+PASS: cocktail L12 resolves
+PASS: application shell scene loads
+PASS: excluded contact-sheet source remains available in repository
+PASS: coordination is not a runtime resource dependency
+R09_SLIM_EXPORT_CONTENT_PROBE completed

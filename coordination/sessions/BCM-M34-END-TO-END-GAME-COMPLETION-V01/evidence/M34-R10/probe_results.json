@@ -1,0 +1,58 @@
+[
+  {
+    "name": "daily_rewards",
+    "script": "res://tests/m34_daily_rewards_probe.gd",
+    "exit_code": 0,
+    "stdout": "daily_rewards.stdout.txt",
+    "stderr": "daily_rewards.stderr.txt",
+    "result": "PASS"
+  },
+  {
+    "name": "economy_closure",
+    "script": "res://tests/m34_economy_closure_probe.gd",
+    "exit_code": 0,
+    "stdout": "economy_closure.stdout.txt",
+    "stderr": "economy_closure.stderr.txt",
+    "result": "PASS"
+  },
+  {
+    "name": "m33_campaign_navigation",
+    "script": "res://tests/m33_campaign_navigation_probe.gd",
+    "exit_code": 0,
+    "stdout": "m33_campaign_navigation.stdout.txt",
+    "stderr": "m33_campaign_navigation.stderr.txt",
+    "result": "PASS"
+  },
+  {
+    "name": "slim_content",
+    "script": "res://tests/m34_r09_slim_export_content_probe.gd",
+    "exit_code": 0,
+    "stdout": "slim_content.stdout.txt",
+    "stderr": "slim_content.stderr.txt",
+    "result": "PASS"
+  },
+  {
+    "name": "scene_uid",
+    "script": "res://tests/m34_r10_scene_uid_probe.gd",
+    "exit_code": 0,
+    "stdout": "scene_uid.stdout.txt",
+    "stderr": "scene_uid.stderr.txt",
+    "result": "PASS"
+  },
+  {
+    "name": "vip_optional_rule",
+    "script": "res://tests/m34_r10_vip_optional_rule_probe.gd",
+    "exit_code": 0,
+    "stdout": "vip_optional_rule.stdout.txt",
+    "stderr": "vip_optional_rule.stderr.txt",
+    "result": "PASS"
+  },
+  {
+    "name": "startup_smoke",
+    "script": "",
+    "exit_code": 0,
+    "stdout": "startup_smoke.stdout.txt",
+    "stderr": "startup_smoke.stderr.txt",
+    "result": "PASS"
+  }
+]

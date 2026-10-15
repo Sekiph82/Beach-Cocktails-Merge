@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R10-004",
+  "method": "Two tiny ZIPs with identical one-file payload, entry name, order, compression and permissions; only DOS central-directory timestamp differs.",
+  "artifacts": [
+    {
+      "name": "repro_probe_2020.zip",
+      "archive_sha256": "4E69454ABEF024552EA8E856755D9F5F223F98727B23F05E07B96E77794C8D5C",
+      "archive_bytes": 154,
+      "payload_sha256": "203B4EBB8CCFA16858AF93AA8472552C396C06C733DBCBB6E7D4086763C51E4B",
+      "payload_bytes": 34,
+      "central_directory_entries": 1,
+      "central_directory_file_timestamp": [
+        2020,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "compression": "DEFLATE level 6",
+      "crc32": "B8C59D21",
+      "compressed_bytes": 34,
+      "uncompressed_bytes": 34,
+      "entry_order": [
+        "payload.txt"
+      ],
+      "extra_field_bytes": 0,
+      "file_comment_bytes": 0,
+      "zip_comment_bytes": 0,
+      "signed": false
+    },
+    {
+      "name": "repro_probe_2026.zip",
+      "archive_sha256": "BE5FA762FAA37DC4E6D93CD4034697A150548B32B9683A11BA80783B60CFAB37",
+      "archive_bytes": 154,
+      "payload_sha256": "203B4EBB8CCFA16858AF93AA8472552C396C06C733DBCBB6E7D4086763C51E4B",
+      "payload_bytes": 34,
+      "central_directory_entries": 1,
+      "central_directory_file_timestamp": [
+        2026,
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "compression": "DEFLATE level 6",
+      "crc32": "B8C59D21",
+      "compressed_bytes": 34,
+      "uncompressed_bytes": 34,
+      "entry_order": [
+        "payload.txt"
+      ],
+      "extra_field_bytes": 0,
+      "file_comment_bytes": 0,
+      "zip_comment_bytes": 0,
+      "signed": false
+    }
+  ],
+  "same_uncompressed_payload": true,
+  "same_archive_sha256": false,
+  "timestamp_is_the_only_controlled_difference": true,
+  "interpretation": "The controlled timestamp difference changes ZIP bytes and archive SHA-256 while preserving payload bytes. This isolates one metadata source of non-determinism; it does not identify all causes of APK non-determinism.",
+  "apk_scope": "No R09 APK binaries are present in this worktree. Historical R09 APK hashes/sizes remain prior builder evidence; APK central-directory timestamps/signing were not independently re-read here. No APK was rebuilt."
+}
