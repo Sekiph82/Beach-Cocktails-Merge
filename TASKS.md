@@ -7,12 +7,12 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Milestone: BCM-M34
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex first applies owner-locked R13 energy settlement correction (only LOSE/QUIT costs 20, WIN/entry free), cleans safe disposable task artifacts, then resumes R12 mechanical verification after mandatory safe-sync gates.
-- Required Actor: CODEX
+- Current Task Status: BLOCKED
+- Next Task/Action: BCM-M33-004 — R13 energy correction audited PASS; owner decides whether to defer policy-blocked deletion of exactly 44,266 bytes in 15 task-generated profile files before Codex resumes R12.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: OWNER 2026-10-15 revised energy contract: entering/WON costs 0, FAILED or abandoned attempt costs 20 once; earlier entry-charge rule superseded. R13 implementation prompt issued, mandatory owner-data safe sync must be checked before coding. User requests cleaning proven-unused BCM worktrees/TEMP/AppData after each task and before next, preserving all unique files/backups/SDK. M33-004 remains OPEN; R12 solver bottleneck next after audited energy correction. Android physical testing deferred.
+- Progress: R13 energy settlement SOURCE/EVIDENCE AUDITED PASS: level entry/WON 0; LOSE/QUIT -20 once per ready attempt; idempotency, interruptions, saves. Economy 35/35, Daily 38/38, M33 17/17, M14 66/66, M15 63/63 builder PASS; 8 owner tracked and 15 untracked protected on Desktop. Cleanup 15 task-generated profile outputs totaling 44,266 bytes BLOCKED BY EXECUTION POLICY, 0 removed. R12 M33-004 paused pending owner deferral or permitted cleanup; Android physical device testing owner deferred.
 
 ## Blockers/Waits
 
@@ -1358,7 +1358,7 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M33-001 — Deterministic content generator and nine-island package creation.
 - [x] BCM-M33-002 — Strict static validation, navigation, and save integration.
 - [x] BCM-M33-003 — Versioned bundled update manifest and content-delivery design.
-- [~] BCM-M33-004 — Qualify unverified generated levels for physical reachability and player difficulty.
+- [!] BCM-M33-004 — Qualify unverified generated levels for physical reachability and player difficulty.
 
 
 ### M34 — End-to-end game integration completion
