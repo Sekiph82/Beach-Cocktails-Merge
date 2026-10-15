@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex executes R14 bounded process-watchdog solver and high-density fixed-FPS parity before further exact-4T mechanical qualification.
+- Next Task/Action: BCM-M33-004 — Codex executes R15 numerical-drift investigation, predeclared tolerant-parity research, and bounded standard-physics solver checks; fast authoritative mode remains forbidden without acceptance.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R12 independent evidence audit PASS WITH LIMITATIONS: Azure Bay six-shot fixed-FPS 13.45x, 30 matching trace samples only; no finished 4T solver result, 45s internal guard missed and 77s stopped externally (UNKNOWN_NO_RESULT), M33-004 OPEN. Economy 35/35, Daily 38/38, M33 17/17 and M14/M15 regressions builder PASS. 34.567 GiB scoped metadata inventory is potentially overlapping; 0 bytes safely reclaimable proven. Owner's 44,266-byte cleanup deferred. Desktop still has 8 tracked and 15 untracked owner paths to preserve; R14 watchdog/high-density parity next, no device QA.
+- Progress: R14 independent audit: synthetic process watchdog PASS; ten builder regressions PASS; Azure Bay 3/3 short parity PASS, but Final Island L100 high-density trace diverged at frame 915 by up to 0.007935px (11 Y components), strict high-density gate FAIL; three 4T cases SKIPPED, M33-004 OPEN. R15 investigates numerical drift without silently relaxing strict parity, validates any tolerant gate with adversarial tests, and bounds authoritative normal-speed trials. 8 Desktop tracked owner edits and 15 untracked preserved; no GB cleanup proven; R13 44,266-byte cleanup deferred.
 
 ## Blockers/Waits
 
