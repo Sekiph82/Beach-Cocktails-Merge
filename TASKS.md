@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex executes R15 numerical-drift investigation, predeclared tolerant-parity research, and bounded standard-physics solver checks; fast authoritative mode remains forbidden without acceptance.
+- Next Task/Action: BCM-M33-004 — Codex executes R16 standard-FPS outcome-based representative level qualification pilot with bounded watchdogs and honest unknown classifications.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R14 independent audit: synthetic process watchdog PASS; ten builder regressions PASS; Azure Bay 3/3 short parity PASS, but Final Island L100 high-density trace diverged at frame 915 by up to 0.007935px (11 Y components), strict high-density gate FAIL; three 4T cases SKIPPED, M33-004 OPEN. R15 investigates numerical drift without silently relaxing strict parity, validates any tolerant gate with adversarial tests, and bounds authoritative normal-speed trials. 8 Desktop tracked owner edits and 15 untracked preserved; no GB cleanup proven; R13 44,266-byte cleanup deferred.
+- Progress: R15 independent audit accepts instrumentation/regressions but rejects reproducible physics equivalence: strict parity 0/4, tolerant 0/4; repeated normal physics diverged 0.914886px and another seed 1.148804px, third terminal 7 frames apart. Fast solver prohibited. One standard-speed exact-4T path capped after 9 actions without win, feasibility UNKNOWN. 10 builder regression groups PASS. M33-004 remains OPEN. R16 pivots to observed standard-FPS production-physics outcomes under strict global/per-case budgets, without treating non-win as impossibility; preserve Desktop 8 tracked/15 untracked owner paths.
 
 ## Blockers/Waits
 
