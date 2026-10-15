@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Advance native Android rewarded-ad integration and device-readiness.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M34-006 — Codex executes R09 persist slim Android export exclusions, build verified debug APK, investigate bounded Gradle/AdMob and test on authorized device if available.
+- Next Task/Action: BCM-M34-006 — Codex executes updated R09 slim Android export and offline AdMob readiness; physical Android device tests deferred by owner.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R08 independent audit PASS for bounded evidence: filtered debug APK 301,979,173 bytes vs unfiltered 1,353,363,654 (77.69% smaller), only nonruntime export exclusions; production preset not yet persistent. Daily 38/38, Economy 24/24, M33 Navigation 17/17, smoke PASS after fresh import, repeated after Android texture profile. ADB no device; native AdMob Android Gradle/Maven uncached, no SDK runtime verification, SSV mock only 8/8, production rewarded payouts disabled. Owner files preserved. R09 master ready; IAP and M33 human fairness remain open.
+- Progress: R08 audited PASS for bounded regression and filtered APK 301,979,173 bytes (77.69% smaller). Owner explicitly deferred Android physical-device/ADB tests for now; do not block R09 on device. Persistent slim export and offline AdMob readiness continue. Native rewarded payouts/SSV and IAP remain disabled until verified. Owner assets and saves protected.
 
 ## Blockers/Waits
 
