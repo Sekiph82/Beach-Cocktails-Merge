@@ -1,0 +1,5 @@
+SCRIPT ERROR: Invalid call. Nonexistent function 'get' in base 'Nil'.
+   at: _run (res://tools/campaign/m34_r12_bounded_path_probe.gd:79)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tools/campaign/m34_r12_bounded_path_probe.gd:79)
+       [1] run_trial (res://scripts/campaign/m17_seeded_validation_harness.gd:467)

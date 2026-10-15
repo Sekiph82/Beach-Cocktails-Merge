@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R12-003",
+  "attempt": "corrected_4T_batch",
+  "started_local": "2026-10-15 20:48:03 Europe/Istanbul",
+  "wall_at_stop_seconds": 77,
+  "cases_declared": 10,
+  "first_case": "sunny_cove/50",
+  "first_case_normal_T": 36,
+  "legal_move_cap": 144,
+  "runner_error": "No result row was finalized within the observed window; no bounded_path_probe.json was produced.",
+  "stop": "Stopped exact R12-owned Godot engine/wrapper PIDs 30396 and 5236 after verifying command lines targeted m34_r12_bounded_path_probe.gd; neither remains running.",
+  "exit_code": -1,
+  "stdout_bytes": 12832,
+  "stdout_sha256": "7A4C1E2FF7C4C3E661ADA83F9D3469BA0BC44338725C02E87F089F213F1AD2C6",
+  "stderr_bytes": 0,
+  "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+  "classification": "UNKNOWN_NO_RESULT",
+  "proved_path_wins": 0,
+  "proved_impossible": 0,
+  "note": "The runner was corrected to handle canonical vip:null rows. Its 45-second internal wall guard did not yield a completed summary in the observed 77-second interval. The partial console stream is diagnostic only; no path counts, wins, or failures are claimed."
+}

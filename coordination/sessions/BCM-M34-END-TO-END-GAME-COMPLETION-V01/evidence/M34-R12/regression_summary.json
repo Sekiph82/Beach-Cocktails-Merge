@@ -1,0 +1,79 @@
+[
+  {
+    "probe": "economy_closure",
+    "exit_code": "0",
+    "markers": [
+      "M34_ECONOMY PASS: legacy Sunny Cove IDs resolve globally and star improvements pay 20/30/40 cumulative Coins plus one fifth-level Gem",
+      "M34_ECONOMY_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "production_routes",
+    "exit_code": "0",
+    "markers": [
+      "M34_ROUTES_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "daily_rewards",
+    "exit_code": "0",
+    "markers": [
+      "M34_DAILY_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "m33_navigation",
+    "exit_code": "0",
+    "markers": [
+      "M33_NAV_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "slim_content",
+    "exit_code": "0",
+    "markers": [
+      "R09_SLIM_EXPORT_CONTENT_PROBE completed"
+    ]
+  },
+  {
+    "probe": "scene_uid",
+    "exit_code": "0",
+    "markers": [
+      "M34_R10_SCENE_UID_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "vip_optional",
+    "exit_code": "0",
+    "markers": [
+      "M34_R10_VIP_RULE level=sunny_cove/4 normal_T=8 vip_remaining=1 outcome=WIN",
+      "M34_R10_VIP_OPTIONAL_RULE_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "m14_session_bridge",
+    "exit_code": "0",
+    "markers": [
+      "M14_GAMEPLAY_SESSION_BRIDGE_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "m15_vip_economy",
+    "exit_code": "0",
+    "markers": [
+      "M15_PROBE PASS: VIP session exposes exact target and pending 0/2 state",
+      "M15_PROBE PASS: normal target uses canonical cocktail and authoritative 0/1 progress",
+      "VIP DELIVERY L8 +1/2 BONUS 6000 (toplam: 7000)",
+      "M15_PROBE PASS: first actual VIP delivery accumulates 1/2",
+      "VIP DELIVERY L8 +2/2 BONUS 6000 (toplam: 13000)",
+      "M15_PROBE PASS: second actual VIP delivery completes cumulative 2/2",
+      "M15_PROBE PASS: non-VIP shows persistent 0/0 with no VIP reward",
+      "M15_VIP_BOOSTERS_ECONOMY_RESULT=PASS"
+    ]
+  },
+  {
+    "probe": "startup_smoke",
+    "exit_code": "0",
+    "markers": []
+  }
+]

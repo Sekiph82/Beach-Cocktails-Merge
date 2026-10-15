@@ -1,0 +1,37 @@
+[
+  {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-Android-Export\\BCM_R09_Slim_Nonshipping_Debug.apk",
+    "bytes": 301983466,
+    "sha256": "D38AC083933D60E6B18A63CEEF708B3AC6C78575D2F3A99DD01B4C13C7C4694C"
+  },
+  {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-Android-Export\\BCM_R08_SizeTest.apk",
+    "bytes": 301979173,
+    "sha256": "D4BC7647608ADBC583D7669EB0D6789B9641CDD5AC9D9A154F8A6D55247998E3"
+  },
+  {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-Android-Export\\BCM_R08_Unfiltered_SizeControl.apk",
+    "bytes": 1353363654,
+    "sha256": "F5AB02F20A05726723C9DB1992962727B4D76898297079BA2FD3580E0D5F4241"
+  },
+  {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+    "bytes": 1353331251,
+    "sha256": "EDDDDB44CBEFF9FA8C653BEB6621C6168D4D948B66C14559C7D91D5F580A93F5"
+  },
+  {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject-GradleBuildCache-preserved-20261015\\outputs\\apk\\instrumented\\debug\\android_debug.apk",
+    "bytes": 127237756,
+    "sha256": "0903EC9221B790EAD9B1100DC56207485E6C58766F587067894C64843B63D617"
+  },
+  {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject-GradleBuildCache-preserved-20261015\\outputs\\apk\\mono\\debug\\android_monoDebug.apk",
+    "bytes": 127210029,
+    "sha256": "F3E35CB1F395F9488F991C80ABAE1EBD27DC9EA25AE7C8D9D812B950D94FB67E"
+  },
+  {
+    "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject-GradleBuildCache-preserved-20261015\\outputs\\apk\\standard\\debug\\android_debug.apk",
+    "bytes": 127210041,
+    "sha256": "3F40F3F56006883B6DA5B1C91FA3A936D037380543F84B8AB6484E67EFABCD34"
+  }
+]

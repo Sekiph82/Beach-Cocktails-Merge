@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R12-002",
+  "conditions": {
+    "island_id": "azure_bay",
+    "level_id": 1,
+    "seed": 34112001,
+    "policy": "CHEAP_MERGE_CENTER_V01",
+    "action_cap": 6,
+    "physics_ticks_per_second": 60,
+    "engine_time_scale": 1.0,
+    "production_shot_controller": true,
+    "no_timer": true
+  },
+  "normal": {
+    "wall_usec": 7762315,
+    "frames": 450,
+    "shots": 6,
+    "merges": 3,
+    "terminal": "PER_LEVEL_SHOT_BUDGET",
+    "action_log_hash": "788833C65326C7C9E47B836B94689754D8A8E3AE917505F8CBF04D0BD68321A6",
+    "trace_samples": 30,
+    "physics_frame_wait_wall_usec_total": 6865676,
+    "physics_frame_wait_usec_per_frame": 15257.06,
+    "sample_usec_per_frame": 1016.05
+  },
+  "fixed_fps_60": {
+    "wall_usec": 577268,
+    "frames": 450,
+    "shots": 6,
+    "merges": 3,
+    "terminal": "PER_LEVEL_SHOT_BUDGET",
+    "action_log_hash": "788833C65326C7C9E47B836B94689754D8A8E3AE917505F8CBF04D0BD68321A6",
+    "trace_samples": 30,
+    "physics_frame_wait_wall_usec_total": 108125,
+    "physics_frame_wait_usec_per_frame": 240.28,
+    "sample_usec_per_frame": 161.18
+  },
+  "speedup_ratio": 13.45,
+  "trace_hashes_identical": true,
+  "parity_tool_result": true,
+  "policy_profile_comparison": "MERGE_AWARE_V01 and CHEAP_MERGE_CENTER_V01 both produced 3 merges; per-action decision times differ by <1us in the 6-shot sample; no meaningful policy throughput gain shown",
+  "scope_limit": "One six-shot Azure Bay level sample. Terminal is harness shot-budget abort, not completion. This demonstrates candidate test acceleration only; not high-density parity or broad gameplay throughput.",
+  "gameplay_telemetry_identical_excluding_profile_timing": true,
+  "profile_differences": "Profiling wall measurements differ by design because frame waiting and sample timing are wall-clock measurements."
+}

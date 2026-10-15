@@ -30,6 +30,7 @@ const BOARD_OCCUPANCY_AREA_PX2 := 360000.0
 const RAIL_ENTER_THRESHOLD_PX := 1.0
 const RAIL_RELEASE_THRESHOLD_PX := 3.0
 const RAIL_CONTACT_METRIC := "footprint_proximity_transition_proxy"
+const DETERMINISM_TRACE_INTERVAL_FRAMES := 15
 const LANE_X_POSITIONS: Array[float] = [150.0, 220.0, 290.0, 360.0, 430.0, 500.0, 570.0]
 const POLICY_WEAK_V02 := "WEAK_V02"
 const POLICY_MERGE_AWARE_V01 := "MERGE_AWARE_V01"
@@ -106,6 +107,7 @@ func new_telemetry(island_id: String, level_id: int, seed_value: int) -> Diction
 		"normal_orders_remaining": {},
 		"vip_state": {"enabled": false, "status": "HIDDEN", "completed": false},
 		"progress_curve": [],
+		"physics_trace": [],
 	}
 
 
@@ -191,7 +193,8 @@ func run_trial(
 	max_wall_time_sec: float = 0.0,
 	stop_flag_path: String = "",
 	profile_enabled: bool = false,
-	cache_legal_launch_lanes: bool = false
+	cache_legal_launch_lanes: bool = false,
+	capture_physics_trace: bool = false
 ) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
 	telemetry["policy_name"] = policy_name
@@ -267,6 +270,7 @@ func run_trial(
 	var wall_start_msec := Time.get_ticks_msec()
 	var action_index := 0
 	var elapsed := 0.0
+	var physics_frame_index := 0
 	var replaying := not action_log_override.is_empty()
 	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots and (not use_production_shot_controller or bridge.can_commit_shot()) and (max_wall_time_sec <= 0.0 or float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 < max_wall_time_sec) and not _stop_requested(stop_flag_path):
 		var spawn_level: int
@@ -344,6 +348,9 @@ func run_trial(
 			elapsed += float(state["step_sec"])
 			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
+			physics_frame_index += 1
+			if capture_physics_trace and physics_frame_index % DETERMINISM_TRACE_INTERVAL_FRAMES == 0:
+				_append_physics_trace(telemetry, manager, bridge, state, physics_frame_index)
 			if profile_enabled:
 				profile["sample_wall_usec"] = int(profile["sample_wall_usec"]) + Time.get_ticks_usec() - sample_start_usec
 			if bridge.is_terminal() or manager.game_over:
@@ -386,6 +393,9 @@ func run_trial(
 			elapsed += float(state["step_sec"])
 			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
+			physics_frame_index += 1
+			if capture_physics_trace and physics_frame_index % DETERMINISM_TRACE_INTERVAL_FRAMES == 0:
+				_append_physics_trace(telemetry, manager, bridge, state, physics_frame_index)
 			if profile_enabled:
 				profile["sample_wall_usec"] = int(profile["sample_wall_usec"]) + Time.get_ticks_usec() - sample_start_usec
 			if bridge.is_terminal() or manager.game_over:
@@ -455,6 +465,45 @@ func run_trial(
 	await _root.get_tree().process_frame
 	Engine.time_scale = previous_time_scale
 	return telemetry
+
+
+func _append_physics_trace(telemetry: Dictionary, manager, bridge, state: Dictionary, frame_index: int) -> void:
+	var bodies: Array[Dictionary] = []
+	if manager.world != null:
+		for child in manager.world.get_children():
+			if not child is Drink or child.is_queued_for_deletion() or child.motion_state == Drink.MotionState.HELD:
+				continue
+			var drink: Drink = child
+			bodies.append({
+				"level": drink.level,
+				"motion_state": int(drink.motion_state),
+				"position": [drink.position.x, drink.position.y],
+				"velocity": [drink.linear_velocity.x, drink.linear_velocity.y],
+			})
+	bodies.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return JSON.stringify(a) < JSON.stringify(b)
+	)
+	var progress: Dictionary = bridge.get_objective_state()
+	var moves: Dictionary = bridge.get_move_budget_state()
+	var spawns: Array[int] = []
+	for action in telemetry["action_log"]:
+		spawns.append(int(action.get("spawn_level", 0)))
+	var trace_state := {
+		"frame": frame_index,
+		"bodies": bodies,
+		"spawn_levels": spawns,
+		"merge_count": int(state["merge_count"]),
+		"contact_count": int(state["contact_count"]),
+		"moves_used": int(moves.get("moves_used", 0)),
+		"normal_completed": progress.get("normal_completed", {}).duplicate(true),
+		"normal_remaining": progress.get("normal_remaining", {}).duplicate(true),
+		"vip_state": bridge.get_vip_state().duplicate(true),
+		"terminal": bridge.get_terminal_result().duplicate(true) if bridge.is_terminal() else {},
+	}
+	var context := HashingContext.new()
+	context.start(HashingContext.HASH_SHA256)
+	context.update(JSON.stringify(trace_state).to_utf8_buffer())
+	telemetry["physics_trace"].append({"frame": frame_index, "sha256": context.finish().hex_encode(), "state": trace_state})
 
 
 func _attach_drink(drink: Drink, state: Dictionary) -> void:

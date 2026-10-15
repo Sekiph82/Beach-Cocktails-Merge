@@ -1,0 +1,16 @@
+{
+  "case": "azure_bay/1 seed 34112001, six legal shots",
+  "frame_count": 450,
+  "cheap_policy": "CHEAP_MERGE_CENTER_V01",
+  "cheap_trial_usec": 577268,
+  "cheap_decision_usec": 261.33,
+  "cheap_sample_usec_per_frame": 161.18,
+  "merge_aware_policy": "MERGE_AWARE_V01",
+  "merge_aware_trial_usec": 529510,
+  "merge_aware_decision_usec": 261.17,
+  "merge_aware_sample_usec_per_frame": 151.63,
+  "cheap_merge_count": 3,
+  "merge_aware_merge_count": 3,
+  "cheap_action_sha256": "788833C65326C7C9E47B836B94689754D8A8E3AE917505F8CBF04D0BD68321A6",
+  "merge_aware_action_sha256": "07524461A484CA4F3202AE57A3A72DF03ADE64DC7435EC7666A889C173D6A74D"
+}

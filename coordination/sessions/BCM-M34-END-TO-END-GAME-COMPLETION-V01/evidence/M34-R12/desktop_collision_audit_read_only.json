@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R12-001",
+  "capture_utc": "2026-10-15T17:44:52.2421774Z",
+  "desktop": "C:\\Users\\sekip\\Desktop\\Beach Cocktails - Merge",
+  "branch": "main",
+  "head": "201c30220408b1eee4b326eeb02e1b7b03d1765b",
+  "origin_main": "201c30220408b1eee4b326eeb02e1b7b03d1765b",
+  "ahead_behind": "0\t0",
+  "tracked_owner_paths": [
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+      "head_blob": "5287968c936a38595e2d1cb31a848b794cda4dd7",
+      "origin_main_blob": "5287968c936a38595e2d1cb31a848b794cda4dd7",
+      "working_tree_git_blob": "cc50185a33040a9ec5bc2abdcd3c9329b5ed0d5f",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    },
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+      "head_blob": "51131f32f6a910690c7b78e8b56e05a65f1856d3",
+      "origin_main_blob": "51131f32f6a910690c7b78e8b56e05a65f1856d3",
+      "working_tree_git_blob": "d130af11718d558b67e9c4019b92897831fd680f",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+      "head_blob": "2493e55410b4d53b9ce109fb88f9947447e4035c",
+      "origin_main_blob": "2493e55410b4d53b9ce109fb88f9947447e4035c",
+      "working_tree_git_blob": "aba3ecfd814ddb6e682e9052d59bb8809054a513",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+      "head_blob": "142082b5597ae2be5c30078c0c4747e17da0c74e",
+      "origin_main_blob": "142082b5597ae2be5c30078c0c4747e17da0c74e",
+      "working_tree_git_blob": "383888ce5520b634b782ec60fe982a59f08705e0",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+      "head_blob": "9da70a2738fd806bfcd5be4a43cbec92fc0e1ada",
+      "origin_main_blob": "9da70a2738fd806bfcd5be4a43cbec92fc0e1ada",
+      "working_tree_git_blob": "b2c028c96ac1e951706ac934c04c5f516059aee6",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+      "head_blob": "344078d66129f65a2bf768be487933b80e868e85",
+      "origin_main_blob": "344078d66129f65a2bf768be487933b80e868e85",
+      "working_tree_git_blob": "e41d9184f28eff709598ea30cd572a20f0576c28",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    },
+    {
+      "path": "project.godot",
+      "head_blob": "15a168304d729108313be58563592d50da1f99bf",
+      "origin_main_blob": "15a168304d729108313be58563592d50da1f99bf",
+      "working_tree_git_blob": "9121d5008a528c6cc8b620c5194b9b5cb82916f9",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "head_blob": "12b86eb0035880448e1c0b9c1a96d80baea0a1ed",
+      "origin_main_blob": "12b86eb0035880448e1c0b9c1a96d80baea0a1ed",
+      "working_tree_git_blob": "9e78dcbcd299077337ce0bfdd75aded0f79eb757",
+      "owner_bytes_differ_from_head": true,
+      "remote_changed_from_base": false,
+      "overlap": "NO_INCOMING_CHANGE_AT_CAPTURE"
+    }
+  ],
+  "untracked_paths": [
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa_initial_headless.txt",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/00_initial_live_frame.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/01_after_level_click.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/02_after_home_play.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/03_baseline_gameplay.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/04_baseline_gameplay_real.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_00.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_01.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_02.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_03.png",
+    "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_04.png",
+    "docs/codex-logs/CODEX_LOG_M23_R01_V01.md",
+    "f647e4ff-b906-40e7-93f8-3c4b59d95b23.png"
+  ],
+  "untracked_handling": "Path names inventoried only; no file contents opened or staged; directories not recursively inventoried here",
+  "interpretation": "At capture, Desktop HEAD equals origin/main, so there is no incoming commit diff. Eight tracked paths have local owner bytes differing from HEAD; no three-way incoming hunks exist at the captured ref. A reported path overlap count is not a content conflict. Preserve all local bytes and untracked paths.",
+  "stashes_untouched": "No stash created/applied in R12; pre-existing stashes untouched",
+  "canonical_sync": "No R12-time canonical Desktop update performed after task start"
+}
