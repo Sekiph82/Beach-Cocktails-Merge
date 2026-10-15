@@ -65,7 +65,7 @@ All final command outputs, exit codes, import hashes, and cleanup manifest are u
 
 - `TASKS.md` SHA-1 object id matches `HEAD:TASKS.md`: `c9030150d6f461d991aab19d8303a42b0e597b20`.
 - Owner reconciliation backup/stash remain untouched. `evidence/M34-R13/owner_preservation_verification.json` records all eight tracked owner file hashes, all 15 untracked owner-file hashes, and unchanged `TASKS.md` hash.
-- Commit SHA: `PENDING`.
-- Post-push parity (`HEAD`, `origin/main`, `git ls-remote origin refs/heads/main`): `PENDING`.
+- R13 implementation and evidence commit SHA: `ded1b835b0d9a846eab2246c5b6007494f3c7155`.
+- Post-push parity at implementation publication: `HEAD = ded1b835b0d9a846eab2246c5b6007494f3c7155`; `origin/main = ded1b835b0d9a846eab2246c5b6007494f3c7155`; `git ls-remote origin refs/heads/main = ded1b835b0d9a846eab2246c5b6007494f3c7155`. This receipt was captured immediately after pushing the implementation/evidence commit.
 - Staged-only `git diff --cached --check`: exit 0.
 - Builder stop: `BLOCKED_R13_APPDATA_CLEANUP_POLICY_REJECTED`; implementation/test evidence is ready for independent audit. Do not start R12 until the exact 44,266-byte isolated-profile cleanup gate is resolved; root `TASKS.md` remains unchanged.
