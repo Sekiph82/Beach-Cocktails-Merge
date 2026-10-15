@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex executes R16 standard-FPS outcome-based representative level qualification pilot with bounded watchdogs and honest unknown classifications.
+- Next Task/Action: BCM-M33-004 — Codex runs R17 Tiki L30 error triage, append-only pilot evidence integrity and bounded multi-island production-physics qualification.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R15 independent audit accepts instrumentation/regressions but rejects reproducible physics equivalence: strict parity 0/4, tolerant 0/4; repeated normal physics diverged 0.914886px and another seed 1.148804px, third terminal 7 frames apart. Fast solver prohibited. One standard-speed exact-4T path capped after 9 actions without win, feasibility UNKNOWN. 10 builder regression groups PASS. M33-004 remains OPEN. R16 pivots to observed standard-FPS production-physics outcomes under strict global/per-case budgets, without treating non-win as impossibility; preserve Desktop 8 tracked/15 untracked owner paths.
+- Progress: R16 independent evidence audit ACCEPTED as bounded pilot, NOT 1000-level reachability: 12 base attempts across six levels/four islands/two policies, two WIN on Sunny Cove L1 only (9 shots, cap16), nine BUDGET_UNKNOWN, one Tiki L30 subprocess ERROR; two same-seed win replays observed. Static validation 1000/1000 and ten builder regression groups PASS; earlier partial traces overwritten in report recovery. R17 repairs trace immutability and diagnoses exit -1 before more bounded samples. M33-004 OPEN; preserve 8 tracked and 15 untracked Desktop owner changes. No owner GB-safe delete target proven.
 
 ## Blockers/Waits
 
