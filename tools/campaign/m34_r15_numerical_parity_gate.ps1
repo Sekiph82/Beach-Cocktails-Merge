@@ -5,10 +5,28 @@ function ConvertTo-R15CanonicalJson($Value) {
 	return ConvertTo-Json -InputObject $Value -Depth 80 -Compress
 }
 
+function Get-R15ContactSignatures($Events) {
+	$signatures = [System.Collections.Generic.List[object]]::new()
+	foreach ($event in @($Events)) {
+		$signatures.Add([pscustomobject]@{
+			frame = [int]$event.frame
+			source_instance_id = $event.source_instance_id
+		source_level = $event.source_level
+		target_kind = $event.target_kind
+		target_instance_id = $event.target_instance_id
+		target_name = $event.target_name
+		target_level = $event.target_level
+		})
+	}
+	return @($signatures)
+}
+
 function Compare-R15ParityPair($Normal, $Fixed, [bool]$ProcessesCompleted = $true, [bool]$HighDensityReached = $true) {
 	$reasons = [System.Collections.Generic.List[string]]::new()
 	$structural = [System.Collections.Generic.List[string]]::new()
 	$numeric = [System.Collections.Generic.List[string]]::new()
+	$frameMetrics = [System.Collections.Generic.List[object]]::new()
+	$identityMismatchFrames = [System.Collections.Generic.List[int]]::new()
 	$maxPosition = 0.0
 	$maxVelocity = 0.0
 	$cumulativeByIdentity = @{}
@@ -33,9 +51,11 @@ function Compare-R15ParityPair($Normal, $Fixed, [bool]$ProcessesCompleted = $tru
 	}
 	if ($normalTrace.Count -ne $fixedTrace.Count) { $structural.Add("TRACE_LENGTH") ; $strict = $false }
 	if ((ConvertTo-R15CanonicalJson $Normal.telemetry.action_log) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.action_log)) { $structural.Add("ACTION_OR_BRANCH_TRACE") ; $strict = $false }
-	foreach ($key in @("contact_events", "merge_events")) {
-		if ((ConvertTo-R15CanonicalJson $Normal.telemetry.$key) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.$key)) { $structural.Add("ORDERED_$($key.ToUpperInvariant())") ; $strict = $false }
-	}
+	$normalContactSignature = Get-R15ContactSignatures $Normal.telemetry.contact_events
+	$fixedContactSignature = Get-R15ContactSignatures $Fixed.telemetry.contact_events
+	if ((ConvertTo-R15CanonicalJson $normalContactSignature) -cne (ConvertTo-R15CanonicalJson $fixedContactSignature)) { $structural.Add("ORDERED_CONTACT_EVENTS") ; $strict = $false }
+	if ((ConvertTo-R15CanonicalJson $Normal.telemetry.contact_events) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.contact_events)) { $strict = $false }
+	if ((ConvertTo-R15CanonicalJson $Normal.telemetry.merge_events) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.merge_events)) { $structural.Add("ORDERED_MERGE_EVENTS") ; $strict = $false }
 	foreach ($key in @("outcome", "terminal_reason", "normal_objective_complete", "vip_complete", "normal_orders_completed", "normal_orders_remaining", "vip_state", "moves_used", "moves_remaining", "merge_count", "contact_count")) {
 		if ((ConvertTo-R15CanonicalJson $Normal.telemetry.$key) -cne (ConvertTo-R15CanonicalJson $Fixed.telemetry.$key)) { $structural.Add("FINAL_$($key.ToUpperInvariant())") ; $strict = $false }
 	}
@@ -54,11 +74,15 @@ function Compare-R15ParityPair($Normal, $Fixed, [bool]$ProcessesCompleted = $tru
 		$nb = @($ns.bodies)
 		$fb = @($fs.bodies)
 		if ($nb.Count -ne $fb.Count) { $structural.Add("FRAME_${frameIndex}_BODY_COUNT") ; $strict = $false; continue }
+		$frameMaxPosition = 0.0
+		$frameMaxPositionId = $null
+		$frameMaxVelocity = 0.0
+		$frameMaxVelocityId = $null
 		for ($bodyIndex = 0; $bodyIndex -lt $nb.Count; $bodyIndex++) {
 			$bodyN = $nb[$bodyIndex]
 			$bodyF = $fb[$bodyIndex]
 			$id = [string]$bodyN.instance_id
-			if ([string]$bodyF.instance_id -cne $id) { $structural.Add("FRAME_${frameIndex}_IDENTITY_ORDER") ; $strict = $false; continue }
+			if ([string]$bodyF.instance_id -cne $id) { $structural.Add("FRAME_${frameIndex}_IDENTITY_ORDER") ; $strict = $false; $identityMismatchFrames.Add([int]$n.frame); continue }
 			if ($bodyN.level -ne $bodyF.level -or $bodyN.motion_state -ne $bodyF.motion_state -or $bodyN.sleeping -ne $bodyF.sleeping) {
 				$structural.Add("FRAME_${frameIndex}_BODY_STATE_$id") ; $strict = $false
 			}
@@ -68,12 +92,31 @@ function Compare-R15ParityPair($Normal, $Fixed, [bool]$ProcessesCompleted = $tru
 			$vy = [double]$bodyN.velocity[1] - [double]$bodyF.velocity[1]
 			$positionDelta = [Math]::Sqrt($px * $px + $py * $py)
 			$velocityDelta = [Math]::Sqrt($vx * $vx + $vy * $vy)
+			if ($positionDelta -gt $frameMaxPosition) { $frameMaxPosition = $positionDelta; $frameMaxPositionId = $id }
+			if ($velocityDelta -gt $frameMaxVelocity) { $frameMaxVelocity = $velocityDelta; $frameMaxVelocityId = $id }
 			$maxPosition = [Math]::Max($maxPosition, $positionDelta)
 			$maxVelocity = [Math]::Max($maxVelocity, $velocityDelta)
 			if (-not $cumulativeByIdentity.ContainsKey($id)) { $cumulativeByIdentity[$id] = 0.0 }
 			$cumulativeByIdentity[$id] += $positionDelta
 			if ($bodyN.position[0] -cne $bodyF.position[0] -or $bodyN.position[1] -cne $bodyF.position[1] -or $bodyN.velocity[0] -cne $bodyF.velocity[0] -or $bodyN.velocity[1] -cne $bodyF.velocity[1]) { $strict = $false }
 		}
+		$frameMetrics.Add([pscustomobject]@{
+			frame = [int]$n.frame
+			bitwise_state_equal = ($n.sha256 -ceq $f.sha256)
+			identity_pairing = @($nb | ForEach-Object {[int]$_.instance_id})
+			paired_entity_count = $nb.Count
+			max_position_delta_px = $frameMaxPosition
+			max_position_delta_instance_id = $frameMaxPositionId
+			max_velocity_delta_px_per_second = $frameMaxVelocity
+			max_velocity_delta_instance_id = $frameMaxVelocityId
+			contact_event_cursor_normal = [int]$ns.contact_event_count
+			contact_event_cursor_comparison = [int]$fs.contact_event_count
+			merge_event_cursor_normal = [int]$ns.merge_event_count
+			merge_event_cursor_comparison = [int]$fs.merge_event_count
+			action_branch_equal = ((ConvertTo-R15CanonicalJson $ns.action_log) -ceq (ConvertTo-R15CanonicalJson $fs.action_log))
+			objective_equal = ((ConvertTo-R15CanonicalJson $ns.normal_completed) -ceq (ConvertTo-R15CanonicalJson $fs.normal_completed) -and (ConvertTo-R15CanonicalJson $ns.normal_remaining) -ceq (ConvertTo-R15CanonicalJson $fs.normal_remaining))
+			terminal_equal = ((ConvertTo-R15CanonicalJson $ns.terminal) -ceq (ConvertTo-R15CanonicalJson $fs.terminal))
+		})
 	}
 	$maxCumulative = 0.0
 	foreach ($value in $cumulativeByIdentity.Values) { $maxCumulative = [Math]::Max($maxCumulative, [double]$value) }
@@ -93,6 +136,11 @@ function Compare-R15ParityPair($Normal, $Fixed, [bool]$ProcessesCompleted = $tru
 		max_velocity_delta_px_per_second = $maxVelocity
 		max_cumulative_position_delta_sum_px = $maxCumulative
 		compared_frames = $frameCount
+		frame_metrics = @($frameMetrics)
+		identity_mismatch_frames = @($identityMismatchFrames | Select-Object -Unique)
+		ordered_contact_events_equal = ((ConvertTo-R15CanonicalJson $normalContactSignature) -ceq (ConvertTo-R15CanonicalJson $fixedContactSignature))
+		ordered_merge_events_equal = ((ConvertTo-R15CanonicalJson $Normal.telemetry.merge_events) -ceq (ConvertTo-R15CanonicalJson $Fixed.telemetry.merge_events))
+		action_branch_trace_equal = ((ConvertTo-R15CanonicalJson $Normal.telemetry.action_log) -ceq (ConvertTo-R15CanonicalJson $Fixed.telemetry.action_log))
 		thresholds = $thresholds
 		structural_reasons = @($structural | Select-Object -Unique)
 		numeric_reasons = @($numeric | Select-Object -Unique)

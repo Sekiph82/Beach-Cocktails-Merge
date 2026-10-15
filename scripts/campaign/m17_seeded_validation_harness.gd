@@ -574,16 +574,26 @@ func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> v
 
 func _on_drink_contact(body: Node, source: Drink, state: Dictionary) -> void:
 	state["contact_count"] = int(state["contact_count"]) + 1
-	if body is Drink and is_instance_valid(source):
-		var source_id := _ensure_stable_instance_id(source, state)
-		var target_id := _ensure_stable_instance_id(body, state)
-		state["contact_events"].append({
-			"frame": int(state["physics_frame_index"]),
-			"source_instance_id": source_id,
-			"target_instance_id": target_id,
-			"source_level": source.level,
-			"target_level": body.level,
-		})
+	if not is_instance_valid(source):
+		return
+	var source_id := _ensure_stable_instance_id(source, state)
+	var target_is_drink := body is Drink
+	var target_id = _ensure_stable_instance_id(body, state) if target_is_drink else null
+	state["contact_events"].append({
+		"frame": int(state["physics_frame_index"]),
+		"source_instance_id": source_id,
+		"source_level": source.level,
+		"source_motion_state": int(source.motion_state),
+		"source_position": [source.position.x, source.position.y],
+		"source_velocity": [source.linear_velocity.x, source.linear_velocity.y],
+		"target_kind": "drink" if target_is_drink else "other",
+		"target_instance_id": target_id,
+		"target_name": str(body.name) if is_instance_valid(body) else "freed",
+		"target_level": body.level if target_is_drink else 0,
+		"target_motion_state": int(body.motion_state) if target_is_drink else -1,
+		"target_position": [body.position.x, body.position.y] if body is Node2D else [],
+		"target_velocity": [body.linear_velocity.x, body.linear_velocity.y] if body is RigidBody2D else [],
+	})
 
 
 func _sample(manager, state: Dictionary) -> void:
