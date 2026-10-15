@@ -194,7 +194,8 @@ func run_trial(
 	stop_flag_path: String = "",
 	profile_enabled: bool = false,
 	cache_legal_launch_lanes: bool = false,
-	capture_physics_trace: bool = false
+	capture_physics_trace: bool = false,
+	max_physics_frames: int = 0
 ) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
 	telemetry["policy_name"] = policy_name
@@ -272,7 +273,7 @@ func run_trial(
 	var elapsed := 0.0
 	var physics_frame_index := 0
 	var replaying := not action_log_override.is_empty()
-	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots and (not use_production_shot_controller or bridge.can_commit_shot()) and (max_wall_time_sec <= 0.0 or float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 < max_wall_time_sec) and not _stop_requested(stop_flag_path):
+	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots and (max_physics_frames <= 0 or physics_frame_index < max_physics_frames) and (not use_production_shot_controller or bridge.can_commit_shot()) and (max_wall_time_sec <= 0.0 or float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 < max_wall_time_sec) and not _stop_requested(stop_flag_path):
 		var spawn_level: int
 		var lane_index: int
 		var x_position: float
@@ -340,6 +341,8 @@ func run_trial(
 		telemetry["shot_count"] = int(telemetry["shot_count"]) + 1
 		var merges_before := int(state["merge_count"])
 		for _frame in range(FRAMES_PER_ACTION):
+			if max_physics_frames > 0 and physics_frame_index >= max_physics_frames:
+				break
 			var frame_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			await _root.get_tree().physics_frame
 			if profile_enabled:
@@ -383,8 +386,10 @@ func run_trial(
 			"vip_state": bridge.get_vip_state().duplicate(true),
 		})
 
-	if not bridge.is_terminal() and not manager.game_over:
+	if not bridge.is_terminal() and not manager.game_over and (max_physics_frames <= 0 or physics_frame_index < max_physics_frames):
 		for _frame in range(MAX_EXTRA_SETTLE_FRAMES):
+			if max_physics_frames > 0 and physics_frame_index >= max_physics_frames:
+				break
 			var frame_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			await _root.get_tree().physics_frame
 			if profile_enabled:
@@ -413,7 +418,9 @@ func run_trial(
 	else:
 		var classified := classify_trial_outcome({}, manager.game_over, elapsed, time_limit_sec)
 		telemetry["outcome"] = classified["outcome"]
-		if use_production_shot_controller and not bridge.can_commit_shot():
+		if max_physics_frames > 0 and physics_frame_index >= max_physics_frames:
+			telemetry["terminal_reason"] = "PHYSICS_FRAME_BUDGET"
+		elif use_production_shot_controller and not bridge.can_commit_shot():
 			telemetry["terminal_reason"] = "MOVE_BUDGET_EXHAUSTED"
 		elif _stop_requested(stop_flag_path):
 			telemetry["terminal_reason"] = "STOP_SIGNAL"

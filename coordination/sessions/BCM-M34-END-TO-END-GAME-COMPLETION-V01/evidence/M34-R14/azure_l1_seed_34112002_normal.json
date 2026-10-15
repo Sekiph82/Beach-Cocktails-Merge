@@ -1,0 +1,2379 @@
+{
+	"action_cap": 6,
+	"engine_time_scale": 1.0,
+	"island_id": "azure_bay",
+	"level_id": 1,
+	"mode": "normal",
+	"physics_frame_ceiling": 450,
+	"physics_ticks_per_second": 60,
+	"policy": "CHEAP_MERGE_CENTER_V01",
+	"probe": "M34-R12 production physics fixed-FPS parity",
+	"seed": 34112002,
+	"telemetry": {
+		"action_log": [
+			{
+				"decision_reason": "center_lane_fallback",
+				"lane_index": 3,
+				"same_level_target_found": false,
+				"spawn_level": 1,
+				"step": 0,
+				"target_instance_id": null,
+				"x_position": 360.0
+			},
+			{
+				"decision_reason": "center_lane_fallback",
+				"lane_index": 3,
+				"same_level_target_found": false,
+				"spawn_level": 3,
+				"step": 1,
+				"target_instance_id": null,
+				"x_position": 360.0
+			},
+			{
+				"decision_reason": "same_level_target_single_pass",
+				"lane_index": 3,
+				"same_level_target_found": true,
+				"spawn_level": 1,
+				"step": 2,
+				"target_instance_id": 1,
+				"x_position": 360.0
+			},
+			{
+				"decision_reason": "same_level_target_single_pass",
+				"lane_index": 3,
+				"same_level_target_found": true,
+				"spawn_level": 1,
+				"step": 3,
+				"target_instance_id": 5,
+				"x_position": 360.0
+			},
+			{
+				"decision_reason": "same_level_target_single_pass",
+				"lane_index": 3,
+				"same_level_target_found": true,
+				"spawn_level": 2,
+				"step": 4,
+				"target_instance_id": 9,
+				"x_position": 360.0
+			},
+			{
+				"decision_reason": "center_lane_fallback",
+				"lane_index": 3,
+				"same_level_target_found": false,
+				"spawn_level": 2,
+				"step": 5,
+				"target_instance_id": null,
+				"x_position": 360.0
+			}
+		],
+		"contact_count": 11,
+		"danger_line_exposure_sec": 0.0,
+		"decision_reason_counts": {
+			"center_lane_fallback": 3,
+			"same_level_target_single_pass": 3
+		},
+		"elapsed_sec": 7.49999999999998,
+		"failed_merge_approach_count": 1,
+		"island_id": "azure_bay",
+		"large_piece_coexistence_peak": 0,
+		"lateral_variation": false,
+		"lateral_variation_eligible": true,
+		"level_id": 1,
+		"mean_live_drinks": 2.78,
+		"merge_count": 3,
+		"move_limit": 160,
+		"moves_remaining": 154,
+		"moves_used": 6,
+		"normal_objective_complete": false,
+		"normal_orders_completed": {
+			"6": 0,
+			"8": 0
+		},
+		"normal_orders_remaining": {
+			"6": 1,
+			"8": 1
+		},
+		"outcome": "harness_abort",
+		"peak_board_occupancy": 0.019085175370558,
+		"peak_live_drinks": 4,
+		"physics_hook": "production GameManager.spawn_drink + Drink.launch_up + Godot physics frames",
+		"physics_trace": [
+			{
+				"frame": 15,
+				"sha256": "2a1cc7c011a4ae1ae8d02ce1640508d343cd255606e1e53e8e822053a93c6c54",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								802.075500488281
+							],
+							"velocity": [
+								0.0,
+								-642.29443359375
+							]
+						}
+					],
+					"contact_count": 0,
+					"frame": 15,
+					"merge_count": 0,
+					"moves_used": 1,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 30,
+				"sha256": "21036df5dda26e658e633d49bc727a8be053b7194f88cc08a0ff29f19d761c7b",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								648.829956054688
+							],
+							"velocity": [
+								0.0,
+								-581.944274902344
+							]
+						}
+					],
+					"contact_count": 0,
+					"frame": 30,
+					"merge_count": 0,
+					"moves_used": 1,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 45,
+				"sha256": "ee82d65993784f1f30095017526eba419a006f91350f1a0f801a317b5b5e8bbd",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								510.472320556641
+							],
+							"velocity": [
+								0.0,
+								-523.085388183594
+							]
+						}
+					],
+					"contact_count": 0,
+					"frame": 45,
+					"merge_count": 0,
+					"moves_used": 1,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 60,
+				"sha256": "67829405a6ca2f1a690eebbc4a4cffcad121c8da1ab41166251843cbf0d2501e",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								386.634735107422
+							],
+							"velocity": [
+								0.0,
+								-465.680908203125
+							]
+						}
+					],
+					"contact_count": 0,
+					"frame": 60,
+					"merge_count": 0,
+					"moves_used": 1,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 75,
+				"sha256": "a86f95da32d8915814cce8c5d9025f4d8132c144d1094730f346f24f275d4817",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								777.360961914063
+							],
+							"velocity": [
+								0.0,
+								-638.223937988281
+							]
+						}
+					],
+					"contact_count": 0,
+					"frame": 75,
+					"merge_count": 0,
+					"moves_used": 2,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 90,
+				"sha256": "b785f2cc2e08c51499dfd04f4ac78cd25a98cbf47ef02be4f4f64d7a6bd220b5",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								625.119567871094
+							],
+							"velocity": [
+								0.0,
+								-577.974365234375
+							]
+						}
+					],
+					"contact_count": 0,
+					"frame": 90,
+					"merge_count": 0,
+					"moves_used": 2,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 105,
+				"sha256": "874b3bb2606b7b4d522bc09d11a9c6c7bfd550c158309ef725a930e33a95c17c",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								487.741271972656
+							],
+							"velocity": [
+								0.0,
+								-519.213562011719
+							]
+						}
+					],
+					"contact_count": 0,
+					"frame": 105,
+					"merge_count": 0,
+					"moves_used": 2,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 120,
+				"sha256": "6a782d57330fb25e8461010ed8c6b32a2c3a8ee59acd9aad0f043ab73c412d43",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								430.032073974609
+							],
+							"velocity": [
+								0.0,
+								-2.36940217018127
+							]
+						}
+					],
+					"contact_count": 2,
+					"frame": 120,
+					"merge_count": 0,
+					"moves_used": 2,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 135,
+				"sha256": "216f7258f766dae5af8a231d6a080e876b2e8239058e7f3ac87d996dbe136433",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								791.388427734375
+							],
+							"velocity": [
+								0.0,
+								-638.223937988281
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								432.092132568359
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 2,
+					"frame": 135,
+					"merge_count": 0,
+					"moves_used": 3,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 150,
+				"sha256": "9a83d4680700dc99631e9933b4106ce71374d4147c39e04735608c5c4928eb73",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								639.147033691406
+							],
+							"velocity": [
+								0.0,
+								-577.974365234375
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								432.104339599609
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 2,
+					"frame": 150,
+					"merge_count": 0,
+					"moves_used": 3,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 165,
+				"sha256": "9ad77253069c89417aac9a14ee27f60b44ffc33b464a4e681a931217b8c2ee7d",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								501.768768310547
+							],
+							"velocity": [
+								0.0,
+								-519.213562011719
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								432.104370117188
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 2,
+					"frame": 165,
+					"merge_count": 0,
+					"moves_used": 3,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 180,
+				"sha256": "e6a74846912ed19333118ed461a4f492a1b76c5dfcfbaa25a542188d990d920a",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								477.940063476563
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								431.240051269531
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 4,
+					"frame": 180,
+					"merge_count": 0,
+					"moves_used": 3,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 195,
+				"sha256": "e683df4338a11ab78764d79af67853f20baee67435b7c6cc703ec4cdfa0b146c",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								791.388427734375
+							],
+							"velocity": [
+								0.0,
+								-638.223937988281
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								478.810272216797
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								432.078765869141
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 4,
+					"frame": 195,
+					"merge_count": 0,
+					"moves_used": 4,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 210,
+				"sha256": "7b8457a4be6917b7f88feada5938bbd6076d56e88131edeb74f2919e4fd01741",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								639.147033691406
+							],
+							"velocity": [
+								0.0,
+								-577.974365234375
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								478.835327148438
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								432.103790283203
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 4,
+					"frame": 210,
+					"merge_count": 0,
+					"moves_used": 4,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 225,
+				"sha256": "cb66ee5928f144a1379acb1ddb49626a0d526755a5de03b0685da3a395f83e02",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								475.541442871094
+							],
+							"velocity": [
+								0.0,
+								-110.525787353516
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								513.628723144531
+							],
+							"velocity": [
+								0.0,
+								-110.525817871094
+							]
+						},
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								428.809906005859
+							],
+							"velocity": [
+								0.0,
+								-110.524459838867
+							]
+						}
+					],
+					"contact_count": 6,
+					"frame": 225,
+					"merge_count": 0,
+					"moves_used": 4,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 240,
+				"sha256": "96873ffbab38c303939afc478c2b2b3bd681a2dbd9f6376636d7914797a1b84b",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								481.256317138672
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								431.556335449219
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 7,
+					"frame": 240,
+					"merge_count": 1,
+					"moves_used": 4,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 255,
+				"sha256": "d0ec8db5b960fef84f7782d295cdbb07828ba219dcc998d0130c12e12ad39c60",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								789.009887695313
+							],
+							"velocity": [
+								0.0,
+								-638.223937988281
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								481.836761474609
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								432.084747314453
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 7,
+					"frame": 255,
+					"merge_count": 1,
+					"moves_used": 5,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 270,
+				"sha256": "6a7e79a0d976087a8155d0ae50da39d23f02f3c40d54a82bbd5c897a295fea48",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								636.768493652344
+							],
+							"velocity": [
+								0.0,
+								-577.974365234375
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								481.855773925781
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								432.103759765625
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 7,
+					"frame": 270,
+					"merge_count": 1,
+					"moves_used": 5,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 285,
+				"sha256": "4f339bd7d100ee3d98d8006f54799460761d255c117458e691189ae26fa2b60a",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								429.165771484375
+							],
+							"velocity": [
+								0.0,
+								-44.0312919616699
+							]
+						},
+						{
+							"level": 3,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								497.942291259766
+							],
+							"velocity": [
+								0.0,
+								-115.321792602539
+							]
+						}
+					],
+					"contact_count": 8,
+					"frame": 285,
+					"merge_count": 2,
+					"moves_used": 5,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 300,
+				"sha256": "8057e7a496913ce80e85f72158979d7f09509268aa3fe8cb9760af59c1e14782",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								455.679168701172
+							],
+							"velocity": [
+								0.0,
+								-9.20986652374268
+							]
+						}
+					],
+					"contact_count": 9,
+					"frame": 300,
+					"merge_count": 3,
+					"moves_used": 5,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 315,
+				"sha256": "6336eaa34c8fd44197db24a03bb4637a9f4fbb10b0657be52f05b382078392ff",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								789.009887695313
+							],
+							"velocity": [
+								0.0,
+								-638.223937988281
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								455.366912841797
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 9,
+					"frame": 315,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 330,
+				"sha256": "62fa78e4380472f89eca1d2a1532853f65cc9581a447da921399f5b5bcd8958f",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								636.768493652344
+							],
+							"velocity": [
+								0.0,
+								-577.974365234375
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								455.366912841797
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 9,
+					"frame": 330,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 345,
+				"sha256": "5819dc9a1e2a18b6076ab6ce44a292846f226a0d9433c33136fbc197ba3df507",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								505.020202636719
+							],
+							"velocity": [
+								0.0,
+								-209.149261474609
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								451.514831542969
+							],
+							"velocity": [
+								0.0,
+								-209.149261474609
+							]
+						}
+					],
+					"contact_count": 10,
+					"frame": 345,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 360,
+				"sha256": "80472773c3b3d3ad1c0ea233e0f70431eaefcc8ff23dcd87c13cd2968ede2d5f",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								487.376251220703
+							],
+							"velocity": [
+								0.0,
+								-0.756275236606598
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 1,
+							"position": [
+								360.0,
+								433.676239013672
+							],
+							"velocity": [
+								0.0,
+								-0.756275236606598
+							]
+						}
+					],
+					"contact_count": 11,
+					"frame": 360,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 375,
+				"sha256": "2f85b2d41df4135760fb8f0a51cd141f2a37150d82708c583fd77e7b21b92d93",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								489.735107421875
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								435.977752685547
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 11,
+					"frame": 375,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 390,
+				"sha256": "edaf91f03d0068f0accd7e3beb939797ecb21fa073a61e436cf0b48c5236155a",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								489.8564453125
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								436.099090576172
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 11,
+					"frame": 390,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 405,
+				"sha256": "788e230b391e3d0e85576d93ec229a1882419478ef2c31f74be67878a0976450",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								489.861541748047
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								436.104187011719
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 11,
+					"frame": 405,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 420,
+				"sha256": "a2fd5c82078f6edea6f5849227cf60d867980844c869dbdf722dd5a848389a9d",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								489.861663818359
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								436.104339599609
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 11,
+					"frame": 420,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 435,
+				"sha256": "749d9dfa60ab4f517fbb7bab892c635be664d40e2135d4650dc17a5c5eaa9e1c",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								489.861663818359
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								436.104339599609
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 11,
+					"frame": 435,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			},
+			{
+				"frame": 450,
+				"sha256": "162275f31b6e66ebcebe29e3e8d415281ddc98d41c21e44504d2e4b22c6ddc50",
+				"state": {
+					"bodies": [
+						{
+							"level": 1,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								385.404388427734
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 2,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								489.861663818359
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						},
+						{
+							"level": 4,
+							"motion_state": 2,
+							"position": [
+								360.0,
+								436.104339599609
+							],
+							"velocity": [
+								0.0,
+								0.0
+							]
+						}
+					],
+					"contact_count": 11,
+					"frame": 450,
+					"merge_count": 3,
+					"moves_used": 6,
+					"normal_completed": {
+						"6": 0,
+						"8": 0
+					},
+					"normal_remaining": {
+						"6": 1,
+						"8": 1
+					},
+					"spawn_levels": [
+						1,
+						3,
+						1,
+						1,
+						2,
+						2
+					],
+					"terminal": {},
+					"vip_state": {
+						"cocktail_level": 0,
+						"completed": false,
+						"delivered": 0,
+						"enabled": false,
+						"quantity": 0,
+						"remaining": 0,
+						"required": 0,
+						"status": "HIDDEN"
+					}
+				}
+			}
+		],
+		"policy_name": "CHEAP_MERGE_CENTER_V01",
+		"profile": {
+			"decision_count": 6,
+			"decision_wall_usec": 3966,
+			"decision_wall_usec_per_action": 661.0,
+			"enabled": true,
+			"engine_performance_monitor": "not_sampled; frame wall timers are used because built-in monitors may be stale",
+			"frame_count": 450,
+			"geometry_cache_misses": 3,
+			"physics_frame_wait_wall_usec": 6958020,
+			"sample_wall_usec": 389274,
+			"sample_wall_usec_per_frame": 865.05,
+			"shot_commit_wall_usec": 18452
+		},
+		"progress_curve": [
+			{
+				"action_count": 1,
+				"merge_count": 0,
+				"moves_used": 1,
+				"normal_T_progress_per_move": 0.0,
+				"normal_T_progressed": 0,
+				"normal_T_remaining": 40,
+				"normal_T_start": 40,
+				"normal_orders_completed": {
+					"6": 0,
+					"8": 0
+				},
+				"simulated_seconds": 1.0,
+				"vip_state": {
+					"cocktail_level": 0,
+					"completed": false,
+					"delivered": 0,
+					"enabled": false,
+					"quantity": 0,
+					"remaining": 0,
+					"required": 0,
+					"status": "HIDDEN"
+				}
+			},
+			{
+				"action_count": 2,
+				"merge_count": 0,
+				"moves_used": 2,
+				"normal_T_progress_per_move": 0.0,
+				"normal_T_progressed": 0,
+				"normal_T_remaining": 40,
+				"normal_T_start": 40,
+				"normal_orders_completed": {
+					"6": 0,
+					"8": 0
+				},
+				"simulated_seconds": 2.0,
+				"vip_state": {
+					"cocktail_level": 0,
+					"completed": false,
+					"delivered": 0,
+					"enabled": false,
+					"quantity": 0,
+					"remaining": 0,
+					"required": 0,
+					"status": "HIDDEN"
+				}
+			},
+			{
+				"action_count": 3,
+				"merge_count": 0,
+				"moves_used": 3,
+				"normal_T_progress_per_move": 0.0,
+				"normal_T_progressed": 0,
+				"normal_T_remaining": 40,
+				"normal_T_start": 40,
+				"normal_orders_completed": {
+					"6": 0,
+					"8": 0
+				},
+				"simulated_seconds": 3.0,
+				"vip_state": {
+					"cocktail_level": 0,
+					"completed": false,
+					"delivered": 0,
+					"enabled": false,
+					"quantity": 0,
+					"remaining": 0,
+					"required": 0,
+					"status": "HIDDEN"
+				}
+			},
+			{
+				"action_count": 4,
+				"merge_count": 1,
+				"moves_used": 4,
+				"normal_T_progress_per_move": 0.0,
+				"normal_T_progressed": 0,
+				"normal_T_remaining": 40,
+				"normal_T_start": 40,
+				"normal_orders_completed": {
+					"6": 0,
+					"8": 0
+				},
+				"simulated_seconds": 4.0,
+				"vip_state": {
+					"cocktail_level": 0,
+					"completed": false,
+					"delivered": 0,
+					"enabled": false,
+					"quantity": 0,
+					"remaining": 0,
+					"required": 0,
+					"status": "HIDDEN"
+				}
+			},
+			{
+				"action_count": 5,
+				"merge_count": 3,
+				"moves_used": 5,
+				"normal_T_progress_per_move": 0.0,
+				"normal_T_progressed": 0,
+				"normal_T_remaining": 40,
+				"normal_T_start": 40,
+				"normal_orders_completed": {
+					"6": 0,
+					"8": 0
+				},
+				"simulated_seconds": 5.0,
+				"vip_state": {
+					"cocktail_level": 0,
+					"completed": false,
+					"delivered": 0,
+					"enabled": false,
+					"quantity": 0,
+					"remaining": 0,
+					"required": 0,
+					"status": "HIDDEN"
+				}
+			},
+			{
+				"action_count": 6,
+				"merge_count": 3,
+				"moves_used": 6,
+				"normal_T_progress_per_move": 0.0,
+				"normal_T_progressed": 0,
+				"normal_T_remaining": 40,
+				"normal_T_start": 40,
+				"normal_orders_completed": {
+					"6": 0,
+					"8": 0
+				},
+				"simulated_seconds": 6.0,
+				"vip_state": {
+					"cocktail_level": 0,
+					"completed": false,
+					"delivered": 0,
+					"enabled": false,
+					"quantity": 0,
+					"remaining": 0,
+					"required": 0,
+					"status": "HIDDEN"
+				}
+			}
+		],
+		"rail_contact_count": 1,
+		"rail_contact_metric": "footprint_proximity_transition_proxy",
+		"rail_enter_threshold_px": 1.0,
+		"rail_release_threshold_px": 3.0,
+		"remaining_sec": 0.0,
+		"seed": 34112002,
+		"shot_count": 6,
+		"stars": 0,
+		"terminal_reason": "PHYSICS_FRAME_BUDGET",
+		"unique_x_positions": 1,
+		"vip_complete": false,
+		"vip_state": {
+			"cocktail_level": 0,
+			"completed": false,
+			"delivered": 0,
+			"enabled": false,
+			"quantity": 0,
+			"remaining": 0,
+			"required": 0,
+			"status": "HIDDEN"
+		}
+	},
+	"wall_usec": 7821236
+}

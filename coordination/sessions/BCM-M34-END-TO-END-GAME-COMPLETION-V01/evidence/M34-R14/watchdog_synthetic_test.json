@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "test": "M34-R14 process-level watchdog synthetic hung child",
+  "watchdog_exit": 124,
+  "watchdog_status": "TIMEOUT_TERMINATED",
+  "watchdog_reason": "PROCESS_WALL_TIMEOUT",
+  "root_pid": 17092,
+  "root_identity_verified": true,
+  "terminated_processes": [
+    {
+      "pid": 8448,
+      "verified": true,
+      "terminated": true,
+      "path": "C:\\WINDOWS\\system32\\conhost.exe",
+      "parent_pid": 17092,
+      "depth": 1
+    },
+    {
+      "pid": 17092,
+      "verified": true,
+      "terminated": true,
+      "path": "C:\\Users\\sekip\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+      "parent_pid": 24440,
+      "depth": 0
+    }
+  ],
+  "hung_child_still_alive": false,
+  "unrelated_sentinel_pid": 10588,
+  "unrelated_sentinel_still_alive": true,
+  "all_termination_targets_verified": true,
+  "partial_progress_preserved": true,
+  "watchdog_report": {
+    "schema_version": 1,
+    "task": "BCM-M34-R14-SYNTHETIC-WATCHDOG-TEST",
+    "status": "TIMEOUT_TERMINATED",
+    "reason": "PROCESS_WALL_TIMEOUT",
+    "started_utc": "2026-10-15T19:23:53.109485Z",
+    "finished_utc": "2026-10-15T19:23:56.8362989Z",
+    "wall_elapsed_ms": 3731,
+    "timeout_seconds": 2,
+    "file_path": "C:\\Users\\sekip\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "root_pid": 17092,
+    "root_identity_verified": true,
+    "task_token": "236f5913c4fd4ee581333d67afbd35d9",
+    "exit_code": null,
+    "terminated_processes": [
+      {
+        "pid": 8448,
+        "verified": true,
+        "terminated": true,
+        "path": "C:\\WINDOWS\\system32\\conhost.exe",
+        "parent_pid": 17092,
+        "depth": 1
+      },
+      {
+        "pid": 17092,
+        "verified": true,
+        "terminated": true,
+        "path": "C:\\Users\\sekip\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+        "parent_pid": 24440,
+        "depth": 0
+      }
+    ],
+    "stdout": "SYNTHETIC_HUNG_CHILD_STARTED marker=236f5913c4fd4ee581333d67afbd35d9 pid=17092\r\n",
+    "stderr": "",
+    "partial_progress": {
+      "case": "SYNTHETIC_HUNG_CHILD",
+      "completed_records": 0,
+      "classification": "UNKNOWN_TIMEOUT",
+      "partial_reason": "test marker written before child launch",
+      "status": "CASE_RUNNING"
+    }
+  },
+  "result": "PASS"
+}

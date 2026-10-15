@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R14-005",
+  "status": "ALL_REQUESTED_REGRESSIONS_PASS",
+  "user_data_isolated": true,
+  "isolated_appdata_bytes_before_cleanup": 115010.0,
+  "isolated_appdata_cleanup": "REMOVED_EXACT_TASK_TEMP",
+  "free_bytes_before": 113901629440,
+  "free_bytes_after": 113901817856,
+  "free_bytes_reclaimed": 188416,
+  "tasks_md_hash_before": "f0dc9c6dffececdd57492ee1b78a833e8c406f85",
+  "tasks_md_hash_after": "f0dc9c6dffececdd57492ee1b78a833e8c406f85",
+  "tasks_md_unchanged": true,
+  "tests": [
+    {
+      "test": "economy_35",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "economy_35.stdout.txt",
+      "stderr_file": "economy_35.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "daily_38",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "daily_38.stdout.txt",
+      "stderr_file": "daily_38.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "navigation_17",
+      "timeout_seconds": 180,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "navigation_17.stdout.txt",
+      "stderr_file": "navigation_17.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "m14_bridge",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "m14_bridge.stdout.txt",
+      "stderr_file": "m14_bridge.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "m15_vip_economy",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "m15_vip_economy.stdout.txt",
+      "stderr_file": "m15_vip_economy.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "scene_uid",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "scene_uid.stdout.txt",
+      "stderr_file": "scene_uid.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "production_routes",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "production_routes.stdout.txt",
+      "stderr_file": "production_routes.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "slim_content",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "slim_content.stdout.txt",
+      "stderr_file": "slim_content.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "vip_optional",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "vip_optional.stdout.txt",
+      "stderr_file": "vip_optional.stderr.txt",
+      "pass": true
+    },
+    {
+      "test": "startup_smoke",
+      "timeout_seconds": 60,
+      "status": "EXITED",
+      "exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "stdout_file": "startup_smoke.stdout.txt",
+      "stderr_file": "startup_smoke.stderr.txt",
+      "pass": true
+    }
+  ]
+}

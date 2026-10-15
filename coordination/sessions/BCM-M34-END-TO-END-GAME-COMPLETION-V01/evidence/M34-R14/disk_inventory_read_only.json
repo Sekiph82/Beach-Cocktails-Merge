@@ -1,0 +1,733 @@
+{
+  "captured_utc": "2026-10-15T19:20:48.1101419Z",
+  "scope": "BCM/BeachCocktails named AppData Local directories and physical .codex/worktrees immediate children; file metadata and allocated size only; reparse files skipped",
+  "roots": [
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails",
+      "logical_bytes": 9406358518,
+      "allocated_bytes": 9406358518,
+      "file_count": 35838,
+      "top_subdirectories": [
+        {
+          "name": "BCM-M32-Tutorial-V05-Visual-Remediation",
+          "logical_bytes": 3153420311
+        },
+        {
+          "name": "BCM-M32-Tutorial-V04-SixStep-Evidence",
+          "logical_bytes": 3126497880
+        },
+        {
+          "name": "BCM-M32-Tutorial-Owner-Review",
+          "logical_bytes": 3126440327
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2",
+      "logical_bytes": 4948304627,
+      "allocated_bytes": 4948304627,
+      "file_count": 33511,
+      "top_subdirectories": [
+        {
+          "name": "sdk",
+          "logical_bytes": 3002897438
+        },
+        {
+          "name": "downloads",
+          "logical_bytes": 1627828502
+        },
+        {
+          "name": "jdk17",
+          "logical_bytes": 317546460
+        },
+        {
+          "name": "isolated-godot-userdata",
+          "logical_bytes": 14142
+        },
+        {
+          "name": "staging",
+          "logical_bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-AndroidStudio-Setup",
+      "logical_bytes": 3046304630,
+      "allocated_bytes": 3046304630,
+      "file_count": 3,
+      "top_subdirectories": [
+        {
+          "name": "platform-tools-unpack",
+          "logical_bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015",
+      "logical_bytes": 3003195220,
+      "allocated_bytes": 3003195220,
+      "file_count": 12019,
+      "top_subdirectories": [
+        {
+          "name": "coordination",
+          "logical_bytes": 1384593382
+        },
+        {
+          "name": ".godot",
+          "logical_bytes": 1287628455
+        },
+        {
+          "name": "assets",
+          "logical_bytes": 198299929
+        },
+        {
+          "name": "docs",
+          "logical_bytes": 123536375
+        },
+        {
+          "name": "addons",
+          "logical_bytes": 2584989
+        },
+        {
+          "name": "tests",
+          "logical_bytes": 1542096
+        },
+        {
+          "name": "data",
+          "logical_bytes": 1016155
+        },
+        {
+          "name": "tools",
+          "logical_bytes": 729184
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-safe-worktree",
+      "logical_bytes": 2994667615,
+      "allocated_bytes": 2994667615,
+      "file_count": 11452,
+      "top_subdirectories": [
+        {
+          "name": "m34-20261014-a1",
+          "logical_bytes": 2994667615
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject-GradleBuildCache-preserved-20261015",
+      "logical_bytes": 2773736541,
+      "allocated_bytes": 2773732781,
+      "file_count": 1632,
+      "top_subdirectories": [
+        {
+          "name": "intermediates",
+          "logical_bytes": 2391259149
+        },
+        {
+          "name": "outputs",
+          "logical_bytes": 381777844
+        },
+        {
+          "name": "kotlin",
+          "logical_bytes": 503632
+        },
+        {
+          "name": "tmp",
+          "logical_bytes": 194561
+        },
+        {
+          "name": "generated",
+          "logical_bytes": 1355
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-Android-Export",
+      "logical_bytes": 1668395693,
+      "allocated_bytes": 1668395693,
+      "file_count": 4,
+      "top_subdirectories": []
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\pl0350-hosted-315-novtk",
+      "logical_bytes": 1387895710,
+      "allocated_bytes": 1387895710,
+      "file_count": 24319,
+      "top_subdirectories": [
+        {
+          "name": "PackLab",
+          "logical_bytes": 1387895710
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export",
+      "logical_bytes": 1363998740,
+      "allocated_bytes": 1363998740,
+      "file_count": 2,
+      "top_subdirectories": []
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\pl0353-ci-synthetic-data",
+      "logical_bytes": 1343852053,
+      "allocated_bytes": 1343852053,
+      "file_count": 23092,
+      "top_subdirectories": [
+        {
+          "name": "PackLab",
+          "logical_bytes": 1343852053
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\pl0352-artifact-retention",
+      "logical_bytes": 1339676834,
+      "allocated_bytes": 1339676834,
+      "file_count": 22946,
+      "top_subdirectories": [
+        {
+          "name": "PackLab",
+          "logical_bytes": 1339676834
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-GradleHome",
+      "logical_bytes": 1299312857,
+      "allocated_bytes": 1299293331,
+      "file_count": 5965,
+      "top_subdirectories": [
+        {
+          "name": "caches",
+          "logical_bytes": 1009400785
+        },
+        {
+          "name": "wrapper",
+          "logical_bytes": 288392850
+        },
+        {
+          "name": "native",
+          "logical_bytes": 1463810
+        },
+        {
+          "name": "daemon",
+          "logical_bytes": 45225
+        },
+        {
+          "name": "kotlin-profile",
+          "logical_bytes": 1066
+        },
+        {
+          "name": "android",
+          "logical_bytes": 22
+        },
+        {
+          "name": ".tmp",
+          "logical_bytes": 0
+        },
+        {
+          "name": "notifications",
+          "logical_bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject",
+      "logical_bytes": 1240911911,
+      "allocated_bytes": 1240911911,
+      "file_count": 1205,
+      "top_subdirectories": [
+        {
+          "name": "android",
+          "logical_bytes": 1143825843
+        },
+        {
+          "name": "r09_v02_evidence",
+          "logical_bytes": 96318013
+        },
+        {
+          "name": "addons",
+          "logical_bytes": 372014
+        },
+        {
+          "name": "archive",
+          "logical_bytes": 371888
+        },
+        {
+          "name": ".godot",
+          "logical_bytes": 18924
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-V02-Evidence",
+      "logical_bytes": 308189775,
+      "allocated_bytes": 308189775,
+      "file_count": 37,
+      "top_subdirectories": [
+        {
+          "name": "Local",
+          "logical_bytes": 3269732
+        },
+        {
+          "name": "Roaming",
+          "logical_bytes": 103242
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-Android-Export",
+      "logical_bytes": 304368843,
+      "allocated_bytes": 304368843,
+      "file_count": 2,
+      "top_subdirectories": []
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject-AndroidBuildTemplate-preserved-20261015",
+      "logical_bytes": 217809324,
+      "allocated_bytes": 217809324,
+      "file_count": 99,
+      "top_subdirectories": [
+        {
+          "name": "libs",
+          "logical_bytes": 215983280
+        },
+        {
+          "name": ".gradle",
+          "logical_bytes": 1656619
+        },
+        {
+          "name": "src",
+          "logical_bytes": 63805
+        },
+        {
+          "name": "gradle",
+          "logical_bytes": 59525
+        },
+        {
+          "name": "res",
+          "logical_bytes": 9571
+        },
+        {
+          "name": "assetPackInstallTime",
+          "logical_bytes": 217
+        },
+        {
+          "name": ".kotlin",
+          "logical_bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-AdmobTestProject",
+      "logical_bytes": 216915729,
+      "allocated_bytes": 216915729,
+      "file_count": 218,
+      "top_subdirectories": [
+        {
+          "name": "android",
+          "logical_bytes": 216152616
+        },
+        {
+          "name": "addons",
+          "logical_bytes": 372014
+        },
+        {
+          "name": "archive",
+          "logical_bytes": 371888
+        },
+        {
+          "name": ".godot",
+          "logical_bytes": 17585
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R12-20261015",
+      "logical_bytes": 3437365,
+      "allocated_bytes": 3437365,
+      "file_count": 29,
+      "top_subdirectories": [
+        {
+          "name": "Godot",
+          "logical_bytes": 3413323
+        },
+        {
+          "name": "appdata",
+          "logical_bytes": 24042
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R03-20261014",
+      "logical_bytes": 1016432,
+      "allocated_bytes": 1016432,
+      "file_count": 57,
+      "top_subdirectories": [
+        {
+          "name": "LocalLow",
+          "logical_bytes": 512015
+        },
+        {
+          "name": "appdata",
+          "logical_bytes": 500804
+        },
+        {
+          "name": "localappdata",
+          "logical_bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R04-Plugin-Inspection",
+      "logical_bytes": 636252,
+      "allocated_bytes": 636252,
+      "file_count": 32,
+      "top_subdirectories": [
+        {
+          "name": "unpacked",
+          "logical_bytes": 370407
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsMerge",
+      "logical_bytes": 358223,
+      "allocated_bytes": 358223,
+      "file_count": 26,
+      "top_subdirectories": [
+        {
+          "name": "M33-R06-Graphical",
+          "logical_bytes": 316639
+        },
+        {
+          "name": "M33-R06-Validation",
+          "logical_bytes": 19633
+        },
+        {
+          "name": "M33-R06-Probe",
+          "logical_bytes": 16868
+        },
+        {
+          "name": "M33-R06-BridgeProbe",
+          "logical_bytes": 5083
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R11-20261015",
+      "logical_bytes": 242894,
+      "allocated_bytes": 242894,
+      "file_count": 46,
+      "top_subdirectories": [
+        {
+          "name": "appdata",
+          "logical_bytes": 242894
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Preimport-AppData",
+      "logical_bytes": 203529,
+      "allocated_bytes": 203529,
+      "file_count": 28,
+      "top_subdirectories": [
+        {
+          "name": "Godot",
+          "logical_bytes": 203529
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-GodotUser",
+      "logical_bytes": 188818,
+      "allocated_bytes": 188818,
+      "file_count": 28,
+      "top_subdirectories": [
+        {
+          "name": "Godot",
+          "logical_bytes": 188818
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R06-Godot-Runs",
+      "logical_bytes": 126799,
+      "allocated_bytes": 126799,
+      "file_count": 51,
+      "top_subdirectories": [
+        {
+          "name": "m33_campaign_navigation_probe",
+          "logical_bytes": 87838
+        },
+        {
+          "name": "m34_daily_rewards_probe",
+          "logical_bytes": 34157
+        },
+        {
+          "name": "m34_economy_closure_probe",
+          "logical_bytes": 4804
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Isolated-AppData",
+      "logical_bytes": 117964,
+      "allocated_bytes": 117964,
+      "file_count": 17,
+      "top_subdirectories": [
+        {
+          "name": "Godot",
+          "logical_bytes": 117964
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Clean-Import-AppData",
+      "logical_bytes": 117177,
+      "allocated_bytes": 117177,
+      "file_count": 18,
+      "top_subdirectories": [
+        {
+          "name": "Godot",
+          "logical_bytes": 117177
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsM34R10-20261015",
+      "logical_bytes": 115120,
+      "allocated_bytes": 115120,
+      "file_count": 18,
+      "top_subdirectories": [
+        {
+          "name": "appdata",
+          "logical_bytes": 115120
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R05-CanonicalSync-20261014-5cff38a",
+      "logical_bytes": 108951,
+      "allocated_bytes": 108951,
+      "file_count": 10,
+      "top_subdirectories": [
+        {
+          "name": "tracked-files",
+          "logical_bytes": 24631
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R06-CanonicalSync-20261014-BCM-M34-R06-63c8633",
+      "logical_bytes": 99108,
+      "allocated_bytes": 99108,
+      "file_count": 9,
+      "top_subdirectories": [
+        {
+          "name": "tracked-files",
+          "logical_bytes": 24631
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R05-Godot-Runs",
+      "logical_bytes": 98688,
+      "allocated_bytes": 98688,
+      "file_count": 15,
+      "top_subdirectories": [
+        {
+          "name": "m33_campaign_navigation_probe",
+          "logical_bytes": 87765
+        },
+        {
+          "name": "m34_daily_rewards_probe",
+          "logical_bytes": 8521
+        },
+        {
+          "name": "m34_economy_closure_probe",
+          "logical_bytes": 2402
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R04-Godot-Isolated",
+      "logical_bytes": 98688,
+      "allocated_bytes": 98688,
+      "file_count": 15,
+      "top_subdirectories": [
+        {
+          "name": "appdata",
+          "logical_bytes": 98688
+        },
+        {
+          "name": "localappdata",
+          "logical_bytes": 0
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R06V02-Godot-Runs",
+      "logical_bytes": 98688,
+      "allocated_bytes": 98688,
+      "file_count": 15,
+      "top_subdirectories": [
+        {
+          "name": "m33_campaign_navigation_probe",
+          "logical_bytes": 87765
+        },
+        {
+          "name": "m34_daily_rewards_probe",
+          "logical_bytes": 8521
+        },
+        {
+          "name": "m34_economy_closure_probe",
+          "logical_bytes": 2402
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R02-20261014",
+      "logical_bytes": 52103,
+      "allocated_bytes": 52103,
+      "file_count": 43,
+      "top_subdirectories": [
+        {
+          "name": "appdata",
+          "logical_bytes": 52103
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-CanonicalSync",
+      "logical_bytes": 3662,
+      "allocated_bytes": 3662,
+      "file_count": 1,
+      "top_subdirectories": []
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\pl-0354-macos-ci",
+      "logical_bytes": 0,
+      "allocated_bytes": 0,
+      "file_count": 1,
+      "top_subdirectories": []
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\pl0354-r01-recovery",
+      "logical_bytes": 0,
+      "allocated_bytes": 0,
+      "file_count": 1,
+      "top_subdirectories": []
+    }
+  ],
+  "deletion_performed": false,
+  "candidate_disposition": "REVIEW only: do not delete folders containing unknown user data, game saves, evidence, local edits, Android SDK, or unique backups",
+  "review_candidates": [
+    {
+      "disposition": "KEEP: contains owner review captures/evidence/user data; not a deletion candidate",
+      "subdirs": "BCM-M32 tutorial review/evidence profiles, ~2.91-2.94 GiB each",
+      "observed_allocated_gib": 8.76,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktails"
+    },
+    {
+      "disposition": "KEEP: Android toolchain and staged downloads; owner requires SDK preservation",
+      "subdirs": "SDK 2.797 GiB, downloads 1.516 GiB, JDK 0.296 GiB",
+      "observed_allocated_gib": 4.608,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2"
+    },
+    {
+      "disposition": "REVIEW: generated/rebuildable cache, but belongs to active implementation worktree; do not delete while active",
+      "observed_allocated_gib": 1.199,
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015\\.godot"
+    },
+    {
+      "disposition": "KEEP: old worktree identity/data not independently classified; may contain unique source/evidence/local edits",
+      "observed_allocated_gib": 2.789,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-safe-worktree\\m34-20261014-a1"
+    },
+    {
+      "disposition": "KEEP: explicitly preserved build cache; usefulness/redundancy not proven",
+      "subdirs": "intermediates 2.227 GiB, outputs 0.356 GiB",
+      "observed_allocated_gib": 2.583,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject-GradleBuildCache-preserved-20261015"
+    },
+    {
+      "disposition": "REVIEW: exported artifacts may be unique QA/release evidence; redundancy not proven",
+      "observed_allocated_gib": 2.824,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export and BCM-M34-R08-Android-Export"
+    },
+    {
+      "disposition": "KEEP: build cache/wrapper, task utility and safe rebuild provenance not independently established",
+      "observed_allocated_gib": 1.21,
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-GradleHome"
+    }
+  ],
+  "old_registered_worktree_paths": [
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-baseline",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m26-r01-live",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m27-master-v01-sandbox",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m32-r01-canonical-screening",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m32-r02-current-campaign",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m33-r01-physics\\Beach Cocktails - Merge",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r07-clean-import",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r07-preimport",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r09\\Beach Cocktails - Merge",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015",
+      "exists": true,
+      "disposition": "active R14 worktree; preserve"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-main-targeted-production",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    },
+    {
+      "path": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-visual-production",
+      "exists": false,
+      "disposition": "prunable registration; physical path missing"
+    }
+  ]
+}

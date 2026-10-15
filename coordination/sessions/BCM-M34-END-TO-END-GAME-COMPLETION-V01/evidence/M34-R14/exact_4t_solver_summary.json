@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R14-003",
+  "gate": {
+    "fast_solver_mode_allowed": false,
+    "parity_pass": false,
+    "source": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R14\\fixed_fps_parity.json"
+  },
+  "per_case_wall_watchdog_seconds": 12,
+  "internal_wall_budget_seconds": 8,
+  "physics_frame_budget": "exact_4T legal_shot_ceiling * 60 plus at most 90 settle frames",
+  "backtracking_attempt_cap": 0,
+  "classification_categories": [
+    "WIN_PROVEN",
+    "LEGAL_PATH_NOT_FOUND_WITHIN_BUDGET",
+    "UNKNOWN_TIMEOUT",
+    "ERROR"
+  ],
+  "cases": [
+    {
+      "case": "azure_bay_l1_early",
+      "island_id": "azure_bay",
+      "level_id": 1,
+      "seed": 34113001,
+      "classification": "SKIPPED_GATE_NOT_PROVEN",
+      "reason": "HIGH_DENSITY_FIXED_FPS_PARITY_FAILED; fast solver mode is prohibited"
+    },
+    {
+      "case": "sunny_cove_l50_middle",
+      "island_id": "sunny_cove",
+      "level_id": 50,
+      "seed": 34113050,
+      "classification": "SKIPPED_GATE_NOT_PROVEN",
+      "reason": "HIGH_DENSITY_FIXED_FPS_PARITY_FAILED; fast solver mode is prohibited"
+    },
+    {
+      "case": "final_island_l100_late",
+      "island_id": "final_island",
+      "level_id": 100,
+      "seed": 34113100,
+      "classification": "SKIPPED_GATE_NOT_PROVEN",
+      "reason": "HIGH_DENSITY_FIXED_FPS_PARITY_FAILED; fast solver mode is prohibited"
+    }
+  ],
+  "status": "SKIPPED_PARITY_GATE_FAILED",
+  "stop_reason": "REFUSE_FAST_SOLVER_MODE_PARITY_NOT_PROVEN"
+}

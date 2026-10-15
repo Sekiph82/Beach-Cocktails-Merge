@@ -1,0 +1,7 @@
+{
+  "case": "SYNTHETIC_HUNG_CHILD",
+  "completed_records": 0,
+  "classification": "UNKNOWN_TIMEOUT",
+  "partial_reason": "test marker written before child launch",
+  "status": "CASE_RUNNING"
+}

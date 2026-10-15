@@ -2,12 +2,6 @@ extends SceneTree
 
 const DATABASE_SCRIPT = preload("res://scripts/campaign/level_database.gd")
 const HARNESS_SCRIPT = preload("res://scripts/campaign/m17_seeded_validation_harness.gd")
-const ISLAND_ID := "azure_bay"
-const LEVEL_ID := 1
-const SEED_VALUE := 34112001
-const ACTION_CAP := 6
-
-
 func _initialize() -> void:
 	call_deferred("_run")
 
@@ -16,6 +10,10 @@ func _run() -> void:
 	var output_path := ""
 	var mode := "normal"
 	var policy_name := HARNESS_SCRIPT.POLICY_CHEAP_MERGE_CENTER_V01
+	var island_id := "azure_bay"
+	var level_id := 1
+	var seed_value := 34112001
+	var action_cap := 6
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--r12-output="):
 			output_path = argument.trim_prefix("--r12-output=")
@@ -23,6 +21,16 @@ func _run() -> void:
 			mode = argument.trim_prefix("--r12-mode=")
 		elif argument.begins_with("--r12-policy="):
 			policy_name = argument.trim_prefix("--r12-policy=")
+		elif argument.begins_with("--r14-island="):
+			island_id = argument.trim_prefix("--r14-island=")
+		elif argument.begins_with("--r14-level="):
+			level_id = int(argument.trim_prefix("--r14-level="))
+		elif argument.begins_with("--r14-seed="):
+			seed_value = int(argument.trim_prefix("--r14-seed="))
+		elif argument.begins_with("--r14-action-cap="):
+			action_cap = int(argument.trim_prefix("--r14-action-cap="))
+		elif argument.begins_with("--r14-policy="):
+			policy_name = argument.trim_prefix("--r14-policy=")
 	if output_path.is_empty():
 		push_error("R12 probe requires --r12-output=<absolute path>")
 		quit(2)
@@ -43,29 +51,31 @@ func _run() -> void:
 	var started_usec := Time.get_ticks_usec()
 	var trial: Dictionary = await harness.run_trial(
 		database,
-		ISLAND_ID,
-		LEVEL_ID,
-		SEED_VALUE,
+		island_id,
+		level_id,
+		seed_value,
 		[],
 		policy_name,
-		ACTION_CAP,
+		action_cap,
 		true,
 		true,
 		0.0,
 		"",
 		true,
 		true,
-		true
+		true,
+		maxi(action_cap * 60 + 90, 90)
 	)
 	var wall_usec := Time.get_ticks_usec() - started_usec
 	var report := {
 		"probe": "M34-R12 production physics fixed-FPS parity",
 		"mode": mode,
-		"island_id": ISLAND_ID,
-		"level_id": LEVEL_ID,
-		"seed": SEED_VALUE,
+		"island_id": island_id,
+		"level_id": level_id,
+		"seed": seed_value,
 		"policy": policy_name,
-		"action_cap": ACTION_CAP,
+		"action_cap": action_cap,
+		"physics_frame_ceiling": maxi(action_cap * 60 + 90, 90),
 		"engine_time_scale": Engine.time_scale,
 		"physics_ticks_per_second": Engine.physics_ticks_per_second,
 		"wall_usec": wall_usec,

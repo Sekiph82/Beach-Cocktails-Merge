@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R14-BOUNDED-PROBE-PARSE",
+  "status": "EXITED",
+  "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+  "started_utc": "2026-10-15T19:24:12.4884064Z",
+  "finished_utc": "2026-10-15T19:24:13.2268276Z",
+  "wall_elapsed_ms": 740,
+  "timeout_seconds": 15,
+  "file_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "root_pid": 21128,
+  "root_identity_verified": true,
+  "task_token": "b6b057232818413b9f0792ebdf696676",
+  "exit_code": 0,
+  "terminated_processes": [],
+  "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n",
+  "stderr": "",
+  "partial_progress": null
+}
