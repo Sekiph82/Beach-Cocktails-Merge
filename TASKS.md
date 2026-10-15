@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex executes R11 bounded mechanical coverage, preserving honest UNKNOWN outcomes and owner-deferred Android device gate.
+- Next Task/Action: BCM-M33-004 — Codex executes R12 physics/solver bottleneck diagnosis and read-only seven-path Desktop overlap reconciliation; do not sync canonical until safely resolved.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M34-R10 independent audit bounded PASS. 1,000 level static census PASS; sample 20: 2 legal wins, 15 timeout/unknown, 3 not run, thus 18/20 UNVERIFIED, human fairness M33-004 OPEN. UID sidecar references fixed, evidence locale exclusions clean, existing approved icon selected. Daily 38/38, Economy 24/24, Navigation 17/17, VIP/scene/smoke builder PASS. R11 focused deterministic bounded coverage queued; mobile device/ad/SSV/IAP remain deferred or blocked.
+- Progress: R11 independent bounded audit PASS: 1,000 static levels and seven regression groups pass; R11 new mechanical wins 0, 17 BUDGET_UNKNOWN, 11 NOT_RUN; only two prior R10 winning paths. R11 profile ~20.7ms/physics-frame and 5sec windows inadequate to qualify levels; M33-004 OPEN. Canonical Desktop checkout at 102b83a is behind remote and builder reports all seven owner-edited tracked paths overlap incoming commits; UNSYNCED pending per-path 3-way audit, owner files preserved. R12 investigates solver throughput/quality and safe sync only; Android physical-device tests deferred.
 
 ## Blockers/Waits
 
