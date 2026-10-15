@@ -1,0 +1,102 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M34_R11_RESUME sequence=60 profile_trials=54 coverage_levels=3 elapsed=229.9s
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L2 +20  COMBO x1 +0  (toplam: 70)
+M34_R11_COVERAGE sunny_cove/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/304 wall=7.856
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+M34_R11_COVERAGE tiki_island/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/288 wall=8.017
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+MERGE L4 +100  COMBO x2 +25  (toplam: 145)
+M34_R11_COVERAGE tiki_island/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/288 wall=8.016
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+MERGE L3 +50  COMBO x2 +13  (toplam: 83)
+MERGE L4 +100  COMBO x3 +50  (toplam: 233)
+M34_R11_COVERAGE azure_bay/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/160 wall=8.005
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+MERGE L3 +50  COMBO x2 +13  (toplam: 83)
+MERGE L4 +100  COMBO x3 +50  (toplam: 233)
+M34_R11_COVERAGE azure_bay/1 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/160 wall=8.000
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L4 +100  COMBO x1 +0  (toplam: 200)
+M34_R11_COVERAGE azure_bay/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/320 wall=8.044
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L4 +100  COMBO x1 +0  (toplam: 200)
+M34_R11_COVERAGE azure_bay/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/320 wall=8.014
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L2 +20  COMBO x1 +0  (toplam: 70)
+M34_R11_COVERAGE coconut_beach/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/192 wall=8.030
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L2 +20  COMBO x2 +5  (toplam: 75)
+MERGE L4 +100  COMBO x1 +0  (toplam: 175)
+M34_R11_COVERAGE coconut_beach/1 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/192 wall=8.011
+M34_R11_COVERAGE coconut_beach/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/320 wall=8.029
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L2 +20  COMBO x2 +5  (toplam: 75)
+MERGE L3 +50  COMBO x3 +25  (toplam: 150)
+MERGE L4 +100  COMBO x4 +75  (toplam: 325)
+M34_R11_COVERAGE coconut_beach/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/320 wall=8.044
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x2 +25  (toplam: 175)
+M34_R11_COVERAGE sunset_island/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/160 wall=8.020
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x1 +0  (toplam: 150)
+M34_R11_COVERAGE sunset_island/1 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/160 wall=8.021
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+M34_R11_COVERAGE sunset_island/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/320 wall=8.011
+MERGE L2 +20  COMBO x1 +0  (toplam: 20)
+MERGE L3 +50  COMBO x1 +0  (toplam: 70)
+MERGE L4 +100  COMBO x2 +25  (toplam: 195)
+MERGE L2 +20  COMBO x3 +10  (toplam: 225)
+M34_R11_COVERAGE sunset_island/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/320 wall=8.021
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+M34_R11_COVERAGE party_beach/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/192 wall=8.046
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L4 +100  COMBO x1 +0  (toplam: 200)
+M34_R11_COVERAGE party_beach/1 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/192 wall=8.070
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+M34_R11_COVERAGE party_beach/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/320 wall=8.035
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x1 +0  (toplam: 150)
+MERGE L4 +100  COMBO x2 +25  (toplam: 275)
+M34_R11_COVERAGE party_beach/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/320 wall=8.054
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L4 +100  COMBO x1 +0  (toplam: 200)
+M34_R11_COVERAGE frozen_paradise/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/704 wall=8.080
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L2 +20  COMBO x2 +5  (toplam: 125)
+MERGE L4 +100  COMBO x1 +0  (toplam: 225)
+M34_R11_COVERAGE frozen_paradise/1 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/704 wall=8.051
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x2 +25  (toplam: 175)
+M34_R11_COVERAGE frozen_paradise/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/320 wall=8.079
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x1 +0  (toplam: 150)
+MERGE L3 +50  COMBO x2 +13  (toplam: 213)
+M34_R11_COVERAGE frozen_paradise/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/320 wall=8.033
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+M34_R11_COVERAGE volcano_bay/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/160 wall=8.054
+MERGE L3 +50  COMBO x1 +0  (toplam: 50)
+MERGE L4 +100  COMBO x2 +25  (toplam: 175)
+MERGE L4 +100  COMBO x3 +50  (toplam: 325)
+M34_R11_COVERAGE volcano_bay/1 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/160 wall=8.009
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+M34_R11_COVERAGE volcano_bay/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/288 wall=8.031
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L4 +100  COMBO x1 +0  (toplam: 200)
+M34_R11_COVERAGE volcano_bay/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/288 wall=8.039
+M34_R11_COVERAGE billionaire_island/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/128 wall=8.031
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+MERGE L2 +20  COMBO x2 +5  (toplam: 125)
+M34_R11_COVERAGE billionaire_island/1 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/128 wall=8.021
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+M34_R11_COVERAGE billionaire_island/100 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=6/288 wall=8.005
+MERGE L4 +100  COMBO x1 +0  (toplam: 100)
+M34_R11_COVERAGE billionaire_island/100 class=BUDGET_UNKNOWN trials=2 policy=MERGE_AWARE_V01 moves=6/288 wall=8.050
+M34_R11_COVERAGE final_island/1 class=BUDGET_UNKNOWN trials=1 policy=CHEAP_MERGE_CENTER_V01 moves=1/96 wall=2.981
+M34_R11_RESULT status=STOPPED_AT_GLOBAL_WALL_BUDGET static=1000 profiles=54 path_wins=2 budget_unknown=17 not_run=0 elapsed=482.9s

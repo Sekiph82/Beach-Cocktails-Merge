@@ -1,0 +1,51 @@
+[
+  {
+    "probe": "daily_rewards",
+    "command": "godot_console.exe --headless --path . --script res://tests/m34_daily_rewards_probe.gd",
+    "exit_code": 0,
+    "stdout": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\daily_rewards.stdout.txt",
+    "stderr": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\daily_rewards.stderr.txt"
+  },
+  {
+    "probe": "economy",
+    "command": "godot_console.exe --headless --path . --script res://tests/m34_economy_closure_probe.gd",
+    "exit_code": 0,
+    "stdout": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\economy.stdout.txt",
+    "stderr": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\economy.stderr.txt"
+  },
+  {
+    "probe": "m33_navigation",
+    "command": "godot_console.exe --headless --path . --script res://tests/m33_campaign_navigation_probe.gd",
+    "exit_code": 0,
+    "stdout": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\m33_navigation.stdout.txt",
+    "stderr": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\m33_navigation.stderr.txt"
+  },
+  {
+    "probe": "slim_content",
+    "command": "godot_console.exe --headless --path . --script res://tests/m34_r09_slim_export_content_probe.gd",
+    "exit_code": 0,
+    "stdout": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\slim_content.stdout.txt",
+    "stderr": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\slim_content.stderr.txt"
+  },
+  {
+    "probe": "scene_uid",
+    "command": "godot_console.exe --headless --path . --script res://tests/m34_r10_scene_uid_probe.gd",
+    "exit_code": 0,
+    "stdout": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\scene_uid.stdout.txt",
+    "stderr": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\scene_uid.stderr.txt"
+  },
+  {
+    "probe": "vip_optional",
+    "command": "godot_console.exe --headless --path . --script res://tests/m34_r10_vip_optional_rule_probe.gd",
+    "exit_code": 0,
+    "stdout": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\vip_optional.stdout.txt",
+    "stderr": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\vip_optional.stderr.txt"
+  },
+  {
+    "probe": "startup_smoke",
+    "command": "godot_console.exe --headless --path . --quit-after 3",
+    "exit_code": 0,
+    "stdout": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\startup_smoke.stdout.txt",
+    "stderr": "coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R11\\startup_smoke.stderr.txt"
+  }
+]

@@ -33,6 +33,7 @@ const RAIL_CONTACT_METRIC := "footprint_proximity_transition_proxy"
 const LANE_X_POSITIONS: Array[float] = [150.0, 220.0, 290.0, 360.0, 430.0, 500.0, 570.0]
 const POLICY_WEAK_V02 := "WEAK_V02"
 const POLICY_MERGE_AWARE_V01 := "MERGE_AWARE_V01"
+const POLICY_CHEAP_MERGE_CENTER_V01 := "CHEAP_MERGE_CENTER_V01"
 
 var _root: Node
 var time_scale := 1.0
@@ -187,7 +188,10 @@ func run_trial(
 	max_shots_override: int = 0,
 	use_production_shot_controller: bool = false,
 	no_timer: bool = false,
-	max_wall_time_sec: float = 0.0
+	max_wall_time_sec: float = 0.0,
+	stop_flag_path: String = "",
+	profile_enabled: bool = false,
+	cache_legal_launch_lanes: bool = false
 ) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
 	telemetry["policy_name"] = policy_name
@@ -206,6 +210,21 @@ func run_trial(
 		return telemetry
 
 	manager.shot_controller.stop_shooting()
+	if cache_legal_launch_lanes:
+		manager.set_meta("m17_legal_launch_lane_cache", {})
+	var profile := {
+		"enabled": profile_enabled,
+		"frame_count": 0,
+		"decision_count": 0,
+		"decision_wall_usec": 0,
+		"shot_commit_wall_usec": 0,
+		"physics_frame_wait_wall_usec": 0,
+		"sample_wall_usec": 0,
+		"engine_performance_monitor": "not_sampled; frame wall timers are used because built-in monitors may be stale",
+		"geometry_cache_misses": 0,
+	}
+	if profile_enabled:
+		manager.set_meta("m17_profile", profile)
 	var bridge = BRIDGE_SCRIPT.new()
 	if not bridge.configure(database):
 		telemetry["terminal_reason"] = "DATABASE_NOT_CONFIGURED"
@@ -249,7 +268,7 @@ func run_trial(
 	var action_index := 0
 	var elapsed := 0.0
 	var replaying := not action_log_override.is_empty()
-	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots and (not use_production_shot_controller or bridge.can_commit_shot()) and (max_wall_time_sec <= 0.0 or float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 < max_wall_time_sec):
+	while not bridge.is_terminal() and not manager.game_over and (time_limit_sec <= 0.0 or elapsed < time_limit_sec + 1.0) and action_index < max_shots and (not use_production_shot_controller or bridge.can_commit_shot()) and (max_wall_time_sec <= 0.0 or float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 < max_wall_time_sec) and not _stop_requested(stop_flag_path):
 		var spawn_level: int
 		var lane_index: int
 		var x_position: float
@@ -265,7 +284,11 @@ func run_trial(
 		else:
 			spawn_level = rng.randi_range(1, 3)
 			_assign_missing_stable_instance_ids(manager, state)
+			var decision_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			lane_choice = choose_action(manager, spawn_level, policy_name)
+			if profile_enabled:
+				profile["decision_count"] = int(profile["decision_count"]) + 1
+				profile["decision_wall_usec"] = int(profile["decision_wall_usec"]) + Time.get_ticks_usec() - decision_start_usec
 			lane_index = int(lane_choice["lane_index"])
 			x_position = float(lane_choice["x_position"])
 
@@ -292,6 +315,7 @@ func run_trial(
 				"target_instance_id": lane_choice.get("target_instance_id", null),
 			}
 		telemetry["action_log"].append(action_record)
+		var shot_commit_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 		var launched = manager.spawn_drink(spawn_level, Vector2(x_position, manager.launch_y), true)
 		if launched == null:
 			telemetry["terminal_reason"] = "SPAWN_FAILED"
@@ -307,13 +331,26 @@ func run_trial(
 			manager.shot_controller._launch()
 		else:
 			launched.launch_up(SHOT_SPEED)
+		if profile_enabled:
+			profile["shot_commit_wall_usec"] = int(profile["shot_commit_wall_usec"]) + Time.get_ticks_usec() - shot_commit_start_usec
 		telemetry["shot_count"] = int(telemetry["shot_count"]) + 1
 		var merges_before := int(state["merge_count"])
 		for _frame in range(FRAMES_PER_ACTION):
+			var frame_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			await _root.get_tree().physics_frame
+			if profile_enabled:
+				profile["frame_count"] = int(profile["frame_count"]) + 1
+				profile["physics_frame_wait_wall_usec"] = int(profile["physics_frame_wait_wall_usec"]) + Time.get_ticks_usec() - frame_start_usec
 			elapsed += float(state["step_sec"])
+			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
+			if profile_enabled:
+				profile["sample_wall_usec"] = int(profile["sample_wall_usec"]) + Time.get_ticks_usec() - sample_start_usec
 			if bridge.is_terminal() or manager.game_over:
+				break
+			if _stop_requested(stop_flag_path):
+				break
+			if max_wall_time_sec > 0.0 and float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 >= max_wall_time_sec:
 				break
 		if same_level_before and int(state["merge_count"]) == merges_before:
 			# Bounded proxy: a same-level approach existed at launch but no merge
@@ -341,10 +378,21 @@ func run_trial(
 
 	if not bridge.is_terminal() and not manager.game_over:
 		for _frame in range(MAX_EXTRA_SETTLE_FRAMES):
+			var frame_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			await _root.get_tree().physics_frame
+			if profile_enabled:
+				profile["frame_count"] = int(profile["frame_count"]) + 1
+				profile["physics_frame_wait_wall_usec"] = int(profile["physics_frame_wait_wall_usec"]) + Time.get_ticks_usec() - frame_start_usec
 			elapsed += float(state["step_sec"])
+			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
+			if profile_enabled:
+				profile["sample_wall_usec"] = int(profile["sample_wall_usec"]) + Time.get_ticks_usec() - sample_start_usec
 			if bridge.is_terminal() or manager.game_over:
+				break
+			if _stop_requested(stop_flag_path):
+				break
+			if max_wall_time_sec > 0.0 and float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 >= max_wall_time_sec:
 				break
 
 	if bridge.is_terminal():
@@ -357,6 +405,8 @@ func run_trial(
 		telemetry["outcome"] = classified["outcome"]
 		if use_production_shot_controller and not bridge.can_commit_shot():
 			telemetry["terminal_reason"] = "MOVE_BUDGET_EXHAUSTED"
+		elif _stop_requested(stop_flag_path):
+			telemetry["terminal_reason"] = "STOP_SIGNAL"
 		elif action_index >= max_shots:
 			telemetry["terminal_reason"] = "PER_LEVEL_SHOT_BUDGET"
 		elif max_wall_time_sec > 0.0 and float(Time.get_ticks_msec() - wall_start_msec) / 1000.0 >= max_wall_time_sec:
@@ -396,6 +446,10 @@ func run_trial(
 	telemetry["normal_orders_remaining"] = objective_state.get("normal_remaining", {}).duplicate(true)
 	telemetry["vip_state"] = bridge.get_vip_state().duplicate(true)
 	telemetry["stars"] = int(bridge.get_terminal_result().get("stars", 0)) if bridge.is_terminal() else 0
+	if profile_enabled:
+		profile["decision_wall_usec_per_action"] = snappedf(float(profile["decision_wall_usec"]) / float(maxi(1, int(profile["decision_count"]))), 0.01)
+		profile["sample_wall_usec_per_frame"] = snappedf(float(profile["sample_wall_usec"]) / float(maxi(1, int(profile["frame_count"]))), 0.01)
+		telemetry["profile"] = profile.duplicate(true)
 
 	manager.queue_free()
 	await _root.get_tree().process_frame
@@ -503,10 +557,49 @@ func choose_action(manager, level: int, policy_name: String = POLICY_WEAK_V02) -
 	var bridge = manager.get_campaign_session_bridge()
 	if bridge != null and bridge.is_session_active():
 		objective_level = bridge.get_next_required_order_level()
-	var legal_x_positions := _legal_launch_x_positions(manager, level)
+	var legal_x_positions := _cached_or_legal_launch_x_positions(manager, level)
 	if policy_name == POLICY_MERGE_AWARE_V01:
 		return _select_merge_aware_action(level, observations, objective_level, legal_x_positions)
+	if policy_name == POLICY_CHEAP_MERGE_CENTER_V01:
+		return _select_cheap_merge_center_action(level, observations, legal_x_positions)
 	return _select_weak_v02_action(level, observations, legal_x_positions)
+
+
+func _cached_or_legal_launch_x_positions(manager, level: int) -> Array:
+	if manager.has_meta("m17_legal_launch_lane_cache"):
+		var cache: Dictionary = manager.get_meta("m17_legal_launch_lane_cache")
+		var key := str(level)
+		if cache.has(key):
+			return cache[key].duplicate()
+		var legal := _legal_launch_x_positions(manager, level)
+		cache[key] = legal.duplicate()
+		var profile: Dictionary = manager.get_meta("m17_profile", {})
+		if bool(profile.get("enabled", false)):
+			profile["geometry_cache_misses"] = int(profile.get("geometry_cache_misses", 0)) + 1
+		return legal
+	return _legal_launch_x_positions(manager, level)
+
+
+func _select_cheap_merge_center_action(level: int, observations: Array, legal_x_positions: Array) -> Dictionary:
+	var target: Dictionary = {}
+	for observation in observations:
+		if int(observation.get("level", 0)) != level:
+			continue
+		if target.is_empty() or float(observation.get("y", 0.0)) > float(target.get("y", 0.0)) or (
+			is_equal_approx(float(observation.get("y", 0.0)), float(target.get("y", 0.0)))
+			and int(observation.get("instance_id", 0)) < int(target.get("instance_id", 0))
+		):
+			target = observation
+	if not target.is_empty():
+		var target_x := _nearest_legal_x(float(target.get("x", LANE_X_POSITIONS[LANE_X_POSITIONS.size() / 2])), legal_x_positions)
+		return _action_result(target_x, true, int(target.get("instance_id", 0)), "same_level_target_single_pass")
+	var center_x := float(LANE_X_POSITIONS[LANE_X_POSITIONS.size() / 2])
+	var selected_x := _nearest_legal_x(center_x, legal_x_positions)
+	return _action_result(selected_x, false, null, "center_lane_fallback")
+
+
+func _stop_requested(stop_flag_path: String) -> bool:
+	return not stop_flag_path.is_empty() and FileAccess.file_exists(stop_flag_path)
 
 
 func choose_action_from_observations(

@@ -1,0 +1,5 @@
+SCRIPT ERROR: Trying to assign an array of type "Array" to a variable of type "Array[String]".
+   at: _run_coverage (res://tools/campaign/m34_r11_mechanical_coverage.gd:366)
+   GDScript backtrace (most recent call first):
+       [0] _run_coverage (res://tools/campaign/m34_r11_mechanical_coverage.gd:366)
+       [1] _run (res://tools/campaign/m34_r11_mechanical_coverage.gd:77)

@@ -1,0 +1,5 @@
+SCRIPT ERROR: Invalid access to property or key 'move_limit' on a base object of type 'Dictionary'.
+   at: _run_coverage (res://tools/campaign/m34_r11_mechanical_coverage.gd:447)
+   GDScript backtrace (most recent call first):
+       [0] _run_coverage (res://tools/campaign/m34_r11_mechanical_coverage.gd:447)
+       [1] run_trial (res://scripts/campaign/m17_seeded_validation_harness.gd:466)
