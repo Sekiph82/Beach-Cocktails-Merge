@@ -1,0 +1,9 @@
+# BCM M34 R11 Independent Audit V01
+
+Verdict: PASS for bounded runner/static and regression scope, **M33-004 UNRESOLVED**. Reviewed published builder log and mechanical_coverage_summary.json, not independently executed Windows Godot.
+
+Static all 1000 records pass, 10 islands, no 4T/star/VIP optional/save/dynamic/timed exceptions. All seven relevant suite families builder PASS including Daily 38, Economy 24, Navigation 17, content, scene UID, VIP and startup. R11 added no mechanical path wins: 28 selected cases, 17 BUDGET_UNKNOWN and 11 NOT_RUN, plus two pre-existing R10 proof paths outside selection; no impossibility evidence or human fairness. There are 33 attempted coverage trials; 54 short profiling trials. Profiling ~20.7ms/frame with ~15ms waiting at physics boundaries, no demonstrated speedup from candidate policy; only one decision per profile trial. R11 active trials total 428.458 sec. Corrected per-physics-frame wall cap was parse-tested only, not exercised again. The runner checkpoint reported ~846.7 sec including interruptions: NOT pure active computation.
+
+IMPORTANT DESKTOP BLOCKER: R11 log says canonical at 102b83a, and latest origin at 35255b3; builder reports new commits overlapping **all seven** locally modified tracked paths. This conflicts with a casual assumption that evidence-only commit is path-disjoint. Do not force fast-forward or automatically stash/apply owner changes. Need fresh per-path Git blob/3-way analysis, retain 7 tracked +15 untracked and all stashes, backup before any reconciliation. The sync remains OWNER_DIRTY_OVERLAP_BLOCKED until safe process/owner resolution. Root TASKS.md remains GPT-only.
+
+Next work should NOT repeat short 5-sec sampling with zero wins. Scope R12 to performance causal diagnosis and legal deterministic fast-forward possibilities, strategy quality and confidence thresholds, and read-only Desktop overlap report. Device tests remain DEFERRED_BY_OWNER. No release-ready claim.
