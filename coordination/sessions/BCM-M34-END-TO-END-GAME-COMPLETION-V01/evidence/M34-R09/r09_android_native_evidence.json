@@ -1,0 +1,32 @@
+{
+  "r09_slim_debug_apk_path_outside_git": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-Android-Export\\BCM_R09_Slim_Nonshipping_Debug.apk",
+  "apk_bytes": 301983466,
+  "apk_sha256": "D38AC083933D60E6B18A63CEEF708B3AC6C78575D2F3A99DD01B4C13C7C4694C",
+  "r08_filtered_baseline_bytes": 301979173,
+  "delta_bytes": 4293,
+  "delta_percent": 0.0014,
+  "r09_gradle_version": "8.11.1",
+  "gradle_user_home": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-GradleHome",
+  "gradle_cache_after_build_bytes": 1299312857.0,
+  "android_sdk_additions": [
+    {
+      "file_count": 11343,
+      "bytes": 106195794.0,
+      "path": "platforms\\android-36"
+    },
+    {
+      "file_count": 170,
+      "bytes": 144142253.0,
+      "path": "build-tools\\36.1.0"
+    }
+  ],
+  "native_template_assemble_status": "BUILD SUCCESSFUL; vanilla Godot Android template because headless Godot exporter unavailable in current shell",
+  "native_template_apk_path_outside_git": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject\\android\\build\\build\\outputs\\apk\\standard\\debug\\android_debug.apk",
+  "native_template_apk_bytes": 127210041,
+  "admob_debug_aar_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-AdmobTestProject\\addons\\AdmobPlugin\\bin\\debug\\AdmobPlugin-debug.aar",
+  "admob_debug_aar_sha256": "2BCBE8A39720F8898464FA83C686D8DAA96594532B3646E5FBB5CE09EE8E9314",
+  "admob_export_plugin_preset": "R09 AdMob Native Test Only",
+  "adb_devices_state": "NO DEVICE LISTED; NOT_DEVICE_VERIFIED",
+  "device_install_and_logcat": "NOT RUN",
+  "task_marker": "AWAITING_GPT_M34_R09_INDEPENDENT_AUDIT_AND_OWNER_ANDROID_DEVICE"
+}

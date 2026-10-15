@@ -1,0 +1,1 @@
+NO_MATCHES: res:// paths to the three APK-excluded roots were found in addons/, data/, scenes/, scripts/, or project.godot.

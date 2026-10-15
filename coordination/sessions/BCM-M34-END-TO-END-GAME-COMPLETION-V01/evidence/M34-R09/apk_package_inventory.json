@@ -1,0 +1,81 @@
+{
+  "artifact_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R09-Android-Export\\BCM_R09_Slim_Nonshipping_Debug.apk",
+  "git_tracked": false,
+  "size_bytes": 301983466,
+  "sha256": "D38AC083933D60E6B18A63CEEF708B3AC6C78575D2F3A99DD01B4C13C7C4694C",
+  "package": "org.example.bcm.r09slimdebug",
+  "version_name": "0.0.0-r09-nonshipping",
+  "r08_filtered_baseline_bytes": 301979173,
+  "delta_bytes": 4293,
+  "delta_percent": 0.0014,
+  "apk_entry_count": 2161,
+  "excluded_content": {
+    "coordination_entries": 0,
+    "ui_source_entries": 0,
+    "contact_sheet_entries": 0
+  },
+  "families": [
+    {
+      "family": "main ApplicationShell scene",
+      "expected": 1,
+      "present": 1,
+      "pass": true
+    },
+    {
+      "family": "gameplay surface imports",
+      "expected": 10,
+      "present": 10,
+      "pass": true
+    },
+    {
+      "family": "R04 geometry profiles",
+      "expected": 10,
+      "present": 10,
+      "pass": true
+    },
+    {
+      "family": "campaign level data files",
+      "expected": 10,
+      "present": 10,
+      "pass": true,
+      "additional_noncanonical_json": "tiki_island_full.json",
+      "canonical_runtime_records": "10 island files; 1000 level records verified by CampaignContentManifest.validate()"
+    },
+    {
+      "family": "cocktail texture imports L01-L12",
+      "expected": 12,
+      "present": 12,
+      "pass": true
+    },
+    {
+      "family": "HUD panels",
+      "expected": 4,
+      "present": 4,
+      "pass": true
+    },
+    {
+      "family": "logo",
+      "expected": 1,
+      "present": 2,
+      "pass": true
+    },
+    {
+      "family": "progression strip",
+      "expected": 1,
+      "present": 1,
+      "pass": true
+    },
+    {
+      "family": "danger line",
+      "expected": 1,
+      "present": 1,
+      "pass": true
+    }
+  ],
+  "tooling": {
+    "apksigner": "35.0.1; v2/v3 verified",
+    "aapt": "35.0.1; dump badging exit 0",
+    "build_tools_fallback": "SDK target 36 requested; 35.0.1 selected",
+    "launcher_icon": "No project icon configured; Android fallback icon resources present"
+  }
+}

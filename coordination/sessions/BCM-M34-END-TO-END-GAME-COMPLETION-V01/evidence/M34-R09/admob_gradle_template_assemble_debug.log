@@ -1,0 +1,176 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build
+
+> Configure project :
+WARNING: The option setting 'android.overridePathCheck=true' is experimental.
+The current default is 'false'.
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 36
+
+This Android Gradle plugin (8.6.1) was tested up to compileSdk = 35.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 36.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 36 is available.
+
+For more information refer to the compatibility table:
+https://d.android.com/r/tools/api-level-support
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=36
+to this project's gradle.properties.
+This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+Checking the license for package Android SDK Build-Tools 36.1 in C:\Users\sekip\AppData\Local\BCM-M34-Android-4.7.2\sdk\licenses
+License for package Android SDK Build-Tools 36.1 accepted.
+Preparing "Install Android SDK Build-Tools 36.1 v.36.1.0".
+"Install Android SDK Build-Tools 36.1 v.36.1.0" ready.
+Installing Android SDK Build-Tools 36.1 in C:\Users\sekip\AppData\Local\BCM-M34-Android-4.7.2\sdk\build-tools\36.1.0
+"Install Android SDK Build-Tools 36.1 v.36.1.0" complete.
+"Install Android SDK Build-Tools 36.1 v.36.1.0" finished.
+Checking the license for package Android SDK Platform 36 in C:\Users\sekip\AppData\Local\BCM-M34-Android-4.7.2\sdk\licenses
+License for package Android SDK Platform 36 accepted.
+Preparing "Install Android SDK Platform 36 (revision 2)".
+"Install Android SDK Platform 36 (revision 2)" ready.
+Installing Android SDK Platform 36 in C:\Users\sekip\AppData\Local\BCM-M34-Android-4.7.2\sdk\platforms\android-36
+"Install Android SDK Platform 36 (revision 2)" complete.
+"Install Android SDK Platform 36 (revision 2)" finished.
+
+> Task :preBuild UP-TO-DATE
+> Task :preInstrumentedDebugBuild UP-TO-DATE
+> Task :mergeInstrumentedDebugNativeDebugMetadata NO-SOURCE
+> Task :checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :generateInstrumentedDebugBuildConfig
+> Task :generateInstrumentedDebugResValues
+> Task :checkInstrumentedDebugAarMetadata
+> Task :mapInstrumentedDebugSourceSetPaths
+> Task :generateInstrumentedDebugResources
+> Task :mergeInstrumentedDebugResources
+> Task :packageInstrumentedDebugResources
+> Task :createInstrumentedDebugCompatibleScreenManifests
+> Task :extractDeepLinksInstrumentedDebug
+> Task :parseInstrumentedDebugLocalResources
+> Task :processInstrumentedDebugMainManifest
+> Task :processInstrumentedDebugManifest
+> Task :javaPreCompileInstrumentedDebug
+> Task :mergeInstrumentedDebugShaders
+> Task :compileInstrumentedDebugShaders NO-SOURCE
+> Task :generateInstrumentedDebugAssets UP-TO-DATE
+> Task :mergeInstrumentedDebugAssets
+> Task :compressInstrumentedDebugAssets
+> Task :checkInstrumentedDebugDuplicateClasses
+> Task :mergeLibDexInstrumentedDebug
+> Task :mergeInstrumentedDebugJniLibFolders
+> Task :writeInstrumentedDebugAppMetadata
+> Task :writeInstrumentedDebugSigningConfigVersions
+> Task :preMonoDebugBuild UP-TO-DATE
+> Task :mergeMonoDebugNativeDebugMetadata NO-SOURCE
+> Task :generateMonoDebugBuildConfig
+> Task :generateMonoDebugResValues
+> Task :checkMonoDebugAarMetadata
+> Task :mapMonoDebugSourceSetPaths
+> Task :generateMonoDebugResources
+> Task :mergeMonoDebugResources
+> Task :packageMonoDebugResources
+> Task :createMonoDebugCompatibleScreenManifests
+> Task :parseMonoDebugLocalResources
+> Task :extractDeepLinksMonoDebug
+> Task :processMonoDebugMainManifest
+> Task :processMonoDebugManifest
+> Task :javaPreCompileMonoDebug
+> Task :mergeMonoDebugShaders
+> Task :compileMonoDebugShaders NO-SOURCE
+> Task :generateMonoDebugAssets UP-TO-DATE
+> Task :mergeMonoDebugAssets
+> Task :compressMonoDebugAssets
+> Task :checkMonoDebugDuplicateClasses
+> Task :mergeMonoDebugJniLibFolders
+> Task :mergeLibDexMonoDebug
+> Task :writeMonoDebugAppMetadata
+> Task :writeMonoDebugSigningConfigVersions
+> Task :preStandardDebugBuild UP-TO-DATE
+> Task :mergeStandardDebugNativeDebugMetadata NO-SOURCE
+> Task :generateStandardDebugBuildConfig
+> Task :generateStandardDebugResValues
+> Task :checkStandardDebugAarMetadata
+> Task :mergeInstrumentedDebugNativeLibs
+> Task :mapStandardDebugSourceSetPaths
+> Task :generateStandardDebugResources
+
+> Task :stripInstrumentedDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libc++_shared.so, libgodot_android.so.
+
+> Task :mergeStandardDebugResources
+> Task :mergeMonoDebugNativeLibs
+> Task :desugarInstrumentedDebugFileDependencies
+> Task :desugarMonoDebugFileDependencies
+> Task :packageStandardDebugResources
+> Task :processInstrumentedDebugManifestForPackage
+> Task :processMonoDebugManifestForPackage
+> Task :parseStandardDebugLocalResources
+
+> Task :stripMonoDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libc++_shared.so, libgodot_android.so.
+
+> Task :createStandardDebugCompatibleScreenManifests
+> Task :extractDeepLinksStandardDebug
+> Task :mergeExtDexInstrumentedDebug
+> Task :mergeExtDexMonoDebug
+> Task :processStandardDebugMainManifest
+> Task :processStandardDebugManifest
+> Task :javaPreCompileStandardDebug
+> Task :processStandardDebugManifestForPackage
+> Task :mergeStandardDebugShaders
+> Task :compileStandardDebugShaders NO-SOURCE
+> Task :generateStandardDebugAssets UP-TO-DATE
+> Task :mergeStandardDebugAssets
+> Task :compressStandardDebugAssets
+> Task :checkStandardDebugDuplicateClasses
+> Task :mergeStandardDebugJniLibFolders
+> Task :processMonoDebugResources
+> Task :mergeLibDexStandardDebug
+> Task :processStandardDebugResources
+> Task :compileMonoDebugKotlin NO-SOURCE
+> Task :desugarStandardDebugFileDependencies
+> Task :mergeStandardDebugNativeLibs
+> Task :compileMonoDebugJavaWithJavac
+> Task :dexBuilderMonoDebug
+> Task :processMonoDebugJavaRes NO-SOURCE
+> Task :mergeMonoDebugGlobalSynthetics
+> Task :compileStandardDebugKotlin NO-SOURCE
+> Task :mergeProjectDexMonoDebug
+> Task :mergeMonoDebugJavaResource
+> Task :processInstrumentedDebugResources
+> Task :compileStandardDebugJavaWithJavac
+> Task :dexBuilderStandardDebug
+> Task :processStandardDebugJavaRes NO-SOURCE
+> Task :mergeStandardDebugGlobalSynthetics
+> Task :mergeProjectDexStandardDebug
+> Task :writeStandardDebugAppMetadata
+> Task :writeStandardDebugSigningConfigVersions
+> Task :mergeStandardDebugJavaResource
+
+> Task :stripStandardDebugDebugSymbols
+Unable to strip the following libraries, packaging them as they are: libc++_shared.so, libgodot_android.so.
+
+> Task :mergeExtDexStandardDebug
+> Task :packageMonoDebug
+> Task :createMonoDebugApkListingFileRedirect
+> Task :assembleMonoDebug
+> Task :packageStandardDebug
+> Task :createStandardDebugApkListingFileRedirect
+> Task :assembleStandardDebug
+> Task :compileInstrumentedDebugKotlin
+> Task :compileInstrumentedDebugJavaWithJavac
+> Task :dexBuilderInstrumentedDebug
+> Task :mergeInstrumentedDebugGlobalSynthetics
+> Task :processInstrumentedDebugJavaRes
+> Task :mergeProjectDexInstrumentedDebug
+> Task :mergeInstrumentedDebugJavaResource
+> Task :packageInstrumentedDebug
+> Task :createInstrumentedDebugApkListingFileRedirect
+> Task :assembleInstrumentedDebug
+> Task :assembleDebug
+
+BUILD SUCCESSFUL in 3m 45s
+104 actionable tasks: 104 executed

@@ -1,0 +1,48 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+WARNING: Detected another project.godot at res://android/build/src/instrumented/assets. The folder will be ignored.
+   at: _should_skip_directory (editor/file_system/editor_file_system.cpp:3497)
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (27 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | AdCache[39m[0m
+[   3% ] [90m[1mupdate_scripts_classes[22m | AdmobAndroidExportConfig[39m[0m
+[   7% ] [90m[1mupdate_scripts_classes[22m | AdmobExportConfig[39m[0m
+[  10% ] [90m[1mupdate_scripts_classes[22m | AdmobIosExportConfig[39m[0m
+[  14% ] [90m[1mupdate_scripts_classes[22m | AdapterResponseInfo[39m[0m
+[  17% ] [90m[1mupdate_scripts_classes[22m | AdapterStatus[39m[0m
+[  21% ] [90m[1mupdate_scripts_classes[22m | AdError[39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | AdInfo[39m[0m
+[  28% ] [90m[1mupdate_scripts_classes[22m | AdmobConfig[39m[0m
+[  32% ] [90m[1mupdate_scripts_classes[22m | AdmobSettings[39m[0m
+[  35% ] [90m[1mupdate_scripts_classes[22m | AdSize[39m[0m
+[  39% ] [90m[1mupdate_scripts_classes[22m | ConsentRequestParameters[39m[0m
+[  42% ] [90m[1mupdate_scripts_classes[22m | FormError[39m[0m
+[  46% ] [90m[1mupdate_scripts_classes[22m | InitializationStatus[39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | LoadAdError[39m[0m
+[  53% ] [90m[1mupdate_scripts_classes[22m | LoadAdRequest[39m[0m
+[  57% ] [90m[1mupdate_scripts_classes[22m | MediationNetwork[39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | NetworkExtras[39m[0m
+[  64% ] [90m[1mupdate_scripts_classes[22m | NetworkPrivacySettings[39m[0m
+[  67% ] [90m[1mupdate_scripts_classes[22m | ResponseInfo[39m[0m
+[  71% ] [90m[1mupdate_scripts_classes[22m | RewardItem[39m[0m
+[  75% ] [90m[1mupdate_scripts_classes[22m | UserConsent[39m[0m
+[  78% ] [90m[1mupdate_scripts_classes[22m | Admob[39m[0m
+[  82% ] [90m[1mupdate_scripts_classes[22m | InlineAdaptiveBanner[39m[0m
+[  85% ] [90m[1mupdate_scripts_classes[22m | GmpLogger[39m[0m
+[  89% ] [90m[1mupdate_scripts_classes[22m | SpmDependency[39m[0m
+[  92% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
