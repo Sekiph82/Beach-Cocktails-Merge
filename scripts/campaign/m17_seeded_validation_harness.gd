@@ -195,7 +195,8 @@ func run_trial(
 	profile_enabled: bool = false,
 	cache_legal_launch_lanes: bool = false,
 	capture_physics_trace: bool = false,
-	max_physics_frames: int = 0
+	max_physics_frames: int = 0,
+	physics_trace_interval_frames: int = DETERMINISM_TRACE_INTERVAL_FRAMES
 ) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
 	telemetry["policy_name"] = policy_name
@@ -252,6 +253,9 @@ func run_trial(
 		"rail_near": {},
 		"rail_seen_keys": {},
 		"next_drink_instance_id": 1,
+		"physics_frame_index": 0,
+		"contact_events": [],
+		"merge_events": [],
 		"peak_live_drinks": 0,
 		"live_sum": 0.0,
 		"sample_count": 0,
@@ -343,6 +347,7 @@ func run_trial(
 		for _frame in range(FRAMES_PER_ACTION):
 			if max_physics_frames > 0 and physics_frame_index >= max_physics_frames:
 				break
+			state["physics_frame_index"] = physics_frame_index + 1
 			var frame_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			await _root.get_tree().physics_frame
 			if profile_enabled:
@@ -352,7 +357,7 @@ func run_trial(
 			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
 			physics_frame_index += 1
-			if capture_physics_trace and physics_frame_index % DETERMINISM_TRACE_INTERVAL_FRAMES == 0:
+			if capture_physics_trace and physics_frame_index % maxi(1, physics_trace_interval_frames) == 0:
 				_append_physics_trace(telemetry, manager, bridge, state, physics_frame_index)
 			if profile_enabled:
 				profile["sample_wall_usec"] = int(profile["sample_wall_usec"]) + Time.get_ticks_usec() - sample_start_usec
@@ -390,6 +395,7 @@ func run_trial(
 		for _frame in range(MAX_EXTRA_SETTLE_FRAMES):
 			if max_physics_frames > 0 and physics_frame_index >= max_physics_frames:
 				break
+			state["physics_frame_index"] = physics_frame_index + 1
 			var frame_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			await _root.get_tree().physics_frame
 			if profile_enabled:
@@ -399,7 +405,7 @@ func run_trial(
 			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
 			physics_frame_index += 1
-			if capture_physics_trace and physics_frame_index % DETERMINISM_TRACE_INTERVAL_FRAMES == 0:
+			if capture_physics_trace and physics_frame_index % maxi(1, physics_trace_interval_frames) == 0:
 				_append_physics_trace(telemetry, manager, bridge, state, physics_frame_index)
 			if profile_enabled:
 				profile["sample_wall_usec"] = int(profile["sample_wall_usec"]) + Time.get_ticks_usec() - sample_start_usec
@@ -440,6 +446,8 @@ func run_trial(
 	telemetry["peak_board_occupancy"] = float(state["peak_board_occupancy"])
 	telemetry["large_piece_coexistence_peak"] = int(state["large_piece_coexistence_peak"])
 	telemetry["contact_count"] = int(state["contact_count"])
+	telemetry["contact_events"] = state["contact_events"].duplicate(true)
+	telemetry["merge_events"] = state["merge_events"].duplicate(true)
 	telemetry["rail_contact_count"] = int(state["rail_contact_count"])
 	telemetry["danger_line_exposure_sec"] = float(state["danger_line_exposure_sec"])
 	var unique_x: Dictionary = {}
@@ -482,13 +490,15 @@ func _append_physics_trace(telemetry: Dictionary, manager, bridge, state: Dictio
 				continue
 			var drink: Drink = child
 			bodies.append({
+				"instance_id": _stable_instance_id(drink),
 				"level": drink.level,
 				"motion_state": int(drink.motion_state),
+				"sleeping": drink.sleeping,
 				"position": [drink.position.x, drink.position.y],
 				"velocity": [drink.linear_velocity.x, drink.linear_velocity.y],
 			})
 	bodies.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		return JSON.stringify(a) < JSON.stringify(b)
+		return int(a.instance_id) < int(b.instance_id)
 	)
 	var progress: Dictionary = bridge.get_objective_state()
 	var moves: Dictionary = bridge.get_move_budget_state()
@@ -506,6 +516,9 @@ func _append_physics_trace(telemetry: Dictionary, manager, bridge, state: Dictio
 		"normal_remaining": progress.get("normal_remaining", {}).duplicate(true),
 		"vip_state": bridge.get_vip_state().duplicate(true),
 		"terminal": bridge.get_terminal_result().duplicate(true) if bridge.is_terminal() else {},
+		"contact_event_count": state["contact_events"].size(),
+		"merge_event_count": state["merge_events"].size(),
+		"action_log": telemetry["action_log"].duplicate(true),
 	}
 	var context := HashingContext.new()
 	context.start(HashingContext.HASH_SHA256)
@@ -519,7 +532,7 @@ func _attach_drink(drink: Drink, state: Dictionary) -> void:
 	if not drink.merged.is_connected(_on_drink_merge):
 		drink.merged.connect(_on_drink_merge.bind(state))
 	if not drink.body_entered.is_connected(_on_drink_contact):
-		drink.body_entered.connect(_on_drink_contact.bind(state))
+		drink.body_entered.connect(_on_drink_contact.bind(drink, state))
 
 
 func _assign_missing_stable_instance_ids(manager, state: Dictionary) -> void:
@@ -541,10 +554,26 @@ func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> v
 		return
 	state["merge_pairs"][pair_key] = true
 	state["merge_count"] = int(state["merge_count"]) + 1
+	var first_stable := mini(_stable_instance_id(a), _stable_instance_id(b))
+	var second_stable := maxi(_stable_instance_id(a), _stable_instance_id(b))
+	state["merge_events"].append({
+		"frame": int(state["physics_frame_index"]),
+		"first_instance_id": first_stable,
+		"second_instance_id": second_stable,
+		"result_level": new_level,
+	})
 
 
-func _on_drink_contact(body: Node, state: Dictionary) -> void:
+func _on_drink_contact(body: Node, source: Drink, state: Dictionary) -> void:
 	state["contact_count"] = int(state["contact_count"]) + 1
+	if body is Drink and is_instance_valid(source):
+		state["contact_events"].append({
+			"frame": int(state["physics_frame_index"]),
+			"source_instance_id": _stable_instance_id(source),
+			"target_instance_id": _stable_instance_id(body),
+			"source_level": source.level,
+			"target_level": body.level,
+		})
 
 
 func _sample(manager, state: Dictionary) -> void:

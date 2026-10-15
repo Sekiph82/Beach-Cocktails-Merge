@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R15",
+  "registered_before_empirical_runs": true,
+  "scope": "Exploratory comparison only; does not authorize fast authoritative solver mode or alter the strict parity gate.",
+  "trace_sampling": "Every production physics frame, stable harness-assigned drink identity, fixed 60 physics ticks per second.",
+  "strict_gate": {
+    "name": "strict_bitwise_physics_parity",
+    "pass_conditions": [
+      "same ordered stable entity identities and exact serialized per-frame state hashes",
+      "same ordered per-frame contact and merge event cursors",
+      "same complete ordered contact and merge event ledgers",
+      "same objective, terminal, spawn, action, and branch records"
+    ],
+    "effect": "A strict failure remains a parity failure and keeps fast authoritative solver mode disabled."
+  },
+  "exploratory_tolerant_gate": {
+    "name": "tolerant_candidate_only",
+    "position_delta_max_px_per_entity_per_frame": 0.02,
+    "velocity_delta_max_px_per_second_per_entity_per_frame": 0.05,
+    "cumulative_position_delta_sum_max_px_per_entity": 0.25,
+    "structural_requirements": [
+      "identity set and order are identical at every frame",
+      "motion_state and sleeping state are identical for each identity",
+      "contact and merge event identity, order, and frame are identical",
+      "objectives, terminal result, spawn levels, actions, policy decisions, and branching records are identical"
+    ],
+    "effect": "Candidate classification only; it is not a parity pass, solver authority, or permission to relax strict parity."
+  },
+  "unknown_conditions": [
+    "missing or malformed trace",
+    "process timeout or budget exit before a terminal result",
+    "high-density minimum of eight live drinks not reached",
+    "incomplete evidence pair"
+  ],
+  "controlled_cases": [
+    {"island": "final_island", "level": 100, "seed": 34112100, "policy": "WEAK_V02", "actions": 20, "repeat_mode": "normal"},
+    {"island": "final_island", "level": 100, "seed": 34112101, "policy": "WEAK_V02", "actions": 20},
+    {"island": "final_island", "level": 100, "seed": 34112102, "policy": "WEAK_V02", "actions": 20}
+  ],
+  "adversarial_test": "Mutate one branch lane and one collision target identity while keeping numeric deltas within tolerance; tolerant gate must reject both as structural divergence.",
+  "authoritative_trial": "If strict parity is not demonstrated, at most one normal-speed production-physics exact-4T diagnostic with external 12-second wall deadline; unknown is not impossible."
+}

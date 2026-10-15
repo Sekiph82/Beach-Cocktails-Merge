@@ -14,6 +14,7 @@ func _run() -> void:
 	var level_id := 1
 	var seed_value := 34112001
 	var action_cap := 6
+	var trace_interval_frames := 15
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--r12-output="):
 			output_path = argument.trim_prefix("--r12-output=")
@@ -31,6 +32,8 @@ func _run() -> void:
 			action_cap = int(argument.trim_prefix("--r14-action-cap="))
 		elif argument.begins_with("--r14-policy="):
 			policy_name = argument.trim_prefix("--r14-policy=")
+		elif argument.begins_with("--r15-trace-interval="):
+			trace_interval_frames = maxi(1, int(argument.trim_prefix("--r15-trace-interval=")))
 	if output_path.is_empty():
 		push_error("R12 probe requires --r12-output=<absolute path>")
 		quit(2)
@@ -64,7 +67,8 @@ func _run() -> void:
 		true,
 		true,
 		true,
-		maxi(action_cap * 60 + 90, 90)
+		maxi(action_cap * 60 + 90, 90),
+		trace_interval_frames
 	)
 	var wall_usec := Time.get_ticks_usec() - started_usec
 	var report := {
@@ -78,6 +82,9 @@ func _run() -> void:
 		"physics_frame_ceiling": maxi(action_cap * 60 + 90, 90),
 		"engine_time_scale": Engine.time_scale,
 		"physics_ticks_per_second": Engine.physics_ticks_per_second,
+		"max_fps": Engine.max_fps,
+		"processor_count": OS.get_processor_count(),
+		"trace_interval_frames": trace_interval_frames,
 		"wall_usec": wall_usec,
 		"telemetry": trial,
 	}
