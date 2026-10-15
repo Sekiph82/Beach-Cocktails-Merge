@@ -196,7 +196,9 @@ func run_trial(
 	cache_legal_launch_lanes: bool = false,
 	capture_physics_trace: bool = false,
 	max_physics_frames: int = 0,
-	physics_trace_interval_frames: int = DETERMINISM_TRACE_INTERVAL_FRAMES
+	physics_trace_interval_frames: int = DETERMINISM_TRACE_INTERVAL_FRAMES,
+	progress_checkpoint_path: String = "",
+	progress_checkpoint_metadata: Dictionary = {}
 ) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
 	telemetry["policy_name"] = policy_name
@@ -324,6 +326,8 @@ func run_trial(
 				"target_instance_id": lane_choice.get("target_instance_id", null),
 			}
 		telemetry["action_log"].append(action_record)
+		if not progress_checkpoint_path.is_empty():
+			_write_progress_checkpoint(progress_checkpoint_path, telemetry, bridge, state, physics_frame_index, action_index + 1, "ACTION_COMMITTED", progress_checkpoint_metadata)
 		var shot_commit_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 		var launched = manager.spawn_drink(spawn_level, Vector2(x_position, manager.launch_y), true)
 		if launched == null:
@@ -357,6 +361,8 @@ func run_trial(
 			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
 			physics_frame_index += 1
+			if not progress_checkpoint_path.is_empty() and physics_frame_index % DETERMINISM_TRACE_INTERVAL_FRAMES == 0:
+				_write_progress_checkpoint(progress_checkpoint_path, telemetry, bridge, state, physics_frame_index, action_index + 1, "ACTION_IN_PHYSICS", progress_checkpoint_metadata)
 			if capture_physics_trace and physics_frame_index % maxi(1, physics_trace_interval_frames) == 0:
 				_append_physics_trace(telemetry, manager, bridge, state, physics_frame_index)
 			if profile_enabled:
@@ -390,6 +396,8 @@ func run_trial(
 			"normal_orders_completed": progress_state.get("normal_completed", {}).duplicate(true),
 			"vip_state": bridge.get_vip_state().duplicate(true),
 		})
+		if not progress_checkpoint_path.is_empty():
+			_write_progress_checkpoint(progress_checkpoint_path, telemetry, bridge, state, physics_frame_index, action_index, "ACTION_SETTLED", progress_checkpoint_metadata)
 
 	if not bridge.is_terminal() and not manager.game_over and (max_physics_frames <= 0 or physics_frame_index < max_physics_frames):
 		for _frame in range(MAX_EXTRA_SETTLE_FRAMES):
@@ -405,6 +413,8 @@ func run_trial(
 			var sample_start_usec := Time.get_ticks_usec() if profile_enabled else 0
 			_sample(manager, state)
 			physics_frame_index += 1
+			if not progress_checkpoint_path.is_empty() and physics_frame_index % DETERMINISM_TRACE_INTERVAL_FRAMES == 0:
+				_write_progress_checkpoint(progress_checkpoint_path, telemetry, bridge, state, physics_frame_index, action_index, "SETTLE_IN_PHYSICS", progress_checkpoint_metadata)
 			if capture_physics_trace and physics_frame_index % maxi(1, physics_trace_interval_frames) == 0:
 				_append_physics_trace(telemetry, manager, bridge, state, physics_frame_index)
 			if profile_enabled:
@@ -524,6 +534,38 @@ func _append_physics_trace(telemetry: Dictionary, manager, bridge, state: Dictio
 	context.start(HashingContext.HASH_SHA256)
 	context.update(JSON.stringify(trace_state).to_utf8_buffer())
 	telemetry["physics_trace"].append({"frame": frame_index, "sha256": context.finish().hex_encode(), "state": trace_state})
+
+
+func _write_progress_checkpoint(path: String, telemetry: Dictionary, bridge, state: Dictionary, frame_index: int, completed_actions: int, phase: String, metadata: Dictionary = {}) -> void:
+	var objectives: Dictionary = bridge.get_objective_state()
+	var moves: Dictionary = bridge.get_move_budget_state()
+	var checkpoint := {
+		"schema_version": 1,
+		"status": "CASE_RUNNING",
+		"phase": phase,
+		"island_id": str(telemetry.get("island_id", "")),
+		"level_id": int(telemetry.get("level_id", 0)),
+		"seed": int(telemetry.get("seed", 0)),
+		"policy_name": str(telemetry.get("policy_name", "")),
+		"physics_frame": frame_index,
+		"completed_actions": completed_actions,
+		"action_log": telemetry.get("action_log", []).duplicate(true),
+		"progress_curve": telemetry.get("progress_curve", []).duplicate(true),
+		"merge_count": int(state.get("merge_count", 0)),
+		"merge_events": state.get("merge_events", []).duplicate(true),
+		"contact_count": int(state.get("contact_count", 0)),
+		"moves_used": int(moves.get("moves_used", 0)),
+		"normal_orders_completed": objectives.get("normal_completed", {}).duplicate(true),
+		"normal_orders_remaining": objectives.get("normal_remaining", {}).duplicate(true),
+		"vip_state": bridge.get_vip_state().duplicate(true),
+	}
+	checkpoint.merge(metadata, true)
+	var file := FileAccess.open(path, FileAccess.WRITE)
+	if file == null:
+		return
+	file.store_string(JSON.stringify(checkpoint) + "\n")
+	file.flush()
+	file.close()
 
 
 func _attach_drink(drink: Drink, state: Dictionary) -> void:

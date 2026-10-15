@@ -1,0 +1,390 @@
+{
+	"action_count": 9,
+	"action_log": [
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 3,
+			"same_level_target_found": false,
+			"spawn_level": 1,
+			"step": 0,
+			"target_instance_id": null,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 1,
+			"same_level_target_found": false,
+			"spawn_level": 3,
+			"step": 1,
+			"target_instance_id": null,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 2,
+			"target_instance_id": 3,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 1,
+			"step": 3,
+			"target_instance_id": 1,
+			"x_position": 360.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 5,
+			"same_level_target_found": false,
+			"spawn_level": 3,
+			"step": 4,
+			"target_instance_id": null,
+			"x_position": 500.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 5,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 5,
+			"target_instance_id": 11,
+			"x_position": 500.0
+		},
+		{
+			"decision_reason": "low_congestion_lane",
+			"lane_index": 0,
+			"same_level_target_found": false,
+			"spawn_level": 3,
+			"step": 6,
+			"target_instance_id": null,
+			"x_position": 150.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 1,
+			"same_level_target_found": true,
+			"spawn_level": 3,
+			"step": 7,
+			"target_instance_id": 16,
+			"x_position": 220.0
+		},
+		{
+			"decision_reason": "same_level_target",
+			"lane_index": 3,
+			"same_level_target_found": true,
+			"spawn_level": 2,
+			"step": 8,
+			"target_instance_id": 10,
+			"x_position": 360.0
+		}
+	],
+	"action_log_sha256": "c34d7d15e9aba1ce145093686ac08d954fae5fb90207e34c6cd8085836398a5b",
+	"case": {
+		"island_id": "sunny_cove",
+		"level_id": 1,
+		"policy": "MERGE_AWARE_V01",
+		"replay": false,
+		"seed": 34116001
+	},
+	"classification": "WIN_OBSERVED",
+	"contact_count": 9,
+	"elapsed_wall_usec": 8678881,
+	"human_fairness_ux": "NOT_ASSESSED",
+	"merge_count": 4,
+	"merge_events": [
+		{
+			"first_instance_id": 3,
+			"frame": 175,
+			"result_level": 4,
+			"second_instance_id": 5
+		},
+		{
+			"first_instance_id": 1,
+			"frame": 237,
+			"result_level": 2,
+			"second_instance_id": 8
+		},
+		{
+			"first_instance_id": 11,
+			"frame": 355,
+			"result_level": 4,
+			"second_instance_id": 13
+		},
+		{
+			"first_instance_id": 16,
+			"frame": 473,
+			"result_level": 4,
+			"second_instance_id": 18
+		}
+	],
+	"move_limit_including_optional_vip": 16,
+	"moves_used": 9,
+	"normal_4T_shot_cap": 16,
+	"normal_objective_complete": true,
+	"normal_objective_cost": 16,
+	"normal_orders_completed": {
+		"5": 1
+	},
+	"normal_orders_remaining": {
+		"5": 0
+	},
+	"normal_theoretical_shots_T": 4,
+	"optional_vip_enabled": false,
+	"outcome": "completed",
+	"physics": {
+		"fixed_fps": false,
+		"mode": "standard_fps_production_physics",
+		"physics_ticks_per_second": 60,
+		"run_on_separate_thread": false,
+		"shot_speed_px_per_sec": 700.0,
+		"time_scale": 1.0
+	},
+	"physics_frames_observed": 502,
+	"production_moves_used": 9,
+	"profile": {
+		"decision_count": 9,
+		"decision_wall_usec": 4084,
+		"decision_wall_usec_per_action": 453.78,
+		"enabled": true,
+		"engine_performance_monitor": "not_sampled; frame wall timers are used because built-in monitors may be stale",
+		"frame_count": 502,
+		"geometry_cache_misses": 3,
+		"physics_frame_wait_wall_usec": 7724764,
+		"sample_wall_usec": 440637,
+		"sample_wall_usec_per_frame": 877.76,
+		"shot_commit_wall_usec": 27010
+	},
+	"progress_curve": [
+		{
+			"action_count": 1,
+			"merge_count": 0,
+			"moves_used": 1,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 1.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 2,
+			"merge_count": 0,
+			"moves_used": 2,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 2.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 3,
+			"merge_count": 1,
+			"moves_used": 3,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 3.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 4,
+			"merge_count": 2,
+			"moves_used": 4,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 4.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 5,
+			"merge_count": 2,
+			"moves_used": 5,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 5.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 6,
+			"merge_count": 3,
+			"moves_used": 6,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 6.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 7,
+			"merge_count": 3,
+			"moves_used": 7,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 7.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 8,
+			"merge_count": 4,
+			"moves_used": 8,
+			"normal_T_progress_per_move": 0.0,
+			"normal_T_progressed": 0,
+			"normal_T_remaining": 4,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 0
+			},
+			"simulated_seconds": 8.0,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		},
+		{
+			"action_count": 9,
+			"merge_count": 4,
+			"moves_used": 9,
+			"normal_T_progress_per_move": 0.444,
+			"normal_T_progressed": 4,
+			"normal_T_remaining": 0,
+			"normal_T_start": 4,
+			"normal_orders_completed": {
+				"5": 1
+			},
+			"simulated_seconds": 8.367,
+			"vip_state": {
+				"cocktail_level": 0,
+				"completed": false,
+				"delivered": 0,
+				"enabled": false,
+				"quantity": 0,
+				"remaining": 0,
+				"required": 0,
+				"status": "HIDDEN"
+			}
+		}
+	],
+	"schema_version": 1,
+	"shots_legal_within_normal_4T": true,
+	"shots_used": 9,
+	"simulated_seconds": 8.36666666666666,
+	"star_cap_outcome": 2,
+	"static_validation_record_count": 1000,
+	"status": "CASE_COMPLETE",
+	"terminal_reason": "NORMAL_OBJECTIVES_COMPLETE",
+	"vip_state": {
+		"cocktail_level": 0,
+		"completed": false,
+		"delivered": 0,
+		"enabled": false,
+		"quantity": 0,
+		"remaining": 0,
+		"required": 0,
+		"status": "HIDDEN"
+	},
+	"work_item": "BCM-M34-R16"
+}

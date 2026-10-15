@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M34_ECONOMY PASS: legacy Focus inventory is preserved in a retired counter with unrelated boosters intact
+M34_ECONOMY PASS: Focus cannot be granted, spent, or purchased
+M34_ECONOMY PASS: starting and winning costs no Energy; a second terminal callback cannot convert or charge the WIN
+M34_ECONOMY PASS: owner example keeps 100 through WIN and next-level entry, then charges 20 once on abandonment
+M34_ECONOMY PASS: a genuine LOSE after abandonment charges another 20 exactly once
+M34_ECONOMY PASS: the existing 20-Energy entry eligibility gate remains at zero-charge entry
+M34_ECONOMY PASS: LOST attempts clamp the 20-point deduction at zero
+M34_ECONOMY PASS: energy regenerates one every 180 seconds and preserves partial interval
+M34_ECONOMY PASS: clock rollback does not grant energy or lower the stored high-water mark
+M34_ECONOMY PASS: full refill spends 25 Gems and caps Energy at 100
+M34_ECONOMY PASS: full Energy prevents an additional refill charge
+M34_ECONOMY PASS: verified rewarded callback grants +20 once; empty receipt is rejected
+M34_ECONOMY PASS: rewarded Energy is capped at 100
+M34_ECONOMY PASS: schema-two migration preserves balances, ledgers and non-Focus boosters while retiring Focus
+M34_ECONOMY PASS: fresh wallet matches owner-approved 100 Energy, 100 Coins and 5 Gems
+M34_ECONOMY PASS: interrupted-attempt fixture accepts the current save
+M34_ECONOMY PASS: an interrupted persisted attempt becomes one QUIT settlement after reload
+M34_ECONOMY PASS: canonical campaign database validates for production session charges
+M34_ECONOMY PASS: campaign accepts current economy state
+M34_ECONOMY PASS: a selected level that never became gameplay-ready exits without a persisted attempt or charge
+M34_ECONOMY PASS: selected first Sunny Cove level preserves the 20-Energy gate but does not persist a started attempt early
+M34_ECONOMY PASS: production gameplay-ready transition records the attempt without an entry deduction
+M34_ECONOMY PASS: production LOSE deducts once across repeated terminal callbacks
+M34_ECONOMY PASS: production Retry selects a new attempt without an entry charge
+M34_ECONOMY PASS: retried gameplay-ready attempt is tracked independently
+M34_ECONOMY PASS: abandoning the retry deducts one further 20
+M34_ECONOMY PASS: legacy Sunny Cove IDs resolve globally and star improvements pay 20/30/40 cumulative Coins plus one fifth-level Gem
+M34_ECONOMY PASS: same-star replay and VIP completion grant no extra currency
+M34_ECONOMY PASS: rewarded Ads fail closed without explicit consent and provider
+M34_ECONOMY PASS: mocked opt-in rewarded callback grants only after matching displayed transaction
+M34_ECONOMY PASS: mocked duplicate receipt and skip/close yield no extra verified reward
+M34_ECONOMY PASS: skip/close cancels the active ad and cannot later pay
+M34_ECONOMY PASS: IAP placeholders have no buyable products or local purchase fulfillment
+M34_ECONOMY PASS: even a mocked verifier cannot grant an unapproved nonbuyable placeholder
+M34_ECONOMY PASS: Daily Rewards use the locked five rewards while ad claims stay unavailable without a provider
+M34_ECONOMY_RESULT=PASS

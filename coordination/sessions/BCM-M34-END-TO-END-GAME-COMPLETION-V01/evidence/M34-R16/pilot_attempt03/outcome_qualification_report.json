@@ -1,0 +1,804 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R16",
+  "status": "PILOT_COMPLETE_WITH_ERROR_AND_UNKNOWN_OUTCOMES",
+  "physics_mode": "standard_fps_production_physics",
+  "fixed_fps_authoritative_proof": false,
+  "global_pilot_budget_seconds": 720,
+  "controller_budget_seconds": 540,
+  "per_trial_external_watchdog_seconds": 15,
+  "trial_level_count": 6,
+  "island_count": 4,
+  "policy_count": 2,
+  "planned_base_trials": 12,
+  "base_trials_completed": 12,
+  "win_replay_count": 2,
+  "static_validation": {
+    "status": "PASS",
+    "validated_level_records": 1000,
+    "expected_level_records": 1000,
+    "method": "LevelDatabase ValidationMode.FULL"
+  },
+  "fresh_import": {
+    "status": "EXITED",
+    "exit_code": 0,
+    "elapsed_wall_ms": 34917,
+    "evidence_file": "fresh_import_final.watchdog.json"
+  },
+  "regressions": {
+    "status": "ALL_REQUESTED_REGRESSIONS_PASS",
+    "passed_count": 10,
+    "expected_count": 10,
+    "evidence_file": "regression_summary.json",
+    "tasks_md_unchanged": true
+  },
+  "outcome_counts": {
+    "ERROR": 1,
+    "WIN_OBSERVED": 4,
+    "BUDGET_UNKNOWN": 9
+  },
+  "policy_summary": [
+    {
+      "policy": "WEAK_V02",
+      "base_trial_count": 6,
+      "win_observed_count": 1,
+      "loss_observed_count": 0,
+      "budget_unknown_count": 5,
+      "error_count": 0,
+      "mean_wall_ms": 16743.7,
+      "mean_merge_count": 3.33
+    },
+    {
+      "policy": "MERGE_AWARE_V01",
+      "base_trial_count": 6,
+      "win_observed_count": 1,
+      "loss_observed_count": 0,
+      "budget_unknown_count": 4,
+      "error_count": 1,
+      "mean_wall_ms": 16166.8,
+      "mean_merge_count": 5.8
+    }
+  ],
+  "trials": [
+    {
+      "trial_id": "base_sunny_cove_l1_WEAK_V02",
+      "case": {
+        "island_id": "sunny_cove",
+        "level_id": 1,
+        "seed": 34116001,
+        "difficulty_band": "early",
+        "policy": "WEAK_V02",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "WIN_OBSERVED",
+      "reason": "NORMAL_OBJECTIVES_COMPLETE",
+      "elapsed_wall_ms": 10101,
+      "watchdog_status": "EXITED",
+      "watchdog_file": "base_sunny_cove_l1_WEAK_V02.watchdog.json",
+      "trace_file": "base_sunny_cove_l1_WEAK_V02.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 4,
+        "normal_4t_shot_cap": 16,
+        "shots_used": 9,
+        "actions_committed": 9,
+        "physics_frame": 489,
+        "merge_count": 3,
+        "normal_orders_completed": {
+          "5": 1
+        },
+        "normal_orders_remaining": {
+          "5": 0
+        },
+        "action_count": 9,
+        "action_log_sha256": "7fa90756843176568215e4c3e8f4b7298ab4c4e34845de12dc6a93d981f82c5d",
+        "trace_source": "base_sunny_cove_l1_WEAK_V02.json"
+      },
+      "retry_verification": {
+        "trial_id": "retry_sunny_cove_l1_WEAK_V02",
+        "classification": "WIN_OBSERVED",
+        "reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "same_seed": true,
+        "same_action_inputs": true
+      }
+    },
+    {
+      "trial_id": "base_sunny_cove_l1_MERGE_AWARE_V01",
+      "case": {
+        "island_id": "sunny_cove",
+        "level_id": 1,
+        "seed": 34116001,
+        "difficulty_band": "early",
+        "policy": "MERGE_AWARE_V01",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "WIN_OBSERVED",
+      "reason": "NORMAL_OBJECTIVES_COMPLETE",
+      "elapsed_wall_ms": 9942,
+      "watchdog_status": "EXITED",
+      "watchdog_file": "base_sunny_cove_l1_MERGE_AWARE_V01.watchdog.json",
+      "trace_file": "base_sunny_cove_l1_MERGE_AWARE_V01.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 4,
+        "normal_4t_shot_cap": 16,
+        "shots_used": 9,
+        "actions_committed": 9,
+        "physics_frame": 502,
+        "merge_count": 4,
+        "normal_orders_completed": {
+          "5": 1
+        },
+        "normal_orders_remaining": {
+          "5": 0
+        },
+        "action_count": 9,
+        "action_log_sha256": "c34d7d15e9aba1ce145093686ac08d954fae5fb90207e34c6cd8085836398a5b",
+        "trace_source": "base_sunny_cove_l1_MERGE_AWARE_V01.json"
+      },
+      "retry_verification": {
+        "trial_id": "retry_sunny_cove_l1_MERGE_AWARE_V01",
+        "classification": "WIN_OBSERVED",
+        "reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "same_seed": true,
+        "same_action_inputs": true
+      }
+    },
+    {
+      "trial_id": "base_sunny_cove_l40_WEAK_V02",
+      "case": {
+        "island_id": "sunny_cove",
+        "level_id": 40,
+        "seed": 34116040,
+        "difficulty_band": "mid",
+        "policy": "WEAK_V02",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 17500,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_sunny_cove_l40_WEAK_V02.watchdog.json",
+      "trace_file": "base_sunny_cove_l40_WEAK_V02.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 32,
+        "normal_4t_shot_cap": 128,
+        "shots_used": null,
+        "actions_committed": 16,
+        "physics_frame": 900,
+        "merge_count": 4,
+        "normal_orders_completed": {
+          "8": 0
+        },
+        "normal_orders_remaining": {
+          "8": 1
+        },
+        "action_count": 16,
+        "action_log_sha256": null,
+        "trace_source": "base_sunny_cove_l40_WEAK_V02.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_sunny_cove_l40_MERGE_AWARE_V01",
+      "case": {
+        "island_id": "sunny_cove",
+        "level_id": 40,
+        "seed": 34116040,
+        "difficulty_band": "mid",
+        "policy": "MERGE_AWARE_V01",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 19298,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_sunny_cove_l40_MERGE_AWARE_V01.watchdog.json",
+      "trace_file": "base_sunny_cove_l40_MERGE_AWARE_V01.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 32,
+        "normal_4t_shot_cap": 128,
+        "shots_used": null,
+        "actions_committed": 8,
+        "physics_frame": 450,
+        "merge_count": 3,
+        "normal_orders_completed": {
+          "8": 0
+        },
+        "normal_orders_remaining": {
+          "8": 1
+        },
+        "action_count": 8,
+        "action_log_sha256": null,
+        "trace_source": "base_sunny_cove_l40_MERGE_AWARE_V01.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_tiki_island_l30_WEAK_V02",
+      "case": {
+        "island_id": "tiki_island",
+        "level_id": 30,
+        "seed": 34116130,
+        "difficulty_band": "early_mid",
+        "policy": "WEAK_V02",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 20131,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_tiki_island_l30_WEAK_V02.watchdog.json",
+      "trace_file": "base_tiki_island_l30_WEAK_V02.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 32,
+        "normal_4t_shot_cap": 128,
+        "shots_used": null,
+        "actions_committed": 16,
+        "physics_frame": 900,
+        "merge_count": 5,
+        "normal_orders_completed": {
+          "6": 0,
+          "7": 0
+        },
+        "normal_orders_remaining": {
+          "6": 2,
+          "7": 1
+        },
+        "action_count": 16,
+        "action_log_sha256": null,
+        "trace_source": "base_tiki_island_l30_WEAK_V02.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_tiki_island_l30_MERGE_AWARE_V01",
+      "case": {
+        "island_id": "tiki_island",
+        "level_id": 30,
+        "seed": 34116130,
+        "difficulty_band": "early_mid",
+        "policy": "MERGE_AWARE_V01",
+        "replay": false
+      },
+      "status": "ERROR",
+      "classification": "ERROR",
+      "reason": "CHILD_EXIT_CODE_-1",
+      "elapsed_wall_ms": 10524,
+      "watchdog_status": "CHILD_ERROR",
+      "watchdog_file": "base_tiki_island_l30_MERGE_AWARE_V01.watchdog.json",
+      "trace_file": "base_tiki_island_l30_MERGE_AWARE_V01.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 32,
+        "normal_4t_shot_cap": 128,
+        "shots_used": null,
+        "actions_committed": 8,
+        "physics_frame": 465,
+        "merge_count": 5,
+        "normal_orders_completed": {
+          "6": 0,
+          "7": 0
+        },
+        "normal_orders_remaining": {
+          "6": 2,
+          "7": 1
+        },
+        "action_count": 8,
+        "action_log_sha256": null,
+        "trace_source": "base_tiki_island_l30_MERGE_AWARE_V01.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_coconut_beach_l70_WEAK_V02",
+      "case": {
+        "island_id": "coconut_beach",
+        "level_id": 70,
+        "seed": 34116270,
+        "difficulty_band": "late",
+        "policy": "WEAK_V02",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 17061,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_coconut_beach_l70_WEAK_V02.watchdog.json",
+      "trace_file": "base_coconut_beach_l70_WEAK_V02.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 48,
+        "normal_4t_shot_cap": 192,
+        "shots_used": null,
+        "actions_committed": 16,
+        "physics_frame": 900,
+        "merge_count": 1,
+        "normal_orders_completed": {
+          "7": 0,
+          "8": 0
+        },
+        "normal_orders_remaining": {
+          "7": 1,
+          "8": 1
+        },
+        "action_count": 16,
+        "action_log_sha256": null,
+        "trace_source": "base_coconut_beach_l70_WEAK_V02.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_coconut_beach_l70_MERGE_AWARE_V01",
+      "case": {
+        "island_id": "coconut_beach",
+        "level_id": 70,
+        "seed": 34116270,
+        "difficulty_band": "late",
+        "policy": "MERGE_AWARE_V01",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 16695,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_coconut_beach_l70_MERGE_AWARE_V01.watchdog.json",
+      "trace_file": "base_coconut_beach_l70_MERGE_AWARE_V01.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 48,
+        "normal_4t_shot_cap": 192,
+        "shots_used": null,
+        "actions_committed": 15,
+        "physics_frame": 840,
+        "merge_count": 8,
+        "normal_orders_completed": {
+          "7": 0,
+          "8": 0
+        },
+        "normal_orders_remaining": {
+          "7": 1,
+          "8": 1
+        },
+        "action_count": 15,
+        "action_log_sha256": null,
+        "trace_source": "base_coconut_beach_l70_MERGE_AWARE_V01.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_final_island_l85_WEAK_V02",
+      "case": {
+        "island_id": "final_island",
+        "level_id": 85,
+        "seed": 34116885,
+        "difficulty_band": "late",
+        "policy": "WEAK_V02",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 17084,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_final_island_l85_WEAK_V02.watchdog.json",
+      "trace_file": "base_final_island_l85_WEAK_V02.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 40,
+        "normal_4t_shot_cap": 160,
+        "shots_used": null,
+        "actions_committed": 15,
+        "physics_frame": 885,
+        "merge_count": 5,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "normal_orders_remaining": {
+          "6": 1,
+          "8": 1
+        },
+        "action_count": 15,
+        "action_log_sha256": null,
+        "trace_source": "base_final_island_l85_WEAK_V02.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_final_island_l85_MERGE_AWARE_V01",
+      "case": {
+        "island_id": "final_island",
+        "level_id": 85,
+        "seed": 34116885,
+        "difficulty_band": "late",
+        "policy": "MERGE_AWARE_V01",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 17614,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_final_island_l85_MERGE_AWARE_V01.watchdog.json",
+      "trace_file": "base_final_island_l85_MERGE_AWARE_V01.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 40,
+        "normal_4t_shot_cap": 160,
+        "shots_used": null,
+        "actions_committed": 16,
+        "physics_frame": 915,
+        "merge_count": 8,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "normal_orders_remaining": {
+          "6": 1,
+          "8": 1
+        },
+        "action_count": 16,
+        "action_log_sha256": null,
+        "trace_source": "base_final_island_l85_MERGE_AWARE_V01.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_final_island_l100_WEAK_V02",
+      "case": {
+        "island_id": "final_island",
+        "level_id": 100,
+        "seed": 34116100,
+        "difficulty_band": "endgame",
+        "policy": "WEAK_V02",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 18585,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_final_island_l100_WEAK_V02.watchdog.json",
+      "trace_file": "base_final_island_l100_WEAK_V02.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 72,
+        "normal_4t_shot_cap": 288,
+        "shots_used": null,
+        "actions_committed": 16,
+        "physics_frame": 945,
+        "merge_count": 2,
+        "normal_orders_completed": {
+          "6": 0,
+          "9": 0
+        },
+        "normal_orders_remaining": {
+          "6": 1,
+          "9": 1
+        },
+        "action_count": 16,
+        "action_log_sha256": null,
+        "trace_source": "base_final_island_l100_WEAK_V02.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "base_final_island_l100_MERGE_AWARE_V01",
+      "case": {
+        "island_id": "final_island",
+        "level_id": 100,
+        "seed": 34116100,
+        "difficulty_band": "endgame",
+        "policy": "MERGE_AWARE_V01",
+        "replay": false
+      },
+      "status": "COMPLETE",
+      "classification": "BUDGET_UNKNOWN",
+      "reason": "EXTERNAL_TRIAL_WATCHDOG_TIMEOUT",
+      "elapsed_wall_ms": 17285,
+      "watchdog_status": "TIMEOUT_TERMINATED",
+      "watchdog_file": "base_final_island_l100_MERGE_AWARE_V01.watchdog.json",
+      "trace_file": "base_final_island_l100_MERGE_AWARE_V01.progress.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "physics_mode": "standard_fps_production_physics",
+        "fixed_fps": false,
+        "normal_theoretical_shots_T": 72,
+        "normal_4t_shot_cap": 288,
+        "shots_used": null,
+        "actions_committed": 15,
+        "physics_frame": 885,
+        "merge_count": 6,
+        "normal_orders_completed": {
+          "6": 0,
+          "9": 0
+        },
+        "normal_orders_remaining": {
+          "6": 1,
+          "9": 1
+        },
+        "action_count": 15,
+        "action_log_sha256": null,
+        "trace_source": "base_final_island_l100_MERGE_AWARE_V01.progress.json"
+      },
+      "retry_verification": null
+    },
+    {
+      "trial_id": "retry_sunny_cove_l1_MERGE_AWARE_V01",
+      "case": {
+        "island_id": "sunny_cove",
+        "level_id": 1,
+        "seed": 34116001,
+        "difficulty_band": "early",
+        "policy": "MERGE_AWARE_V01",
+        "replay": true
+      },
+      "status": "COMPLETE",
+      "classification": "WIN_OBSERVED",
+      "reason": "NORMAL_OBJECTIVES_COMPLETE",
+      "elapsed_wall_ms": 10024,
+      "watchdog_status": "EXITED",
+      "watchdog_file": "retry_sunny_cove_l1_MERGE_AWARE_V01.watchdog.json",
+      "trace_file": "retry_sunny_cove_l1_MERGE_AWARE_V01.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "normal_4t_shot_cap": 16,
+        "shots_used": 9,
+        "action_count": 9,
+        "action_log_sha256": "1d68a25510b2561bc0ab827b08413f79fa2bb47c90ac1c6c7b1743f74649fc36",
+        "normal_objective_complete": true,
+        "merge_count": 4
+      },
+      "replay_verification": {
+        "base_win_repeated": true,
+        "same_seed": true,
+        "same_action_inputs": true
+      }
+    },
+    {
+      "trial_id": "retry_sunny_cove_l1_WEAK_V02",
+      "case": {
+        "island_id": "sunny_cove",
+        "level_id": 1,
+        "seed": 34116001,
+        "difficulty_band": "early",
+        "policy": "WEAK_V02",
+        "replay": true
+      },
+      "status": "COMPLETE",
+      "classification": "WIN_OBSERVED",
+      "reason": "NORMAL_OBJECTIVES_COMPLETE",
+      "elapsed_wall_ms": 9734,
+      "watchdog_status": "EXITED",
+      "watchdog_file": "retry_sunny_cove_l1_WEAK_V02.watchdog.json",
+      "trace_file": "retry_sunny_cove_l1_WEAK_V02.json",
+      "record_summary": {
+        "static_validation_record_count": 1000,
+        "normal_4t_shot_cap": 16,
+        "shots_used": 9,
+        "action_count": 9,
+        "action_log_sha256": "8dec348d9536d4c5dec40fb3f9b90aa020b007a95a834c8db13cd4b34417a0b6",
+        "normal_objective_complete": true,
+        "merge_count": 3
+      },
+      "replay_verification": {
+        "base_win_repeated": true,
+        "same_seed": true,
+        "same_action_inputs": true
+      }
+    }
+  ],
+  "supplementary_runner_recovery_trials": [
+    {
+      "trial_id": "attempt02_base_sunny_cove_l1_WEAK_V02",
+      "classification": "WIN_OBSERVED",
+      "seed": 34116001,
+      "policy": "WEAK_V02",
+      "evidence_folder": "pilot_attempt02",
+      "trace_file": "pilot_attempt02/base_sunny_cove_l1_WEAK_V02.json",
+      "included_in_final_six_level_counts": false
+    },
+    {
+      "trial_id": "attempt02_retry_sunny_cove_l1_WEAK_V02",
+      "classification": "WIN_OBSERVED",
+      "seed": 34116001,
+      "policy": "WEAK_V02",
+      "evidence_folder": "pilot_attempt02",
+      "trace_file": "pilot_attempt02/retry_sunny_cove_l1_WEAK_V02.json",
+      "included_in_final_six_level_counts": false
+    }
+  ],
+  "report_recovery_repeats": [
+    {
+      "case": "sunny_cove/40/WEAK_V02",
+      "first_classification": "BUDGET_UNKNOWN",
+      "first_watchdog_wall_ms": 16716,
+      "retained_classification": "BUDGET_UNKNOWN",
+      "retained_watchdog_wall_ms": 17500,
+      "first_partial_trace_retained": false,
+      "note": "First progress snapshot was replaced during report recovery; retained trace is from the second bounded run."
+    },
+    {
+      "case": "sunny_cove/40/MERGE_AWARE_V01",
+      "first_classification": "BUDGET_UNKNOWN",
+      "first_watchdog_wall_ms": 16744,
+      "retained_classification": "BUDGET_UNKNOWN",
+      "retained_watchdog_wall_ms": 19298,
+      "first_partial_trace_retained": false,
+      "note": "First progress snapshot was replaced during report recovery; retained trace is from the second bounded run."
+    },
+    {
+      "case": "tiki_island/30/WEAK_V02",
+      "first_classification": "BUDGET_UNKNOWN",
+      "first_watchdog_wall_ms": 17054,
+      "retained_classification": "BUDGET_UNKNOWN",
+      "retained_watchdog_wall_ms": 20131,
+      "first_partial_trace_retained": false,
+      "note": "First progress snapshot was replaced during report recovery; retained trace is from the second bounded run."
+    },
+    {
+      "case": "tiki_island/30/MERGE_AWARE_V01",
+      "first_classification": "BUDGET_UNKNOWN",
+      "first_watchdog_wall_ms": 16848,
+      "retained_classification": "ERROR",
+      "retained_watchdog_wall_ms": 10524,
+      "first_partial_trace_retained": false,
+      "note": "First progress snapshot was replaced during report recovery; retained trace is from the second bounded run, which exited with child code -1."
+    }
+  ],
+  "report_recovery_trace_limitation": "The four first-pass timed-out cases above were rerun because no final probe JSON existed. Their per-case progress files were overwritten by the reruns; original classification and elapsed time survive in the outer pilot watchdog stdout, but original action traces do not. Each final planned case retains the latest complete or partial action trace listed in trials[].trace_file.",
+  "human_fairness_ux": "NOT_ASSESSED",
+  "owner_native_device_tests": "DEFERRED",
+  "normal_4t_cap_source": "canonical theoretical_shots_to_go * 4; optional VIP excluded",
+  "classification_policy": "Non-terminal watchdog/budget exhaustion is BUDGET_UNKNOWN, never an impossibility inference. A WIN is bounded proof only for its observed trial.",
+  "pre_final_calibration": {
+    "evidence_file": "base_sunny_cove_l10_WEAK_V02.watchdog.json",
+    "status": "TIMEOUT_TERMINATED",
+    "classification": "BUDGET_UNKNOWN",
+    "elapsed_wall_ms": 27930,
+    "external_limit_seconds": 20,
+    "completed_actions": 19,
+    "merge_count": 6,
+    "normal_orders_completed": {
+      "7": 0
+    },
+    "normal_orders_remaining": {
+      "7": 1
+    },
+    "trace_file": "base_sunny_cove_l10_WEAK_V02.progress.json",
+    "excluded_from_six_level_sample": true,
+    "exclusion_reason": "20-second watchdog setting measured beyond 25 seconds including termination; final pilot reduced the limit to 15 seconds."
+  },
+  "all_planned_sample_trials_within_25_seconds": true,
+  "max_planned_sample_trial_wall_ms": 20131.0,
+  "cost_projection": {
+    "measured_mean_base_wall_seconds": 15.98,
+    "measured_mean_win_replay_wall_seconds": 9.88,
+    "one_policy_one_seed_1000_level_hours": 4.44,
+    "two_policies_one_seed_1000_level_hours": 8.88,
+    "two_policies_two_seeds_1000_level_hours": 17.76,
+    "two_policies_one_seed_plus_replays_at_observed_win_rate_hours": 9.8,
+    "basis": "Linear projections from watchdog wall time. Budget-unknown observations are right-censored, so these are lower-bound scheduling estimates; no quality or reachability extrapolation is justified."
+  },
+  "next_methodology_recommendation": "Do not start staged 1,000-level solver coverage yet. Neither policy distinguished itself: both produced one observed/replayed Sunny Cove L1 win; mid/late runs were budget-unknown and one merge-aware run errored. Use a bounded human-studio session on Sunny Cove L40, Tiki Island L30, and Final Island L100 to assess fairness and capture successful action traces; then feed those traces into a stronger policy pilot. Human-studio throughput was not measured.",
+  "disk_hygiene": {
+    "r16_evidence_bytes": 645688.0,
+    "largest_scoped_cache_inventory": [
+      {
+        "path": "existing R16 worktree .godot/imported",
+        "bytes": 1286453057,
+        "classification": "Generated Godot import cache; read-only inspected; retained after deletion-policy rejection"
+      },
+      {
+        "path": "user Roaming Godot data",
+        "bytes": 569366214,
+        "classification": "Owner user data/cache; retained"
+      },
+      {
+        "path": "user Local Godot cache",
+        "bytes": 139434356,
+        "classification": "Shared application cache; retained"
+      }
+    ],
+    "task_temp_directories": [
+      {
+        "name": "BCM-M34-R16-import-userdata-b22a14f4e8014e0ba70412ce354d6201",
+        "bytes": 17775.0,
+        "disposition": "PRESERVED; deletion retry prohibited after policy rejection"
+      },
+      {
+        "name": "BCM-M34-R16-regression-userdata-25f9f141d68043fe883e91694086a26e",
+        "bytes": 108823.0,
+        "disposition": "PRESERVED; deletion retry prohibited after policy rejection"
+      },
+      {
+        "name": "BCM-M34-R16-userdata-3f7462d8e61041338caf28272c174df7",
+        "bytes": 1280.0,
+        "disposition": "PRESERVED; deletion retry prohibited after policy rejection"
+      },
+      {
+        "name": "BCM-M34-R16-userdata-66907bdf73b1442397fbefbc5cf217a1",
+        "bytes": 2046.0,
+        "disposition": "PRESERVED; deletion retry prohibited after policy rejection"
+      },
+      {
+        "name": "BCM-M34-R16-userdata-804f8fbe3d334d178ed7d37eb255f93a",
+        "bytes": 606.0,
+        "disposition": "PRESERVED; deletion retry prohibited after policy rejection"
+      },
+      {
+        "name": "BCM-M34-R16-userdata-cfe7191f26634a2592040dd3625b0344",
+        "bytes": 3083.0,
+        "disposition": "PRESERVED; deletion retry prohibited after policy rejection"
+      }
+    ],
+    "task_temp_cleanup": "REJECTED_BEFORE_EXECUTION; no deletion retry; task-owned temporary directories retained",
+    "free_bytes_at_inventory": 118161096704,
+    "regression_free_bytes_reclaimed": -3137536,
+    "regression_free_space_claim": "No space reclamation claimed; measured free space decreased."
+  },
+  "controller_attempts": [
+    {
+      "evidence_file": "..\\..\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R16\\global_pilot_watchdog.json",
+      "status": "CHILD_ERROR",
+      "elapsed_wall_ms": 42381,
+      "reason": "CHILD_EXIT_CODE_1"
+    },
+    {
+      "evidence_file": "..\\..\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R16\\pilot_attempt02\\global_pilot_watchdog.json",
+      "status": "CHILD_ERROR",
+      "elapsed_wall_ms": 32941,
+      "reason": "CHILD_EXIT_CODE_1"
+    },
+    {
+      "evidence_file": "..\\..\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R16\\pilot_attempt03\\global_pilot_watchdog.json",
+      "status": "CHILD_ERROR",
+      "elapsed_wall_ms": 214470,
+      "reason": "CHILD_EXIT_CODE_1"
+    },
+    {
+      "evidence_file": "..\\..\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R16\\pilot_attempt03\\report_rebuild.watchdog.json",
+      "status": "TIMEOUT_TERMINATED",
+      "elapsed_wall_ms": 72377,
+      "reason": "PROCESS_WALL_TIMEOUT"
+    }
+  ],
+  "task_total_pilot_tool_wall_ms": 362169,
+  "task_total_pilot_tool_wall_seconds": 362.2,
+  "within_12_minute_global_budget": true,
+  "static_validation_records_during_each_trial": 1000,
+  "completed_utc": "2026-10-15T20:53:17.2495344Z"
+}

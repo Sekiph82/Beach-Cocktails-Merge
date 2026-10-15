@@ -1,0 +1,334 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R16-GLOBAL-PILOT-ATTEMPT02",
+  "status": "CHILD_ERROR",
+  "reason": "CHILD_EXIT_CODE_1",
+  "started_utc": "2026-10-15T20:35:50.2724970Z",
+  "finished_utc": "2026-10-15T20:36:23.2087585Z",
+  "wall_elapsed_ms": 32941,
+  "timeout_seconds": 600,
+  "file_path": "C:\\Users\\sekip\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+  "root_pid": 32312,
+  "root_identity_verified": true,
+  "task_token": "d87da3808c9849ad9f96feddf0743b19",
+  "exit_code": 1,
+  "terminated_processes": [],
+  "stdout": "",
+  "stderr": "ParentContainsErrorRecordException: C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r09-deferred-20261015\\tests\\m34_r16_outcome_pilot.ps1:127\r\nLine |\r\n 127 |  . ryResult) { $retryActionHash = [string]$retryResult.action_log_sha256 .\r\n     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n     | The property 'action_log_sha256' cannot be found on this object. Verify that the property exists.\r\n",
+  "partial_progress": {
+    "schema_version": 1,
+    "work_item": "BCM-M34-R16",
+    "status": "RUNNING",
+    "started_utc": "2026-10-15T20:35:51.0147102Z",
+    "physics_mode": "standard_fps_production_physics",
+    "fixed_fps": false,
+    "time_scale": 1.0,
+    "controller_global_budget_seconds": 540,
+    "external_global_watchdog_seconds": 600,
+    "per_trial_external_watchdog_seconds": 15,
+    "trial_level_count": 6,
+    "island_count": 4,
+    "policy_count": 2,
+    "planned_base_trials": 12,
+    "normal_4t_cap_source": "canonical theoretical_shots_to_go * 4; optional VIP excluded",
+    "static_validation": {
+      "status": "PENDING",
+      "validated_level_records": 0,
+      "expected_level_records": 1000
+    },
+    "classification_policy": "WIN_OBSERVED and LOSS_OBSERVED are observed terminal outcomes; BUDGET_UNKNOWN is not an impossibility finding; ERROR denotes invalid harness/evidence. Each observed WIN receives a standard-FPS action-log replay when global budget permits.",
+    "human_fairness_ux": "NOT_ASSESSED",
+    "owner_native_device_tests": "DEFERRED",
+    "trials": [
+      {
+        "trial_id": "base_sunny_cove_l1_WEAK_V02",
+        "case": {
+          "island_id": "sunny_cove",
+          "level_id": 1,
+          "seed": 34116001,
+          "difficulty_band": "early",
+          "policy": "WEAK_V02",
+          "replay": false
+        },
+        "status": "COMPLETE",
+        "classification": "WIN_OBSERVED",
+        "reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "result_file": "base_sunny_cove_l1_WEAK_V02.json",
+        "progress_file": "base_sunny_cove_l1_WEAK_V02.progress.json",
+        "watchdog_file": "base_sunny_cove_l1_WEAK_V02.watchdog.json",
+        "elapsed_wall_ms": 11897,
+        "retry_verification": null,
+        "watchdog_status": "EXITED",
+        "watchdog_exit": 0,
+        "record_summary": {
+          "static_validation_record_count": 1000,
+          "shots_used": 9,
+          "normal_4t_shot_cap": 16,
+          "normal_objective_complete": true,
+          "merge_count": 3,
+          "normal_orders_completed": {
+            "5": 1
+          },
+          "normal_orders_remaining": {
+            "5": 0
+          },
+          "action_count": 9,
+          "action_log_sha256": "7fa90756843176568215e4c3e8f4b7298ab4c4e34845de12dc6a93d981f82c5d",
+          "physics_frames_observed": 493,
+          "simulated_seconds": 8.21666666666665,
+          "stars": 2
+        }
+      },
+      {
+        "trial_id": "base_sunny_cove_l1_MERGE_AWARE_V01",
+        "case": {
+          "island_id": "sunny_cove",
+          "level_id": 1,
+          "seed": 34116001,
+          "difficulty_band": "early",
+          "policy": "MERGE_AWARE_V01",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_sunny_cove_l40_WEAK_V02",
+        "case": {
+          "island_id": "sunny_cove",
+          "level_id": 40,
+          "seed": 34116040,
+          "difficulty_band": "mid",
+          "policy": "WEAK_V02",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_sunny_cove_l40_MERGE_AWARE_V01",
+        "case": {
+          "island_id": "sunny_cove",
+          "level_id": 40,
+          "seed": 34116040,
+          "difficulty_band": "mid",
+          "policy": "MERGE_AWARE_V01",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_tiki_island_l30_WEAK_V02",
+        "case": {
+          "island_id": "tiki_island",
+          "level_id": 30,
+          "seed": 34116130,
+          "difficulty_band": "early_mid",
+          "policy": "WEAK_V02",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_tiki_island_l30_MERGE_AWARE_V01",
+        "case": {
+          "island_id": "tiki_island",
+          "level_id": 30,
+          "seed": 34116130,
+          "difficulty_band": "early_mid",
+          "policy": "MERGE_AWARE_V01",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_coconut_beach_l70_WEAK_V02",
+        "case": {
+          "island_id": "coconut_beach",
+          "level_id": 70,
+          "seed": 34116270,
+          "difficulty_band": "late",
+          "policy": "WEAK_V02",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_coconut_beach_l70_MERGE_AWARE_V01",
+        "case": {
+          "island_id": "coconut_beach",
+          "level_id": 70,
+          "seed": 34116270,
+          "difficulty_band": "late",
+          "policy": "MERGE_AWARE_V01",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_final_island_l85_WEAK_V02",
+        "case": {
+          "island_id": "final_island",
+          "level_id": 85,
+          "seed": 34116885,
+          "difficulty_band": "late",
+          "policy": "WEAK_V02",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_final_island_l85_MERGE_AWARE_V01",
+        "case": {
+          "island_id": "final_island",
+          "level_id": 85,
+          "seed": 34116885,
+          "difficulty_band": "late",
+          "policy": "MERGE_AWARE_V01",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_final_island_l100_WEAK_V02",
+        "case": {
+          "island_id": "final_island",
+          "level_id": 100,
+          "seed": 34116100,
+          "difficulty_band": "endgame",
+          "policy": "WEAK_V02",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "base_final_island_l100_MERGE_AWARE_V01",
+        "case": {
+          "island_id": "final_island",
+          "level_id": 100,
+          "seed": 34116100,
+          "difficulty_band": "endgame",
+          "policy": "MERGE_AWARE_V01",
+          "replay": false
+        },
+        "status": "NOT_STARTED",
+        "classification": "BUDGET_UNKNOWN",
+        "reason": "NOT_RUN_WITHIN_GLOBAL_BUDGET",
+        "result_file": null,
+        "progress_file": null,
+        "watchdog_file": null,
+        "elapsed_wall_ms": null,
+        "retry_verification": null
+      },
+      {
+        "trial_id": "retry_sunny_cove_l1_WEAK_V02",
+        "case": {
+          "island_id": "sunny_cove",
+          "level_id": 1,
+          "seed": 34116001,
+          "difficulty_band": "early",
+          "policy": "WEAK_V02",
+          "replay": true
+        },
+        "status": "COMPLETE",
+        "classification": "WIN_OBSERVED",
+        "reason": "NORMAL_OBJECTIVES_COMPLETE",
+        "result_file": "retry_sunny_cove_l1_WEAK_V02.json",
+        "progress_file": "retry_sunny_cove_l1_WEAK_V02.progress.json",
+        "watchdog_file": "retry_sunny_cove_l1_WEAK_V02.watchdog.json",
+        "elapsed_wall_ms": 12893,
+        "retry_verification": null,
+        "watchdog_status": "EXITED",
+        "watchdog_exit": 0,
+        "record_summary": {
+          "static_validation_record_count": 1000,
+          "shots_used": 9,
+          "normal_4t_shot_cap": 16,
+          "normal_objective_complete": true,
+          "merge_count": 3,
+          "normal_orders_completed": {
+            "5": 1
+          },
+          "normal_orders_remaining": {
+            "5": 0
+          },
+          "action_count": 9,
+          "action_log_sha256": "8dec348d9536d4c5dec40fb3f9b90aa020b007a95a834c8db13cd4b34417a0b6",
+          "physics_frames_observed": 489,
+          "simulated_seconds": 8.14999999999998,
+          "stars": 2
+        }
+      }
+    ],
+    "global_elapsed_ms": 31494,
+    "global_budget_exhausted": false
+  }
+}
