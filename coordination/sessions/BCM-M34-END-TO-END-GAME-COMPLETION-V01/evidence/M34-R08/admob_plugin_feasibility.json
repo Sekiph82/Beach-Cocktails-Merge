@@ -1,0 +1,51 @@
+{
+  "work_item": "BCM-M34-R08-002",
+  "isolated_test_project": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-AdmobTestProject",
+  "plugin_repository": "https://github.com/godot-sdk-integrations/godot-admob",
+  "release": "v7.0",
+  "tag_commit": "4b4ddceab0be81f0dcb12a6313038dba6cf9eacf",
+  "release_claim": "official release says tested with and supports Godot 4.7",
+  "archive_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R04-Plugin-Inspection\\AdmobPlugin-Android-v7.0.zip",
+  "archive_bytes": 265845,
+  "archive_sha256": "CE38B75AEB4BB870FDA8B74E1513D807696D8485D237C263B7B7A9613493AEE8",
+  "debug_aar": {
+    "path": "addons/AdmobPlugin/bin/debug/AdmobPlugin-debug.aar",
+    "bytes": 113386,
+    "sha256": "2BCBE8A39720F8898464FA83C686D8DAA96594532B3646E5FBB5CE09EE8E9314"
+  },
+  "release_aar": {
+    "path": "addons/AdmobPlugin/bin/release/AdmobPlugin-release.aar",
+    "bytes": 108447,
+    "sha256": "85FF6247E6F78F15AA4E20C26BD7C8DB7D385E3923E4E9174E7786D7EA75BE07"
+  },
+  "android_dependencies": [
+    "androidx.appcompat:appcompat:1.7.1",
+    "androidx.lifecycle:lifecycle-process:2.8.3",
+    "com.google.android.gms:play-services-ads:24.9.0"
+  ],
+  "plugin_v2_requires_gradle": true,
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "desktop_plugin_project_import_exit": 0,
+  "desktop_smoke_exit": 0,
+  "desktop_engine_singleton_present": false,
+  "ads_requested": false,
+  "android_export_first_attempt_exit": 1,
+  "android_export_first_error": "Android build template not installed in the project",
+  "local_template_archive": "C:\\Users\\sekip\\AppData\\Roaming\\Godot\\export_templates\\4.7.2.stable\\android_source.zip",
+  "local_template_archive_bytes": 214418211,
+  "template_project_copy": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-AdmobTestProject\\android\\build",
+  "gradle_distribution_required": "8.11.1",
+  "gradle_wrapper_cache_present": false,
+  "cached_maven_dependencies": {
+    "play_services_ads": false,
+    "appcompat": false,
+    "lifecycle_process": false
+  },
+  "android_export_retry_attempted": false,
+  "reason": "Gradle 8.11.1 distribution and plugin Maven dependencies are uncached; no large download was initiated per R08 boundary.",
+  "aar_dependency_discovery": "UNVERIFIED",
+  "android_device_initialization": "UNVERIFIED",
+  "issue_124_status": "Open; reported v7.0 initialization failure on Godot 4.7; reporter suspected AAR not found and described copying it under android/build/bin as a workaround; no maintainer resolution visible at review.",
+  "production_ad_units_or_account_used": false,
+  "production_project_modified": false
+}

@@ -1,0 +1,45 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (27 steps)
+[   0% ] update_scripts_classes | AdCache
+[   3% ] update_scripts_classes | AdmobAndroidExportConfig
+[   7% ] update_scripts_classes | AdmobExportConfig
+[  10% ] update_scripts_classes | AdmobIosExportConfig
+[  14% ] update_scripts_classes | AdapterResponseInfo
+[  17% ] update_scripts_classes | AdapterStatus
+[  21% ] update_scripts_classes | AdError
+[  25% ] update_scripts_classes | AdInfo
+[  28% ] update_scripts_classes | AdmobConfig
+[  32% ] update_scripts_classes | AdmobSettings
+[  35% ] update_scripts_classes | AdSize
+[  39% ] update_scripts_classes | ConsentRequestParameters
+[  42% ] update_scripts_classes | FormError
+[  46% ] update_scripts_classes | InitializationStatus
+[  50% ] update_scripts_classes | LoadAdError
+[  53% ] update_scripts_classes | LoadAdRequest
+[  57% ] update_scripts_classes | MediationNetwork
+[  60% ] update_scripts_classes | NetworkExtras
+[  64% ] update_scripts_classes | NetworkPrivacySettings
+[  67% ] update_scripts_classes | ResponseInfo
+[  71% ] update_scripts_classes | RewardItem
+[  75% ] update_scripts_classes | UserConsent
+[  78% ] update_scripts_classes | Admob
+[  82% ] update_scripts_classes | InlineAdaptiveBanner
+[  85% ] update_scripts_classes | GmpLogger
+[  89% ] update_scripts_classes | SpmDependency
+[  92% ] update_scripts_classes |
+[ DONE ] update_scripts_classes
+
+[   0% ] loading_editor_layout | Started Loading editor (5 steps)
+[   0% ] loading_editor_layout | Loading editor layout...
+[  16% ] loading_editor_layout | Loading docks...
+[ DONE ] loading_editor_layout

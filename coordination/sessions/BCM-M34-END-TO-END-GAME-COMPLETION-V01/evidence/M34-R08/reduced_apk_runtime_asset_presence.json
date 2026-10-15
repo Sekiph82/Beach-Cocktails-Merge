@@ -1,0 +1,110 @@
+{
+  "apk_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-Android-Export\\BCM_R08_SizeTest.apk",
+  "apk_bytes": 301979173,
+  "apk_sha256": "D4BC7647608ADBC583D7669EB0D6789B9641CDD5AC9D9A154F8A6D55247998E3",
+  "families": [
+    {
+      "family": "Island gameplay surfaces",
+      "expected": 10,
+      "present": 10,
+      "pass": true,
+      "sample_paths": [
+        "assets/.godot/imported/gameplay_surface.png-9cd2300ded327f7d0d343ee65f7d7c7e.ctex",
+        "assets/.godot/imported/gameplay_surface.png-e7df50361b80dda5e0b2e6e2495c18e2.ctex",
+        "assets/.godot/imported/gameplay_surface.png-b3594364d941da3bbbb497e766ffd2e9.ctex",
+        "assets/.godot/imported/gameplay_surface.png-168800cf50cb873d9e157e4daaeea9eb.ctex",
+        "assets/.godot/imported/gameplay_surface.png-a9e664c3055e5fa983bca24a166d9c92.ctex",
+        "assets/.godot/imported/gameplay_surface.png-6a417eee5c17b1355d3d38485adfe529.ctex",
+        "assets/.godot/imported/gameplay_surface.png-3f8c388023af3e95154368951d02abc3.ctex",
+        "assets/.godot/imported/gameplay_surface.png-57cbc01eb27e6bb4d15f03862f8869a0.ctex",
+        "assets/.godot/imported/gameplay_surface.png-a76ec1331f374bda1cebe56a03ae0505.ctex",
+        "assets/.godot/imported/gameplay_surface.png-d55fca5d20139394d15d59124ba327d5.ctex"
+      ]
+    },
+    {
+      "family": "R04 geometry profiles",
+      "expected": 10,
+      "present": 10,
+      "pass": true,
+      "sample_paths": [
+        "assets/assets/ui_assets/campaign/islands/azure_bay/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/billionaire_island/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/coconut_beach/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/final_island/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/frozen_paradise/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/party_beach/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/sunset_island/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/tiki_island/playable_geometry_r04.json",
+        "assets/assets/ui_assets/campaign/islands/volcano_bay/playable_geometry_r04.json"
+      ]
+    },
+    {
+      "family": "Cocktails L01-L12",
+      "expected": 12,
+      "present": 12,
+      "pass": true,
+      "sample_paths": [
+        "assets/.godot/imported/L01.png-bfe633ac43fd47636e139d49b37b4a5c.ctex",
+        "assets/.godot/imported/L02.png-d6d4245c31d9e12a3d513dc46c4980c8.ctex",
+        "assets/.godot/imported/L03.png-2e3c76c2513b8eaab313b85aa7482f2b.ctex",
+        "assets/.godot/imported/L04.png-94177206c83de8beb1e8d9f0646146a2.ctex",
+        "assets/.godot/imported/L05.png-1aef46a0bf2910500b7f82127e008b97.ctex",
+        "assets/.godot/imported/L06.png-f69831928e6393ec4047df6680b9907d.ctex",
+        "assets/.godot/imported/L07.png-84f8f9313a327d93c65bd8977dcf8bff.ctex",
+        "assets/.godot/imported/L08.png-d4215be233736212a8cca5b372b5acf2.ctex",
+        "assets/.godot/imported/L09.png-65ff439aac9b821a46ee6cb9e327293b.ctex",
+        "assets/.godot/imported/L10.png-0739102c3e31e6b35f6cfe6dd4012366.ctex",
+        "assets/.godot/imported/L11.png-fd729dc8611b144291f0d9415fdb8835.ctex",
+        "assets/.godot/imported/L12.png-f700a5ae5d126ab5b83f954331840009.ctex"
+      ]
+    },
+    {
+      "family": "Beach Cocktails Merge logo",
+      "expected": 2,
+      "present": 2,
+      "pass": true,
+      "sample_paths": [
+        "assets/.godot/imported/logo_beach_cocktails_merge.png-82cc562fede176698eff01877c3a2c5b.ctex",
+        "assets/.godot/imported/logo_beach_cocktails_merge.png-e36beb3a14e9cd55d3609e147ca5a1a0.ctex"
+      ]
+    },
+    {
+      "family": "HUD panels",
+      "expected": 4,
+      "present": 4,
+      "pass": true,
+      "sample_paths": [
+        "assets/.godot/imported/panel_best_score.png-2f06358238af98cbb972f5d68b5108e8.ctex",
+        "assets/.godot/imported/panel_next.png-5ec55e391970f7409e5833e89f43df89.ctex",
+        "assets/.godot/imported/panel_score.png-06558f3bafa7e6070c9b29eba8cb7783.ctex",
+        "assets/.godot/imported/panel_to_go_orders.png-6265ca02c44cff934a9719ffe660fbc7.ctex"
+      ]
+    },
+    {
+      "family": "Progression strip",
+      "expected": 1,
+      "present": 1,
+      "pass": true,
+      "sample_paths": [
+        "assets/.godot/imported/progression_strip.png-aacfb1c016a4d885da8cbd51d4f9140e.ctex"
+      ]
+    },
+    {
+      "family": "Danger line",
+      "expected": 1,
+      "present": 1,
+      "pass": true,
+      "sample_paths": [
+        "assets/.godot/imported/danger_line.png-aa6b71734c445152b3bf431067e7e9d3.ctex"
+      ]
+    }
+  ],
+  "main_scene_entries": [
+    "assets/.godot/exported/133200997/export-3751a9ab47e888eed6d88c0cd7196cb7-ApplicationShellScene.scn",
+    "assets/scenes/campaign/ApplicationShellScene.tscn.remap"
+  ],
+  "main_scene_present": true,
+  "package": "org.example.bcm.r08sizetest",
+  "nonproduction_debug": true
+}

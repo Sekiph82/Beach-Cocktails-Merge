@@ -1,0 +1,74 @@
+{
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "fresh_editor_import_exit": 0,
+  "fresh_import_cache_sha256": "6C4941C2A9EA7D7ECFB82D15E89347E50C7A8F5916A677140DBAE9E4DDB57022",
+  "tests": [
+    {
+      "exit_code": 0,
+      "assertions": 38,
+      "test": "fresh_import_daily_rewards",
+      "stderr": "daily_rewards.stderr.txt",
+      "stdout": "daily_rewards.stdout.txt"
+    },
+    {
+      "exit_code": 0,
+      "assertions": 24,
+      "test": "fresh_import_economy_closure",
+      "stderr": "economy_closure.stderr.txt",
+      "stdout": "economy_closure.stdout.txt"
+    },
+    {
+      "exit_code": 0,
+      "assertions": 17,
+      "test": "fresh_import_m33_navigation",
+      "stderr": "m33_navigation.stderr.txt",
+      "stdout": "m33_navigation.stdout.txt"
+    },
+    {
+      "exit_code": 0,
+      "assertions": 0,
+      "test": "fresh_import_startup_smoke",
+      "stderr": "startup_smoke.stderr.txt",
+      "stdout": "startup_smoke.stdout.txt"
+    },
+    {
+      "exit_code": 0,
+      "assertions": 38,
+      "test": "after_size_profile_daily_rewards",
+      "stderr": "daily_rewards_after_size_profile.stderr.txt",
+      "stdout": "daily_rewards_after_size_profile.stdout.txt"
+    },
+    {
+      "exit_code": 0,
+      "assertions": 24,
+      "test": "after_size_profile_economy_closure",
+      "stderr": "economy_closure_after_size_profile.stderr.txt",
+      "stdout": "economy_closure_after_size_profile.stdout.txt"
+    },
+    {
+      "exit_code": 0,
+      "assertions": 17,
+      "test": "after_size_profile_m33_navigation",
+      "stderr": "m33_navigation_after_size_profile.stderr.txt",
+      "stdout": "m33_navigation_after_size_profile.stdout.txt"
+    },
+    {
+      "exit_code": 0,
+      "assertions": 0,
+      "test": "after_size_profile_startup_smoke",
+      "stderr": "startup_smoke_after_size_profile.stderr.txt",
+      "stdout": "startup_smoke_after_size_profile.stdout.txt"
+    }
+  ],
+  "ssv_mock_tests": {
+    "test_file": "tests/backend_protocol/m34_r06_ssv_backend_mock.test.js",
+    "test_count": 8,
+    "passed": 8,
+    "failed": 0,
+    "exit_code": 0,
+    "stdout": "ssv_backend_mock.stdout.txt",
+    "stderr": "ssv_backend_mock.stderr.txt"
+  },
+  "task_specific_appdata": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-GodotUser",
+  "owner_saved_data_touched": false
+}

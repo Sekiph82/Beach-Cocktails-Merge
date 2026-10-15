@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] first_scan_filesystem | Started Project initialization (5 steps)
+[   0% ] first_scan_filesystem | Scanning file structure...
+[  16% ] first_scan_filesystem | Loading global class names...
+[  33% ] first_scan_filesystem | Verifying GDExtensions...
+[  50% ] first_scan_filesystem | Creating autoload scripts...
+[  66% ] first_scan_filesystem | Initializing plugins...
+[  83% ] first_scan_filesystem | Starting file scan...
+[ DONE ] first_scan_filesystem
+
+[   0% ] update_scripts_classes | Started Registering global classes... (26 steps)
+[   0% ] update_scripts_classes | AdCache
+[   3% ] update_scripts_classes | AdmobAndroidExportConfig
+[   7% ] update_scripts_classes | AdmobExportConfig
+[  11% ] update_scripts_classes | AdmobIosExportConfig
+[  14% ] update_scripts_classes | AdapterResponseInfo
+[  18% ] update_scripts_classes | AdapterStatus
+[  22% ] update_scripts_classes | AdError
+[  25% ] update_scripts_classes | AdInfo
+[  29% ] update_scripts_classes | AdmobConfig
+[  33% ] update_scripts_classes | AdmobSettings
+[  37% ] update_scripts_classes | AdSize
+[  40% ] update_scripts_classes | ConsentRequestParameters
+[  44% ] update_scripts_classes | FormError
+[  48% ] update_scripts_classes | InitializationStatus
+[  51% ] update_scripts_classes | LoadAdError
+[  55% ] update_scripts_classes | LoadAdRequest
+[  59% ] update_scripts_classes | MediationNetwork
+[  62% ] update_scripts_classes | NetworkExtras
+[  66% ] update_scripts_classes | NetworkPrivacySettings
+[  70% ] update_scripts_classes | ResponseInfo
+[  74% ] update_scripts_classes | RewardItem
+[  77% ] update_scripts_classes | UserConsent
+[  81% ] update_scripts_classes | Admob
+[  85% ] update_scripts_classes | InlineAdaptiveBanner
+[  88% ] update_scripts_classes | GmpLogger
+[  92% ] update_scripts_classes | SpmDependency
+[ DONE ] update_scripts_classes
+
+Could not find version of build tools that matches Target SDK, using 35.0.1

@@ -1,0 +1,30 @@
+[
+  {
+    "test": "daily_rewards",
+    "exit_code": 0,
+    "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\daily_rewards_after_size_profile.stderr.txt",
+    "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\daily_rewards_after_size_profile.stdout.txt",
+    "assertion_lines": 38
+  },
+  {
+    "test": "economy_closure",
+    "exit_code": 0,
+    "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\economy_closure_after_size_profile.stderr.txt",
+    "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\economy_closure_after_size_profile.stdout.txt",
+    "assertion_lines": 24
+  },
+  {
+    "test": "m33_navigation",
+    "exit_code": 0,
+    "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\m33_navigation_after_size_profile.stderr.txt",
+    "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\m33_navigation_after_size_profile.stdout.txt",
+    "assertion_lines": 17
+  },
+  {
+    "test": "startup_smoke",
+    "exit_code": 0,
+    "stderr": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\startup_smoke_after_size_profile.stderr.txt",
+    "stdout": "C:\\Users\\sekip\\.codex\\worktrees\\bcm-m34-r08\\coordination\\sessions\\BCM-M34-END-TO-END-GAME-COMPLETION-V01\\evidence\\M34-R08\\startup_smoke_after_size_profile.stdout.txt",
+    "assertion_lines": 0
+  }
+]

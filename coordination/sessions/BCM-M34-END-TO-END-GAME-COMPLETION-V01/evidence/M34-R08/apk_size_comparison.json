@@ -1,0 +1,60 @@
+{
+  "baseline_and_controls": [
+    {
+      "name": "R07_baseline",
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+      "apk_bytes": 1353331251,
+      "sha256": "EDDDDB44CBEFF9FA8C653BEB6621C6168D4D948B66C14559C7D91D5F580A93F5",
+      "entries": 5704,
+      "uncompressed_bytes": 1491387728,
+      "ctex_count": 1659,
+      "ctex_bytes": 1286299358,
+      "coordination_entry_count": 2399,
+      "source_art_entry_count": 2,
+      "contact_sheet_entries": 2,
+      "main_scene_entries": 1,
+      "l01_entries": 1
+    },
+    {
+      "name": "R08_unfiltered_control",
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-Android-Export\\BCM_R08_Unfiltered_SizeControl.apk",
+      "apk_bytes": 1353363654,
+      "sha256": "F5AB02F20A05726723C9DB1992962727B4D76898297079BA2FD3580E0D5F4241",
+      "entries": 5727,
+      "uncompressed_bytes": 1491464210,
+      "ctex_count": 1659,
+      "ctex_bytes": 1286299358,
+      "coordination_entry_count": 2422,
+      "source_art_entry_count": 2,
+      "contact_sheet_entries": 2,
+      "main_scene_entries": 1,
+      "l01_entries": 1
+    },
+    {
+      "name": "R08_filtered",
+      "path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R08-Android-Export\\BCM_R08_SizeTest.apk",
+      "apk_bytes": 301979173,
+      "sha256": "D4BC7647608ADBC583D7669EB0D6789B9641CDD5AC9D9A154F8A6D55247998E3",
+      "entries": 2159,
+      "uncompressed_bytes": 413327647,
+      "ctex_count": 517,
+      "ctex_bytes": 240113856,
+      "coordination_entry_count": 0,
+      "source_art_entry_count": 0,
+      "contact_sheet_entries": 0,
+      "main_scene_entries": 1,
+      "l01_entries": 1
+    }
+  ],
+  "filtered_reduction_bytes": 1051384481,
+  "filtered_reduction_percent": 77.69,
+  "unfiltered_control_vs_r07_bytes": 32403,
+  "unfiltered_control_same_texture_flag": true,
+  "filtered_only_exclusions": [
+    "coordination/**",
+    "assets/ui_assets/source/**",
+    "assets/ui_assets/v04_masters/CONTACT_SHEET_V04.png"
+  ],
+  "production_project_or_art_files_deleted": false,
+  "runtime_reference_scan": "No matching paths found in addons, data, scenes, scripts, project.godot for excluded roots and excluded contact-sheet/source names."
+}

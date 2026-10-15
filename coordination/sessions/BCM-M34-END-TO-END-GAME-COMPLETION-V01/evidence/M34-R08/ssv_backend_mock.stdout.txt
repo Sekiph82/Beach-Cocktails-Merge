@@ -1,0 +1,16 @@
+✔ rejects altered callback bytes and signature (2.2892ms)
+✔ verified duplicate transaction is idempotent and returns success (1.3205ms)
+✔ rejects stale signed callback (0.2882ms)
+✔ settles an SSV event before any client earned callback arrives (0.2666ms)
+✔ rejects callback replayed across another user claim (0.4172ms)
+✔ rejects amount or reward item mismatch after signature verification (0.2324ms)
+✔ rejects reordered callback parameters even when old signature is retained (0.242ms)
+✔ rejects future callback outside bounded clock skew (0.8975ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.5683

@@ -1,0 +1,30 @@
+[
+  {
+    "exit_code": 0,
+    "stdout": "daily_rewards.stdout.txt",
+    "stderr": "daily_rewards.stderr.txt",
+    "assertions": 38,
+    "test": "Daily Rewards"
+  },
+  {
+    "exit_code": 0,
+    "stdout": "economy_closure.stdout.txt",
+    "stderr": "economy_closure.stderr.txt",
+    "assertions": 24,
+    "test": "Economy closure"
+  },
+  {
+    "exit_code": 0,
+    "stdout": "m33_navigation.stdout.txt",
+    "stderr": "m33_navigation.stderr.txt",
+    "assertions": 17,
+    "test": "M33 campaign navigation"
+  },
+  {
+    "exit_code": 0,
+    "stdout": "startup_smoke.stdout.txt",
+    "stderr": "startup_smoke.stderr.txt",
+    "assertions": 0,
+    "test": "headless startup smoke"
+  }
+]

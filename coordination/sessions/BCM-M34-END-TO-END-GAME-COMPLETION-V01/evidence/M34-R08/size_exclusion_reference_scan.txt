@@ -1,0 +1,5 @@
+APK-only exclusion reference check
+
+Scope searched: addons, data, scenes, scripts, project.godot; generated/import sidecars, Markdown, and text files were excluded from the search corpus. Search terms were res://coordination, coordination/, res://assets/coordination, assets/coordination, CONTACT_SHEET_V04, contact_sheet_432x960, contact_sheet_390x844, style_reference_board_remediation_v01, style_reference_board, and assets/ui_assets/source.
+
+Result: ripgrep returned exit 1 (no matches) for runtime/source references. This supported only the nonproduction APK export filter. No repo paths or art files were deleted. The exported APK was then checked for the ApplicationShell main scene, all 10 `gameplay_surface.png` imports, all 10 `playable_geometry_r04.json` profiles, L01-L12 cocktail imports, logo, HUD panels, progression strip, and danger line.

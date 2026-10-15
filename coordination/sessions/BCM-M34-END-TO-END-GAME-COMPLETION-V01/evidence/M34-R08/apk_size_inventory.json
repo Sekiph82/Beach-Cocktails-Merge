@@ -1,0 +1,850 @@
+{
+  "apk_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+  "apk_bytes": 1353331251,
+  "apk_sha256": "EDDDDB44CBEFF9FA8C653BEB6621C6168D4D948B66C14559C7D91D5F580A93F5",
+  "entry_count": 5704,
+  "uncompressed_bytes": 1491387728,
+  "compressed_bytes": 1351823305,
+  "extension_totals": [
+    {
+      "extension": ".ctex",
+      "count": 1659,
+      "uncompressed_bytes": 1286299358,
+      "compressed_bytes": 1286299358
+    },
+    {
+      "extension": ".so",
+      "count": 4,
+      "uncompressed_bytes": 160970396,
+      "compressed_bytes": 55221360
+    },
+    {
+      "extension": ".json",
+      "count": 924,
+      "uncompressed_bytes": 29003724,
+      "compressed_bytes": 2001699
+    },
+    {
+      "extension": ".dex",
+      "count": 13,
+      "uncompressed_bytes": 6173480,
+      "compressed_bytes": 2159373
+    },
+    {
+      "extension": ".gdc",
+      "count": 532,
+      "uncompressed_bytes": 4059564,
+      "compressed_bytes": 4031425
+    },
+    {
+      "extension": ".translation",
+      "count": 167,
+      "uncompressed_bytes": 1357302,
+      "compressed_bytes": 297938
+    },
+    {
+      "extension": ".sf",
+      "count": 1,
+      "uncompressed_bytes": 954305,
+      "compressed_bytes": 282882
+    },
+    {
+      "extension": ".mf",
+      "count": 1,
+      "uncompressed_bytes": 954178,
+      "compressed_bytes": 267976
+    },
+    {
+      "extension": ".sparsepck",
+      "count": 1,
+      "uncompressed_bytes": 718336,
+      "compressed_bytes": 718336
+    },
+    {
+      "extension": ".import",
+      "count": 1688,
+      "uncompressed_bytes": 353398,
+      "compressed_bytes": 290715
+    },
+    {
+      "extension": ".bin",
+      "count": 2,
+      "uncompressed_bytes": 252483,
+      "compressed_bytes": 45512
+    },
+    {
+      "extension": ".webp",
+      "count": 26,
+      "uncompressed_bytes": 66614,
+      "compressed_bytes": 66614
+    },
+    {
+      "extension": ".remap",
+      "count": 580,
+      "uncompressed_bytes": 46755,
+      "compressed_bytes": 44775
+    },
+    {
+      "extension": ".arsc",
+      "count": 1,
+      "uncompressed_bytes": 40576,
+      "compressed_bytes": 40576
+    },
+    {
+      "extension": ".kotlin_builtins",
+      "count": 8,
+      "uncompressed_bytes": 32063,
+      "compressed_bytes": 11134
+    },
+    {
+      "extension": ".res",
+      "count": 35,
+      "uncompressed_bytes": 30886,
+      "compressed_bytes": 13712
+    },
+    {
+      "extension": ".xml",
+      "count": 29,
+      "uncompressed_bytes": 30116,
+      "compressed_bytes": 11740
+    },
+    {
+      "extension": ".cfg",
+      "count": 1,
+      "uncompressed_bytes": 27750,
+      "compressed_bytes": 2683
+    },
+    {
+      "extension": ".scn",
+      "count": 13,
+      "uncompressed_bytes": 10496,
+      "compressed_bytes": 10496
+    },
+    {
+      "extension": ".png",
+      "count": 15,
+      "uncompressed_bytes": 3034,
+      "compressed_bytes": 3034
+    },
+    {
+      "extension": ".rsa",
+      "count": 1,
+      "uncompressed_bytes": 1292,
+      "compressed_bytes": 1087
+    },
+    {
+      "extension": ".binary",
+      "count": 1,
+      "uncompressed_bytes": 1100,
+      "compressed_bytes": 504
+    },
+    {
+      "extension": ".gdshader",
+      "count": 1,
+      "uncompressed_bytes": 428,
+      "compressed_bytes": 282
+    },
+    {
+      "extension": "",
+      "count": 1,
+      "uncompressed_bytes": 94,
+      "compressed_bytes": 94
+    }
+  ],
+  "root_totals": [
+    {
+      "prefix": "assets/.godot",
+      "count": 1709,
+      "uncompressed_bytes": 1286619235,
+      "compressed_bytes": 1286370979
+    },
+    {
+      "prefix": "lib/armeabi-v7a",
+      "count": 2,
+      "uncompressed_bytes": 83414452,
+      "compressed_bytes": 29301231
+    },
+    {
+      "prefix": "lib/arm64-v8a",
+      "count": 2,
+      "uncompressed_bytes": 77555944,
+      "compressed_bytes": 25920129
+    },
+    {
+      "prefix": "assets/coordination",
+      "count": 2399,
+      "uncompressed_bytes": 29848595,
+      "compressed_bytes": 3220739
+    },
+    {
+      "prefix": "classes.dex",
+      "count": 1,
+      "uncompressed_bytes": 5711532,
+      "compressed_bytes": 1960045
+    },
+    {
+      "prefix": "META-INF",
+      "count": 3,
+      "uncompressed_bytes": 1909775,
+      "compressed_bytes": 551945
+    },
+    {
+      "prefix": "assets/addons",
+      "count": 523,
+      "uncompressed_bytes": 1482284,
+      "compressed_bytes": 1471686
+    },
+    {
+      "prefix": "assets/tests",
+      "count": 314,
+      "uncompressed_bytes": 1113416,
+      "compressed_bytes": 1107022
+    },
+    {
+      "prefix": "assets/data",
+      "count": 19,
+      "uncompressed_bytes": 1016155,
+      "compressed_bytes": 35250
+    },
+    {
+      "prefix": "assets",
+      "count": 4,
+      "uncompressed_bytes": 719755,
+      "compressed_bytes": 719117
+    },
+    {
+      "prefix": "assets/assets",
+      "count": 429,
+      "uncompressed_bytes": 605090,
+      "compressed_bytes": 165356
+    },
+    {
+      "prefix": "assets/scripts",
+      "count": 64,
+      "uncompressed_bytes": 419139,
+      "compressed_bytes": 415780
+    },
+    {
+      "prefix": "assets/tools",
+      "count": 33,
+      "uncompressed_bytes": 216855,
+      "compressed_bytes": 214670
+    },
+    {
+      "prefix": "classes7.dex",
+      "count": 1,
+      "uncompressed_bytes": 137052,
+      "compressed_bytes": 58427
+    },
+    {
+      "prefix": "assets/docs",
+      "count": 103,
+      "uncompressed_bytes": 118664,
+      "compressed_bytes": 35445
+    },
+    {
+      "prefix": "res",
+      "count": 69,
+      "uncompressed_bytes": 91920,
+      "compressed_bytes": 79121
+    },
+    {
+      "prefix": "classes4.dex",
+      "count": 1,
+      "uncompressed_bytes": 64160,
+      "compressed_bytes": 27734
+    },
+    {
+      "prefix": "classes6.dex",
+      "count": 1,
+      "uncompressed_bytes": 49584,
+      "compressed_bytes": 20779
+    },
+    {
+      "prefix": "classes11.dex",
+      "count": 1,
+      "uncompressed_bytes": 47076,
+      "compressed_bytes": 21053
+    },
+    {
+      "prefix": "resources.arsc",
+      "count": 1,
+      "uncompressed_bytes": 40576,
+      "compressed_bytes": 40576
+    },
+    {
+      "prefix": "classes3.dex",
+      "count": 1,
+      "uncompressed_bytes": 40204,
+      "compressed_bytes": 19690
+    },
+    {
+      "prefix": "classes12.dex",
+      "count": 1,
+      "uncompressed_bytes": 39156,
+      "compressed_bytes": 11585
+    },
+    {
+      "prefix": "kotlin",
+      "count": 8,
+      "uncompressed_bytes": 32063,
+      "compressed_bytes": 11134
+    },
+    {
+      "prefix": "classes10.dex",
+      "count": 1,
+      "uncompressed_bytes": 28280,
+      "compressed_bytes": 13236
+    },
+    {
+      "prefix": "classes5.dex",
+      "count": 1,
+      "uncompressed_bytes": 22304,
+      "compressed_bytes": 9884
+    },
+    {
+      "prefix": "classes8.dex",
+      "count": 1,
+      "uncompressed_bytes": 20052,
+      "compressed_bytes": 9648
+    },
+    {
+      "prefix": "AndroidManifest.xml",
+      "count": 1,
+      "uncompressed_bytes": 7844,
+      "compressed_bytes": 2267
+    },
+    {
+      "prefix": "classes9.dex",
+      "count": 1,
+      "uncompressed_bytes": 7772,
+      "compressed_bytes": 3872
+    },
+    {
+      "prefix": "classes13.dex",
+      "count": 1,
+      "uncompressed_bytes": 4348,
+      "compressed_bytes": 2268
+    },
+    {
+      "prefix": "classes2.dex",
+      "count": 1,
+      "uncompressed_bytes": 1960,
+      "compressed_bytes": 1152
+    },
+    {
+      "prefix": "DebugProbesKt.bin",
+      "count": 1,
+      "uncompressed_bytes": 1738,
+      "compressed_bytes": 782
+    },
+    {
+      "prefix": "assets/scenes",
+      "count": 7,
+      "uncompressed_bytes": 748,
+      "compressed_bytes": 703
+    }
+  ],
+  "largest_candidate_entries": [
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_V04.png-cdc050b133cfe9e2b06754586c900dd1.ctex",
+      "uncompressed_bytes": 3732000,
+      "compressed_bytes": 3732000
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07.json",
+      "uncompressed_bytes": 3592663,
+      "compressed_bytes": 173990
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07_R02.json",
+      "uncompressed_bytes": 3582219,
+      "compressed_bytes": 172479
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07_R01.json",
+      "uncompressed_bytes": 3493181,
+      "compressed_bytes": 168796
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_CONFIRMATION_V07_R03.json",
+      "uncompressed_bytes": 3477078,
+      "compressed_bytes": 166589
+    },
+    {
+      "path": "assets/.godot/imported/contact_sheet_432x960.png-a9681ff4d98ba902041bbf49b3a59555.ctex",
+      "uncompressed_bytes": 2804884,
+      "compressed_bytes": 2804884
+    },
+    {
+      "path": "assets/.godot/imported/style_reference_board_remediation_v01.png-568e633da585340c9ef1e877a23cd4df.ctex",
+      "uncompressed_bytes": 2655472,
+      "compressed_bytes": 2655472
+    },
+    {
+      "path": "assets/.godot/imported/frozen_paradise_master.png-ecce6fffe022ee929af5c106bbe591b0.ctex",
+      "uncompressed_bytes": 2614348,
+      "compressed_bytes": 2614348
+    },
+    {
+      "path": "assets/.godot/imported/azure_bay_master.png-22d6998587a8244152a23a2ba2d6524b.ctex",
+      "uncompressed_bytes": 2591978,
+      "compressed_bytes": 2591978
+    },
+    {
+      "path": "assets/.godot/imported/final_island_master.png-c3a27783a79e4756f5eda3420265ed6e.ctex",
+      "uncompressed_bytes": 2540004,
+      "compressed_bytes": 2540004
+    },
+    {
+      "path": "assets/.godot/imported/world_map_master.png-d233d2e54eafac5544991fcd58af32d2.ctex",
+      "uncompressed_bytes": 2496670,
+      "compressed_bytes": 2496670
+    },
+    {
+      "path": "assets/.godot/imported/coconut_beach_master.png-5af51bd7d0ae1ce8f3ee028c14fd047f.ctex",
+      "uncompressed_bytes": 2471370,
+      "compressed_bytes": 2471370
+    },
+    {
+      "path": "assets/.godot/imported/contact_sheet_390x844.png-bac0757407f5ee23b540ac3684f4fa57.ctex",
+      "uncompressed_bytes": 2422712,
+      "compressed_bytes": 2422712
+    },
+    {
+      "path": "assets/.godot/imported/style_reference_board.png-98c5edd35581096b1269656cd392d531.ctex",
+      "uncompressed_bytes": 2342146,
+      "compressed_bytes": 2342146
+    },
+    {
+      "path": "assets/.godot/imported/contact_sheet_390x844.png-3a5ed0357b69f0e8d94952e60fe250ba.ctex",
+      "uncompressed_bytes": 2302762,
+      "compressed_bytes": 2302762
+    },
+    {
+      "path": "assets/.godot/imported/sunny_cove_master.png-3136c4a2cbfa88e72373e9e57df26271.ctex",
+      "uncompressed_bytes": 2272946,
+      "compressed_bytes": 2272946
+    },
+    {
+      "path": "assets/.godot/imported/billionaire_island_master.png-0056b639f6b549897fa6a14533d257ef.ctex",
+      "uncompressed_bytes": 2270354,
+      "compressed_bytes": 2270354
+    },
+    {
+      "path": "assets/.godot/imported/volcano_bay_master.png-d006d646571a874eeee065f41da01e2e.ctex",
+      "uncompressed_bytes": 2252574,
+      "compressed_bytes": 2252574
+    },
+    {
+      "path": "assets/.godot/imported/tiki_island_master.png-240bc01e0b2e2765f1e372f5c0f52b41.ctex",
+      "uncompressed_bytes": 2232954,
+      "compressed_bytes": 2232954
+    },
+    {
+      "path": "assets/.godot/imported/party_beach_master.png-4e18c4559478115819ba86f945b592f5.ctex",
+      "uncompressed_bytes": 2222612,
+      "compressed_bytes": 2222612
+    },
+    {
+      "path": "assets/.godot/imported/main_menu_master.png-8fd30b8b97585ae1f38a0335eabe0c50.ctex",
+      "uncompressed_bytes": 2147466,
+      "compressed_bytes": 2147466
+    },
+    {
+      "path": "assets/.godot/imported/sunset_island_master.png-aaf5fddb874d48eff212fded42383d40.ctex",
+      "uncompressed_bytes": 2118964,
+      "compressed_bytes": 2118964
+    },
+    {
+      "path": "assets/.godot/imported/contact_sheet_432x960.png-5d49385d79957b8d407551b1b376f4af.ctex",
+      "uncompressed_bytes": 1979508,
+      "compressed_bytes": 1979508
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_SCREENING_V04.json",
+      "uncompressed_bytes": 1615885,
+      "compressed_bytes": 65686
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/R04_CLEANUP_INVENTORY_V01.json",
+      "uncompressed_bytes": 1558482,
+      "compressed_bytes": 61435
+    },
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_WORLD_MAP.png-540c32a5f87c0d0b660239920ed9e3da.ctex",
+      "uncompressed_bytes": 1281376,
+      "compressed_bytes": 1281376
+    },
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_STATEFUL_UI.png-ccd071d7104eb4bf7658557b282184ee.ctex",
+      "uncompressed_bytes": 1139682,
+      "compressed_bytes": 1139682
+    },
+    {
+      "path": "assets/.godot/imported/ui_contact_sheet.png-b3f6943fc41d866c0136ff7ec13e9b1d.ctex",
+      "uncompressed_bytes": 1104886,
+      "compressed_bytes": 1104886
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R01/coverage_matrix.json",
+      "uncompressed_bytes": 976437,
+      "compressed_bytes": 24824
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_SCREENING_V06.json",
+      "uncompressed_bytes": 848287,
+      "compressed_bytes": 34895
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_SCREENING_V06_R01.json",
+      "uncompressed_bytes": 833978,
+      "compressed_bytes": 35686
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_CANONICAL_SCREENING_V06_R02.json",
+      "uncompressed_bytes": 832358,
+      "compressed_bytes": 35541
+    },
+    {
+      "path": "assets/.godot/imported/cocktails_contact_sheet.png-7646ad75dac112ab7bac808616aaffde.ctex",
+      "uncompressed_bytes": 657670,
+      "compressed_bytes": 657670
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_SOLVER_QUALIFICATION_V03.json",
+      "uncompressed_bytes": 482541,
+      "compressed_bytes": 19184
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/candidate_validator_report.json",
+      "uncompressed_bytes": 470974,
+      "compressed_bytes": 6340
+    },
+    {
+      "path": "assets/.godot/imported/effects_contact_sheet.png-dfbdad4667b7b60285ecf9ef6d3cdeab.ctex",
+      "uncompressed_bytes": 318480,
+      "compressed_bytes": 318480
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-001/pre_godot_owner_hashes.json",
+      "uncompressed_bytes": 313050,
+      "compressed_bytes": 51217
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-001/isolation_preflight_A_20261010.json",
+      "uncompressed_bytes": 274729,
+      "compressed_bytes": 50326
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M27-MASTER-V01/evidence/M27-001/isolation_preflight_A2_20261010.json",
+      "uncompressed_bytes": 263042,
+      "compressed_bytes": 51018
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_BASELINE_REPORT_V02.json",
+      "uncompressed_bytes": 262637,
+      "compressed_bytes": 11004
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M17-DIFFICULTY-VALIDATION/M17_BASELINE_REPORT_V01.json",
+      "uncompressed_bytes": 259896,
+      "compressed_bytes": 11068
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/R04_CLEANUP_REFERENCE_AUDIT_V01.json",
+      "uncompressed_bytes": 241283,
+      "compressed_bytes": 14635
+    },
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_TABLES.png-d2fc7172d8dbfce26042a0539f1bab9f.ctex",
+      "uncompressed_bytes": 222078,
+      "compressed_bytes": 222078
+    },
+    {
+      "path": "assets/assets/ui_assets/ASSET_MANIFEST.json",
+      "uncompressed_bytes": 181810,
+      "compressed_bytes": 22827
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/regression/M21-004_FULL_ACCEPTED_REGRESSION.json",
+      "uncompressed_bytes": 162839,
+      "compressed_bytes": 22462
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_level_difficulty_analysis.json",
+      "uncompressed_bytes": 157246,
+      "compressed_bytes": 13073
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.status.translation",
+      "uncompressed_bytes": 126223,
+      "compressed_bytes": 8597
+    },
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_MAJOR_SCREENS.png-f06c355130ca17665b4da26788bef17e.ctex",
+      "uncompressed_bytes": 103124,
+      "compressed_bytes": 103124
+    },
+    {
+      "path": "assets/data/campaign/levels/billionaire_island.json",
+      "uncompressed_bytes": 101440,
+      "compressed_bytes": 2778
+    },
+    {
+      "path": "assets/data/campaign/levels/final_island.json",
+      "uncompressed_bytes": 100778,
+      "compressed_bytes": 2843
+    },
+    {
+      "path": "assets/data/campaign/levels/volcano_bay.json",
+      "uncompressed_bytes": 100596,
+      "compressed_bytes": 2765
+    },
+    {
+      "path": "assets/data/campaign/levels/coconut_beach.json",
+      "uncompressed_bytes": 100499,
+      "compressed_bytes": 2771
+    },
+    {
+      "path": "assets/data/campaign/levels/party_beach.json",
+      "uncompressed_bytes": 100314,
+      "compressed_bytes": 2768
+    },
+    {
+      "path": "assets/data/campaign/levels/frozen_paradise.json",
+      "uncompressed_bytes": 100080,
+      "compressed_bytes": 2743
+    },
+    {
+      "path": "assets/data/campaign/levels/sunset_island.json",
+      "uncompressed_bytes": 99880,
+      "compressed_bytes": 2690
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-001/user_data_isolation_hashes.json",
+      "uncompressed_bytes": 99836,
+      "compressed_bytes": 10994
+    },
+    {
+      "path": "assets/data/campaign/levels/azure_bay.json",
+      "uncompressed_bytes": 99541,
+      "compressed_bytes": 2742
+    },
+    {
+      "path": "assets/data/campaign/levels/tiki_island_full.json",
+      "uncompressed_bytes": 97435,
+      "compressed_bytes": 2729
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.suspicion.translation",
+      "uncompressed_bytes": 87922,
+      "compressed_bytes": 8977
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-CAL02/protected_hashes_after.json",
+      "uncompressed_bytes": 79784,
+      "compressed_bytes": 6767
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-CAL02/pretest_protected_hashes.json",
+      "uncompressed_bytes": 74966,
+      "compressed_bytes": 6907
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/evidence/world-map-layout-v01/post-fix-layout-report.json",
+      "uncompressed_bytes": 73968,
+      "compressed_bytes": 3127
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-PERCENT400/pretest_protected_hashes.json",
+      "uncompressed_bytes": 73708,
+      "compressed_bytes": 7139
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/pre_probe_hashes.json",
+      "uncompressed_bytes": 72598,
+      "compressed_bytes": 7098
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-100-STAR/pretest_hashes.json",
+      "uncompressed_bytes": 70339,
+      "compressed_bytes": 6565
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-PERCENT400/protected_hashes_after.json",
+      "uncompressed_bytes": 70288,
+      "compressed_bytes": 6971
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/evidence/world-map-layout-v01/pre-fix-layout-report.json",
+      "uncompressed_bytes": 67771,
+      "compressed_bytes": 2801
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/M23-R02_production_event_render_trace.json",
+      "uncompressed_bytes": 65843,
+      "compressed_bytes": 5186
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.vip.translation",
+      "uncompressed_bytes": 64000,
+      "compressed_bytes": 8543
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-003/pre_godot_owner_snapshot.json",
+      "uncompressed_bytes": 60206,
+      "compressed_bytes": 6581
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-002/pre_godot_owner_snapshot.json",
+      "uncompressed_bytes": 60206,
+      "compressed_bytes": 6581
+    },
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_ISLANDS.png-8a90f4792d528419c6e33d41e05f5745.ctex",
+      "uncompressed_bytes": 57214,
+      "compressed_bytes": 57214
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-R01/pre_godot_owner_sandbox_snapshot.json",
+      "uncompressed_bytes": 57003,
+      "compressed_bytes": 6232
+    },
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_SEMANTIC_ICONS.png-99f27edd8c63a1f2eae8d248e8881f70.ctex",
+      "uncompressed_bytes": 54608,
+      "compressed_bytes": 54608
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-MASTER/regressions/runs/summary.json",
+      "uncompressed_bytes": 48531,
+      "compressed_bytes": 3112
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-R01/full_matrix_postfix/summary.json",
+      "uncompressed_bytes": 46714,
+      "compressed_bytes": 3173
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-R01/full_matrix/summary.json",
+      "uncompressed_bytes": 45655,
+      "compressed_bytes": 3157
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-005/cleanup_inventory_r01.references.translation",
+      "uncompressed_bytes": 44919,
+      "compressed_bytes": 5276
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.tier.translation",
+      "uncompressed_bytes": 44025,
+      "compressed_bytes": 7843
+    },
+    {
+      "path": "assets/.godot/imported/CONTACT_SHEET_SCREENS.png-dab9404ffcd11140e4c0e01a041cdd8c.ctex",
+      "uncompressed_bytes": 41032,
+      "compressed_bytes": 41032
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-001-R01/user_data_before.json",
+      "uncompressed_bytes": 40748,
+      "compressed_bytes": 4875
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M26-MASTER-V01/evidence/M26-001-R01/user_data_after.json",
+      "uncompressed_bytes": 40741,
+      "compressed_bytes": 4871
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.island.translation",
+      "uncompressed_bytes": 40251,
+      "compressed_bytes": 7520
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M21-ISLAND-MAP-STAR-R07/SUNNY_COVE_STAR_THRESHOLDS_R07.json",
+      "uncompressed_bytes": 39382,
+      "compressed_bytes": 1453
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.human.translation",
+      "uncompressed_bytes": 37218,
+      "compressed_bytes": 9658
+    },
+    {
+      "path": "assets/data/campaign/content_generation_profiles_m33.json",
+      "uncompressed_bytes": 37082,
+      "compressed_bytes": 2074
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/capture_manifest_390x844.json",
+      "uncompressed_bytes": 36603,
+      "compressed_bytes": 1997
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R05-R02/screenshots/capture_manifest_432x960.json",
+      "uncompressed_bytes": 36591,
+      "compressed_bytes": 2002
+    },
+    {
+      "path": "assets/data/campaign/levels/sunny_cove.json",
+      "uncompressed_bytes": 33613,
+      "compressed_bytes": 1291
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.move.translation",
+      "uncompressed_bytes": 33581,
+      "compressed_bytes": 9221
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.one.translation",
+      "uncompressed_bytes": 33580,
+      "compressed_bytes": 9225
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.two.translation",
+      "uncompressed_bytes": 33472,
+      "compressed_bytes": 9235
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.three.translation",
+      "uncompressed_bytes": 33262,
+      "compressed_bytes": 9213
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.normal.translation",
+      "uncompressed_bytes": 33099,
+      "compressed_bytes": 9120
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.total.translation",
+      "uncompressed_bytes": 32898,
+      "compressed_bytes": 9063
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R06/godot_probe_post_cleanup_summary.json",
+      "uncompressed_bytes": 32150,
+      "compressed_bytes": 3892
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.data.translation",
+      "uncompressed_bytes": 31949,
+      "compressed_bytes": 7130
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M33-900-LEVELS-AND-CONTENT-DELIVERY-V01/evidence/M33-R03/all_1000_levels.local.translation",
+      "uncompressed_bytes": 31870,
+      "compressed_bytes": 7451
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-005/cleanup_inventory_r02.historical.translation",
+      "uncompressed_bytes": 31519,
+      "compressed_bytes": 1751
+    },
+    {
+      "path": "assets/coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-005/cleanup_inventory_r01.replacement.translation",
+      "uncompressed_bytes": 30712,
+      "compressed_bytes": 4625
+    }
+  ]
+}

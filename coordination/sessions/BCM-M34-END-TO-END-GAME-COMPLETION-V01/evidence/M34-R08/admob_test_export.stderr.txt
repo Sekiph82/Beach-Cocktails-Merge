@@ -1,0 +1,6 @@
+ERROR: Cannot export project with preset "R08 AdMob Native Test Only" due to configuration errors:
+Android build template not installed in the project. Install it from the Project menu.
+
+   at: _fs_changed (editor/editor_node.cpp:1401)
+ERROR: Project export for preset "R08 AdMob Native Test Only" failed.
+   at: _fs_changed (editor/editor_node.cpp:1417)

@@ -1,0 +1,13 @@
+{
+  "captured_local": "2026-10-15T10:40:20+03:00",
+  "adb_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-Android-4.7.2\\sdk\\platform-tools\\adb.exe",
+  "adb_version": "1.0.41; platform-tools 37.0.1-15733141",
+  "devices": [],
+  "result": "NOT_DEVICE_VERIFIED",
+  "installation_attempted": false,
+  "device_settings_changed": false,
+  "apk_path": "C:\\Users\\sekip\\AppData\\Local\\BCM-M34-R07-Android-Export\\BCM_R07_Debug_Validation.apk",
+  "apk_bytes": 1353331251,
+  "apk_sha256": "EDDDDB44CBEFF9FA8C653BEB6621C6168D4D948B66C14559C7D91D5F580A93F5",
+  "owner_action": "Connect an Android device with USB debugging enabled, accept its ADB authorization prompt, and rerun adb devices -l until it reports state device."
+}
