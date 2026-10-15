@@ -128,8 +128,10 @@ function Compare-R15ParityPair($Normal, $Fixed, [bool]$ProcessesCompleted = $tru
 	$unknown = $reasons.Count -gt 0
 	$structuralDivergence = $structural.Count -gt 0 -or $numeric.Count -gt 0
 	$class = if ($unknown) { "unknown" } elseif ($strict) { "strict_pass" } elseif ($structuralDivergence) { "structural_divergence" } else { "tolerant_candidate_only" }
+	$divergenceType = if ($structural.Count -gt 0) { "branch_or_structure_difference" } elseif ($numeric.Count -gt 0) { "numeric_ceiling_exceeded" } elseif (-not $strict) { "bitwise_numeric_difference_within_candidate_ceilings" } else { "none" }
 	return [pscustomobject]@{
 		classification = $class
+		divergence_type = $divergenceType
 		strict_pass = [bool]$strict
 		tolerant_candidate_only = ($class -eq "tolerant_candidate_only")
 		max_position_delta_px = $maxPosition
