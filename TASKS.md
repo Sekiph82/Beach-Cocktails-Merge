@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex runs R10 offline gameplay solvability and release hygiene; all physical Android/ADB testing deferred by owner.
+- Next Task/Action: BCM-M33-004 — Codex executes R11 bounded mechanical coverage, preserving honest UNKNOWN outcomes and owner-deferred Android device gate.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: M34-R09 offline independent audit PASS: slim APK 301,983,466 bytes, fresh import and Daily 38/38/Economy 24/24/M33 navigation 17/17 and content probe PASS; isolated Gradle/AdMob test APK 96,310,569 bytes signed but NOT device-tested; native SDK, SSV, IAP remain gated. Owner explicitly deferred Android physical testing. R10 targets M33-004 bounded level solvability/difficulty and source-verified UID/locale/export hygiene, no game-art changes.
+- Progress: M34-R10 independent audit bounded PASS. 1,000 level static census PASS; sample 20: 2 legal wins, 15 timeout/unknown, 3 not run, thus 18/20 UNVERIFIED, human fairness M33-004 OPEN. UID sidecar references fixed, evidence locale exclusions clean, existing approved icon selected. Daily 38/38, Economy 24/24, Navigation 17/17, VIP/scene/smoke builder PASS. R11 focused deterministic bounded coverage queued; mobile device/ad/SSV/IAP remain deferred or blocked.
 
 ## Blockers/Waits
 
