@@ -50,7 +50,7 @@ foreach ($event in $trialFinishes) {
 	Test-R19ArtifactHash ([string]$event.watchdog_path) ([string]$event.watchdog_file_sha256) "watchdog:$($event.trial_attempt_id)"
 	$casePath = Resolve-R19EvidencePath ([string]$event.case_record_path)
 	$case = if ($casePath -and [IO.File]::Exists($casePath)) { Get-Content -Raw -LiteralPath $casePath | ConvertFrom-Json -ErrorAction Stop } else { $null }
-	if ($case -and (-not [bool]$case.normal_4t_cap_verified -or [int]$case.normal_4t_shot_cap -ne 4 * [int]$case.normal_theoretical_shots_T)) { $problems.Add("NORMAL_4T_CAP_INVALID:$($event.trial_attempt_id)") }
+	if ($case -and [string]$event.classification -ne 'ERROR' -and (-not [bool]$case.normal_4t_cap_verified -or [int]$case.normal_4t_shot_cap -ne 4 * [int]$case.normal_theoretical_shots_T)) { $problems.Add("NORMAL_4T_CAP_INVALID:$($event.trial_attempt_id)") }
 	$globalLevelId = if ($event.case.PSObject.Properties.Name -contains 'global_level_id') { [int]$event.case.global_level_id } else { Get-R19GlobalLevelId ([string]$event.case.island_id) ([int]$event.case.level_id) }
 	$trials.Add([ordered]@{trial_attempt_id=[string]$event.trial_attempt_id;trial_name=[string]$event.trial_name;island_id=[string]$event.case.island_id;level_id=[int]$event.case.level_id;global_level_id=$globalLevelId;classification=[string]$event.classification;failure_kind=[string]$event.failure_kind;objective_progress=[int]$event.normal_objective_progress;action_count=if($case){[int]$case.action_count}else{0};trace_integrity=if($case -and $case.trace_file_sha256 -ceq [string]$event.trace_file_sha256){'PASS'}else{'UNVERIFIED_OR_FAIL'}})
 }
@@ -62,6 +62,27 @@ if ($attemptFinishedEvent.Count) {
 	$attemptSummaryPath = Resolve-R19EvidencePath ([string]$attemptFinishedEvent[0].summary_path)
 	$attemptSummary = if ($attemptSummaryPath -and [IO.File]::Exists($attemptSummaryPath)) { Get-Content -Raw -LiteralPath $attemptSummaryPath | ConvertFrom-Json -ErrorAction Stop } else { $null }
 	if ($incomplete.Count -and $attemptSummary -and [string]$attemptSummary.status -eq 'PILOT_COMPLETE') { $problems.Add('SUMMARY_CLAIMS_COMPLETE_WITH_INCOMPLETE_TRIALS') }
+}
+$recoveryFinishEvents = @($attemptEvents | Where-Object { $_.event_type -eq 'TRIAL_FINISHED' -and $_.PSObject.Properties.Name -contains 'recovered_by' -and $_.recovered_by -eq 'BCM-M34-R20' })
+$recoverySummaryEvents = @($attemptEvents | Where-Object event_type -eq 'ATTEMPT_RECOVERY_FINISHED')
+$recoverySummaryTrialIds = @{}
+foreach ($event in $recoverySummaryEvents) {
+	Test-R19ArtifactHash ([string]$event.summary_path) ([string]$event.summary_sha256) "recovery_summary:$($event.event_id)"
+	$summaryPath = Resolve-R19EvidencePath ([string]$event.summary_path)
+	if ($summaryPath -and [IO.File]::Exists($summaryPath)) {
+		$recoverySummary = Get-Content -Raw -LiteralPath $summaryPath | ConvertFrom-Json -ErrorAction Stop
+		foreach ($id in @($recoverySummary.recovered_trial_attempt_ids)) { $recoverySummaryTrialIds[[string]$id] = $true }
+		if (($event.recovered_trial_attempt_ids -join ',') -cne ($recoverySummary.recovered_trial_attempt_ids -join ',')) { $problems.Add("RECOVERY_SUMMARY_TRIAL_SET_MISMATCH:$($event.event_id)") }
+	}
+}
+foreach ($event in $recoveryFinishEvents) {
+	if (-not $recoverySummaryTrialIds.ContainsKey([string]$event.trial_attempt_id)) { $problems.Add("RECOVERED_TRIAL_NOT_IN_RECOVERY_SUMMARY:$($event.trial_attempt_id)") }
+}
+if ($attemptFinishedEvent.Count -and $attemptSummary -and $recoveryFinishEvents.Count) {
+	$originalCount = @($attemptSummary.completed_trials).Count
+	$originalTrialIds = @{}; foreach ($trial in @($attemptSummary.completed_trials)) { $originalTrialIds[[string]$trial.trial_attempt_id] = $true }
+	$recoveredNotInOriginalSummary = @($recoveryFinishEvents | Where-Object { -not $originalTrialIds.ContainsKey([string]$_.trial_attempt_id) }).Count
+	if ($originalCount + $recoveredNotInOriginalSummary -ne $trialFinishes.Count) { $problems.Add('ATTEMPT_SUMMARY_PLUS_RECOVERIES_DO_NOT_RECONCILE_TO_FINISH_EVENTS') }
 }
 $checkpointEvents = @($attemptEvents | Where-Object event_type -eq 'BATCH_CHECKPOINT')
 $latestPerLevelState = @()
@@ -81,6 +102,7 @@ $summary = [ordered]@{
 	schema_version=1;work_item='BCM-M34-R19';read_only=$true;idempotent=$true;attempt_id=$AttemptId
 	manifest_sha256=(Get-FileHash -Algorithm SHA256 -LiteralPath $manifestPath).Hash.ToLower();manifest_event_count=$attemptEvents.Count
 	trial_started_count=$trialStarts.Count;trial_finished_count=$trialFinishes.Count;incomplete_trial_attempt_ids=$incomplete
+	recovery_event_count=$recoveryFinishEvents.Count;recovered_trial_attempt_ids=@($recoveryFinishEvents | ForEach-Object { [string]$_.trial_attempt_id });recovery_summary_count=$recoverySummaryEvents.Count
 	checkpoint_count=$checkpointEvents.Count;per_level_state_count=$latestPerLevelState.Count;per_level_status_counts=$perLevelStatusCounts
 	outcome_counts=@{WIN_OBSERVED=@($trials | Where-Object classification -eq 'WIN_OBSERVED').Count;LOSS_OBSERVED=@($trials | Where-Object classification -eq 'LOSS_OBSERVED').Count;BUDGET_UNKNOWN=@($trials | Where-Object classification -eq 'BUDGET_UNKNOWN').Count;ERROR=@($trials | Where-Object classification -eq 'ERROR').Count}
 	distinct_observed_win_levels=$uniqueWins;distinct_wins_beyond_easiest=$beyondEasiest

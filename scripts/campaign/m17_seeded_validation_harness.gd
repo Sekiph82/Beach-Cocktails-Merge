@@ -36,6 +36,7 @@ const POLICY_WEAK_V02 := "WEAK_V02"
 const POLICY_MERGE_AWARE_V01 := "MERGE_AWARE_V01"
 const POLICY_CHEAP_MERGE_CENTER_V01 := "CHEAP_MERGE_CENTER_V01"
 const POLICY_R19_FEEDBACK_AWARE_V01 := "R19_FEEDBACK_AWARE_V01"
+const POLICY_R20_OBJECTIVE_LOOKAHEAD_V01 := "R20_OBJECTIVE_LOOKAHEAD_V01"
 
 var _root: Node
 var time_scale := 1.0
@@ -261,6 +262,24 @@ func run_trial(
 	var previous_time_scale := Engine.time_scale
 	Engine.time_scale = time_scale
 	seed(seed_value)
+	var production_edges: Array[Dictionary] = []
+	for edge in manager.get_playable_boundary_edges():
+		production_edges.append({
+			"name": str(edge.get("name", "")),
+			"a": [edge["a"].x, edge["a"].y],
+			"b": [edge["b"].x, edge["b"].y],
+			"inward_normal": [edge["inward_normal"].x, edge["inward_normal"].y],
+		})
+	telemetry["production_geometry_snapshot"] = {
+		"viewport_size": [manager.get_board_size().x, manager.get_board_size().y],
+		"launch_y": manager.launch_y,
+		"death_line_y": manager.death_line_y,
+		"playable_edges": production_edges,
+		"active_theme_paths": manager.get_active_theme_paths().duplicate(true),
+		"main_scene_setting": str(ProjectSettings.get_setting("application/run/main_scene", "")),
+		"manager_script": str(manager.get_script().resource_path) if manager.get_script() != null else "",
+		"standard_physics_ticks_per_second": int(ProjectSettings.get_setting("physics/common/physics_ticks_per_second", 60)),
+	}
 	var state := {
 		"merge_pairs": {},
 		"merge_count": 0,
@@ -341,6 +360,21 @@ func run_trial(
 				"same_level_target_found": bool(lane_choice.get("same_level_target_found", false)),
 				"target_instance_id": lane_choice.get("target_instance_id", null),
 			}
+		if lane_choice.has("r20_candidate_evaluations"):
+			action_record["candidate_lane_evaluations"] = lane_choice["r20_candidate_evaluations"].duplicate(true)
+			action_record["selected_candidate_evaluation"] = lane_choice.get("r20_selected_candidate", {}).duplicate(true)
+		action_record["physics_frame_start"] = physics_frame_index
+		action_record["launch_y"] = manager.launch_y
+		action_record["normal_orders_before"] = bridge.get_objective_state().get("normal_remaining", {}).duplicate(true)
+		action_record["normal_T_before"] = _remaining_normal_t(action_record["normal_orders_before"])
+		action_record["shots_used_before"] = int(telemetry["shot_count"])
+		action_record["remaining_4t_shot_budget_before"] = maxi(0, int(telemetry["normal_4t_shot_cap"]) - int(telemetry["shot_count"]))
+		action_record["objective_theoretical_shot_floor_before"] = int(action_record["normal_T_before"])
+		action_record["within_remaining_4t_budget_floor_before"] = int(action_record["objective_theoretical_shot_floor_before"]) <= int(action_record["remaining_4t_shot_budget_before"])
+		action_record["feasibility_scope"] = "T-based shot-budget floor only; not a proof of physical or stochastic reachability"
+		action_record["board_before"] = _board_observations(manager)
+		var contact_event_start: int = state["contact_events"].size()
+		var merge_event_start: int = state["merge_events"].size()
 		telemetry["action_log"].append(action_record)
 		if not progress_checkpoint_path.is_empty():
 			_write_progress_checkpoint(progress_checkpoint_path, telemetry, bridge, state, physics_frame_index, action_index + 1, "ACTION_COMMITTED", progress_checkpoint_metadata)
@@ -362,15 +396,18 @@ func run_trial(
 			input_press.button_index = MOUSE_BUTTON_LEFT
 			input_press.pressed = true
 			input_press.position = Vector2(manager.get_board_size().x * 0.5, launched.position.y)
+			action_record["input_press_viewport"] = [input_press.position.x, input_press.position.y]
 			manager.shot_controller._unhandled_input(input_press)
 			var input_release := InputEventMouseButton.new()
 			input_release.button_index = MOUSE_BUTTON_LEFT
 			input_release.pressed = false
 			input_release.position = Vector2(x_position, launched.position.y)
+			action_record["input_release_viewport"] = [input_release.position.x, input_release.position.y]
 			manager.shot_controller._unhandled_input(input_release)
 			action_record["input_path"] = "ShotController._unhandled_input"
 			action_record["requested_viewport_x"] = x_position
 			action_record["fired_position"] = [launched.position.x, launched.position.y]
+			action_record["fired_velocity"] = [launched.linear_velocity.x, launched.linear_velocity.y]
 			telemetry["action_log"][action_index] = action_record
 		elif use_production_shot_controller:
 			# Exercise ShotController's actual launch path. It emits shot_fired,
@@ -423,6 +460,21 @@ func run_trial(
 		if policy_name == POLICY_R19_FEEDBACK_AWARE_V01:
 			_record_r19_lane_feedback(state, x_position, objective_before - remaining_t, int(state["merge_count"]) - merges_before, int(state["contact_count"]) - contacts_before)
 			manager.set_meta("m34_r19_lane_feedback", state["r19_lane_feedback"].duplicate(true))
+		action_record["physics_frame_end"] = physics_frame_index
+		action_record["contacts_delta"] = int(state["contact_count"]) - contacts_before
+		action_record["contact_events"] = state["contact_events"].slice(contact_event_start)
+		action_record["merges_delta"] = int(state["merge_count"]) - merges_before
+		action_record["merge_chain"] = state["merge_events"].slice(merge_event_start)
+		action_record["normal_orders_after"] = progress_state.get("normal_remaining", {}).duplicate(true)
+		action_record["normal_T_after"] = remaining_t
+		action_record["normal_objective_progress_delta"] = objective_before - remaining_t
+		action_record["shots_used_after"] = int(telemetry["shot_count"])
+		action_record["remaining_4t_shot_budget_after"] = maxi(0, int(telemetry["normal_4t_shot_cap"]) - int(telemetry["shot_count"]))
+		action_record["objective_theoretical_shot_floor_after"] = remaining_t
+		action_record["within_remaining_4t_budget_floor_after"] = remaining_t <= int(action_record["remaining_4t_shot_budget_after"])
+		action_record["board_after"] = _board_observations(manager)
+		action_record["actual_production_physics"] = true
+		telemetry["action_log"][action_index - 1] = action_record
 		var normal_t_start := int(ceil(float(MODEL_SCRIPT.normal_objective_cost(level_definition)) / 4.0))
 		var move_state: Dictionary = bridge.get_move_budget_state()
 		var moves_used := int(move_state.get("moves_used", 0))
@@ -653,7 +705,13 @@ func _on_drink_merge(a: Drink, b: Drink, new_level: int, state: Dictionary) -> v
 		"frame": int(state["physics_frame_index"]),
 		"first_instance_id": first_stable,
 		"second_instance_id": second_stable,
+		"first_level": a.level,
+		"second_level": b.level,
 		"result_level": new_level,
+		"first_position": [a.position.x, a.position.y],
+		"second_position": [b.position.x, b.position.y],
+		"first_velocity": [a.linear_velocity.x, a.linear_velocity.y],
+		"second_velocity": [b.linear_velocity.x, b.linear_velocity.y],
 	})
 
 
@@ -671,7 +729,7 @@ func _on_drink_contact(body: Node, source: Drink, state: Dictionary) -> void:
 		"source_motion_state": int(source.motion_state),
 		"source_position": [source.position.x, source.position.y],
 		"source_velocity": [source.linear_velocity.x, source.linear_velocity.y],
-		"target_kind": "drink" if target_is_drink else "other",
+		"target_kind": "drink" if target_is_drink else ("static_body" if body is StaticBody2D else "other"),
 		"target_instance_id": target_id,
 		"target_name": str(body.name) if is_instance_valid(body) else "freed",
 		"target_level": body.level if target_is_drink else 0,
@@ -749,6 +807,8 @@ func choose_action(manager, level: int, policy_name: String = POLICY_WEAK_V02) -
 	if bridge != null and bridge.is_session_active():
 		objective_level = bridge.get_next_required_order_level()
 	var legal_x_positions := _cached_or_legal_launch_x_positions(manager, level)
+	if policy_name == POLICY_R20_OBJECTIVE_LOOKAHEAD_V01:
+		return _select_r20_objective_lookahead_action(manager, level, observations, objective_level, legal_x_positions)
 	if policy_name == POLICY_R19_FEEDBACK_AWARE_V01:
 		return _select_r19_feedback_action(manager, level, observations, objective_level, legal_x_positions)
 	if policy_name == POLICY_MERGE_AWARE_V01:
@@ -831,6 +891,149 @@ func _r19_lane_key(x_position: float) -> String:
 	return str(int(round(x_position * 1000.0)))
 
 
+func _select_r20_objective_lookahead_action(manager, level: int, observations: Array, objective_level: int, legal_x_positions: Array) -> Dictionary:
+	var target_levels: Array[int] = []
+	var bridge = manager.get_campaign_session_bridge()
+	if bridge != null and bridge.is_session_active():
+		var objective_state: Dictionary = bridge.get_objective_state()
+		var normal_remaining: Dictionary = objective_state.get("normal_remaining", {})
+		for raw_level in normal_remaining.keys():
+			if int(normal_remaining[raw_level]) > 0:
+				target_levels.append(int(raw_level))
+	if target_levels.is_empty() and objective_level > 0:
+		target_levels.append(objective_level)
+	return choose_r20_action_from_observations(level, observations, target_levels, legal_x_positions, manager.launch_y)
+
+
+func choose_r20_action_from_observations(level: int, observations: Array, target_levels: Array, legal_x_positions: Array, launch_y: float = 960.0) -> Dictionary:
+	## Bounded, optimistic three-spawn inventory lookahead. It enumerates every
+	## legal candidate lane and all 27 possible future L1-L3 spawn sequences;
+	## it never reads the seeded RNG or claims that the inventory model proves
+	## physical reachability. Production collision/merge events validate picks.
+	var candidates: Array = legal_x_positions if not legal_x_positions.is_empty() else LANE_X_POSITIONS.duplicate()
+	if candidates.is_empty(): candidates = [_nearest_legal_x(360.0, [])]
+	var evaluations: Array[Dictionary] = []
+	var best_index := 0
+	var best_score := -INF
+	var best_center := INF
+	for candidate_index in range(candidates.size()):
+		var candidate_x := float(candidates[candidate_index])
+		var predicted := _r20_predict_merge_chain(level, candidate_x, observations, launch_y)
+		var inventory: Dictionary = {}
+		for observation in observations:
+			var dx := absf(float(observation.get("x", candidate_x)) - candidate_x)
+			var y := float(observation.get("y", launch_y))
+			if dx <= 165.0 and y <= launch_y + float(observation.get("radius", 30.0)):
+				var observed_level := int(observation.get("level", 0))
+				inventory[observed_level] = int(inventory.get(observed_level, 0)) + 1
+		var expectation := 0.0
+		for sequence_id in range(27):
+			var state := inventory.duplicate(true)
+			var result_level := _r20_add_virtual_spawn(state, level)
+			for future_index in range(3):
+				var divisor := int(round(pow(3.0, float(future_index))))
+				var future_spawn := int(floor(float(sequence_id / divisor))) % 3 + 1
+				result_level = maxi(result_level, _r20_add_virtual_spawn(state, future_spawn))
+			expectation += _r20_objective_inventory_score(state, target_levels, result_level)
+		expectation /= 27.0
+		var chain: Array = predicted.get("merge_chain", [])
+		var resulting_level := int(predicted.get("result_level", level))
+		var direct_bonus := float(chain.size()) * 5.0
+		for target_level in target_levels:
+			if resulting_level == int(target_level): direct_bonus += 150.0
+			elif resulting_level < int(target_level): direct_bonus += maxf(0.0, 8.0 - float(int(target_level) - resulting_level)) * 1.5
+		var total_score := expectation + direct_bonus
+		var evaluation := {
+			"candidate_x": candidate_x,
+			"score": snappedf(total_score, 0.001),
+			"lookahead_mean": snappedf(expectation, 0.001),
+			"lookahead_depth": 3,
+			"future_spawn_support": [1, 2, 3],
+			"sequence_count": 27,
+			"local_level_inventory": inventory,
+			"predicted_merge_chain": chain.duplicate(true),
+			"predicted_result_level": resulting_level,
+			"target_order_levels": target_levels.duplicate(),
+			"model_label": "optimistic_lane_inventory_estimate_not_physical_proof",
+		}
+		evaluations.append(evaluation)
+		var center_distance := absf(candidate_x - LANE_X_POSITIONS[LANE_X_POSITIONS.size() / 2])
+		if total_score > best_score + 0.0001 or (is_equal_approx(total_score, best_score) and center_distance < best_center):
+			best_index = candidate_index
+			best_score = total_score
+			best_center = center_distance
+	var selected_x := float(candidates[best_index])
+	var selected_eval: Dictionary = evaluations[best_index]
+	var action := _action_result(selected_x, not selected_eval.predicted_merge_chain.is_empty(), null, "objective_candidate_lane_lookahead")
+	action["r20_candidate_evaluations"] = evaluations
+	action["r20_selected_candidate"] = selected_eval.duplicate(true)
+	return action
+
+
+func _r20_predict_merge_chain(spawn_level: int, candidate_x: float, observations: Array, launch_y: float) -> Dictionary:
+	var remaining := observations.duplicate(true)
+	var chain: Array[Dictionary] = []
+	var result_level := spawn_level
+	var result_position := Vector2(candidate_x, launch_y)
+	var first_target := -1
+	for index in range(remaining.size()):
+		var target: Dictionary = remaining[index]
+		if int(target.get("level", 0)) != result_level or float(target.get("y", launch_y)) > launch_y + float(target.get("radius", 30.0)):
+			continue
+		var horizontal_gap := absf(float(target.get("x", candidate_x)) - candidate_x) - DRINK_SCRIPT.collider_radius_for_level(spawn_level) - float(target.get("radius", 30.0))
+		if horizontal_gap <= 0.0 and (first_target < 0 or float(target.get("y", 0.0)) > float(remaining[first_target].get("y", 0.0))):
+			first_target = index
+	if first_target >= 0:
+		var target: Dictionary = remaining[first_target]
+		chain.append({"source_level": spawn_level, "target_instance_id": int(target.get("instance_id", 0)), "result_level": spawn_level + 1, "estimated_horizontal_gap": snappedf(absf(float(target.get("x", candidate_x)) - candidate_x), 0.01)})
+		result_level += 1
+		result_position = Vector2(float(target.get("x", candidate_x)), float(target.get("y", launch_y)))
+		remaining.remove_at(first_target)
+	for depth in range(4):
+		var selected := -1
+		var nearest := INF
+		for index in range(remaining.size()):
+			var target: Dictionary = remaining[index]
+			if int(target.get("level", 0)) != result_level: continue
+			var distance := result_position.distance_to(Vector2(float(target.get("x", 0.0)), float(target.get("y", 0.0))))
+			var contact_limit := DRINK_SCRIPT.collider_radius_for_level(result_level) + float(target.get("radius", 30.0)) + 18.0
+			if distance <= contact_limit and distance < nearest:
+				selected = index
+				nearest = distance
+		if selected < 0: break
+		var target: Dictionary = remaining[selected]
+		chain.append({"source_level": result_level, "target_instance_id": int(target.get("instance_id", 0)), "result_level": result_level + 1, "estimated_center_distance": snappedf(nearest, 0.01)})
+		result_position = result_position.lerp(Vector2(float(target.get("x", 0.0)), float(target.get("y", 0.0))), 0.5)
+		result_level += 1
+		remaining.remove_at(selected)
+	return {"result_level": result_level, "merge_chain": chain}
+
+
+func _r20_add_virtual_spawn(inventory: Dictionary, spawn_level: int) -> int:
+	var current := spawn_level
+	if current <= 0 or current >= DRINK_SCRIPT.max_level(): return current
+	inventory[current] = int(inventory.get(current, 0)) + 1
+	while current < DRINK_SCRIPT.max_level() and int(inventory.get(current, 0)) >= 2:
+		inventory[current] = int(inventory[current]) - 2
+		current += 1
+		inventory[current] = int(inventory.get(current, 0)) + 1
+	return current
+
+
+func _r20_objective_inventory_score(inventory: Dictionary, target_levels: Array, latest_result_level: int) -> float:
+	var score := float(latest_result_level) * 0.2
+	var highest_level := 0
+	for raw_level in inventory.keys():
+		var level := int(raw_level)
+		if int(inventory[raw_level]) > 0: highest_level = maxi(highest_level, level)
+	for target_level in target_levels:
+		var target := int(target_level)
+		if target <= 0: continue
+		if int(inventory.get(target, 0)) > 0: score += 40.0
+		else: score += maxf(0.0, 8.0 - absf(float(target - highest_level)))
+	return score
+
+
 func _cached_or_legal_launch_x_positions(manager, level: int) -> Array:
 	if manager.has_meta("m17_legal_launch_lane_cache"):
 		var cache: Dictionary = manager.get_meta("m17_legal_launch_lane_cache")
@@ -891,6 +1094,9 @@ func _board_observations(manager) -> Array[Dictionary]:
 			"level": drink.level,
 			"x": drink.position.x,
 			"y": drink.position.y,
+			"radius": drink.radius,
+			"velocity_x": drink.linear_velocity.x,
+			"velocity_y": drink.linear_velocity.y,
 			"motion_state": int(drink.motion_state),
 			"instance_id": _stable_instance_id(drink),
 		})

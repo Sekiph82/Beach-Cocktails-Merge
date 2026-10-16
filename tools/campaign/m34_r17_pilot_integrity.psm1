@@ -82,11 +82,12 @@ function Get-R17ActionProgressDigest {
 function Get-R17ObjectiveProgress {
 	param([object]$Trace)
 	$best = 0
-	foreach ($point in @($Trace.progress_curve)) {
+	$progressCurve = if ($Trace.PSObject.Properties.Name -contains 'progress_curve') { @($Trace.progress_curve) } else { @() }
+	foreach ($point in $progressCurve) {
 		if ($null -ne $point.normal_T_progressed) { $best = [Math]::Max($best, [int]$point.normal_T_progressed) }
 		elseif ($null -ne $point.normal_T_start -and $null -ne $point.normal_T_remaining) { $best = [Math]::Max($best, [int]$point.normal_T_start - [int]$point.normal_T_remaining) }
 	}
-	if ($Trace.normal_orders_completed) {
+	if ($Trace.PSObject.Properties.Name -contains 'normal_orders_completed' -and $Trace.normal_orders_completed) {
 		$completed = 0
 		foreach ($property in $Trace.normal_orders_completed.PSObject.Properties) { $completed += [int]$property.Value }
 		if ($completed -gt 0) { $best = [Math]::Max($best, $completed) }

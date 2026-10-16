@@ -16,6 +16,7 @@ func _run() -> void:
 	var level_id := int(args.get("level", 0))
 	var seed_value := int(args.get("seed", 0))
 	var wall_limit := float(args.get("wall-limit", 0.0))
+	var policy_name := str(args.get("policy", HARNESS_SCRIPT.POLICY_R19_FEEDBACK_AWARE_V01))
 	var inherited_feedback: Dictionary = {}
 	var feedback_path := str(args.get("feedback", ""))
 	if not feedback_path.is_empty():
@@ -29,8 +30,12 @@ func _run() -> void:
 			push_error("R19 inherited feedback must be a JSON dictionary")
 			quit(2)
 		inherited_feedback = parsed_feedback.duplicate(true)
-	if output_path.is_empty() or live_progress_path.is_empty() or island_id.is_empty() or level_id <= 0 or seed_value <= 0 or wall_limit <= 0.0 or wall_limit > 24.0:
-		push_error("R19 trial requires output, progress, island, level, positive seed, and wall limit <=24 seconds")
+	if output_path.is_empty() or live_progress_path.is_empty() or island_id.is_empty() or level_id <= 0 or seed_value <= 0 or wall_limit <= 0.0 or wall_limit > 120.0:
+		push_error("R19/R20 trial requires output, progress, island, level, positive seed, and wall limit <=120 seconds")
+		quit(2)
+		return
+	if policy_name not in [HARNESS_SCRIPT.POLICY_R19_FEEDBACK_AWARE_V01, HARNESS_SCRIPT.POLICY_R20_OBJECTIVE_LOOKAHEAD_V01]:
+		push_error("Unsupported R19/R20 trial policy: %s" % policy_name)
 		quit(2)
 		return
 
@@ -54,7 +59,7 @@ func _run() -> void:
 		"work_item": "BCM-M34-R19",
 		"status": "CASE_RUNNING",
 		"classification": "BUDGET_UNKNOWN",
-		"case": {"island_id": island_id, "level_id": level_id, "global_level_id": global_level_id, "seed": seed_value, "policy": HARNESS_SCRIPT.POLICY_R19_FEEDBACK_AWARE_V01},
+		"case": {"island_id": island_id, "level_id": level_id, "global_level_id": global_level_id, "seed": seed_value, "policy": policy_name},
 		"physics_mode": "standard_fps_production_physics",
 		"fixed_fps": false,
 		"time_scale": 1.0,
@@ -77,7 +82,7 @@ func _run() -> void:
 		level_id,
 		seed_value,
 		[],
-		HARNESS_SCRIPT.POLICY_R19_FEEDBACK_AWARE_V01,
+		policy_name,
 		normal_4t_cap,
 		true,
 		true,
@@ -120,7 +125,7 @@ func _run() -> void:
 		"work_item": "BCM-M34-R19",
 		"status": "CASE_COMPLETE",
 		"classification": classification,
-		"case": {"island_id": island_id, "level_id": level_id, "global_level_id": global_level_id, "seed": seed_value, "policy": HARNESS_SCRIPT.POLICY_R19_FEEDBACK_AWARE_V01},
+		"case": {"island_id": island_id, "level_id": level_id, "global_level_id": global_level_id, "seed": seed_value, "policy": policy_name},
 		"physics": {
 			"mode": "standard_fps_production_physics",
 			"fixed_fps": false,
@@ -150,9 +155,11 @@ func _run() -> void:
 		"merge_count": int(result.get("merge_count", 0)),
 		"merge_events": result.get("merge_events", []).duplicate(true),
 		"contact_count": int(result.get("contact_count", 0)),
+		"contact_events": result.get("contact_events", []).duplicate(true),
 		"action_count": result.get("action_log", []).size(),
 		"action_log": result.get("action_log", []).duplicate(true),
 		"progress_curve": result.get("progress_curve", []).duplicate(true),
+		"production_geometry_snapshot": result.get("production_geometry_snapshot", {}).duplicate(true),
 		"lane_feedback": result.get("r19_lane_feedback", {}).duplicate(true),
 		"inherited_lane_feedback": inherited_feedback.duplicate(true),
 		"profile": result.get("profile", {}).duplicate(true),

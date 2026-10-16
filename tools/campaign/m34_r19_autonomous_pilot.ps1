@@ -12,6 +12,7 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '../..')).Path
 Import-Module (Join-Path $PSScriptRoot 'm34_r17_pilot_integrity.psm1') -Force
+Import-Module (Join-Path $PSScriptRoot 'm34_r20_recovery.psm1') -Force
 if ([string]::IsNullOrWhiteSpace($EvidenceRoot)) {
 	$EvidenceRoot = Join-Path $repoRoot 'coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19'
 }
@@ -93,8 +94,10 @@ $startIndex = 0
 $stopReason = 'SAMPLE_PLAN_COMPLETE'
 
 function Get-RelativePath([string]$Path) {
-	if ([string]::IsNullOrWhiteSpace($Path) -or -not [IO.File]::Exists($Path)) { return $null }
-	return [IO.Path]::GetRelativePath($EvidenceRoot, [IO.Path]::GetFullPath($Path)).Replace('\','/')
+	if ([string]::IsNullOrWhiteSpace($Path)) { return $null }
+	$fullPath = [IO.Path]::GetFullPath($Path)
+	if (-not ([IO.File]::Exists($fullPath) -or [IO.Directory]::Exists($fullPath))) { return $null }
+	return [IO.Path]::GetRelativePath($EvidenceRoot, $fullPath).Replace('\','/')
 }
 
 function Get-Sha256([string]$Path) {
@@ -155,6 +158,7 @@ try {
 		[void](Publish-R17UniqueJson -Path $preflightPath -Value $preflight)
 	}
 	if ($ResumeAttemptId) {
+		$recoveryResult = Repair-R19IncompleteTrials -EvidenceRoot $EvidenceRoot -AttemptId $attemptId
 		$manifestEvents = @(Get-Content -LiteralPath $manifestPath | ForEach-Object { $_ | ConvertFrom-Json -ErrorAction Stop })
 		$latestCheckpointEvent = @($manifestEvents | Where-Object { $_.event_type -eq 'BATCH_CHECKPOINT' -and $_.attempt_id -ceq $attemptId } | Select-Object -Last 1)
 		if ($latestCheckpointEvent.Count) {
@@ -164,6 +168,19 @@ try {
 			$startIndex = [int]$existingCheckpoint.next_case_index
 			foreach ($trial in @($existingCheckpoint.completed_trials)) { $completed.Add($trial) }
 		}
+		$knownCompletedIds = @{}; foreach ($trial in $completed) { $knownCompletedIds[[string]$trial.trial_attempt_id] = $true }
+		$recoveredFinishes = @($manifestEvents | Where-Object { $_.attempt_id -ceq $attemptId -and $_.event_type -eq 'TRIAL_FINISHED' -and $_.recovered_by -eq 'BCM-M34-R20' })
+		foreach ($event in $recoveredFinishes) {
+			if (-not $knownCompletedIds.ContainsKey([string]$event.trial_attempt_id)) {
+				$recordPath = Join-Path $EvidenceRoot ([string]$event.case_record_path)
+				$completed.Add((Get-Content -Raw -LiteralPath $recordPath | ConvertFrom-Json -ErrorAction Stop))
+				$knownCompletedIds[[string]$event.trial_attempt_id] = $true
+			}
+			$planIndex = -1
+			for ($i=0; $i -lt $samplePlan.Count; $i++) { if ([string]$samplePlan[$i].name -ceq [string]$event.trial_name) { $planIndex=$i; break } }
+			if ($planIndex -ge 0) { $startIndex = [Math]::Max($startIndex, $planIndex + 1) }
+		}
+		if ($recoveredFinishes.Count) { Save-R19Checkpoint -NextIndex $startIndex -Reason 'R20_RECOVERED_INTERRUPTED_TRIALS' }
 	}
 	$planEvent = [ordered]@{
 		event_id=[guid]::NewGuid().ToString('N');event_type='PILOT_PLAN';attempt_id=$attemptId;role=$attemptRole;parent_attempt_id=$ParentAttemptId;parent_trial_attempt_id=$parentTrialAttemptId;provenance=$provenance;policy='R19_FEEDBACK_AWARE_V01'
