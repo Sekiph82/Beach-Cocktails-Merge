@@ -1,0 +1,9 @@
+# BCM-M34-R21 Independent Audit V01
+
+**Verdict: R21 narrow qualification gate PASS; campaign-wide qualification remains OPEN.** Reviewed GitHub builder log and committed outcome-summary JSON; this review did not execute Godot or visually inspect the owner game.
+
+A genuine new **WIN_OBSERVED** is recorded for Sunny Cove L25, normal goals complete (20/20 T), 55 of 80 permitted shots, standard physics 60Hz at timescale 1, no fixed-FPS acceleration and VIP disabled. This establishes observed reachability only for that precise configuration/run, not repeatable wins or fairness across seeds. Seven distinct legal x lanes (150,220,290,360,430,500,570); selected/requested/fired x matched, all selections top-ranked. Previous R21 L25 run recorded LOSS_OBSERVED with 4/20 progress after 80/80 shots. Two startup ERROR attempts were preserved and finalized; outcome summary has four attempts and no incomplete pairs per builder. This is a significant improvement from R20 all-center shots.
+
+Builder reported spatial probe 48 assertions PASS, Studio probe 22 PASS, geometry/recovery/move-limit probes PASS and ten regressions PASS. World Map UID fallback warning remains open but the corresponding regression passed. No independent native visual or device acceptance; no 1000-level batch yet.
+
+**Decision: authorize only one small audited expansion (R22), not a blanket 1000-level run.** A win beyond L1 meets the previously locked broader *eligibility* gate, but one winning run is not sufficient evidence to launch all 1000 in one batch. R22 should test a bounded representative cross-island cohort with strict global wall and individual watchdog, append-only trace integrity, cost estimate and distinct-level wins, report seed variability and no false impossible claims. If zero additional distinct wins or poor progress, stop batch escalation and diagnose. Owner NEVER manually plays 1000 levels. Root TASKS remains OPEN.
