@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex runs R21 spatial lane-differentiated objective-aware bot pilot after R20's center-lane tie failure; no broader batch pending real non-L1 success.
+- Next Task/Action: BCM-M33-004 — Codex executes R22 bounded cross-island autonomous pilot (12-16 levels, max 20 min); full 1000-level test not yet authorized.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R20 independent audit: R19 orphan recovered idempotently, recovery 11 assertions and lookahead 14 assertions builder PASS, 10 regression groups PASS. One Sunny Cove L25 standard-physics run LOSS_OBSERVED TABLE_DANGER after 19 of 80 legal 4T shots with zero objective progress; all shots x=360 center because seven candidate scores tied. No impossibility inference. R21 prioritizes spatial scoring, diversified safe lanes, tie handling and one bounded nontrivial trial. M33-004 remains OPEN; owner is not required to play 1000 levels.
+- Progress: R21 independent evidence audit PASS for narrow non-L1 win: Sunny Cove L25 WIN_OBSERVED under standard production physics, 20/20 T completed in 55/80 shots with all seven legal x lanes; separate L25 loss 4/20 T in 80 shots and two finalized startup errors. R21 lane probe 48, Studio probe 22, regressions 10/10 PASS per builder. This proves one run/seed, not universal fairness. R22 limited cross-island pilot allowed; 1000-level qualification remains OPEN. Owner never manually plays all levels.
 
 ## Blockers/Waits
 
