@@ -8,6 +8,8 @@ extends Node
 var _pending: Array[Dictionary] = []
 var _flush_scheduled := false
 
+signal qualification_merge_completed(first_instance_id: int, second_instance_id: int, result_instance_id: int, new_level: int)
+
 
 func request_merge(a: Drink, b: Drink, new_level: int) -> void:
     if not is_instance_valid(a) or not is_instance_valid(b) or a == b:
@@ -128,3 +130,5 @@ func _do_merge(a: Drink, b: Drink, new_level: int, merge_pos: Vector2, merge_vel
         GameManager.instance.call_deferred("try_chain_merge", new_drink)
 
     GameManager.instance.on_merged(new_level, new_drink)
+    if OS.get_environment("BCM_M34_R18_STUDIO") == "1" and Engine.has_meta("bcm_m34_r18_studio_enabled") and bool(Engine.get_meta("bcm_m34_r18_studio_enabled")):
+        qualification_merge_completed.emit(a.get_instance_id(), b.get_instance_id(), new_drink.get_instance_id(), new_level)

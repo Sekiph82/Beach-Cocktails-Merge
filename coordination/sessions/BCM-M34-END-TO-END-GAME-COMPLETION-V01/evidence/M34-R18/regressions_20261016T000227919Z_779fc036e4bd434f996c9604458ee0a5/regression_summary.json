@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R18",
+  "run_id": "20261016T000227919Z_779fc036e4bd434f996c9604458ee0a5",
+  "status": "ALL_REQUESTED_REGRESSIONS_PASS",
+  "appdata_isolated": true,
+  "isolated_profile_path": "C:\\Users\\sekip\\AppData\\Local\\BeachCocktailsMerge\\M34-R18-Regression",
+  "tasks_blob_before": "9eecd67f57b76d5f8a4d97e2d62f35f1e1ab1d6d",
+  "tasks_blob_after": "9eecd67f57b76d5f8a4d97e2d62f35f1e1ab1d6d",
+  "tasks_unchanged": true,
+  "import": {
+    "schema_version": 1,
+    "task": "BCM-M34-R18-IMPORT-20261016T000227919Z_779fc036e4bd434f996c9604458ee0a5",
+    "status": "EXITED",
+    "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+    "started_utc": "2026-10-16T00:02:27.9992392Z",
+    "finished_utc": "2026-10-16T00:02:39.8976783Z",
+    "wall_elapsed_ms": 11900,
+    "timeout_seconds": 120,
+    "file_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+    "root_pid": 25472,
+    "root_identity_verified": true,
+    "task_token": "e9fce892bc8245f5b88f026634e8f99a",
+    "exit_code": 0,
+    "terminated_processes": [],
+    "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m\r\n[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m\r\n[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m\r\n[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m\r\n[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m\r\nGFFEffectConfigManager: Registered configs\r\nGame Feel Flow: Registered 31 effects\r\nGame Feel Flow: Plugin enabled\r\nMCP | plugin disabled in headless mode\r\n[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m\r\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m\r\n\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | Started Registering global classes... (2 steps)\u001b[39m\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\r\n[  33% ] \u001b[90m\u001b[1mupdate_scripts_classes\u001b[22m | \u001b[39m\u001b[0m\r\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mupdate_scripts_classes\u001b[22m\r\n\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Started Loading editor (5 steps)\u001b[39m\u001b[0m\r\n[   0% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading editor layout...\u001b[39m\u001b[0m\r\n[  16% ] \u001b[90m\u001b[1mloading_editor_layout\u001b[22m | Loading docks...\u001b[39m\u001b[0m\r\n\u001b[92m[ DONE ]\u001b[39m \u001b[1mloading_editor_layout\u001b[22m\r\n\u001b[0m\r\nGame Feel Flow: Plugin disabled\r\n",
+    "stderr": "",
+    "partial_progress": null
+  },
+  "tests": [
+    {
+      "name": "economy_35",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 1320,
+      "pass": true,
+      "artifact": "economy_35.watchdog.json"
+    },
+    {
+      "name": "daily_38",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 1344,
+      "pass": true,
+      "artifact": "daily_38.watchdog.json"
+    },
+    {
+      "name": "navigation_17",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 73237,
+      "pass": true,
+      "artifact": "navigation_17.watchdog.json"
+    },
+    {
+      "name": "m14_bridge_66",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 2912,
+      "pass": true,
+      "artifact": "m14_bridge_66.watchdog.json"
+    },
+    {
+      "name": "m15_vip_economy_63",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 6351,
+      "pass": true,
+      "artifact": "m15_vip_economy_63.watchdog.json"
+    },
+    {
+      "name": "production_routes",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 17718,
+      "pass": true,
+      "artifact": "production_routes.watchdog.json"
+    },
+    {
+      "name": "scene_uid",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 940,
+      "pass": true,
+      "artifact": "scene_uid.watchdog.json"
+    },
+    {
+      "name": "slim_content",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 592,
+      "pass": true,
+      "artifact": "slim_content.watchdog.json"
+    },
+    {
+      "name": "vip_optional",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 919,
+      "pass": true,
+      "artifact": "vip_optional.watchdog.json"
+    },
+    {
+      "name": "startup_smoke",
+      "status": "EXITED",
+      "watchdog_exit": 0,
+      "child_exit": 0,
+      "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+      "wall_elapsed_ms": 2452,
+      "pass": true,
+      "artifact": "startup_smoke.watchdog.json"
+    }
+  ],
+  "passed_tests": 10,
+  "total_tests": 10
+}

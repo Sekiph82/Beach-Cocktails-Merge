@@ -3,6 +3,8 @@ extends Node2D
 
 signal campaign_session_terminal(result: Dictionary)
 signal campaign_order_completed(level: int, quantity: int)
+signal qualification_drink_spawned(instance_id: int, level: int, held: bool)
+signal qualification_delivery_diagnostic(instance_id: int, objective_kind: String, level: int, accepted: int)
 
 ## Root game coordinator.
 ## Physics stays genuinely 2D, while the board geometry and drink artwork use
@@ -162,7 +164,10 @@ var _table_y_offset_canonical := 0.0
 
 func _ready() -> void:
 	instance = self
-	randomize()
+	if _qualification_studio_enabled() and Engine.has_meta("bcm_m34_r18_seed"):
+		seed(int(Engine.get_meta("bcm_m34_r18_seed")))
+	else:
+		randomize()
 
 	if not Drink.load_data():
 		push_error("Drink verisi yuklenemedi. Oyun baslatilamiyor.")
@@ -1044,6 +1049,8 @@ func spawn_drink(p_level: int, pos: Vector2, held: bool = false) -> Drink:
 	drink.merged.connect(merge_queue.request_merge)
 	drink.table_contact.connect(_on_table_contact)
 	world.add_child(drink)
+	if _qualification_studio_enabled():
+		qualification_drink_spawned.emit(drink.get_instance_id(), p_level, held)
 
 	if held:
 		drink.set_held()
@@ -1974,7 +1981,9 @@ func _finish_target_collection() -> void:
 	if campaign_session_bridge != null and campaign_session_bridge.is_session_active():
 		campaign_session_bridge.set_current_score(score)
 		var delivery_id := "gameplay-order-%d" % _order_sequence
-		campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
+		var delivery_result: Dictionary = campaign_session_bridge.record_to_go_delivery(completed_level, 1, delivery_id, score)
+		if _qualification_studio_enabled() and is_instance_valid(drink):
+			qualification_delivery_diagnostic.emit(drink.get_instance_id(), "NORMAL", completed_level, int(delivery_result.get("accepted", 0)))
 		_to_go_progress_label.text = _normal_progress_text(completed_level)
 		campaign_order_completed.emit(completed_level, 1)
 		if campaign_session_bridge.is_terminal():
@@ -2026,6 +2035,8 @@ func _finish_vip_target() -> void:
 		var vip_was_completed := bool(campaign_session_bridge.get_vip_state().get("completed", false))
 		var result: Dictionary = campaign_session_bridge.record_vip_delivery(delivered_level, 1)
 		var accepted := int(result.get("accepted", 0)) if bool(result.get("ok", false)) else 0
+		if _qualification_studio_enabled() and is_instance_valid(drink):
+			qualification_delivery_diagnostic.emit(drink.get_instance_id(), "VIP", delivered_level, accepted)
 		if accepted > 0 and bool(result.get("vip_completed", false)):
 			_emit_score_threshold_crossings(score, best_score)
 		var vip_bonus := VIP_DELIVERY_MULTIPLIER * Drink.order_reward(delivered_level) * accepted
@@ -2208,3 +2219,7 @@ func _spawn_to_go_trail(start: Vector2, target: Vector2, duration: float) -> voi
 func _draw() -> void:
 	# All table/HUD-facing artwork is supplied by canonical V7 assets.
 	pass
+
+
+func _qualification_studio_enabled() -> bool:
+	return OS.get_environment("BCM_M34_R18_STUDIO") == "1" and Engine.has_meta("bcm_m34_r18_studio_enabled") and bool(Engine.get_meta("bcm_m34_r18_studio_enabled"))
