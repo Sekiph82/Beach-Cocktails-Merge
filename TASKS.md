@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex executes R18-FIX01 after owner screenshot shows native Studio controls clipped/overlaid on World Map; repeat visual acceptance only after actual GUI fix.
+- Next Task/Action: BCM-M33-004 — Codex begins R19 automated campaign qualification: production geometry/input parity, feedback-guided bot, bounded multi-island batch pilot; owner is NOT expected to play 1000 levels.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R18 headless contracts/regressions builder PASS but owner authentic native screenshot 2026-10-16 demonstrates GUI FAIL: Studio title, selector, status and toolbar collide with World Map masthead; controls clipped horizontally across portrait viewport. R18 native visual acceptance NOT GRANTED. Fix z-order and build responsive readable desktop sidebar / portrait fallback before asking owner to retest. M33-004 remains OPEN, 1000 levels unqualified; protect all owner local files.
+- Progress: R18 FIX01 updated Studio layout, 22 focused probes and ten regressions PASS per builder but native GUI still UNVERIFIED; earlier owner screenshots demonstrated broken overlay/aim usability. Owner explicitly rejects manual 1000-level play; Studio is only optional case debugger. R19 priority is autonomous bot-based qualification of 10x100 levels, exact production geometry/input and 4T budgets, observed win/unknown/error classifications, small measurable pilot before scaling. M33-004 OPEN. Preserve Desktop owner edits and avoid GB-size temp/worktree bloat.
 
 ## Blockers/Waits
 
