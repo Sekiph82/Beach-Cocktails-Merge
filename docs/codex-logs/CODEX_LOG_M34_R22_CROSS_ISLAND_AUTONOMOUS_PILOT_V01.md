@@ -34,6 +34,7 @@
 
 - Staging contains only the R22 runner, trace-integrity tool, builder log, and R22 evidence (107 files). Generated isolated AppData and regression userdata are excluded. The eight pre-existing tracked owner diffs and all pre-existing untracked owner/prior-task artifacts remain unstaged.
 - Staged whitespace validation: `git -c core.whitespace=cr-at-eol diff --cached --check` passed. The evidence JSON uses Windows CRLF; the repository's `cr-at-eol` setting is required for Git's whitespace check to treat those captured transcripts as CRLF rather than trailing spaces.
-- Implementation/evidence commit SHA: pending.
-- Final publication check `HEAD = origin/main = remote refs/heads/main`, ahead/behind `0/0`: pending.
+- Implementation/evidence commit SHA: `ce5b4d05efbd386a76ab40e26b26e703cc991dbb`.
+- After the implementation push and before this log-only follow-up, verified `HEAD = origin/main = remote refs/heads/main = ce5b4d05efbd386a76ab40e26b26e703cc991dbb`, ahead/behind `0/0`. Root `TASKS.md` worktree and commit blob both equal `851007a40296a8dd553d8692651cae22decf6d3f`.
+- The eight inventoried tracked owner diffs, all prior untracked owner/evidence artifacts, and isolated R22 AppData remain unstaged and preserved. The log-only follow-up changes no project or tracker files.
 - Root `TASKS.md` remains unchanged. Builder stop marker: `AWAITING_GPT_M34_R22_INDEPENDENT_AUDIT`.
