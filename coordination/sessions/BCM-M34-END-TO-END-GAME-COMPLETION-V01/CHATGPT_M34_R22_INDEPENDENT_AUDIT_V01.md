@@ -1,0 +1,13 @@
+# BCM-M34-R22 INDEPENDENT AUDIT V01
+
+Verdict: **R22 bounded pilot ACCEPTED WITH METADATA RESERVATION; BCM-M33-004 OPEN.** Reviewed GitHub builder log, immutable pilot attempt summary and R22 trace-integrity audit. Independent audit did not execute Godot or rehash raw trial bytes.
+
+Pilot planned 12 and completed 11 trials across four islands in 1,127,726ms (18m47.7s) under global 1200s. Remaining case was correctly deferred for watchdog reserve. 3 distinct WIN_OBSERVED: Sunny Cove L10 (61/64, T16/16), Tiki L10 (82/96, T24/24), Tiki L40 (97/160, T40/40); 8 BUDGET_UNKNOWN, 0 loss, 0 trial error; only one zero-progress case. Cross-island wins now demonstrated on Sunny Cove and Tiki. No level declared impossible; wins prove observed runs only.
+
+Integrity audit reports 11/11 matching trial starts/finishes, checkpoint/hash checks and zero lane-selection/input/fired parity mismatches. Critical provenance reservation: four runner VIP-disabled claims conflict with immutable trace VIP-enabled values (Sunny L40/L80, Tiki L40, Azure L45). Append-only clarification acknowledges actual flags; the winning Tiki L40 run MUST be labelled VIP-enabled (optional VIP not required for the normal objective), not falsely VIP-disabled. The true normal-objective and exact 4T win stands subject to independently checking immutable traces.
+
+Builder reports spatial probe 48, recovery 11, fresh editor import plus ten regressions PASS. No native GUI/phone testing, no 1000-level execution, and no statistical fairness or all-seed win guarantee.
+
+Cost check: naïve 1000-level extrapolation 100,535 seconds (~27.9 hours) and ~6.13GB evidence if unchanged. Sample is small and timed-out selections biased; these are rough estimates, not promises. Owner has objected to disk bloat and manual 1000-level play. A 1000-level batch is NOT blanket-authorized by this audit.
+
+**Decision**: authorize a first bounded R23 *screening cohort*, not 1000 levels: 10 islands x up to 3 levels, <=35 minutes wall, per trial bounded, hard disk ceiling for NEW task files <=250MB, streaming/compressed minimal evidence, no duplicate live/final traces and no repeated editor import caches. Prioritize verifying the VIP source/runner case flag before more trials and require a machine-verifiable per-trial provenance check, abort on mismatch rather than silently correcting. Report distinct wins, progress, unknowns and resource costs. Stop and reassess if no wins on a third island or if metadata mismatches recur. Expansion beyond this cohort requires fresh GPT audit; never ask owner to manually play campaign. Preserve owner files/stashes, no gameplay/economy changes.
