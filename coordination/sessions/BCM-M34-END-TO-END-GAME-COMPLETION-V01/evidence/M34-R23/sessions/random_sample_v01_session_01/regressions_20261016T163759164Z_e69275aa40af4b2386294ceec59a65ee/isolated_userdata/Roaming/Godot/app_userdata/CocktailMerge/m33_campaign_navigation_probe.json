@@ -1,0 +1,5101 @@
+{
+	"boosters": {},
+	"coins": 100,
+	"daily_claim_ledger": {},
+	"daily_high_water_utc_date": "",
+	"energy": 100,
+	"energy_attempt_ledger": {},
+	"energy_last_update_unix": 1792168710,
+	"energy_regen_remainder_sec": 0,
+	"gems": 5,
+	"islands": {
+		"azure_bay": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"billionaire_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"coconut_beach": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"final_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"frozen_paradise": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"party_beach": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"sunny_cove": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"sunset_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"tiki_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		},
+		"volcano_bay": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {
+				"1": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"10": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"100": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"11": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"12": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"13": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"14": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"15": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"16": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"17": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"18": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"19": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"2": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"20": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"21": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"22": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"23": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"24": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"25": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"26": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"27": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"28": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"29": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"3": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"30": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"31": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"32": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"33": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"34": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"35": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"36": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"37": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"38": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"39": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"4": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"40": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"41": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"42": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"43": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"44": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"45": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"46": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"47": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"48": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"49": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"5": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"50": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"51": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"52": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"53": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"54": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"55": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"56": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"57": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"58": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"59": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"6": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"60": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"61": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"62": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"63": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"64": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"65": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"66": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"67": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"68": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"69": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"7": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"70": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"71": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"72": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"73": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"74": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"75": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"76": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"77": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"78": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"79": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"8": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"80": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"81": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"82": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"83": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"84": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"85": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"86": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"87": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"88": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"89": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"9": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"90": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"91": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"92": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"93": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"94": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"95": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"96": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"97": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"98": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				},
+				"99": {
+					"best_score": 100,
+					"completed": true,
+					"stars": 1
+				}
+			},
+			"highest_unlocked_level": 100
+		}
+	},
+	"legacy_best_score": 0,
+	"m33_forward_compatibility_marker": "unknown-field-preserved",
+	"retired_focus_inventory": 0,
+	"reward_ledger": [],
+	"schema_version": 4,
+	"transaction_ledger": [],
+	"unlocked_islands": [
+		"azure_bay",
+		"billionaire_island",
+		"coconut_beach",
+		"final_island",
+		"frozen_paradise",
+		"party_beach",
+		"sunny_cove",
+		"sunset_island",
+		"tiki_island",
+		"volcano_bay"
+	]
+}

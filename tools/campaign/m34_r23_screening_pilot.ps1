@@ -3,6 +3,11 @@ param(
 	[string]$EvidenceRoot = '',
 	[ValidateRange(30, 120)][int]$TrialTimeoutSeconds = 120,
 	[ValidateRange(120, 2100)][int]$GlobalBudgetSeconds = 2100,
+	[int]$SamplingSeed = 20261016,
+	[string]$SelectionManifestPath = '',
+	[string[]]$PriorSessionRoots = @(),
+	[string]$SharedAppDataRoot = '',
+	[switch]$PlanOnly,
 	[string]$ResumeAttemptId = '',
 	[string]$RetryCaseName = '',
 	[string]$ParentAttemptId = ''
@@ -34,10 +39,12 @@ $drive = [IO.Path]::GetPathRoot($env:TEMP).Substring(0,1)
 $freeBefore = [long](Get-Volume -DriveLetter $drive).SizeRemaining
 
 $samplePlan = @()
-$attemptRole = 'R23_TEN_ISLAND_SCREENING_COHORT'
+$selectionManifest = $null
+$selectionManifestSha256 = ''
+$attemptRole = 'R23_10PCT_RANDOM_SAMPLE_SESSION'
 $parentTrialAttemptId = ''
 $parentObjectiveProgress = 0
-$provenance = 'Preselected differentiated 12-case cross-island pilot; fixed per-case seeds; R21 spatial lane policy; production ShotController and Godot physics; maximum 120-second watchdog per trial and 20-minute global budget.'
+$provenance = 'Owner-updated 100-level random sample; SHA-256 seeded selection without replacement, 10 interleaved rounds; R21 spatial lane policy; production ShotController and Godot physics; maximum 120-second watchdog and 35-minute wall per session.'
 $inheritedFeedbackPath = ''
 if (-not [string]::IsNullOrWhiteSpace($RetryCaseName)) {
 	if ([string]::IsNullOrWhiteSpace($ParentAttemptId)) { throw 'Adaptive retry requires ParentAttemptId.' }
@@ -71,8 +78,9 @@ if ([string]::IsNullOrWhiteSpace($ResumeAttemptId)) {
 	if (@($manifestEvents | Where-Object { $_.event_type -eq 'ATTEMPT_FINISHED' -and $_.attempt_id -ceq $attemptId }).Count) { throw 'Finished attempts are immutable and cannot be resumed.' }
 }
 
-$appDataRoaming = Join-Path $attemptPath 'isolated_appdata_roaming'
-$appDataLocal = Join-Path $attemptPath 'isolated_appdata_local'
+$appDataRoot = if ([string]::IsNullOrWhiteSpace($SharedAppDataRoot)) { $attemptPath } else { [IO.Path]::GetFullPath($SharedAppDataRoot) }
+$appDataRoaming = Join-Path $appDataRoot $(if ([string]::IsNullOrWhiteSpace($SharedAppDataRoot) -or [IO.Directory]::Exists((Join-Path $appDataRoot 'isolated_appdata_roaming'))) { 'isolated_appdata_roaming' } else { 'Roaming' })
+$appDataLocal = Join-Path $appDataRoot $(if ([string]::IsNullOrWhiteSpace($SharedAppDataRoot) -or [IO.Directory]::Exists((Join-Path $appDataRoot 'isolated_appdata_local'))) { 'isolated_appdata_local' } else { 'Local' })
 [IO.Directory]::CreateDirectory($appDataRoaming) | Out-Null
 [IO.Directory]::CreateDirectory($appDataLocal) | Out-Null
 $oldAppData = $env:APPDATA
@@ -150,7 +158,7 @@ function Save-R19Checkpoint([int]$NextIndex, [string]$Reason) {
 		per_level_state=@($preflightRows)
 		outcome_counts=@{WIN_OBSERVED=@($completed | Where-Object classification -eq 'WIN_OBSERVED').Count;LOSS_OBSERVED=@($completed | Where-Object classification -eq 'LOSS_OBSERVED').Count;BUDGET_UNKNOWN=@($completed | Where-Object classification -eq 'BUDGET_UNKNOWN').Count;ERROR=@($completed | Where-Object classification -eq 'ERROR').Count}
 		vip_provenance_status=if($stopReason -eq 'VIP_PROVENANCE_MISMATCH' -or @($completed|Where-Object{[bool]$_.runner_case_vip_enabled -ne [bool]$_.optional_vip_enabled}).Count){'FAIL_CLOSED_MISMATCH'}else{'PASS_ALL_RECORDED_TRIALS'}
-		third_island_win_gate=if($winIslandIds.Count -ge 3){'THIRD_WIN_ISLAND_OBSERVED'}else{'STOP_AND_RETURN_FOR_AUDIT_NO_THIRD_WIN_ISLAND'}
+		third_island_win_gate='NOT_A_STOP_CONDITION_IN_OWNER_UPDATED_R23'
 	}
 	$published = Publish-R17UniqueJson -Path $checkpointPath -Value $checkpoint
 	Add-R17ManifestEvent -ManifestPath $manifestPath -Event ([ordered]@{
@@ -174,15 +182,63 @@ try {
 		}
 	}
 	if ($preflightRows.Count -ne 1000) { throw "Static plan enumerated $($preflightRows.Count) records, expected 1000." }
-	$samplePlan = @()
-	foreach ($bandSpec in @(@{band='early';level=1},@{band='middle';level=50},@{band='late';level=90})) {
+	if ([string]::IsNullOrWhiteSpace($SelectionManifestPath)) { $SelectionManifestPath = Join-Path (Join-Path $EvidenceRoot 'qualification') ("r23_random_selection_seed_{0}_v01.json" -f $SamplingSeed) }
+	$SelectionManifestPath = [IO.Path]::GetFullPath($SelectionManifestPath)
+	[IO.Directory]::CreateDirectory((Split-Path -Parent $SelectionManifestPath)) | Out-Null
+	if (-not [IO.File]::Exists($SelectionManifestPath)) {
+		$sha = [Security.Cryptography.SHA256]::Create()
+		$counter = 0
+		$bounded = { param([int]$MaxExclusive,[string]$Stream) if($MaxExclusive -le 0){throw 'Invalid deterministic RNG bound.'}; $range=[uint64]4294967296; $limit=[uint64]([Math]::Floor($range/[double]$MaxExclusive)*$MaxExclusive); while($true){$bytes=[Text.Encoding]::UTF8.GetBytes("$SamplingSeed|$Stream|$counter");$counter++;$digest=$sha.ComputeHash($bytes);$value=[uint64][BitConverter]::ToUInt32($digest,0);if($value -lt $limit){return [int]($value % [uint64]$MaxExclusive)}} }
+		$selectionByIsland = @{}
 		foreach ($island in @($campaignData.islands | Sort-Object {[int]$_.order_index})) {
-			$row = @($preflightRows | Where-Object {$_.island_id -ceq [string]$island.id -and [int]$_.level_id -eq [int]$bandSpec.level} | Select-Object -First 1)
-			if (-not $row.Count) { throw "R23 sample level missing from canonical data: $($island.id)/$($bandSpec.level)" }
-			$samplePlan += [pscustomobject]@{name=("{0}_{1}_l{2}" -f [string]$island.id,$bandSpec.band,[int]$bandSpec.level);island=[string]$island.id;level=[int]$bandSpec.level;seed=(34230000+[int]$row[0].global_level_id);band=[string]$bandSpec.band;optional_vip_enabled=[bool]$row[0].canonical_vip_enabled}
+			$levels = [System.Collections.Generic.List[int]]::new(); for($n=1;$n -le 100;$n++){$levels.Add($n)}
+			for($i=$levels.Count-1;$i -gt 0;$i--){$j=&$bounded ($i+1) ([string]$island.id);$tmp=$levels[$i];$levels[$i]=$levels[$j];$levels[$j]=$tmp}
+			$selectionByIsland[[string]$island.id] = @($levels | Select-Object -First 10)
+		}
+		$selected = [System.Collections.Generic.List[object]]::new()
+		for($round=0;$round -lt 10;$round++) { foreach($island in @($campaignData.islands | Sort-Object {[int]$_.order_index})) { $levelId=[int]$selectionByIsland[[string]$island.id][$round]; $row=@($preflightRows|Where-Object{$_.island_id -ceq [string]$island.id -and [int]$_.level_id -eq $levelId}|Select-Object -First 1);if(-not $row.Count){throw "Selected level absent from canonical records: $($island.id)/$levelId"};$selected.Add([ordered]@{round=$round+1;island_id=[string]$island.id;level_id=$levelId;global_level_id=[int]$row[0].global_level_id;case_seed=(34230000+[int]$row[0].global_level_id);runner_case_vip_enabled=[bool]$row[0].canonical_vip_enabled;vip_requirement='NOT_REQUIRED'}) } }
+		$manifestValue=[ordered]@{schema_version=1;work_item='BCM-M34-R23';sampling_rule='10 unique random levels per island, without replacement; reproducible interleaved rounds';algorithm='SHA-256(seed|island|counter) deterministic uint32 rejection sampling + Fisher-Yates';seed=$SamplingSeed;island_count=10;levels_per_island=100;sampled_per_island=10;total_selected=100;created_before_any_new_trial_utc=[DateTime]::UtcNow.ToString('o');selection=@($selected)}
+		$null=$sha.Dispose();[void](Publish-R17UniqueJson -Path $SelectionManifestPath -Value $manifestValue)
+	}
+	$selectionManifest=Get-Content -Raw -LiteralPath $SelectionManifestPath|ConvertFrom-Json -ErrorAction Stop
+	if([int]$selectionManifest.seed -ne $SamplingSeed -or [int]$selectionManifest.total_selected -ne 100 -or @($selectionManifest.selection).Count -ne 100){throw 'Selection manifest schema/seed/count mismatch.'}
+	$selectedKeys = @{}; foreach($selectedItem in $selectionManifest.selection){$selectedKeys[('{0}/{1}' -f [string]$selectedItem.island_id,[int]$selectedItem.level_id)]=$true}
+	foreach($island in @($campaignData.islands|Sort-Object {[int]$_.order_index})) { $expectedIslandId=[string]$island.id; $islandCases=@($selectionManifest.selection|Where-Object { $_.island_id -ceq $expectedIslandId }); if($islandCases.Count -ne 10 -or @($islandCases.level_id|Sort-Object -Unique).Count -ne 10){throw "Selection manifest does not have 10 unique levels for $expectedIslandId."} }
+	foreach($item in $selectionManifest.selection){$row=@($preflightRows|Where-Object{$_.island_id -ceq [string]$item.island_id -and [int]$_.level_id -eq [int]$item.level_id -and [int]$_.global_level_id -eq [int]$item.global_level_id}|Select-Object -First 1);if(-not $row.Count -or [int]$item.case_seed -ne (34230000+[int]$item.global_level_id) -or [bool]$item.runner_case_vip_enabled -ne [bool]$row[0].canonical_vip_enabled){throw 'Selection manifest record does not match canonical campaign data.'};$samplePlan+= [pscustomobject]@{name=("{0}_random_l{1:D2}" -f [string]$item.island_id,[int]$item.level_id);island=[string]$item.island_id;level=[int]$item.level_id;global_level_id=[int]$item.global_level_id;seed=[int]$item.case_seed;band=('round_{0:D2}' -f [int]$item.round);optional_vip_enabled=[bool]$item.runner_case_vip_enabled} }
+	$selectionManifestSha256=Get-Sha256 $SelectionManifestPath
+	if ($samplePlan.Count -ne 100) { throw "R23 sampled $($samplePlan.Count) cases, expected 100." }
+	$fullSamplePlan = @($samplePlan)
+	$priorCompletedKeys = @{}
+	foreach ($priorRoot in $PriorSessionRoots) {
+		$priorRoot = [IO.Path]::GetFullPath((Resolve-Path -LiteralPath $priorRoot).Path)
+		$priorManifest = Join-Path $priorRoot 'attempt_manifest.jsonl'
+		if (-not [IO.File]::Exists($priorManifest)) { throw "Prior R23 session manifest is missing: $priorRoot" }
+		$priorEvents = @(Get-Content -LiteralPath $priorManifest | ForEach-Object { $_ | ConvertFrom-Json -ErrorAction Stop })
+		$priorIds = @($priorEvents | ForEach-Object { [string]$_.event_id })
+		if (@($priorIds | Sort-Object -Unique).Count -ne $priorIds.Count) { throw "Prior R23 session has duplicate manifest event IDs: $priorRoot" }
+		$priorAttemptIds = @($priorEvents | Where-Object event_type -eq 'ATTEMPT_STARTED' | ForEach-Object { [string]$_.attempt_id } | Sort-Object -Unique)
+		foreach ($priorId in $priorAttemptIds) {
+			$priorStart = @($priorEvents | Where-Object { $_.event_type -eq 'ATTEMPT_STARTED' -and $_.attempt_id -ceq $priorId })
+			$priorEnd = @($priorEvents | Where-Object { $_.event_type -eq 'ATTEMPT_FINISHED' -and $_.attempt_id -ceq $priorId })
+			if ($priorStart.Count -ne 1 -or $priorEnd.Count -ne 1) { throw "Prior R23 attempt is not fully closed: $priorId" }
+			$priorStarts = @($priorEvents | Where-Object { $_.event_type -eq 'TRIAL_STARTED' -and $_.attempt_id -ceq $priorId })
+			$priorFinishes = @($priorEvents | Where-Object { $_.event_type -eq 'TRIAL_FINISHED' -and $_.attempt_id -ceq $priorId })
+			$priorPlan = @($priorEvents | Where-Object { $_.event_type -eq 'PILOT_PLAN' -and $_.attempt_id -ceq $priorId })
+			if ($priorPlan.Count -eq 0 -and $priorStarts.Count -eq 0 -and $priorFinishes.Count -eq 0 -and [string]$priorEnd[0].status -eq 'PREFLIGHT_ERROR') { continue }
+			if ($priorPlan.Count -ne 1 -or [string]$priorPlan[0].selection_manifest_sha256 -cne $selectionManifestSha256) { throw "Prior attempt did not use the same frozen selection manifest: $priorId" }
+			if ($priorStarts.Count -ne $priorFinishes.Count) { throw "Prior R23 attempt contains an incomplete trial: $priorId" }
+			foreach ($priorFinish in $priorFinishes) {
+				$key = '{0}/{1}' -f [string]$priorFinish.case.island_id,[int]$priorFinish.case.level_id
+				if (-not $selectedKeys.ContainsKey($key) -or $priorCompletedKeys.ContainsKey($key)) { throw "Prior R23 attempts contain an unselected or duplicate trial: $key" }
+				$priorRecordPath = Join-Path $priorRoot ([string]$priorFinish.case_record_path).Replace('/','\')
+				$priorTracePath = Join-Path $priorRoot ([string]$priorFinish.trace_path).Replace('/','\')
+				if (-not [IO.File]::Exists($priorRecordPath) -or -not [IO.File]::Exists($priorTracePath) -or (Get-Sha256 $priorRecordPath) -cne [string]$priorFinish.case_record_sha256 -or (Get-Sha256 $priorTracePath) -cne [string]$priorFinish.trace_file_sha256) { throw "Prior R23 trial evidence hash/path mismatch: $key" }
+				$priorCompletedKeys[$key] = $true
+			}
 		}
 	}
-	if ($samplePlan.Count -ne 30) { throw "R23 sampled $($samplePlan.Count) cases, expected 30." }
+	if ($priorCompletedKeys.Count) { $samplePlan = @($fullSamplePlan | Where-Object { -not $priorCompletedKeys.ContainsKey(('{0}/{1}' -f $_.island,$_.level)) }) }
+	if ($samplePlan.Count -ne (100 - $priorCompletedKeys.Count)) { throw 'R23 remaining queue count does not reconcile with prior closed session evidence.' }
 	$preflightPath = Join-Path $attemptPath 'campaign_static_preflight.json'
 	if (-not [IO.File]::Exists($preflightPath)) {
 		$preflight = [ordered]@{schema_version=1;work_item='BCM-M34-R23';status='STATIC_RECORDS_ENUMERATED_PHYSICAL_OUTCOMES_PENDING';expected_record_count=1000;enumerated_record_count=$preflightRows.Count;island_count=10;levels_per_island=100;created_utc=[DateTime]::UtcNow.ToString('o');levels=@($preflightRows)}
@@ -223,8 +279,8 @@ try {
 		inherited_feedback_path=if($inheritedFeedbackPath){[IO.Path]::GetRelativePath($EvidenceRoot,$inheritedFeedbackPath).Replace('\','/')}else{$null}
 		inherited_feedback_sha256=if($inheritedFeedbackPath){Get-Sha256 $inheritedFeedbackPath}else{$null}
 		static_preflight_path=Get-RelativePath $preflightPath;static_preflight_sha256=Get-Sha256 $preflightPath
-		sample_cases=@($samplePlan | ForEach-Object {@{name=$_.name;island_id=$_.island;level_id=$_.level;seed=$_.seed;difficulty_band=$_.band;runner_case_vip_enabled=$_.optional_vip_enabled;vip_requirement='NOT_REQUIRED'}})
-		stop_rule='R23 only: 10 islands x up to 3 levels, first round one per island before seconds; max 2100 seconds global, max 120 seconds per trial, one physics job at a time, hard 250MB retained task evidence cap. Stop on any VIP provenance mismatch or no new observed win on a third island. BUDGET_UNKNOWN never means impossible; no automatic expansion.'
+		sampling_seed=[int]$selectionManifest.seed;selection_manifest_path=[IO.Path]::GetRelativePath($EvidenceRoot,$SelectionManifestPath).Replace('\','/');selection_manifest_sha256=$selectionManifestSha256;prior_session_roots=@($PriorSessionRoots);prior_completed_level_keys=@($priorCompletedKeys.Keys|Sort-Object);remaining_sample_count=$samplePlan.Count;sample_cases=@($samplePlan | ForEach-Object {@{name=$_.name;island_id=$_.island;level_id=$_.level;global_level_id=$_.global_level_id;seed=$_.seed;round=$_.band;runner_case_vip_enabled=$_.optional_vip_enabled;vip_requirement='NOT_REQUIRED'}})
+		stop_rule='R23 owner-updated rule: exactly 10 unique seeded random levels per island, 100 total, interleaved 10 rounds. Each execution is limited to 2100 seconds and 250MB retained evidence. Maximum 120 seconds per trial. No execution of remaining 900 levels.'
 	}
 	Add-R17ManifestEvent -ManifestPath $manifestPath -Event $planEvent
 	$anchorVerification = Confirm-R21Anchor
@@ -236,6 +292,7 @@ try {
 	} else { $anchorPath = Publish-R17UniqueJson -Path $anchorPath -Value $anchorVerification; $anchorVerifiedUtc = [string]$anchorVerification.verified_utc }
 	$manifestNow = @(Get-Content -LiteralPath $manifestPath | ForEach-Object { $_ | ConvertFrom-Json -ErrorAction Stop })
 	if (-not @($manifestNow | Where-Object { $_.event_type -eq 'R21_ANCHOR_VERIFIED' -and $_.attempt_id -ceq $attemptId }).Count) { Add-R17ManifestEvent -ManifestPath $manifestPath -Event ([ordered]@{event_id=[guid]::NewGuid().ToString('N');event_type='R21_ANCHOR_VERIFIED';attempt_id=$attemptId;artifact_path=Get-RelativePath $anchorPath;artifact_sha256=Get-Sha256 $anchorPath;source_trace_sha256=$anchorVerification.source_trace_sha256;verified_utc=$anchorVerifiedUtc}) }
+	if ($PlanOnly) { $stopReason='RESUME_PREFLIGHT_PLAN_ONLY'; $startIndex=$samplePlan.Count }
 
 	for ($caseIndex = $startIndex; $caseIndex -lt $samplePlan.Count; $caseIndex++) {
 		if ($clock.Elapsed.TotalSeconds -ge $GlobalBudgetSeconds -or ($GlobalBudgetSeconds - $clock.Elapsed.TotalSeconds) -lt ($TrialTimeoutSeconds + 10)) { $stopReason = 'GLOBAL_BUDGET_RESERVE_REACHED'; break }
@@ -326,6 +383,7 @@ try {
 	$minWallSeconds = if($measuredWallSeconds.Count){($measuredWallSeconds | Measure-Object -Minimum).Minimum}else{0.0}
 	$maxWallSeconds = if($measuredWallSeconds.Count){($measuredWallSeconds | Measure-Object -Maximum).Maximum}else{0.0}
 	$projectedBytes = [long]0
+	$pilotBytes = [long]0
 	$trialDirs = @(Get-ChildItem -LiteralPath $attemptPath -Directory | Where-Object Name -like 'trial_*')
 	if ($trialDirs.Count) { $pilotBytes = [long]((Get-ChildItem -LiteralPath $attemptPath -File -Recurse | Measure-Object -Property Length -Sum).Sum); $projectedBytes = [long][Math]::Ceiling($pilotBytes / [double]$trialDirs.Count * 1000.0) }
 	$crossIslandWins = @($pilotWins | Where-Object { [string]$_.case.island_id -ne 'sunny_cove' } | ForEach-Object { "$($_.case.island_id)/$($_.case.level_id)" } | Sort-Object -Unique)
@@ -338,15 +396,22 @@ try {
 		$islandTrials = @($completed | Where-Object {$_.case.island_id -ceq $islandId})
 		$perIslandCounts[$islandId] = @{attempts=$islandTrials.Count;WIN_OBSERVED=@($islandTrials|Where-Object classification -eq 'WIN_OBSERVED').Count;LOSS_OBSERVED=@($islandTrials|Where-Object classification -eq 'LOSS_OBSERVED').Count;BUDGET_UNKNOWN=@($islandTrials|Where-Object classification -eq 'BUDGET_UNKNOWN').Count;ERROR=@($islandTrials|Where-Object classification -eq 'ERROR').Count}
 	}
+	$remainingAfterSession = [System.Collections.Generic.List[string]]::new()
+	foreach ($plannedCase in $fullSamplePlan) {
+		$plannedKey = '{0}/{1}' -f $plannedCase.island,$plannedCase.level
+		if ($priorCompletedKeys.ContainsKey($plannedKey)) { continue }
+		$alreadyCompleted = @($completed | Where-Object { $_.case.island_id -ceq $plannedCase.island -and [int]$_.case.level_id -eq [int]$plannedCase.level }).Count -gt 0
+		if (-not $alreadyCompleted) { $remainingAfterSession.Add($plannedKey) }
+	}
 	$summary = [ordered]@{
 		schema_version=1;work_item='BCM-M34-R23';attempt_id=$attemptId;status=if($stopReason -eq 'SAMPLE_PLAN_COMPLETE' -and $completed.Count -eq $samplePlan.Count -and $incompleteTrialIds.Count -eq 0 -and @($completed | Where-Object classification -eq 'ERROR').Count -eq 0){'PILOT_COMPLETE'}else{'PILOT_PARTIAL'}
-		stop_reason=if($incompleteTrialIds.Count){'UNFINALIZED_TRIALS_RECORDED'}else{$stopReason};planned_sample_count=$samplePlan.Count;completed_sample_count=$completed.Count;incomplete_trial_attempt_ids=$incompleteTrialIds;distinct_observed_win_levels=$distinctWins;distinct_wins_beyond_easiest=$winsBeyondEasiest
-		broader_batch_gate=if($winsBeyondEasiest.Count -gt 0 -and $crossIslandWinIslandCount -ge 2 -and $parityErrors -eq 0 -and -not $poorProgressGate){'ELIGIBLE_FOR_STAGED_1000_LEVEL_PLAN_AFTER_INDEPENDENT_AUDIT'}else{'STOP_AND_DIAGNOSE_NO_BULK_RUN'}
+		stop_reason=if($incompleteTrialIds.Count){'UNFINALIZED_TRIALS_RECORDED'}else{$stopReason};planned_sample_count=$samplePlan.Count;total_selected_sample_count=100;cumulative_completed_before_session=$priorCompletedKeys.Count;completed_sample_count=$completed.Count;remaining_selected_level_keys=@($remainingAfterSession);incomplete_trial_attempt_ids=$incompleteTrialIds;distinct_observed_win_levels=$distinctWins;distinct_wins_beyond_easiest=$winsBeyondEasiest
+		broader_batch_gate='NO_REMAINING_900_LEVEL_EXECUTION_AUTHORIZED'
 		trial_timeout_seconds=$TrialTimeoutSeconds;global_budget_seconds=$GlobalBudgetSeconds;actual_elapsed_ms=[int]$clock.Elapsed.TotalMilliseconds;actual_disk_free_delta_bytes=($freeAfter-$freeBefore);retained_task_evidence_bytes=[long]((Get-ChildItem -LiteralPath $EvidenceRoot -File -Recurse | Measure-Object -Property Length -Sum).Sum);retained_file_ceiling_bytes=$maxRetainedBytes;per_island_counts=$perIslandCounts
 		distinct_levels_completed=$distinctCompletedLevels.Count;distinct_level_keys=$distinctCompletedLevels;sample_success_rate=$successfulRate;zero_progress_count=$zeroProgressCount;poor_progress_defined_as_zero_progress_on_at_least_half_completed_trials=[bool]$poorProgressGate;distinct_win_islands=$winIslandIds;cross_island_distinct_wins=$crossIslandWins;selected_requested_fired_parity_mismatches=$parityErrors
-		runtime_estimate_1000_levels=@{mean_seconds=[Math]::Round($meanWallSeconds*1000,1);observed_min_to_max_seconds=@([Math]::Round($minWallSeconds*1000,1),[Math]::Round($maxWallSeconds*1000,1));uncertainty='Naive extrapolation from bounded sample; observed min/max per-trial wall is not a statistical confidence interval.'}
-		evidence_storage_estimate_1000_levels_bytes=$projectedBytes;storage_estimate_basis='Observed pilot attempt directory bytes per completed trial extrapolated to 1000 levels; excludes shared editor/import/cache overhead.'
-		staged_1000_level_plan=@{not_started=$true;gate='No expansion authorized by R23; new ChatGPT audit required.'}
+		runtime_estimate_100_sample=@{mean_seconds=[Math]::Round($meanWallSeconds*100,1);observed_min_to_max_seconds=@([Math]::Round($minWallSeconds*100,1),[Math]::Round($maxWallSeconds*100,1));uncertainty='Naive extrapolation from this bounded session; observed min/max per-trial wall is not a statistical confidence interval.'}
+		evidence_storage_estimate_100_sample_bytes=[long]([Math]::Ceiling($pilotBytes / [Math]::Max(1,$trialDirs.Count) * 100.0));storage_estimate_basis='Observed per-trial attempt bytes scaled to the selected 100-level sample; excludes shared editor/import/cache overhead.'
+		remaining_900_plan=@{not_started=$true;authorized=$false;gate='R23 explicitly forbids execution of remaining 900 levels.'}
 		static_preflight_path=Get-RelativePath $preflightPath;static_preflight_sha256=Get-Sha256 $preflightPath
 		outcome_counts=@{WIN_OBSERVED=@($completed | Where-Object classification -eq 'WIN_OBSERVED').Count;LOSS_OBSERVED=@($completed | Where-Object classification -eq 'LOSS_OBSERVED').Count;BUDGET_UNKNOWN=@($completed | Where-Object classification -eq 'BUDGET_UNKNOWN').Count;ERROR=@($completed | Where-Object classification -eq 'ERROR').Count}
 		appdata_roaming_path=$appDataRoaming;appdata_local_path=$appDataLocal;tasks_blob_before=$tasksBefore;tasks_blob_after=$tasksAfter;tasks_unchanged=($tasksBefore -ceq $tasksAfter)
@@ -357,6 +422,28 @@ try {
 		Add-R17ManifestEvent -ManifestPath $manifestPath -Event ([ordered]@{event_id=[guid]::NewGuid().ToString('N');event_type='ATTEMPT_FINISHED';attempt_id=$attemptId;status=$summary.status;stop_reason=$stopReason;summary_path=Get-RelativePath $summaryPath;summary_sha256=Get-Sha256 $summaryPath;finished_utc=[DateTime]::UtcNow.ToString('o')})
 	}
 	Write-Output "R23_ATTEMPT=$attemptId status=$($summary.status) stop=$stopReason trials=$($completed.Count)/$($samplePlan.Count) distinct_wins=$($distinctWins.Count) win_islands=$($winIslandIds.Count) parity_errors=$parityErrors elapsed_ms=$($summary.actual_elapsed_ms) retained_bytes=$($summary.retained_task_evidence_bytes) tasks_unchanged=$($summary.tasks_unchanged)"
+} catch {
+	$failureMessage = [string]$_.Exception.Message
+	try {
+		if ([IO.Directory]::Exists($attemptPath) -and [IO.File]::Exists($manifestPath)) {
+			$failureEvents = @(Get-Content -LiteralPath $manifestPath | ForEach-Object { $_ | ConvertFrom-Json -ErrorAction Stop })
+			$hasStart = @($failureEvents | Where-Object { $_.event_type -eq 'ATTEMPT_STARTED' -and $_.attempt_id -ceq $attemptId }).Count -eq 1
+			$hasFinish = @($failureEvents | Where-Object { $_.event_type -eq 'ATTEMPT_FINISHED' -and $_.attempt_id -ceq $attemptId }).Count -gt 0
+			if ($hasStart -and -not $hasFinish) {
+				$failedSummaryPath = Join-Path $attemptPath 'attempt_summary.json'
+				if (-not [IO.File]::Exists($failedSummaryPath)) {
+					$failureTrialsStarted = @($failureEvents | Where-Object { $_.event_type -eq 'TRIAL_STARTED' -and $_.attempt_id -ceq $attemptId })
+					$failureTrialsFinished = @($failureEvents | Where-Object { $_.event_type -eq 'TRIAL_FINISHED' -and $_.attempt_id -ceq $attemptId })
+					$failureStatus = if ($failureTrialsStarted.Count -eq 0) { 'PREFLIGHT_ERROR' } else { 'PILOT_PARTIAL' }
+					$failureSummary = [ordered]@{schema_version=1;work_item='BCM-M34-R23';attempt_id=$attemptId;status=$failureStatus;stop_reason='UNHANDLED_RUNNER_EXCEPTION';failure_detail=$failureMessage;planned_sample_count=@($samplePlan).Count;completed_sample_count=$failureTrialsFinished.Count;incomplete_trial_attempt_ids=@($failureTrialsStarted | Where-Object { $failureTrialsFinished.trial_attempt_id -notcontains $_.trial_attempt_id } | ForEach-Object { [string]$_.trial_attempt_id });tasks_blob_before=$tasksBefore;tasks_blob_after=(git -C $repoRoot hash-object TASKS.md).Trim();tasks_unchanged=($tasksBefore -ceq (git -C $repoRoot hash-object TASKS.md).Trim());created_utc=[DateTime]::UtcNow.ToString('o')}
+					$failedSummaryPath = Publish-R17UniqueJson -Path $failedSummaryPath -Value $failureSummary
+				}
+				$closedSummary = Get-Content -Raw -LiteralPath $failedSummaryPath | ConvertFrom-Json -ErrorAction Stop
+				Add-R17ManifestEvent -ManifestPath $manifestPath -Event ([ordered]@{event_id=[guid]::NewGuid().ToString('N');event_type='ATTEMPT_FINISHED';attempt_id=$attemptId;status=[string]$closedSummary.status;stop_reason='UNHANDLED_RUNNER_EXCEPTION';summary_path=Get-RelativePath $failedSummaryPath;summary_sha256=Get-Sha256 $failedSummaryPath;finished_utc=[DateTime]::UtcNow.ToString('o')})
+			}
+		}
+	} catch { Write-Warning "Could not close failed R23 attempt manifest: $($_.Exception.Message)" }
+	throw
 } finally {
 	$env:APPDATA = $oldAppData
 	$env:LOCALAPPDATA = $oldLocalAppData

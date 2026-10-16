@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R23",
+  "created_utc": "2026-10-16T16:47:00.1821628Z",
+  "status": "INTEGRITY_PASS_PARTIAL_SAMPLE_AWAITING_FUTURE_AUTHORIZATION",
+  "sampling_seed": 20261016,
+  "selection_manifest_path": "qualification/r23_random_selection_seed_20261016_v01.json",
+  "selection_manifest_sha256": "ef21d5a3023ae7328424da4e459b667c6d6b0dbd567e7a2106cc9b9161d66eb2",
+  "selection_count": 100,
+  "selection_per_island": 10,
+  "attempt_pairs": [
+    {
+      "starts": 1,
+      "finishes": 1,
+      "attempt_id": "20261016T160056425Z_5819f9eeaf9b464ca44aef4ac35d34fc"
+    },
+    {
+      "starts": 1,
+      "finishes": 1,
+      "attempt_id": "20261016T160131517Z_7ec7f46f76f64c5bb387cac3c0d56b8f"
+    }
+  ],
+  "duplicate_event_ids": 0,
+  "duplicate_trial_ids": 0,
+  "duplicate_level_keys": 0,
+  "main_trial_start_finish_count": {
+    "finished": 22,
+    "started": 22
+  },
+  "main_trial_outcomes": {
+    "ERROR": 0,
+    "WIN_OBSERVED": 9,
+    "LOSS_OBSERVED": 0,
+    "BUDGET_UNKNOWN": 13
+  },
+  "main_win_islands": [
+    "billionaire_island",
+    "final_island",
+    "party_beach",
+    "sunny_cove",
+    "sunset_island",
+    "tiki_island",
+    "volcano_bay"
+  ],
+  "main_elapsed_runner_ms": 2068091,
+  "main_elapsed_manifest_ms": 2067000,
+  "main_session_wall_cap_ms": 2100000,
+  "main_session_overrun_ms": 0,
+  "trace_audit_status": "TRACE_AND_MANIFEST_INTEGRITY_PASS_PARTIAL_SESSION",
+  "main_remaining_after_session": 78,
+  "resume_probe_status": "RESUME_QUEUE_READY_NO_GAMEPLAY",
+  "resume_remaining": 78,
+  "resume_probe_used_gameplay": false,
+  "regression_runs": [
+    {
+      "disk_delta": -16297984,
+      "total": 10,
+      "disk_free_before": 77696630784,
+      "status": "ALL_REQUESTED_REGRESSIONS_PASS",
+      "appdata_reused": null,
+      "passed": 10,
+      "disk_free_after": 77680332800
+    },
+    {
+      "disk_delta": -1376256,
+      "total": 10,
+      "disk_free_before": 77676609536,
+      "status": "ALL_REQUESTED_REGRESSIONS_PASS",
+      "appdata_reused": true,
+      "passed": 10,
+      "disk_free_after": 77675233280
+    }
+  ],
+  "owner_path_count": 205,
+  "owner_path_mismatches": [],
+  "task_blob_initial": "ce2653637a053cc6f760979feeac85c6712c0903",
+  "task_blob_current": "a4912c8a9db9ff1c64ea34f6b316bda2a1caec4c",
+  "task_blob_origin": "a4912c8a9db9ff1c64ea34f6b316bda2a1caec4c",
+  "tasks_matches_current_origin": true,
+  "session_retained_bytes": 77887864,
+  "session_file_count": 152,
+  "session_file_cap_bytes": 262144000,
+  "session_cap_pass": true,
+  "main_pilot_disk_free_delta_bytes": -372023296,
+  "filesystem_total_bytes": 1022767394816,
+  "filesystem_free_after_final_check_bytes": 77675048960,
+  "manual_gui_or_phone_check_performed": false,
+  "stop_marker": "AWAITING_GPT_M34_R23_INDEPENDENT_AUDIT",
+  "fail_closed_probe": {
+    "attempt_id": "20261016T164815148Z_99e0c32945cf4151b80190c1fdea5c40",
+    "status": "PREFLIGHT_ERROR",
+    "reason": "UNHANDLED_RUNNER_EXCEPTION",
+    "attempt_finished_count": 1,
+    "trial_count": 0
+  },
+  "total_r23_retained_bytes": 150595561,
+  "total_r23_cap_bytes": 262144000,
+  "total_r23_cap_pass": true
+}

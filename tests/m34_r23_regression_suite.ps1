@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$EvidenceRoot,[string]$WatchdogTaskToken='')
+param([Parameter(Mandatory)][string]$EvidenceRoot,[string]$WatchdogTaskToken='',[string]$SharedAppDataRoot='')
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
@@ -12,7 +12,7 @@ $validationId = [DateTime]::UtcNow.ToString('yyyyMMddTHHmmssfffZ') + '_' + $runI
 $validationDir = Join-Path $EvidenceRoot "regressions_$validationId"
 if (Test-Path -LiteralPath $validationDir) { throw 'Regression output collision refused.' }
 [IO.Directory]::CreateDirectory($validationDir) | Out-Null
-$appDataRoot = Join-Path $validationDir 'isolated_userdata'
+$appDataRoot = if ([string]::IsNullOrWhiteSpace($SharedAppDataRoot)) { Join-Path $validationDir 'isolated_userdata' } else { [IO.Path]::GetFullPath((Resolve-Path -LiteralPath $SharedAppDataRoot).Path) }
 $roamingPath = Join-Path $appDataRoot 'Roaming'
 $localPath = Join-Path $appDataRoot 'Local'
 [IO.Directory]::CreateDirectory($roamingPath) | Out-Null
@@ -78,7 +78,7 @@ $passedCount = @($testResults | Where-Object pass).Count
 $allPass = $import.pass -and $passedCount -eq 10
 $summary = [ordered]@{
 	schema_version=1;work_item='BCM-M34-R23';validation_id=$validationId;status=if($allPass){'ALL_REQUESTED_REGRESSIONS_PASS'}else{'REGRESSION_FAILURE_OR_INCOMPLETE'}
-	appdata_isolated=$true;isolated_appdata_path=(Get-RelativePath $appDataRoot);isolated_appdata_bytes=(Get-ChildItem -LiteralPath $appDataRoot -File -Recurse -Force -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum
+	appdata_isolated=$true;isolated_appdata_reused=(-not [string]::IsNullOrWhiteSpace($SharedAppDataRoot));isolated_appdata_path=(Get-RelativePath $appDataRoot);isolated_appdata_bytes=(Get-ChildItem -LiteralPath $appDataRoot -File -Recurse -Force -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum
 	disk_free_before=$freeBefore;disk_free_after=$freeAfter;disk_free_delta_bytes=($freeAfter-$freeBefore);actual_controller_elapsed_ms=[int]$clock.Elapsed.TotalMilliseconds
 	tasks_blob_before=$tasksBefore;tasks_blob_after=$tasksAfter;tasks_unchanged=($tasksBefore -ceq $tasksAfter)
 	import=$import;tests=$testResults;passed_tests=$passedCount;total_tests=10

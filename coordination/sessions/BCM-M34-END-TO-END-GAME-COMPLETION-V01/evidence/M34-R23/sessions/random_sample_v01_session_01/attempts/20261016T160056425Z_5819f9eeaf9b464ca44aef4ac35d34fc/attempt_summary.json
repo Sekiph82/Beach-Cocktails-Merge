@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R23",
+  "attempt_id": "20261016T160056425Z_5819f9eeaf9b464ca44aef4ac35d34fc",
+  "status": "PREFLIGHT_ERROR",
+  "stop_reason": "SELECTION_MANIFEST_FILTER_VALIDATION_BUG",
+  "planned_sample_count": 100,
+  "completed_sample_count": 0,
+  "incomplete_trial_attempt_ids": [],
+  "failure_detail": "Runner validation used PowerShell shorthand filter binding that did not bind island_id records; validation halted before the first trial. No gameplay process launched.",
+  "sampling_seed": 20261016,
+  "selection_manifest_path": "../../qualification/r23_random_selection_seed_20261016_v01.json",
+  "selection_manifest_sha256": "ef21d5a3023ae7328424da4e459b667c6d6b0dbd567e7a2106cc9b9161d66eb2",
+  "tasks_blob_before": "a4912c8a9db9ff1c64ea34f6b316bda2a1caec4c",
+  "tasks_blob_after": "a4912c8a9db9ff1c64ea34f6b316bda2a1caec4c",
+  "tasks_unchanged": true,
+  "created_utc": "2026-10-16T16:36:55.8113356Z"
+}

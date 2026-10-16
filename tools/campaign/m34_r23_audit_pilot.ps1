@@ -38,6 +38,21 @@ foreach ($finish in $trialFinishes) {
 	$finishedById[$id] = $finish
 }
 $trials = [System.Collections.Generic.List[object]]::new()
+$planEvents = @($attemptEvents | Where-Object event_type -eq 'PILOT_PLAN')
+if ($planEvents.Count -ne 1) { throw "Expected one immutable sample plan event, found $($planEvents.Count)." }
+$planEvent = $planEvents[0]
+$r23Root = [IO.Path]::GetFullPath((Join-Path $EvidenceRoot '..\..'))
+$selectionPath = [IO.Path]::GetFullPath((Join-Path $EvidenceRoot ([string]$planEvent.selection_manifest_path).Replace('/','\')))
+$r23Prefix = $r23Root.TrimEnd('\') + '\'
+if (-not $selectionPath.StartsWith($r23Prefix,[StringComparison]::OrdinalIgnoreCase) -or -not [IO.File]::Exists($selectionPath)) { throw 'R23 random selection manifest path is outside the R23 evidence root or missing.' }
+if ((Get-R22Sha256 $selectionPath) -cne [string]$planEvent.selection_manifest_sha256) { throw 'R23 random selection manifest hash mismatch.' }
+$selectionManifest = Get-Content -Raw -LiteralPath $selectionPath | ConvertFrom-Json -ErrorAction Stop
+if ([int]$selectionManifest.seed -ne [int]$planEvent.sampling_seed -or [int]$selectionManifest.total_selected -ne 100 -or @($selectionManifest.selection).Count -ne 100) { throw 'R23 random selection manifest seed or total does not match the locked rule.' }
+$selectedLevelKeys = @($selectionManifest.selection | ForEach-Object { '{0}/{1}' -f [string]$_.island_id,[int]$_.level_id })
+if (@($selectedLevelKeys | Sort-Object -Unique).Count -ne 100) { throw 'R23 random selection manifest contains duplicate levels.' }
+$selectedByIsland = @($selectionManifest.selection | Group-Object island_id)
+if ($selectedByIsland.Count -ne 10 -or @($selectedByIsland | Where-Object Count -ne 10).Count -ne 0) { throw 'R23 selection manifest must select exactly 10 levels on each island.' }
+$selectedByKey = @{}; foreach ($item in $selectionManifest.selection) { $selectedByKey[('{0}/{1}' -f [string]$item.island_id,[int]$item.level_id)] = $item }
 $allLevelKeys = [System.Collections.Generic.List[string]]::new()
 $allSeeds = [System.Collections.Generic.List[int]]::new()
 $previousFinishIndex = -1
@@ -52,6 +67,9 @@ foreach ($start in $trialStarts) {
 	$previousFinishIndex = $finishIndex
 	$case = $start.case
 	$levelKey = '{0}/{1}' -f [string]$case.island_id, [int]$case.level_id
+	if (-not $selectedByKey.ContainsKey($levelKey)) { throw "Trial was not in the predeclared random selection manifest: $levelKey" }
+	$selectedItem = $selectedByKey[$levelKey]
+	if ([int]$case.global_level_id -ne [int]$selectedItem.global_level_id -or [int]$case.seed -ne [int]$selectedItem.case_seed -or [bool]$case.canonical_vip_enabled -ne [bool]$selectedItem.runner_case_vip_enabled) { throw "Trial case differs from predeclared random selection: $levelKey" }
 	$allLevelKeys.Add($levelKey)
 	$allSeeds.Add([int]$case.seed)
 	if (@('WIN_OBSERVED','LOSS_OBSERVED','BUDGET_UNKNOWN','ERROR') -cnotcontains [string]$finish.classification) { throw "Invalid trial outcome classification: $($finish.classification)" }
@@ -104,18 +122,19 @@ $manifestElapsedMs = [long]($manifestFinishUtc - $manifestStartUtc).TotalMillise
 $manifestBudgetOverrunMs = [Math]::Max(0L,$manifestElapsedMs - 2100000L)
 $islandIds = @($trials | ForEach-Object island_id | Sort-Object -Unique)
 $bands = @($trials | ForEach-Object band | Sort-Object -Unique)
-$earlyIslands = @($trials | Where-Object band -eq 'early' | ForEach-Object island_id | Sort-Object -Unique)
-if ($islandIds.Count -ne 10 -or $earlyIslands.Count -ne 10 -or $trials.Count -gt 30) { throw 'R23 did not preserve first-round coverage across all 10 islands or exceeded 30 distinct trials.' }
+$firstRoundIslands = @($trials | Where-Object band -eq 'round_01' | ForEach-Object island_id | Sort-Object -Unique)
+if ($islandIds.Count -ne 10 -or $firstRoundIslands.Count -ne 10 -or $trials.Count -gt 100) { throw 'R23 session did not preserve first-round coverage across all 10 islands or exceeded the 100-item selected sample.' }
 $wins = @($trials | Where-Object classification -eq 'WIN_OBSERVED')
 $winIslands = @($wins | ForEach-Object island_id | Sort-Object -Unique)
 $vipMetadataClarifications = @($trials | Where-Object { $_.runner_case_vip_enabled_claim -ne $_.optional_vip_enabled_actual } | ForEach-Object { @{trial_attempt_id=$_.trial_attempt_id;level="$($_.island_id)/$($_.level_id)";runner_case_claim=$_.runner_case_vip_enabled_claim;trace_actual=$_.optional_vip_enabled_actual;vip_requirement='NOT_REQUIRED';source_trace_sha256=$_.trace_sha256;source_case_record_sha256=$_.case_record_sha256} })
 $manifestShaBeforeAuditEvent = Get-R22Sha256 $manifestPath
 $audit = [ordered]@{
-	 schema_version=1;work_item='BCM-M34-R23';attempt_id=$AttemptId;status=if($manifestBudgetOverrunMs -gt 0){'TRACE_INTEGRITY_PASS_WITH_GLOBAL_WALL_BUDGET_OVERRUN'}elseif($vipMetadataClarifications.Count){'TRACE_AND_MANIFEST_INTEGRITY_PASS_WITH_METADATA_CLARIFICATION'}else{'TRACE_AND_MANIFEST_INTEGRITY_PASS'};created_utc=[DateTime]::UtcNow.ToString('o')
+	 schema_version=1;work_item='BCM-M34-R23';attempt_id=$AttemptId;status=if($manifestBudgetOverrunMs -gt 0){'TRACE_INTEGRITY_PASS_WITH_GLOBAL_WALL_BUDGET_OVERRUN'}elseif($vipMetadataClarifications.Count){'TRACE_AND_MANIFEST_INTEGRITY_PASS_WITH_METADATA_CLARIFICATION'}elseif($trials.Count -lt 100){'TRACE_AND_MANIFEST_INTEGRITY_PASS_PARTIAL_SESSION'}else{'TRACE_AND_MANIFEST_INTEGRITY_PASS_SAMPLE_COMPLETE'};created_utc=[DateTime]::UtcNow.ToString('o')
 	manifest_sha256_before_audit_event=$manifestShaBeforeAuditEvent;attempt_summary_sha256=(Get-R22Sha256 $attemptSummary);attempt_started_count=$starts.Count;attempt_finished_count=$ends.Count;trial_started_count=$trialStarts.Count;trial_finished_count=$trialFinishes.Count;incomplete_trials=@()
-	global_elapsed_ms=$manifestElapsedMs;runner_reported_elapsed_ms=[int]$summaryData.actual_elapsed_ms;manifest_attempt_started_utc=$manifestStartUtc.ToString('o');manifest_attempt_finished_utc=$manifestFinishUtc.ToString('o');global_budget_ms=2100000;global_budget_overrun_ms=$manifestBudgetOverrunMs;maximum_per_trial_timeout_seconds=120;distinct_level_count=$allLevelKeys.Count;distinct_level_keys=@($allLevelKeys);islands=$islandIds;difficulty_bands=$bands;early_band_island_coverage=$earlyIslands.Count
+	sampling_seed=[int]$selectionManifest.seed;sampling_algorithm=[string]$selectionManifest.algorithm;selection_manifest_path=[IO.Path]::GetRelativePath($r23Root,$selectionPath).Replace('\','/');selection_manifest_sha256=(Get-R22Sha256 $selectionPath);selected_sample_count=100;selected_per_island=10;completed_sample_count=$trials.Count;remaining_selected_count=(100-$trials.Count);remaining_selected_levels=@($selectionManifest.selection | Where-Object { $allLevelKeys -notcontains ('{0}/{1}' -f [string]$_.island_id,[int]$_.level_id) } | ForEach-Object { '{0}/{1}' -f [string]$_.island_id,[int]$_.level_id })
+	global_elapsed_ms=$manifestElapsedMs;runner_reported_elapsed_ms=[int]$summaryData.actual_elapsed_ms;manifest_attempt_started_utc=$manifestStartUtc.ToString('o');manifest_attempt_finished_utc=$manifestFinishUtc.ToString('o');session_budget_ms=2100000;session_budget_overrun_ms=$manifestBudgetOverrunMs;maximum_per_trial_timeout_seconds=120;distinct_level_count=$allLevelKeys.Count;distinct_level_keys=@($allLevelKeys);islands=$islandIds;rounds=$bands;first_round_island_coverage=$firstRoundIslands.Count
 	outcome_counts=@{WIN_OBSERVED=@($trials|Where-Object classification -eq 'WIN_OBSERVED').Count;LOSS_OBSERVED=@($trials|Where-Object classification -eq 'LOSS_OBSERVED').Count;BUDGET_UNKNOWN=@($trials|Where-Object classification -eq 'BUDGET_UNKNOWN').Count;ERROR=@($trials|Where-Object classification -eq 'ERROR').Count}
-	distinct_wins=@($wins|ForEach-Object { '{0}/{1}' -f $_.island_id,$_.level_id }|Sort-Object -Unique);distinct_win_islands=$winIslands;parity_mismatches=0;sample_success_rate=[double]$summaryData.sample_success_rate;zero_progress_count=[int]$summaryData.zero_progress_count;runtime_estimate_1000_levels=$summaryData.runtime_estimate_1000_levels;evidence_storage_estimate_1000_levels_bytes=[long]$summaryData.evidence_storage_estimate_1000_levels_bytes;staged_1000_level_plan=$summaryData.staged_1000_level_plan;vip_requirement='NOT_REQUIRED; normal objective T progress and 4T cap are authoritative';vip_metadata_clarifications=$vipMetadataClarifications;trials=@($trials)
+	distinct_wins=@($wins|ForEach-Object { '{0}/{1}' -f $_.island_id,$_.level_id }|Sort-Object -Unique);distinct_win_islands=$winIslands;parity_mismatches=0;sample_success_rate=[double]$summaryData.sample_success_rate;zero_progress_count=[int]$summaryData.zero_progress_count;vip_requirement='NOT_REQUIRED; normal objective T progress and 4T cap are authoritative';vip_metadata_clarifications=$vipMetadataClarifications;trials=@($trials)
 }
 $qualificationDir = Join-Path $EvidenceRoot 'qualification'
 [IO.Directory]::CreateDirectory($qualificationDir) | Out-Null

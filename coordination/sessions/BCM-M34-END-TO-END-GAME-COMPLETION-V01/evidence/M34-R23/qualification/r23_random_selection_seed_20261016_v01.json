@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R23",
+  "sampling_rule": "10 unique random levels per island, without replacement; reproducible interleaved rounds",
+  "algorithm": "SHA-256(seed|island|counter) deterministic uint32 rejection sampling + Fisher-Yates",
+  "seed": 20261016,
+  "island_count": 10,
+  "levels_per_island": 100,
+  "sampled_per_island": 10,
+  "total_selected": 100,
+  "created_before_any_new_trial_utc": "2026-10-16T16:00:23.6848819Z",
+  "selection": [
+    {
+      "round": 1,
+      "island_id": "sunny_cove",
+      "level_id": 49,
+      "global_level_id": 49,
+      "case_seed": 34230049,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "tiki_island",
+      "level_id": 45,
+      "global_level_id": 145,
+      "case_seed": 34230145,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "azure_bay",
+      "level_id": 15,
+      "global_level_id": 215,
+      "case_seed": 34230215,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "coconut_beach",
+      "level_id": 28,
+      "global_level_id": 328,
+      "case_seed": 34230328,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "sunset_island",
+      "level_id": 8,
+      "global_level_id": 408,
+      "case_seed": 34230408,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "party_beach",
+      "level_id": 18,
+      "global_level_id": 518,
+      "case_seed": 34230518,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "frozen_paradise",
+      "level_id": 88,
+      "global_level_id": 688,
+      "case_seed": 34230688,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "volcano_bay",
+      "level_id": 57,
+      "global_level_id": 757,
+      "case_seed": 34230757,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "billionaire_island",
+      "level_id": 49,
+      "global_level_id": 849,
+      "case_seed": 34230849,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 1,
+      "island_id": "final_island",
+      "level_id": 86,
+      "global_level_id": 986,
+      "case_seed": 34230986,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "sunny_cove",
+      "level_id": 88,
+      "global_level_id": 88,
+      "case_seed": 34230088,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "tiki_island",
+      "level_id": 36,
+      "global_level_id": 136,
+      "case_seed": 34230136,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "azure_bay",
+      "level_id": 1,
+      "global_level_id": 201,
+      "case_seed": 34230201,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "coconut_beach",
+      "level_id": 60,
+      "global_level_id": 360,
+      "case_seed": 34230360,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "sunset_island",
+      "level_id": 91,
+      "global_level_id": 491,
+      "case_seed": 34230491,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "party_beach",
+      "level_id": 12,
+      "global_level_id": 512,
+      "case_seed": 34230512,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "frozen_paradise",
+      "level_id": 33,
+      "global_level_id": 633,
+      "case_seed": 34230633,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "volcano_bay",
+      "level_id": 20,
+      "global_level_id": 720,
+      "case_seed": 34230720,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "billionaire_island",
+      "level_id": 40,
+      "global_level_id": 840,
+      "case_seed": 34230840,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 2,
+      "island_id": "final_island",
+      "level_id": 76,
+      "global_level_id": 976,
+      "case_seed": 34230976,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "sunny_cove",
+      "level_id": 19,
+      "global_level_id": 19,
+      "case_seed": 34230019,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "tiki_island",
+      "level_id": 59,
+      "global_level_id": 159,
+      "case_seed": 34230159,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "azure_bay",
+      "level_id": 81,
+      "global_level_id": 281,
+      "case_seed": 34230281,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "coconut_beach",
+      "level_id": 76,
+      "global_level_id": 376,
+      "case_seed": 34230376,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "sunset_island",
+      "level_id": 76,
+      "global_level_id": 476,
+      "case_seed": 34230476,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "party_beach",
+      "level_id": 82,
+      "global_level_id": 582,
+      "case_seed": 34230582,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "frozen_paradise",
+      "level_id": 77,
+      "global_level_id": 677,
+      "case_seed": 34230677,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "volcano_bay",
+      "level_id": 55,
+      "global_level_id": 755,
+      "case_seed": 34230755,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "billionaire_island",
+      "level_id": 11,
+      "global_level_id": 811,
+      "case_seed": 34230811,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 3,
+      "island_id": "final_island",
+      "level_id": 67,
+      "global_level_id": 967,
+      "case_seed": 34230967,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "sunny_cove",
+      "level_id": 80,
+      "global_level_id": 80,
+      "case_seed": 34230080,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "tiki_island",
+      "level_id": 71,
+      "global_level_id": 171,
+      "case_seed": 34230171,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "azure_bay",
+      "level_id": 8,
+      "global_level_id": 208,
+      "case_seed": 34230208,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "coconut_beach",
+      "level_id": 48,
+      "global_level_id": 348,
+      "case_seed": 34230348,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "sunset_island",
+      "level_id": 59,
+      "global_level_id": 459,
+      "case_seed": 34230459,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "party_beach",
+      "level_id": 35,
+      "global_level_id": 535,
+      "case_seed": 34230535,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "frozen_paradise",
+      "level_id": 85,
+      "global_level_id": 685,
+      "case_seed": 34230685,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "volcano_bay",
+      "level_id": 79,
+      "global_level_id": 779,
+      "case_seed": 34230779,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "billionaire_island",
+      "level_id": 73,
+      "global_level_id": 873,
+      "case_seed": 34230873,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 4,
+      "island_id": "final_island",
+      "level_id": 90,
+      "global_level_id": 990,
+      "case_seed": 34230990,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "sunny_cove",
+      "level_id": 36,
+      "global_level_id": 36,
+      "case_seed": 34230036,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "tiki_island",
+      "level_id": 34,
+      "global_level_id": 134,
+      "case_seed": 34230134,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "azure_bay",
+      "level_id": 53,
+      "global_level_id": 253,
+      "case_seed": 34230253,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "coconut_beach",
+      "level_id": 86,
+      "global_level_id": 386,
+      "case_seed": 34230386,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "sunset_island",
+      "level_id": 97,
+      "global_level_id": 497,
+      "case_seed": 34230497,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "party_beach",
+      "level_id": 15,
+      "global_level_id": 515,
+      "case_seed": 34230515,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "frozen_paradise",
+      "level_id": 26,
+      "global_level_id": 626,
+      "case_seed": 34230626,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "volcano_bay",
+      "level_id": 93,
+      "global_level_id": 793,
+      "case_seed": 34230793,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "billionaire_island",
+      "level_id": 52,
+      "global_level_id": 852,
+      "case_seed": 34230852,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 5,
+      "island_id": "final_island",
+      "level_id": 39,
+      "global_level_id": 939,
+      "case_seed": 34230939,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "sunny_cove",
+      "level_id": 79,
+      "global_level_id": 79,
+      "case_seed": 34230079,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "tiki_island",
+      "level_id": 27,
+      "global_level_id": 127,
+      "case_seed": 34230127,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "azure_bay",
+      "level_id": 63,
+      "global_level_id": 263,
+      "case_seed": 34230263,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "coconut_beach",
+      "level_id": 45,
+      "global_level_id": 345,
+      "case_seed": 34230345,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "sunset_island",
+      "level_id": 69,
+      "global_level_id": 469,
+      "case_seed": 34230469,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "party_beach",
+      "level_id": 3,
+      "global_level_id": 503,
+      "case_seed": 34230503,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "frozen_paradise",
+      "level_id": 39,
+      "global_level_id": 639,
+      "case_seed": 34230639,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "volcano_bay",
+      "level_id": 72,
+      "global_level_id": 772,
+      "case_seed": 34230772,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "billionaire_island",
+      "level_id": 32,
+      "global_level_id": 832,
+      "case_seed": 34230832,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 6,
+      "island_id": "final_island",
+      "level_id": 18,
+      "global_level_id": 918,
+      "case_seed": 34230918,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "sunny_cove",
+      "level_id": 100,
+      "global_level_id": 100,
+      "case_seed": 34230100,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "tiki_island",
+      "level_id": 73,
+      "global_level_id": 173,
+      "case_seed": 34230173,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "azure_bay",
+      "level_id": 92,
+      "global_level_id": 292,
+      "case_seed": 34230292,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "coconut_beach",
+      "level_id": 75,
+      "global_level_id": 375,
+      "case_seed": 34230375,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "sunset_island",
+      "level_id": 25,
+      "global_level_id": 425,
+      "case_seed": 34230425,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "party_beach",
+      "level_id": 78,
+      "global_level_id": 578,
+      "case_seed": 34230578,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "frozen_paradise",
+      "level_id": 75,
+      "global_level_id": 675,
+      "case_seed": 34230675,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "volcano_bay",
+      "level_id": 28,
+      "global_level_id": 728,
+      "case_seed": 34230728,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "billionaire_island",
+      "level_id": 29,
+      "global_level_id": 829,
+      "case_seed": 34230829,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 7,
+      "island_id": "final_island",
+      "level_id": 93,
+      "global_level_id": 993,
+      "case_seed": 34230993,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "sunny_cove",
+      "level_id": 26,
+      "global_level_id": 26,
+      "case_seed": 34230026,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "tiki_island",
+      "level_id": 57,
+      "global_level_id": 157,
+      "case_seed": 34230157,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "azure_bay",
+      "level_id": 86,
+      "global_level_id": 286,
+      "case_seed": 34230286,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "coconut_beach",
+      "level_id": 37,
+      "global_level_id": 337,
+      "case_seed": 34230337,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "sunset_island",
+      "level_id": 86,
+      "global_level_id": 486,
+      "case_seed": 34230486,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "party_beach",
+      "level_id": 6,
+      "global_level_id": 506,
+      "case_seed": 34230506,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "frozen_paradise",
+      "level_id": 93,
+      "global_level_id": 693,
+      "case_seed": 34230693,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "volcano_bay",
+      "level_id": 88,
+      "global_level_id": 788,
+      "case_seed": 34230788,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "billionaire_island",
+      "level_id": 87,
+      "global_level_id": 887,
+      "case_seed": 34230887,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 8,
+      "island_id": "final_island",
+      "level_id": 35,
+      "global_level_id": 935,
+      "case_seed": 34230935,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "sunny_cove",
+      "level_id": 91,
+      "global_level_id": 91,
+      "case_seed": 34230091,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "tiki_island",
+      "level_id": 96,
+      "global_level_id": 196,
+      "case_seed": 34230196,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "azure_bay",
+      "level_id": 99,
+      "global_level_id": 299,
+      "case_seed": 34230299,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "coconut_beach",
+      "level_id": 46,
+      "global_level_id": 346,
+      "case_seed": 34230346,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "sunset_island",
+      "level_id": 38,
+      "global_level_id": 438,
+      "case_seed": 34230438,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "party_beach",
+      "level_id": 90,
+      "global_level_id": 590,
+      "case_seed": 34230590,
+      "runner_case_vip_enabled": true,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "frozen_paradise",
+      "level_id": 15,
+      "global_level_id": 615,
+      "case_seed": 34230615,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "volcano_bay",
+      "level_id": 7,
+      "global_level_id": 707,
+      "case_seed": 34230707,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "billionaire_island",
+      "level_id": 92,
+      "global_level_id": 892,
+      "case_seed": 34230892,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 9,
+      "island_id": "final_island",
+      "level_id": 33,
+      "global_level_id": 933,
+      "case_seed": 34230933,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "sunny_cove",
+      "level_id": 93,
+      "global_level_id": 93,
+      "case_seed": 34230093,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "tiki_island",
+      "level_id": 85,
+      "global_level_id": 185,
+      "case_seed": 34230185,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "azure_bay",
+      "level_id": 2,
+      "global_level_id": 202,
+      "case_seed": 34230202,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "coconut_beach",
+      "level_id": 53,
+      "global_level_id": 353,
+      "case_seed": 34230353,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "sunset_island",
+      "level_id": 16,
+      "global_level_id": 416,
+      "case_seed": 34230416,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "party_beach",
+      "level_id": 32,
+      "global_level_id": 532,
+      "case_seed": 34230532,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "frozen_paradise",
+      "level_id": 19,
+      "global_level_id": 619,
+      "case_seed": 34230619,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "volcano_bay",
+      "level_id": 38,
+      "global_level_id": 738,
+      "case_seed": 34230738,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "billionaire_island",
+      "level_id": 96,
+      "global_level_id": 896,
+      "case_seed": 34230896,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    },
+    {
+      "round": 10,
+      "island_id": "final_island",
+      "level_id": 79,
+      "global_level_id": 979,
+      "case_seed": 34230979,
+      "runner_case_vip_enabled": false,
+      "vip_requirement": "NOT_REQUIRED"
+    }
+  ]
+}
