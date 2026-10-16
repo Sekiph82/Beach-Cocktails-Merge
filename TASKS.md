@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex safely syncs canonical Desktop to R18 Studio code preserving 8 tracked and 15 untracked owner files; owner then reviews native Windows Studio GUI.
+- Next Task/Action: BCM-M33-004 — Codex executes R18-FIX01 after owner screenshot shows native Studio controls clipped/overlaid on World Map; repeat visual acceptance only after actual GUI fix.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R18 independent source/builder-evidence audit conditionally ACCEPTED: development-only Level Qualification Studio and headless contract probe PASS, fresh import plus 10 regressions builder PASS. Native Windows Studio GUI, screenshot, pointer/controls, real win/loss and visual acceptance UNVERIFIED; all 1000 levels still not physically qualified. Canonical Desktop behind published main and owner-dirty 8 tracked/15 untracked must be safely reconciled before launcher use. R18 safe Desktop sync prompt issued; M33-004 stays OPEN. No device QA.
+- Progress: R18 headless contracts/regressions builder PASS but owner authentic native screenshot 2026-10-16 demonstrates GUI FAIL: Studio title, selector, status and toolbar collide with World Map masthead; controls clipped horizontally across portrait viewport. R18 native visual acceptance NOT GRANTED. Fix z-order and build responsive readable desktop sidebar / portrait fallback before asking owner to retest. M33-004 remains OPEN, 1000 levels unqualified; protect all owner local files.
 
 ## Blockers/Waits
 
