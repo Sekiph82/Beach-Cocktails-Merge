@@ -32,3 +32,9 @@
 - Implementation and bounded evidence commit: `4cb5660` (`Add spatial lane qualification for M34 R21`). It contains the 46 explicitly staged task-owned source/evidence paths. The eight pre-existing tracked owner changes and all prior untracked owner/evidence paths remain outside the commit. No `TASKS.md`, isolated AppData, save files, recovery-test fixtures, or cached user data were staged.
 - Staged whitespace validation passed with Git’s `cr-at-eol` whitespace rule, which recognizes the captured Windows CRLF transcripts while still checking for other trailing whitespace. The default whole-worktree check reports pre-existing owner JSON whitespace noted above; no owner path was edited to make that check pass.
 - Publication remains on canonical `main` with a normal non-force push. Final remote synchronization and log-only commit SHA will be recorded in the handoff after verification. Required stop: `AWAITING_GPT_M34_R21_INDEPENDENT_AUDIT`.
+### Post-push verification (append-only)
+
+- Published implementation/evidence commit SHA: `4cb5660487d53e44fd2e78d8a9bd6f54a5950298`.
+- Verified after publication: `HEAD = origin/main = remote refs/heads/main = 3f2ff88bc9d96b261a4f351fe52dd85630091eec`; ahead/behind `0/0`.
+- `TASKS.md` worktree hash and HEAD tree hash both remain `33396b700c023f550ac2e1c96d750d6042f740e8`. The final local status has zero staged paths; the eight inventoried tracked owner changes and 32 untracked owner/prior-task paths remain preserved and unstaged.
+- This verification note is a follow-on log-only commit; the implementation/evidence SHA above is the final task implementation commit. No tracker transition is claimed. Handoff stop marker: `AWAITING_GPT_M34_R21_INDEPENDENT_AUDIT`.
