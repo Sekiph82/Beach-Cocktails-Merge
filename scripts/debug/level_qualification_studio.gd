@@ -17,7 +17,15 @@ const R17_REFERENCES := [
 var _navigation: CampaignNavigationController
 var _database
 var _island_ids: Array[String] = []
+var _game_viewport: SubViewport
+var _game_container: SubViewportContainer
+var _overlay_layer: CanvasLayer
+var _overlay_root: Control
 var _dock: PanelContainer
+var _panel_scroll: ScrollContainer
+var _selector_flow: HFlowContainer
+var _preset_flow: HFlowContainer
+var _action_flow: HFlowContainer
 var _compact_button: Button
 var _island_option: OptionButton
 var _level_spin: SpinBox
@@ -41,13 +49,16 @@ var _active_gameplay: GameManager
 var _step_waiting := false
 var _isolation_error := ""
 var _event_limit_reported := false
+var _layout_mode := "UNINITIALIZED"
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_configure_desktop_window()
 	_build_ui()
+	get_viewport().size_changed.connect(_on_root_viewport_resized)
 	if not _studio_environment_enabled():
 		_isolation_error = "Launch with tools/BCM-M34-R18-Level-Qualification-Studio.ps1."
 	elif not _profile_isolated():
@@ -64,7 +75,7 @@ func _ready() -> void:
 	_navigation.mouse_filter = Control.MOUSE_FILTER_PASS
 	_navigation.gameplay_session_started.connect(_on_gameplay_session_started)
 	_navigation.gameplay_session_finished.connect(_on_gameplay_session_finished)
-	add_child(_navigation)
+	_game_viewport.add_child(_navigation)
 	_database = _navigation.level_database
 	if _database == null or not _database.is_loaded() or not _navigation.get_content_load_error().is_empty():
 		_isolation_error = "Canonical campaign data failed to load: %s" % _navigation.get_content_load_error()
@@ -98,90 +109,241 @@ func _process(_delta: float) -> void:
 
 
 func _build_ui() -> void:
+	_game_viewport = SubViewport.new()
+	_game_viewport.name = "ProductionCampaignViewport"
+	_game_viewport.size = Vector2i(720, 1280)
+	_game_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	_game_viewport.handle_input_locally = false
+	_game_container = SubViewportContainer.new()
+	_game_container.name = "ProductionPortraitPreview"
+	_game_container.stretch = true
+	_game_container.mouse_filter = Control.MOUSE_FILTER_STOP
+	_game_container.add_child(_game_viewport)
+	add_child(_game_container)
+
+	_overlay_layer = CanvasLayer.new()
+	_overlay_layer.name = "QualificationStudioOverlayLayer"
+	_overlay_layer.layer = 100
+	add_child(_overlay_layer)
+	_overlay_root = Control.new()
+	_overlay_root.name = "QualificationStudioOverlay"
+	_overlay_root.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_overlay_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_overlay_layer.add_child(_overlay_root)
+
 	_dock = PanelContainer.new()
 	_dock.name = "QualificationStudioDock"
-	_dock.anchor_left = 0.015
-	_dock.anchor_top = 0.015
-	_dock.anchor_right = 0.985
-	_dock.anchor_bottom = 0.405
-	_dock.offset_left = 0.0
-	_dock.offset_top = 0.0
-	_dock.offset_right = 0.0
-	_dock.offset_bottom = 0.0
 	_dock.mouse_filter = Control.MOUSE_FILTER_STOP
-	add_child(_dock)
+	_dock.add_theme_stylebox_override("panel", _make_studio_panel_style())
+	_overlay_root.add_child(_dock)
+	_panel_scroll = ScrollContainer.new()
+	_panel_scroll.name = "StudioPanelScroll"
+	_panel_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	_panel_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	_panel_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	_panel_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_panel_scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	_dock.add_child(_panel_scroll)
 	var body := VBoxContainer.new()
-	body.add_theme_constant_override("separation", 4)
-	_dock.add_child(body)
+	body.name = "StudioPanelContent"
+	body.add_theme_constant_override("separation", 9)
+	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_panel_scroll.add_child(body)
+	var title_row := HBoxContainer.new()
+	title_row.add_theme_constant_override("separation", 8)
+	body.add_child(title_row)
 	var title := Label.new()
-	title.text = "LEVEL QUALIFICATION STUDIO · DEVELOPMENT ONLY"
-	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	title.add_theme_font_size_override("font_size", 22)
-	body.add_child(title)
-	var chooser := HBoxContainer.new()
-	chooser.add_theme_constant_override("separation", 5)
-	body.add_child(chooser)
+	title.text = "Level Qualification Studio"
+	title.add_theme_font_size_override("font_size", 23)
+	title.add_theme_color_override("font_color", Color("#fff4df"))
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	title_row.add_child(title)
+	var dev_badge := Label.new()
+	dev_badge.text = "DEVELOPMENT ONLY"
+	dev_badge.add_theme_font_size_override("font_size", 11)
+	dev_badge.add_theme_color_override("font_color", Color("#8de6d1"))
+	dev_badge.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	title_row.add_child(dev_badge)
+	var header_actions := HFlowContainer.new()
+	header_actions.add_theme_constant_override("h_separation", 8)
+	header_actions.add_theme_constant_override("v_separation", 6)
+	body.add_child(header_actions)
+	_add_button(header_actions, "HIDE PANEL", func():
+		_dock.visible = false
+		_compact_button.visible = true
+	)
+	body.add_child(_section_label("Level selector"))
+	_selector_flow = HFlowContainer.new()
+	_selector_flow.add_theme_constant_override("h_separation", 8)
+	_selector_flow.add_theme_constant_override("v_separation", 6)
+	body.add_child(_selector_flow)
+	var island_field := VBoxContainer.new()
+	island_field.add_theme_constant_override("separation", 3)
+	_selector_flow.add_child(island_field)
+	var island_caption := _section_label("Island")
+	island_field.add_child(island_caption)
 	_island_option = OptionButton.new()
-	_island_option.custom_minimum_size.x = 190
+	_island_option.custom_minimum_size = Vector2(190, 38)
+	_island_option.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	_island_option.item_selected.connect(_on_selection_changed)
-	chooser.add_child(_island_option)
+	island_field.add_child(_island_option)
+	var level_field := VBoxContainer.new()
+	level_field.add_theme_constant_override("separation", 3)
+	_selector_flow.add_child(level_field)
+	level_field.add_child(_section_label("Level (1–100)"))
 	_level_spin = SpinBox.new()
 	_level_spin.min_value = 1
 	_level_spin.max_value = 100
 	_level_spin.step = 1
-	_level_spin.custom_minimum_size.x = 92
+	_level_spin.custom_minimum_size = Vector2(110, 38)
 	_level_spin.value_changed.connect(_on_selection_changed)
-	chooser.add_child(_level_spin)
+	level_field.add_child(_level_spin)
+	var seed_field := VBoxContainer.new()
+	seed_field.add_theme_constant_override("separation", 3)
+	_selector_flow.add_child(seed_field)
+	seed_field.add_child(_section_label("Seed"))
 	_seed_line = LineEdit.new()
 	_seed_line.placeholder_text = "seed"
 	_seed_line.text = str(_selected_seed)
-	_seed_line.custom_minimum_size.x = 110
-	chooser.add_child(_seed_line)
-	_add_button(chooser, "TIKI L10 · R17", func(): debug_select_case("tiki_island", 10, 34116110))
-	_add_button(chooser, "TIKI L30 · R16", func(): debug_select_case("tiki_island", 30, 34116130))
-	_selection_label = _make_label(16, 40)
+	_seed_line.custom_minimum_size = Vector2(160, 38)
+	seed_field.add_child(_seed_line)
+	body.add_child(_section_label("Diagnostic presets"))
+	_preset_flow = HFlowContainer.new()
+	_preset_flow.add_theme_constant_override("h_separation", 8)
+	_preset_flow.add_theme_constant_override("v_separation", 6)
+	body.add_child(_preset_flow)
+	_add_button(_preset_flow, "Tiki L10 · R17", func(): debug_select_case("tiki_island", 10, 34116110))
+	_add_button(_preset_flow, "Tiki L30 · R16", func(): debug_select_case("tiki_island", 30, 34116130))
+	_selection_label = _make_label(14, 78)
+	_selection_label.add_theme_color_override("font_color", Color("#e3f0f7"))
 	body.add_child(_selection_label)
-	_metrics_label = _make_label(13, 64)
+	body.add_child(_section_label("Live gameplay diagnostics"))
+	_metrics_label = _make_label(13, 112)
+	_metrics_label.add_theme_color_override("font_color", Color("#c6d9e8"))
 	body.add_child(_metrics_label)
-	var actions := HBoxContainer.new()
-	actions.add_theme_constant_override("separation", 4)
-	body.add_child(actions)
-	_add_button(actions, "START / RESET SEED", debug_start_selected)
-	_pause_button = _add_button(actions, "PAUSE", debug_pause)
-	_add_button(actions, "RESUME", debug_resume)
-	_add_button(actions, "STEP 1 PHYSICS", debug_step_once)
-	_add_button(actions, "BUDGET UNKNOWN", debug_mark_budget_unknown)
-	_add_button(actions, "EXPORT JSON", func(): debug_export_attempt(false))
-	_add_button(actions, "CAPTURE + EXPORT", func(): debug_export_attempt(true))
-	var footer := HBoxContainer.new()
-	footer.add_theme_constant_override("separation", 6)
-	body.add_child(footer)
-	_timeline_label = _make_label(12, 96)
+	body.add_child(_section_label("Attempt controls"))
+	_action_flow = HFlowContainer.new()
+	_action_flow.add_theme_constant_override("h_separation", 8)
+	_action_flow.add_theme_constant_override("v_separation", 6)
+	body.add_child(_action_flow)
+	_add_button(_action_flow, "START / RESET SEED", debug_start_selected)
+	_pause_button = _add_button(_action_flow, "PAUSE", debug_pause)
+	_add_button(_action_flow, "RESUME", debug_resume)
+	_add_button(_action_flow, "STEP ONE PHYSICS FRAME", debug_step_once)
+	_add_button(_action_flow, "BUDGET UNKNOWN", debug_mark_budget_unknown)
+	_add_button(_action_flow, "EXPORT JSON", func(): debug_export_attempt(false))
+	_add_button(_action_flow, "CAPTURE + EXPORT", func(): debug_export_attempt(true))
+	_status_label = _make_label(14, 54)
+	_status_label.add_theme_color_override("font_color", Color("#ffe0a7"))
+	body.add_child(_status_label)
+	body.add_child(_section_label("Attempt timeline"))
+	var timeline_scroll := ScrollContainer.new()
+	timeline_scroll.name = "AttemptTimelineScroll"
+	timeline_scroll.custom_minimum_size.y = 150
+	timeline_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	timeline_scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_AUTO
+	timeline_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	timeline_scroll.mouse_filter = Control.MOUSE_FILTER_STOP
+	body.add_child(timeline_scroll)
+	_timeline_label = _make_label(12, 124)
 	_timeline_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	_timeline_label.clip_text = true
-	footer.add_child(_timeline_label)
-	var hide_button := _add_button(footer, "HIDE STUDIO", func():
-		_dock.visible = false
-		_compact_button.visible = true
-	)
-	hide_button.custom_minimum_size.x = 100
+	timeline_scroll.add_child(_timeline_label)
 	_compact_button = Button.new()
 	_compact_button.name = "ShowStudio"
-	_compact_button.text = "STUDIO"
-	_compact_button.position = Vector2(12, 84)
-	_compact_button.custom_minimum_size = Vector2(110, 38)
+	_compact_button.text = "SHOW STUDIO"
+	_compact_button.custom_minimum_size = Vector2(132, 42)
 	_compact_button.visible = false
 	_compact_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	_compact_button.pressed.connect(func():
 		_dock.visible = true
 		_compact_button.visible = false
 	)
-	add_child(_compact_button)
-	_status_label = _make_label(14, 25)
-	_status_label.position = Vector2(130, 88)
-	_status_label.size = Vector2(570, 32)
-	_status_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	add_child(_status_label)
+	_overlay_root.add_child(_compact_button)
+	_layout_for_size(get_viewport_rect().size)
+
+
+func _configure_desktop_window() -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	var screen_size := DisplayServer.screen_get_size()
+	if screen_size.x < 1100 or screen_size.y < 680:
+		return
+	var window_size := Vector2i(mini(1440, screen_size.x - 48), mini(960, screen_size.y - 96))
+	if window_size.x >= 1100 and window_size.y >= 680:
+		DisplayServer.window_set_size(window_size)
+		DisplayServer.window_set_position((screen_size - window_size) / 2)
+
+
+func _make_studio_panel_style() -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color("#10283b")
+	style.border_color = Color("#75c9d0")
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(12)
+	style.set_content_margin_all(14)
+	return style
+
+
+func _section_label(text_value: String) -> Label:
+	var label := Label.new()
+	label.text = text_value
+	label.add_theme_font_size_override("font_size", 15)
+	label.add_theme_color_override("font_color", Color("#8de6d1"))
+	return label
+
+
+func _on_root_viewport_resized() -> void:
+	_layout_for_size(get_viewport_rect().size)
+
+
+func _layout_for_size(view_size: Vector2) -> void:
+	if not is_instance_valid(_game_container) or not is_instance_valid(_dock) or view_size.x <= 0.0 or view_size.y <= 0.0:
+		return
+	if view_size.x >= 1100.0 and view_size.y >= 680.0:
+		_layout_mode = "DESKTOP_SIDEBAR"
+		var panel_width := clampf(view_size.x * 0.32, 390.0, 500.0)
+		var vertical_margin := 20.0
+		var available_height := view_size.y - vertical_margin * 2.0
+		var board_width := available_height * 720.0 / 1280.0
+		if board_width + 18.0 + panel_width > view_size.x - 32.0:
+			board_width = view_size.x - 32.0 - 18.0 - panel_width
+			available_height = board_width * 1280.0 / 720.0
+		var board_height := minf(available_height, board_width * 1280.0 / 720.0)
+		board_width = board_height * 720.0 / 1280.0
+		var group_width := board_width + 18.0 + panel_width
+		var left := (view_size.x - group_width) * 0.5
+		var top := (view_size.y - board_height) * 0.5
+		_game_container.position = Vector2(left, top)
+		_game_container.size = Vector2(board_width, board_height)
+		_dock.position = Vector2(left + board_width + 18.0, top)
+		_dock.size = Vector2(panel_width, board_height)
+		_compact_button.position = Vector2(left + 10.0, top + 10.0)
+	else:
+		_layout_mode = "PORTRAIT_SCROLL_OVERLAY"
+		var board_width := minf(view_size.x, view_size.y * 720.0 / 1280.0)
+		var board_size := Vector2(board_width, board_width * 1280.0 / 720.0)
+		_game_container.position = (view_size - board_size) * 0.5
+		_game_container.size = board_size
+		var margin := 12.0
+		_dock.position = Vector2(margin, margin)
+		_dock.size = Vector2(maxf(0.0, view_size.x - margin * 2.0), minf(view_size.y - 72.0, maxf(500.0, view_size.y * 0.64)))
+		_compact_button.position = Vector2(margin, margin)
+
+
+func debug_layout_snapshot(view_size: Vector2) -> Dictionary:
+	_layout_for_size(view_size)
+	return {
+		"mode": _layout_mode,
+		"game_rect": Rect2(_game_container.position, _game_container.size),
+		"panel_rect": Rect2(_dock.position, _dock.size),
+		"panel_vertical_scroll_enabled": is_instance_valid(_panel_scroll) and _panel_scroll.vertical_scroll_mode != ScrollContainer.SCROLL_MODE_DISABLED,
+		"panel_horizontal_scroll_disabled": is_instance_valid(_panel_scroll) and _panel_scroll.horizontal_scroll_mode == ScrollContainer.SCROLL_MODE_DISABLED,
+		"selector_wrap_enabled": is_instance_valid(_selector_flow),
+		"preset_wrap_enabled": is_instance_valid(_preset_flow),
+		"action_wrap_enabled": is_instance_valid(_action_flow),
+		"overlay_layer": _overlay_layer.layer if is_instance_valid(_overlay_layer) else -1,
+		"game_input_enabled": is_instance_valid(_game_container) and _game_container.mouse_filter == Control.MOUSE_FILTER_STOP,
+	}
 
 
 func _populate_islands() -> void:
@@ -195,7 +357,8 @@ func _populate_islands() -> void:
 func _add_button(parent: Node, text_value: String, callback: Callable) -> Button:
 	var button := Button.new()
 	button.text = text_value
-	button.custom_minimum_size.y = 32
+	button.custom_minimum_size = Vector2(126, 38)
+	button.add_theme_font_size_override("font_size", 13)
 	button.pressed.connect(callback)
 	parent.add_child(button)
 	return button

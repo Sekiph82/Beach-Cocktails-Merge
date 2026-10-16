@@ -27,8 +27,36 @@ func _run() -> void:
 	if not studio._isolation_error.is_empty():
 		_finish()
 		return
+	var desktop_layout: Dictionary = studio.debug_layout_snapshot(Vector2(1440, 960))
+	var desktop_game: Rect2 = desktop_layout.get("game_rect", Rect2())
+	var desktop_panel: Rect2 = desktop_layout.get("panel_rect", Rect2())
+	_check("desktop layout keeps an aspect-correct portrait preview beside a full-height inspector", desktop_layout.get("mode", "") == "DESKTOP_SIDEBAR" and is_equal_approx(desktop_game.size.x / desktop_game.size.y, 720.0 / 1280.0) and desktop_panel.position.x >= desktop_game.end.x and is_equal_approx(desktop_panel.position.y, desktop_game.position.y) and is_equal_approx(desktop_panel.size.y, desktop_game.size.y) and desktop_panel.end.y <= 960.0)
+	var portrait_layout: Dictionary = studio.debug_layout_snapshot(Vector2(720, 1280))
+	var portrait_panel: Rect2 = portrait_layout.get("panel_rect", Rect2())
+	_check("portrait fallback wraps controls in a vertical-only scroll panel with no horizontal overflow", portrait_layout.get("mode", "") == "PORTRAIT_SCROLL_OVERLAY" and bool(portrait_layout.get("panel_vertical_scroll_enabled", false)) and bool(portrait_layout.get("panel_horizontal_scroll_disabled", false)) and bool(portrait_layout.get("selector_wrap_enabled", false)) and bool(portrait_layout.get("preset_wrap_enabled", false)) and bool(portrait_layout.get("action_wrap_enabled", false)) and portrait_panel.position.x >= 0.0 and portrait_panel.end.x <= 720.0 and portrait_panel.end.y <= 1280.0)
+	_check("studio overlay draws above production UI while the preview remains a pointer target", int(portrait_layout.get("overlay_layer", -1)) > 0 and bool(portrait_layout.get("game_input_enabled", false)))
+	studio._layout_for_size(studio.get_viewport_rect().size)
 	_check("Studio starts UNTESTED without asserting a level result", studio.debug_get_snapshot().get("status", "") == "UNTESTED")
 	_check("canonical selector exposes all ten islands and one hundred levels each", studio._island_ids.size() == 10 and studio._database.get_levels_for_island("tiki_island").size() == 100)
+	var selection_count := 0
+	for island_id in studio._island_ids:
+		for level_id in range(1, 101):
+			if studio.debug_select_case(island_id, level_id, 777):
+				selection_count += 1
+	_check("all 10 × 100 canonical island/level combinations are selectable", selection_count == 1000)
+	_check("Studio-only controls stay outside the production campaign navigation tree", studio._navigation.find_child("QualificationStudioDock", true, false) == null and studio.find_child("QualificationStudioDock", true, false) == studio._dock)
+	studio.debug_select_case("tiki_island", 10, 34116110)
+	var world_map = studio._navigation.get_world_map()
+	var sunny_entry: Control = world_map.get_entry("sunny_cove") as Control
+	_check("Sunny Cove map target is visible and selectable for real mouse routing", is_instance_valid(sunny_entry) and world_map.is_entry_selectable("sunny_cove"))
+	if is_instance_valid(sunny_entry):
+		studio._dock.hide()
+		_route_preview_click(studio, sunny_entry.get_global_rect().get_center())
+		await process_frame
+		_check("real mouse input routed through the portrait preview opens Sunny Cove map", studio._navigation.get_current_view() == CampaignNavigationController.VIEW_ISLAND_MAP and studio._navigation.get_active_island_id() == "sunny_cove")
+		studio._navigation.show_world_map()
+		studio._dock.show()
+		await process_frame
 	_check("Tiki L10 selection binds canonical T=24 and exact normal 4T cap=96", studio.debug_select_case("tiki_island", 10, 34116110) and int(studio.debug_get_snapshot().get("normal_theoretical_shots_T", 0)) == 24 and int(studio.debug_get_snapshot().get("normal_4t_cap", 0)) == 96 and int(studio.debug_get_snapshot().get("stored_move_limit", 0)) == 96)
 	_check("Tiki L30 diagnostic preset binds canonical T=32 and exact normal 4T cap=128", studio.debug_select_case("tiki_island", 30, 34116130) and int(studio.debug_get_snapshot().get("normal_theoretical_shots_T", 0)) == 32 and int(studio.debug_get_snapshot().get("normal_4t_cap", 0)) == 128 and int(studio.debug_get_snapshot().get("stored_move_limit", 0)) == 128)
 	studio.debug_select_case("tiki_island", 10, 34116110)
@@ -45,16 +73,7 @@ func _run() -> void:
 	if is_instance_valid(gameplay):
 		var held: Drink = gameplay.shot_controller.get("_current_drink")
 		if is_instance_valid(held):
-			var press := InputEventMouseButton.new()
-			press.button_index = MOUSE_BUTTON_LEFT
-			press.pressed = true
-			press.position = held.global_position
-			gameplay.shot_controller._unhandled_input(press)
-			var release := InputEventMouseButton.new()
-			release.button_index = MOUSE_BUTTON_LEFT
-			release.pressed = false
-			release.position = held.global_position
-			gameplay.shot_controller._unhandled_input(release)
+			_route_preview_click(studio, held.global_position)
 		await process_frame
 		await process_frame
 	var snapshot: Dictionary = studio.debug_get_snapshot()
@@ -85,6 +104,24 @@ func _run() -> void:
 	studio.queue_free()
 	await process_frame
 	_finish()
+
+
+
+func _route_preview_click(studio: Node, subviewport_position: Vector2) -> void:
+	var container: Control = studio._game_container
+	var viewport_size := Vector2(720.0, 1280.0)
+	var outer_position := container.position + Vector2(subviewport_position.x * container.size.x / viewport_size.x, subviewport_position.y * container.size.y / viewport_size.y)
+	var press := InputEventMouseButton.new()
+	press.button_index = MOUSE_BUTTON_LEFT
+	press.pressed = true
+	press.position = outer_position
+	studio.get_viewport().push_input(press, true)
+	var release := InputEventMouseButton.new()
+	release.button_index = MOUSE_BUTTON_LEFT
+	release.pressed = false
+	release.position = outer_position
+	studio.get_viewport().push_input(release, true)
+	await process_frame
 
 
 func _has_event(events: Array, name: String) -> bool:
