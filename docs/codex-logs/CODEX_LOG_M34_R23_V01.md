@@ -6,7 +6,7 @@
 - Session: `BCM-M34-END-TO-END-GAME-COMPLETION-V01`.
 - Branch / remote: `main` / `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge`).
 - Start HEAD after required sync: `66d1a7e7e6980ef3b30e7f9a527e24ff0d4af5be`.
-- End HEAD for implementation/evidence: `1b35b2218f...` (full SHA verified in Git immediately after commit).
+- End HEAD for implementation/evidence: `1b35b2215db4c4002eb80610478b2c3aefdb406f` (full SHA verified in Git immediately after commit).
 
 ## Sync-first preflight and owner preservation
 
@@ -69,7 +69,7 @@ The R23 pilot does not qualify under its global time ceiling because actual mani
 
 ## Publication and stop marker
 
-- Implementation/evidence commit SHA: `1b35b2218f...` (abbreviated here; full SHA is the first task commit).
+- Implementation/evidence commit SHA: `1b35b2215db4c4002eb80610478b2c3aefdb406f` (abbreviated here; full SHA is the first task commit).
 - Final repository state: pushed to `origin/main`; local HEAD, `origin/main`, and remote `main` were verified equal after publication. The log is a subsequent log-only commit.
 - Required stop marker: `AWAITING_GPT_M34_R23_INDEPENDENT_AUDIT`.
 
