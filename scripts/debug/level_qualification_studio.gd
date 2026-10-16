@@ -52,6 +52,18 @@ var _event_limit_reported := false
 var _layout_mode := "UNINITIALIZED"
 
 
+static func outer_input_to_game_viewport(position: Vector2, game_rect: Rect2, game_viewport_size: Vector2 = Vector2(720.0, 1280.0)) -> Vector2:
+	if game_rect.size.x <= 0.0 or game_rect.size.y <= 0.0 or game_viewport_size.x <= 0.0 or game_viewport_size.y <= 0.0:
+		return Vector2(-1.0, -1.0)
+	return Vector2((position.x - game_rect.position.x) * game_viewport_size.x / game_rect.size.x, (position.y - game_rect.position.y) * game_viewport_size.y / game_rect.size.y)
+
+
+static func game_viewport_to_outer_input(position: Vector2, game_rect: Rect2, game_viewport_size: Vector2 = Vector2(720.0, 1280.0)) -> Vector2:
+	if game_viewport_size.x <= 0.0 or game_viewport_size.y <= 0.0:
+		return Vector2(-1.0, -1.0)
+	return game_rect.position + Vector2(position.x * game_rect.size.x / game_viewport_size.x, position.y * game_rect.size.y / game_viewport_size.y)
+
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)

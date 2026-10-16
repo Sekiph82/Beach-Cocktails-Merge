@@ -1,0 +1,1203 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R19-33200ec58896458f8a0ff48607931ea0",
+  "status": "EXITED",
+  "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+  "started_utc": "2026-10-16T05:29:23.5194769Z",
+  "finished_utc": "2026-10-16T05:29:49.2949973Z",
+  "wall_elapsed_ms": 25776,
+  "timeout_seconds": 30,
+  "file_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "root_pid": 32628,
+  "root_identity_verified": true,
+  "task_token": "0aba2b9f57d94dfeb0df03812e5067ba",
+  "exit_code": 0,
+  "terminated_processes": [],
+  "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nGame Feel Flow: Initializing...\r\nGFFEffectConfigManager: Registered configs\r\nGame Feel Flow: Registered 31 effects\r\nGame Feel Flow: Ready (31 effects, 15 combos)\r\n[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)\r\nMERGE L2 +20  COMBO x1 +0  (toplam: 20)\r\nMERGE L3 +50  COMBO x1 +0  (toplam: 70)\r\nMERGE L4 +100  COMBO x2 +25  (toplam: 195)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 295)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 395)\r\nMERGE L2 +20  COMBO x2 +5  (toplam: 420)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 520)\r\nMERGE L5 +200  COMBO x2 +50  (toplam: 770)\r\nMERGE L5 +200  COMBO x1 +0  (toplam: 970)\r\nMERGE L3 +50  COMBO x2 +13  (toplam: 1033)\r\nMERGE L2 +20  COMBO x3 +10  (toplam: 1063)\r\nMERGE L3 +50  COMBO x4 +38  (toplam: 1151)\r\nMERGE L3 +50  COMBO x1 +0  (toplam: 1201)\r\nMERGE L4 +100  COMBO x1 +0  (toplam: 1301)\r\nMERGE L3 +50  COMBO x2 +13  (toplam: 1364)\r\nMERGE L4 +100  COMBO x3 +50  (toplam: 1514)\r\nMERGE L2 +20  COMBO x4 +15  (toplam: 1549)\r\nMERGE L4 +100  COMBO x5 +100  (toplam: 1749)\r\nM34_R19_TRIAL classification=BUDGET_UNKNOWN case=azure_bay/1 seed=34116201 shots=25/160 objective_progress=0 wall_ms=24509\r\n",
+  "stderr": "",
+  "partial_progress": {
+    "action_count": 25,
+    "action_log": [
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          360.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 3,
+        "requested_viewport_x": 360.0,
+        "same_level_target_found": false,
+        "spawn_level": 1,
+        "step": 0,
+        "target_instance_id": null,
+        "x_position": 360.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          360.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 3,
+        "requested_viewport_x": 360.0,
+        "same_level_target_found": true,
+        "spawn_level": 1,
+        "step": 1,
+        "target_instance_id": 1,
+        "x_position": 360.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          220.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 1,
+        "requested_viewport_x": 220.0,
+        "same_level_target_found": false,
+        "spawn_level": 3,
+        "step": 2,
+        "target_instance_id": null,
+        "x_position": 220.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          500.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 5,
+        "requested_viewport_x": 500.0,
+        "same_level_target_found": false,
+        "spawn_level": 1,
+        "step": 3,
+        "target_instance_id": null,
+        "x_position": 500.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          360.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 3,
+        "requested_viewport_x": 360.0,
+        "same_level_target_found": true,
+        "spawn_level": 2,
+        "step": 4,
+        "target_instance_id": 5,
+        "x_position": 360.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          220.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 1,
+        "requested_viewport_x": 220.0,
+        "same_level_target_found": true,
+        "spawn_level": 3,
+        "step": 5,
+        "target_instance_id": 6,
+        "x_position": 220.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          150.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 0,
+        "requested_viewport_x": 150.0,
+        "same_level_target_found": false,
+        "spawn_level": 2,
+        "step": 6,
+        "target_instance_id": null,
+        "x_position": 150.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          360.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 3,
+        "requested_viewport_x": 360.0,
+        "same_level_target_found": true,
+        "spawn_level": 3,
+        "step": 7,
+        "target_instance_id": 12,
+        "x_position": 360.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          570.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 6,
+        "requested_viewport_x": 570.0,
+        "same_level_target_found": false,
+        "spawn_level": 3,
+        "step": 8,
+        "target_instance_id": null,
+        "x_position": 570.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          500.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 5,
+        "requested_viewport_x": 500.0,
+        "same_level_target_found": true,
+        "spawn_level": 3,
+        "step": 9,
+        "target_instance_id": 21,
+        "x_position": 500.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          430.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 4,
+        "requested_viewport_x": 430.0,
+        "same_level_target_found": true,
+        "spawn_level": 1,
+        "step": 10,
+        "target_instance_id": 8,
+        "x_position": 430.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          570.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 6,
+        "requested_viewport_x": 570.0,
+        "same_level_target_found": false,
+        "spawn_level": 3,
+        "step": 11,
+        "target_instance_id": null,
+        "x_position": 570.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          500.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 5,
+        "requested_viewport_x": 500.0,
+        "same_level_target_found": true,
+        "spawn_level": 3,
+        "step": 12,
+        "target_instance_id": 29,
+        "x_position": 500.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          150.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 0,
+        "requested_viewport_x": 150.0,
+        "same_level_target_found": false,
+        "spawn_level": 1,
+        "step": 13,
+        "target_instance_id": null,
+        "x_position": 150.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          430.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 4,
+        "requested_viewport_x": 430.0,
+        "same_level_target_found": true,
+        "spawn_level": 2,
+        "step": 14,
+        "target_instance_id": 28,
+        "x_position": 430.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          220.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 1,
+        "requested_viewport_x": 220.0,
+        "same_level_target_found": true,
+        "spawn_level": 1,
+        "step": 15,
+        "target_instance_id": 35,
+        "x_position": 220.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          570.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 6,
+        "requested_viewport_x": 570.0,
+        "same_level_target_found": false,
+        "spawn_level": 2,
+        "step": 16,
+        "target_instance_id": null,
+        "x_position": 570.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          500.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 5,
+        "requested_viewport_x": 500.0,
+        "same_level_target_found": true,
+        "spawn_level": 2,
+        "step": 17,
+        "target_instance_id": 45,
+        "x_position": 500.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          150.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 0,
+        "requested_viewport_x": 150.0,
+        "same_level_target_found": false,
+        "spawn_level": 1,
+        "step": 18,
+        "target_instance_id": null,
+        "x_position": 150.0
+      },
+      {
+        "decision_reason": "feedback_objective_and_lane_history",
+        "fired_position": [
+          570.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 6,
+        "requested_viewport_x": 570.0,
+        "same_level_target_found": false,
+        "spawn_level": 2,
+        "step": 19,
+        "target_instance_id": null,
+        "x_position": 570.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          220.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 1,
+        "requested_viewport_x": 220.0,
+        "same_level_target_found": true,
+        "spawn_level": 3,
+        "step": 20,
+        "target_instance_id": 44,
+        "x_position": 220.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          500.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 5,
+        "requested_viewport_x": 500.0,
+        "same_level_target_found": true,
+        "spawn_level": 2,
+        "step": 21,
+        "target_instance_id": 52,
+        "x_position": 500.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          220.0,
+          958.869567871094
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 1,
+        "requested_viewport_x": 220.0,
+        "same_level_target_found": true,
+        "spawn_level": 1,
+        "step": 22,
+        "target_instance_id": 50,
+        "x_position": 220.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          360.0,
+          944.842102050781
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 3,
+        "requested_viewport_x": 360.0,
+        "same_level_target_found": true,
+        "spawn_level": 3,
+        "step": 23,
+        "target_instance_id": 40,
+        "x_position": 360.0
+      },
+      {
+        "decision_reason": "feedback_same_level_target",
+        "fired_position": [
+          220.0,
+          956.491027832031
+        ],
+        "input_path": "ShotController._unhandled_input",
+        "lane_index": 1,
+        "requested_viewport_x": 220.0,
+        "same_level_target_found": true,
+        "spawn_level": 2,
+        "step": 24,
+        "target_instance_id": 63,
+        "x_position": 220.0
+      }
+    ],
+    "action_progress_sha256": "ffd2dfd87ccf0083def41ee3f0d25e8dec7f056db94884d7fceebaeca47d9400",
+    "case": {
+      "island_id": "azure_bay",
+      "level_id": 1,
+      "policy": "R19_FEEDBACK_AWARE_V01",
+      "seed": 34116201
+    },
+    "classification": "BUDGET_UNKNOWN",
+    "contact_count": 43,
+    "elapsed_wall_usec": 24509335,
+    "global_validated_level_count": 1000,
+    "human_fairness_ux": "NOT_ASSESSED",
+    "lane_feedback": {
+      "150000": {
+        "contact_gain": 4,
+        "merge_gain": 0,
+        "no_progress": 3,
+        "objective_gain": 0,
+        "trials": 3
+      },
+      "220000": {
+        "contact_gain": 12,
+        "merge_gain": 5,
+        "no_progress": 6,
+        "objective_gain": 0,
+        "trials": 6
+      },
+      "360000": {
+        "contact_gain": 5,
+        "merge_gain": 4,
+        "no_progress": 5,
+        "objective_gain": 0,
+        "trials": 5
+      },
+      "430000": {
+        "contact_gain": 6,
+        "merge_gain": 2,
+        "no_progress": 2,
+        "objective_gain": 0,
+        "trials": 2
+      },
+      "500000": {
+        "contact_gain": 9,
+        "merge_gain": 4,
+        "no_progress": 5,
+        "objective_gain": 0,
+        "trials": 5
+      },
+      "570000": {
+        "contact_gain": 7,
+        "merge_gain": 0,
+        "no_progress": 4,
+        "objective_gain": 0,
+        "trials": 4
+      }
+    },
+    "merge_count": 15,
+    "merge_events": [
+      {
+        "first_instance_id": 1,
+        "frame": 117,
+        "result_level": 2,
+        "second_instance_id": 3
+      },
+      {
+        "first_instance_id": 5,
+        "frame": 296,
+        "result_level": 3,
+        "second_instance_id": 10
+      },
+      {
+        "first_instance_id": 6,
+        "frame": 355,
+        "result_level": 4,
+        "second_instance_id": 13
+      },
+      {
+        "first_instance_id": 12,
+        "frame": 475,
+        "result_level": 4,
+        "second_instance_id": 18
+      },
+      {
+        "first_instance_id": 21,
+        "frame": 595,
+        "result_level": 4,
+        "second_instance_id": 23
+      },
+      {
+        "first_instance_id": 8,
+        "frame": 658,
+        "result_level": 2,
+        "second_instance_id": 26
+      },
+      {
+        "first_instance_id": 29,
+        "frame": 772,
+        "result_level": 4,
+        "second_instance_id": 31
+      },
+      {
+        "first_instance_id": 28,
+        "frame": 896,
+        "result_level": 3,
+        "second_instance_id": 37
+      },
+      {
+        "first_instance_id": 35,
+        "frame": 955,
+        "result_level": 2,
+        "second_instance_id": 41
+      },
+      {
+        "first_instance_id": 16,
+        "frame": 956,
+        "result_level": 3,
+        "second_instance_id": 43
+      },
+      {
+        "first_instance_id": 45,
+        "frame": 1076,
+        "result_level": 3,
+        "second_instance_id": 47
+      },
+      {
+        "first_instance_id": 44,
+        "frame": 1259,
+        "result_level": 4,
+        "second_instance_id": 54
+      },
+      {
+        "first_instance_id": 52,
+        "frame": 1313,
+        "result_level": 3,
+        "second_instance_id": 57
+      },
+      {
+        "first_instance_id": 50,
+        "frame": 1377,
+        "result_level": 2,
+        "second_instance_id": 61
+      },
+      {
+        "first_instance_id": 40,
+        "frame": 1435,
+        "result_level": 4,
+        "second_instance_id": 64
+      }
+    ],
+    "normal_4t_cap_verified": true,
+    "normal_4t_shot_cap": 160,
+    "normal_objective_complete": false,
+    "normal_orders_completed": {
+      "6": 0,
+      "8": 0
+    },
+    "normal_orders_remaining": {
+      "6": 1,
+      "8": 1
+    },
+    "normal_theoretical_shots_T": 40,
+    "optional_vip_enabled": false,
+    "outcome": "harness_abort",
+    "physics": {
+      "fixed_fps": false,
+      "input_path": "production ShotController._unhandled_input mouse press/release + footprint projection + _launch + Drink.launch_up + Godot 2D physics",
+      "mode": "standard_fps_production_physics",
+      "physics_ticks_per_second": 60,
+      "run_on_separate_thread": false,
+      "shot_speed_px_per_sec": 700.0,
+      "time_scale": 1.0
+    },
+    "physics_frames_observed": 1450,
+    "production_moves_used": 25,
+    "profile": {
+      "decision_count": 25,
+      "decision_wall_usec": 7622,
+      "decision_wall_usec_per_action": 304.88,
+      "enabled": true,
+      "engine_performance_monitor": "not_sampled; frame wall timers are used because built-in monitors may be stale",
+      "frame_count": 1450,
+      "geometry_cache_misses": 3,
+      "physics_frame_wait_wall_usec": 21017887,
+      "sample_wall_usec": 2749237,
+      "sample_wall_usec_per_frame": 1896.03,
+      "shot_commit_wall_usec": 110999
+    },
+    "progress_curve": [
+      {
+        "action_count": 1,
+        "merge_count": 0,
+        "moves_used": 1,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 1.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 2,
+        "merge_count": 1,
+        "moves_used": 2,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 2.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 3,
+        "merge_count": 1,
+        "moves_used": 3,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 3.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 4,
+        "merge_count": 1,
+        "moves_used": 4,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 4.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 5,
+        "merge_count": 2,
+        "moves_used": 5,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 5.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 6,
+        "merge_count": 3,
+        "moves_used": 6,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 6.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 7,
+        "merge_count": 3,
+        "moves_used": 7,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 7.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 8,
+        "merge_count": 4,
+        "moves_used": 8,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 8.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 9,
+        "merge_count": 4,
+        "moves_used": 9,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 9.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 10,
+        "merge_count": 5,
+        "moves_used": 10,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 10.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 11,
+        "merge_count": 6,
+        "moves_used": 11,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 11.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 12,
+        "merge_count": 6,
+        "moves_used": 12,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 12.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 13,
+        "merge_count": 7,
+        "moves_used": 13,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 13.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 14,
+        "merge_count": 7,
+        "moves_used": 14,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 14.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 15,
+        "merge_count": 8,
+        "moves_used": 15,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 15.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 16,
+        "merge_count": 10,
+        "moves_used": 16,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 16.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 17,
+        "merge_count": 10,
+        "moves_used": 17,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 17.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 18,
+        "merge_count": 11,
+        "moves_used": 18,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 18.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 19,
+        "merge_count": 11,
+        "moves_used": 19,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 19.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 20,
+        "merge_count": 11,
+        "moves_used": 20,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 20.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 21,
+        "merge_count": 12,
+        "moves_used": 21,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 21.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 22,
+        "merge_count": 13,
+        "moves_used": 22,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 22.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 23,
+        "merge_count": 14,
+        "moves_used": 23,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 23.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 24,
+        "merge_count": 15,
+        "moves_used": 24,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 24.0,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      },
+      {
+        "action_count": 25,
+        "merge_count": 15,
+        "moves_used": 25,
+        "normal_T_progress_per_move": 0.0,
+        "normal_T_progressed": 0,
+        "normal_T_remaining": 40,
+        "normal_T_start": 40,
+        "normal_orders_completed": {
+          "6": 0,
+          "8": 0
+        },
+        "simulated_seconds": 24.15,
+        "vip_state": {
+          "cocktail_level": 0,
+          "completed": false,
+          "delivered": 0,
+          "enabled": false,
+          "quantity": 0,
+          "remaining": 0,
+          "required": 0,
+          "status": "HIDDEN"
+        }
+      }
+    ],
+    "schema_version": 1,
+    "shots_used": 25,
+    "simulated_seconds": 24.1666666666666,
+    "status": "CASE_COMPLETE",
+    "terminal_reason": "PER_LEVEL_WALL_BUDGET",
+    "vip_state": {
+      "cocktail_level": 0,
+      "completed": false,
+      "delivered": 0,
+      "enabled": false,
+      "quantity": 0,
+      "remaining": 0,
+      "required": 0,
+      "status": "HIDDEN"
+    },
+    "work_item": "BCM-M34-R19"
+  }
+}

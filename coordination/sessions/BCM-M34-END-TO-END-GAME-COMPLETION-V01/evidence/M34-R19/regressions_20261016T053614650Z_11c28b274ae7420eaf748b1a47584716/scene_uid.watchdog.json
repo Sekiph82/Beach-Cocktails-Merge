@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "task": "BCM-M34-R19-REGRESSION-20261016T053614650Z_11c28b274ae7420eaf748b1a47584716-scene_uid",
+  "status": "EXITED",
+  "reason": "CHILD_EXITED_WITHIN_WALL_BUDGET",
+  "started_utc": "2026-10-16T05:37:54.6910790Z",
+  "finished_utc": "2026-10-16T05:37:55.8042977Z",
+  "wall_elapsed_ms": 1113,
+  "timeout_seconds": 60,
+  "file_path": "C:\\Users\\sekip\\AppData\\Local\\Microsoft\\WinGet\\Links\\godot_console.exe",
+  "root_pid": 11532,
+  "root_identity_verified": true,
+  "task_token": "86eb8d6e06184186919c4a247cb9a073",
+  "exit_code": 0,
+  "terminated_processes": [],
+  "stdout": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\r\n\r\nPASS: res://scenes/main.tscn root loaded with res://scripts/game_manager.gd\r\nPASS: res://scenes/campaign/WorldMapScene.tscn root loaded with res://scripts/campaign/world_map_controller.gd\r\nM34_R10_SCENE_UID_RESULT=PASS\r\nGame Feel Flow: Initializing...\r\nGFFEffectConfigManager: Registered configs\r\nGame Feel Flow: Registered 31 effects\r\nGame Feel Flow: Ready (31 effects, 15 combos)\r\n[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)\r\n",
+  "stderr": "WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://kf3xtrckwhbr - using text path instead: res://scripts/campaign/world_map_controller.gd\r\n   at: load (scene/resources/resource_format_text.cpp:501)\r\n   GDScript backtrace (most recent call first):\r\n       [0] _initialize (res://tests/m34_r10_scene_uid_probe.gd:13)\r\n",
+  "partial_progress": null
+}

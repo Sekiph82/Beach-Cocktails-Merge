@@ -35,6 +35,7 @@ const LANE_X_POSITIONS: Array[float] = [150.0, 220.0, 290.0, 360.0, 430.0, 500.0
 const POLICY_WEAK_V02 := "WEAK_V02"
 const POLICY_MERGE_AWARE_V01 := "MERGE_AWARE_V01"
 const POLICY_CHEAP_MERGE_CENTER_V01 := "CHEAP_MERGE_CENTER_V01"
+const POLICY_R19_FEEDBACK_AWARE_V01 := "R19_FEEDBACK_AWARE_V01"
 
 var _root: Node
 var time_scale := 1.0
@@ -62,8 +63,9 @@ func telemetry_schema_keys() -> Array[String]:
 		"danger_line_exposure_sec", "normal_objective_complete", "vip_complete",
 		"action_log", "policy_name", "unique_x_positions", "lateral_variation_eligible",
 		"lateral_variation", "decision_reason_counts", "terminal_reason", "physics_hook",
-	"moves_used", "move_limit", "moves_remaining", "stars", "normal_orders_completed",
+		"moves_used", "move_limit", "moves_remaining", "stars", "normal_orders_completed",
 	"normal_orders_remaining", "vip_state",
+	"physics_mode", "fixed_fps", "time_scale", "normal_theoretical_shots_T", "normal_4t_shot_cap",
 		"progress_curve",
 	]
 
@@ -99,6 +101,11 @@ func new_telemetry(island_id: String, level_id: int, seed_value: int) -> Diction
 		"decision_reason_counts": {},
 		"terminal_reason": "",
 		"physics_hook": "production GameManager.spawn_drink + Drink.launch_up + Godot physics frames",
+		"physics_mode": "standard_fps_production_physics",
+		"fixed_fps": false,
+		"time_scale": time_scale,
+		"normal_theoretical_shots_T": 0,
+		"normal_4t_shot_cap": 0,
 		"moves_used": 0,
 		"move_limit": 0,
 		"moves_remaining": 0,
@@ -198,14 +205,21 @@ func run_trial(
 	max_physics_frames: int = 0,
 	physics_trace_interval_frames: int = DETERMINISM_TRACE_INTERVAL_FRAMES,
 	progress_checkpoint_path: String = "",
-	progress_checkpoint_metadata: Dictionary = {}
+	progress_checkpoint_metadata: Dictionary = {},
+	use_production_input_path: bool = false,
+	initial_lane_feedback: Dictionary = {}
 ) -> Dictionary:
 	var telemetry := new_telemetry(island_id, level_id, seed_value)
 	telemetry["policy_name"] = policy_name
+	telemetry["physics_mode"] = "standard_fps_production_physics"
+	telemetry["fixed_fps"] = false
+	telemetry["time_scale"] = time_scale
 	var level_definition: Dictionary = database.get_level(island_id, level_id)
 	if level_definition.is_empty():
 		telemetry["terminal_reason"] = "LEVEL_NOT_FOUND"
 		return telemetry
+	telemetry["normal_theoretical_shots_T"] = int(level_definition.get("theoretical_shots_to_go", 0))
+	telemetry["normal_4t_shot_cap"] = int(level_definition.get("theoretical_shots_to_go", 0)) * 4
 
 	var manager = GAME_MANAGER_SCRIPT.new()
 	_root.add_child(manager)
@@ -264,8 +278,10 @@ func run_trial(
 		"peak_board_occupancy": 0.0,
 		"large_piece_coexistence_peak": 0,
 		"danger_line_exposure_sec": 0.0,
+		"r19_lane_feedback": initial_lane_feedback.duplicate(true),
 		"step_sec": PHYSICS_STEP_SEC * time_scale,
 	}
+	manager.set_meta("m34_r19_lane_feedback", initial_lane_feedback.duplicate(true))
 
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_value
@@ -335,7 +351,28 @@ func run_trial(
 			break
 		_attach_drink(launched, state)
 		launched.position.x = x_position
-		if use_production_shot_controller:
+		if use_production_input_path:
+			# Drive the exact production mouse-drag handler: press at the held
+			# launch anchor and release at the selected viewport x coordinate.
+			if is_instance_valid(manager.shot_controller._current_drink):
+				manager.shot_controller._current_drink.queue_free()
+			manager.shot_controller._current_drink = launched
+			manager.shot_controller._can_shoot = true
+			var input_press := InputEventMouseButton.new()
+			input_press.button_index = MOUSE_BUTTON_LEFT
+			input_press.pressed = true
+			input_press.position = Vector2(manager.get_board_size().x * 0.5, launched.position.y)
+			manager.shot_controller._unhandled_input(input_press)
+			var input_release := InputEventMouseButton.new()
+			input_release.button_index = MOUSE_BUTTON_LEFT
+			input_release.pressed = false
+			input_release.position = Vector2(x_position, launched.position.y)
+			manager.shot_controller._unhandled_input(input_release)
+			action_record["input_path"] = "ShotController._unhandled_input"
+			action_record["requested_viewport_x"] = x_position
+			action_record["fired_position"] = [launched.position.x, launched.position.y]
+			telemetry["action_log"][action_index] = action_record
+		elif use_production_shot_controller:
 			# Exercise ShotController's actual launch path. It emits shot_fired,
 			# which records the committed move through GameManager, then replaces
 			# the held preview exactly as a normal launch does.
@@ -348,6 +385,8 @@ func run_trial(
 			profile["shot_commit_wall_usec"] = int(profile["shot_commit_wall_usec"]) + Time.get_ticks_usec() - shot_commit_start_usec
 		telemetry["shot_count"] = int(telemetry["shot_count"]) + 1
 		var merges_before := int(state["merge_count"])
+		var contacts_before := int(state["contact_count"])
+		var objective_before := _remaining_normal_t(bridge.get_objective_state().get("normal_remaining", {}))
 		for _frame in range(FRAMES_PER_ACTION):
 			if max_physics_frames > 0 and physics_frame_index >= max_physics_frames:
 				break
@@ -381,6 +420,9 @@ func run_trial(
 		var progress_state: Dictionary = bridge.get_objective_state()
 		var normal_remaining: Dictionary = progress_state.get("normal_remaining", {})
 		var remaining_t := _remaining_normal_t(normal_remaining)
+		if policy_name == POLICY_R19_FEEDBACK_AWARE_V01:
+			_record_r19_lane_feedback(state, x_position, objective_before - remaining_t, int(state["merge_count"]) - merges_before, int(state["contact_count"]) - contacts_before)
+			manager.set_meta("m34_r19_lane_feedback", state["r19_lane_feedback"].duplicate(true))
 		var normal_t_start := int(ceil(float(MODEL_SCRIPT.normal_objective_cost(level_definition)) / 4.0))
 		var move_state: Dictionary = bridge.get_move_budget_state()
 		var moves_used := int(move_state.get("moves_used", 0))
@@ -480,6 +522,7 @@ func run_trial(
 	telemetry["normal_orders_completed"] = objective_state.get("normal_completed", {}).duplicate(true)
 	telemetry["normal_orders_remaining"] = objective_state.get("normal_remaining", {}).duplicate(true)
 	telemetry["vip_state"] = bridge.get_vip_state().duplicate(true)
+	telemetry["r19_lane_feedback"] = state.get("r19_lane_feedback", {}).duplicate(true)
 	telemetry["stars"] = int(bridge.get_terminal_result().get("stars", 0)) if bridge.is_terminal() else 0
 	if profile_enabled:
 		profile["decision_wall_usec_per_action"] = snappedf(float(profile["decision_wall_usec"]) / float(maxi(1, int(profile["decision_count"]))), 0.01)
@@ -706,11 +749,86 @@ func choose_action(manager, level: int, policy_name: String = POLICY_WEAK_V02) -
 	if bridge != null and bridge.is_session_active():
 		objective_level = bridge.get_next_required_order_level()
 	var legal_x_positions := _cached_or_legal_launch_x_positions(manager, level)
+	if policy_name == POLICY_R19_FEEDBACK_AWARE_V01:
+		return _select_r19_feedback_action(manager, level, observations, objective_level, legal_x_positions)
 	if policy_name == POLICY_MERGE_AWARE_V01:
 		return _select_merge_aware_action(level, observations, objective_level, legal_x_positions)
 	if policy_name == POLICY_CHEAP_MERGE_CENTER_V01:
 		return _select_cheap_merge_center_action(level, observations, legal_x_positions)
 	return _select_weak_v02_action(level, observations, legal_x_positions)
+
+
+func _record_r19_lane_feedback(state: Dictionary, x_position: float, objective_gain: int, merge_gain: int, contact_gain: int) -> void:
+	var feedback: Dictionary = state.get("r19_lane_feedback", {})
+	var key := _r19_lane_key(x_position)
+	var lane: Dictionary = feedback.get(key, {"trials": 0, "objective_gain": 0, "merge_gain": 0, "contact_gain": 0, "no_progress": 0})
+	lane["trials"] = int(lane.get("trials", 0)) + 1
+	lane["objective_gain"] = int(lane.get("objective_gain", 0)) + maxi(0, objective_gain)
+	lane["merge_gain"] = int(lane.get("merge_gain", 0)) + maxi(0, merge_gain)
+	lane["contact_gain"] = int(lane.get("contact_gain", 0)) + maxi(0, contact_gain)
+	if objective_gain <= 0:
+		lane["no_progress"] = int(lane.get("no_progress", 0)) + 1
+	feedback[key] = lane
+	state["r19_lane_feedback"] = feedback
+
+
+func _select_r19_feedback_action(manager, level: int, observations: Array, objective_level: int, legal_x_positions: Array) -> Dictionary:
+	## Greedy online policy. It reacts only to observed board/objective state and
+	## prior outcomes for launch lanes; it never inspects future RNG values.
+	var feedback: Dictionary = manager.get_meta("m34_r19_lane_feedback", {})
+	return choose_r19_action_from_observations(level, observations, objective_level, legal_x_positions, feedback)
+
+
+func choose_r19_action_from_observations(level: int, observations: Array, objective_level: int, legal_x_positions: Array, feedback: Dictionary) -> Dictionary:
+	## Deterministic pure seam used by the input/bot contract test.
+	var targets: Array[Dictionary] = []
+	for observation in observations:
+		if int(observation.get("level", 0)) == level:
+			targets.append(observation)
+	var candidates: Array[float] = []
+	if not targets.is_empty():
+		for target in targets:
+			candidates.append(_nearest_legal_x(float(target.get("x", 360.0)), legal_x_positions))
+	else:
+		for x_value in (legal_x_positions if not legal_x_positions.is_empty() else LANE_X_POSITIONS):
+			candidates.append(float(x_value))
+	if candidates.is_empty():
+		candidates.append(_nearest_legal_x(360.0, legal_x_positions))
+	var best_x := candidates[0]
+	var best_score := -INF
+	var best_target_id := 0
+	for candidate in candidates:
+		var key := _r19_lane_key(candidate)
+		var lane: Dictionary = feedback.get(key, {})
+		var trials := int(lane.get("trials", 0))
+		var observed_gain := float(lane.get("objective_gain", 0)) * 5.0 + float(lane.get("merge_gain", 0)) * 0.5 + float(lane.get("contact_gain", 0)) * 0.03
+		var score := (observed_gain / float(maxi(1, trials))) - float(lane.get("no_progress", 0)) * 0.35
+		var center_distance := absf(candidate - 360.0)
+		if targets.is_empty():
+			var congestion := 0.0
+			for observation in observations:
+				var dx := absf(float(observation.get("x", 0.0)) - candidate)
+				if dx <= 105.0:
+					congestion += 1.0 - dx / 210.0
+			score -= congestion
+		if objective_level > 0 and level + 1 == objective_level:
+			score += 0.15
+		score -= center_distance * 0.0001
+		var candidate_target_id := 0
+		for target in targets:
+			if is_equal_approx(_nearest_legal_x(float(target.get("x", 360.0)), legal_x_positions), candidate):
+				candidate_target_id = int(target.get("instance_id", 0))
+				break
+		if score > best_score or (is_equal_approx(score, best_score) and candidate_target_id > 0 and (best_target_id == 0 or candidate_target_id < best_target_id)):
+			best_score = score
+			best_x = candidate
+			best_target_id = candidate_target_id
+	var reason := "feedback_same_level_target" if best_target_id > 0 else "feedback_objective_and_lane_history"
+	return _action_result(best_x, best_target_id > 0, best_target_id if best_target_id > 0 else null, reason)
+
+
+func _r19_lane_key(x_position: float) -> String:
+	return str(int(round(x_position * 1000.0)))
 
 
 func _cached_or_legal_launch_x_positions(manager, level: int) -> Array:
