@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex executes R22 bounded cross-island autonomous pilot (12-16 levels, max 20 min); full 1000-level test not yet authorized.
+- Next Task/Action: BCM-M33-004 — Codex runs R23 bounded 10-island autonomous screening (up to 3 samples/island, 35 min wall, 250MB retained file ceiling) after VIP provenance repair; NOT full 1000-level batch.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R21 independent evidence audit PASS for narrow non-L1 win: Sunny Cove L25 WIN_OBSERVED under standard production physics, 20/20 T completed in 55/80 shots with all seven legal x lanes; separate L25 loss 4/20 T in 80 shots and two finalized startup errors. R21 lane probe 48, Studio probe 22, regressions 10/10 PASS per builder. This proves one run/seed, not universal fairness. R22 limited cross-island pilot allowed; 1000-level qualification remains OPEN. Owner never manually plays all levels.
+- Progress: R22 independent audit conditionally accepted: 11/12 planned trials in 18m47s, 3 WIN_OBSERVED (Sunny Cove L10; Tiki L10/L40), 8 BUDGET_UNKNOWN, no trial errors, 11/11 integrity matches and no lane parity mismatches per builder. Four runner-VIP flags conflicted with actual immutable traces, now clarified; R23 must repair this provenance at source before running. 1000-level extrapolation ~28h/~6.13GB is rough and unacceptable as unchecked immediate bulk job. R23 limited 10-island screening subject to 35-min and 250MB cap; M33-004 OPEN, owner never manually plays 1000 levels.
 
 ## Blockers/Waits
 
