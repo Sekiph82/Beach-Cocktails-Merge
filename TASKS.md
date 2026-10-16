@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex runs R23 bounded 10-island autonomous screening (up to 3 samples/island, 35 min wall, 250MB retained file ceiling) after VIP provenance repair; NOT full 1000-level batch.
+- Next Task/Action: BCM-M33-004 — R23: select 10 random UNIQUE levels from each of 10 islands (100 total, 10%/island) using recorded reproducible RNG seed; automatically play ONLY sample in resumable bounded sessions; never run remaining 900.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R22 independent audit conditionally accepted: 11/12 planned trials in 18m47s, 3 WIN_OBSERVED (Sunny Cove L10; Tiki L10/L40), 8 BUDGET_UNKNOWN, no trial errors, 11/11 integrity matches and no lane parity mismatches per builder. Four runner-VIP flags conflicted with actual immutable traces, now clarified; R23 must repair this provenance at source before running. 1000-level extrapolation ~28h/~6.13GB is rough and unacceptable as unchecked immediate bulk job. R23 limited 10-island screening subject to 35-min and 250MB cap; M33-004 OPEN, owner never manually plays 1000 levels.
+- Progress: Owner revised qualification sampling: NOT all 1000 levels; random 10% from each island means 10 unique sampled levels/island x 10 islands = 100 total automated tests. Persist immutable seed/selection manifest; run in resumable max-35-min sessions and max 250MB retained new files/session, never claim unfinished as complete. R22 produced 3 observed wins of 11, 8 unknown, and 4 VIP provenance discrepancies requiring repair before R23 trials. M33-004 remains OPEN until sample results audited; owner manual play not required.
 
 ## Blockers/Waits
 
