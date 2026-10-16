@@ -1,0 +1,15 @@
+{
+	"canonical_vip_enabled": true,
+	"case": {
+		"island_id": "sunny_cove",
+		"level_id": 4,
+		"runner_case_vip_enabled": false,
+		"seed": 34230004
+	},
+	"classification": "ERROR",
+	"optional_vip_enabled_actual": true,
+	"reason": "VIP_PROVENANCE_MISMATCH",
+	"schema_version": 1,
+	"vip_requirement": "NOT_REQUIRED",
+	"work_item": "BCM-M34-R23"
+}

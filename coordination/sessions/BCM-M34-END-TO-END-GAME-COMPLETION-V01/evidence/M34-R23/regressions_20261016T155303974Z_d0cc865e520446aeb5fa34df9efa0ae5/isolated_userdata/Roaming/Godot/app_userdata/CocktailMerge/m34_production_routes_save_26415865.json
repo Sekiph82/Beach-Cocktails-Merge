@@ -1,0 +1,251 @@
+{
+	"boosters": {},
+	"coins": 100,
+	"daily_claim_ledger": {},
+	"daily_high_water_utc_date": "",
+	"energy": 100,
+	"energy_attempt_ledger": {
+		"energy-attempt:1792166130:4494084:1:sunny_cove:1": {
+			"energy_delta": -20,
+			"island_id": "sunny_cove",
+			"level_id": 1,
+			"settled_at": 1792166131,
+			"started_at": 1792166131,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166131:6318583:2:sunny_cove:1": {
+			"energy_delta": -20,
+			"island_id": "sunny_cove",
+			"level_id": 1,
+			"settled_at": 1792166132,
+			"started_at": 1792166132,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166133:7631904:3:tiki_island:1": {
+			"energy_delta": -20,
+			"island_id": "tiki_island",
+			"level_id": 1,
+			"settled_at": 1792166134,
+			"started_at": 1792166133,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166134:8739857:4:tiki_island:1": {
+			"energy_delta": -20,
+			"island_id": "tiki_island",
+			"level_id": 1,
+			"settled_at": 1792166134,
+			"started_at": 1792166134,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166135:9893553:5:azure_bay:1": {
+			"energy_delta": -20,
+			"island_id": "azure_bay",
+			"level_id": 1,
+			"settled_at": 1792166136,
+			"started_at": 1792166136,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166136:10899973:6:azure_bay:1": {
+			"energy_delta": -20,
+			"island_id": "azure_bay",
+			"level_id": 1,
+			"settled_at": 1792166136,
+			"started_at": 1792166136,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166137:11865630:7:coconut_beach:1": {
+			"energy_delta": -20,
+			"island_id": "coconut_beach",
+			"level_id": 1,
+			"settled_at": 1792166138,
+			"started_at": 1792166138,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166138:12810306:8:coconut_beach:1": {
+			"energy_delta": -20,
+			"island_id": "coconut_beach",
+			"level_id": 1,
+			"settled_at": 1792166138,
+			"started_at": 1792166138,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166139:13775851:9:sunset_island:1": {
+			"energy_delta": -20,
+			"island_id": "sunset_island",
+			"level_id": 1,
+			"settled_at": 1792166140,
+			"started_at": 1792166140,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166140:14853915:10:sunset_island:1": {
+			"energy_delta": -20,
+			"island_id": "sunset_island",
+			"level_id": 1,
+			"settled_at": 1792166140,
+			"started_at": 1792166140,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166141:15824445:11:party_beach:1": {
+			"energy_delta": -20,
+			"island_id": "party_beach",
+			"level_id": 1,
+			"settled_at": 1792166142,
+			"started_at": 1792166142,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166142:16918564:12:party_beach:1": {
+			"energy_delta": -20,
+			"island_id": "party_beach",
+			"level_id": 1,
+			"settled_at": 1792166142,
+			"started_at": 1792166142,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166143:17887738:13:frozen_paradise:1": {
+			"energy_delta": -20,
+			"island_id": "frozen_paradise",
+			"level_id": 1,
+			"settled_at": 1792166144,
+			"started_at": 1792166144,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166144:19005628:14:frozen_paradise:1": {
+			"energy_delta": -20,
+			"island_id": "frozen_paradise",
+			"level_id": 1,
+			"settled_at": 1792166144,
+			"started_at": 1792166144,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166145:20061403:15:volcano_bay:1": {
+			"energy_delta": -20,
+			"island_id": "volcano_bay",
+			"level_id": 1,
+			"settled_at": 1792166146,
+			"started_at": 1792166146,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166146:21171650:16:volcano_bay:1": {
+			"energy_delta": -20,
+			"island_id": "volcano_bay",
+			"level_id": 1,
+			"settled_at": 1792166146,
+			"started_at": 1792166146,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166147:22342739:17:billionaire_island:1": {
+			"energy_delta": -20,
+			"island_id": "billionaire_island",
+			"level_id": 1,
+			"settled_at": 1792166149,
+			"started_at": 1792166148,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166149:23503247:18:billionaire_island:1": {
+			"energy_delta": -20,
+			"island_id": "billionaire_island",
+			"level_id": 1,
+			"settled_at": 1792166149,
+			"started_at": 1792166149,
+			"status": "QUIT"
+		},
+		"energy-attempt:1792166150:24806528:19:final_island:1": {
+			"energy_delta": -20,
+			"island_id": "final_island",
+			"level_id": 1,
+			"settled_at": 1792166151,
+			"started_at": 1792166151,
+			"status": "LOSE"
+		},
+		"energy-attempt:1792166151:25975254:20:final_island:1": {
+			"energy_delta": -20,
+			"island_id": "final_island",
+			"level_id": 1,
+			"settled_at": 1792166151,
+			"started_at": 1792166151,
+			"status": "QUIT"
+		}
+	},
+	"energy_last_update_unix": 1792166151,
+	"energy_regen_remainder_sec": 0,
+	"gems": 5,
+	"islands": {
+		"azure_bay": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"billionaire_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"coconut_beach": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"final_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"frozen_paradise": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"party_beach": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"sunny_cove": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"sunset_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"tiki_island": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		},
+		"volcano_bay": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 100
+		}
+	},
+	"legacy_best_score": 0,
+	"retired_focus_inventory": 0,
+	"reward_ledger": [],
+	"schema_version": 4,
+	"transaction_ledger": [],
+	"unlocked_islands": [
+		"azure_bay",
+		"billionaire_island",
+		"coconut_beach",
+		"final_island",
+		"frozen_paradise",
+		"party_beach",
+		"sunny_cove",
+		"sunset_island",
+		"tiki_island",
+		"volcano_bay"
+	]
+}

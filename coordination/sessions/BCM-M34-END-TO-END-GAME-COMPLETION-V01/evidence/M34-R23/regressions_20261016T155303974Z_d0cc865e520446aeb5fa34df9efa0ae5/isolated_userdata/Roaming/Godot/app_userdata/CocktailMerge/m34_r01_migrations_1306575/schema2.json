@@ -1,0 +1,27 @@
+{
+	"boosters": {},
+	"coins": 100,
+	"daily_claim_ledger": {},
+	"daily_high_water_utc_date": "",
+	"energy": 100,
+	"energy_attempt_ledger": {},
+	"energy_last_update_unix": 1792166025,
+	"energy_regen_remainder_sec": 0,
+	"gems": 5,
+	"islands": {
+		"sunny_cove": {
+			"claimed_milestones": [],
+			"claimed_star_rewards": [],
+			"completed_levels": {},
+			"highest_unlocked_level": 1
+		}
+	},
+	"legacy_best_score": 0,
+	"retired_focus_inventory": 0,
+	"reward_ledger": [],
+	"schema_version": 4,
+	"transaction_ledger": [],
+	"unlocked_islands": [
+		"sunny_cove"
+	]
+}

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R23",
+  "attempt_id": "20261016T151300444Z_ec6df9b2f111445789df68f0768c1d42",
+  "status": "PREFLIGHT_ERROR",
+  "stop_reason": "EMPTY_COHORT_AGGREGATION_PROPERTY_NOT_FOUND",
+  "planned_sample_count": 30,
+  "completed_sample_count": 0,
+  "incomplete_trial_attempt_ids": [],
+  "failure_detail": "PowerShell strict mode rejected Measure-Object.Sum on an empty completed-trial collection after plan and anchor verification; no game process or trial started.",
+  "tasks_blob_before": "ce2653637a053cc6f760979feeac85c6712c0903",
+  "tasks_blob_after": "ce2653637a053cc6f760979feeac85c6712c0903",
+  "tasks_unchanged": true,
+  "created_utc": "2026-10-16T15:13:36.0366520Z"
+}

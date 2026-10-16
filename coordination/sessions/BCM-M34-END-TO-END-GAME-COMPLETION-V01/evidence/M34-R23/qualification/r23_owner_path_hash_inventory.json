@@ -1,0 +1,1036 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R23",
+  "created_utc": "2026-10-16T15:11:02.8326105Z",
+  "head": "66d1a7e7e6980ef3b30e7f9a527e24ff0d4af5be",
+  "origin_main": "66d1a7e7e6980ef3b30e7f9a527e24ff0d4af5be",
+  "tasks_blob": "ce2653637a053cc6f760979feeac85c6712c0903",
+  "owner_path_count": 205,
+  "paths": [
+    {
+      "sha256": "731471296573b2d3cfafaf7516dfa149d5ce1a639d0db05bfd53a61d86de2e34",
+      "length": 980,
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json"
+    },
+    {
+      "sha256": "56518013b4395fd002e0d485c68b6dc9cd41ac8acba6a8f5a739f497248fa30f",
+      "length": 2845,
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json"
+    },
+    {
+      "sha256": "5034aa86ce34ce29075b60a7f07fc45b8aa80faa8cedf63a864bbe002189dea3",
+      "length": 16874,
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json"
+    },
+    {
+      "sha256": "8d8071716da72f0c2529249b93a2f7c270a3193e6e158390fe19365e493c550c",
+      "length": 1271,
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json"
+    },
+    {
+      "sha256": "5a2f2653e0d76db7bf1bbbe260cf362f2ae50c14abf4bb474611310bc456ce01",
+      "length": 1224,
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json"
+    },
+    {
+      "sha256": "b9e9cf230b72f3969621b3b4f4e4d24bf2cca890bd95492064557ed4676cadee",
+      "length": 356,
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json"
+    },
+    {
+      "sha256": "7174030e8bc658c7e0346dd328917905eb36aafeb7c70d02c6d5b2a00f92d1bd",
+      "length": 1081,
+      "path": "project.godot"
+    },
+    {
+      "sha256": "78dcc8a70a8fc6381db93bc9206b89e4de26512556413b508f8e804a1313a981",
+      "length": 235,
+      "path": "scenes/main.tscn"
+    },
+    {
+      "sha256": "87acdf4cf5f3fe043ef9ee5c2aaf625b5fd0734e10b23c7314326e2fe1645a35",
+      "length": 2824137,
+      "path": "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/02_home_reference_941x1672 kritik.png"
+    },
+    {
+      "sha256": "d8c9a18f7612ff968dd65e7b8e1adac1a2ae145bab79a6432b60dc90aabe5adb",
+      "length": 2768479,
+      "path": "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v02/02_home_owner_critique_v02_941x1672 kritik.png"
+    },
+    {
+      "sha256": "e2e53a81b0690e3641346e4f0de57ed0105d219be3680cd81f753bf9af2df534",
+      "length": 322,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/BCM-M23-CLOSEOUT-001/mobile_qa_initial_headless.txt"
+    },
+    {
+      "sha256": "10a85ea67b48811720a5aaf44beee5f1f7a7d97d9d6930ff959ec3330f61b546",
+      "length": 2252450,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/00_initial_live_frame.png"
+    },
+    {
+      "sha256": "3876ca176cfd32ac903c47fc88fd86d7512a2a8a28d9908bc89d0ed25d03f0ca",
+      "length": 1666283,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/01_after_level_click.png"
+    },
+    {
+      "sha256": "964dcd2ed6eea5d2e6a7ee9fa7954559545e8c2359a635f347634ec744f6392b",
+      "length": 2231758,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/02_after_home_play.png"
+    },
+    {
+      "sha256": "9af88f59b6e22473a4474bb1f451466c1abb794e31c265f738692bdc375b57e5",
+      "length": 734398,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/03_baseline_gameplay.png"
+    },
+    {
+      "sha256": "52c4918ed6d9a6aab822fc266a388d09238a4af97f209ea2ca2222ef0acff3ec",
+      "length": 1668846,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/04_baseline_gameplay_real.png"
+    },
+    {
+      "sha256": "46e85ef216679f27a024e21a971afc0ff9a514ed1a40e136274315c46a9402b4",
+      "length": 1679228,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_00.png"
+    },
+    {
+      "sha256": "1a2a5cf8140fd2110ce50c092d086b2b2765ec97a85bb337a7f8c3a1d46dd32b",
+      "length": 1677201,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_01.png"
+    },
+    {
+      "sha256": "bf8546b531c8d491ab7b51c772411db7f2ca745d0747faaad80c425168cc8e00",
+      "length": 1677974,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_02.png"
+    },
+    {
+      "sha256": "9ae79bf8771b98c8cfdfd02cdc3d8cec571cb03c5a2138584cbfe81ea6e3a528",
+      "length": 1678214,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_03.png"
+    },
+    {
+      "sha256": "35001d297290ebc2f6f13d4cddb9a7e5b2b89ea53a1586d00ca65a3e2189602b",
+      "length": 1677883,
+      "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R01/05_baseline_launch_frame_04.png"
+    },
+    {
+      "sha256": "b45de13da728cbf84f21de3bd196c1ae852470438563f774c047ed15dbbba335",
+      "length": 82,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T052629047Z_36f9dbbdd2a4461e83d56a27c3ce608f.claim"
+    },
+    {
+      "sha256": "e04b89ceb34b9a938981b6972af9a98d15cba1fff21acbca2d1e936321e6a819",
+      "length": 72,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T053310199Z_53cd771c899b4e069d6cbfdd13af9991.claim"
+    },
+    {
+      "sha256": "7c5ff0af6c0a3fa5c8c50853a6ba3488686580c3703785af6c3a0113ef1caed5",
+      "length": 72,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T053446816Z_639826cb4dba4eac82654a425416ac26.claim"
+    },
+    {
+      "sha256": "65ed3572c909e9c0854eab67d301120295633cc245f026a6c4daa82750d7eb1b",
+      "length": 72,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T053957759Z_a35939a36f7b4ad89ae58a2e59cf47c9.claim"
+    },
+    {
+      "sha256": "f822e880612fb0f4b7851497ea0b3c4e29384817c847b05702ac3772c3ad82a6",
+      "length": 3269738,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res"
+    },
+    {
+      "sha256": "5c2d04ce54c861d61027379998863443b1889df1904ebc13efa3c17c437e5963",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json"
+    },
+    {
+      "sha256": "eb2bd95a7fc0ed48ef71a7d31b5b0f527f26aff50a9e4e5e8cf872f933752abb",
+      "length": 605,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json"
+    },
+    {
+      "sha256": "133e1477ced6558e0acfabc70a6a1c37c0a901f7fefdbb840b53802fe5eb8211",
+      "length": 583,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json"
+    },
+    {
+      "sha256": "c642926bed09305d1af7a0a9329ce16b0066ba061b9dd4d42b0f89c4e1cb64c2",
+      "length": 85047,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json"
+    },
+    {
+      "sha256": "39b1d76174db849a1c7fc997dd4074cfe36f7dba4bcd22de2a8f52933e133334",
+      "length": 6357,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_8719727.json"
+    },
+    {
+      "sha256": "14f74bdf12c87fd2b22b55d770ae75c2702b398ed9a880323b58ce22a05226a3",
+      "length": 832,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_979006/campaign_save.json"
+    },
+    {
+      "sha256": "90557407b193d31195faaa3f5f51246038f2760db545e0a359b7da06a50cc232",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_964300/schema1.json"
+    },
+    {
+      "sha256": "90557407b193d31195faaa3f5f51246038f2760db545e0a359b7da06a50cc232",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_964300/schema2.json"
+    },
+    {
+      "sha256": "90557407b193d31195faaa3f5f51246038f2760db545e0a359b7da06a50cc232",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_964300/schema3.json"
+    },
+    {
+      "sha256": "3b048c93131f286e35f2bc64c23fc6c046a29f6687102b2cc5e4a490336013f3",
+      "length": 543,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_959033/alternate_valid.json"
+    },
+    {
+      "sha256": "8f71bb97125bdb84a6876a99880a16843d3d150710e13a0ee9800abce44f2f33",
+      "length": 547,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_959033/bad_policy.json"
+    },
+    {
+      "sha256": "151eb66e697a55f8ff2ac18c21a59639c3ae18faa4714155365a86e8ba2bf5b9",
+      "length": 545,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_959033/tampered.json"
+    },
+    {
+      "sha256": "4436245d538c68b6b8e97db54af37429d44a0a9f9267ce8d036b825b1ce7b413",
+      "length": 18089,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres"
+    },
+    {
+      "sha256": "fe070b5a9c3f381d779472dbb7c94cf8eb108fdd4eb4a03553fb14d1119298a2",
+      "length": 20,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/attempts/20261016T072817055Z_6b29080ee250407fad474aecc7ecd71c/isolated_appdata_roaming/Godot/app_userdata/CocktailMerge/save.cfg"
+    },
+    {
+      "sha256": "6927453e0813f2995d070b4a955065f5069de119bb724d28528ec4579b31ef5e",
+      "length": 237624,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/attempts/20261016T072817055Z_6b29080ee250407fad474aecc7ecd71c/trial_cc245610957f4abcaed9dfeb1b90a30b/progress_live.json"
+    },
+    {
+      "sha256": "a76f9d24801e4b3ff935f11c0568bd174a6864a93aa5f8f75d99770f09935f24",
+      "length": 8185,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempt_manifest.jsonl"
+    },
+    {
+      "sha256": "9533fd3dc9469f08f6c6eff65e0ee2f227b9aea1881d7a813c785c7fe4925a7c",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/recovery_summary_r20_221968281cece116.json"
+    },
+    {
+      "sha256": "06202c95f0ca6527b8c602630aaace6ec888bc1cb58eef4ad0f13440ac658380",
+      "length": 2000,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/case_record.json"
+    },
+    {
+      "sha256": "cebf80dd2788b7a3a4ef6e8d05c1f6f6ab6cae10bf1db5f7b2d4d83867e99478",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/final_trace.json"
+    },
+    {
+      "sha256": "cebf80dd2788b7a3a4ef6e8d05c1f6f6ab6cae10bf1db5f7b2d4d83867e99478",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/watchdog_result.json"
+    },
+    {
+      "sha256": "5ef9b2d1ef6846f70290e1ec919ed019157fe4ffa449180fa8cac93238a1c7f1",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/recovery_summary_r20_81be44804aaf81b7.json"
+    },
+    {
+      "sha256": "12a92a9f1651904bd2ed24188639f533b384802690ea70623e248584f6bf1ec1",
+      "length": 1851,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/case_record.json"
+    },
+    {
+      "sha256": "cebf80dd2788b7a3a4ef6e8d05c1f6f6ab6cae10bf1db5f7b2d4d83867e99478",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/final_trace.json"
+    },
+    {
+      "sha256": "cebf80dd2788b7a3a4ef6e8d05c1f6f6ab6cae10bf1db5f7b2d4d83867e99478",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/watchdog_result.json"
+    },
+    {
+      "sha256": "75e79ee77efcee6ea34c4dcec01345be874953b99c9ab3481140d189e3431a0f",
+      "length": 557,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/abrupt_child.ps1"
+    },
+    {
+      "sha256": "a5c4b945c7861b9933006becc0c71796ec0e0fd6c8fe1b22a41bc867e469d4a4",
+      "length": 426,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/final_trace.json"
+    },
+    {
+      "sha256": "ab6b52ca69e3c5df25d3e5c31c1dd37b6f1856daac632fb4db7fc40e77cbddbc",
+      "length": 225,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/progress_live.json"
+    },
+    {
+      "sha256": "70fa97fd1fc161b3d69fd6cc8d942e1d558bd7969b48e61586309bc71a8ca16c",
+      "length": 224,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/watchdog_result.json"
+    },
+    {
+      "sha256": "85e0dd1087df16f11a02e2d05c504b7cf57c35fa8677d6b2ce236629c76c1a8a",
+      "length": 10446,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempt_manifest.jsonl"
+    },
+    {
+      "sha256": "fb77b39b0cce3893af8ab00bbeb6d337487fdc69b7901fce44f1a8ea359ca096",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/recovery_summary_r20_c4b75f7bb8adb317.json"
+    },
+    {
+      "sha256": "7096c87509e421b0b694d8caf8558290687744c997173712ef6b4b81cd5f940e",
+      "length": 2000,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/case_record.json"
+    },
+    {
+      "sha256": "d178f05e3b6d4905ac795c2c97d87c221905fa74279ec31c1efcbd909174ff60",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/final_trace.json"
+    },
+    {
+      "sha256": "d178f05e3b6d4905ac795c2c97d87c221905fa74279ec31c1efcbd909174ff60",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/watchdog_result.json"
+    },
+    {
+      "sha256": "1818a8d3c72765027131f66c4748bdd6f382dc9c1b2245d7c65988fb2bbab42e",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/recovery_summary_r20_7b0b95290ee3b4a7.json"
+    },
+    {
+      "sha256": "6f729325633cb74a5d9b2f0a011ef143732cd1e969ac6d31f6bfede17a475bef",
+      "length": 1851,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/case_record.json"
+    },
+    {
+      "sha256": "d178f05e3b6d4905ac795c2c97d87c221905fa74279ec31c1efcbd909174ff60",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/final_trace.json"
+    },
+    {
+      "sha256": "d178f05e3b6d4905ac795c2c97d87c221905fa74279ec31c1efcbd909174ff60",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/watchdog_result.json"
+    },
+    {
+      "sha256": "dae03aa57cf75102481532320a1c330091eb333e7c655a3f29d0936cf3998b98",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/recovery_summary_r20_5270f34c9bb1049c.json"
+    },
+    {
+      "sha256": "099405cc48196099e149b93b9e6426505ad4963f42b7c082b842d4b66d77dce3",
+      "length": 557,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/abrupt_child.ps1"
+    },
+    {
+      "sha256": "bb99af2e9c7a278257ff001d065357550bd4aa4a80195469a317acd3331fa5ec",
+      "length": 1844,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/case_record.json"
+    },
+    {
+      "sha256": "a5c4b945c7861b9933006becc0c71796ec0e0fd6c8fe1b22a41bc867e469d4a4",
+      "length": 426,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/final_trace.json"
+    },
+    {
+      "sha256": "ab6b52ca69e3c5df25d3e5c31c1dd37b6f1856daac632fb4db7fc40e77cbddbc",
+      "length": 225,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/progress_live.json"
+    },
+    {
+      "sha256": "70fa97fd1fc161b3d69fd6cc8d942e1d558bd7969b48e61586309bc71a8ca16c",
+      "length": 224,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/watchdog_result.json"
+    },
+    {
+      "sha256": "e9bdada31569874c23536d18d1e3d740f4f1fabc2f64adb9d0d032bcb7d100fd",
+      "length": 1244,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempt_manifest.jsonl"
+    },
+    {
+      "sha256": "467daf1c5ea56e6209a8654024a1d224751d58d3a26f290b3b70b8e1d156dc13",
+      "length": 618,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempts/20261016T072003201Z_0ef809366aad491c857c4d6fc2baae71/trial_33d1ea2822b6416ebeeccd786518b25e/final_trace.json"
+    },
+    {
+      "sha256": "467daf1c5ea56e6209a8654024a1d224751d58d3a26f290b3b70b8e1d156dc13",
+      "length": 618,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempts/20261016T072003201Z_0ef809366aad491c857c4d6fc2baae71/trial_33d1ea2822b6416ebeeccd786518b25e/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempts/20261016T072003201Z_0ef809366aad491c857c4d6fc2baae71/trial_33d1ea2822b6416ebeeccd786518b25e/watchdog_result.json"
+    },
+    {
+      "sha256": "7505d1eab9d1a67e39ff67395147af9dbc129c0afc0a27262c2645ca4a627da7",
+      "length": 10446,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempt_manifest.jsonl"
+    },
+    {
+      "sha256": "8d54a360709993dbbac5e46730a5ac51e5c9b6c1c5b98c7198a8b591dcd82f77",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/recovery_summary_r20_957cbbde2ffd558a.json"
+    },
+    {
+      "sha256": "aad769b983c69182bc464f1dc567e302deb87952269d4941fd001f35a99bf13d",
+      "length": 2000,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/case_record.json"
+    },
+    {
+      "sha256": "1f9e473a7ab8449af7026ee0bf918933b38a81608493bc6b0aa2a8db184ff092",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/final_trace.json"
+    },
+    {
+      "sha256": "1f9e473a7ab8449af7026ee0bf918933b38a81608493bc6b0aa2a8db184ff092",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/watchdog_result.json"
+    },
+    {
+      "sha256": "d1b9567bd21b56bf0a0a40b19ef038452878582c9243731fe90c07935fdddd1a",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/recovery_summary_r20_2152435e34cc8f7e.json"
+    },
+    {
+      "sha256": "6c8151857885be5f0247b3ec5141df105df622ec18f366abf77b65624f0ef6d1",
+      "length": 1851,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/case_record.json"
+    },
+    {
+      "sha256": "1f9e473a7ab8449af7026ee0bf918933b38a81608493bc6b0aa2a8db184ff092",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/final_trace.json"
+    },
+    {
+      "sha256": "1f9e473a7ab8449af7026ee0bf918933b38a81608493bc6b0aa2a8db184ff092",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/watchdog_result.json"
+    },
+    {
+      "sha256": "ae389f637845fb2a72af2791943edefc18dbdc8dcc946dbe80137039ca01b22c",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/recovery_summary_r20_192fe907a773a383.json"
+    },
+    {
+      "sha256": "38022eaa07d354b9cbfaa9f664ff990d602bc29a828447fd2f695a165ab96502",
+      "length": 557,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/abrupt_child.ps1"
+    },
+    {
+      "sha256": "8f4c5c1d3dbd967337f4ea241798b8030d40d99758a2cf65c349e00377655a74",
+      "length": 1844,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/case_record.json"
+    },
+    {
+      "sha256": "a5c4b945c7861b9933006becc0c71796ec0e0fd6c8fe1b22a41bc867e469d4a4",
+      "length": 426,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/final_trace.json"
+    },
+    {
+      "sha256": "ab6b52ca69e3c5df25d3e5c31c1dd37b6f1856daac632fb4db7fc40e77cbddbc",
+      "length": 225,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/progress_live.json"
+    },
+    {
+      "sha256": "70fa97fd1fc161b3d69fd6cc8d942e1d558bd7969b48e61586309bc71a8ca16c",
+      "length": 224,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/watchdog_result.json"
+    },
+    {
+      "sha256": "a1cd791b7478811197adb92fe45047672e644a184e6752556e39e25111d97d21",
+      "length": 3269737,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res"
+    },
+    {
+      "sha256": "6385e6b7d0493789fa76829a9f3576877da5683469e4b32301ba4ecb40fa3ee7",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json"
+    },
+    {
+      "sha256": "5f066642e80f4d730b9397734c82f0181d48e0253b897b2008ae988c0c498335",
+      "length": 605,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json"
+    },
+    {
+      "sha256": "9f4cb69eaf38666afe9756128ff52dd7f2ee135d37c5ec6d4fd8e8d79fd17ac6",
+      "length": 583,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json"
+    },
+    {
+      "sha256": "3bbc76a5945810488fa95fd7435cd82ca1e88a9279d0449be632f17130bbe22f",
+      "length": 85047,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json"
+    },
+    {
+      "sha256": "a1f0231cb88517b13409735f02d1cef93fc48d123ac64ab5e2d7ddf40cd5356c",
+      "length": 6364,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_15629805.json"
+    },
+    {
+      "sha256": "14f74bdf12c87fd2b22b55d770ae75c2702b398ed9a880323b58ce22a05226a3",
+      "length": 832,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_872381/campaign_save.json"
+    },
+    {
+      "sha256": "27c3a6522a47787e2ee5db04eaa42cc689434210926c5535bda182e867072b20",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_858201/schema1.json"
+    },
+    {
+      "sha256": "27c3a6522a47787e2ee5db04eaa42cc689434210926c5535bda182e867072b20",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_858201/schema2.json"
+    },
+    {
+      "sha256": "27c3a6522a47787e2ee5db04eaa42cc689434210926c5535bda182e867072b20",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_858201/schema3.json"
+    },
+    {
+      "sha256": "3b048c93131f286e35f2bc64c23fc6c046a29f6687102b2cc5e4a490336013f3",
+      "length": 543,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_853190/alternate_valid.json"
+    },
+    {
+      "sha256": "8f71bb97125bdb84a6876a99880a16843d3d150710e13a0ee9800abce44f2f33",
+      "length": 547,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_853190/bad_policy.json"
+    },
+    {
+      "sha256": "151eb66e697a55f8ff2ac18c21a59639c3ae18faa4714155365a86e8ba2bf5b9",
+      "length": 545,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_853190/tampered.json"
+    },
+    {
+      "sha256": "f67b160137e410ac7e0e3248c8135d25b47a0ca400af45343cb2e21798a86b5b",
+      "length": 18089,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres"
+    },
+    {
+      "sha256": "98b3f58b788b2510f343274adb50d48819f9b90e08be377071ddede31109597d",
+      "length": 3269740,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res"
+    },
+    {
+      "sha256": "86ed588c72870c269f7ce84b07525c7d39216b86340d22e4b05af9a6ed642fbf",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json"
+    },
+    {
+      "sha256": "49f87ffbc63a86be8beb2e8d96dea91d23961f91625deb0229c1ae6cd7b274c8",
+      "length": 605,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json"
+    },
+    {
+      "sha256": "2baa79d9bbe52477419209007e67764d7feb7082c9fdaf669935eb9d9b5e0043",
+      "length": 583,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json"
+    },
+    {
+      "sha256": "a54dff04ac6ac0905deed57e90714476e6aba96dd95c3e58c43fc79dad1386a3",
+      "length": 85047,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json"
+    },
+    {
+      "sha256": "8d6e5f185edd852b8e9655de232b2b20d5f6523dba2573bfa23db55e90a5699c",
+      "length": 6365,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_15471197.json"
+    },
+    {
+      "sha256": "14f74bdf12c87fd2b22b55d770ae75c2702b398ed9a880323b58ce22a05226a3",
+      "length": 832,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_891945/campaign_save.json"
+    },
+    {
+      "sha256": "0d912c90f330e7479b9c42918ef1adf6194462e80f9bcbb86546f79c5808faa1",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_877199/schema1.json"
+    },
+    {
+      "sha256": "0d912c90f330e7479b9c42918ef1adf6194462e80f9bcbb86546f79c5808faa1",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_877199/schema2.json"
+    },
+    {
+      "sha256": "0d912c90f330e7479b9c42918ef1adf6194462e80f9bcbb86546f79c5808faa1",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_877199/schema3.json"
+    },
+    {
+      "sha256": "3b048c93131f286e35f2bc64c23fc6c046a29f6687102b2cc5e4a490336013f3",
+      "length": 543,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_871456/alternate_valid.json"
+    },
+    {
+      "sha256": "8f71bb97125bdb84a6876a99880a16843d3d150710e13a0ee9800abce44f2f33",
+      "length": 547,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_871456/bad_policy.json"
+    },
+    {
+      "sha256": "151eb66e697a55f8ff2ac18c21a59639c3ae18faa4714155365a86e8ba2bf5b9",
+      "length": 545,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_871456/tampered.json"
+    },
+    {
+      "sha256": "f239e85760ba4fc025f485bb55e4c5c4659f5ec02ac2ee9f1107d3e37907fa19",
+      "length": 18089,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres"
+    },
+    {
+      "sha256": "b8b6f62f138490375bac193e81859ed6ea15389de82ce06c24e435c479fd4af3",
+      "length": 1167,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075537597Z_97386aafe2eb443faff7b9c2c83c8ac7/integrity_summary_stdout.json"
+    },
+    {
+      "sha256": "ba2f8f8f0964a53cafe588e85d1ea3d2e53e4b671361d17ee1b095b105f78d21",
+      "length": 1153,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075618311Z_721ae66ae8eb496a91f62498bdc8afa2/integrity_summary_stdout.json"
+    },
+    {
+      "sha256": "72a3fdf56ba56701219bac706f3b2b2e01de69d706d06b5573d43d7cc7f1d51b",
+      "length": 1483,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075618311Z_721ae66ae8eb496a91f62498bdc8afa2/trial_7cd7e18dfb8f4fa29ce17706b676108d/progress_live.json"
+    },
+    {
+      "sha256": "2ea5caa7e328ae58306602aae8c07ff75463dae3de452ad9254ee6bf58dfeafb",
+      "length": 1140,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e/integrity_summary_stdout.json"
+    },
+    {
+      "sha256": "289ffae6d2821f4cda37d0c0aad8941ed32e9df0b72b0fc152f3300f6e67f95e",
+      "length": 21,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e/isolated_appdata_roaming/Godot/app_userdata/CocktailMerge/save.cfg"
+    },
+    {
+      "sha256": "4029edca6f8cb5729d44653c7e36677e7ed8fcd15917ed2135a0bd77a6a75882",
+      "length": 1334787,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e/trial_3bf9dd9e589b4b2587a377b642ebd720/progress_live.json"
+    },
+    {
+      "sha256": "0f40993be37bad157a2fc84718f41baca781faeb0f87fc9a4be079a0214e97c6",
+      "length": 732879,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T080445818Z_387e370f136143ed97fa52d4f92720c6/trial_a2f46bbb2d454ebcaca1fbed7d94c3f5/progress_live.json"
+    },
+    {
+      "sha256": "3f4039418a4d9711bd8bc46ec6734be77f8b3392b11afc186f99ddc4c3a49bfd",
+      "length": 470,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/qualification/fresh_editor_import.stderr.txt"
+    },
+    {
+      "sha256": "e2d28ab331591ff05ce6aee34d17e16b13cf19ac61af34c4620be41ad91b5817",
+      "length": 1922,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/qualification/fresh_editor_import.stdout.txt"
+    },
+    {
+      "sha256": "4e896568afafb6bd8b2f4139716c11639938be2060c180adcf418a6b90f347f4",
+      "length": 1843,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/qualification/r21_attempt_integrity_audit_20261016T080901261Z.json"
+    },
+    {
+      "sha256": "ed891404a182f14e7c5b1d4bbb1511546c5e3c8834dd83cab822e7b335cacb03",
+      "length": 10446,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempt_manifest.jsonl"
+    },
+    {
+      "sha256": "ea26ebb587fec21217b7f7194b499da616427dc7de128802697ba1a669e06807",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/recovery_summary_r20_b93a7f46a5ecfaed.json"
+    },
+    {
+      "sha256": "c2ab29f7c35f353b5c7b86ba23995f8b1149ba0cc1135042ff742787c09cd1f6",
+      "length": 2000,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/case_record.json"
+    },
+    {
+      "sha256": "dcc8802ee10c6d3bd0fd0c3a3fa99868cd46ca419ae087c4e31f08a47fbd95c8",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/final_trace.json"
+    },
+    {
+      "sha256": "dcc8802ee10c6d3bd0fd0c3a3fa99868cd46ca419ae087c4e31f08a47fbd95c8",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/watchdog_result.json"
+    },
+    {
+      "sha256": "b512fd54af140e1923fe3e8927417f1d5c070c5961777ff12ab4894e8dfc7e11",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/recovery_summary_r20_a76173300e198225.json"
+    },
+    {
+      "sha256": "80663bf72736f0aaed4f56ec303137e4a174b523275a4e645f929e4d596f55c3",
+      "length": 1851,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/case_record.json"
+    },
+    {
+      "sha256": "dcc8802ee10c6d3bd0fd0c3a3fa99868cd46ca419ae087c4e31f08a47fbd95c8",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/final_trace.json"
+    },
+    {
+      "sha256": "dcc8802ee10c6d3bd0fd0c3a3fa99868cd46ca419ae087c4e31f08a47fbd95c8",
+      "length": 676,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/trial_result_live.json"
+    },
+    {
+      "sha256": "3856e8787caf566a13b8db33bbaf2e38abdc469c121c3a0814228d73cd1a3003",
+      "length": 223,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/watchdog_result.json"
+    },
+    {
+      "sha256": "b8b89b5f52f3855c816b803a2005bc2b51aa819290d7d98013d2eb6caa312df1",
+      "length": 523,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/recovery_summary_r20_14f78410d7f4c853.json"
+    },
+    {
+      "sha256": "a8975bf0d74021f8564c3323a58d30a52fea9db7d4570b77be5d85cf10fb2c64",
+      "length": 557,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/abrupt_child.ps1"
+    },
+    {
+      "sha256": "b4cd2dc2132838f3ef8130d2cd7f02a3054787a59d76fd768e140b0443b3df2b",
+      "length": 1844,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/case_record.json"
+    },
+    {
+      "sha256": "a5c4b945c7861b9933006becc0c71796ec0e0fd6c8fe1b22a41bc867e469d4a4",
+      "length": 426,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/final_trace.json"
+    },
+    {
+      "sha256": "ab6b52ca69e3c5df25d3e5c31c1dd37b6f1856daac632fb4db7fc40e77cbddbc",
+      "length": 225,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/progress_live.json"
+    },
+    {
+      "sha256": "70fa97fd1fc161b3d69fd6cc8d942e1d558bd7969b48e61586309bc71a8ca16c",
+      "length": 224,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/watchdog_result.json"
+    },
+    {
+      "sha256": "3753baad3df47d793d0a74bcb7c140f2e8b469c053ae307115214605ec4d8f49",
+      "length": 4163,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/daily_38.watchdog.json"
+    },
+    {
+      "sha256": "b3b0ccebfc3814529dabde097c2b5282ce343cf97d98224a6f7c216a0aa23f24",
+      "length": 4210,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/economy_35.watchdog.json"
+    },
+    {
+      "sha256": "4e2ce9c1d37cb3d3f92a81f288fd6b40925f04f8073272d73a541d2a7ec2b982",
+      "length": 3151,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/fresh_editor_import.watchdog.json"
+    },
+    {
+      "sha256": "eae6c859ed992a54bd574c8f2f8cd57ddc977fd4d45008666a77c7810e3dfcca",
+      "length": 3269741,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res"
+    },
+    {
+      "sha256": "98839ad29df13367312b24277a25018176567c5094dbf6602e9ebc9222c104ac",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json"
+    },
+    {
+      "sha256": "8b09b62c7113a9bda7d30258dc64c601412926cf467225f9427f8e6d42346b24",
+      "length": 605,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json"
+    },
+    {
+      "sha256": "b9678d0a26638f255a0a02d43049aefe73c7e304c0c116b6c6f2bce11bc121fa",
+      "length": 583,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json"
+    },
+    {
+      "sha256": "a24df25ec387bf37fc74db84f4f6c95d7cae61c2854aba8a840a0df42cd14bc7",
+      "length": 85047,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json"
+    },
+    {
+      "sha256": "0d6995a9779af8178be6813d65802c0a899ec3d9010f5681f476503b80ab5131",
+      "length": 6365,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_16696391.json"
+    },
+    {
+      "sha256": "14f74bdf12c87fd2b22b55d770ae75c2702b398ed9a880323b58ce22a05226a3",
+      "length": 832,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_1176528/campaign_save.json"
+    },
+    {
+      "sha256": "7a65558f29d24ba6eb88b109ccc4b439463bb681ec6564429e48219e332e42d9",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1158718/schema1.json"
+    },
+    {
+      "sha256": "7a65558f29d24ba6eb88b109ccc4b439463bb681ec6564429e48219e332e42d9",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1158718/schema2.json"
+    },
+    {
+      "sha256": "7a65558f29d24ba6eb88b109ccc4b439463bb681ec6564429e48219e332e42d9",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1158718/schema3.json"
+    },
+    {
+      "sha256": "3b048c93131f286e35f2bc64c23fc6c046a29f6687102b2cc5e4a490336013f3",
+      "length": 543,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1150449/alternate_valid.json"
+    },
+    {
+      "sha256": "8f71bb97125bdb84a6876a99880a16843d3d150710e13a0ee9800abce44f2f33",
+      "length": 547,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1150449/bad_policy.json"
+    },
+    {
+      "sha256": "151eb66e697a55f8ff2ac18c21a59639c3ae18faa4714155365a86e8ba2bf5b9",
+      "length": 545,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1150449/tampered.json"
+    },
+    {
+      "sha256": "f272a53c1f38e38a734064ce49e3c8cd71fce1e6db014870e18a80a380d365ff",
+      "length": 18089,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres"
+    },
+    {
+      "sha256": "d3e9e70269ae6e214d5488ae4897ff1b68de34ac1a4f9fb65de782c9b5fdf464",
+      "length": 5864,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/m14_bridge_66.watchdog.json"
+    },
+    {
+      "sha256": "7e6a5283147b3f30143fbf7406ebf304d86359289ee79d4ec0b6561c40158425",
+      "length": 6228,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/m15_vip_economy_63.watchdog.json"
+    },
+    {
+      "sha256": "fc65f127ca428d9faad3b74c918e0ce3999e94eb44514466789d41cc91decc02",
+      "length": 2768,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/navigation_17.watchdog.json"
+    },
+    {
+      "sha256": "1cec2c005445d402101d4a88e8c7ad9a86156dbfc12afb18b45a7a259ffff327",
+      "length": 12801,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/production_routes.watchdog.json"
+    },
+    {
+      "sha256": "2777aed2164530e5e49bb9551a199bcb7a8ee88e35d3d02c3bea5f61e8561758",
+      "length": 4760,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/regression_summary.json"
+    },
+    {
+      "sha256": "15e6b35ec02d4f28b8085dcc0c5a2ab9847a5bc8b1566b099037089741bb0523",
+      "length": 1577,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/scene_uid.watchdog.json"
+    },
+    {
+      "sha256": "a618f2433f5d932ac98e946e904fbe1606eb67314454f8a46be317023294dbb4",
+      "length": 4703,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/slim_content.watchdog.json"
+    },
+    {
+      "sha256": "845c067264f6ac474fb38fbbb7dc6fd870db40d54218606bcef36146bf2b81ba",
+      "length": 1235,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/startup_smoke.watchdog.json"
+    },
+    {
+      "sha256": "d0a071c3976aa586f99b825e37a3ddc1b59e52c92bc04d49c228965ded8f3702",
+      "length": 1113,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/vip_optional.watchdog.json"
+    },
+    {
+      "sha256": "9cad009fd3303539829e32ad44b099e5412413fd367c413aab8c4e316a7d34ce",
+      "length": 3269741,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res"
+    },
+    {
+      "sha256": "d757e44d18236a05d16eb42a528c374473d3f31b4c945a68d7a86b9b28bd9d51",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json"
+    },
+    {
+      "sha256": "13ed8695f4c5327ecc93d7d66fd6237bd49cb41e5b0e4258b4ba9057c353dfff",
+      "length": 605,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json"
+    },
+    {
+      "sha256": "b17e57a5a6f9fd1e2470a4fc24fa9187f57b0f022fcb2d6858a9688321753277",
+      "length": 583,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json"
+    },
+    {
+      "sha256": "0a3279ba392c77ba2bfc1864e3057b9775344ccbdd1de6ccd183a3009a99f72f",
+      "length": 85047,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json"
+    },
+    {
+      "sha256": "928e07847d28d6ee6386227acf13d17dd32fe3b833a9f6e8daaefb9ba038eb5e",
+      "length": 6366,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_17244359.json"
+    },
+    {
+      "sha256": "14f74bdf12c87fd2b22b55d770ae75c2702b398ed9a880323b58ce22a05226a3",
+      "length": 832,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_1245538/campaign_save.json"
+    },
+    {
+      "sha256": "748fa08beb74fb82bec9b9c5e0046a6a83f90c5dec8480ef0646792dc3b511c5",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1220954/schema1.json"
+    },
+    {
+      "sha256": "748fa08beb74fb82bec9b9c5e0046a6a83f90c5dec8480ef0646792dc3b511c5",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1220954/schema2.json"
+    },
+    {
+      "sha256": "748fa08beb74fb82bec9b9c5e0046a6a83f90c5dec8480ef0646792dc3b511c5",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1220954/schema3.json"
+    },
+    {
+      "sha256": "3b048c93131f286e35f2bc64c23fc6c046a29f6687102b2cc5e4a490336013f3",
+      "length": 543,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1213371/alternate_valid.json"
+    },
+    {
+      "sha256": "8f71bb97125bdb84a6876a99880a16843d3d150710e13a0ee9800abce44f2f33",
+      "length": 547,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1213371/bad_policy.json"
+    },
+    {
+      "sha256": "151eb66e697a55f8ff2ac18c21a59639c3ae18faa4714155365a86e8ba2bf5b9",
+      "length": 545,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1213371/tampered.json"
+    },
+    {
+      "sha256": "d1b762065567d367ee9c6796b9263f3fd59118da30fe89196830460f76d66800",
+      "length": 18089,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres"
+    },
+    {
+      "sha256": "7fddc35b774faba6efb3e24289347da0ac50d208449478ad9aa638c13ee969c6",
+      "length": 3269738,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res"
+    },
+    {
+      "sha256": "83b05bb00e581c4dad8af505ab1b79628ce10c553863b01adcbb5feff1b24b79",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json"
+    },
+    {
+      "sha256": "1e5e23a75fc2377577cc8df4e79a37ab5dd19200a07e09de3769395d35e732e6",
+      "length": 605,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json"
+    },
+    {
+      "sha256": "3b92e6a8e6b0478fe74e7bdd731d3f406a6f36421fcd1ee963217c621eb7a069",
+      "length": 583,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json"
+    },
+    {
+      "sha256": "4cc2a8035b5eb9a9faf5121cd94f99d4241cc0b4438c03199e4b55229c800d34",
+      "length": 85047,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json"
+    },
+    {
+      "sha256": "a3f63c445f15627f0f36f56b165fee1be9348ad9b4527eefaec4c1574d43b8c1",
+      "length": 6365,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_15955842.json"
+    },
+    {
+      "sha256": "14f74bdf12c87fd2b22b55d770ae75c2702b398ed9a880323b58ce22a05226a3",
+      "length": 832,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_859178/campaign_save.json"
+    },
+    {
+      "sha256": "73337667458afcef117dd7baa93c427a86e067bad93fb35063052e0e9324b137",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_847162/schema1.json"
+    },
+    {
+      "sha256": "73337667458afcef117dd7baa93c427a86e067bad93fb35063052e0e9324b137",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_847162/schema2.json"
+    },
+    {
+      "sha256": "73337667458afcef117dd7baa93c427a86e067bad93fb35063052e0e9324b137",
+      "length": 554,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_847162/schema3.json"
+    },
+    {
+      "sha256": "3b048c93131f286e35f2bc64c23fc6c046a29f6687102b2cc5e4a490336013f3",
+      "length": 543,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_842877/alternate_valid.json"
+    },
+    {
+      "sha256": "8f71bb97125bdb84a6876a99880a16843d3d150710e13a0ee9800abce44f2f33",
+      "length": 547,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_842877/bad_policy.json"
+    },
+    {
+      "sha256": "151eb66e697a55f8ff2ac18c21a59639c3ae18faa4714155365a86e8ba2bf5b9",
+      "length": 545,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_842877/tampered.json"
+    },
+    {
+      "sha256": "f1eed5ba940899fbb48d3ab275e41d7a64042019b5603a7b4528e641fc3cfa52",
+      "length": 18089,
+      "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres"
+    },
+    {
+      "sha256": "128e4fb22ffb962cef4f2a3941ea7ff3157f743dbac186d8e2d6c40c5f0a801b",
+      "length": 1325,
+      "path": "docs/codex-logs/CODEX_LOG_M23_R01_V01.md"
+    },
+    {
+      "sha256": "09e69a503e29eefcf25cb023a62bfd9d0f74f8ecec90f95f7519868eaef53eef",
+      "length": 2119556,
+      "path": "f647e4ff-b906-40e7-93f8-3c4b59d95b23.png"
+    }
+  ]
+}
