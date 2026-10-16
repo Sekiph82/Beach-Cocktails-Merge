@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex runs R20 autonomous bot objective-progress diagnostics and append-only retry integrity repair; no large batch until a real win beyond Sunny Cove L1.
+- Next Task/Action: BCM-M33-004 — Codex runs R21 spatial lane-differentiated objective-aware bot pilot after R20's center-lane tie failure; no broader batch pending real non-L1 success.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R19 independent audit published: 12 cases across 4 islands yielded one observed win at Sunny Cove L1, 11 BUDGET_UNKNOWN, eight with zero objective progress; wider batch gate not met. Production input and geometry probes and 10 regressions builder PASS, native owner concerns not independently cleared. One unmatched trial-start is an OPEN integrity defect. R20 repairs retry records, improves objective-aware bot and seeks a production-physics win beyond L1; owner never plays 1000 levels. Preserve owner dirty files and avoid GB-scale disk bloat.
+- Progress: R20 independent audit: R19 orphan recovered idempotently, recovery 11 assertions and lookahead 14 assertions builder PASS, 10 regression groups PASS. One Sunny Cove L25 standard-physics run LOSS_OBSERVED TABLE_DANGER after 19 of 80 legal 4T shots with zero objective progress; all shots x=360 center because seven candidate scores tied. No impossibility inference. R21 prioritizes spatial scoring, diversified safe lanes, tie handling and one bounded nontrivial trial. M33-004 remains OPEN; owner is not required to play 1000 levels.
 
 ## Blockers/Waits
 
