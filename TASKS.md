@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex implements R18 development-only visual/manual Level Qualification Studio with production physics, immutable evidence, and headless regressions; GUI owner acceptance pending.
+- Next Task/Action: BCM-M33-004 — Codex safely syncs canonical Desktop to R18 Studio code preserving 8 tracked and 15 untracked owner files; owner then reviews native Windows Studio GUI.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R17 independent evidence audit: append-only immutable pilot recorder and adversarial checks builder PASS; archived Tiki L30 exit -1 remains unexplained, reproduction BUDGET_UNKNOWN after 24 actions and 8 units objective progress; first qualification Tiki L10 BUDGET_UNKNOWN after 24 actions and zero progress, no further sampling or new wins; ten regressions builder PASS. Brute-force 4T testing paused in favor of manual/visual Godot Level Qualification Studio R18. M33-004 OPEN. Desktop 8 tracked/15 untracked owner paths protected; R13 44,266-byte cleanup deferred, no GB deletions.
+- Progress: R18 independent source/builder-evidence audit conditionally ACCEPTED: development-only Level Qualification Studio and headless contract probe PASS, fresh import plus 10 regressions builder PASS. Native Windows Studio GUI, screenshot, pointer/controls, real win/loss and visual acceptance UNVERIFIED; all 1000 levels still not physically qualified. Canonical Desktop behind published main and owner-dirty 8 tracked/15 untracked must be safely reconciled before launcher use. R18 safe Desktop sync prompt issued; M33-004 stays OPEN. No device QA.
 
 ## Blockers/Waits
 
