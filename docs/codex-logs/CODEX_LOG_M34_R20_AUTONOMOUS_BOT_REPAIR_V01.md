@@ -75,5 +75,6 @@ The orphan R19 trial was repaired and repeat recovery returned a no-op. The R20 
 
 - `TASKS.md` was not modified.
 - Owner-local tracked/untracked work remains preserved; `owner-local-safe-sync-8c2cdc0` is retained after its single safe application.
-- End HEAD, `origin/main`, remote main, commit SHA, and push confirmation: pending.
+- Implementation/evidence commit SHA: `221f99f892cffd9429adca3ab35b090cfab36462`; pushed to `origin/main`. After fetch, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned this SHA.
+- Final task files and evidence were committed and published. Owner-local tracked changes and unrelated preexisting untracked files remain outside the commit; task-generated isolated AppData, `progress_live.json`, and synthetic recovery fixtures also remain unstaged and uncommitted.
 - Stop for independent GPT audit; no project-status transition is claimed.
