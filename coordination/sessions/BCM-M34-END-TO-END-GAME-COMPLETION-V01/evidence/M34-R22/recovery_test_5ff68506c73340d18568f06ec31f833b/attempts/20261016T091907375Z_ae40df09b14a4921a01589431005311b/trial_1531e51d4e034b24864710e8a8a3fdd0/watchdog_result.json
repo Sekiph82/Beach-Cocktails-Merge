@@ -1,0 +1,1 @@
+{"schema_version":1,"task":"R20-test","status":"CHILD_ERROR","reason":"CHILD_PROCESS_NONZERO_EXIT","wall_elapsed_ms":4,"timeout_seconds":10,"root_identity_verified":true,"exit_code":23,"terminated_processes":[],"stderr":""}

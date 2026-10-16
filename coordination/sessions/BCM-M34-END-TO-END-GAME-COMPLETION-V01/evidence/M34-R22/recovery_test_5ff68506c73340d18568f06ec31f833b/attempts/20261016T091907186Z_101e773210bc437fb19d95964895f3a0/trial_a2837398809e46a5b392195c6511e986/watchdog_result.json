@@ -1,0 +1,1 @@
+{"schema_version":1,"task":"R20-test","status":"EXITED","reason":"CHILD_EXITED_WITHIN_WALL_BUDGET","wall_elapsed_ms":4,"timeout_seconds":10,"root_identity_verified":true,"exit_code":0,"terminated_processes":[],"stderr":""}

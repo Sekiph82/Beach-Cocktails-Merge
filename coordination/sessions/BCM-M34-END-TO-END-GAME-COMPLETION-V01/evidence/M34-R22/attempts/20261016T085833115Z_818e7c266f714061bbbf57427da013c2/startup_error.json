@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R22",
+  "attempt_id": "20261016T085833115Z_818e7c266f714061bbbf57427da013c2",
+  "status": "PREFLIGHT_ERROR",
+  "classification": "ERROR",
+  "trial_count": 0,
+  "reason": "ANCHOR_PREFLIGHT_VALIDATOR_BUG",
+  "detail": "Initial anchor gate treated an empty/non-enumerated remaining-orders object as a count mismatch. Rechecking the immutable trace showed CASE_COMPLETE, WIN_OBSERVED, 20/20 T, 55/80 shots, and NORMAL_OBJECTIVES_COMPLETE. No gameplay process or trial was started.",
+  "source_trace_sha256": "ea2a86a53fad3c35524ffd895ee8d619a2336b2b56543d4c96897dfffe0ec48f",
+  "created_utc": "2026-10-16T08:59:26.1570272Z"
+}
