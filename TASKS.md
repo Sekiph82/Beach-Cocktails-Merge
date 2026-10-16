@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex begins R19 automated campaign qualification: production geometry/input parity, feedback-guided bot, bounded multi-island batch pilot; owner is NOT expected to play 1000 levels.
+- Next Task/Action: BCM-M33-004 — Codex runs R20 autonomous bot objective-progress diagnostics and append-only retry integrity repair; no large batch until a real win beyond Sunny Cove L1.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R18 FIX01 updated Studio layout, 22 focused probes and ten regressions PASS per builder but native GUI still UNVERIFIED; earlier owner screenshots demonstrated broken overlay/aim usability. Owner explicitly rejects manual 1000-level play; Studio is only optional case debugger. R19 priority is autonomous bot-based qualification of 10x100 levels, exact production geometry/input and 4T budgets, observed win/unknown/error classifications, small measurable pilot before scaling. M33-004 OPEN. Preserve Desktop owner edits and avoid GB-size temp/worktree bloat.
+- Progress: R19 independent audit published: 12 cases across 4 islands yielded one observed win at Sunny Cove L1, 11 BUDGET_UNKNOWN, eight with zero objective progress; wider batch gate not met. Production input and geometry probes and 10 regressions builder PASS, native owner concerns not independently cleared. One unmatched trial-start is an OPEN integrity defect. R20 repairs retry records, improves objective-aware bot and seeks a production-physics win beyond L1; owner never plays 1000 levels. Preserve owner dirty files and avoid GB-scale disk bloat.
 
 ## Blockers/Waits
 
