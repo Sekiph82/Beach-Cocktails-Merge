@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — R23: select 10 random UNIQUE levels from each of 10 islands (100 total, 10%/island) using recorded reproducible RNG seed; automatically play ONLY sample in resumable bounded sessions; never run remaining 900.
+- Next Task/Action: BCM-M33-004 — Codex runs R24 one bounded 35-minute session to resume SAME fixed 100-level random sample; 22 completed and 78 queued, no redraw and no extra session without new audit.
 - Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: Owner revised qualification sampling: NOT all 1000 levels; random 10% from each island means 10 unique sampled levels/island x 10 islands = 100 total automated tests. Persist immutable seed/selection manifest; run in resumable max-35-min sessions and max 250MB retained new files/session, never claim unfinished as complete. R22 produced 3 observed wins of 11, 8 unknown, and 4 VIP provenance discrepancies requiring repair before R23 trials. M33-004 remains OPEN until sample results audited; owner manual play not required.
+- Progress: R23 first owner-updated random sample session conditionally audit-PASS: frozen seed 20261016, 10 unique levels per island x 10 = 100 selected; 22 completed in 2067 seconds, 9 WIN_OBSERVED across 7 islands, 13 BUDGET_UNKNOWN, zero losses/trial errors, 78 remain. Reported 22/22 manifest integrity, zero VIP/lane parity mismatch, regressions 10/10; prior pre-update overrun excluded. Retained R23 evidence 150.6 MB vs C: free-space delta -372.0 MB, monitor storage carefully. R24 authorizes only one bounded same-manifest resume session. 1000-level exhaustive test prohibited; M33-004 OPEN.
 
 ## Blockers/Waits
 
