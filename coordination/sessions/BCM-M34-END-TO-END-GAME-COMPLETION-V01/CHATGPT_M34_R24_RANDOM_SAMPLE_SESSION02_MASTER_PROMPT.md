@@ -1,0 +1,13 @@
+# BCM-M34-R24 | RANDOM 10% CAMPAIGN SAMPLE SESSION 02 | CODEX MASTER PROMPT
+
+Read AGENTS.md, TASKS.md, R23 independent audit and V02 builder log, frozen sample manifest and integrity audit. Root TASKS.md is exclusively edited by ChatGPT. OWNER RULE: 10 unique random selected levels per island x 10 islands = 100 TOTAL; never test all 1000, NEVER redraw the 100, never assign owner manual plays.
+
+This prompt explicitly authorizes **ONE NEW 35-minute bounded resume session only** (session 02), NOT continuous unsupervised chained sessions. Resume the frozen seed=20261016 selection file SHA256 ef21d5a3023ae7328424da4e459b667c6d6b0dbd567e7a2106cc9b9161d66eb2. Re-verify 22 previously completed unique cases/immutable traces and the 78-case queue, then run next as many as time permits, without repeating completed cases; interleave islands in original frozen order. Keep the resulting remaining queue for later review.
+
+One trial at a time, per-trial <=120s watchdog, session wall <=2100s including startup/reserve, standard production physics and ShotController, 4T normal objective, VIP optional but runtime and case flags MUST agree fail closed. Append-only unique attempt and final trace hashes, strict trial start/finish and resume integrity, lane parity, objective counts and classifications. Stop early on provenance/hash mismatch, resource cap, or existing artifacts that cannot be safely reconciled. BUDGET_UNKNOWN is inconclusive, never impossible.
+
+Hard ceiling <=250MiB NEW retained files for this R24 session, and **report cumulative R23+R24 bytes too**. Prefer compact nonduplicated evidence; no owner file or immutable evidence deletion; monitor C: free-space delta and explain difference from retained-file bytes, inventory known temporary caches read-only. Reuse isolated AppData and project import caches, no extra worktrees or multi-GB duplicate evidence. Respect old 44KB deferred cleanup. Keep owner tracked/untracked paths and stashes hash-preserved; fresh safe synchronization without reset, clean, force push or overwrite.
+
+Run focused VIP, sampling/replay, 22-check Studio and 48-check bot probes as relevant, fresh editor import if needed, ten standard regressions and fail-closed resume tests. Preserve production economy WIN0 LOSS/QUIT20, no timer, exact 4T, no Focus, UI and asset rulings; physical mobile and owner manual tests deferred.
+
+Publish implementation/evidence/log on main with normal push; do NOT edit TASKS.md. Stop AWAITING_GPT_M34_R24_INDEPENDENT_AUDIT and give *cumulative* distinct selected levels completed, per-island progress, remaining count, classifications, owner-file safety and honest byte totals. Do not start a third session automatically.
