@@ -1,0 +1,9 @@
+# BCM-M34-R20 Independent Audit V01
+
+**Verdict:** R20 recovery/instrumentation evidence PASS; bot qualification NOT PASSED. M33-004 stays OPEN. Source: published R20 builder log and reported probe evidence. No independent Godot execution.
+
+R19 orphan recovery is reported idempotent: TRIAL_FINISHED appended once, second recovery no-op, started/finished 2/2. Focused recovery 11 assertions and objective lookahead probe 14 assertions PASS; ten regression groups PASS per builder. R20 single Sunny Cove L25 seed 34117025 produced LOSS_OBSERVED TABLE_DANGER after 19 legal shots with 4T cap80 and zero normal objective progress. Target orders L5/L7, only L3/L4 merge outputs, 51 contacts and danger occupancy. Seven candidate lanes repeatedly tied, so 19/19 fired at center x360. A losing run does not prove L25 impossible.
+
+The candidate lookahead currently evaluates inventory heuristics, not useful spatial or objective differentiation. R20’s own appended correction correctly preserved earlier summary and reported tracker unchanged; investigate the post-result PowerShell typo to prevent recurrence. Builder's main-vs-harness comparison is limited and does not override owner's earlier native Studio geometry/aim observations. No GB reclaimed. Local owner work preserved per log, not independently checked on Windows.
+
+**Next R21:** implement spatially discriminative score/candidate exploration (collision trajectory and board occupancy/merge reachability), tie breaker designed to explore diverse legal x lanes, and instrument counterfactual ranking against actual later observed shot results. Test one bounded nontrivial level with production ShotController, standard physics, 4T and watchdog. Require demonstrable noncenter shots and meaningful objective progress or an observed win beyond L1 before any larger batch. No blind 1000-level runs and no owner manual grind. Keep all 10 regressions and strict evidence integrity.
