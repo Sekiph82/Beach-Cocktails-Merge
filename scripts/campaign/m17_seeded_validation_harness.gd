@@ -37,6 +37,7 @@ const POLICY_MERGE_AWARE_V01 := "MERGE_AWARE_V01"
 const POLICY_CHEAP_MERGE_CENTER_V01 := "CHEAP_MERGE_CENTER_V01"
 const POLICY_R19_FEEDBACK_AWARE_V01 := "R19_FEEDBACK_AWARE_V01"
 const POLICY_R20_OBJECTIVE_LOOKAHEAD_V01 := "R20_OBJECTIVE_LOOKAHEAD_V01"
+const POLICY_R21_SPATIAL_LANE_V01 := "R21_SPATIAL_LANE_V01"
 
 var _root: Node
 var time_scale := 1.0
@@ -234,6 +235,9 @@ func run_trial(
 	manager.shot_controller.stop_shooting()
 	if cache_legal_launch_lanes:
 		manager.set_meta("m17_legal_launch_lane_cache", {})
+	manager.set_meta("m34_r21_seed", seed_value)
+	manager.set_meta("m34_r21_lane_history", {})
+	manager.set_meta("m34_r21_decision_index", 0)
 	var profile := {
 		"enabled": profile_enabled,
 		"frame_count": 0,
@@ -363,6 +367,10 @@ func run_trial(
 		if lane_choice.has("r20_candidate_evaluations"):
 			action_record["candidate_lane_evaluations"] = lane_choice["r20_candidate_evaluations"].duplicate(true)
 			action_record["selected_candidate_evaluation"] = lane_choice.get("r20_selected_candidate", {}).duplicate(true)
+		elif lane_choice.has("r21_candidate_evaluations"):
+			action_record["candidate_lane_evaluations"] = lane_choice["r21_candidate_evaluations"].duplicate(true)
+			action_record["selected_candidate_evaluation"] = lane_choice.get("r21_selected_candidate", {}).duplicate(true)
+			action_record["selected_candidate_rank"] = int(lane_choice.get("r21_selected_candidate", {}).get("rank", 0))
 		action_record["physics_frame_start"] = physics_frame_index
 		action_record["launch_y"] = manager.launch_y
 		action_record["normal_orders_before"] = bridge.get_objective_state().get("normal_remaining", {}).duplicate(true)
@@ -474,6 +482,21 @@ func run_trial(
 		action_record["within_remaining_4t_budget_floor_after"] = remaining_t <= int(action_record["remaining_4t_shot_budget_after"])
 		action_record["board_after"] = _board_observations(manager)
 		action_record["actual_production_physics"] = true
+		if action_record.has("selected_candidate_evaluation"):
+			var forecast: Dictionary = action_record["selected_candidate_evaluation"]
+			var observed_result_level := int(action_record["spawn_level"])
+			for merge_event in action_record["merge_chain"]:
+				observed_result_level = maxi(observed_result_level, int(merge_event.get("result_level", 0)))
+			action_record["observed_result_level_from_merges"] = observed_result_level
+			action_record["predicted_result_level"] = int(forecast.get("predicted_result_level", action_record["spawn_level"]))
+			action_record["predicted_vs_observed_result_level_delta"] = observed_result_level - int(forecast.get("predicted_result_level", action_record["spawn_level"]))
+			action_record["forecast_merge_count"] = forecast.get("predicted_merge_chain", []).size()
+			action_record["observed_merge_count"] = int(action_record["merges_delta"])
+			action_record["forecast_matched_any_merge"] = (int(action_record["merges_delta"]) > 0) == (action_record["forecast_merge_count"] > 0)
+			action_record["forecast_objective_progress"] = "heuristic_candidate_rank_only"
+			action_record["observed_objective_progress_delta"] = int(action_record["normal_objective_progress_delta"])
+			action_record["candidate_x_to_requested_x_delta"] = snappedf(float(action_record.get("requested_viewport_x", x_position)) - float(action_record.get("selected_candidate_evaluation", {}).get("candidate_x", x_position)), 0.001)
+			action_record["requested_x_to_fired_x_delta"] = snappedf(float(action_record.get("fired_position", [x_position, 0.0])[0]) - float(action_record.get("requested_viewport_x", x_position)), 0.001)
 		telemetry["action_log"][action_index - 1] = action_record
 		var normal_t_start := int(ceil(float(MODEL_SCRIPT.normal_objective_cost(level_definition)) / 4.0))
 		var move_state: Dictionary = bridge.get_move_budget_state()
@@ -809,6 +832,8 @@ func choose_action(manager, level: int, policy_name: String = POLICY_WEAK_V02) -
 	var legal_x_positions := _cached_or_legal_launch_x_positions(manager, level)
 	if policy_name == POLICY_R20_OBJECTIVE_LOOKAHEAD_V01:
 		return _select_r20_objective_lookahead_action(manager, level, observations, objective_level, legal_x_positions)
+	if policy_name == POLICY_R21_SPATIAL_LANE_V01:
+		return _select_r21_spatial_lane_action(manager, level, observations, objective_level, legal_x_positions)
 	if policy_name == POLICY_R19_FEEDBACK_AWARE_V01:
 		return _select_r19_feedback_action(manager, level, observations, objective_level, legal_x_positions)
 	if policy_name == POLICY_MERGE_AWARE_V01:
@@ -968,6 +993,190 @@ func choose_r20_action_from_observations(level: int, observations: Array, target
 	action["r20_candidate_evaluations"] = evaluations
 	action["r20_selected_candidate"] = selected_eval.duplicate(true)
 	return action
+
+
+func _select_r21_spatial_lane_action(manager, level: int, observations: Array, objective_level: int, legal_x_positions: Array) -> Dictionary:
+	var target_levels: Array[int] = []
+	var bridge = manager.get_campaign_session_bridge()
+	if bridge != null and bridge.is_session_active():
+		var objective_state: Dictionary = bridge.get_objective_state()
+		var normal_remaining: Dictionary = objective_state.get("normal_remaining", {})
+		for raw_level in normal_remaining.keys():
+			if int(normal_remaining[raw_level]) > 0:
+				target_levels.append(int(raw_level))
+	if target_levels.is_empty() and objective_level > 0:
+		target_levels.append(objective_level)
+	var history: Dictionary = manager.get_meta("m34_r21_lane_history", {})
+	var decision_index := int(manager.get_meta("m34_r21_decision_index", 0))
+	var seed_value := int(manager.get_meta("m34_r21_seed", 0))
+	var action := choose_r21_action_from_observations(
+		level, observations, target_levels, legal_x_positions, manager.launch_y,
+		manager.death_line_y, history, seed_value, decision_index
+	)
+	var chosen_key := _r21_lane_key(float(action.get("x_position", 0.0)))
+	history[chosen_key] = int(history.get(chosen_key, 0)) + 1
+	manager.set_meta("m34_r21_lane_history", history)
+	manager.set_meta("m34_r21_decision_index", decision_index + 1)
+	return action
+
+
+func choose_r21_action_from_observations(
+	level: int,
+	observations: Array,
+	target_levels: Array,
+	legal_x_positions: Array,
+	launch_y: float = 960.0,
+	danger_line_y: float = 1060.0,
+	lane_history: Dictionary = {},
+	seed_value: int = 0,
+	decision_index: int = 0
+) -> Dictionary:
+	## Spatial estimate and safe deterministic exploration. Scores are a ranking
+	## heuristic; only the observed production physics below confirms outcomes.
+	var candidates: Array = legal_x_positions.duplicate() if not legal_x_positions.is_empty() else LANE_X_POSITIONS.duplicate()
+	if candidates.is_empty(): candidates = [_nearest_legal_x(360.0, [])]
+	var evaluations: Array[Dictionary] = []
+	var board_signature_parts: Array[String] = []
+	for observation in observations:
+		board_signature_parts.append("%d:%d:%d:%d" % [int(observation.get("level", 0)), int(round(float(observation.get("x", 0.0)))), int(round(float(observation.get("y", 0.0)))), int(observation.get("instance_id", 0))])
+	board_signature_parts.sort()
+	var board_signature := hash("|".join(board_signature_parts))
+	for candidate_value in candidates:
+		var candidate_x := float(candidate_value)
+		var predicted := _r20_predict_merge_chain(level, candidate_x, observations, launch_y)
+		var column_congestion := 0.0
+		var danger_occupancy := 0.0
+		var same_level_contact := 0.0
+		var reachable_pair_proximity := 0.0
+		var next_spawn_space := 0.0
+		var spawn_radius := DRINK_SCRIPT.collider_radius_for_level(level)
+		for observation in observations:
+			var other_level := int(observation.get("level", 0))
+			var other_x := float(observation.get("x", candidate_x))
+			var other_y := float(observation.get("y", launch_y))
+			var other_radius := float(observation.get("radius", DRINK_SCRIPT.collider_radius_for_level(other_level)))
+			var dx := absf(other_x - candidate_x)
+			var horizontal_clearance := spawn_radius + other_radius
+			var same_level_contact_band := horizontal_clearance + 56.0
+			if other_y <= launch_y + other_radius and dx <= same_level_contact_band:
+				var proximity := 1.0 - clampf(maxf(0.0, dx - horizontal_clearance) / 56.0, 0.0, 1.0)
+				var vertical_factor := clampf((launch_y - other_y + 80.0) / 280.0, 0.0, 1.0)
+				var usefulness := proximity * maxf(0.25, vertical_factor)
+				if other_level == level:
+					same_level_contact = maxf(same_level_contact, usefulness)
+				elif absi(other_level - level) <= 1:
+					reachable_pair_proximity = maxf(reachable_pair_proximity, usefulness)
+			var congestion_radius := horizontal_clearance + 95.0
+			if dx < congestion_radius:
+				var closeness := 1.0 - dx / congestion_radius
+				var height_weight := clampf((other_y - (launch_y - 260.0)) / 260.0, 0.0, 1.0)
+				column_congestion += closeness * (0.25 + height_weight)
+				if other_y >= danger_line_y - 115.0:
+					danger_occupancy += closeness * clampf((other_y - (danger_line_y - 115.0)) / 115.0, 0.0, 1.0)
+			# Leave room for the immediate replacement drink and the next legal merge.
+			if dx < horizontal_clearance + 72.0 and other_y <= launch_y + 20.0:
+				next_spawn_space += 1.0 - dx / (horizontal_clearance + 72.0)
+		var chain: Array = predicted.get("merge_chain", [])
+		var resulting_level := int(predicted.get("result_level", level))
+		var objective_chain_score := float(chain.size()) * 9.0
+		for target_level_value in target_levels:
+			var target_level := int(target_level_value)
+			if resulting_level == target_level:
+				objective_chain_score += 90.0
+			elif resulting_level < target_level:
+				objective_chain_score += maxf(0.0, 10.0 - float(target_level - resulting_level)) * 2.0
+		var objective_proximity := 0.0
+		for target_level_value in target_levels:
+			var gap := int(target_level_value) - resulting_level
+			if gap > 0 and gap <= 3:
+				objective_proximity = maxf(objective_proximity, 4.0 - float(gap))
+		var contact_score := same_level_contact * 24.0 + reachable_pair_proximity * 8.0
+		var congestion_penalty := column_congestion * 13.0 + next_spawn_space * 11.0
+		var danger_penalty := danger_occupancy * 100.0
+		var spatial_score := objective_chain_score + objective_proximity * 3.0 + contact_score - congestion_penalty - danger_penalty
+		evaluations.append({
+			"candidate_x": candidate_x,
+			"score": snappedf(spatial_score, 0.001),
+			"base_score": snappedf(spatial_score, 0.001),
+			"objective_chain_score": snappedf(objective_chain_score, 0.001),
+			"objective_proximity": snappedf(objective_proximity, 0.001),
+			"same_level_contact_proximity": snappedf(same_level_contact, 0.001),
+			"reachable_pair_proximity": snappedf(reachable_pair_proximity, 0.001),
+			"column_congestion": snappedf(column_congestion, 0.001),
+			"next_spawn_space_pressure": snappedf(next_spawn_space, 0.001),
+			"danger_occupancy": snappedf(danger_occupancy, 0.001),
+			"predicted_merge_chain": chain.duplicate(true),
+			"predicted_result_level": resulting_level,
+			"target_order_levels": target_levels.duplicate(),
+			"model_label": "spatial_occupancy_and_objective_heuristic_not_physics_proof",
+		})
+	# Rank each candidate and preserve all terms so later observations can be
+	# compared against the exact forecast that selected this lane.
+	var max_base_score := -INF
+	for evaluation in evaluations:
+		var score := float(evaluation.get("base_score", -INF))
+		if is_finite(score):
+			max_base_score = maxf(max_base_score, score)
+	for evaluation in evaluations:
+		evaluation["rank"] = 1
+		for other in evaluations:
+			if float(other.base_score) > float(evaluation.base_score) + 0.0001:
+				evaluation["rank"] = int(evaluation.rank) + 1
+	var tied_indices: Array[int] = []
+	for index in range(evaluations.size()):
+		var score := float(evaluations[index].get("base_score", -INF))
+		if is_finite(score) and absf(score - max_base_score) <= 0.0001:
+			tied_indices.append(index)
+	# Fail-safe for malformed/non-finite runtime observations: preserve a legal
+	# deterministic choice among the safest candidates, never among lower-scored
+	# candidates when valid scores exist.
+	var selection_fallback := false
+	if tied_indices.is_empty():
+		selection_fallback = true
+		var best_danger := INF
+		var best_congestion := INF
+		for index in range(evaluations.size()):
+			var danger := float(evaluations[index].get("danger_occupancy", INF))
+			var congestion := float(evaluations[index].get("column_congestion", INF))
+			if danger < best_danger - 0.0001 or (is_equal_approx(danger, best_danger) and congestion < best_congestion - 0.0001):
+				best_danger = danger
+				best_congestion = congestion
+		for index in range(evaluations.size()):
+			var danger := float(evaluations[index].get("danger_occupancy", INF))
+			var congestion := float(evaluations[index].get("column_congestion", INF))
+			if is_equal_approx(danger, best_danger) and is_equal_approx(congestion, best_congestion):
+				tied_indices.append(index)
+	var least_used := 2147483647
+	for index in tied_indices:
+		var count := int(lane_history.get(_r21_lane_key(float(candidates[index])), 0))
+		least_used = mini(least_used, count)
+	var eligible_indices: Array[int] = []
+	for index in tied_indices:
+		if int(lane_history.get(_r21_lane_key(float(candidates[index])), 0)) == least_used:
+			eligible_indices.append(index)
+	var rotation := posmod(seed_value + decision_index + board_signature, candidates.size())
+	var best_index := eligible_indices[0]
+	var best_rotation_distance := candidates.size()
+	for index in eligible_indices:
+		var distance := posmod(index - rotation, candidates.size())
+		if distance < best_rotation_distance:
+			best_index = index
+			best_rotation_distance = distance
+	var selected_x := float(candidates[best_index])
+	var selected_eval: Dictionary = evaluations[best_index].duplicate(true)
+	selected_eval["lane_visits_before"] = int(lane_history.get(_r21_lane_key(selected_x), 0))
+	selected_eval["tie_candidate_count"] = tied_indices.size()
+	selected_eval["decision_index"] = decision_index
+	selected_eval["state_signature"] = board_signature
+	selected_eval["selection_fallback"] = selection_fallback
+	var action := _action_result(selected_x, not selected_eval.predicted_merge_chain.is_empty(), null, "spatial_objective_safe_lane_ranked")
+	action["r21_candidate_evaluations"] = evaluations
+	action["r21_selected_candidate"] = selected_eval
+	return action
+
+
+func _r21_lane_key(x_position: float) -> String:
+	return str(int(round(x_position * 1000.0)))
 
 
 func _r20_predict_merge_chain(spawn_level: int, candidate_x: float, observations: Array, launch_y: float) -> Dictionary:

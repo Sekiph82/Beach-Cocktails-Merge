@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R21",
+  "created_utc": "2026-10-16T08:09:57.9305116Z",
+  "read_only": true,
+  "manifest_sha256": "aa72d2dd1feb7e9802322d8db87bcbaf34002417d274565ae2ca041397f75329",
+  "trial_started_count": 4,
+  "trial_finished_count": 4,
+  "attempts": [
+    {
+      "attempt_id": "20261016T075537597Z_97386aafe2eb443faff7b9c2c83c8ac7",
+      "integrity": "PASS",
+      "started": 1,
+      "finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "outcomes": {
+        "WIN_OBSERVED": 0,
+        "BUDGET_UNKNOWN": 0,
+        "LOSS_OBSERVED": 0,
+        "ERROR": 1
+      }
+    },
+    {
+      "attempt_id": "20261016T075618311Z_721ae66ae8eb496a91f62498bdc8afa2",
+      "integrity": "PASS",
+      "started": 1,
+      "finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "outcomes": {
+        "ERROR": 1,
+        "LOSS_OBSERVED": 0,
+        "WIN_OBSERVED": 0,
+        "BUDGET_UNKNOWN": 0
+      }
+    },
+    {
+      "attempt_id": "20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e",
+      "integrity": "PASS",
+      "started": 1,
+      "finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "outcomes": {
+        "WIN_OBSERVED": 0,
+        "BUDGET_UNKNOWN": 0,
+        "ERROR": 0,
+        "LOSS_OBSERVED": 1
+      }
+    },
+    {
+      "attempt_id": "20261016T080445818Z_387e370f136143ed97fa52d4f92720c6",
+      "integrity": "PASS",
+      "started": 1,
+      "finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "outcomes": {
+        "LOSS_OBSERVED": 0,
+        "ERROR": 0,
+        "BUDGET_UNKNOWN": 0,
+        "WIN_OBSERVED": 1
+      }
+    }
+  ],
+  "all_integrity_pass": true,
+  "all_attempts_closed": true
+}

@@ -31,11 +31,11 @@ func _run() -> void:
 			quit(2)
 		inherited_feedback = parsed_feedback.duplicate(true)
 	if output_path.is_empty() or live_progress_path.is_empty() or island_id.is_empty() or level_id <= 0 or seed_value <= 0 or wall_limit <= 0.0 or wall_limit > 120.0:
-		push_error("R19/R20 trial requires output, progress, island, level, positive seed, and wall limit <=120 seconds")
+		push_error("R19/R21 trial requires output, progress, island, level, positive seed, and wall limit <=120 seconds")
 		quit(2)
 		return
-	if policy_name not in [HARNESS_SCRIPT.POLICY_R19_FEEDBACK_AWARE_V01, HARNESS_SCRIPT.POLICY_R20_OBJECTIVE_LOOKAHEAD_V01]:
-		push_error("Unsupported R19/R20 trial policy: %s" % policy_name)
+	if policy_name not in [HARNESS_SCRIPT.POLICY_R19_FEEDBACK_AWARE_V01, HARNESS_SCRIPT.POLICY_R20_OBJECTIVE_LOOKAHEAD_V01, HARNESS_SCRIPT.POLICY_R21_SPATIAL_LANE_V01]:
+		push_error("Unsupported autonomous trial policy: %s" % policy_name)
 		quit(2)
 		return
 
@@ -168,7 +168,7 @@ func _run() -> void:
 	record["action_progress_sha256"] = _sha256(JSON.stringify({"action_log": record.action_log, "progress_curve": record.progress_curve, "lane_feedback": record.lane_feedback}))
 	_write_json(output_path, record)
 	_write_json(live_progress_path, record)
-	print("M34_R19_TRIAL classification=%s case=%s/%d seed=%d shots=%d/%d objective_progress=%d wall_ms=%d" % [
+	print("M34_AUTONOMOUS_TRIAL classification=%s case=%s/%d seed=%d shots=%d/%d objective_progress=%d wall_ms=%d" % [
 		classification,
 		island_id,
 		level_id,
