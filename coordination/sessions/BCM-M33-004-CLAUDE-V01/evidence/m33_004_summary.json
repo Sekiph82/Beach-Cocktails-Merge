@@ -1,0 +1,1336 @@
+{
+ "schema_version": 1,
+ "work_item": "BCM-M33-004",
+ "protocol": "UNCENSORED_FIXED_FPS_V01",
+ "selection_sha256": "ef21d5a3023ae7328424da4e459b667c6d6b0dbd567e7a2106cc9b9161d66eb2",
+ "totals": {
+  "levels_sampled": 100,
+  "levels_winnable": 100,
+  "levels_not_won_by_bot": 0,
+  "levels_not_run": 0,
+  "trials": 154,
+  "trial_outcomes": {
+   "LOSS_OUT_OF_MOVES": 17,
+   "WIN_OBSERVED": 137
+  },
+  "trials_over_4T_cap": 0
+ },
+ "islands": {
+  "sunny_cove": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "tiki_island": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "azure_bay": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "coconut_beach": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "sunset_island": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "party_beach": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "frozen_paradise": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "volcano_bay": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "billionaire_island": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  },
+  "final_island": {
+   "sampled": 10,
+   "winnable": 10,
+   "not_won": [],
+   "errors": 0
+  }
+ },
+ "levels": [
+  {
+   "island_id": "sunny_cove",
+   "level_id": 49,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 144,
+   "fewest_moves_to_win": 72
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 45,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 1,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 120
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 15,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 100
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 28,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 144
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 8,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 67
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 18,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "LOSS_OUT_OF_MOVES"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 141
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 88,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 139
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 57,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 107
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 49,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 52
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 86,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 70
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 88,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "LOSS_OUT_OF_MOVES"
+   ],
+   "move_cap_4T": 208,
+   "fewest_moves_to_win": 167
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 36,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 81
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 1,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 108
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 60,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 149
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 91,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 185
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 12,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 98
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 33,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 111
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 20,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 59
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 40,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "LOSS_OUT_OF_MOVES"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 85
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 76,
+   "status": "WINNABLE",
+   "attempts": 3,
+   "wins": 2,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 186
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 19,
+   "status": "WINNABLE",
+   "attempts": 2,
+   "wins": 2,
+   "outcomes": [
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 80,
+   "fewest_moves_to_win": 45
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 59,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 114
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 81,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 184
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 76,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 192
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 76,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 189
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 82,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 56
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 77,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 109
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 55,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 160
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 11,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 70
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 67,
+   "status": "WINNABLE",
+   "attempts": 6,
+   "wins": 5,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 131
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 80,
+   "status": "WINNABLE",
+   "attempts": 6,
+   "wins": 4,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 131
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 71,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 142
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 8,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 160
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 48,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 134
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 59,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 61
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 35,
+   "status": "WINNABLE",
+   "attempts": 6,
+   "wins": 5,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 58
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 85,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 185
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 79,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 124
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 73,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 163
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 90,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 70
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 36,
+   "status": "WINNABLE",
+   "attempts": 6,
+   "wins": 5,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 112,
+   "fewest_moves_to_win": 64
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 34,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 95
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 53,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 96
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 86,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 107
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 97,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 67
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 15,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 82
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 26,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 80
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 93,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 107
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 52,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 130
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 39,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 75
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 79,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 208,
+   "fewest_moves_to_win": 158
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 27,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 95
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 63,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 177
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 45,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 160
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 69,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 155
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 3,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 114
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 39,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 76
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 72,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 79
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 32,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 89
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 18,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 60
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 100,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 240,
+   "fewest_moves_to_win": 167
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 73,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 110
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 92,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 221
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 75,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 83
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 25,
+   "status": "WINNABLE",
+   "attempts": 6,
+   "wins": 4,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 131
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 78,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 154
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 75,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 64
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 28,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 134
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 29,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 82
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 93,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 67
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 26,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 60
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 57,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 118
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 86,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 124
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 37,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 104
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 86,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 127
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 6,
+   "status": "WINNABLE",
+   "attempts": 6,
+   "wins": 4,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "LOSS_OUT_OF_MOVES"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 55
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 93,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 60
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 88,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 92
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 87,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 78
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 35,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 152
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 91,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 176,
+   "fewest_moves_to_win": 116
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 96,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 104
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 99,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 82
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 46,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 127
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 38,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 152
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 90,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 128
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 15,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 90
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 7,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 77
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 92,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 118
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 33,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 100
+  },
+  {
+   "island_id": "sunny_cove",
+   "level_id": 93,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 208,
+   "fewest_moves_to_win": 165
+  },
+  {
+   "island_id": "tiki_island",
+   "level_id": 85,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 131
+  },
+  {
+   "island_id": "azure_bay",
+   "level_id": 2,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 61
+  },
+  {
+   "island_id": "coconut_beach",
+   "level_id": 53,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 159
+  },
+  {
+   "island_id": "sunset_island",
+   "level_id": 16,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 141
+  },
+  {
+   "island_id": "party_beach",
+   "level_id": 32,
+   "status": "WINNABLE",
+   "attempts": 6,
+   "wins": 3,
+   "outcomes": [
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED",
+    "WIN_OBSERVED",
+    "LOSS_OUT_OF_MOVES",
+    "LOSS_OUT_OF_MOVES",
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 160,
+   "fewest_moves_to_win": 117
+  },
+  {
+   "island_id": "frozen_paradise",
+   "level_id": 19,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 192,
+   "fewest_moves_to_win": 166
+  },
+  {
+   "island_id": "volcano_bay",
+   "level_id": 38,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 128,
+   "fewest_moves_to_win": 111
+  },
+  {
+   "island_id": "billionaire_island",
+   "level_id": 96,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 96,
+   "fewest_moves_to_win": 66
+  },
+  {
+   "island_id": "final_island",
+   "level_id": 79,
+   "status": "WINNABLE",
+   "attempts": 1,
+   "wins": 1,
+   "outcomes": [
+    "WIN_OBSERVED"
+   ],
+   "move_cap_4T": 224,
+   "fewest_moves_to_win": 154
+  }
+ ]
+}
