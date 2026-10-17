@@ -1,0 +1,2072 @@
+{
+ "schema_version": 1,
+ "work_item": "BCM-M34-005",
+ "method": "basename reference search across scripts/, scenes/, data/, tests/, tools/, addons/, project.godot excluding the deletion set itself; no class_name definitions among deleted tools/tests; Godot editor import + full probe run after deletion",
+ "tracked_deleted": [
+  {
+   "path": "scenes/debug/LevelQualificationStudio.tscn",
+   "disposition": "DELETE",
+   "reason": "R18 manual level-qualification studio; superseded by automated winnability runner; owner bans difficulty/qualification grading",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "scripts/campaign/m17_difficulty_model.gd",
+   "disposition": "DELETE",
+   "reason": "difficulty model/analytics; owner bans difficulty evaluation; cost math moved to scripts/campaign/objective_cost_model.gd",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "scripts/debug/level_qualification_studio.gd",
+   "disposition": "DELETE",
+   "reason": "R18 manual level-qualification studio; superseded by automated winnability runner; owner bans difficulty/qualification grading",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m17_canonical_screening_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m17_canonical_screening_v06_analytical_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m17_difficulty_validation_probe.gd",
+   "disposition": "DELETE",
+   "reason": "difficulty model/analytics; owner bans difficulty evaluation; cost math moved to scripts/campaign/objective_cost_model.gd",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m32_r01_m17_semantic_coverage_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r12_fixed_fps_parity_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r14_bounded_solver_test.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r14_fixed_fps_parity_test.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r14_process_watchdog_test.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r14_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r15_authoritative_4t_test.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r15_numerical_parity_test.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r15_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r16_outcome_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r16_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r17_pilot_integrity.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r17_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r18_level_qualification_studio_probe.gd",
+   "disposition": "DELETE",
+   "reason": "R18 manual level-qualification studio; superseded by automated winnability runner; owner bans difficulty/qualification grading",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r18_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r19_autonomous_qualification_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r19_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r20_objective_lookahead_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r20_recovery_test.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r20_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r21_spatial_lane_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/m34_r23_regression_suite.ps1",
+   "disposition": "DELETE",
+   "reason": "per-remediation regression wrapper; replaced by tests/run_regressions.py",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/test_m33_r03_difficulty_analytics.py",
+   "disposition": "DELETE",
+   "reason": "difficulty model/analytics; owner bans difficulty evaluation; cost math moved to scripts/campaign/objective_cost_model.gd",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tests/test_m33_r04_r01_design_space.py",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/BCM-M34-R18-Level-Qualification-Studio.ps1",
+   "disposition": "DELETE",
+   "reason": "R18 manual level-qualification studio; superseded by automated winnability runner; owner bans difficulty/qualification grading",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/analyze_m33_r04_r01_design_space.py",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_baseline_report.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_confirmation_v07.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_confirmation_v07_r01.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_confirmation_v07_r02.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_confirmation_v07_r03.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_screening.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_screening_v06.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_screening_v06_r01.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_canonical_screening_v06_repair.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_solver_qualification.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m17_vip_optionality_v05.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m33_r01_physics_qualification.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m33_r02_calibration_pilot.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m33_r02_static_diagnosis.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m33_r03_difficulty_analytics.py",
+   "disposition": "DELETE",
+   "reason": "difficulty model/analytics; owner bans difficulty evaluation; cost math moved to scripts/campaign/objective_cost_model.gd",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r10_offline_gameplay_quality.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r10_zip_metadata_probe.py",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r11_mechanical_coverage.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r12_bounded_path_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r14_bounded_path_probe.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r14_process_watchdog.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r14_watchdog_hung_child.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r15_numerical_parity_gate.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r16_outcome_pilot.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r16_summarize_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r17_outcome_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r17_pilot_integrity.psm1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r17_summarize_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r19_autonomous_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r19_autonomous_trial.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r19_summarize_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r20_recover_r19_attempt.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r20_recovery.psm1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r20_single_challenge.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r20_summarize_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r21_spatial_lane_challenge.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r22_audit_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r22_cross_island_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r23_audit_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r23_autonomous_trial.gd",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r23_generate_selection.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/m34_r23_screening_pilot.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/summarize_m33_r01_physics.py",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/campaign/summarize_m33_r02_calibration.py",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/m21_child04_regression_runner.ps1",
+   "disposition": "DELETE",
+   "reason": "one-off M17/M33/M34-R10..R23 screening/pilot/solver tooling; superseded by tools/campaign/m33_004_*",
+   "recoverable_from_git_history": true
+  },
+  {
+   "path": "tools/report_m33_r04_difficulty.py",
+   "disposition": "DELETE",
+   "reason": "difficulty model/analytics; owner bans difficulty evaluation; cost math moved to scripts/campaign/objective_cost_model.gd",
+   "recoverable_from_git_history": true
+  }
+ ],
+ "untracked_deleted": [
+  {
+   "path": "coordination/sessions/BCM-M21-R04-REPOSITORY-HYGIENE/evidence/world-map-layout-v01/world_map_layout_diagnostic.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/regression_probes/m09_audio_haptics_probe_r02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/regression_probes/m15_vip_boosters_economy_probe_r02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/regression_probes/m21_full_progression_probe_r02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/regression_probes/m21_mobile_qa_probe_r02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/regression_probes/m22_001_plugin_contract_probe_r02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/regression_probes/m22_002_semantic_bridge_probe_r02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M23-MASTER-V01/evidence/M23-R02/regression_probes/m22_003_effect_policy_probe_r02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m02_physics_regression.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m09_audio_haptics_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m15_vip_boosters_economy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m15_vip_full_acceptance.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m15_vip_reduced_acceptance.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m21_full_progression_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m21_mobile_qa_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m21_release_persistence_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m22_001_plugin_contract_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m22_002_semantic_bridge_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m22_003_effect_policy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m23_001_micro_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m23_002_merge_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m23_003_combo_milestone_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m23_r03_color_restoration_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m24_001_order_progress_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m24_002_order_complete_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M24-MASTER-V01/evidence/M24-R01/runners/m24_003_vip_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-CAL02/m25_cal02_resumable_runner.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m02_physics_regression.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m09_audio_haptics_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m15_vip_boosters_economy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m21_full_progression_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m21_mobile_qa_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m21_release_persistence_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m22_001_plugin_contract_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m22_002_semantic_bridge_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m22_003_effect_policy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m23_001_micro_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m23_002_merge_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m23_003_combo_milestone_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m23_r03_color_restoration_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m24_001_order_progress_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m24_002_order_complete_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MASTER-V01/regression/runners/m24_003_vip_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-100-STAR/runners/m25_move100_calibration_pilot.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-100-STAR/runners/m25_move100_physics_harness.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/m25_move_limit_runtime_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m09_audio_haptics_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m15_vip_boosters_economy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m21_full_progression_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m22_001_plugin_contract_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m22_002_semantic_bridge_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m22_003_effect_policy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m23_001_micro_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m23_002_merge_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m23_003_combo_milestone_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m24_001_order_progress_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m24_002_order_complete_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m24_003_vip_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-MOVE-LIMIT-001/runners/regression/regression_m25_result_presentation_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-PERCENT400/runners/m25_percent400_runtime_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/m21_mobile_qa_baseline_r01.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/m21_mobile_qa_default_gl_run_02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/m25_genuine_gameplay_input_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/m25_result_presentation_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m02_physics_regression.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m09_audio_haptics_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m15_vip_boosters_economy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_full_progression_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_mobile_qa_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m21_release_persistence_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m22_001_plugin_contract_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m22_002_semantic_bridge_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m22_003_effect_policy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m23_001_micro_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m23_002_merge_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m23_003_combo_milestone_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m23_r03_color_restoration_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m24_001_order_progress_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m24_002_order_complete_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R01/runners/regression/m24_003_vip_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m02_physics_regression.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m09_audio_haptics_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m15_vip_boosters_economy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m21_full_progression_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m21_mobile_qa_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m21_mobile_qa_probe_gl_run_01.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m21_mobile_qa_probe_gl_run_02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m21_release_persistence_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m22_001_plugin_contract_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m22_002_semantic_bridge_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m22_003_effect_policy_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m23_001_micro_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m23_002_merge_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m23_003_combo_milestone_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m23_r03_color_restoration_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m24_001_order_progress_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m24_002_order_complete_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m24_003_vip_feedback_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/regression/runners/m25_result_presentation_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R02/runners/m25_r02_gameplay_input_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M25-MASTER-V01/evidence/M25-R03/runners/m25_r03_genuine_input_probe.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R09/admob_test_harness_v02.gd.uid",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T052629047Z_36f9dbbdd2a4461e83d56a27c3ce608f.claim",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T053310199Z_53cd771c899b4e069d6cbfdd13af9991.claim",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T053446816Z_639826cb4dba4eac82654a425416ac26.claim",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/attempts/20261016T053957759Z_a35939a36f7b4ad89ae58a2e59cf47c9.claim",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_8719727.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_979006/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_964300/schema1.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_964300/schema2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_964300/schema3.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_959033/alternate_valid.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_959033/bad_policy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_959033/tampered.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R19/regressions_20261016T053614650Z_11c28b274ae7420eaf748b1a47584716/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/attempts/20261016T072817055Z_6b29080ee250407fad474aecc7ecd71c/isolated_appdata_roaming/Godot/app_userdata/CocktailMerge/save.cfg",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/attempts/20261016T072817055Z_6b29080ee250407fad474aecc7ecd71c/trial_cc245610957f4abcaed9dfeb1b90a30b/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempt_manifest.jsonl",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/recovery_summary_r20_221968281cece116.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014179Z_9344910f98cf4914bdf92880d62f57ac/trial_379ad4fab51c41c4af66ea7759d779a5/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/recovery_summary_r20_81be44804aaf81b7.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014408Z_240d8f81f60b4d14b4538d38273f7baa/trial_4a3ae0b60cda422cb6f7018ca4283ad4/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/abrupt_child.ps1",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_24b25b94fb634b8e819ec9544f12e22a/attempts/20261016T072014451Z_a4e45b720fcb43c89947512e64f15e4b/trial_3a3ebeef5ed74e84bf17356162f2ba36/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempt_manifest.jsonl",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/recovery_summary_r20_c4b75f7bb8adb317.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072027984Z_c6fd4be55e124475969358280efc4d05/trial_a6333958189e41f2a393c1177e26b5ae/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/recovery_summary_r20_7b0b95290ee3b4a7.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028173Z_c0348c37c0ed4af4941fd62084325b69/trial_fd84e4324d704d5cac6705538885c560/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/recovery_summary_r20_5270f34c9bb1049c.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/abrupt_child.ps1",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_4b357befb880479bbd7559fbb44b59a9/attempts/20261016T072028210Z_ec00b0cc5ca34ff6b410e801259c069d/trial_dc8a4f90c4b84413aa2bf64a3f5b7f7c/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempt_manifest.jsonl",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempts/20261016T072003201Z_0ef809366aad491c857c4d6fc2baae71/trial_33d1ea2822b6416ebeeccd786518b25e/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempts/20261016T072003201Z_0ef809366aad491c857c4d6fc2baae71/trial_33d1ea2822b6416ebeeccd786518b25e/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_8d3bf7033cc149e7baad05d23040815a/attempts/20261016T072003201Z_0ef809366aad491c857c4d6fc2baae71/trial_33d1ea2822b6416ebeeccd786518b25e/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempt_manifest.jsonl",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/recovery_summary_r20_957cbbde2ffd558a.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072531943Z_5ba5bd82ccd0430894e1ef153bbd5221/trial_4c3cdac326cc43dfa8432ca3c2be0f83/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/recovery_summary_r20_2152435e34cc8f7e.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532160Z_0b107c976e064ca5972f7d5a20b4503a/trial_4a139d02b78842b498771a303afe5b74/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/recovery_summary_r20_192fe907a773a383.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/abrupt_child.ps1",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/recovery_test_ce653fcdf9f84c3785acca865a761f93/attempts/20261016T072532194Z_eba1e655e1a142d9ad66903e9ad7fbc6/trial_fcc7a9f03fd643548874bdb98081d648/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_15629805.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_872381/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_858201/schema1.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_858201/schema2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_858201/schema3.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_853190/alternate_valid.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_853190/bad_policy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_853190/tampered.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T072940244Z_1af1090b67fa42ca8c941fac3e3d28fb/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_15471197.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_891945/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_877199/schema1.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_877199/schema2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_877199/schema3.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_871456/alternate_valid.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_871456/bad_policy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_871456/tampered.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R20/regressions_20261016T073537017Z_0bdf59e4864b4ac0b583733f4cbc02bd/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075537597Z_97386aafe2eb443faff7b9c2c83c8ac7/integrity_summary_stdout.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075618311Z_721ae66ae8eb496a91f62498bdc8afa2/integrity_summary_stdout.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075618311Z_721ae66ae8eb496a91f62498bdc8afa2/trial_7cd7e18dfb8f4fa29ce17706b676108d/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e/integrity_summary_stdout.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e/isolated_appdata_roaming/Godot/app_userdata/CocktailMerge/save.cfg",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e/trial_3bf9dd9e589b4b2587a377b642ebd720/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/attempts/20261016T080445818Z_387e370f136143ed97fa52d4f92720c6/trial_a2f46bbb2d454ebcaca1fbed7d94c3f5/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempt_manifest.jsonl",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/recovery_summary_r20_b93a7f46a5ecfaed.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307289Z_122d825bd2814c038f57be874f82f2e2/trial_928d190126664a8e9c19a21d9c880201/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/recovery_summary_r20_a76173300e198225.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307512Z_f809af2e78fd484e8efaf981915ae669/trial_56f546c0f70246c6b8962ce74baf7dab/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/recovery_summary_r20_14f78410d7f4c853.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/abrupt_child.ps1",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/recovery_test_ab71ad48331f479a96350ace8b0fc9e6/attempts/20261016T080307550Z_2643a56553c542e2ae6fabf73fe87dd8/trial_c050f66ee96a4adcaff70d18838cc716/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_16696391.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_1176528/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1158718/schema1.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1158718/schema2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1158718/schema3.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1150449/alternate_valid.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1150449/bad_policy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1150449/tampered.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080029581Z_cffce2b37df44f45a9d2bc26290b4d97/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_17244359.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_1245538/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1220954/schema1.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1220954/schema2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_1220954/schema3.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1213371/alternate_valid.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1213371/bad_policy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_1213371/tampered.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R21/regressions_20261016T080607484Z_11b9ff2a74354c7bbdb1b9536239f880/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Local/Godot/editor_doc_cache-4.7.res",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_15955842.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_859178/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_847162/schema1.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_847162/schema2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_847162/schema3.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_842877/alternate_valid.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_842877/bad_policy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_842877/tampered.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R22/regressions_20261016T091911217Z_5d992ecc04ec41cabd0678810f2cff46/isolated_userdata/Roaming/Godot/editor_settings-4.7.tres",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/attempts/20261017T103155751Z_7bde259ec0074e0691d84ba620b448bd.claim",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/fail_closed_resume_probe/attempts/20261017T103126564Z_b909f5f3f88d4dcc86367de927e3a155.claim",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Local/Godot/editor_doc_cache-4.7.res",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/economy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m15_economy_probe/old_v2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m33_campaign_navigation_probe.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_production_routes_save_16483287.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_daily_probe_952641/campaign_save.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_940341/schema1.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_940341/schema2.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r01_migrations_940341/schema3.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_934986/alternate_valid.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_934986/bad_policy.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/app_userdata/CocktailMerge/m34_r02_config_934986/tampered.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/isolated_appdata/Roaming/Godot/editor_settings-4.7.tres",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempt_manifest.jsonl",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102846888Z_11ee50644780466a8b2b95979c84d67f/recovery_summary_r20_6601ea6ee7fc378f.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102846888Z_11ee50644780466a8b2b95979c84d67f/trial_98953c892a3f4f8a900a2a2e20912798/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102846888Z_11ee50644780466a8b2b95979c84d67f/trial_98953c892a3f4f8a900a2a2e20912798/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102846888Z_11ee50644780466a8b2b95979c84d67f/trial_98953c892a3f4f8a900a2a2e20912798/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102846888Z_11ee50644780466a8b2b95979c84d67f/trial_98953c892a3f4f8a900a2a2e20912798/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847150Z_3a4700037a7843e1bc9b927683f1f548/recovery_summary_r20_0ad65d2ceeb224de.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847150Z_3a4700037a7843e1bc9b927683f1f548/trial_ecd931539900412197db379ceff64ab2/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847150Z_3a4700037a7843e1bc9b927683f1f548/trial_ecd931539900412197db379ceff64ab2/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847150Z_3a4700037a7843e1bc9b927683f1f548/trial_ecd931539900412197db379ceff64ab2/trial_result_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847150Z_3a4700037a7843e1bc9b927683f1f548/trial_ecd931539900412197db379ceff64ab2/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847200Z_d9c856fc154540db808bf915a06374ce/recovery_summary_r20_19464c641701bde9.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847200Z_d9c856fc154540db808bf915a06374ce/trial_d77f61313ba54014b258eecf36fb8791/abrupt_child.ps1",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847200Z_d9c856fc154540db808bf915a06374ce/trial_d77f61313ba54014b258eecf36fb8791/case_record.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847200Z_d9c856fc154540db808bf915a06374ce/trial_d77f61313ba54014b258eecf36fb8791/final_trace.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847200Z_d9c856fc154540db808bf915a06374ce/trial_d77f61313ba54014b258eecf36fb8791/progress_live.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  },
+  {
+   "path": "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/random_sample_v01_session_02/recovery_test_bfff8e37c4394ab38a157c1ceb8e4c8b/attempts/20261017T102847200Z_d9c856fc154540db808bf915a06374ce/trial_d77f61313ba54014b258eecf36fb8791/watchdog_result.json",
+   "disposition": "DELETE",
+   "reason": "generated harness residue (isolated AppData profiles, .claim locks, live progress snapshots, recovery-test scratch, Godot .gd.uid sidecars inside evidence)"
+  }
+ ],
+ "untracked_deleted_bytes": 26109747,
+ "kept_for_owner_decision": [
+  "~1.58 GB tracked historical evidence under coordination/sessions (largest: M25 457 MB, M34 289 MB, M21-OWNER-RUNTIME 175 MB)",
+  "100 owner-local safe-sync stashes",
+  "owner untracked files: *kritik.png, f647e4ff-*.png, M23-R01 captures, CODEX_LOG_M23_R01_V01.md"
+ ],
+ "legacy_probes_failing_on_pre_change_baseline_e0401dd": [
+  "tests/closeout-001/m21_full_progression_probe_closeout.gd",
+  "tests/closeout-001/m23_003_combo_milestone_probe_closeout.gd",
+  "tests/m05_evidence_canvas.gd",
+  "tests/m07_hud_inner_boxes.gd",
+  "tests/m07_hud_visible_bounds.gd",
+  "tests/m10_campaign_architecture_probe.gd",
+  "tests/m13_island_map_probe.gd",
+  "tests/m18_cumulative_reward_claim_remediation_probe.gd",
+  "tests/m18_cumulative_star_rewards_probe.gd",
+  "tests/m18_integration_probe.gd",
+  "tests/m18_replay_persistence_probe.gd",
+  "tests/m18_untimed_cumulative_reward_probe.gd",
+  "tests/m18_v02_r01_replay_capture_probe.gd",
+  "tests/m19_multi_island_scalability_probe.gd",
+  "tests/m19_r01_ordered_verification_probe.gd",
+  "tests/m20_runtime_capture_probe.gd",
+  "tests/m21_full_progression_probe.gd",
+  "tests/m21_home_exact_target_r04_probe.gd",
+  "tests/m21_island_map_full_background_followup_r01_probe.gd",
+  "tests/m21_island_map_node_visual_r07_probe.gd",
+  "tests/m21_island_map_page_focus_r07_probe.gd",
+  "tests/m21_mobile_qa_probe.gd",
+  "tests/m21_owner_f5_remediation_v03_progression_probe.gd",
+  "tests/m21_owner_f5_remediation_v05_gui_probe.gd",
+  "tests/m21_owner_f5_remediation_v06_gameplay_probe.gd",
+  "tests/m21_owner_f5_remediation_v06_gui_probe.gd",
+  "tests/m21_owner_f5_remediation_v07_gameplay_probe.gd",
+  "tests/m21_owner_f5_remediation_v07_gui_probe.gd",
+  "tests/m21_owner_f5_remediation_v07_r02_gameplay_probe.gd",
+  "tests/m21_owner_f5_remediation_v07_r02_gui_probe.gd",
+  "tests/m21_owner_f5_visual_polish_probe.gd",
+  "tests/m21_owner_runtime_closure_v02_r01_performance_probe.gd",
+  "tests/m21_owner_runtime_closure_v02_r01_progression_probe.gd",
+  "tests/m21_performance_profile_probe.gd",
+  "tests/m23_r03_m21_tall_navigation_diagnostic.gd",
+  "tests/m23_r03_real_renderer_capture.gd",
+  "tests/m26_001_island_map_presentation_probe.gd",
+  "tests/m26_002_campaign_unlock_presentation_probe.gd",
+  "tests/m27_002_island_map_probe.gd",
+  "tests/m27_003_full_progression_probe.gd",
+  "tests/m27_003_legacy_m18_v02_replay_capture_probe.gd",
+  "tests/m27_003_legacy_m20_runtime_capture_probe.gd",
+  "tests/m27_003_mobile_qa_probe.gd",
+  "tests/m27_003_move_limit_probe.gd",
+  "tests/m27_user_data_isolation_probe.gd",
+  "tests/m32_tutorial_mobile_capture_probe.gd",
+  "tests/m33_r05_capture_tabletops.gd",
+  "tests/m33_r05_r02_capture_tabletops.gd",
+  "tests/m33_r05_r02_scale_comparison.gd",
+  "tests/m33_r06_owner_playtest_probe.gd",
+  "tests/m34_mobile_capture_probe.gd",
+  "tests/m34_r03_owner_review_capture.gd",
+  "tests/r09_no_input_runtime_regression.gd",
+  "tests/r10_desktop_idle_smoke.gd",
+  "tests/r10_runtime_physics_closure_probe.gd",
+  "tests/r10_v05_three_sided_envelope_probe.gd",
+  "tests/r10_v06_edge_footprint_probe.gd",
+  "tests/r10_v07_gui_edge_capture.gd",
+  "tests/r10_v07_independent_edge_dataset_probe.gd",
+  "tests/r10_v08_exact_edge_contact_probe.gd",
+  "tests/r10_v08_gui_edge_capture.gd",
+  "tests/r10_v09_gui_hull_capture.gd",
+  "tests/r10_v09_hull_overlay.gd",
+  "tests/r10_v09_visual_hull_containment_probe.gd",
+  "tests/r10_v10_gui_hull_capture.gd",
+  "tests/r10_v10_v09_failure_repro.gd"
+ ],
+ "legacy_probe_note": "All fail identically on the untouched baseline e0401dd (returning-player tutorial seed applied to both); none is a regression from this cleanup. Causes sampled: superseded contracts (save schema 2, zero-level Tiki, retired Drink.visual_body_depth_scale_for_y), GUI capture scripts that need a display (240 s timeout headless). Kept pending owner retire/rewrite decision.",
+ "regressions": {
+  "core_suite": "12/12 PASS (core_regressions.json)",
+  "all_probes_before_tutorial_seed": "88/157 PASS",
+  "previously_failing_now_pass_with_tutorial_seed": [
+   "tests/m20_campaign_ux_probe.gd",
+   "tests/m26_003_reward_primary_feedback_probe.gd",
+   "tests/m27_002_reward_primary_probe.gd"
+  ],
+  "new_failures_vs_baseline": 0
+ }
+}
