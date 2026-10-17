@@ -6,7 +6,7 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M34
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
-- Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
+- Current Task: BCM-M33-004 — Qualify owner-approved random 10% sample of campaign levels for physical reachability and difficulty.
 - Current Task Status: IN_PROGRESS
 - Next Task/Action: BCM-M33-004 — CLAUDE HANDOFF: independently review frozen 100-level sample and 22 completed trials; determine safe continuation of remaining 78 under owner 10%-per-island rule; coordinate remaining M34-005/006/007 and release caveats. No further ChatGPT approval or prompt required.
 - Required Actor: CLAUDE
@@ -1358,7 +1358,7 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M33-001 — Deterministic content generator and nine-island package creation.
 - [x] BCM-M33-002 — Strict static validation, navigation, and save integration.
 - [x] BCM-M33-003 — Versioned bundled update manifest and content-delivery design.
-- [~] BCM-M33-004 — Qualify unverified generated levels for physical reachability and player difficulty.
+- [~] BCM-M33-004 — Qualify owner-approved random 10% sample (10 distinct levels per island; 100 total) for physical reachability and player difficulty.
 
 
 ### M34 — End-to-end game integration completion
