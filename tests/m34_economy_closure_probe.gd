@@ -10,6 +10,9 @@ const STORE_SCRIPT := preload("res://scripts/campaign/store_service.gd")
 const DAILY_SCRIPT := preload("res://scripts/campaign/daily_reward_service.gd")
 
 class MockRewardProvider extends RefCounted:
+	func is_test_provider() -> bool:
+		return true
+
 	func request_rewarded(_placement_id: String, _transaction_id: String) -> Dictionary:
 		return {"ok": true}
 
@@ -148,15 +151,15 @@ func _run() -> void:
 	mocked_ads.set_provider_adapter(MockRewardProvider.new(), "GRANTED_NONPERSONALIZED")
 	var ad_ready: Dictionary = mocked_ads.request_rewarded("energy_20", "mock-ad-1")
 	var ad_show: Dictionary = mocked_ads.show_rewarded()
-	var ad_receipt: Dictionary = mocked_ads.accept_provider_reward("mock-ad-1", "mock-receipt-1")
+	var ad_receipt: Dictionary = mocked_ads.accept_provider_reward("mock-ad-1", "mock-receipt-1", true)
 	_check("mocked opt-in rewarded callback grants only after matching displayed transaction", ad_ready.get("state", "") == ADS_SCRIPT.STATE_READY and ad_show.get("ok", false) and ad_receipt.get("verified", false) and accepted_ad_callbacks == ["mock-ad-1"])
 	mocked_ads.request_rewarded("energy_20", "mock-ad-2")
 	mocked_ads.show_rewarded()
-	_check("mocked duplicate receipt and skip/close yield no extra verified reward", not mocked_ads.accept_provider_reward("mock-ad-2", "mock-receipt-1").get("ok", false) and accepted_ad_callbacks.size() == 1)
+	_check("mocked duplicate receipt and skip/close yield no extra verified reward", not mocked_ads.accept_provider_reward("mock-ad-2", "mock-receipt-1", true).get("ok", false) and accepted_ad_callbacks.size() == 1)
 	mocked_ads.request_rewarded("energy_20", "mock-ad-3")
 	mocked_ads.show_rewarded()
 	mocked_ads.notify_skipped_or_closed_without_reward()
-	_check("skip/close cancels the active ad and cannot later pay", mocked_ads.state == ADS_SCRIPT.STATE_CANCELLED and not mocked_ads.accept_provider_reward("mock-ad-3", "late-receipt").get("ok", false) and accepted_ad_callbacks.size() == 1)
+	_check("skip/close cancels the active ad and cannot later pay", mocked_ads.state == ADS_SCRIPT.STATE_CANCELLED and not mocked_ads.accept_provider_reward("mock-ad-3", "late-receipt", true).get("ok", false) and accepted_ad_callbacks.size() == 1)
 	var store = STORE_SCRIPT.new()
 	_check("IAP placeholders have no buyable products or local purchase fulfillment", store.get_catalog().values().all(func(item): return not item.get("buyable", false)) and not store.purchase("remove_ads").get("ok", false) and not store.accept_verified_transaction({"receipt": "client"}).get("ok", false))
 	store.configure(MockStoreProvider.new(), MockStoreVerifier.new())

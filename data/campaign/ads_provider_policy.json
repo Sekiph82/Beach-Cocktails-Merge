@@ -1,9 +1,21 @@
 {
-  "schema_version": 1,
-  "provider_status": "NOT_DEVICE_VERIFIED",
+  "schema_version": 2,
+  "provider_status": "BLOCKED_ON_OWNER_AND_SDK",
   "default_enabled": false,
   "consent_required_before_request": true,
-  "age_directed_status": "OWNER_DECISION_REQUIRED",
+  "production_reward_verification": "TRUSTED_SSV_BACKEND_REQUIRED",
+  "configuration": {
+    "android_app_id": "",
+    "android_rewarded_unit_id": "",
+    "ios_app_id": "",
+    "ios_rewarded_unit_id": "",
+    "privacy_policy_url": "",
+    "age_policy": "OWNER_DECISION_REQUIRED",
+    "ump_consent_policy": "OWNER_DECISION_REQUIRED",
+    "ios_att_policy": "OWNER_DECISION_REQUIRED",
+    "ssv_backend_url": "",
+    "device_tests_authorized": false
+  },
   "placements": {
     "energy_20": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
     "daily_slot_2": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
@@ -13,5 +25,12 @@
     "banner": {"format": "banner", "opt_in_only": true, "enabled": false},
     "interstitial": {"format": "interstitial", "opt_in_only": true, "enabled": false}
   },
-  "required_owner_setup": ["provider app IDs", "test unit IDs", "privacy policy wording", "age-directed status", "platform consent and tracking decisions"]
+  "required_owner_setup": [
+    "Android and iOS AdMob app IDs and rewarded unit IDs (Google test IDs acceptable for first pass)",
+    "privacy-policy URL",
+    "age-directed/families decision",
+    "UMP consent approach and iOS ATT decision",
+    "SSV backend hosting decision and trusted verification endpoint",
+    "permission for real Android and iOS device or emulator tests"
+  ]
 }

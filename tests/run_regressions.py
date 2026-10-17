@@ -29,6 +29,7 @@ SANDBOX_ROOT.mkdir(parents=True, exist_ok=True)
 CORE = [
     "tests/m34_economy_closure_probe.gd",
     "tests/m34_daily_rewards_probe.gd",
+    "tests/m34_rewarded_ads_lifecycle_probe.gd",
     "tests/m33_campaign_navigation_probe.gd",
     "tests/m14_gameplay_session_bridge_probe.gd",
     "tests/m15_vip_boosters_economy_probe.gd",

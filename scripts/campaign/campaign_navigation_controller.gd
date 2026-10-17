@@ -26,6 +26,7 @@ const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
 const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.gd")
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 const ADS_SCRIPT := preload("res://scripts/campaign/ads_service.gd")
+const ADS_CONFIG_SCRIPT := preload("res://scripts/campaign/ads_provider_config.gd")
 const STORE_SCRIPT := preload("res://scripts/campaign/store_service.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
@@ -34,6 +35,7 @@ var level_database
 var campaign_manager
 var economy
 var ads_service: AdsService
+var ads_provider_config: AdsProviderConfig
 var store_service: StoreService
 var save_manager
 var content_load_error := ""
@@ -69,6 +71,9 @@ func _ready() -> void:
 		visibility_changed.connect(_on_campaign_navigation_visibility_changed)
 	ads_service = ADS_SCRIPT.new()
 	ads_service.name = "AdsService"
+	ads_provider_config = ADS_CONFIG_SCRIPT.new()
+	if ads_provider_config.load_config():
+		ads_service.configure_production(ads_provider_config.values)
 	ads_service.verified_rewarded.connect(_on_verified_ad_reward)
 	add_child(ads_service)
 	store_service = STORE_SCRIPT.new()

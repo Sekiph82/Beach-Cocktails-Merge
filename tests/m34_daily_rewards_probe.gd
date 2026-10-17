@@ -7,6 +7,9 @@ const ADS_SCRIPT := preload("res://scripts/campaign/ads_service.gd")
 const SHELL_SCRIPT := preload("res://scripts/campaign/application_shell.gd")
 
 class TestRewardProvider extends RefCounted:
+	func is_test_provider() -> bool:
+		return true
+
 	func request_rewarded(_placement: String, _transaction: String) -> Dictionary:
 		return {"ok": true}
 	func show_rewarded(_transaction: String) -> Dictionary:
@@ -78,9 +81,9 @@ func _run() -> void:
 	var slot3_service = DAILY_SCRIPT.new()
 	slot3_ads.verified_rewarded.connect(func(placement: String, transaction: String, receipt: String) -> void: slot3_service.accept_verified_reward(placement, transaction, receipt, slot3_economy, boundary_after))
 	var slot3_pending: Dictionary = slot3_service.claim(3, slot3_economy, slot3_ads, boundary_after)
-	var slot3_receipt: Dictionary = slot3_ads.accept_provider_reward(str(slot3_pending.get("transaction_id", "")), "slot3-provider-receipt")
+	var slot3_receipt: Dictionary = slot3_ads.accept_provider_reward(str(slot3_pending.get("transaction_id", "")), "slot3-provider-receipt", true)
 	_check("verified slot 3 callback grants exactly +40 Coins from config", slot3_pending.get("pending", false) and slot3_receipt.get("verified", false) and slot3_economy.coins == 50 and slot3_economy.daily_slot_claimed("2026-10-15", 3))
-	_check("slot 3 duplicate receipt cannot grant twice", not slot3_ads.accept_provider_reward(str(slot3_pending.get("transaction_id", "")), "slot3-provider-receipt").get("ok", false) and slot3_economy.coins == 50)
+	_check("slot 3 duplicate receipt cannot grant twice", not slot3_ads.accept_provider_reward(str(slot3_pending.get("transaction_id", "")), "slot3-provider-receipt", true).get("ok", false) and slot3_economy.coins == 50)
 	slot3_ads.free()
 
 	var tamper_root := "user://m34_r02_config_%d" % Time.get_ticks_usec()
@@ -113,7 +116,7 @@ func _run() -> void:
 	alternate_ads.set_provider_adapter(TestRewardProvider.new(), "GRANTED_NONPERSONALIZED")
 	alternate_ads.verified_rewarded.connect(func(placement: String, transaction: String, receipt: String) -> void: alternate_service.accept_verified_reward(placement, transaction, receipt, alternate_economy, boundary_after))
 	var alternate_pending: Dictionary = alternate_service.claim(3, alternate_economy, alternate_ads, boundary_after)
-	var alternate_receipt: Dictionary = alternate_ads.accept_provider_reward(str(alternate_pending.get("transaction_id", "")), "alternate-provider-receipt")
+	var alternate_receipt: Dictionary = alternate_ads.accept_provider_reward(str(alternate_pending.get("transaction_id", "")), "alternate-provider-receipt", true)
 	_check("settlement consumes loaded config quantity instead of a second hardcoded reward table", alternate_written and alternate_loaded and alternate_receipt.get("verified", false) and alternate_economy.coins == 41)
 	alternate_ads.free()
 
