@@ -1,4 +1,8 @@
-# Beach Cocktails Merge | Claude operating instructions
+# Historical Claude Handoff (Superseded)
+
+**2026-10-17 owner update:** Claude's final legacy probe triage was published at commit `d0a688d`. The owner transferred ongoing Beach Cocktails Merge coordination back to ChatGPT with Codex implementing. This document preserves Claude's historical instructions and work context only. For live authority follow root `TASKS.md` and `AGENTS.md`.
+
+# Former Claude operating instructions (historical, no longer live)
 
 **Owner authority, effective 2026-10-17:** Claude is the primary project coordinator, implementer/delegator, independent evidence reviewer, and sole authorized editor of repository-root `TASKS.md`. The former mandatory ChatGPT audit and prompt handoff is revoked. Codex can still implement work delegated by Claude, but must not write `TASKS.md`.
 
