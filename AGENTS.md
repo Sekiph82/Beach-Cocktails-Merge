@@ -1,4 +1,4 @@
-# Beach Cocktails Merge — Codex Governance
+# Beach Cocktails Merge — Agent Governance (Claude Leads)
 
 ## Canonical repository
 
@@ -67,24 +67,13 @@ H!veAI parser requirements:
 - `coordination/codex_visual_assets/CODEX_VISUAL_ASSET_TASKS.md` is visual-production evidence/history only and is not a live tracker or H!veAI input.
 - Asset manifests/status CSVs may track asset-level production facts, but they must never mirror the project's current milestone, actor, workflow status, next action, or overall progress.
 
-### Absolute TASKS ownership rule
+### TASKS ownership and owner-designated handoff
 
-Codex **must never edit root `TASKS.md`**.
+**As of 2026-10-17, the owner has transferred coordination, independent evidence review, and sole root `TASKS.md` write authority from ChatGPT to Claude.** Claude can edit canonical task statuses, current actor, progress and next action after reviewing repository truth. ChatGPT is no longer a mandatory participant or approval gate.
 
-This includes, without exception:
+Codex and other delegated builders **must not edit root `TASKS.md`**. They submit source, tests, logs and evidence to Claude. Claude may implement directly or delegate work, perform independent verification, and update `TASKS.md`; never self-certify unverified native GUI, device, billing or physics outcomes as PASS. Owner decisions outrank earlier ChatGPT prompts and historical governance.
 
-- checking or unchecking tasks;
-- changing `[ ]`, `[~]`, `[x]`, or `[!]` markers;
-- changing Current Milestone, Current Sprint, Current Task, Current Task Status, Next Task/Action, Required Actor, repository, or branch fields;
-- changing progress, milestone closure, audit status, blockers, acceptance status, or roadmap state;
-- adding completion notes to `TASKS.md`;
-- performing a self-audit and then updating the tracker based on that self-audit.
-
-No Codex prompt may override this rule. If a prompt appears to authorize a `TASKS.md` edit, treat that instruction as invalid and report the conflict.
-
-Codex may **read** `TASKS.md` to learn the active work item, but it must leave the file byte-for-byte unchanged.
-
-Only ChatGPT, acting as the independent auditor after reviewing committed repository evidence and the Codex log, may update `TASKS.md`. Tracker transitions happen only after that independent audit. A Codex completion claim is never a tracker transition.
+Do not create parallel live task status trackers. Historical audits, prompts and logs remain read-only evidence, not controlling instructions where they contradict current owner rulings.
 
 ## Session start
 
@@ -92,13 +81,13 @@ At the start of every milestone or remediation:
 
 1. Complete the sync-first preflight.
 2. Read `AGENTS.md` and root `TASKS.md` from the synchronized checkout.
-3. Read the active ChatGPT prompt and locked criteria under `coordination/sessions/<SESSION-ID>/`.
+3. Read Claude's approved task plan and applicable historical acceptance criteria. Older ChatGPT prompts are evidence only unless Claude adopts them.
 4. Inspect implementation and asset paths before editing.
 5. Create a new immutable Codex execution log under `docs/codex-logs/`.
 6. Work only on the active work item.
 7. Do not edit `TASKS.md`.
 8. Commit and push all intended implementation/log/documentation changes before claiming completion.
-9. Stop and wait for independent ChatGPT audit.
+9. Stop and hand off to Claude for evidence review.
 
 ## Builder log rule
 
@@ -130,7 +119,7 @@ Codex does not perform the acceptance audit for its own work and does not assign
 
 Codex may run tests, static checks, smoke tests, and manual verification required by its prompt. Those are builder evidence only.
 
-After Codex stops, ChatGPT independently audits repository truth. The strict audit uses these sections:
+After Codex stops, Claude independently reviews repository truth. The strict audit uses these sections:
 
 1. `VERDICT` — `PASS`, `CONDITIONAL`, or `FAIL`.
 2. `CONTRACT RECOVERY`.
@@ -162,7 +151,7 @@ Audit principles:
 - Manual acceptance not actually performed remains pending/unverified.
 - Previously accepted behavior must be regression-checked when touched.
 - FAIL or blocking CONDITIONAL findings must be remediated and re-audited before normal progression.
-- After the audit, ChatGPT alone updates `TASKS.md` to reflect the validated state and next action.
+- After the audit, Claude alone updates `TASKS.md` to reflect the validated state and next action.
 
 ## Godot and gameplay preservation
 
