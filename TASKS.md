@@ -6,16 +6,19 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 
 - Current Milestone: BCM-M34
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
-- Current Task: BCM-M33-004 — Qualify owner-approved random 10% sample of campaign levels for physical reachability and difficulty.
-- Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — CLAUDE HANDOFF: independently review frozen 100-level sample and 22 completed trials; determine safe continuation of remaining 78 under owner 10%-per-island rule; coordinate remaining M34-005/006/007 and release caveats. No further ChatGPT approval or prompt required.
-- Required Actor: CLAUDE
+- Current Task: BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated.
+- Current Task Status: BLOCKED
+- Next Task/Action: OWNER — provide the BCM-M34-006/007 inputs listed under Blockers/Waits (AdMob app + rewarded unit IDs, privacy/age/consent decisions, store product catalog, receipt-validation backend choice, device/emulator test permission). Claude then integrates and verifies.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: OWNER TRANSFER TO CLAUDE (2026-10-17). Canonical TASKS.md is sole tracker, now maintained by Claude following evidence review. Four open tasks: BCM-M33-004 (fixed sample seed 20261016: 22/100 played, 9 wins, 13 budget unknown, 78 pending; only 10 unique levels per island, do not test other 900), BCM-M34-005 (hygiene), BCM-M34-006 (native rewarded ads), BCM-M34-007 (native billing blocked by approved catalog/backend). R23 selection/evidence/log must be independently checked. Preserve owner 8 tracked edits and CURRENT untracked paths, stashes and immutable evidence; don't overwrite or purge. No automatic unbounded test runs, no device work unless owner agrees.
+- Progress: 146/148 canonical tasks complete (98.6%). 2026-10-17 Claude closed BCM-M33-004 (frozen seed 20261016 sample: 100/100 levels won within the normal 4T cap by an uncensored fixed-fps production-physics bot; owner ruling: no difficulty grading) and BCM-M34-005 (obsolete qualification tooling, harness residue, stale worktrees and evidence import cache removed; .uid sidecars versioned, World Map invalid-UID warning fixed; core regressions 12/12 PASS). BCM-M34-006 and BCM-M34-007 blocked on owner inputs. No device, human-playtest, signing or store verification performed.
 
 ## Blockers/Waits
 
+- BCM-M34-006 rewarded ads — owner must supply: AdMob account with Android/iOS app IDs and rewarded ad unit IDs (Google test IDs acceptable for first pass); privacy-policy URL; age-directed/families decision; UMP consent and iOS ATT decision; server-side verification (SSV) hosting choice; permission for an Android device or emulator run.
+- BCM-M34-007 billing — owner must supply: final product catalog (product IDs, prices, what each grants; current `data/campaign/store_catalog.json` holds placeholders only); Google Play Console app + license testers; App Store Connect app + sandbox testers; receipt-validation backend hosting choice.
+- Owner decisions pending from 2026-10-17 cleanup: ~1.58 GB tracked historical evidence under `coordination/sessions/` (deleting from the tree does not shrink Git history); 100 `owner-local-safe-sync-*` stashes, now obsolete because `.uid` files are versioned; 69 MB of art not referenced at runtime (masters/sources/planned screens); 66 legacy milestone probes that already fail on pre-change `e0401dd` (superseded contracts such as save schema 2, zero-level Tiki, pre-tutorial result flow, removed Drink APIs) — retire or rewrite.
 - No M24 acceptance blocker remains: owner explicitly waived personal F5 viewing and approved. Physical device QA and historical original save-byte parity remain separate release caveats. M25 requires future independent technical audit and owner decision.
 
 ## Tasks
@@ -48,6 +51,7 @@ Legend:
 - ChatGPT independently audits actual diff/source/tests/evidence against locked criteria.
 - Owner runtime screenshots and annotations are authoritative when later than earlier audit interpretations.
 - Only Claude updates this tracker after evidence-based verification and owner decisions. Codex never updates it.
+- Current regression entry point: `python tests/run_regressions.py` (core) / `--all`.
 - **H!veAI parser contract:** every counted task row must be exactly `- [x] ID — title`, `- [~] ID — title`, `- [!] ID — title`, or `- [ ] ID — title`. Headings, milestone summaries, historical notes, retired/cancelled work, and explanatory bullets must never use checkbox markers.
 - **Current Task must contain exactly one canonical task ID** and that ID must exist exactly once in the task rows below. Never join simultaneous concerns with `+` in the Current Task field.
 - **Current Task Status must match the task-row marker:** `[~] = IN_PROGRESS`, `[!] = BLOCKED`, `[x] = TASK_COMPLETE`, `[ ] = BACKLOG`.
@@ -1358,7 +1362,7 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M33-001 — Deterministic content generator and nine-island package creation.
 - [x] BCM-M33-002 — Strict static validation, navigation, and save integration.
 - [x] BCM-M33-003 — Versioned bundled update manifest and content-delivery design.
-- [~] BCM-M33-004 — Qualify owner-approved random 10% sample (10 distinct levels per island; 100 total) for physical reachability and player difficulty.
+- [x] BCM-M33-004 — Qualify owner-approved random 10% sample (10 distinct levels per island; 100 total) for physical winnability; owner ruled out difficulty grading. Closure: `coordination/sessions/BCM-M33-004-CLAUDE-V01/M33_004_CLAUDE_REPORT.md` — 100/100 winnable.
 
 
 ### M34 — End-to-end game integration completion
@@ -1367,8 +1371,8 @@ These are presentation tiers only and never influence gameplay values.
 - [x] BCM-M34-002 — Verify bounded production progression, save and representative nine-island gameplay (human fairness still M33-004).
 - [x] BCM-M34-003 — Validate bounded Coins/Gems/Energy transactions and remove Focus; Daily rewards remain separate M34-008 gate.
 - [x] BCM-M34-004 — Tutorial and gameplay HUD visual review owner accepted; real mobile device accessibility remains release QA.
-- [~] BCM-M34-005 — Expand proven-unused assets/dead-code/local-import inventory and safe cleanup beyond one removed catalog.
-- [~] BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated.
-- [~] BCM-M34-007 — Complete gated native billing/receipt verification; currently blocked until approved catalog/backend.
+- [x] BCM-M34-005 — Expand proven-unused assets/dead-code/local-import inventory and safe cleanup beyond one removed catalog. Closure: `coordination/sessions/BCM-M34-005-CLAUDE-V01/cleanup_inventory.json`; unreferenced art, historical evidence and owner stashes kept for owner decision.
+- [!] BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated. BLOCKED on owner AdMob IDs, consent/age decisions and device permission.
+- [!] BCM-M34-007 — Complete gated native billing/receipt verification; BLOCKED until owner-approved product catalog, store accounts and receipt-validation backend.
 - [x] BCM-M34-008 — Owner-locked UTC Daily Rewards R02 independently audited PASS, native ad fulfillment remains M34-006.
 - [x] BCM-M34-009 — Focus removed, old inventory migrated and MOVES frame owner visually accepted.
