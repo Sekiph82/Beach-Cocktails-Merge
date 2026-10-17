@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.7", "GL Compatibility")
 [autoload]
 
 Spark="*res://addons/saltmire_spark/spark.gd"
-GameFeelFlow="*res://addons/game_feel_flow/core/game_feel_flow.gd"
+GameFeelFlow="*uid://ckhnfaf1odnpl"
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 
 [display]
