@@ -54,15 +54,15 @@ func _database():
 
 
 func _state() -> Dictionary:
-    return {
-        "schema_version": 2,
+    return SAVE_SCRIPT.new().create_default_state().merged({
+        "schema_version": SAVE_SCRIPT.SCHEMA_VERSION,
         "unlocked_islands": [ISLAND_ID],
         "islands": {ISLAND_ID: {"highest_unlocked_level": 2, "completed_levels": {}, "claimed_milestones": []}},
         "legacy_best_score": 0,
         "boosters": {},
         "coins": 0,
         "reward_ledger": [],
-    }
+    }, true)
 
 
 func _campaign(database):
@@ -104,7 +104,7 @@ func _run() -> void:
     older["schema_version"] = 1
     older.erase("reward_ledger")
     var migration: Dictionary = save.migrate_state(older, 1)
-    _check("older save migration preserves bounded replay records", migration["ok"] and migration["state"]["schema_version"] == 2 and migration["state"]["islands"][ISLAND_ID]["completed_levels"]["1"]["stars"] == 3)
+    _check("older save migration preserves bounded replay records", migration["ok"] and migration["state"]["schema_version"] == SAVE_SCRIPT.SCHEMA_VERSION and migration["state"]["islands"][ISLAND_ID]["completed_levels"]["1"]["stars"] == 3)
 
     DirAccess.remove_absolute(ProjectSettings.globalize_path(SAVE_PATH))
     DirAccess.remove_absolute(ProjectSettings.globalize_path(BACKUP_PATH))

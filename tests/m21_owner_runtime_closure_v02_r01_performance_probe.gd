@@ -12,7 +12,7 @@ const REPORT_DIR := "res://coordination/sessions/BCM-M21-OWNER-RUNTIME-REMEDIATI
 const PROFILE_SAVE_PATH := "user://m21_owner_runtime_closure_v02_r01_profile_campaign.json"
 const PROFILE_SETTINGS_PATH := "user://m21_owner_runtime_closure_v02_r01_profile_settings.json"
 const MAP_CYCLES := 12
-const GAMEPLAY_CYCLES := 8
+const GAMEPLAY_CYCLES := 5  # energy cap 100 / owner LOSE cost 20 = 5 attempts
 const IO_CYCLES := 20
 
 var failures: Array[String] = []
@@ -80,7 +80,7 @@ func _mount_shell() -> void:
 	if shell.is_onboarding_visible():
 		shell.skip_onboarding()
 	await _frame(2)
-	_check("production PLAY path opens World Map", shell.press_play_continue() and navigation.get_current_view() == navigation.VIEW_WORLD_MAP)
+	_check("production Home World Map path opens World Map", shell.press_world_map() and navigation.get_current_view() == navigation.VIEW_WORLD_MAP)
 	await _frame(4)
 	_sample("warmup_world_map")
 

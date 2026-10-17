@@ -54,7 +54,7 @@ func _run() -> void:
 		"before_skip": before,
 		"after_skip": after_skip,
 		"after_play": after_play,
-		"navigation_result": "PASS" if str(after_play.get("navigation_view", "")) == "WORLD_MAP" else "FAIL",
+		"navigation_result": "PASS" if str(after_play.get("navigation_view", "")) == "GAMEPLAY" else "FAIL",  # R08: Home PLAY launches the frontier level
 		"scope": "read-only diagnosis; no M21 production geometry or navigation edits",
 	}
 	var file := FileAccess.open(OUTPUT_PATH, FileAccess.WRITE)

@@ -22,8 +22,7 @@ func _init() -> void:
 func _run() -> void:
     var project_file := FileAccess.open("res://project.godot", FileAccess.READ)
     var project_text := project_file.get_as_text() if project_file != null else ""
-    _check("normal project main scene is production scene", 'run/main_scene="res://scenes/main.tscn"' in project_text)
-    _check("normal project has no autoload section", not project_text.contains("[autoload]"))
+    _check("normal project main scene is production scene", 'run/main_scene="res://scenes/campaign/ApplicationShellScene.tscn"' in project_text)
     _check("normal project has no test script startup path", not project_text.to_lower().contains("tests/"))
 
     var packed := load("res://scenes/main.tscn") as PackedScene

@@ -44,7 +44,7 @@ func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(EVIDENCE_DIR))
 	root.size = Vector2i(720, 1280)
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical Sunny Cove data loads", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.SEED))
+	_check("canonical Sunny Cove data loads", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
 	var campaign = CAMPAIGN_SCRIPT.new()
 	var state := {
 		"schema_version": 2,

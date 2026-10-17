@@ -34,7 +34,7 @@ func _ideal_shots(level: int, quantity: int) -> int:
 
 func _run() -> void:
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical campaign source loads in staged validation", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, LEVELS_PATH, DATABASE_SCRIPT.ValidationMode.SEED))
+	_check("canonical campaign source loads in staged validation", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
 	var canonical := JSON.parse_string(FileAccess.get_file_as_string(LEVELS_PATH)) as Dictionary
 	var source_levels: Array = canonical.get("levels", [])
 	var levels: Array[Dictionary] = database.get_levels_for_island("sunny_cove")

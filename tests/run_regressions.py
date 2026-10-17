@@ -5,7 +5,8 @@ normal game saves are never touched, with a per-probe timeout.
 
 usage:
   python tests/run_regressions.py            # core suite
-  python tests/run_regressions.py --all      # every tests/**/*.gd probe
+  python tests/run_regressions.py --all      # every runnable probe (headless; display probes skipped)
+  python tests/run_regressions.py --display  # only the probes that need a real window
   python tests/run_regressions.py --json out.json
 Exit code 0 only if every selected probe exits 0.
 """
@@ -21,6 +22,9 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
+# owner storage rule 2026-10-17: task temp output stays inside the project (.godot/ is gitignored)
+SANDBOX_ROOT = REPO / ".godot" / "bcm_sandboxes"
+SANDBOX_ROOT.mkdir(parents=True, exist_ok=True)
 
 CORE = [
     "tests/m34_economy_closure_probe.gd",
@@ -35,9 +39,34 @@ CORE = [
     "tests/m33_campaign_content_probe.gd",
 ]
 
+# Capture/GUI probes: they read the rendered viewport, so they need a real window
+# (they hang or report "capture image unavailable" headless). m33_r05_r02_* also
+# require the window to open at the exact requested size (fails under OS DPI scaling).
+NEEDS_DISPLAY = {
+    "tests/m18_v02_r01_replay_capture_probe.gd",
+    "tests/m27_003_legacy_m18_v02_replay_capture_probe.gd",
+    "tests/m20_runtime_capture_probe.gd",
+    "tests/m27_003_legacy_m20_runtime_capture_probe.gd",
+    "tests/m21_mobile_qa_probe.gd",
+    "tests/m27_003_mobile_qa_probe.gd",
+    "tests/m21_home_exact_target_r04_probe.gd",
+    "tests/m23_r03_m21_tall_navigation_diagnostic.gd",
+    "tests/m32_tutorial_mobile_capture_probe.gd",
+    "tests/m33_r05_capture_tabletops.gd",
+    "tests/m33_r05_r02_capture_tabletops.gd",
+    "tests/m33_r05_r02_scale_comparison.gd",
+    "tests/m34_mobile_capture_probe.gd",
+    "tests/m34_r03_owner_review_capture.gd",
+}
+# Probes that only make sense under their own launcher (custom user-data profile).
+NEEDS_HARNESS = {
+    "tests/m27_user_data_isolation_probe.gd": "tests/m27_isolated_godot_runner.ps1",
+    "tests/m33_r06_owner_playtest_probe.gd": "tools/BCM-M33-R06-Owner-Playtest.ps1",
+}
+
 
 def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True) -> dict:
-    sandbox = Path(tempfile.mkdtemp(prefix="bcm_reg_"))
+    sandbox = Path(tempfile.mkdtemp(prefix="bcm_reg_", dir=SANDBOX_ROOT))
     (sandbox / "r").mkdir()
     (sandbox / "l").mkdir()
     if tutorial_done:
@@ -64,6 +93,7 @@ def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True) -
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--all", action="store_true")
+    parser.add_argument("--display", action="store_true")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--timeout", type=int, default=240)
     parser.add_argument("--json", default="")
@@ -71,17 +101,22 @@ def main() -> int:
     args = parser.parse_args()
     godot = shutil.which("godot_console.exe") or shutil.which("godot")
 
-    if args.probes:
+    if args.display:
+        probes = sorted(NEEDS_DISPLAY)
+    elif args.probes:
         probes = args.probes
     elif args.all:
-        probes = sorted(p.relative_to(REPO).as_posix() for p in (REPO / "tests").rglob("*.gd") if "fixtures" not in p.parts)
+        # only runnable probes; helper Node scripts (evidence canvases, overlays) are loaded by other probes
+        probes = sorted(p.relative_to(REPO).as_posix() for p in (REPO / "tests").rglob("*.gd")
+                        if "fixtures" not in p.parts and "extends SceneTree" in p.read_text(encoding="utf-8", errors="ignore")[:400])
+        probes = [p for p in probes if p not in NEEDS_DISPLAY and p not in NEEDS_HARNESS]
     else:
         probes = CORE
 
     results = {"editor_import": run(godot, ["--headless", "--editor", "--path", ".", "--quit"], 600)}
     print(f"{'PASS' if results['editor_import']['pass'] else 'FAIL'} editor_import", flush=True)
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        futures = {p: pool.submit(run, godot, ["--headless", "--path", ".", "--script", f"res://{p}"], args.timeout, "tutorial" not in p) for p in probes}
+        futures = {p: pool.submit(run, godot, ([] if p in NEEDS_DISPLAY else ["--headless"]) + ["--path", ".", "--script", f"res://{p}"], args.timeout, "tutorial" not in p) for p in probes}
         for p, f in futures.items():
             results[p] = f.result()
             print(f"{'PASS' if results[p]['pass'] else 'FAIL'} {p} exit={results[p]['exit_code']} {results[p]['wall_ms']}ms", flush=True)

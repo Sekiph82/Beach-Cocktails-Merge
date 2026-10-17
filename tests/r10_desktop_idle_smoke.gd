@@ -18,7 +18,7 @@ func _init() -> void:
 func _run() -> void:
     var project_file := FileAccess.open("res://project.godot", FileAccess.READ)
     var project_text := project_file.get_as_text() if project_file != null else ""
-    _check("desktop smoke uses production main scene", 'run/main_scene="res://scenes/main.tscn"' in project_text)
+    _check("desktop smoke uses production main scene", 'run/main_scene="res://scenes/campaign/ApplicationShellScene.tscn"' in project_text)
     _check("desktop smoke has no test startup path", not project_text.to_lower().contains("tests/"))
     var packed := load("res://scenes/main.tscn") as PackedScene
     _check("desktop smoke production scene loads", packed != null)

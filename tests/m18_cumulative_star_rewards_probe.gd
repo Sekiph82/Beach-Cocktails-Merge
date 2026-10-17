@@ -29,7 +29,7 @@ func _check(label: String, condition: bool) -> void:
 
 func _database():
     var database = DATABASE_SCRIPT.new()
-    _check("canonical Sunny Cove loads in staged validation", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.SEED))
+    _check("canonical Sunny Cove loads in staged validation", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
     return database
 
 
@@ -45,8 +45,8 @@ func _records(level_stars: Dictionary) -> Dictionary:
 
 
 func _state(completed: Dictionary, highest_unlocked_level: int = 100, claimed: Array = []) -> Dictionary:
-    return {
-        "schema_version": 2,
+    return SAVE_SCRIPT.new().create_default_state().merged({
+        "schema_version": SAVE_SCRIPT.SCHEMA_VERSION,
         "unlocked_islands": [ISLAND_ID],
         "islands": {
             ISLAND_ID: {
@@ -60,7 +60,7 @@ func _state(completed: Dictionary, highest_unlocked_level: int = 100, claimed: A
         "boosters": {},
         "coins": 0,
         "reward_ledger": [],
-    }
+    }, true)
 
 
 func _campaign(database, state: Dictionary):

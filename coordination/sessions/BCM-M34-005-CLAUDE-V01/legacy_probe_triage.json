@@ -1,0 +1,357 @@
+{
+ "schema_version": 1,
+ "work_item": "BCM-M34-005",
+ "scope": "66 legacy probes that already failed on pre-change baseline e0401dd",
+ "rules": "game physics, level data and owner-approved visuals unchanged; only test fixtures/assertions edited; a REAL_BUG would be reported, not fixed silently",
+ "summary": {
+  "by_class": {
+   "STALE_CONTRACT": 46,
+   "NEEDS_DISPLAY": 14,
+   "HELPER_NOT_A_PROBE": 4,
+   "NEEDS_HARNESS": 2
+  },
+  "by_action": {
+   "UPDATED": 26,
+   "KEPT": 18,
+   "DELETED": 22
+  },
+  "real_bugs_found": 0
+ },
+ "also_passing_after_tutorial_seed_only": [
+  "tests/m20_campaign_ux_probe.gd",
+  "tests/m26_003_reward_primary_feedback_probe.gd",
+  "tests/m27_002_reward_primary_probe.gd"
+ ],
+ "probes": {
+  "tests/m18_cumulative_reward_claim_remediation_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "save fixtures were schema 2 without the M34 economy/daily keys; fixtures now start from SaveManager.create_default_state() (schema 4)"
+  },
+  "tests/m18_cumulative_star_rewards_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "save fixtures were schema 2 without the M34 economy/daily keys; fixtures now start from SaveManager.create_default_state() (schema 4)"
+  },
+  "tests/m18_replay_persistence_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "save fixtures were schema 2 without the M34 economy/daily keys; fixtures now start from SaveManager.create_default_state() (schema 4)"
+  },
+  "tests/m13_island_map_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "save fixtures were schema 2 without the M34 economy/daily keys; fixtures now start from SaveManager.create_default_state() (schema 4)"
+  },
+  "tests/m18_integration_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m18_untimed_cumulative_reward_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m21_island_map_full_background_followup_r01_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m21_island_map_node_visual_r07_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m21_island_map_page_focus_r07_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m26_001_island_map_presentation_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m26_002_campaign_unlock_presentation_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m27_002_island_map_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m27_003_move_limit_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "loaded islands.json with only sunny_cove.json; all ten islands now declare 100 levels, so the fixture now loads DEFAULT_LEVEL_PATHS"
+  },
+  "tests/m21_full_progression_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "asserted Tiki is a zero-level island; now asserts Tiki has 100 levels and Level 1 launches after Sunny Cove L100. Fresh L1->L100 progression passes again"
+  },
+  "tests/closeout-001/m21_full_progression_probe_closeout.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "asserted Tiki is a zero-level island; now asserts Tiki has 100 levels and Level 1 launches after Sunny Cove L100. Fresh L1->L100 progression passes again"
+  },
+  "tests/m21_owner_f5_remediation_v03_progression_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "asserted Tiki is a zero-level island; now asserts Tiki has 100 levels and Level 1 launches after Sunny Cove L100. Fresh L1->L100 progression passes again"
+  },
+  "tests/m21_owner_runtime_closure_v02_r01_progression_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "asserted Tiki is a zero-level island; now asserts Tiki has 100 levels and Level 1 launches after Sunny Cove L100. Fresh L1->L100 progression passes again"
+  },
+  "tests/m27_003_full_progression_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "asserted Tiki is a zero-level island; now asserts Tiki has 100 levels and Level 1 launches after Sunny Cove L100. Fresh L1->L100 progression passes again"
+  },
+  "tests/m10_campaign_architecture_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "asserted save schema 2, starter coins 0 and an incomplete ten-island campaign; now schema 4, default starter coins, complete campaign"
+  },
+  "tests/m21_owner_runtime_closure_v02_r01_performance_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "8 LOSE cycles exceed the owner energy rule (cap 100, LOSE/QUIT 20); cycles reduced to fit; Home PLAY launches the frontier (R08), so World Map is opened via press_world_map"
+  },
+  "tests/m21_performance_profile_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "8 LOSE cycles exceed the owner energy rule (cap 100, LOSE/QUIT 20); cycles reduced to fit; Home PLAY launches the frontier (R08), so World Map is opened via press_world_map"
+  },
+  "tests/r09_no_input_runtime_regression.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "expected main scene scenes/main.tscn and no autoloads; main scene is ApplicationShellScene and owner-approved addon autoloads exist"
+  },
+  "tests/r10_desktop_idle_smoke.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "expected main scene scenes/main.tscn and no autoloads; main scene is ApplicationShellScene and owner-approved addon autoloads exist"
+  },
+  "tests/closeout-001/m23_003_combo_milestone_probe_closeout.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "UPDATED",
+   "reason": "frozen closeout copy lacked the 60-frame settle wait already present in the passing original"
+  },
+  "tests/m21_home_exact_target_r04_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "UPDATED",
+   "reason": "asserted display-only energy 100 / gems 85; M34 made the Home bars live, now asserts they equal economy values; capture needs a window"
+  },
+  "tests/m23_r03_m21_tall_navigation_diagnostic.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "UPDATED",
+   "reason": "expected PLAY to open World Map; R08 owner rule: PLAY launches the frontier level"
+  },
+  "tests/m18_v02_r01_replay_capture_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m27_003_legacy_m18_v02_replay_capture_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m20_runtime_capture_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m27_003_legacy_m20_runtime_capture_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m21_mobile_qa_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m27_003_mobile_qa_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m32_tutorial_mobile_capture_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m33_r05_capture_tabletops.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m34_mobile_capture_probe.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m34_r03_owner_review_capture.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "pass with a real window (run_regressions.py --display); m20_runtime_capture crashed once (0xC0000005) then passed on rerun"
+  },
+  "tests/m33_r05_r02_capture_tabletops.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "need the OS window at the exact requested size; fail under this desktop scaling (image size mismatch), not a game defect"
+  },
+  "tests/m33_r05_r02_scale_comparison.gd": {
+   "class": "NEEDS_DISPLAY",
+   "action": "KEPT",
+   "reason": "need the OS window at the exact requested size; fail under this desktop scaling (image size mismatch), not a game defect"
+  },
+  "tests/m05_evidence_canvas.gd": {
+   "class": "HELPER_NOT_A_PROBE",
+   "action": "KEPT",
+   "reason": "Node scripts loaded by passing probes/scenes, not SceneTree entry points; runner --all now skips non-SceneTree scripts"
+  },
+  "tests/m07_hud_inner_boxes.gd": {
+   "class": "HELPER_NOT_A_PROBE",
+   "action": "KEPT",
+   "reason": "Node scripts loaded by passing probes/scenes, not SceneTree entry points; runner --all now skips non-SceneTree scripts"
+  },
+  "tests/m07_hud_visible_bounds.gd": {
+   "class": "HELPER_NOT_A_PROBE",
+   "action": "KEPT",
+   "reason": "Node scripts loaded by passing probes/scenes, not SceneTree entry points; runner --all now skips non-SceneTree scripts"
+  },
+  "tests/m23_r03_real_renderer_capture.gd": {
+   "class": "HELPER_NOT_A_PROBE",
+   "action": "KEPT",
+   "reason": "Node scripts loaded by passing probes/scenes, not SceneTree entry points; runner --all now skips non-SceneTree scripts"
+  },
+  "tests/m27_user_data_isolation_probe.gd": {
+   "class": "NEEDS_HARNESS",
+   "action": "KEPT",
+   "reason": "only valid under their launcher with a custom user-data profile (tests/m27_isolated_godot_runner.ps1, tools/BCM-M33-R06-Owner-Playtest.ps1)"
+  },
+  "tests/m33_r06_owner_playtest_probe.gd": {
+   "class": "NEEDS_HARNESS",
+   "action": "KEPT",
+   "reason": "only valid under their launcher with a custom user-data profile (tests/m27_isolated_godot_runner.ps1, tools/BCM-M33-R06-Owner-Playtest.ps1)"
+  },
+  "tests/r10_runtime_physics_closure_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v05_three_sided_envelope_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v06_edge_footprint_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v07_gui_edge_capture.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v07_independent_edge_dataset_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v08_exact_edge_contact_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v08_gui_edge_capture.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v09_gui_hull_capture.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v09_hull_overlay.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v09_visual_hull_containment_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v10_gui_hull_capture.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/r10_v10_v09_failure_repro.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "retired R10 three-sided envelope pipeline (parse errors on removed Drink APIs); superseded by owner-accepted R11 then the R04 gameplay surface, covered by m21_r04_gameplay_surface_authority_probe"
+  },
+  "tests/m21_owner_f5_remediation_v06_gameplay_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "intermediate owner-F5 iterations (removed IslandEntry.MARKER_CENTER, PLAY->World Map flow); superseded by passing m21_world_map_production_v05_probe and m21_home_frontier_authority_r08_probe"
+  },
+  "tests/m21_owner_f5_remediation_v07_gameplay_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "intermediate owner-F5 iterations (removed IslandEntry.MARKER_CENTER, PLAY->World Map flow); superseded by passing m21_world_map_production_v05_probe and m21_home_frontier_authority_r08_probe"
+  },
+  "tests/m21_owner_f5_remediation_v07_r02_gameplay_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "intermediate owner-F5 iterations (removed IslandEntry.MARKER_CENTER, PLAY->World Map flow); superseded by passing m21_world_map_production_v05_probe and m21_home_frontier_authority_r08_probe"
+  },
+  "tests/m21_owner_f5_remediation_v05_gui_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "intermediate owner-F5 iterations (removed IslandEntry.MARKER_CENTER, PLAY->World Map flow); superseded by passing m21_world_map_production_v05_probe and m21_home_frontier_authority_r08_probe"
+  },
+  "tests/m21_owner_f5_remediation_v06_gui_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "intermediate owner-F5 iterations (removed IslandEntry.MARKER_CENTER, PLAY->World Map flow); superseded by passing m21_world_map_production_v05_probe and m21_home_frontier_authority_r08_probe"
+  },
+  "tests/m21_owner_f5_remediation_v07_gui_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "intermediate owner-F5 iterations (removed IslandEntry.MARKER_CENTER, PLAY->World Map flow); superseded by passing m21_world_map_production_v05_probe and m21_home_frontier_authority_r08_probe"
+  },
+  "tests/m21_owner_f5_remediation_v07_r02_gui_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "intermediate owner-F5 iterations (removed IslandEntry.MARKER_CENTER, PLAY->World Map flow); superseded by passing m21_world_map_production_v05_probe and m21_home_frontier_authority_r08_probe"
+  },
+  "tests/m21_owner_f5_visual_polish_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "R02 Home polish superseded by the owner-accepted R04 exact Home target (m21_home_exact_target_r04_probe)"
+  },
+  "tests/m19_multi_island_scalability_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "M19 placeholder/zero-level fixture islands superseded by real ten-island M33 content; multi-island flow covered by m33_campaign_navigation_probe and m33_tiki_compatibility_probe; r01 also needed a --child argument"
+  },
+  "tests/m19_r01_ordered_verification_probe.gd": {
+   "class": "STALE_CONTRACT",
+   "action": "DELETED",
+   "reason": "M19 placeholder/zero-level fixture islands superseded by real ten-island M33 content; multi-island flow covered by m33_campaign_navigation_probe and m33_tiki_compatibility_probe; r01 also needed a --child argument"
+  }
+ }
+}

@@ -38,7 +38,7 @@ func _state_before_star_threshold(threshold: int) -> Dictionary:
 
 func _configured(state: Dictionary) -> Dictionary:
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical Sunny Cove loads", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.SEED))
+	_check("canonical Sunny Cove loads", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
 	var economy = ECONOMY_SCRIPT.new()
 	_check("economy configures from campaign state", economy.configure_from_state(state).get("ok", false))
 	var campaign = CAMPAIGN_SCRIPT.new()
@@ -48,7 +48,7 @@ func _configured(state: Dictionary) -> Dictionary:
 
 func _run() -> void:
 	var database = DATABASE_SCRIPT.new()
-	_check("canonical Sunny Cove loads", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.SEED))
+	_check("canonical Sunny Cove loads", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
 	var track: Array = database.get_island(ISLAND_ID).get("reward_track", {}).get("cumulative_star_rewards", [])
 	_check("all cumulative reward thresholds are preserved", track.size() == 10)
 	var configured_thresholds := [150, 300]

@@ -128,7 +128,7 @@ func _run() -> void:
     var strict_database = database_script.new()
     _check("seed validation accepts currently authored canonical content", strict_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVEL_PATHS, LevelDatabase.ValidationMode.SEED))
     var incomplete_campaign_database = LevelDatabase.new()
-    _check("full validation rejects the incomplete ten-island campaign", not incomplete_campaign_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVEL_PATHS, LevelDatabase.ValidationMode.FULL))
+    _check("full validation accepts the complete ten-island campaign", incomplete_campaign_database.load_canonical(LevelDatabase.DEFAULT_ISLANDS_PATH, LevelDatabase.DEFAULT_LEVEL_PATHS, LevelDatabase.ValidationMode.FULL))
 
     var campaign = campaign_script.new()
     _check("CampaignManager configures without gameplay scene", campaign.configure(_new_database()))
@@ -177,11 +177,11 @@ func _run() -> void:
     var isolated_save_path := "user://m10_save_manager_probe/campaign_save.json"
     var write_result: Dictionary = save.write_state(default_state, isolated_save_path)
     var read_result: Dictionary = save.read_state(isolated_save_path, isolated_save_path + ".bak", "user://m10_save_manager_probe/legacy.cfg")
-    _check("SaveManager schema version API exists", save.schema_version() == default_state["schema_version"] and default_state["schema_version"] == 2)
+    _check("SaveManager schema version API exists", save.schema_version() == default_state["schema_version"] and default_state["schema_version"] == SaveManager.SCHEMA_VERSION)
     _check("SaveManager isolated write API succeeds", write_result["ok"] and read_result["status"] == save.STATUS_VALID)
     var decoded_state: Dictionary = save.decode_state(save.encode_state(default_state))
-    _check("SaveManager encode/decode round trip works", decoded_state.get("schema_version") == 2 and decoded_state.get("unlocked_islands", []).has("sunny_cove") and decoded_state.get("coins") == 0)
-    _check("SaveManager read API is isolated and structured", read_result["state"]["schema_version"] == 2 and read_result["source"] == "primary")
+    _check("SaveManager encode/decode round trip works", decoded_state.get("schema_version") == SaveManager.SCHEMA_VERSION and decoded_state.get("unlocked_islands", []).has("sunny_cove") and decoded_state.get("coins") == default_state["coins"])
+    _check("SaveManager read API is isolated and structured", read_result["state"]["schema_version"] == SaveManager.SCHEMA_VERSION and read_result["source"] == "primary")
 
     if failures.is_empty():
         print("M10_CAMPAIGN_ARCHITECTURE_RESULT=PASS")

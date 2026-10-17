@@ -68,8 +68,8 @@ func _state(highest_unlocked: int, completed_stars: Dictionary) -> Dictionary:
 			"stars": int(completed_stars[level_id]),
 			"best_score": int(completed_stars[level_id]) * 100,
 		}
-	return {
-		"schema_version": 2,
+	return SAVE_SCRIPT.new().create_default_state().merged({
+		"schema_version": SAVE_SCRIPT.SCHEMA_VERSION,
 		"unlocked_islands": [ISLAND_ID],
 		"islands": {
 			ISLAND_ID: {
@@ -81,7 +81,7 @@ func _state(highest_unlocked: int, completed_stars: Dictionary) -> Dictionary:
 		"legacy_best_score": 0,
 		"boosters": {},
 		"coins": 0,
-	}
+	}, true)
 
 
 func _database():

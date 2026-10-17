@@ -146,14 +146,14 @@ func _verify_final_restart() -> void:
 	_check("final restart configures CampaignManager", restarted_campaign.configure(database, final_state))
 	_check("final restart preserves Sunny Cove completion", restarted_campaign.is_island_complete("sunny_cove"))
 	_check("final restart preserves Tiki unlock", restarted_campaign.is_island_unlocked("tiki_island"))
-	_check("Tiki remains a zero-level island", int(database.get_island("tiki_island").get("level_count", -1)) == 0)
-	_check("Tiki exposes no launchable Level 1", not restarted_campaign.is_level_unlocked("tiki_island", 1))
+	_check("Tiki has its 100 authored levels", int(database.get_island("tiki_island").get("level_count", -1)) == 100)
+	_check("Tiki Level 1 is launchable after Sunny Cove L100", restarted_campaign.is_level_unlocked("tiki_island", 1))
 	campaign = restarted_campaign
 	navigation.configure_campaign(database, campaign)
 	navigation.show_island_map("tiki_island")
 	await _frame(3)
-	_check("Tiki map is reachable after final restart", navigation.get_current_view() == navigation.VIEW_ISLAND_MAP and navigation.get_island_map().get_level_button_count() == 0)
-	_check("Tiki gameplay cannot launch", not navigation.get_island_map().select_level(1) and navigation.get_gameplay_instance_count() == 0)
+	_check("Tiki map is reachable after final restart", navigation.get_current_view() == navigation.VIEW_ISLAND_MAP and navigation.get_island_map().get_level_button_count() > 0)
+	_check("Tiki gameplay launches Level 1", navigation.get_island_map().select_level(1) and navigation.get_gameplay_instance_count() == 1)
 
 
 func _write_report() -> void:

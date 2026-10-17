@@ -27,7 +27,7 @@ func _check(label: String, condition: bool) -> void:
 
 func _database():
     var database = DATABASE_SCRIPT.new()
-    _check("canonical Sunny Cove loads in staged validation", database.load_canonical("res://data/campaign/islands.json", "res://data/campaign/levels/sunny_cove.json", DATABASE_SCRIPT.ValidationMode.SEED))
+    _check("canonical Sunny Cove loads in staged validation", database.load_canonical(DATABASE_SCRIPT.DEFAULT_ISLANDS_PATH, DATABASE_SCRIPT.DEFAULT_LEVEL_PATHS, DATABASE_SCRIPT.ValidationMode.SEED))
     return database
 
 

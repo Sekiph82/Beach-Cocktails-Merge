@@ -1,0 +1,1447 @@
+{
+ "schema_version": 1,
+ "method": "per stash: tracked diff vs stash base + untracked commit; each (path,blob) checked against HEAD, all branch/remote history, and other stashes. Keep every stash holding content found nowhere else; for content held only by several stashes keep the newest holder. A delete candidate holds only content also kept in a retained stash or preserved in branch history.",
+ "total_stashes": 100,
+ "keep": [
+  {
+   "ref": "stash@{0}",
+   "sha": "06939c5f3ce6af872743dd60da96d049665d7ec1",
+   "msg": "On main: owner-local-safe-sync-9411eb2",
+   "date": "2026-10-17 13:27:05 +0300",
+   "reason": "newest holder of stash-only content",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{31}",
+   "sha": "c1c5353b7e85962cf5752f180433509520e5f132",
+   "msg": "On codex/m34-isolated-20261014-a1: m34-task-safe-sync-9c3ceae",
+   "date": "2026-10-14 01:28:53 +0300",
+   "reason": "unique content",
+   "files": [
+    "data/campaign/shop_catalog.json",
+    "scripts/campaign/application_shell.gd",
+    "scripts/campaign/campaign_manager.gd",
+    "scripts/campaign/campaign_navigation_controller.gd",
+    "scripts/campaign/game_economy.gd",
+    "scripts/campaign/gameplay_session_bridge.gd",
+    "scripts/campaign/save_manager.gd",
+    "scripts/game_manager.gd",
+    "tests/m32_economy_shop_probe.gd",
+    "tests/m32_economy_tutorial_probe.gd",
+    "tests/m32_focus_booster_probe.gd",
+    "tests/m33_tiki_compatibility_probe.gd"
+   ]
+  },
+  {
+   "ref": "stash@{52}",
+   "sha": "e779fc42612f235bd54eb63bda7c70fff6e6a5d0",
+   "msg": "On main: owner-local-safe-sync-8050bd7",
+   "date": "2026-10-12 19:14:25 +0300",
+   "reason": "newest holder of stash-only content",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{57}",
+   "sha": "b3d976087e523f5411fd580b4f52fb1765448eac",
+   "msg": "On main: owner-local-safe-sync-22a1dee",
+   "date": "2026-10-12 14:17:15 +0300",
+   "reason": "unique content",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "data/campaign/islands.json",
+    "project.godot",
+    "scripts/campaign/campaign_manager.gd",
+    "scripts/campaign/level_database.gd"
+   ]
+  },
+  {
+   "ref": "stash@{64}",
+   "sha": "f41eedd2849885b98381d1c04ce22bd5eab8b3e2",
+   "msg": "On (no branch): owner-local-safe-sync-dffd28d",
+   "date": "2026-10-10 06:56:56 +0300",
+   "reason": "unique content",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{88}",
+   "sha": "407121c574b6d314db25c59cda62bab1638a4923",
+   "msg": "On main: owner-local-safe-sync-48ae340",
+   "date": "2026-10-06 08:49:30 +0300",
+   "reason": "unique content",
+   "files": [
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/HOME_TARGET_LAYOUT_R04.json",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04/02_home_owner_critique_v04_941x1672.png",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04/03_home_owner_critique_v04_720x1280.png",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04/04_home_owner_critique_v04_800x1422.png",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04/05_home_owner_critique_v04_play_navigation.png",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04/06_home_owner_critique_v04_world_map_navigation.png",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04/07_home_owner_critique_v04_settings_navigation.png",
+    "coordination/sessions/BCM-M21-HOME-EXACT-TARGET-R04/evidence/owner-critique-v04/HOME_TARGET_PARITY_R04_OWNER_CRITIQUE_V04.json",
+    "docs/codex-logs/CODEX_LOG_M21_HOME_EXACT_TARGET_OWNER_CRITIQUE_V04.md",
+    "project.godot",
+    "tests/m21_home_exact_target_r04_probe.gd"
+   ]
+  },
+  {
+   "ref": "stash@{92}",
+   "sha": "3da16538fc6528d6498ad7b4e2eaa8680855a6d6",
+   "msg": "On main: owner-local-safe-sync-c147995",
+   "date": "2026-10-05 09:58:23 +0300",
+   "reason": "newest holder of stash-only content",
+   "files": [
+    "project.godot",
+    "scenes/campaign/WorldMapScene.tscn",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{94}",
+   "sha": "39d3ad2f94f04753e36e1daf91b15b7a33832fff",
+   "msg": "On main: owner-local-safe-sync-fdd1e53",
+   "date": "2026-10-04 22:40:59 +0300",
+   "reason": "newest holder of stash-only content",
+   "files": [
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{97}",
+   "sha": "882b93db870f37f275bb4b3c014e44827800a6aa",
+   "msg": "On main: owner-local-godot-ai-sync-preserve",
+   "date": "2026-10-03 18:53:08 +0300",
+   "reason": "newest holder of stash-only content",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{99}",
+   "sha": "78cb27375bb3e393af99e3f87eb1909b3ea1a7f9",
+   "msg": "On main: pre-v04-owner-local-preserve",
+   "date": "2026-10-02 13:41:39 +0300",
+   "reason": "unique content",
+   "files": [
+    "scripts/campaign/campaign_feedback_overlay.gd",
+    "scripts/game_manager.gd"
+   ]
+  }
+ ],
+ "delete_candidates": [
+  {
+   "ref": "stash@{1}",
+   "sha": "6c2ca3ab26c4a89ebad230647cd700516c3a4ed5",
+   "msg": "On main: owner-local-safe-sync-04ca364",
+   "date": "2026-10-16 18:07:02 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{2}",
+   "sha": "a49dd074fee59b33128053051cf8a0480dcaccfc",
+   "msg": "On main: owner-local-safe-sync-9967c12",
+   "date": "2026-10-16 11:53:43 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{3}",
+   "sha": "db55b1d4c8d1479cf0a0992f2288a59f1de27eb6",
+   "msg": "On main: owner-local-safe-sync-893d904",
+   "date": "2026-10-16 10:51:12 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{4}",
+   "sha": "df8a9d165b21f5a221a281311fa772c474a17539",
+   "msg": "On main: owner-local-safe-sync-8c2cdc0",
+   "date": "2026-10-16 10:10:25 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{5}",
+   "sha": "303b3c22ba573701b5d87adf761e078a938caad2",
+   "msg": "On main: owner-local-safe-sync-a8d3908",
+   "date": "2026-10-16 08:19:09 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{6}",
+   "sha": "f3923716809d15764d3a7193fbe5e9c3ec0b36f1",
+   "msg": "On main: owner-local-safe-sync-ad746bf",
+   "date": "2026-10-16 08:11:04 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{7}",
+   "sha": "ce09fde24ad65575aeac6f760dde8b033e120073",
+   "msg": "On main: owner-local-safe-sync-27a70a6",
+   "date": "2026-10-16 07:59:55 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{8}",
+   "sha": "c2f7bd92476ee105596e7e8cf81e320de19be057",
+   "msg": "On main: owner-local-safe-sync-a433468",
+   "date": "2026-10-16 07:42:07 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{9}",
+   "sha": "18a503e9f78694c9063b8eaa22520eba748857db",
+   "msg": "On main: owner-local-safe-sync-643b8f3",
+   "date": "2026-10-16 02:47:41 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{10}",
+   "sha": "6cb0b4ff8ecdd09e5b0263a699d2b690512fd82f",
+   "msg": "On main: owner-local-safe-sync-bc3f1f7",
+   "date": "2026-10-16 01:35:33 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{11}",
+   "sha": "afce0a5f1991d6d68ab18c25dedbd4baa7847082",
+   "msg": "On main: owner-local-safe-sync-27e38f9",
+   "date": "2026-10-15 23:26:36 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{12}",
+   "sha": "48d07c8cfa77b2c0f8838d535660ddba849a125d",
+   "msg": "On main: owner-local-safe-sync-5c7f854",
+   "date": "2026-10-15 22:52:33 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{13}",
+   "sha": "15ac3189329a6e7d347c614f4e32ca56578f333b",
+   "msg": "On main: owner-local-safe-sync-201c302",
+   "date": "2026-10-15 22:02:08 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{14}",
+   "sha": "2cb8e257a9b1c4edb6a335abba6f8aed2cec213b",
+   "msg": "On main: owner-local-safe-sync-620febc-pre-M34R12",
+   "date": "2026-10-15 20:21:40 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{15}",
+   "sha": "c590768dfd174ee45e19f6abe576eb559ae945d3",
+   "msg": "On main: owner-local-safe-sync-102b83a-pre-M34R13",
+   "date": "2026-10-15 18:33:38 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{16}",
+   "sha": "802f42afb6e9375244ce59dc1f6f656598b3acc8",
+   "msg": "On main: owner-local-safe-sync-afe9b94-pre-M34R11",
+   "date": "2026-10-15 16:46:03 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{17}",
+   "sha": "0a78f49ea61814d00e2e21ce317a2dc6d863de26",
+   "msg": "On main: owner-local-safe-sync-698284e-post-M34R10",
+   "date": "2026-10-15 15:42:12 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{18}",
+   "sha": "31ae706a7e7feff6f7019b37a006ba474c64ebff",
+   "msg": "On main: owner-local-safe-sync-0a40b07",
+   "date": "2026-10-15 15:16:20 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{19}",
+   "sha": "7dd4546bbac89c54a9fa1f8869bf0f4c6a529f60",
+   "msg": "On main: owner-local-safe-sync-c37ee4c",
+   "date": "2026-10-15 13:28:58 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{20}",
+   "sha": "34914210c165bdad0f65905005f4d8b27c4c9671",
+   "msg": "On main: owner-local-safe-sync-9dd0792",
+   "date": "2026-10-15 13:05:40 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{21}",
+   "sha": "98b1d3804d447f4682f247f5069d008e7dda43d4",
+   "msg": "On main: owner-local-safe-sync-1c6dc33",
+   "date": "2026-10-15 11:29:11 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{22}",
+   "sha": "8519d68a16104c11ded62d8d53f1f3541bcf96df",
+   "msg": "On main: owner-local-safe-sync-b3946c4",
+   "date": "2026-10-15 11:03:56 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{23}",
+   "sha": "ddea31f6fceee69e84b8964b9f8f53321c4913e6",
+   "msg": "On main: owner-local-safe-sync-afaaeec",
+   "date": "2026-10-15 10:45:12 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{24}",
+   "sha": "249b512e6be7c0201460cf06c8d1b7372b0ffd80",
+   "msg": "On main: owner-local-safe-sync-aa16469",
+   "date": "2026-10-15 10:19:53 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{25}",
+   "sha": "6ddf44d595ed7da58cbbafe012150bcaaaf3d05f",
+   "msg": "On main: owner-local-safe-sync-5adf38d",
+   "date": "2026-10-14 23:57:22 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{26}",
+   "sha": "262bebaba3e08ea59fa913ad0c6d8e419f4ea09d",
+   "msg": "On main: owner-local-safe-sync-35ff499",
+   "date": "2026-10-14 23:28:21 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{27}",
+   "sha": "99d2e81a9111c054e0fd9ca026a496d594ded72f",
+   "msg": "On main: owner-local-safe-sync-eb05ddc",
+   "date": "2026-10-14 23:19:46 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{28}",
+   "sha": "bc10fc0f638e29a3adea327a8258edf1abed5a1f",
+   "msg": "On main: owner-local-safe-sync-b461439",
+   "date": "2026-10-14 22:48:10 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{29}",
+   "sha": "8e6efc7f4c89e37cff07197c565bf0e5db860d93",
+   "msg": "On main: owner-local-safe-sync-63c8633",
+   "date": "2026-10-14 22:43:32 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{30}",
+   "sha": "4a312a11c822ca68d220f0cdfb6ef33098b0598d",
+   "msg": "On main: owner-local-safe-sync-5cff38a",
+   "date": "2026-10-14 20:20:44 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{32}",
+   "sha": "25118ccd3b05884fb437599f685bc848daa60f58",
+   "msg": "On main: owner-local-safe-sync-2f58c21",
+   "date": "2026-10-13 18:50:03 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{33}",
+   "sha": "c64859226db4e01ac3bcfa74dce7d91f5ecb7ed1",
+   "msg": "On main: owner-local-safe-sync-2c3a776",
+   "date": "2026-10-13 16:48:16 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{34}",
+   "sha": "52b8e8baa2386b836077bfccd74ce9a9d0f5ac28",
+   "msg": "On main: owner-local-safe-sync-71c13b0",
+   "date": "2026-10-13 15:52:35 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{35}",
+   "sha": "57e968d1d6bc31215ac516f763d35b8fb1791e4b",
+   "msg": "On main: owner-local-safe-sync-d1e9862",
+   "date": "2026-10-13 14:55:07 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{36}",
+   "sha": "74ef36e033170ad6761945d80c756091357c4c16",
+   "msg": "On main: owner-local-safe-sync-b899dd3",
+   "date": "2026-10-13 14:14:25 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{37}",
+   "sha": "6996b78480211c72d159157ac059c4f65566114e",
+   "msg": "On main: owner-local-safe-sync-eeaf088",
+   "date": "2026-10-13 12:36:44 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{38}",
+   "sha": "706d2667a436942c106b6c0bb6f87c8b0a996d1a",
+   "msg": "On main: owner-local-safe-sync-e615942",
+   "date": "2026-10-13 12:34:24 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{39}",
+   "sha": "949712dfabd053b6f9225da0f81f64d1d24a6d98",
+   "msg": "On main: owner-local-safe-sync-b083119",
+   "date": "2026-10-13 11:47:03 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{40}",
+   "sha": "f11e8afb51da437e4721a13a5cc2a43e940e7cb2",
+   "msg": "On main: owner-local-safe-sync-9878c6d",
+   "date": "2026-10-13 10:38:36 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{41}",
+   "sha": "b34fc1a516f3d68e8d375f10ad6d36687e8a6955",
+   "msg": "On main: owner-local-safe-sync-2243a8c",
+   "date": "2026-10-13 10:37:58 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{42}",
+   "sha": "47c8c3160d642e4c8af5080de9c672c9989dd11d",
+   "msg": "On main: owner-local-safe-sync-ab6fe62",
+   "date": "2026-10-13 10:21:52 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{43}",
+   "sha": "11dc0ed85ccb7519b44ad40c11e6317aa49ad92a",
+   "msg": "On main: owner-local-safe-sync-73b09ba",
+   "date": "2026-10-13 09:44:37 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{44}",
+   "sha": "290a2bff2617c59ae88131e2ab5f336090572ad2",
+   "msg": "On main: owner-local-safe-sync-44adda7",
+   "date": "2026-10-13 09:43:45 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{45}",
+   "sha": "7a6cd39daa4e8fc2d18970e7be452c0257042ef6",
+   "msg": "On main: owner-local-safe-sync-bbd7cd1",
+   "date": "2026-10-13 09:14:16 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{46}",
+   "sha": "a9ed550911a5276775a64b19c7ac5e994e093466",
+   "msg": "On main: owner-local-safe-sync-6962732",
+   "date": "2026-10-13 07:51:53 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{47}",
+   "sha": "ca85dfa94729d4a66362326bc89eb86e8ab11aa2",
+   "msg": "On main: owner-local-safe-sync-0e4b4b6",
+   "date": "2026-10-13 07:23:42 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{48}",
+   "sha": "6c9b5b6db89fe7f2afb49e70b96e662e51daeb9b",
+   "msg": "On main: owner-local-safe-sync-a64e0f2-post-v05",
+   "date": "2026-10-13 00:01:38 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{49}",
+   "sha": "3fcf26a1db1e7654e9274d4f964d63c95cbbe98d",
+   "msg": "On main: owner-local-safe-sync-ea44344",
+   "date": "2026-10-12 23:22:31 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{50}",
+   "sha": "a3cab55481c63b8940be351f15876195200d130d",
+   "msg": "On main: owner-local-safe-sync-0e79cfe",
+   "date": "2026-10-12 20:53:51 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{51}",
+   "sha": "117c03fc4c78dda3b90cf842cfce2b5ee00c0e95",
+   "msg": "On main: owner-local-safe-sync-a1b9aef",
+   "date": "2026-10-12 20:35:23 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{53}",
+   "sha": "482621bea42de5ef0d58fba8d2f763ac8f9f6da8",
+   "msg": "On main: owner-local-safe-sync-9dd0b09",
+   "date": "2026-10-12 19:12:56 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{54}",
+   "sha": "b1ed6766a3f97cfae6436a1b74b4f20bdf8d5bf3",
+   "msg": "On main: owner-local-safe-sync-07a63c4",
+   "date": "2026-10-12 18:50:30 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{55}",
+   "sha": "5a040105e061e75997983afe3a738e0d8f2bbc9c",
+   "msg": "On main: owner-local-safe-sync-95d13ff",
+   "date": "2026-10-12 17:51:48 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{56}",
+   "sha": "f6fa07baadf9fec78850814af3da25bba274ea86",
+   "msg": "On main: owner-local-safe-sync-de922cd",
+   "date": "2026-10-12 16:52:53 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{58}",
+   "sha": "4c7d52f61a36d510191f9f89890cf8ba80e7433d",
+   "msg": "On main: owner-local-safe-sync-f8b921c",
+   "date": "2026-10-12 14:01:56 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{59}",
+   "sha": "f5ff35d0ec32e9343131cfa74447793649e292fa",
+   "msg": "On main: owner-local-safe-sync-114d3a9",
+   "date": "2026-10-12 13:31:58 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{60}",
+   "sha": "a4e8c86b0eb5eb1098fb8274c34ade179b8708b2",
+   "msg": "On main: owner-local-safe-sync-d4c67f4",
+   "date": "2026-10-12 12:34:59 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{61}",
+   "sha": "49a72ddf4803714dd40dfe69ba74161a7a12a9b4",
+   "msg": "On main: owner-local-safe-sync-f8652a7",
+   "date": "2026-10-12 08:42:56 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{62}",
+   "sha": "994d323b20b9aac6ea81ad7c97bf0a7a63926106",
+   "msg": "On main: owner-local-safe-sync-9667a1c",
+   "date": "2026-10-12 08:16:52 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{63}",
+   "sha": "cd1fa4cb74a4f70f62788fd56dbc7959e6d5f43a",
+   "msg": "On main: owner-local-safe-sync-dffd28d-canonical",
+   "date": "2026-10-10 06:57:59 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{65}",
+   "sha": "93b5f54525228d14a8bfbad8f792cbcc08099693",
+   "msg": "On main: owner-local-safe-sync-b503c25",
+   "date": "2026-10-10 00:59:29 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{66}",
+   "sha": "89c517df75778c4fb96195788e2c94b341ec5930",
+   "msg": "On main: owner-local-safe-sync-929e3fd",
+   "date": "2026-10-09 23:55:07 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{67}",
+   "sha": "a09a4d86b6ec6fea30cf31440dab77fc06fd938c",
+   "msg": "On main: owner-local-safe-sync-8685f26",
+   "date": "2026-10-09 21:59:42 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{68}",
+   "sha": "13c49171a9a6ea198258ccf87135ea9551fda21b",
+   "msg": "On main: owner-local-safe-sync-b5a61cf",
+   "date": "2026-10-09 20:14:53 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{69}",
+   "sha": "02cbbbaebf27bd47895b379ba40d53911781f336",
+   "msg": "On main: owner-local-safe-sync-4a68179",
+   "date": "2026-10-09 19:09:41 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{70}",
+   "sha": "6a0c956d0f2c74bb86557e7bbb1d1c4f9922b82d",
+   "msg": "On main: owner-local-safe-sync-8310775",
+   "date": "2026-10-09 18:16:15 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{71}",
+   "sha": "062ecb0a7ac0b05c7965312205ce40d12b0ab658",
+   "msg": "On main: owner-local-safe-sync-db6e839",
+   "date": "2026-10-09 17:29:27 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{72}",
+   "sha": "aeef73fef664226681a5ef4ff225dd26574b18c7",
+   "msg": "On main: owner-local-safe-sync-f7c5ba0",
+   "date": "2026-10-09 17:02:25 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{73}",
+   "sha": "31ab9544ebf0389a9a592e7c429de66f1702bcfc",
+   "msg": "On main: owner-local-safe-sync-3801d8c",
+   "date": "2026-10-09 13:18:23 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{74}",
+   "sha": "0f044d6af102444f467373215d75936ed256d4dd",
+   "msg": "On main: owner-local-safe-sync-243739c",
+   "date": "2026-10-09 11:26:41 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{75}",
+   "sha": "a636099bf578a36edafe080552fa7d9e2c0758c0",
+   "msg": "On main: owner-local-safe-sync-3f2949d",
+   "date": "2026-10-09 09:38:29 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{76}",
+   "sha": "6dd8217c73cf0afdaf44a7bafb40c78206cc843f",
+   "msg": "On main: owner-local-safe-sync-7c87899",
+   "date": "2026-10-09 08:55:18 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{77}",
+   "sha": "f3417af0d032d331b492e5e1c26e66ea34bb2a69",
+   "msg": "On main: owner-local-safe-sync-8d6616b",
+   "date": "2026-10-09 07:31:14 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{78}",
+   "sha": "adf3aaa4799fa0f2301b9cca73728ffa514ff0a1",
+   "msg": "On main: owner-local-safe-sync-8cc4b22",
+   "date": "2026-10-08 20:33:54 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{79}",
+   "sha": "9d43f8b7a1c295676e6b9d5ce3da418d737e2989",
+   "msg": "On main: owner-local-safe-sync-a3c7ffd",
+   "date": "2026-10-08 20:18:27 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{80}",
+   "sha": "4f0b38daea3e2c4bbad64f42bd88fcce84f78046",
+   "msg": "On main: owner-local-safe-sync-851184c",
+   "date": "2026-10-08 19:23:01 +0300",
+   "files": [
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+    "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+    "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{81}",
+   "sha": "91d331cd91de1e92c2397cd326433461ffd35abb",
+   "msg": "On main: owner-local-safe-sync-b21bf58",
+   "date": "2026-10-08 16:51:55 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{82}",
+   "sha": "dc42e4c0df0692800acb7aba3cb819d9105870a2",
+   "msg": "On main: owner-local-safe-sync-4ea5f58",
+   "date": "2026-10-08 15:11:09 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{83}",
+   "sha": "40414eacb243000490a48a4add8c75c276a8c47b",
+   "msg": "On main: owner-local-safe-sync-58a5a1b",
+   "date": "2026-10-08 15:02:11 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{84}",
+   "sha": "2f6bfcc397ed503de29fa2fd677f25893a8a9829",
+   "msg": "On main: owner-local-safe-sync-b213fbd",
+   "date": "2026-10-06 20:41:38 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{85}",
+   "sha": "5a9b2f90289af83336f5c9150f47a69982b20065",
+   "msg": "On main: owner-local-safe-sync-dd6f65f",
+   "date": "2026-10-06 15:26:29 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{86}",
+   "sha": "807bc1eb51f5d76628891a7da28ead65f7471bec",
+   "msg": "On main: owner-local-safe-sync-ee2c6d0",
+   "date": "2026-10-06 12:51:20 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{87}",
+   "sha": "4c8498aa2dee69510ab7ff2894be644af3c2063e",
+   "msg": "On main: owner-local-safe-sync-d265865",
+   "date": "2026-10-06 10:18:35 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{89}",
+   "sha": "5858f2a48dbe8d20be5fc9d602b92a57526085f0",
+   "msg": "On main: owner-local-safe-sync-6f35b45",
+   "date": "2026-10-06 08:41:25 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{90}",
+   "sha": "7918591d77c9dad88783f2fd98244a719813c6c0",
+   "msg": "On main: owner-local-safe-sync-92c34f7",
+   "date": "2026-10-06 01:10:30 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{91}",
+   "sha": "d8d86178d0832b5f3d1f33650bbbf532c0e122a2",
+   "msg": "On main: owner-local-safe-sync-7783fb9",
+   "date": "2026-10-05 20:59:12 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{93}",
+   "sha": "bc19eaafc48770a809a74745208d8f4457187231",
+   "msg": "On main: owner-local-safe-sync-7016a98",
+   "date": "2026-10-05 08:53:49 +0300",
+   "files": [
+    "project.godot",
+    "scenes/campaign/WorldMapScene.tscn",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{95}",
+   "sha": "ab8ff775af61a09afdb16d0c432ff4bc92cc18e1",
+   "msg": "On main: owner-local-safe-sync-ac7fb12135bf",
+   "date": "2026-10-04 20:29:20 +0300",
+   "files": [
+    "assets/environment/game_board_background.png",
+    "assets/ui_assets/CONTACT_SHEET_BRAND_UI.png",
+    "assets/ui_assets/CONTACT_SHEET_EFFECTS.png",
+    "assets/ui_assets/CONTACT_SHEET_ISLAND_MAP.png",
+    "project.godot",
+    "scenes/main.tscn"
+   ]
+  },
+  {
+   "ref": "stash@{96}",
+   "sha": "d006f9e3446647a1f422fd8aab03814fd80f3b90",
+   "msg": "On main: owner-local-plugin-sync-preserve-4c943b2e7ed8",
+   "date": "2026-10-03 23:15:36 +0300",
+   "files": [
+    "project.godot"
+   ]
+  },
+  {
+   "ref": "stash@{98}",
+   "sha": "2036e54ca81e88a9dc96317ed860af64c3e7379d",
+   "msg": "On main: pre-v07-owner-godot-ai-project-settings",
+   "date": "2026-10-02 22:26:25 +0300",
+   "files": [
+    "project.godot"
+   ]
+  }
+ ],
+ "bytes_freed_if_candidates_dropped_and_gc": 230148,
+ "total_stash_only_bytes": 8516587,
+ "note": "Stash refs are also the only reflog entries for these commits; dropping is reversible only via `git fsck --unreachable` until gc. No stash was dropped."
+}

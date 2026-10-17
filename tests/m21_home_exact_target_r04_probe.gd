@@ -97,7 +97,7 @@ func _run() -> void:
 	_check("fixture selected level is 12", campaign.selected_level_id == 12)
 	_check("top Level value and PLAY plaque both use frontier 12", shell._home_value_labels.level.text == "12" and shell._home_value_labels.continue.text == "LEVEL 12")
 	_check("coins bind to canonical economy and format 4250 as 4.250", shell._home_value_labels.coins.text == "4.250" and navigation.economy.coins == 4250)
-	_check("energy and gems are display-only 100 and 85", shell._home_value_labels.energy.text == "100" and shell._home_value_labels.gems.text == "85")
+	_check("energy and gems bind to canonical economy (M34 live values)", shell._home_value_labels.energy.text == str(navigation.economy.get_energy_state().get("energy", -1)) and shell._home_value_labels.gems.text == str(navigation.economy.gems))
 	_check("old replay selection is available without changing the Home frontier", campaign.select_level("sunny_cove", 7))
 	shell._refresh_home_values()
 	_check("old replay selection does not change either Home frontier display", shell._home_value_labels.level.text == "12" and shell._home_value_labels.continue.text == "LEVEL 12")

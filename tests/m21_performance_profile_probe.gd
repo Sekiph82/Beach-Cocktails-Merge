@@ -12,7 +12,7 @@ const REPORT_DIR := "res://coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidenc
 const PROFILE_SAVE_PATH := "user://m21_child02_profile_campaign.json"
 const PROFILE_SETTINGS_PATH := "user://m21_child02_profile_settings.json"
 const MAP_CYCLES := 12
-const GAMEPLAY_CYCLES := 8
+const GAMEPLAY_CYCLES := 4  # energy cap 100 / owner LOSE-QUIT cost 20; the PLAY warmup attempt uses one
 const IO_CYCLES := 20
 
 var failures: Array[String] = []

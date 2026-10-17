@@ -24,6 +24,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
+# owner storage rule 2026-10-17: task temp output stays inside the project (.godot/ is gitignored)
+SANDBOX_ROOT = REPO / ".godot" / "bcm_sandboxes"
+SANDBOX_ROOT.mkdir(parents=True, exist_ok=True)
 SELECTION = REPO / "coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R23/qualification/r23_random_selection_seed_20261016_v01.json"
 SELECTION_SHA256 = "ef21d5a3023ae7328424da4e459b667c6d6b0dbd567e7a2106cc9b9161d66eb2"
 OUT = REPO / "coordination/sessions/BCM-M33-004-CLAUDE-V01/evidence/trials"
@@ -41,7 +44,7 @@ def run_one(godot: str, entry: dict, k: int) -> str:
     out = OUT / f"{entry['island_id']}_L{int(entry['level_id']):03d}_a{k}.json"
     if out.exists():
         return f"skip {out.name}"
-    sandbox = Path(tempfile.mkdtemp(prefix="m33_004_"))
+    sandbox = Path(tempfile.mkdtemp(prefix="m33_004_", dir=SANDBOX_ROOT))
     env = dict(os.environ, APPDATA=str(sandbox / "roaming"), LOCALAPPDATA=str(sandbox / "local"))
     (sandbox / "roaming").mkdir()
     (sandbox / "local").mkdir()
