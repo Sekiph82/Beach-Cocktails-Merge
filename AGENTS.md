@@ -75,7 +75,9 @@ Codex and other delegated builders **must not edit root `TASKS.md`**. They submi
 
 Do not create parallel live task status trackers. Historical audits, prompts and logs remain read-only evidence, not controlling instructions where they contradict current owner rulings.
 
-## Session start
+## Session start (delegated builders)
+
+This section applies to Codex or other delegated builders. Claude, as owner-designated coordinator and tracker writer, may update `TASKS.md` after evidence review.
 
 At the start of every milestone or remediation:
 
@@ -411,7 +413,7 @@ During the authorized cleanup, Codex may delete tracked or untracked files that 
 6. Rebuild current asset manifests/dimension catalogs/reports after deletions so they list only retained current assets.
 7. Run focused R04 surface/profile validation, clean Godot import/parse/boot, gameplay/campaign regressions, and `git diff --check` before handoff.
 8. Verify all ten owner-approved R04 surface/profile families still hash/load correctly and all current planned-use images remain present.
-9. Never edit root `TASKS.md`; ChatGPT remains its sole writer.
+9. Never edit root `TASKS.md`; Claude is its sole writer under the 2026-10-17 owner transfer.
 
 ### Current owner-deleted legacy background
 
@@ -432,7 +434,7 @@ During the authorized cleanup, Codex may delete tracked or untracked files that 
 ## Mandatory Canonical Desktop Sync Before Every Task
 
 Before reading or implementing any new Codex task, synchronize the canonical
-Desktop checkout with the current `origin/main`. ChatGPT may have updated
+Desktop checkout with the current `origin/main`. Claude may have updated
 `TASKS.md`, prompts, audit criteria, audits, or other coordination files after
 the prior task.
 
@@ -507,7 +509,7 @@ Existing older preservation stashes may remain. Their existence is not a blocker
 2. If the canonical checkout is clean and behind-only, fast-forward it to `origin/main`.
 3. If it contains only proven generated/reproducible clutter, remove only those generated items as authorized, then fast-forward.
 4. If it contains any unique or ambiguous owner change, stop and report it; never overwrite, stash, reset, or discard it silently.
-5. After ChatGPT updates `TASKS.md` or other coordination artifacts on GitHub, the next Codex task must synchronize the canonical Desktop checkout before implementation begins.
+5. After Claude updates `TASKS.md` or other coordination artifacts on GitHub, the next Codex task must synchronize the canonical Desktop checkout before implementation begins.
 6. After Codex completes and pushes a task, if the canonical checkout is clean, fast-forward it to the just-pushed remote `main` before handoff.
 7. If post-task synchronization is blocked by unique owner changes, report the blocker instead of creating another Desktop copy or worktree.
 8. Temporary implementation worktrees may exist only outside Desktop.
@@ -775,7 +777,7 @@ Economy Draft V01 remains inactive and must not be implemented during release cl
 Required stop marker:
 `AWAITING_GPT_M21_FINAL_RELEASE_AUDIT_R03`
 
-Do not start M22 until BCM-M21-006 passes independent audit and ChatGPT records M21 complete.
+Do not start M22 until BCM-M21-006 passes independent audit and the canonical tracker records M21 complete.
 
 ## Active BCM-M21 final release evidence closure R04 — 2026-10-06
 
@@ -838,7 +840,7 @@ Next canonical milestone:
 Next canonical task:
 `BCM-M22-001 — Lock exact installed plugin APIs, packaging, and graceful no-plugin behavior.`
 
-Before any M22 production effect work, ChatGPT must publish the locked M22-001 prompt and audit criteria. Exact installed GameFeelFlow/Saltmire Spark repository bytes override historical/public planning shorthand.
+Before any M22 production effect work, Claude must approve the M22-001 plan and audit criteria. Exact installed GameFeelFlow/Saltmire Spark repository bytes override historical/public planning shorthand.
 
 Economy Draft V01 remains inactive unless the owner explicitly activates it.
 
