@@ -1,0 +1,59 @@
+{
+  "owner_tracked_hash_checks": 8,
+  "owner_tracked_mismatches": 0,
+  "new_r24_untracked_present": [
+    "?? coordination/sessions/BCM-M34-END-TO-END-GAME-COMPLETION-V01/evidence/M34-R24/"
+  ],
+  "owner_dirty_path_count": 42,
+  "stash_message": "On main: owner-local-safe-sync-9411eb2",
+  "rows": [
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/mobile_qa/M21-001_MOBILE_LAYOUT_TOUCH_QA.json",
+      "matches": true,
+      "working": "cc50185a33040a9ec5bc2abdcd3c9329b5ed0d5f",
+      "stash": "cc50185a33040a9ec5bc2abdcd3c9329b5ed0d5f"
+    },
+    {
+      "path": "coordination/sessions/BCM-M21-RELEASE-CLOSURE/evidence/progression/M21-003_FULL_PROGRESSION.json",
+      "matches": true,
+      "working": "d130af11718d558b67e9c4019b92897831fd680f",
+      "stash": "d130af11718d558b67e9c4019b92897831fd680f"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-001/plugin_runtime_inventory.json",
+      "matches": true,
+      "working": "aba3ecfd814ddb6e682e9052d59bb8809054a513",
+      "stash": "aba3ecfd814ddb6e682e9052d59bb8809054a513"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-002/semantic_bridge_probe.json",
+      "matches": true,
+      "working": "383888ce5520b634b782ec60fe982a59f08705e0",
+      "stash": "383888ce5520b634b782ec60fe982a59f08705e0"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/policy_validation.json",
+      "matches": true,
+      "working": "b2c028c96ac1e951706ac934c04c5f516059aee6",
+      "stash": "b2c028c96ac1e951706ac934c04c5f516059aee6"
+    },
+    {
+      "path": "coordination/sessions/BCM-M22-MASTER-V01/evidence/M22-003/state_hash_parity_report.json",
+      "matches": true,
+      "working": "e41d9184f28eff709598ea30cd572a20f0576c28",
+      "stash": "e41d9184f28eff709598ea30cd572a20f0576c28"
+    },
+    {
+      "path": "project.godot",
+      "matches": true,
+      "working": "9121d5008a528c6cc8b620c5194b9b5cb82916f9",
+      "stash": "9121d5008a528c6cc8b620c5194b9b5cb82916f9"
+    },
+    {
+      "path": "scenes/main.tscn",
+      "matches": true,
+      "working": "9e78dcbcd299077337ce0bfdd75aded0f79eb757",
+      "stash": "9e78dcbcd299077337ce0bfdd75aded0f79eb757"
+    }
+  ]
+}

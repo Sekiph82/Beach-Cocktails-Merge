@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R24",
+  "status": "RECOVERY_HELPER_FAILED_PARTIAL_TRACE_PRESERVED",
+  "attempt_id": "20261017T103155751Z_7bde259ec0074e0691d84ba620b448bd",
+  "trial_attempt_id": "dd61ee0eaa934c04966281e504b9806f",
+  "reason": "Recovery module requires trace.case, while the interrupted partial trace stores island_id, level_id, and seed at the top level. It refused to synthesize a case record.",
+  "attempt_summary_preserved": true,
+  "raw_final_trace_status": "CASE_RUNNING",
+  "raw_final_trace_sha256": "035fb3f66905da036d43e7fd01cfdbccaf2bc79a91a79704a2f0f6c761938274",
+  "raw_watchdog_status": "CHILD_ERROR",
+  "raw_watchdog_exit_code": -1,
+  "attempt_trial_starts": 5,
+  "attempt_trial_finishes": 4,
+  "raw_final_trace_modified": false,
+  "recovery_was_append_only": false
+}

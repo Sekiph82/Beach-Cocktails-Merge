@@ -1,0 +1,12 @@
+R23_REGRESSION name=fresh_editor_import status=EXITED exit=0 wall_ms=22108 pass=True
+R23_REGRESSION name=economy_35 status=EXITED exit=0 wall_ms=1139 pass=True
+R23_REGRESSION name=daily_38 status=EXITED exit=0 wall_ms=1147 pass=True
+R23_REGRESSION name=navigation_17 status=EXITED exit=0 wall_ms=71450 pass=True
+R23_REGRESSION name=m14_bridge_66 status=EXITED exit=0 wall_ms=2644 pass=True
+R23_REGRESSION name=m15_vip_economy_63 status=EXITED exit=0 wall_ms=5954 pass=True
+R23_REGRESSION name=production_routes status=EXITED exit=0 wall_ms=16834 pass=True
+R23_REGRESSION name=scene_uid status=EXITED exit=0 wall_ms=1015 pass=True
+R23_REGRESSION name=slim_content status=EXITED exit=0 wall_ms=582 pass=True
+R23_REGRESSION name=vip_optional status=EXITED exit=0 wall_ms=982 pass=True
+R23_REGRESSION name=startup_smoke status=EXITED exit=0 wall_ms=2245 pass=True
+R23_REGRESSION_SUMMARY=ALL_REQUESTED_REGRESSIONS_PASS passed=10/10 import=EXITED disk_delta=-4882432 tasks_unchanged=True

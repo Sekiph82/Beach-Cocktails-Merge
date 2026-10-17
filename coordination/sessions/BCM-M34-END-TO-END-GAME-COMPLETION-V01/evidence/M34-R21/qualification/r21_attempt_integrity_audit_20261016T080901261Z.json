@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R21",
+  "created_utc": "2026-10-16T08:09:01.2557858Z",
+  "read_only": true,
+  "attempt_count": 4,
+  "trial_started_count": 4,
+  "trial_finished_count": 4,
+  "unmatched_trial_starts": 0,
+  "attempts": [
+    {
+      "attempt_id": "20261016T075537597Z_97386aafe2eb443faff7b9c2c83c8ac7",
+      "integrity_status": "PASS",
+      "trial_started": 1,
+      "trial_finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "classifications": {
+        "ERROR": 1,
+        "LOSS_OBSERVED": 0,
+        "BUDGET_UNKNOWN": 0,
+        "WIN_OBSERVED": 0
+      }
+    },
+    {
+      "attempt_id": "20261016T075618311Z_721ae66ae8eb496a91f62498bdc8afa2",
+      "integrity_status": "PASS",
+      "trial_started": 1,
+      "trial_finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "classifications": {
+        "LOSS_OBSERVED": 0,
+        "BUDGET_UNKNOWN": 0,
+        "ERROR": 1,
+        "WIN_OBSERVED": 0
+      }
+    },
+    {
+      "attempt_id": "20261016T075726560Z_5e2c9e179bed41ef8e39b344261e013e",
+      "integrity_status": "PASS",
+      "trial_started": 1,
+      "trial_finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "classifications": {
+        "LOSS_OBSERVED": 1,
+        "BUDGET_UNKNOWN": 0,
+        "ERROR": 0,
+        "WIN_OBSERVED": 0
+      }
+    },
+    {
+      "attempt_id": "20261016T080445818Z_387e370f136143ed97fa52d4f92720c6",
+      "integrity_status": "PASS",
+      "trial_started": 1,
+      "trial_finished": 1,
+      "incomplete": [],
+      "problems": [],
+      "classifications": {
+        "BUDGET_UNKNOWN": 0,
+        "WIN_OBSERVED": 1,
+        "LOSS_OBSERVED": 0,
+        "ERROR": 0
+      }
+    }
+  ],
+  "all_integrity_pass": true,
+  "all_attempts_have_one_finished_trial": true
+}

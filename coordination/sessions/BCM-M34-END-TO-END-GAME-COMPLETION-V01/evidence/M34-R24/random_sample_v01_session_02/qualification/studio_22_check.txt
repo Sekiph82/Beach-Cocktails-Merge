@@ -1,0 +1,34 @@
+RUN=Godot R18 focused headless contract probe; profile=C:\Users\sekip\Desktop\Beach Cocktails - Merge\coordination\sessions\BCM-M34-END-TO-END-GAME-COMPLETION-V01\evidence\M34-R23\sessions\random_sample_v01_session_01\attempts\20261016T160131517Z_7ec7f46f76f64c5bb387cac3c0d56b8f\isolated_appdata_local\BeachCocktailsMerge\M34-R18-LevelQualificationStudio
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: res://scenes/campaign/WorldMapScene.tscn:3 - ext_resource, invalid UID: uid://kf3xtrckwhbr - using text path instead: res://scripts/campaign/world_map_controller.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+Game Feel Flow: Initializing...
+GFFEffectConfigManager: Registered configs
+Game Feel Flow: Registered 31 effects
+Game Feel Flow: Ready (31 effects, 15 combos)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+M34_R18_STUDIO PASS: dedicated debug entrypoint loads under the isolated R18 profile
+M34_R18_STUDIO PASS: desktop layout keeps an aspect-correct portrait preview beside a full-height inspector
+M34_R18_STUDIO PASS: portrait fallback wraps controls in a vertical-only scroll panel with no horizontal overflow
+M34_R18_STUDIO PASS: studio overlay draws above production UI while the preview remains a pointer target
+M34_R18_STUDIO PASS: Studio starts UNTESTED without asserting a level result
+M34_R18_STUDIO PASS: canonical selector exposes all ten islands and one hundred levels each
+M34_R18_STUDIO PASS: all 10 × 100 canonical island/level combinations are selectable
+M34_R18_STUDIO PASS: Studio-only controls stay outside the production campaign navigation tree
+M34_R18_STUDIO PASS: Sunny Cove map target is visible and selectable for real mouse routing
+M34_R18_STUDIO PASS: real mouse input routed through the portrait preview opens Sunny Cove map
+M34_R18_STUDIO PASS: Tiki L10 selection binds canonical T=24 and exact normal 4T cap=96
+M34_R18_STUDIO PASS: Tiki L30 diagnostic preset binds canonical T=32 and exact normal 4T cap=128
+M34_R18_STUDIO PASS: save and energy persistence are detached before session start
+M34_R18_STUDIO PASS: production Tiki L10 session starts through CampaignNavigationController with its diagnostic seed injected
+M34_R18_STUDIO PASS: session uses the production Main scene, GameManager, and ShotController
+M34_R18_STUDIO PASS: actual ShotController action is captured with a stable action ID and seed
+M34_R18_STUDIO PASS: pause and single-physics-step controls operate while the dock remains responsive
+M34_R18_STUDIO PASS: resume restores production physics
+M34_R18_STUDIO PASS: JSON export appends unique create-new packages and leaves earlier report bytes unchanged
+M34_R18_STUDIO PASS: export includes R17 immutable references and honest normal 4T definition
+M34_R18_STUDIO PASS: seed reset starts a distinct attempt with the same selected seed
+M34_R18_STUDIO PASS: debug run and reset do not create campaign save, backup, or legacy save files
+M34_R18_STUDIO_RESULT=PASS
+R18_HEADLESS_PROBE=PASS

@@ -1,0 +1,4 @@
+R23_TRIAL case=azure_bay_random_l81 outcome=BUDGET_UNKNOWN failure=NONE objective_progress=16 vip=False actions=101 parity_mismatches=0 wall_ms=107603
+R23_TRIAL case=coconut_beach_random_l76 outcome=BUDGET_UNKNOWN failure=NONE objective_progress=16 vip=False actions=99 parity_mismatches=0 wall_ms=107402
+R23_TRIAL case=sunset_island_random_l76 outcome=BUDGET_UNKNOWN failure=NONE objective_progress=24 vip=False actions=101 parity_mismatches=0 wall_ms=107407
+R23_TRIAL case=party_beach_random_l82 outcome=WIN_OBSERVED failure=NONE objective_progress=24 vip=False actions=58 parity_mismatches=0 wall_ms=59642

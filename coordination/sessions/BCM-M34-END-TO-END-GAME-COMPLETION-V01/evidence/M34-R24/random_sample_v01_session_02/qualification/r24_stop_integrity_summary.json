@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "work_item": "BCM-M34-R24",
+  "status": "PARTIAL_STOPPED_AT_USER_REQUEST",
+  "selection_manifest_sha256": "ef21d5a3023ae7328424da4e459b667c6d6b0dbd567e7a2106cc9b9161d66eb2",
+  "seed": 20261016,
+  "selected_total": 100,
+  "completed_distinct_levels": 26,
+  "remaining_selected_levels": 74,
+  "r23_completed": 22,
+  "r24_completed": 4,
+  "outcome_counts": {
+    "ERROR": 0,
+    "BUDGET_UNKNOWN": 16,
+    "WIN_OBSERVED": 10,
+    "LOSS_OBSERVED": 0
+  },
+  "per_island": {
+    "sunny_cove": {
+      "ERROR": 0,
+      "completed": 3,
+      "WIN_OBSERVED": 2,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 1
+    },
+    "coconut_beach": {
+      "ERROR": 0,
+      "completed": 3,
+      "WIN_OBSERVED": 0,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 3
+    },
+    "volcano_bay": {
+      "ERROR": 0,
+      "completed": 2,
+      "WIN_OBSERVED": 1,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 1
+    },
+    "party_beach": {
+      "ERROR": 0,
+      "completed": 3,
+      "WIN_OBSERVED": 2,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 1
+    },
+    "tiki_island": {
+      "ERROR": 0,
+      "completed": 3,
+      "WIN_OBSERVED": 1,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 2
+    },
+    "azure_bay": {
+      "ERROR": 0,
+      "completed": 3,
+      "WIN_OBSERVED": 0,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 3
+    },
+    "sunset_island": {
+      "ERROR": 0,
+      "completed": 3,
+      "WIN_OBSERVED": 1,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 2
+    },
+    "billionaire_island": {
+      "ERROR": 0,
+      "completed": 2,
+      "WIN_OBSERVED": 2,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 0
+    },
+    "final_island": {
+      "ERROR": 0,
+      "completed": 2,
+      "WIN_OBSERVED": 1,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 1
+    },
+    "frozen_paradise": {
+      "ERROR": 0,
+      "completed": 2,
+      "WIN_OBSERVED": 0,
+      "LOSS_OBSERVED": 0,
+      "BUDGET_UNKNOWN": 2
+    }
+  },
+  "interrupted_trial": [
+    {
+      "raw_trace_status": "CASE_RUNNING",
+      "raw_trace_preserved": true,
+      "reason": "USER_REQUESTED_STOP",
+      "island_id": "frozen_paradise",
+      "level_id": 77,
+      "case_outcome_classification": "NOT_COMPLETED",
+      "trial_attempt_id": "dd61ee0eaa934c04966281e504b9806f"
+    }
+  ],
+  "r23_retained_bytes": 150606015,
+  "r24_new_retained_bytes": 20186004,
+  "r24_new_file_count": 89,
+  "c_free_start_bytes": 91890851840,
+  "c_free_now_bytes": 91857358848,
+  "task_blob_initial": "3127fb62f382e4c357903867d7730ff4d98e20ae",
+  "task_blob_after_owner_advance": "2456d5a85612efcfa9c5bbc302a03272a398d364",
+  "current_head": "e0401dd28ddbe1618c29936dd53c583c2214eabe",
+  "current_origin": "e0401dd28ddbe1618c29936dd53c583c2214eabe",
+  "remote_main": "e0401dd28ddbe1618c29936dd53c583c2214eabe",
+  "c_free_delta_bytes": -33492992,
+  "cumulative_r23_r24_retained_bytes": 170792019
+}
