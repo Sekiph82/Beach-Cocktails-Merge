@@ -43,4 +43,5 @@
 - Files changed: `data/campaign/ads_provider_policy.json`; `scripts/campaign/ads_service.gd`; `scripts/campaign/ads_provider_config.gd` and generated `.uid`; `scripts/campaign/campaign_navigation_controller.gd`; `tests/fixtures/m34_rewarded_ads_test_provider.gd` and generated `.uid`; `tests/m34_rewarded_ads_lifecycle_probe.gd` and generated `.uid`; `tests/m34_daily_rewards_probe.gd`; `tests/m34_economy_closure_probe.gd`; `tests/run_regressions.py`; this log.
 - `TASKS.md` was not modified. The pre-existing owner-local untracked files and all 100 stash entries remain untouched.
 - Final marker: `AWAITING_GPT_BCM_M34_006_INDEPENDENT_REVIEW`.
-- Final commit SHA, end HEAD, and local/remote main equality proof: pending publication.
+- Final implementation commit SHA: `ed5b19e3876cf8eb7f4e50f98c4b7c6c8c312832`.
+- At publication verification, `git rev-parse HEAD`, `git rev-parse origin/main`, and `git ls-remote origin refs/heads/main` all returned `ed5b19e3876cf8eb7f4e50f98c4b7c6c8c312832`; status was `main...origin/main` with only the preserved pre-existing owner-local untracked paths.
