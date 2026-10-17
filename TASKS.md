@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated.
 - Current Task Status: BLOCKED
-- Next Task/Action: OWNER — provide the BCM-M34-006/007 inputs listed under Blockers/Waits (AdMob app + rewarded unit IDs, privacy/age/consent decisions, store product catalog, receipt-validation backend choice, device/emulator test permission). Claude then integrates and verifies.
-- Required Actor: OWNER
+- Next Task/Action: BCM-M34-006 — CODEX implements one comprehensive, credential-free rewarded-ads provider/configuration/lifecycle and test preparation under coordination/sessions/BCM-M34-006-CODEX-V01/CODEX_M34_006_COMPREHENSIVE_MASTER_PROMPT.md; real Android/iOS SDK, consent/SSV and device acceptance remain blocked until owner inputs.
+- Required Actor: CODEX
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 146/148 canonical tasks complete (98.6%). 2026-10-17 Claude closed BCM-M33-004 (frozen seed 20261016 sample: 100/100 levels won within the normal 4T cap by an uncensored fixed-fps production-physics bot; owner ruling: no difficulty grading) and BCM-M34-005 (obsolete qualification tooling, harness residue, stale worktrees and evidence import cache removed; .uid sidecars versioned, World Map invalid-UID warning fixed; core regressions 12/12 PASS; all runnable headless probes pass, display probes pass with a window). BCM-M34-006 and BCM-M34-007 blocked on owner inputs. No device, human-playtest, signing or store verification performed.
+- Progress: 146/148 canonical tasks complete (98.6%). Claude final legacy triage published d0a688d: 66 reviewed (26 tests updated, 22 retired, 18 preserved), 115/115 runnable headless PASS, no actual game bug found in triage; 100 stashes preserved, unique owner files untouched. BCM-M33-004 complete with owner-approved sampled 100/100 winnability at 4T, no difficulty grading; BCM-M34-005 closed. Owner reassigned orchestration and sole TASKS.md edit authority to ChatGPT; Codex implements. BCM-M34-006 and BCM-M34-007 remain BLOCKED on owner IDs/privacy/backend/devices; Codex is authorized only to complete independent safe M34-006 preparation/test work, not fake live integration or close blocked task.
 
 ## Blockers/Waits
 
@@ -43,14 +43,14 @@ Legend:
 
 ## Governance
 
-> **H!veAI tracking [OWNER-LOCKED — 2026-09-28]:** repository-root `TASKS.md` is the one and only live project-status tracker and H!veAI parser input. The top `Project Status` block controls current milestone, sprint, task, workflow status, next action, required actor, repository, branch, and progress. Every canonical task ID must appear exactly once. Do not create or maintain `coordination/SESSION_INDEX.md`, `coordination/AUDIT_INDEX.md`, `docs/04_ROADMAP.md`, `.hiveai/PROJECT_DASHBOARD.md`, `.hiveai/*` control-plane files, or any equivalent parallel tracker/status mirror. Audit/prompt/log files and historical task lists may exist only as evidence. **Claude is the owner-designated implementation coordinator and sole authorized writer of root `TASKS.md` after verifying source, tests, evidence and owner decisions; Codex remains read-only. ChatGPT has no continuing project authority.** Claude updates it after independently reviewing evidence and owner decisions; no ChatGPT handoff is required.
+> **H!veAI tracking [OWNER-LOCKED — 2026-09-28]:** repository-root `TASKS.md` is the one and only live project-status tracker and H!veAI parser input. The top `Project Status` block controls current milestone, sprint, task, workflow status, next action, required actor, repository, branch, and progress. Every canonical task ID must appear exactly once. Do not create or maintain `coordination/SESSION_INDEX.md`, `coordination/AUDIT_INDEX.md`, `docs/04_ROADMAP.md`, `.hiveai/PROJECT_DASHBOARD.md`, `.hiveai/*` control-plane files, or any equivalent parallel tracker/status mirror. Audit/prompt/log files and historical task lists may exist only as evidence. **Owner superseding decision 2026-10-17: ChatGPT resumes project coordination, independent review and sole root `TASKS.md` write authority; Codex implements and never edits `TASKS.md`. Claude's completed work and commits remain accepted historical evidence.**
 
 - Codex must never edit this file.
 - Prompt and locked audit criteria are created before implementation/remediation.
 - Codex logs are builder evidence, not acceptance proof.
 - ChatGPT independently audits actual diff/source/tests/evidence against locked criteria.
 - Owner runtime screenshots and annotations are authoritative when later than earlier audit interpretations.
-- Only Claude updates this tracker after evidence-based verification and owner decisions. Codex never updates it.
+- Only ChatGPT updates this tracker after independent evidence review and owner decisions. Codex never updates it.
 - Current regression entry point: `python tests/run_regressions.py` (core) / `--all`.
 - **H!veAI parser contract:** every counted task row must be exactly `- [x] ID — title`, `- [~] ID — title`, `- [!] ID — title`, or `- [ ] ID — title`. Headings, milestone summaries, historical notes, retired/cancelled work, and explanatory bullets must never use checkbox markers.
 - **Current Task must contain exactly one canonical task ID** and that ID must exist exactly once in the task rows below. Never join simultaneous concerns with `+` in the Current Task field.
