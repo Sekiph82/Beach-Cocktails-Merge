@@ -30,55 +30,55 @@
       "id": "tiki_island",
       "level_count": 100,
       "path": "res://data/campaign/levels/tiki_island_full.json",
-      "sha256": "C0CB1A5E5D16C3804D74AF7ACA2B4589C4CF9E704D83114BB1683009A0601219"
+      "sha256": "C860B28BB0A2566CC8AD2283A8696A3276931C0373EC8B59B47675711BB7F190"
     },
     {
       "id": "azure_bay",
       "level_count": 100,
       "path": "res://data/campaign/levels/azure_bay.json",
-      "sha256": "6036E2BE7B197B6FB20C4EB798E0B4EE99153058A1C915E3E0264C81C040CE41"
+      "sha256": "C379D5533C8A69C058EB491A89D68FD59B93D1783781DB4E544407738472CF5F"
     },
     {
       "id": "coconut_beach",
       "level_count": 100,
       "path": "res://data/campaign/levels/coconut_beach.json",
-      "sha256": "313BF5154FF0ED8AA0653B2CCFF2F4DD90644325FBD4BA58543B479765101442"
+      "sha256": "5FA9DBA84D869525F7B4544FDDD78D829F90E5B0E48DB44B7FF977EB12D4FF72"
     },
     {
       "id": "sunset_island",
       "level_count": 100,
       "path": "res://data/campaign/levels/sunset_island.json",
-      "sha256": "C81B73D0DAA0EBBFCC3568EB3101E391B91E85AB104141E604AE8A1D19579C3E"
+      "sha256": "E57B122E583595302240308E3FEEB2D8DED4C0AB8A007202F4A8810429804569"
     },
     {
       "id": "party_beach",
       "level_count": 100,
       "path": "res://data/campaign/levels/party_beach.json",
-      "sha256": "63AEE1726D58A9AB31F4145C6BEC87F9A5880A0AF7597B9750EDFCF8FA21FE1F"
+      "sha256": "48EFA4FE9C65EDD813415DB4DDCB08E5E0368A9DC60A575A643C881896AE8DBF"
     },
     {
       "id": "frozen_paradise",
       "level_count": 100,
       "path": "res://data/campaign/levels/frozen_paradise.json",
-      "sha256": "E1B50AC08B5F7D0134D9B4FB5551CB13316C5D82FE78CE37B4346443708C0D39"
+      "sha256": "557038A9938BFFA9D50FC82CF7502E3D29822BADF217AD401BE820DD53BDA95C"
     },
     {
       "id": "volcano_bay",
       "level_count": 100,
       "path": "res://data/campaign/levels/volcano_bay.json",
-      "sha256": "51D7E569F93A38F7FA95C8E3074D26271C3A3FAB58C1EBA84C387D66E9FDE49C"
+      "sha256": "6E530EF96800FCFBC23DA33451A9417C49A3CDD3662EA80EA7F5F09B95C5A3B3"
     },
     {
       "id": "billionaire_island",
       "level_count": 100,
       "path": "res://data/campaign/levels/billionaire_island.json",
-      "sha256": "1C03B2A3C477F8E8E870AF3F36B7B3411A70FE4EC0A45F3187AF3FFCEAF0A7D1"
+      "sha256": "7A187590B1178DAAD776E5BA8999EA5851042069A377D85947ACDB334C73BB33"
     },
     {
       "id": "final_island",
       "level_count": 100,
       "path": "res://data/campaign/levels/final_island.json",
-      "sha256": "B4C293A8721993D705C44C3EA74DC465C1810EEADDCF1471641D4208216EB6A7"
+      "sha256": "4409D47D1F25FA2CED9EC9E6BA8E9CC3110AC0EE5E31B60C5C91526A1A23A55E"
     }
   ]
 }

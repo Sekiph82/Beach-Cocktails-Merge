@@ -6,7 +6,6 @@ extends RefCounted
 ## models. Physical reachability evidence comes from M17SeededValidationHarness,
 ## which launches production drinks through the real physics/merge/objective path.
 
-const DIFFICULTY_MODEL := preload("res://scripts/campaign/m17_difficulty_model.gd")
 const SCREENING_MODEL := preload("res://scripts/campaign/m17_canonical_screening_model.gd")
 const VIP_OPTIONALITY_MODEL := preload("res://scripts/campaign/m17_vip_optionality_model.gd")
 const DATABASE_SCRIPT := preload("res://scripts/campaign/level_database.gd")

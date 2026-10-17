@@ -10,7 +10,7 @@ extends RefCounted
 ## deterministic lane policy and records every spawn/lane action so a trial can
 ## be replayed.  It is intentionally not an optimal-human-play model.
 
-const MODEL_SCRIPT = preload("res://scripts/campaign/m17_difficulty_model.gd")
+const MODEL_SCRIPT = preload("res://scripts/campaign/objective_cost_model.gd")
 const BRIDGE_SCRIPT = preload("res://scripts/campaign/gameplay_session_bridge.gd")
 const GAME_MANAGER_SCRIPT = preload("res://scripts/game_manager.gd")
 const DRINK_SCRIPT = preload("res://scripts/drink.gd")

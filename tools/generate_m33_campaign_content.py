@@ -155,7 +155,6 @@ def _preserve_m32_tiki_rows(tiki_seed: dict[str, Any]) -> list[dict[str, Any]]:
             break
         row = json.loads(json.dumps(seed_row))
         row["global_level_id"] = 101 + level_id - 1
-        row["difficulty_tier"] = "PRESERVED_M32_SEED"
         theoretical = _theoretical_shots(row)
         row["theoretical_shots_total"] = theoretical
         row["move_limit"] = theoretical * 4
@@ -234,7 +233,6 @@ def _candidate(
         "island_id": island_id,
         "level_id": level_id,
         "global_level_id": global_level_id,
-        "difficulty_tier": str(band["tier"]),
         "level_type": "PRESTIGE_CAPSTONE" if bool(band.get("prestige_capstone", False)) else "ORDINARY",
         "prestige_capstone": bool(band.get("prestige_capstone", False)),
         "time_limit_sec": 0,
@@ -457,7 +455,7 @@ def generate() -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
                     nearby_layout_pairs[window] += 1
 
     report = {
-        "result": "OWNER_APPROVED_DIFFICULTY_CANDIDATES_PENDING_PHYSICS_AND_HUMAN_VALIDATION",
+        "result": "OWNER_APPROVED_CONTENT_GENERATED",
         "content_version": CONTENT_VERSION,
         "generator_version": generator_version,
         "seed": seed,

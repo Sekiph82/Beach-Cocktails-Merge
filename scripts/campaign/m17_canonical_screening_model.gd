@@ -4,11 +4,11 @@ extends RefCounted
 ## Pure V04 analytical helpers.
 ##
 ## This model describes canonical challenge signatures, mathematical merge
-## reachability, timer/cost diagnostics, and the minimum VIP-interception
+## reachability, and the minimum VIP-interception
 ## workload implied by production's normal-first/VIP-second routing. It never
 ## mutates campaign data or runtime gameplay state.
 
-const DIFFICULTY_MODEL = preload("res://scripts/campaign/m17_difficulty_model.gd")
+const COST_MODEL = preload("res://scripts/campaign/objective_cost_model.gd")
 
 
 static func challenge_signature(level_definition: Dictionary) -> Dictionary:
@@ -128,38 +128,8 @@ static func level_reachability(level_definition: Dictionary, max_level: int) -> 
 	}
 
 
-static func timer_scan(levels: Array[Dictionary], seconds_per_launch: float = DIFFICULTY_MODEL.DEFAULT_SECONDS_PER_LAUNCH) -> Dictionary:
-	var ratios: Array = []
-	var preliminary: Array[Dictionary] = []
-	for level_definition in levels:
-		var calculation := DIFFICULTY_MODEL.timer_calculation(level_definition, seconds_per_launch)
-		var cost := int(calculation["normal_objective_cost"])
-		var timer := float(calculation["canonical_timer_sec"])
-		var ratio := timer / float(cost) if cost > 0 else 0.0
-		ratios.append(ratio)
-		preliminary.append({
-			"level_id": int(level_definition.get("level_id", 0)),
-			"normal_objective_cost": cost,
-			"canonical_timer_sec": timer,
-			"timer_cost_ratio": ratio,
-			"planning_target_time_sec": float(calculation["planning_target_time_sec"]),
-			"planning_target_minus_canonical_timer_sec": float(calculation["planning_target_minus_canonical_timer_sec"]),
-		})
-	var median_ratio := DIFFICULTY_MODEL.percentile(ratios, 0.5)
-	for record in preliminary:
-		var ratio := float(record["timer_cost_ratio"])
-		var deviation := ((ratio - median_ratio) / median_ratio * 100.0) if median_ratio > 0.0 else 0.0
-		record["timer_cost_ratio_deviation_percent"] = deviation
-		record["analytical_timer_ratio_outlier"] = absf(deviation) > 5.0
-	return {
-		"seconds_per_launch_calibration": seconds_per_launch,
-		"cohort_median_timer_cost_ratio": median_ratio,
-		"levels": preliminary,
-	}
-
-
 static func vip_interception_analysis(level_definition: Dictionary) -> Dictionary:
-	var normal_cost := DIFFICULTY_MODEL.normal_objective_cost(level_definition)
+	var normal_cost := COST_MODEL.normal_objective_cost(level_definition)
 	var vip_value: Variant = level_definition.get("vip", null)
 	if not vip_value is Dictionary or not bool(vip_value.get("enabled", true)):
 		return {
@@ -193,7 +163,7 @@ static func vip_interception_analysis(level_definition: Dictionary) -> Dictionar
 				"vip_level_intermediate_pieces": pieces,
 			})
 	var forced_captures := mini(maxi(0, vip_quantity), intermediate_demand)
-	var forced_cost := forced_captures * DIFFICULTY_MODEL.cocktail_cost(vip_level)
+	var forced_cost := forced_captures * COST_MODEL.cocktail_cost(vip_level)
 	var overhead := forced_cost / float(normal_cost) * 100.0 if normal_cost > 0 else 0.0
 	return {
 		"vip_enabled": true,

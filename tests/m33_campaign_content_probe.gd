@@ -51,7 +51,7 @@ func _run() -> void:
 		var packaged: Dictionary = m33_tiki_root.get("levels", [])[level_index]
 		for key in original:
 			m32_tiki_preserved = m32_tiki_preserved and packaged.get(key) == original[key]
-		m32_tiki_preserved = m32_tiki_preserved and int(packaged.get("global_level_id", 0)) == 101 + level_index and str(packaged.get("difficulty_tier", "")) == "PRESERVED_M32_SEED"
+		m32_tiki_preserved = m32_tiki_preserved and int(packaged.get("global_level_id", 0)) == 101 + level_index
 	_check("M32 Tiki L1-L12 gameplay rows are preserved with additive global/provenance metadata", m32_tiki_preserved)
 	var all_full_signatures: Dictionary = {}
 	var generated_record_count := 0
@@ -108,21 +108,21 @@ func _run() -> void:
 			if inherited_m32 and easy_intro_collision:
 				preserved_intro_collisions += 1
 			var is_capstone := not inherited_m32 and int(level.get("level_id", -1)) == 100
-			var difficulty_valid := true
+			var band_valid := true
 			if new_campaign_level and not inherited_m32:
-				difficulty_valid = bool(level.get("prestige_capstone", false)) == is_capstone and str(level.get("level_type", "")) == ("PRESTIGE_CAPSTONE" if is_capstone else "ORDINARY")
+				band_valid = bool(level.get("prestige_capstone", false)) == is_capstone and str(level.get("level_type", "")) == ("PRESTIGE_CAPSTONE" if is_capstone else "ORDINARY")
 				if is_capstone:
-					difficulty_valid = difficulty_valid and normal_theoretical > 56 and normal_theoretical <= 80 and objectives.has(9)
+					band_valid = band_valid and normal_theoretical > 56 and normal_theoretical <= 80 and objectives.has(9)
 				else:
-					difficulty_valid = difficulty_valid and normal_theoretical <= 56 and max_normal_target <= 8 and max_normal_target >= 6 and min_normal_targets == 0
+					band_valid = band_valid and normal_theoretical <= 56 and max_normal_target <= 8 and max_normal_target >= 6 and min_normal_targets == 0
 			if new_campaign_level and not inherited_m32:
 				var initial_drinks: Variant = level.get("initial_tabletop_drinks", null)
-				difficulty_valid = difficulty_valid and int(level.get("initial_tabletop_drinks_version", 0)) == 1 and initial_drinks is Array
+				band_valid = band_valid and int(level.get("initial_tabletop_drinks_version", 0)) == 1 and initial_drinks is Array
 				if initial_drinks is Array:
 					generated_starting_drink_count += initial_drinks.size()
 					if initial_drinks.is_empty():
 						generated_empty_start_count += 1
-			var record_valid: bool = global_id == expected_global and float(level.get("time_limit_sec", -1.0)) == 0.0 and level.get("orders", []).size() >= 1 and (not new_campaign_level or inherited_m32 or (level.get("orders", []).size() >= 2 and target_valid)) and (not inherited_m32 or target_valid) and difficulty_valid and int(level.get("theoretical_shots_total", -1)) == theoretical and int(level.get("move_limit", -1)) == theoretical * 4 and not (new_campaign_level and not inherited_m32 and easy_intro_collision)
+			var record_valid: bool = global_id == expected_global and float(level.get("time_limit_sec", -1.0)) == 0.0 and level.get("orders", []).size() >= 1 and (not new_campaign_level or inherited_m32 or (level.get("orders", []).size() >= 2 and target_valid)) and (not inherited_m32 or target_valid) and band_valid and int(level.get("theoretical_shots_total", -1)) == theoretical and int(level.get("move_limit", -1)) == theoretical * 4 and not (new_campaign_level and not inherited_m32 and easy_intro_collision)
 			if not record_valid:
 				print("M33_INVALID_RECORD island=%s level=%d global=%d expected=%d target_valid=%s shots=%d expected_shots=%d move=%d expected_move=%d intro=%s" % [island_id, int(level.get("level_id", -1)), global_id, expected_global, target_valid, int(level.get("theoretical_shots_total", -1)), theoretical, int(level.get("move_limit", -1)), theoretical * 4, easy_intro_collision])
 			static_valid = static_valid and record_valid
