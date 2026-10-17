@@ -424,7 +424,8 @@ During the authorized cleanup, Codex may delete tracked or untracked files that 
 - The only canonical Desktop project folder is `C:\Users\sekip\Desktop\Beach Cocktails - Merge`.
 - Never create another Beach Cocktails Merge clone, copy, backup, temporary directory, or Git worktree anywhere under Desktop.
 - Do not create suffixed Desktop folders such as `-M13`, `-M13V02`, sprint names, remediation names, or backup clones.
-- Temporary worktrees must be outside Desktop, preferably under `C:\Users\sekip\.codex\worktrees\...`.
+- Owner-directed storage rule (2026-10-17): save all Beach Cocktails task-created files, evidence, logs, reports, and temporary outputs only inside the canonical project root above. Do not create or use external sandboxes, worktrees, clones, backups, or temporary output folders. Keep temporary files in existing in-project paths and do not duplicate the repository.
+- Do not create a worktree or sandbox for Beach Cocktails tasks; work in the canonical checkout and preserve its owner files.
 - Inspect existing branches and worktrees before creating anything new.
 - Do not create a new GitHub branch without explicit owner approval.
 - Do not merge or delete a GitHub branch without explicit owner approval.
@@ -512,7 +513,7 @@ Existing older preservation stashes may remain. Their existence is not a blocker
 5. After Claude updates `TASKS.md` or other coordination artifacts on GitHub, the next Codex task must synchronize the canonical Desktop checkout before implementation begins.
 6. After Codex completes and pushes a task, if the canonical checkout is clean, fast-forward it to the just-pushed remote `main` before handoff.
 7. If post-task synchronization is blocked by unique owner changes, report the blocker instead of creating another Desktop copy or worktree.
-8. Temporary implementation worktrees may exist only outside Desktop.
+8. Do not create external temporary implementation worktrees or sandboxes; keep task-created files inside the canonical project root.
 9. Do not create a new GitHub branch without explicit owner approval.
 
 ## Safety
