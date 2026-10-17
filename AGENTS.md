@@ -1,4 +1,4 @@
-# Beach Cocktails Merge — Agent Governance (Claude Leads)
+# Beach Cocktails Merge — Agent Governance (ChatGPT Leads; Codex Builds)
 
 ## Canonical repository
 
@@ -69,27 +69,25 @@ H!veAI parser requirements:
 
 ### TASKS ownership and owner-designated handoff
 
-**As of 2026-10-17, the owner has transferred coordination, independent evidence review, and sole root `TASKS.md` write authority from ChatGPT to Claude.** Claude can edit canonical task statuses, current actor, progress and next action after reviewing repository truth. ChatGPT is no longer a mandatory participant or approval gate.
+**Owner decision 2026-10-17 (latest):** Claude's legacy-test triage is finished and published. ChatGPT resumes coordination, independent GitHub evidence review and sole root `TASKS.md` write authority. Codex is the implementation agent; it MUST NOT edit `TASKS.md`. Claude is no longer required for approvals. This owner decision supersedes prior Claude-only tracker governance, where conflicting.
 
-Codex and other delegated builders **must not edit root `TASKS.md`**. They submit source, tests, logs and evidence to Claude. Claude may implement directly or delegate work, perform independent verification, and update `TASKS.md`; never self-certify unverified native GUI, device, billing or physics outcomes as PASS. Owner decisions outrank earlier ChatGPT prompts and historical governance.
-
-Do not create parallel live task status trackers. Historical audits, prompts and logs remain read-only evidence, not controlling instructions where they contradict current owner rulings.
+Root `TASKS.md` is the sole live task tracker. Old prompts/audits remain evidence, not new execution authority. Codex should work from one comprehensive prompt per task, investigate related defects together and avoid serial one-issue remediation prompts. Evidence must be truthful: no claiming native mobile ads, store billing or 100-level qualification beyond what was tested.
 
 ## Session start (delegated builders)
 
-This section applies to Codex or other delegated builders. Claude, as owner-designated coordinator and tracker writer, may update `TASKS.md` after evidence review.
+This section applies to Codex or other delegated builders. ChatGPT, as owner-designated coordinator and tracker writer, may update `TASKS.md` after independent evidence review.
 
 At the start of every milestone or remediation:
 
 1. Complete the sync-first preflight.
 2. Read `AGENTS.md` and root `TASKS.md` from the synchronized checkout.
-3. Read Claude's approved task plan and applicable historical acceptance criteria. Older ChatGPT prompts are evidence only unless Claude adopts them.
+3. Read the current ChatGPT-approved task prompt and applicable criteria. Older ChatGPT prompts are evidence only unless Claude adopts them.
 4. Inspect implementation and asset paths before editing.
 5. Create a new immutable Codex execution log under `docs/codex-logs/`.
 6. Work only on the active work item.
 7. Do not edit `TASKS.md`.
 8. Commit and push all intended implementation/log/documentation changes before claiming completion.
-9. Stop and hand off to Claude for evidence review.
+9. Stop and hand off to ChatGPT for independent evidence review.
 
 ## Builder log rule
 
@@ -121,7 +119,7 @@ Codex does not perform the acceptance audit for its own work and does not assign
 
 Codex may run tests, static checks, smoke tests, and manual verification required by its prompt. Those are builder evidence only.
 
-After Codex stops, Claude independently reviews repository truth. The strict audit uses these sections:
+After Codex stops, ChatGPT independently reviews repository truth. The strict audit uses these sections:
 
 1. `VERDICT` — `PASS`, `CONDITIONAL`, or `FAIL`.
 2. `CONTRACT RECOVERY`.
@@ -153,7 +151,7 @@ Audit principles:
 - Manual acceptance not actually performed remains pending/unverified.
 - Previously accepted behavior must be regression-checked when touched.
 - FAIL or blocking CONDITIONAL findings must be remediated and re-audited before normal progression.
-- After the audit, Claude alone updates `TASKS.md` to reflect the validated state and next action.
+- After the audit, ChatGPT alone updates `TASKS.md` to reflect the validated state and next action.
 
 ## Godot and gameplay preservation
 
@@ -413,7 +411,7 @@ During the authorized cleanup, Codex may delete tracked or untracked files that 
 6. Rebuild current asset manifests/dimension catalogs/reports after deletions so they list only retained current assets.
 7. Run focused R04 surface/profile validation, clean Godot import/parse/boot, gameplay/campaign regressions, and `git diff --check` before handoff.
 8. Verify all ten owner-approved R04 surface/profile families still hash/load correctly and all current planned-use images remain present.
-9. Never edit root `TASKS.md`; Claude is its sole writer under the 2026-10-17 owner transfer.
+9. Never edit root `TASKS.md`; ChatGPT is its sole writer under the latest owner transfer.
 
 ### Current owner-deleted legacy background
 
@@ -435,7 +433,7 @@ During the authorized cleanup, Codex may delete tracked or untracked files that 
 ## Mandatory Canonical Desktop Sync Before Every Task
 
 Before reading or implementing any new Codex task, synchronize the canonical
-Desktop checkout with the current `origin/main`. Claude may have updated
+Desktop checkout with the current `origin/main`. ChatGPT may have updated
 `TASKS.md`, prompts, audit criteria, audits, or other coordination files after
 the prior task.
 
@@ -510,7 +508,7 @@ Existing older preservation stashes may remain. Their existence is not a blocker
 2. If the canonical checkout is clean and behind-only, fast-forward it to `origin/main`.
 3. If it contains only proven generated/reproducible clutter, remove only those generated items as authorized, then fast-forward.
 4. If it contains any unique or ambiguous owner change, stop and report it; never overwrite, stash, reset, or discard it silently.
-5. After Claude updates `TASKS.md` or other coordination artifacts on GitHub, the next Codex task must synchronize the canonical Desktop checkout before implementation begins.
+5. After ChatGPT updates `TASKS.md` or other coordination artifacts on GitHub, the next Codex task must synchronize the canonical Desktop checkout before implementation begins.
 6. After Codex completes and pushes a task, if the canonical checkout is clean, fast-forward it to the just-pushed remote `main` before handoff.
 7. If post-task synchronization is blocked by unique owner changes, report the blocker instead of creating another Desktop copy or worktree.
 8. Do not create external temporary implementation worktrees or sandboxes; keep task-created files inside the canonical project root.
