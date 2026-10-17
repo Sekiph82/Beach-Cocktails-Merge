@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M33-004 — Qualify 1,000 campaign levels for physical reachability and player difficulty with bounded proof.
 - Current Task Status: IN_PROGRESS
-- Next Task/Action: BCM-M33-004 — Codex runs R24 one bounded 35-minute session to resume SAME fixed 100-level random sample; 22 completed and 78 queued, no redraw and no extra session without new audit.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M33-004 — CLAUDE HANDOFF: independently review frozen 100-level sample and 22 completed trials; determine safe continuation of remaining 78 under owner 10%-per-island rule; coordinate remaining M34-005/006/007 and release caveats. No further ChatGPT approval or prompt required.
+- Required Actor: CLAUDE
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: R23 first owner-updated random sample session conditionally audit-PASS: frozen seed 20261016, 10 unique levels per island x 10 = 100 selected; 22 completed in 2067 seconds, 9 WIN_OBSERVED across 7 islands, 13 BUDGET_UNKNOWN, zero losses/trial errors, 78 remain. Reported 22/22 manifest integrity, zero VIP/lane parity mismatch, regressions 10/10; prior pre-update overrun excluded. Retained R23 evidence 150.6 MB vs C: free-space delta -372.0 MB, monitor storage carefully. R24 authorizes only one bounded same-manifest resume session. 1000-level exhaustive test prohibited; M33-004 OPEN.
+- Progress: OWNER TRANSFER TO CLAUDE (2026-10-17). Canonical TASKS.md is sole tracker, now maintained by Claude following evidence review. Four open tasks: BCM-M33-004 (fixed sample seed 20261016: 22/100 played, 9 wins, 13 budget unknown, 78 pending; only 10 unique levels per island, do not test other 900), BCM-M34-005 (hygiene), BCM-M34-006 (native rewarded ads), BCM-M34-007 (native billing blocked by approved catalog/backend). R23 selection/evidence/log must be independently checked. Preserve owner 8 tracked edits and CURRENT untracked paths, stashes and immutable evidence; don't overwrite or purge. No automatic unbounded test runs, no device work unless owner agrees.
 
 ## Blockers/Waits
 
@@ -40,14 +40,14 @@ Legend:
 
 ## Governance
 
-> **H!veAI tracking [OWNER-LOCKED — 2026-09-28]:** repository-root `TASKS.md` is the one and only live project-status tracker and H!veAI parser input. The top `Project Status` block controls current milestone, sprint, task, workflow status, next action, required actor, repository, branch, and progress. Every canonical task ID must appear exactly once. Do not create or maintain `coordination/SESSION_INDEX.md`, `coordination/AUDIT_INDEX.md`, `docs/04_ROADMAP.md`, `.hiveai/PROJECT_DASHBOARD.md`, `.hiveai/*` control-plane files, or any equivalent parallel tracker/status mirror. Audit/prompt/log files and historical task lists may exist only as evidence. **ChatGPT is the sole writer of root `TASKS.md`; Codex reads it but never edits it.** ChatGPT updates it after every independent audit, owner-gate decision, and before handing off the next implementation prompt.
+> **H!veAI tracking [OWNER-LOCKED — 2026-09-28]:** repository-root `TASKS.md` is the one and only live project-status tracker and H!veAI parser input. The top `Project Status` block controls current milestone, sprint, task, workflow status, next action, required actor, repository, branch, and progress. Every canonical task ID must appear exactly once. Do not create or maintain `coordination/SESSION_INDEX.md`, `coordination/AUDIT_INDEX.md`, `docs/04_ROADMAP.md`, `.hiveai/PROJECT_DASHBOARD.md`, `.hiveai/*` control-plane files, or any equivalent parallel tracker/status mirror. Audit/prompt/log files and historical task lists may exist only as evidence. **Claude is the owner-designated implementation coordinator and sole authorized writer of root `TASKS.md` after verifying source, tests, evidence and owner decisions; Codex remains read-only. ChatGPT has no continuing project authority.** Claude updates it after independently reviewing evidence and owner decisions; no ChatGPT handoff is required.
 
 - Codex must never edit this file.
 - Prompt and locked audit criteria are created before implementation/remediation.
 - Codex logs are builder evidence, not acceptance proof.
 - ChatGPT independently audits actual diff/source/tests/evidence against locked criteria.
 - Owner runtime screenshots and annotations are authoritative when later than earlier audit interpretations.
-- Only ChatGPT updates this tracker after audit.
+- Only Claude updates this tracker after evidence-based verification and owner decisions. Codex never updates it.
 - **H!veAI parser contract:** every counted task row must be exactly `- [x] ID — title`, `- [~] ID — title`, `- [!] ID — title`, or `- [ ] ID — title`. Headings, milestone summaries, historical notes, retired/cancelled work, and explanatory bullets must never use checkbox markers.
 - **Current Task must contain exactly one canonical task ID** and that ID must exist exactly once in the task rows below. Never join simultaneous concerns with `+` in the Current Task field.
 - **Current Task Status must match the task-row marker:** `[~] = IN_PROGRESS`, `[!] = BLOCKED`, `[x] = TASK_COMPLETE`, `[ ] = BACKLOG`.
@@ -1040,7 +1040,7 @@ Owner F5 V04 historical remediation:
 - [x] BCM-M21-004 — Run full legacy gameplay regression for physics, merge, scoring, To-Go behavior, R11 table-edge footprint, and HUD.
 - [x] BCM-M21-005 — Validate export/release configuration, persistence across app restarts, and no developer/test-only progression bypass.
 - [x] BCM-M21-006 — Complete independent audit, owner runtime acceptance, documentation, packaging, and v1 campaign release closure.
-  Owner: ChatGPT / Owner
+  Owner: Claude / Owner
   Depends on: BCM-M21-001
   Closure: `coordination/sessions/BCM-M21-FINAL-RELEASE-CLOSURE-R04/CHATGPT_FINAL_RELEASE_AUDIT_R04.md` — **AUDITED_PASS / BCM-M21 COMPLETE**.
 - [x] BCM-M21-007 — Remove proven obsolete/orphan visual assets, evidence, generated import metadata, stale JSON/tests/tools, and normalize repository truth around the owner-approved ten-island R04 surface/profile authority.
