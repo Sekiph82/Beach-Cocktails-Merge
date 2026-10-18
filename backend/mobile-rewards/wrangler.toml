@@ -1,0 +1,15 @@
+name = "beach-cocktails-mobile-rewards"
+main = "src/index.js"
+compatibility_date = "2026-10-18"
+workers_dev = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "beach-cocktails-mobile-rewards"
+database_id = "OWNER_MUST_CREATE_D1_DATABASE"
+migrations_dir = "migrations"
+
+# Before deployment, the owner selects an identity provider and host, creates the
+# D1 database, sets APP_JWT_SECRET as a Worker secret, and provides the exact
+# approved placement policy as AD_REWARD_POLICY_JSON. No account resources are
+# created or deployed by this repository task.
