@@ -5,16 +5,30 @@
   "consent_required_before_request": true,
   "production_reward_verification": "TRUSTED_SSV_BACKEND_REQUIRED",
   "configuration": {
-    "android_app_id": "",
-    "android_rewarded_unit_id": "",
-    "ios_app_id": "",
-    "ios_rewarded_unit_id": "",
+    "android_app_id": "ca-app-pub-9989151157632993~6639288823",
+    "ios_app_id": "ca-app-pub-9989151157632993~7625067439",
     "privacy_policy_url": "",
     "age_policy": "OWNER_DECISION_REQUIRED",
     "ump_consent_policy": "OWNER_DECISION_REQUIRED",
     "ios_att_policy": "OWNER_DECISION_REQUIRED",
     "ssv_backend_url": "",
     "device_tests_authorized": false
+  },
+  "rewarded_ad_units": {
+    "android": {
+      "energy_20": "ca-app-pub-9989151157632993/9764145618",
+      "daily_slot_2": "ca-app-pub-9989151157632993/9764145618",
+      "daily_slot_3": "ca-app-pub-9989151157632993/1128861711",
+      "daily_slot_4": "ca-app-pub-9989151157632993/5274236265",
+      "daily_slot_5": "ca-app-pub-9989151157632993/4876535032"
+    },
+    "iOS": {
+      "energy_20": "ca-app-pub-9989151157632993/7241924059",
+      "daily_slot_2": "ca-app-pub-9989151157632993/7241924059",
+      "daily_slot_3": "ca-app-pub-9989151157632993/2759928570",
+      "daily_slot_4": "ca-app-pub-9989151157632993/5082664575",
+      "daily_slot_5": "ca-app-pub-9989151157632993/5998045018"
+    }
   },
   "placements": {
     "energy_20": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
@@ -26,7 +40,7 @@
     "interstitial": {"format": "interstitial", "opt_in_only": true, "enabled": false}
   },
   "required_owner_setup": [
-    "Android and iOS AdMob app IDs and rewarded unit IDs (Google test IDs acceptable for first pass)",
+    "Compatible native Android/iOS AdMob SDK and device integration; app IDs and placement-matched rewarded units are configured",
     "privacy-policy URL",
     "age-directed/families decision",
     "UMP consent approach and iOS ATT decision",
