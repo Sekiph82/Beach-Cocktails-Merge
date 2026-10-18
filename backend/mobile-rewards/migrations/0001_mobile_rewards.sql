@@ -28,6 +28,18 @@ CREATE TABLE IF NOT EXISTS reward_ledger (
 
 CREATE INDEX IF NOT EXISTS reward_ledger_user_idx ON reward_ledger(user_id, granted_at);
 
+-- Delivery acknowledgement is separate from SSV settlement so a client may
+-- safely retry after a crash. The game economy must deduplicate transaction_id
+-- before acknowledging this server-owned verified reward.
+CREATE TABLE IF NOT EXISTS reward_delivery_ack (
+    transaction_id TEXT PRIMARY KEY REFERENCES reward_ledger(transaction_id),
+    user_id TEXT NOT NULL,
+    acknowledged_at INTEGER NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS reward_delivery_ack_user_idx
+    ON reward_delivery_ack(user_id, acknowledged_at);
+
 CREATE TABLE IF NOT EXISTS store_transactions (
     platform TEXT NOT NULL CHECK (platform IN ('apple', 'google')),
     transaction_id TEXT NOT NULL,

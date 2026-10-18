@@ -110,7 +110,7 @@ class IosExportPlugin extends EditorExportPlugin:
 	const NS_APP_TRANSPORT_SECURITY: String = """
 <key>NSAppTransportSecurity</key>
 <dict>
-	<key>NSAllowsArbitraryLoads</key>
+	<key>NSAllowsArbitraryLoadsForMedia</key>
 	<true/>
 	<key>NSAllowsArbitraryLoadsInWebContent</key>
 	<true/>

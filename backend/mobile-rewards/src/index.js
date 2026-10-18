@@ -189,6 +189,23 @@ class D1RewardRepository {
       FROM reward_ledger WHERE transaction_id=?`).bind(transactionId).first();
   }
 
+  async listPendingRewards(userId) {
+    const result = await this.db.prepare(`SELECT transaction_id,placement_id,reward_item,reward_amount,granted_at
+      FROM reward_ledger WHERE user_id=? AND transaction_id NOT IN
+        (SELECT transaction_id FROM reward_delivery_ack WHERE user_id=?) ORDER BY granted_at,transaction_id`)
+      .bind(userId, userId).all();
+    return result.results || [];
+  }
+
+  async acknowledgeReward(transactionId, userId, now) {
+    const result = await this.db.prepare(`INSERT INTO reward_delivery_ack(transaction_id,user_id,acknowledged_at)
+      SELECT transaction_id,user_id,? FROM reward_ledger WHERE transaction_id=? AND user_id=?
+      ON CONFLICT DO NOTHING`).bind(now, transactionId, userId).run();
+    const row = await this.db.prepare(`SELECT transaction_id FROM reward_delivery_ack WHERE transaction_id=? AND user_id=?`)
+      .bind(transactionId, userId).first();
+    return row ? { ...row, duplicate: Number(result?.meta?.changes ?? 0) === 0 } : null;
+  }
+
   async getUserClaim(nonce, userId, now) {
     return this.db.prepare(`SELECT nonce,placement_id,state,expires_at,transaction_id
       FROM ad_claims WHERE nonce=? AND user_id=? AND expires_at>=?`).bind(nonce, userId, now).first();
@@ -237,7 +254,8 @@ function buildAdUnitMap(policy) {
 async function handleCreateClaim(request, env, user, now) {
   if (!env.DB || typeof env.DB.prepare !== "function") return json({ error: "REWARD_BACKEND_UNAVAILABLE" }, 503);
   const body = await request.json().catch(() => null);
-  if (!body || typeof body.placement !== "string" || !["android", "ios"].includes(body.platform)) return json({ error: "INVALID_CLAIM_REQUEST" }, 400);
+  if (!body || typeof body.placement !== "string" || !["android", "ios"].includes(body.platform)
+    || body.consent_granted !== true) return json({ error: "CONSENT_AND_VALID_CLAIM_REQUIRED" }, 400);
   const policy = parseRewardPolicy(env);
   const row = policy[body.placement]?.[body.platform];
   if (!row || !/^ca-app-pub-\d{16}\/\d{10}$/.test(row.ad_unit || "")
@@ -255,6 +273,29 @@ async function handleCreateClaim(request, env, user, now) {
       reward_item: claim.rewardItem, reward_amount: claim.rewardAmount, expires_at: claim.expiresAt });
   } catch {
     return json({ error: "CLAIM_CREATE_FAILED" }, 503);
+  }
+}
+
+async function handlePendingRewards(request, env, user) {
+  if (!env.DB || typeof env.DB.prepare !== "function") return json({ error: "REWARD_BACKEND_UNAVAILABLE" }, 503);
+  try {
+    const rewards = await new D1RewardRepository(env.DB).listPendingRewards(user.sub);
+    return json({ rewards });
+  } catch {
+    return json({ error: "REWARD_DELIVERY_UNAVAILABLE" }, 503);
+  }
+}
+
+async function handleAcknowledgeReward(request, env, user, transactionId, now) {
+  if (!env.DB || typeof env.DB.prepare !== "function") return json({ error: "REWARD_BACKEND_UNAVAILABLE" }, 503);
+  if (!/^[A-Za-z0-9._:-]{1,128}$/.test(transactionId)) return json({ error: "REWARD_NOT_FOUND" }, 404);
+  try {
+    const acknowledged = await new D1RewardRepository(env.DB).acknowledgeReward(transactionId, user.sub, now);
+    return acknowledged
+      ? json({ ok: true, transaction_id: transactionId, duplicate: acknowledged.duplicate })
+      : json({ error: "REWARD_NOT_FOUND" }, 404);
+  } catch {
+    return json({ error: "REWARD_ACK_UNAVAILABLE" }, 503);
   }
 }
 
@@ -337,6 +378,15 @@ export async function handleRequest(request, env, dependencies = {}) {
   if (request.method === "POST" && url.pathname === "/v1/ads/claims") {
     const user = await authenticate(request, env, now);
     return user ? handleCreateClaim(request, env, user, now) : json({ error: "AUTHENTICATION_REQUIRED" }, 401);
+  }
+  if (request.method === "GET" && url.pathname === "/v1/ads/rewards/pending") {
+    const user = await authenticate(request, env, now);
+    return user ? handlePendingRewards(request, env, user) : json({ error: "AUTHENTICATION_REQUIRED" }, 401);
+  }
+  const ackMatch = /^\/v1\/ads\/rewards\/([^/]+)\/ack$/.exec(url.pathname);
+  if (request.method === "POST" && ackMatch) {
+    const user = await authenticate(request, env, now);
+    return user ? handleAcknowledgeReward(request, env, user, decodeURIComponent(ackMatch[1]), now) : json({ error: "AUTHENTICATION_REQUIRED" }, 401);
   }
   const match = /^\/v1\/ads\/claims\/([^/]+)$/.exec(url.pathname);
   if (request.method === "GET" && match) {

@@ -40,6 +40,22 @@ func configure(adapter: Object = null, verifier: Object = null) -> void:
 
 
 func get_catalog() -> Dictionary:
+	## Compatibility API: callers receive product dictionaries keyed by product ID.
+	## Keep the schema envelope available through get_catalog_document().
+	if _catalog.is_empty():
+		_load_catalog()
+	var products: Dictionary = {}
+	for product_variant in _catalog.get("products", []):
+		if product_variant is Dictionary:
+			var product: Dictionary = product_variant
+			var product_key := str(product.get("key", ""))
+			if not product_key.is_empty():
+				products[product_key] = product.duplicate(true)
+	return products
+
+
+func get_catalog_document() -> Dictionary:
+	## Full parsed catalog document for schema-aware tooling and probes.
 	if _catalog.is_empty():
 		_load_catalog()
 	return _catalog.duplicate(true)
@@ -82,12 +98,13 @@ func accept_verified_transaction(transaction: Dictionary) -> Dictionary:
 		return {"ok": false, "reason": "STORE_TRANSACTION_NOT_VERIFIED"}
 	var transaction_id := str(verification.get("transaction_id", ""))
 	product_key = str(verification.get("product_key", ""))
-	if transaction_id.is_empty() or product_key.is_empty() or _product(product_key).is_empty():
+	var verified_product: Dictionary = _product(product_key)
+	if transaction_id.is_empty() or product_key.is_empty() or verified_product.is_empty() or not bool(verified_product.get("buyable", false)):
 		return {"ok": false, "reason": "VERIFIED_TRANSACTION_FIELDS_INVALID"}
 	if _verified_transaction_ids.has(transaction_id):
 		return {"ok": true, "duplicate": true, "transaction_id": transaction_id}
 	_verified_transaction_ids[transaction_id] = true
-	if str(_product(product_key).get("kind", "")) == "non_consumable":
+	if str(verified_product.get("kind", "")) == "non_consumable":
 		entitlements[product_key] = true
 	state = STATE_VERIFIED
 	store_state_changed.emit(state)

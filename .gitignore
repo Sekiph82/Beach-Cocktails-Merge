@@ -17,6 +17,8 @@ exports/
 build/
 builds/
 dist/
+android/build/
+android/.build_version
 *.apk
 *.aab
 *.ipa

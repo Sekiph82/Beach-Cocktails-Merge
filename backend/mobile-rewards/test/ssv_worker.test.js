@@ -23,6 +23,7 @@ class FakeD1 {
   constructor(initialClaim = row()) {
     this.claims = new Map(initialClaim ? [[initialClaim.nonce, structuredClone(initialClaim)]] : []);
     this.ledger = new Map();
+    this.deliveryAcks = new Map();
   }
   prepare(sql) { return new FakeStatement(this, sql); }
   async batch(statements) {
@@ -43,6 +44,11 @@ class FakeStatement {
   bind(...values) { this.values = values; return this; }
   async first() {
     if (this.sql.includes("FROM reward_ledger")) return structuredClone(this.db.ledger.get(this.values[0]) || null);
+    if (this.sql.includes("FROM reward_delivery_ack")) {
+      const [transactionId, userId] = this.values;
+      const ack = this.db.deliveryAcks.get(transactionId);
+      return ack?.user_id === userId ? { transaction_id: transactionId } : null;
+    }
     if (this.sql.includes("FROM ad_claims WHERE nonce=? AND user_id=?")) {
       const [nonce, userId, now] = this.values;
       const item = this.db.claims.get(nonce);
@@ -60,6 +66,14 @@ class FakeStatement {
       this.db.claims.set(nonce, { nonce, user_id: userId, placement_id: placement, platform,
         ad_unit: adUnit, reward_item: item, reward_amount: amount, state: "pending",
         expires_at: expiresAt, created_at: createdAt, transaction_id: null });
+    } else if (this.sql.includes("INSERT INTO reward_delivery_ack")) {
+      const [acknowledgedAt, transactionId, userId] = this.values;
+      const ledger = this.db.ledger.get(transactionId);
+      if (ledger?.user_id === userId && !this.db.deliveryAcks.has(transactionId)) {
+        this.db.deliveryAcks.set(transactionId, { transaction_id: transactionId, user_id: userId, acknowledged_at: acknowledgedAt });
+        return { meta: { changes: 1 } };
+      }
+      return { meta: { changes: 0 } };
     } else if (this.sql.includes("INSERT INTO reward_ledger")) {
       const [transactionId, grantedAt, nonce, userId, placement, platform, adUnit, item, amount, now] = this.values;
       const claim = this.db.claims.get(nonce);
@@ -80,6 +94,13 @@ class FakeStatement {
         claim.settled_at = settledAt;
       }
     }
+  }
+  async all() {
+    if (!this.sql.includes("FROM reward_ledger")) return { results: [] };
+    const [userId] = this.values;
+    return { results: [...this.db.ledger.values()]
+      .filter((entry) => entry.user_id === userId && !this.db.deliveryAcks.has(entry.transaction_id))
+      .map((entry) => structuredClone(entry)) };
   }
 }
 
@@ -209,7 +230,7 @@ test("valid app JWT creates an account-bound server reward claim and status is p
   const configuration = { ...env(db), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
   const created = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
     method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
-    body: JSON.stringify({ placement: "energy_20", platform: "android", reward_amount: 999999 }),
+    body: JSON.stringify({ placement: "energy_20", platform: "android", reward_amount: 999999, consent_granted: true }),
   }), configuration, { now: NOW });
   assert.equal(created.status, 200);
   const claim = await created.json();
@@ -236,11 +257,64 @@ test("expired and incorrectly signed app JWTs cannot create reward claims", asyn
     jwt({ exp: NOW / 1000 + 3_600 + 1 }), jwt({ iat: null })]) {
     const response = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
       method: "POST", headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
-      body: JSON.stringify({ placement: "energy_20", platform: "android" }),
+      body: JSON.stringify({ placement: "energy_20", platform: "android", consent_granted: true }),
     }), configuration, { now: NOW });
     assert.equal(response.status, 401);
   }
   assert.equal(db.claims.size, 0);
+});
+
+test("consent-gated claim and verified reward delivery survive a game crash before server acknowledgement", async () => {
+  __test.clearGoogleKeyCache();
+  const db = new FakeD1();
+  const configuration = { ...env(db), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
+  const denied = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
+    body: JSON.stringify({ placement: "energy_20", platform: "android", consent_granted: false }),
+  }), configuration, { now: NOW });
+  assert.equal(denied.status, 400);
+
+  const ssv = await handleRequest(new Request(signedUrl()), configuration, { now: NOW, fetcher: keyFetcher() });
+  assert.equal(ssv.status, 200);
+  const auth = { authorization: `Bearer ${jwt()}` };
+  const pendingRequest = () => new Request("https://worker.test/v1/ads/rewards/pending", { headers: auth });
+  const pending = await handleRequest(pendingRequest(), configuration, { now: NOW });
+  const { rewards } = await pending.json();
+  assert.equal(rewards.length, 1);
+  const reward = rewards[0];
+
+  // Explicit TEST-ONLY durable game-economy fixture: transaction IDs are its
+  // grant_reward keys, and save data survives recreation of the process object.
+  let save = { balance: 0, transactions: new Set() };
+  const applyReward = (snapshot, entry) => {
+    if (!snapshot.transactions.has(entry.transaction_id)) {
+      snapshot.balance += entry.reward_amount;
+      snapshot.transactions.add(entry.transaction_id);
+    }
+  };
+  applyReward(save, reward);
+  const reopenedGame = save;
+  applyReward(reopenedGame, reward); // crash before ACK; retry after reopen.
+  assert.equal(reopenedGame.balance, 20);
+  assert.equal(reopenedGame.transactions.size, 1);
+
+  const wrongUserAck = await handleRequest(new Request(`https://worker.test/v1/ads/rewards/${reward.transaction_id}/ack`, {
+    method: "POST", headers: { authorization: `Bearer ${jwt({ sub: "different-user" })}` },
+  }), configuration, { now: NOW });
+  assert.equal(wrongUserAck.status, 404);
+  assert.equal(db.deliveryAcks.size, 0);
+  const ack = await handleRequest(new Request(`https://worker.test/v1/ads/rewards/${reward.transaction_id}/ack`, {
+    method: "POST", headers: auth,
+  }), configuration, { now: NOW });
+  assert.equal(ack.status, 200);
+  const duplicateAck = await handleRequest(new Request(`https://worker.test/v1/ads/rewards/${reward.transaction_id}/ack`, {
+    method: "POST", headers: auth,
+  }), configuration, { now: NOW });
+  assert.deepEqual(await duplicateAck.json(), { ok: true, transaction_id: reward.transaction_id, duplicate: true });
+  const afterAck = await handleRequest(pendingRequest(), configuration, { now: NOW });
+  assert.deepEqual((await afterAck.json()).rewards, []);
+  assert.equal(db.deliveryAcks.size, 1);
+  assert.equal(reopenedGame.balance, 20);
 });
 
 test("store purchase and restore assertions remain no-grant without a trusted verifier", async () => {
