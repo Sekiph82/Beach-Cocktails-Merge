@@ -50,7 +50,10 @@ func get_catalog() -> Dictionary:
 			var product: Dictionary = product_variant
 			var product_key := str(product.get("key", ""))
 			if not product_key.is_empty():
-				products[product_key] = product.duplicate(true)
+				var compatible_product: Dictionary = product.duplicate(true)
+				if compatible_product.has("kind") and not compatible_product.has("product_type"):
+					compatible_product["product_type"] = compatible_product["kind"]
+				products[product_key] = compatible_product
 	return products
 
 

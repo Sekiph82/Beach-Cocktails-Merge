@@ -8,12 +8,14 @@ extends Node
 
 signal state_changed(state: String, placement_id: String)
 signal verified_rewarded(placement_id: String, transaction_id: String, provider_receipt: String)
+signal native_reward_earned(placement_id: String, transaction_id: String, session_id: String)
 
 const STATE_IDLE := "IDLE"
 const STATE_LOADING := "LOADING"
 const STATE_RETRY_WAIT := "RETRY_WAIT"
 const STATE_READY := "READY"
 const STATE_SHOWING := "SHOWING"
+const STATE_VERIFYING := "VERIFYING_SERVER_REWARD"
 const STATE_REWARDED := "REWARDED"
 const STATE_FAILED := "FAILED"
 const STATE_CANCELLED := "CANCELLED"
@@ -23,6 +25,7 @@ const BASE_RETRY_DELAY_SEC := 0.5
 const MAX_RETRY_DELAY_SEC := 2.0
 const LOAD_TIMEOUT_SEC := 8.0
 const SHOW_TIMEOUT_SEC := 90.0
+const SERVER_VERIFY_TIMEOUT_SEC := 30.0
 
 var state := STATE_IDLE
 var consent_status := "UNSET"
@@ -66,7 +69,7 @@ func set_provider_adapter(adapter: Object, approved_consent_status: String) -> b
 		return false
 	if adapter == null or not adapter.has_method("is_test_provider") or not bool(adapter.is_test_provider()) or not adapter.has_method("request_rewarded") or not adapter.has_method("show_rewarded"):
 		return false
-	if approved_consent_status not in ["GRANTED_PERSONALIZED", "GRANTED_NONPERSONALIZED"]:
+	if approved_consent_status not in ["GRANTED_PERSONALIZED", "GRANTED_NONPERSONALIZED", "UMP_OBTAINED", "UMP_NOT_REQUIRED"]:
 		return false
 	provider_adapter = adapter
 	consent_status = approved_consent_status
@@ -88,7 +91,7 @@ func get_sanitized_diagnostics() -> Dictionary:
 	return {
 		"provider_status": provider_status,
 		"production_enabled": production_enabled,
-		"consent_granted": consent_status in ["GRANTED_PERSONALIZED", "GRANTED_NONPERSONALIZED"],
+		"consent_granted": _has_resolved_consent(),
 		"provider_attached": provider_adapter != null,
 		"state": state
 	}
@@ -101,7 +104,7 @@ func request_rewarded(placement_id: String, transaction_id: String) -> Dictionar
 		return {"ok": false, "reason": "REWARDED_REQUEST_BUSY", "state": state}
 	if _seen_transactions.has(transaction_id):
 		return {"ok": false, "reason": "DUPLICATE_REWARDED_TRANSACTION"}
-	if consent_status not in ["GRANTED_PERSONALIZED", "GRANTED_NONPERSONALIZED"]:
+	if not _has_resolved_consent():
 		_set_state(STATE_FAILED)
 		return {"ok": false, "reason": "CONSENT_REQUIRED", "state": state}
 	if provider_adapter == null or not provider_adapter.has_method("request_rewarded"):
@@ -121,7 +124,11 @@ func _request_provider_load() -> Dictionary:
 		return {"ok": false, "reason": "PROVIDER_UNAVAILABLE", "state": state}
 	_load_attempt += 1
 	_set_state(STATE_LOADING)
-	var provider_result: Dictionary = provider_adapter.request_rewarded(_active_placement, _active_transaction_id)
+	var provider_result: Dictionary
+	if provider_adapter.has_method("request_rewarded_with_session"):
+		provider_result = provider_adapter.request_rewarded_with_session(_active_placement, _active_transaction_id, _active_session_id)
+	else:
+		provider_result = provider_adapter.request_rewarded(_active_placement, _active_transaction_id)
 	if bool(provider_result.get("ok", false)):
 		if bool(provider_result.get("pending", false)):
 			_start_timer("load", LOAD_TIMEOUT_SEC)
@@ -185,12 +192,32 @@ func notify_provider_closed_without_reward(transaction_id: String, session_id: S
 	return {"ok": true, "state": state}
 
 
+## Native SDK earned signals mean only that the provider UI reported completion.
+## Keep the session pending while a separate authenticated Worker query runs.
+func notify_native_reward_earned(transaction_id: String, session_id: String) -> Dictionary:
+	if state != STATE_SHOWING or transaction_id != _active_transaction_id or session_id != _active_session_id:
+		return {"ok": false, "reason": "STALE_NATIVE_REWARD_CALLBACK"}
+	_cancel_timer()
+	_set_state(STATE_VERIFYING)
+	_start_timer("verification", SERVER_VERIFY_TIMEOUT_SEC)
+	native_reward_earned.emit(_active_placement, transaction_id, session_id)
+	return {"ok": true, "server_verification_required": true, "session_id": _active_session_id}
+
+
+func is_active_provider_session(transaction_id: String, session_id: String) -> bool:
+	return transaction_id == _active_transaction_id and session_id == _active_session_id and state in [STATE_LOADING, STATE_READY, STATE_SHOWING, STATE_VERIFYING]
+
+
 func show_rewarded() -> Dictionary:
 	if state != STATE_READY or provider_adapter == null or not provider_adapter.has_method("show_rewarded"):
 		return {"ok": false, "reason": "REWARDED_NOT_READY", "state": state}
 	_set_state(STATE_SHOWING)
 	_start_timer("show", SHOW_TIMEOUT_SEC)
-	var result: Dictionary = provider_adapter.show_rewarded(_active_transaction_id)
+	var result: Dictionary
+	if provider_adapter.has_method("show_rewarded_with_session"):
+		result = provider_adapter.show_rewarded_with_session(_active_transaction_id, _active_session_id)
+	else:
+		result = provider_adapter.show_rewarded(_active_transaction_id)
 	if not bool(result.get("ok", false)):
 		_cancel_timer()
 		_set_state(STATE_FAILED)
@@ -203,7 +230,7 @@ func show_rewarded() -> Dictionary:
 func accept_provider_reward(transaction_id: String, provider_receipt: String, ssv_verified: bool = false, session_id: String = "") -> Dictionary:
 	if not OS.is_debug_build():
 		return {"ok": false, "reason": "PRODUCTION_SSV_ADAPTER_UNAVAILABLE"}
-	if state != STATE_SHOWING or transaction_id != _active_transaction_id:
+	if state not in [STATE_SHOWING, STATE_VERIFYING] or transaction_id != _active_transaction_id:
 		return {"ok": false, "reason": "NO_MATCHING_REWARDED_SESSION"}
 	if not session_id.is_empty() and session_id != _active_session_id:
 		return {"ok": false, "reason": "STALE_REWARDED_SESSION"}
@@ -273,6 +300,11 @@ func _on_timer_timeout() -> void:
 		_active_session_id = ""
 		_active_transaction_id = ""
 		_set_state(STATE_FAILED)
+	elif kind == "verification" and state == STATE_VERIFYING:
+		_cancel_provider_session()
+		_active_session_id = ""
+		_active_transaction_id = ""
+		_set_state(STATE_FAILED)
 
 
 func _cancel_provider_session() -> void:
@@ -283,3 +315,7 @@ func _cancel_provider_session() -> void:
 func _set_state(next_state: String) -> void:
 	state = next_state
 	state_changed.emit(state, _active_placement)
+
+
+func _has_resolved_consent() -> bool:
+	return consent_status in ["GRANTED_PERSONALIZED", "GRANTED_NONPERSONALIZED", "UMP_OBTAINED", "UMP_NOT_REQUIRED"]

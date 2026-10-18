@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS ad_claims (
     ad_unit TEXT NOT NULL,
     reward_item TEXT NOT NULL,
     reward_amount INTEGER NOT NULL CHECK (reward_amount > 0),
+    client_transaction_id TEXT NOT NULL DEFAULT '',
     state TEXT NOT NULL CHECK (state IN ('pending', 'settled', 'expired')) DEFAULT 'pending',
     expires_at INTEGER NOT NULL,
     transaction_id TEXT UNIQUE,
@@ -21,12 +22,16 @@ CREATE TABLE IF NOT EXISTS reward_ledger (
     nonce TEXT NOT NULL UNIQUE REFERENCES ad_claims(nonce),
     user_id TEXT NOT NULL,
     placement_id TEXT NOT NULL,
+    client_transaction_id TEXT NOT NULL DEFAULT '',
     reward_item TEXT NOT NULL,
     reward_amount INTEGER NOT NULL CHECK (reward_amount > 0),
     granted_at INTEGER NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS reward_ledger_user_idx ON reward_ledger(user_id, granted_at);
+CREATE UNIQUE INDEX IF NOT EXISTS reward_ledger_user_client_transaction_idx
+    ON reward_ledger(user_id, client_transaction_id)
+    WHERE client_transaction_id <> '';
 
 -- Delivery acknowledgement is separate from SSV settlement so a client may
 -- safely retry after a crash. The game economy must deduplicate transaction_id

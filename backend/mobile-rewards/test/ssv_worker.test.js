@@ -14,7 +14,7 @@ const publicKeyBase64 = publicKey.export({ type: "spki", format: "der" }).toStri
 function row(placement = "energy_20", adUnit = AD_UNIT) {
   return {
     nonce: NONCE, user_id: USER, placement_id: placement, platform: "android",
-    ad_unit: adUnit, reward_item: "energy", reward_amount: 20,
+    ad_unit: adUnit, reward_item: "energy", reward_amount: 20, client_transaction_id: "",
     state: "pending", expires_at: NOW + 900_000, transaction_id: null,
   };
 }
@@ -61,10 +61,10 @@ class FakeStatement {
   }
   async run() {
     if (this.sql.includes("INSERT INTO ad_claims")) {
-      const [nonce, userId, placement, platform, adUnit, item, amount, expiresAt, createdAt] = this.values;
+      const [nonce, userId, placement, platform, adUnit, item, amount, clientTransactionId, expiresAt, createdAt] = this.values;
       if (this.db.claims.has(nonce)) throw new Error("UNIQUE_CONSTRAINT");
       this.db.claims.set(nonce, { nonce, user_id: userId, placement_id: placement, platform,
-        ad_unit: adUnit, reward_item: item, reward_amount: amount, state: "pending",
+        ad_unit: adUnit, reward_item: item, reward_amount: amount, client_transaction_id: clientTransactionId, state: "pending",
         expires_at: expiresAt, created_at: createdAt, transaction_id: null });
     } else if (this.sql.includes("INSERT INTO reward_delivery_ack")) {
       const [acknowledgedAt, transactionId, userId] = this.values;
@@ -80,9 +80,10 @@ class FakeStatement {
       if (claim && claim.user_id === userId && claim.placement_id === placement && claim.platform === platform
         && claim.ad_unit === adUnit && claim.reward_item === item && claim.reward_amount === amount
         && claim.state === "pending" && claim.expires_at >= now && !this.db.ledger.has(transactionId)
+        && (!claim.client_transaction_id || ![...this.db.ledger.values()].some((entry) => entry.user_id === userId && entry.client_transaction_id === claim.client_transaction_id))
         && ![...this.db.ledger.values()].some((entry) => entry.nonce === nonce)) {
         this.db.ledger.set(transactionId, { transaction_id: transactionId, nonce, user_id: userId,
-          placement_id: placement, reward_item: item, reward_amount: amount, granted_at: grantedAt });
+          placement_id: placement, client_transaction_id: claim.client_transaction_id, reward_item: item, reward_amount: amount, granted_at: grantedAt });
       }
     } else if (this.sql.includes("UPDATE ad_claims SET state='settled'")) {
       const [transactionId, settledAt, nonce, userId, ledgerTransaction, ledgerNonce] = this.values;
@@ -230,7 +231,7 @@ test("valid app JWT creates an account-bound server reward claim and status is p
   const configuration = { ...env(db), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
   const created = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
     method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
-    body: JSON.stringify({ placement: "energy_20", platform: "android", reward_amount: 999999, consent_granted: true }),
+    body: JSON.stringify({ placement: "energy_20", platform: "android", reward_amount: 999999, consent_granted: true, consent_state: "UMP_OBTAINED" }),
   }), configuration, { now: NOW });
   assert.equal(created.status, 200);
   const claim = await created.json();
@@ -238,6 +239,7 @@ test("valid app JWT creates an account-bound server reward claim and status is p
   assert.equal(claim.ad_unit, AD_UNIT);
   assert.equal(claim.reward_item, "energy");
   assert.equal(claim.reward_amount, 20, "client-supplied reward amount must be ignored");
+  assert.equal(claim.client_transaction_id, "");
   assert.equal(db.claims.get(claim.nonce).state, "pending");
   const status = await handleRequest(new Request(`https://worker.test/v1/ads/claims/${claim.nonce}`, {
     headers: { authorization: `Bearer ${jwt()}` },
@@ -257,11 +259,31 @@ test("expired and incorrectly signed app JWTs cannot create reward claims", asyn
     jwt({ exp: NOW / 1000 + 3_600 + 1 }), jwt({ iat: null })]) {
     const response = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
       method: "POST", headers: { authorization: `Bearer ${token}`, "content-type": "application/json" },
-      body: JSON.stringify({ placement: "energy_20", platform: "android", consent_granted: true }),
+      body: JSON.stringify({ placement: "energy_20", platform: "android", consent_granted: true, consent_state: "UMP_OBTAINED" }),
     }), configuration, { now: NOW });
     assert.equal(response.status, 401);
   }
   assert.equal(db.claims.size, 0);
+});
+
+test("daily-slot claims bind the business UTC slot transaction before an ad is requested", async () => {
+  const db = new FakeD1(null);
+  const dailyPolicy = { daily_slot_2: { android: { ad_unit: AD_UNIT, reward_item: "energy", reward_amount: 20 } } };
+  const configuration = { ...env(db), AD_REWARD_POLICY_JSON: JSON.stringify(dailyPolicy), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
+  const today = new Date(NOW).toISOString().slice(0, 10);
+  const send = (clientTransactionId) => handleRequest(new Request("https://worker.test/v1/ads/claims", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
+    body: JSON.stringify({ placement: "daily_slot_2", platform: "android", consent_granted: true,
+      consent_state: "UMP_OBTAINED", ...(clientTransactionId ? { client_transaction_id: clientTransactionId } : {}) }),
+  }), configuration, { now: NOW });
+  assert.equal((await send("")).status, 400);
+  assert.equal((await send(`daily:${today}:3`)).status, 400);
+  const response = await send(`daily:${today}:2`);
+  assert.equal(response.status, 200);
+  const claim = await response.json();
+  assert.equal(claim.client_transaction_id, `daily:${today}:2`);
+  assert.equal(claim.placement_id, "daily_slot_2");
+  assert.equal(db.claims.get(claim.nonce).client_transaction_id, `daily:${today}:2`);
 });
 
 test("consent-gated claim and verified reward delivery survive a game crash before server acknowledgement", async () => {
@@ -287,6 +309,8 @@ test("consent-gated claim and verified reward delivery survive a game crash befo
   const { rewards } = await pending.json();
   assert.equal(rewards.length, 1);
   const reward = rewards[0];
+  assert.equal(reward.user_id, USER, "pending delivery binds the verified reward row to the authenticated subject");
+  assert.equal(reward.client_transaction_id, "");
 
   // Explicit TEST-ONLY durable game-economy fixture: transaction IDs are its
   // grant_reward keys, and save data survives recreation of the process object.

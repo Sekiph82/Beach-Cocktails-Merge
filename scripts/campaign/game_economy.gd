@@ -212,6 +212,70 @@ func grant_verified_ad_energy(transaction_id: String, verified_provider_receipt:
     return {"ok": true, "granted": true, "energy_delta": energy - before_energy, "energy": energy, "transaction_id": transaction_id}
 
 
+## Apply a server-settled mobile reward to the canonical economy. The caller
+## must already have obtained this row from the authenticated Worker pending
+## endpoint. This method does not accept a native SDK earned callback as proof.
+func apply_verified_mobile_reward(transaction_id: String, placement_id: String, reward_item: String, reward_amount: int, client_transaction_id: String = "", now_unix: int = -1) -> Dictionary:
+    if transaction_id.is_empty() or reward_amount <= 0:
+        return {"ok": false, "reason": "INVALID_VERIFIED_REWARD"}
+    if _transaction_ids.has(transaction_id):
+        return {"ok": true, "duplicate": true, "transaction_id": transaction_id}
+    var reward := {"type": reward_item, "quantity": reward_amount}
+    if placement_id == "energy_20":
+        if reward_item != "energy" or reward_amount != 20:
+            return {"ok": false, "reason": "REWARD_PLACEMENT_MISMATCH"}
+        refresh_energy(now_unix)
+        if energy >= ENERGY_CAP:
+            return {"ok": false, "reason": "ENERGY_ALREADY_FULL"}
+        energy = mini(ENERGY_CAP, energy + reward_amount)
+        if energy >= ENERGY_CAP:
+            energy_regen_remainder_sec = 0
+        _transaction_ids[transaction_id] = true
+        return {"ok": true, "granted": true, "energy": energy, "transaction_id": transaction_id}
+    if placement_id.begins_with("daily_slot_"):
+        var slot := int(placement_id.trim_prefix("daily_slot_"))
+        var transaction_parts := client_transaction_id.split(":")
+        if slot < 2 or slot > 5 or transaction_parts.size() != 3 or transaction_parts[0] != "daily" or client_transaction_id != "daily:%s:%d" % [transaction_parts[1], slot]:
+            return {"ok": false, "reason": "DAILY_TRANSACTION_MISMATCH"}
+        var day := str(transaction_parts[1])
+        var today := effective_utc_date(now_unix)
+        if not _is_utc_date(day) or day > today:
+            return {"ok": false, "reason": "DAILY_TRANSACTION_DATE_INVALID"}
+        var expected := {2: {"type": "energy", "quantity": 20}, 3: {"type": "coins", "quantity": 40}, 4: {"type": "gems", "quantity": 2}, 5: {"type": "coins", "quantity": 80}}
+        if reward != expected[slot]:
+            return {"ok": false, "reason": "DAILY_REWARD_MISMATCH"}
+        return _claim_verified_daily_reward(day, slot, client_transaction_id, transaction_id, reward, now_unix)
+    return {"ok": false, "reason": "UNKNOWN_REWARD_PLACEMENT"}
+
+
+func _claim_verified_daily_reward(day: String, slot: int, client_transaction_id: String, server_transaction_id: String, reward: Dictionary, now_unix: int) -> Dictionary:
+    var claim_key := "%s:%d" % [day, slot]
+    if daily_claim_ledger.has(claim_key):
+        var existing: Dictionary = daily_claim_ledger[claim_key]
+        if str(existing.get("transaction_id", "")) == client_transaction_id and str(existing.get("receipt", "")) == "ssv:%s" % server_transaction_id:
+            return {"ok": true, "duplicate": true, "transaction_id": server_transaction_id}
+        return {"ok": false, "reason": "DAILY_CLAIM_ALREADY_SETTLED_WITH_DIFFERENT_TRANSACTION"}
+    var receipt := "ssv:%s" % server_transaction_id
+    if _transaction_ids.has("daily-provider-receipt:%s" % receipt):
+        return {"ok": false, "reason": "DUPLICATE_PROVIDER_RECEIPT"}
+    if slot == 2:
+        refresh_energy(now_unix)
+        if energy >= ENERGY_CAP:
+            return {"ok": false, "reason": "ENERGY_ALREADY_FULL"}
+        energy = mini(ENERGY_CAP, energy + int(reward["quantity"]))
+        if energy >= ENERGY_CAP:
+            energy_regen_remainder_sec = 0
+    else:
+        var grant := grant_reward(client_transaction_id, {str(reward["type"]): int(reward["quantity"])})
+        if not bool(grant.get("ok", false)) or bool(grant.get("duplicate", false)):
+            return {"ok": false, "reason": "DAILY_REWARD_LEDGER_REJECTED"}
+    _transaction_ids["daily-provider-receipt:%s" % receipt] = true
+    _transaction_ids[client_transaction_id] = true
+    _transaction_ids[server_transaction_id] = true
+    daily_claim_ledger[claim_key] = {"transaction_id": client_transaction_id, "receipt": receipt}
+    return {"ok": true, "granted": true, "duplicate": false, "claim_key": claim_key, "reward": reward.duplicate(true)}
+
+
 func effective_utc_date(now_unix: int = -1) -> String:
     var now := now_unix if now_unix >= 0 else _now_unix()
     var parts: Dictionary = Time.get_datetime_dict_from_unix_time(now)

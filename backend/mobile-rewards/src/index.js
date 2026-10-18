@@ -173,10 +173,10 @@ class D1RewardRepository {
 
   async createClaim(claim) {
     await this.db.prepare(`INSERT INTO ad_claims
-      (nonce,user_id,placement_id,platform,ad_unit,reward_item,reward_amount,state,expires_at,created_at)
-      VALUES(?,?,?,?,?,?,?,'pending',?,?)`)
+      (nonce,user_id,placement_id,platform,ad_unit,reward_item,reward_amount,client_transaction_id,state,expires_at,created_at)
+      VALUES(?,?,?,?,?,?,?,?,'pending',?,?)`)
       .bind(claim.nonce, claim.userId, claim.placement, claim.platform, claim.adUnit,
-        claim.rewardItem, claim.rewardAmount, claim.expiresAt, claim.createdAt).run();
+        claim.rewardItem, claim.rewardAmount, claim.clientTransactionId, claim.expiresAt, claim.createdAt).run();
   }
 
   async getClaim(nonce) {
@@ -190,7 +190,7 @@ class D1RewardRepository {
   }
 
   async listPendingRewards(userId) {
-    const result = await this.db.prepare(`SELECT transaction_id,placement_id,reward_item,reward_amount,granted_at
+    const result = await this.db.prepare(`SELECT transaction_id,user_id,placement_id,client_transaction_id,reward_item,reward_amount,granted_at
       FROM reward_ledger WHERE user_id=? AND transaction_id NOT IN
         (SELECT transaction_id FROM reward_delivery_ack WHERE user_id=?) ORDER BY granted_at,transaction_id`)
       .bind(userId, userId).all();
@@ -217,8 +217,8 @@ class D1RewardRepository {
 
   async settleAtomically(fields, now) {
     await this.db.batch([
-      this.db.prepare(`INSERT INTO reward_ledger(transaction_id,nonce,user_id,placement_id,reward_item,reward_amount,granted_at)
-        SELECT ?,nonce,user_id,placement_id,reward_item,reward_amount,?
+      this.db.prepare(`INSERT INTO reward_ledger(transaction_id,nonce,user_id,placement_id,client_transaction_id,reward_item,reward_amount,granted_at)
+        SELECT ?,nonce,user_id,placement_id,client_transaction_id,reward_item,reward_amount,?
         FROM ad_claims WHERE nonce=? AND user_id=? AND placement_id=? AND platform=? AND ad_unit=?
           AND reward_item=? AND reward_amount=? AND state='pending' AND expires_at>=?
         ON CONFLICT DO NOTHING`)
@@ -255,21 +255,38 @@ async function handleCreateClaim(request, env, user, now) {
   if (!env.DB || typeof env.DB.prepare !== "function") return json({ error: "REWARD_BACKEND_UNAVAILABLE" }, 503);
   const body = await request.json().catch(() => null);
   if (!body || typeof body.placement !== "string" || !["android", "ios"].includes(body.platform)
-    || body.consent_granted !== true) return json({ error: "CONSENT_AND_VALID_CLAIM_REQUIRED" }, 400);
+    || body.consent_granted !== true || !["UMP_OBTAINED", "UMP_NOT_REQUIRED"].includes(body.consent_state)) {
+    return json({ error: "CONSENT_AND_VALID_CLAIM_REQUIRED" }, 400);
+  }
   const policy = parseRewardPolicy(env);
   const row = policy[body.placement]?.[body.platform];
   if (!row || !/^ca-app-pub-\d{16}\/\d{10}$/.test(row.ad_unit || "")
     || typeof row.reward_item !== "string" || !Number.isSafeInteger(row.reward_amount) || row.reward_amount <= 0) {
     return json({ error: "PLACEMENT_NOT_CONFIGURED" }, 503);
   }
+  const clientTransactionId = typeof body.client_transaction_id === "string" ? body.client_transaction_id : "";
+  if (body.placement.startsWith("daily_slot_")) {
+    const slot = Number(body.placement.slice("daily_slot_".length));
+    const dateMatch = /^daily:([0-9]{4}-[0-9]{2}-[0-9]{2}):([2-5])$/.exec(clientTransactionId);
+    const claimDay = dateMatch?.[1] || "";
+    const parsedDay = claimDay ? Date.parse(`${claimDay}T00:00:00Z`) : NaN;
+    const validDate = Number.isFinite(parsedDay) && new Date(parsedDay).toISOString().slice(0, 10) === claimDay;
+    const currentDay = new Date(now).toISOString().slice(0, 10);
+    if (!Number.isInteger(slot) || slot < 2 || slot > 5 || !dateMatch || Number(dateMatch[2]) !== slot || !validDate || claimDay !== currentDay) {
+      return json({ error: "DAILY_CLIENT_TRANSACTION_REQUIRED" }, 400);
+    }
+  } else if (clientTransactionId && !/^[A-Za-z0-9._:-]{1,128}$/.test(clientTransactionId)) {
+    return json({ error: "CLIENT_TRANSACTION_INVALID" }, 400);
+  }
   const claim = {
     nonce: crypto.randomUUID(), userId: user.sub, placement: body.placement,
     platform: body.platform, adUnit: row.ad_unit, rewardItem: row.reward_item,
-    rewardAmount: row.reward_amount, createdAt: now, expiresAt: now + CLAIM_TTL_MS,
+    rewardAmount: row.reward_amount, clientTransactionId, createdAt: now, expiresAt: now + CLAIM_TTL_MS,
   };
   try {
     await new D1RewardRepository(env.DB).createClaim(claim);
-    return json({ nonce: claim.nonce, user_id: claim.userId, ad_unit: claim.adUnit,
+    return json({ nonce: claim.nonce, user_id: claim.userId, placement_id: claim.placement,
+      client_transaction_id: claim.clientTransactionId, ad_unit: claim.adUnit,
       reward_item: claim.rewardItem, reward_amount: claim.rewardAmount, expires_at: claim.expiresAt });
   } catch {
     return json({ error: "CLAIM_CREATE_FAILED" }, 503);

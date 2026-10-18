@@ -12,6 +12,7 @@ signal level_selected(island_id: String, level_id: int)
 signal gameplay_session_started(configuration: Dictionary)
 signal gameplay_session_finished(result: Dictionary)
 signal economy_state_changed(state: Dictionary)
+signal mobile_reward_delivery_status(result: Dictionary)
 
 const VIEW_WORLD_MAP := "WORLD_MAP"
 const VIEW_ISLAND_MAP := "ISLAND_MAP"
@@ -27,6 +28,10 @@ const BRIDGE_SCRIPT := preload("res://scripts/campaign/gameplay_session_bridge.g
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 const ADS_SCRIPT := preload("res://scripts/campaign/ads_service.gd")
 const ADS_CONFIG_SCRIPT := preload("res://scripts/campaign/ads_provider_config.gd")
+const MOBILE_REWARD_DELIVERY_SCRIPT := preload("res://scripts/campaign/mobile_reward_delivery.gd")
+const MOBILE_REWARD_TRANSPORT_SCRIPT := preload("res://scripts/campaign/mobile_reward_http_transport.gd")
+const ADMOB_TEST_ADAPTER_SCRIPT := preload("res://scripts/campaign/admob_test_adapter.gd")
+const PLAY_BILLING_TEST_ADAPTER_SCRIPT := preload("res://scripts/campaign/play_billing_test_adapter.gd")
 const STORE_SCRIPT := preload("res://scripts/campaign/store_service.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
@@ -38,6 +43,10 @@ var ads_service: AdsService
 var ads_provider_config: AdsProviderConfig
 var store_service: StoreService
 var save_manager
+var mobile_reward_delivery: MobileRewardDelivery
+var mobile_reward_transport: MobileRewardHttpTransport
+var admob_test_adapter: AdmobTestAdapter
+var play_billing_test_adapter: PlayBillingTestAdapter
 var content_load_error := ""
 var current_view := VIEW_WORLD_MAP
 var active_island_id := ""
@@ -75,6 +84,7 @@ func _ready() -> void:
 	if ads_provider_config.load_config():
 		ads_service.configure_production(ads_provider_config.values)
 	ads_service.verified_rewarded.connect(_on_verified_ad_reward)
+	ads_service.native_reward_earned.connect(_on_native_reward_earned)
 	add_child(ads_service)
 	store_service = STORE_SCRIPT.new()
 	store_service.name = "StoreService"
@@ -275,6 +285,44 @@ func persist_current_state() -> Dictionary:
 	if bool(result.get("ok", false)) and economy != null:
 		economy_state_changed.emit(economy.export_state())
 	return result
+
+
+## Owner-provided authentication is required; the transport is HTTPS-only and
+## remains disabled unless owner_enabled is explicitly true.
+func configure_mobile_reward_delivery(worker_endpoint: String, identity_provider: Object, owner_enabled: bool = false) -> Dictionary:
+	if mobile_reward_transport == null:
+		mobile_reward_transport = MOBILE_REWARD_TRANSPORT_SCRIPT.new()
+		mobile_reward_transport.name = "MobileRewardHttpTransport"
+		mobile_reward_transport.pending_rewards_received.connect(_on_pending_mobile_rewards)
+		mobile_reward_transport.acknowledgement_received.connect(_on_mobile_reward_acknowledged)
+		add_child(mobile_reward_transport)
+	if mobile_reward_delivery == null:
+		mobile_reward_delivery = MOBILE_REWARD_DELIVERY_SCRIPT.new()
+	return mobile_reward_transport.configure(worker_endpoint, identity_provider, owner_enabled)
+
+
+func reconcile_pending_mobile_rewards() -> Dictionary:
+	if mobile_reward_transport == null:
+		return {"ok": false, "reason": "MOBILE_REWARD_IDENTITY_NOT_CONFIGURED"}
+	return mobile_reward_transport.request_pending_rewards()
+
+
+func configure_test_admob_provider(plugin: Object) -> Dictionary:
+	if not OS.is_debug_build() or mobile_reward_transport == null or not mobile_reward_transport.enabled:
+		return {"ok": false, "reason": "TEST_ADMOB_REQUIRES_AUTHENTICATED_HTTPS_WORKER"}
+	if admob_test_adapter == null:
+		admob_test_adapter = ADMOB_TEST_ADAPTER_SCRIPT.new()
+	if not admob_test_adapter.set_claim_transport(mobile_reward_transport):
+		return {"ok": false, "reason": "TEST_ADMOB_CLAIM_TRANSPORT_UNAVAILABLE"}
+	return admob_test_adapter.configure(plugin, ads_service)
+
+
+func configure_test_play_billing(client: Object, verifier: Object) -> Dictionary:
+	if not OS.is_debug_build() or store_service == null:
+		return {"ok": false, "reason": "TEST_PLAY_BILLING_UNAVAILABLE"}
+	if play_billing_test_adapter == null:
+		play_billing_test_adapter = PLAY_BILLING_TEST_ADAPTER_SCRIPT.new()
+	return play_billing_test_adapter.configure_test(client, store_service, verifier)
 
 
 func launch_owner_playtest_sample(island_id: String, level_id: int) -> bool:
@@ -687,6 +735,47 @@ func _on_verified_ad_reward(placement_id: String, transaction_id: String, provid
 	if bool(grant.get("ok", false)) and not bool(grant.get("duplicate", false)):
 		_persist_campaign_state()
 		economy_state_changed.emit(economy.export_state())
+
+
+func _on_native_reward_earned(_placement_id: String, _transaction_id: String, _session_id: String) -> void:
+	if mobile_reward_transport == null or not mobile_reward_transport.enabled:
+		mobile_reward_delivery_status.emit({"ok": false, "reason": "AUTHENTICATED_REWARD_TRANSPORT_NOT_CONFIGURED"})
+		return
+	var request: Dictionary = mobile_reward_transport.request_pending_rewards()
+	if not bool(request.get("ok", false)):
+		mobile_reward_delivery_status.emit(request)
+
+
+func _on_pending_mobile_rewards(authenticated_subject: String, response: Dictionary) -> void:
+	if not bool(response.get("ok", false)):
+		mobile_reward_delivery_status.emit(response)
+		return
+	if mobile_reward_delivery == null or economy == null:
+		mobile_reward_delivery_status.emit({"ok": false, "reason": "CAMPAIGN_ECONOMY_UNAVAILABLE"})
+		return
+	var result: Dictionary = mobile_reward_delivery.settle_pending_rows(
+		response.get("rewards", []), authenticated_subject, economy,
+		Callable(self, "persist_current_state"), Callable(self, "_request_mobile_reward_ack"))
+	if bool(result.get("settled", 0)):
+		economy_state_changed.emit(economy.export_state())
+	mobile_reward_delivery_status.emit(result)
+
+
+func _request_mobile_reward_ack(transaction_id: String) -> Dictionary:
+	if mobile_reward_transport == null:
+		return {"ok": false, "reason": "MOBILE_REWARD_TRANSPORT_UNAVAILABLE"}
+	var request: Dictionary = mobile_reward_transport.acknowledge_reward(transaction_id)
+	if bool(request.get("ok", false)) and bool(request.get("pending", false)):
+		return {"ok": false, "reason": "SERVER_ACK_PENDING"}
+	return request
+
+
+func _on_mobile_reward_acknowledged(_authenticated_subject: String, _transaction_id: String, response: Dictionary) -> void:
+	mobile_reward_delivery_status.emit(response)
+	if bool(response.get("ok", false)) and mobile_reward_transport != null:
+		var request: Dictionary = mobile_reward_transport.request_pending_rewards()
+		if not bool(request.get("ok", false)):
+			mobile_reward_delivery_status.emit(request)
 
 
 func _persist_campaign_state() -> Dictionary:
