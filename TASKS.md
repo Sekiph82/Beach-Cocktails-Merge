@@ -8,11 +8,11 @@ This root `TASKS.md` is the **only** authoritative live project-status tracker a
 - Current Sprint: BCM-M34-END-TO-END-GAME-COMPLETION-V01
 - Current Task: BCM-M34-006 — Complete native Android/iOS rewarded ads verification; abstraction built, SDK/device not yet integrated.
 - Current Task Status: BLOCKED
-- Next Task/Action: BCM-M34-006 — CODEX implements one comprehensive, credential-free rewarded-ads provider/configuration/lifecycle and test preparation under coordination/sessions/BCM-M34-006-CODEX-V01/CODEX_M34_006_COMPREHENSIVE_MASTER_PROMPT.md; real Android/iOS SDK, consent/SSV and device acceptance remain blocked until owner inputs.
-- Required Actor: CODEX
+- Next Task/Action: BCM-M34-006 — AWAIT OWNER INPUTS: provide AdMob Android/iOS app and rewarded unit IDs, privacy-policy URL, age/families and UMP/ATT decisions, SSV backend choice, and authorization for device/emulator tests. Credential-free implementation independently reviewed; native integration remains blocked.
+- Required Actor: OWNER
 - Tracking Repository: Sekiph82/Beach-Cocktails-Merge
 - Tracking Branch: main
-- Progress: 146/148 canonical tasks complete (98.6%). Claude final legacy triage published d0a688d: 66 reviewed (26 tests updated, 22 retired, 18 preserved), 115/115 runnable headless PASS, no actual game bug found in triage; 100 stashes preserved, unique owner files untouched. BCM-M33-004 complete with owner-approved sampled 100/100 winnability at 4T, no difficulty grading; BCM-M34-005 closed. Owner reassigned orchestration and sole TASKS.md edit authority to ChatGPT; Codex implements. BCM-M34-006 and BCM-M34-007 remain BLOCKED on owner IDs/privacy/backend/devices; Codex is authorized only to complete independent safe M34-006 preparation/test work, not fake live integration or close blocked task.
+- Progress: 146/148 canonical tasks complete (98.6%). M34-006 credential-free ads preparation independently source-reviewed after Codex ed5b19e (final main c36aad1): fail-closed Android/iOS policy, debug-only provider, bounded retry/timeout/callback/idempotency protection. Builder reports baseline 12/12, focused 5/5, final regressions 13/13 PASS; independent Godot/device testing not performed. Production AdMob SDK/SSV/consent/device verification NOT complete, so M34-006 remains BLOCKED. M34-007 native billing remains BLOCKED pending product catalog, stores/testers and verification backend. M33-004 owner-approved 100/100 sample winnability and M34-005 hygiene/legacy triage remain closed. 100 stashes and owner files protected.
 
 ## Blockers/Waits
 
