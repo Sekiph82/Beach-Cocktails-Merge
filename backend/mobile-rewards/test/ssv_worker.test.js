@@ -268,6 +268,11 @@ test("consent-gated claim and verified reward delivery survive a game crash befo
   __test.clearGoogleKeyCache();
   const db = new FakeD1();
   const configuration = { ...env(db), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
+  const missingConsent = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
+    body: JSON.stringify({ placement: "energy_20", platform: "android" }),
+  }), configuration, { now: NOW });
+  assert.equal(missingConsent.status, 400);
   const denied = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
     method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
     body: JSON.stringify({ placement: "energy_20", platform: "android", consent_granted: false }),
