@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { createHmac, generateKeyPairSync, sign } from "node:crypto";
 import { __test, handleRequest } from "../src/index.js";
+import { parseStorePolicy, validateStoreSubmission, verifyApplePurchase, verifyGooglePurchase, verifyStorePurchase } from "../src/store_verification.js";
 
 const NOW = 1_800_000_000_000;
 const KEY_ID = "947321";
@@ -388,11 +389,86 @@ test("worker caps active claims plus unacknowledged rewards to prevent an unboun
 });
 
 test("store purchase and restore assertions remain no-grant without a trusted verifier", async () => {
+  const configuration = { ...env(), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
   for (const [method, path] of [["POST", "/v1/store/verify"], ["GET", "/v1/store/restore"]]) {
-    const response = await handleRequest(new Request(`https://worker.test${path}`, { method }), {});
+    const response = await handleRequest(new Request(`https://worker.test${path}`, {
+      method, headers: { authorization: `Bearer ${jwt()}` },
+    }), configuration, { now: NOW });
     assert.equal(response.status, 503);
     assert.deepEqual(await response.json(), { error: "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false });
   }
+});
+
+test("store routes require the existing authenticated app subject and stay disabled without owner policy", async () => {
+  const unauthenticated = await handleRequest(new Request("https://worker.test/v1/store/verify", {
+    method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ platform: "google" }),
+  }), {});
+  assert.equal(unauthenticated.status, 401);
+  assert.deepEqual(await unauthenticated.json(), { error: "AUTHENTICATION_REQUIRED", grant: false });
+
+  const configuration = { APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
+  const disabled = await handleRequest(new Request("https://worker.test/v1/store/verify", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
+    body: JSON.stringify({ platform: "google", product_id: "fake.sku", purchase_token: "fake-token-123",
+      user_id: "attacker", verified: true, grant: true }),
+  }), configuration, { now: NOW });
+  assert.equal(disabled.status, 503);
+  assert.deepEqual(await disabled.json(), { error: "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false });
+
+  const restore = await handleRequest(new Request("https://worker.test/v1/store/restore", {
+    headers: { authorization: `Bearer ${jwt()}` },
+  }), configuration, { now: NOW });
+  assert.equal(restore.status, 503);
+  assert.deepEqual(await restore.json(), { error: "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false });
+});
+
+test("store policy allowlists exact app identities and rejects malformed or unapproved products", () => {
+  assert.equal(parseStorePolicy(undefined), null);
+  assert.equal(parseStorePolicy("{"), null);
+  const policy = parseStorePolicy(JSON.stringify({
+    google: { application_id: "com.example.game", products: { "remove.ads": { kind: "non_consumable", enabled: true } } },
+    apple: { application_id: "com.example.game.ios", products: { "remove.ads": { kind: "non_consumable", enabled: true } } },
+  }));
+  assert.ok(policy);
+  assert.equal(validateStoreSubmission({ platform: "google", product_id: "unapproved", purchase_token: "token-123456" }, policy), null);
+  assert.equal(validateStoreSubmission({ platform: "google", product_id: "remove.ads", purchase_token: "short" }, policy), null);
+  assert.equal(validateStoreSubmission({ platform: "apple", product_id: "remove.ads", signed_transaction: "short" }, policy), null);
+  assert.equal(validateStoreSubmission({ platform: "android", product_id: "remove.ads", purchase_token: "token-123456" }, policy), null);
+  const parsed = validateStoreSubmission({ platform: "google", product_id: "remove.ads", purchase_token: "synthetic-token-123" }, policy);
+  assert.deepEqual(parsed, { platform: "google", applicationId: "com.example.game", productId: "remove.ads",
+    kind: "non_consumable", purchaseToken: "synthetic-token-123" });
+  assert.equal(validateStoreSubmission({ platform: "google", product_id: "remove.ads", purchase_token: "synthetic-token-123",
+    user_id: "attacker", transaction_id: "client-chosen", verified: true, grant: true }, policy), null);
+});
+
+test("synthetic Apple/Google proof fixtures cannot enable either sealed provider", async () => {
+  const google = await verifyGooglePurchase({ purchaseToken: "synthetic-token" }, { STORE_VERIFICATION_ENABLED: "true" });
+  const apple = await verifyApplePurchase({ signedTransaction: "eyJhbGciOiJub25lIn0.e30." }, { STORE_VERIFICATION_ENABLED: "true" });
+  const gated = await verifyStorePurchase({ platform: "google" }, { STORE_VERIFICATION_ENABLED: "false" });
+  assert.deepEqual(google, { verified: false, reason: "GOOGLE_TRUSTED_VERIFIER_UNAVAILABLE" });
+  assert.deepEqual(apple, { verified: false, reason: "APPLE_JWS_TRUST_CHAIN_VERIFIER_UNAVAILABLE" });
+  assert.deepEqual(gated, { verified: false, reason: "STORE_VERIFICATION_DISABLED" });
+
+  const storePolicy = JSON.stringify({
+    google: { application_id: "com.example.game", products: { "remove.ads": { kind: "non_consumable", enabled: true } } },
+    apple: { application_id: "com.example.game.ios", products: { "remove.ads": { kind: "non_consumable", enabled: true } } },
+  });
+  const route = await handleRequest(new Request("https://worker.test/v1/store/verify", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
+    body: JSON.stringify({ platform: "google", product_id: "remove.ads", purchase_token: "synthetic-token-123" }),
+  }), { APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app",
+    STORE_PRODUCT_POLICY_JSON: storePolicy, STORE_VERIFICATION_ENABLED: "true" }, { now: NOW, fetcher: async () => { throw new Error("provider must not be called"); } });
+  assert.equal(route.status, 503);
+  assert.deepEqual(await route.json(), { error: "GOOGLE_TRUSTED_VERIFIER_UNAVAILABLE", grant: false });
+
+  const forged = await handleRequest(new Request("https://worker.test/v1/store/verify", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
+    body: JSON.stringify({ platform: "google", product_id: "remove.ads", purchase_token: "synthetic-token-123",
+      user_id: USER, transaction_id: "invented", verified: true, grant: true }),
+  }), { APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app",
+    STORE_PRODUCT_POLICY_JSON: storePolicy, STORE_VERIFICATION_ENABLED: "true" }, { now: NOW });
+  assert.equal(forged.status, 400);
+  assert.deepEqual(await forged.json(), { error: "STORE_PURCHASE_REQUEST_INVALID", grant: false });
 });
 
 test("signature parser rejects duplicates and key ordering violations", () => {

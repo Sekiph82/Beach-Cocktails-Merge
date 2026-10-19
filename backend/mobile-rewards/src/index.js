@@ -1,3 +1,5 @@
+import { parseStorePolicy, validateStoreSubmission, verifyStorePurchase } from "./store_verification.js";
+
 const GOOGLE_SSV_KEYS_URL = "https://www.gstatic.com/admob/reward/verifier-keys.json";
 const MAX_SSV_QUERY_BYTES = 8192;
 const CLAIM_TTL_MS = 15 * 60 * 1000;
@@ -397,8 +399,20 @@ export async function handleRequest(request, env, dependencies = {}) {
   const url = new URL(request.url);
   if (request.method === "GET" && url.pathname === "/health") return json({ ok: true, service: "mobile-rewards", store_verification: "not_configured" });
   if (request.method === "GET" && url.pathname === "/v1/ads/ssv") return handleSsv(request, env, fetcher, now);
-  if ((request.method === "GET" || request.method === "POST") && (url.pathname === "/v1/store/verify" || url.pathname === "/v1/store/restore")) {
-    return json({ error: "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false }, 503);
+  if ((request.method === "POST" && url.pathname === "/v1/store/verify")
+    || (request.method === "GET" && url.pathname === "/v1/store/restore")) {
+    const user = await authenticate(request, env, now);
+    if (!user) return json({ error: "AUTHENTICATION_REQUIRED", grant: false }, 401);
+    if (url.pathname === "/v1/store/restore") {
+      return json({ error: "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false }, 503);
+    }
+    const policy = parseStorePolicy(env.STORE_PRODUCT_POLICY_JSON);
+    if (!policy) return json({ error: "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false }, 503);
+    const body = await request.json().catch(() => null);
+    const submission = validateStoreSubmission(body, policy);
+    if (!submission) return json({ error: "STORE_PURCHASE_REQUEST_INVALID", grant: false }, 400);
+    const result = await verifyStorePurchase(submission, env);
+    return json({ error: result.reason || "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false }, 503);
   }
   if (request.method === "POST" && url.pathname === "/v1/ads/claims") {
     const user = await authenticate(request, env, now);
