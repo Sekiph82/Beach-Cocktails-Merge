@@ -18,8 +18,8 @@ class ProbeDiscoveryContract(unittest.TestCase):
             set(categories),
         )
         self.assertEqual({
-            "headless": 118,
-            "display": 17,
+            "headless": 117,
+            "display": 18,
             "custom_harness": 1,
             "legacy_disabled": 1,
             "isolation_only": 1,
@@ -38,6 +38,15 @@ class ProbeDiscoveryContract(unittest.TestCase):
         self.assertEqual({"tests/m27_user_data_isolation_probe.gd"}, categories["legacy_disabled"])
         self.assertTrue(categories["display"].isdisjoint(categories["headless"]))
         self.assertEqual(sorted(categories["headless"]), RUNNER.all_headless_probes())
+
+    def test_real_gl_capture_probe_is_classified_as_display_required(self):
+        path = "tests/m26_002_campaign_unlock_presentation_probe.gd"
+        source = (RUNNER.REPO / path).read_text(encoding="utf-8")
+        self.assertIn(path, RUNNER.NEEDS_DISPLAY)
+        self.assertNotIn(path, RUNNER.ALL_HEADLESS_PROBES)
+        self.assertIn("DisplayServer.window_set_mode(", source)
+        self.assertIn("get_viewport().get_texture().get_image()", source)
+        self.assertIn('"real GL framebuffer saved: %s"', source)
 
 
 if __name__ == "__main__":

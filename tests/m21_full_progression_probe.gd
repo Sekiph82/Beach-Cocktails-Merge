@@ -24,6 +24,7 @@ var checkpoint_records: Array[Dictionary] = []
 var completed_levels: Array[int] = []
 var cumulative_stars: Array[int] = []
 var final_state: Dictionary = {}
+var profile_started_msec := 0
 
 
 func _init() -> void:
@@ -204,9 +205,24 @@ func _finish() -> void:
 
 
 func _run() -> void:
+	profile_started_msec = Time.get_ticks_msec()
+	_profile_progress(1, "run_start")
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(REPORT_DIR))
 	await _mount_fresh_shell()
 	for level_id in range(1, 101):
+		if level_id == 1 or level_id % 10 == 0:
+			_profile_progress(level_id, "begin")
 		await _complete_level(level_id)
+		if level_id % 10 == 0 or level_id == 100:
+			_profile_progress(level_id, "complete")
 	await _verify_final_restart()
 	_finish()
+
+
+func _profile_progress(level_id: int, phase: String) -> void:
+	if OS.get_environment("BCM_PROFILE_PROGRESS") != "1":
+		return
+	var elapsed_msec := Time.get_ticks_msec() - profile_started_msec
+	var completed := completed_levels.size()
+	var projected_total_msec := int(float(elapsed_msec) * 100.0 / float(maxi(completed, 1))) if completed > 0 else -1
+	print("BCM_M21_PROFILE phase=%s level=%03d completed=%d elapsed_ms=%d projected_total_ms=%d" % [phase, level_id, completed, elapsed_msec, projected_total_msec])

@@ -57,6 +57,7 @@ CORE = [
 NEEDS_DISPLAY = {
     "tests/m07_r06_owner_layout_probe.gd",
     "tests/m12_world_map_gui_capture.gd",
+    "tests/m26_002_campaign_unlock_presentation_probe.gd",
     "tests/m18_v02_r01_replay_capture_probe.gd",
     "tests/m27_003_legacy_m18_v02_replay_capture_probe.gd",
     "tests/m20_runtime_capture_probe.gd",
@@ -152,7 +153,6 @@ tests/m24_003_vip_feedback_probe.gd
 tests/m25_move_limit_probe.gd
 tests/m25_result_presentation_probe.gd
 tests/m26_001_island_map_presentation_probe.gd
-tests/m26_002_campaign_unlock_presentation_probe.gd
 tests/m26_003_reward_primary_feedback_probe.gd
 tests/m27_001_lifecycle_stress_probe.gd
 tests/m27_002_campaign_unlock_probe.gd
