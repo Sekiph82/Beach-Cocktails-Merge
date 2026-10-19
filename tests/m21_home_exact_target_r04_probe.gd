@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## BCM-M21-001-R04 production Home composition and input probe.
 
@@ -14,6 +17,8 @@ var shell
 
 
 func _init() -> void:
+	if not BCM_SANDBOX_GUARD.enforce(self):
+		return
 	call_deferred("_run")
 
 

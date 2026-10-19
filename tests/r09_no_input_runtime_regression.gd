@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## R09 isolated normal-game no-input runtime regression.
 ## This loads only the production main scene; it never loads or calls a test
@@ -16,6 +19,8 @@ var delivery_observed := false
 
 
 func _init() -> void:
+    if not BCM_SANDBOX_GUARD.enforce(self):
+        return
     call_deferred("_run")
 
 

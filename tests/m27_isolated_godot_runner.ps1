@@ -11,6 +11,7 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+throw 'OWNER_SAVE_STATE_UNKNOWN_NO_BASELINE: this historical M27 harness reads and hashes the real owner user-data tree; it is disabled until separately authorized.'
 $sandboxName = 'BCM-M27-MASTER-V01-20261010-Sandbox'
 $resolvedProject = [IO.Path]::GetFullPath($ProjectPath).TrimEnd('\')
 $manifestPath = (Resolve-Path -LiteralPath $PreflightManifest).Path

@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 const NAVIGATION_SCRIPT := preload("res://scripts/campaign/campaign_navigation_controller.gd")
 const TRANSPORT_SCRIPT := preload("res://scripts/campaign/mobile_reward_http_transport.gd")
@@ -32,6 +35,8 @@ class FakeHttpDriver extends Node:
 
 
 func _init() -> void:
+	if not BCM_SANDBOX_GUARD.enforce(self):
+		return
 	call_deferred("_run")
 
 

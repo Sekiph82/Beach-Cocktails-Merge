@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## R10 desktop no-input smoke. It loads only the configured production scene;
 ## it does not invoke a probe or call spawn_drink().
@@ -12,6 +15,8 @@ var max_score := 0
 
 
 func _init() -> void:
+    if not BCM_SANDBOX_GUARD.enforce(self):
+        return
     call_deferred("_run")
 
 

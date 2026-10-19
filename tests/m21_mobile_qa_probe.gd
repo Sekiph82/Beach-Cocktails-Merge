@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## BCM-M21-001 production-path desktop/mobile-layout proxy.
 ## Drives the existing App Shell controls and saves auditable captures at the
@@ -18,6 +21,8 @@ var canonical_navigation
 
 
 func _init() -> void:
+	if not BCM_SANDBOX_GUARD.enforce(self):
+		return
 	var capture_override := OS.get_environment("BCM_MOBILE_QA_CAPTURE_DIR").strip_edges()
 	if capture_override.begins_with("res://") and not capture_override.contains(".."):
 		CAPTURE_DIR = capture_override.trim_suffix("/")

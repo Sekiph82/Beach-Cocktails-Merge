@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## BCM-M21 final owner-runtime closure V02-R01 fresh-save progression.
 ## Completion is submitted only by GameplaySessionBridge terminal results.
@@ -24,6 +27,8 @@ var final_state: Dictionary = {}
 
 
 func _init() -> void:
+	if not BCM_SANDBOX_GUARD.enforce(self):
+		return
 	call_deferred("_run")
 
 

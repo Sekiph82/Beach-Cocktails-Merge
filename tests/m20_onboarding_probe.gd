@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## BCM-M20-002 focused probe for the production shell onboarding boundary.
 
@@ -8,6 +11,8 @@ var failures: Array[String] = []
 
 
 func _init() -> void:
+    if not BCM_SANDBOX_GUARD.enforce(self):
+        return
     call_deferred("_run")
 
 

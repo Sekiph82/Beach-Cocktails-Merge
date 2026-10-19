@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## M11 persistence/progression probe.
 ## Every file is explicitly under this probe-only user:// directory. The
@@ -12,6 +15,8 @@ var campaign_script = preload("res://scripts/campaign/campaign_manager.gd")
 
 
 func _init() -> void:
+    if not BCM_SANDBOX_GUARD.enforce(self):
+        return
     call_deferred("_run")
 
 

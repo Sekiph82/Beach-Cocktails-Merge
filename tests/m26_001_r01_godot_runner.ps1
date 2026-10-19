@@ -7,6 +7,13 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+$profileRoot = [Environment]::GetEnvironmentVariable('BCM_TEST_SANDBOX_ROOT', 'Process')
+$projectRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+$allowedSandboxRoot = [IO.Path]::GetFullPath((Join-Path $projectRoot '.godot\bcm_sandboxes')).TrimEnd('\') + '\'
+if ($env:BCM_TEST_MODE -ne '1' -or $env:BCM_TEST_BUILD_MARKER -ne 'NONSHIPPING_LOCAL_TEST' -or [string]::IsNullOrWhiteSpace($profileRoot)) { throw 'Refusing Godot launch: explicit nonshipping test markers and project-local sandbox are required.' }
+$resolvedProfileRoot = [IO.Path]::GetFullPath($profileRoot).TrimEnd('\')
+if (-not $resolvedProfileRoot.StartsWith($allowedSandboxRoot, [StringComparison]::OrdinalIgnoreCase)) { throw 'Refusing Godot launch: test profile is outside the canonical project sandbox.' }
+if ([IO.Path]::GetFullPath($env:APPDATA).TrimEnd('\') -ine [IO.Path]::GetFullPath((Join-Path $resolvedProfileRoot 'r')).TrimEnd('\') -or [IO.Path]::GetFullPath($env:LOCALAPPDATA).TrimEnd('\') -ine [IO.Path]::GetFullPath((Join-Path $resolvedProfileRoot 'l')).TrimEnd('\')) { throw 'Refusing Godot launch: APPDATA and LOCALAPPDATA are not the declared isolated profile.' }
 $resolvedProject = [System.IO.Path]::GetFullPath($ProjectPath).TrimEnd('\')
 $resolvedGodot = (Resolve-Path -LiteralPath $GodotPath).Path
 $stdoutPath = "$OutputPrefix.stdout.txt"

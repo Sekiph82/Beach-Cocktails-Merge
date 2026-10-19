@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## Focused M10 architecture/data probe. It does not instantiate the gameplay scene.
 
@@ -11,6 +14,8 @@ var bridge_script = preload("res://scripts/campaign/gameplay_session_bridge.gd")
 
 
 func _init() -> void:
+    if not BCM_SANDBOX_GUARD.enforce(self):
+        return
     call_deferred("_run")
 
 

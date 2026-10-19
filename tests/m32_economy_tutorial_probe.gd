@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 const SAVE_SCRIPT := preload("res://scripts/campaign/save_manager.gd")
@@ -9,6 +12,8 @@ var failures: Array[String] = []
 
 
 func _init() -> void:
+	if not BCM_SANDBOX_GUARD.enforce(self):
+		return
 	call_deferred("_run")
 
 

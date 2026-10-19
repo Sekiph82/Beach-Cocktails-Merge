@@ -42,6 +42,10 @@ if (-not (Test-Path -LiteralPath (Join-Path $jdkHome 'bin\java.exe'))) {
 if (-not (Test-Path -LiteralPath (Join-Path $jdkHome 'bin\java.exe'))) {
     throw "Verified Temurin $jdkVersion archive did not contain the expected JDK."
 }
+$environmentNames = @('APPDATA','ANDROID_HOME','ANDROID_SDK_ROOT','JAVA_HOME','GRADLE_USER_HOME')
+$originalEnvironment = @{}
+foreach ($name in $environmentNames) { $originalEnvironment[$name] = [Environment]::GetEnvironmentVariable($name, 'Process') }
+try {
 New-Item -ItemType Directory -Force -Path $godotProfileRoot,$gradleHome,$buildRoot | Out-Null
 $env:APPDATA = $profile
 $env:ANDROID_HOME = $AndroidSdkPath
@@ -127,7 +131,6 @@ package/signed=true
 launcher_icons/main_192x192="res://assets/ui_assets/brand/app_icon.png"
 '@
 
-try {
     Set-Content -LiteralPath $presetPath -Value $preset -Encoding utf8
     $generatedPreset = $true
     Get-Content -LiteralPath $presetPath | Set-Content -LiteralPath (Join-Path $buildRoot 'generated-preset-preview.txt') -Encoding utf8
@@ -168,4 +171,8 @@ try {
         }
     }
     [System.IO.File]::WriteAllBytes($projectPath, $originalProjectBytes)
+    foreach ($name in $environmentNames) {
+        if ($null -eq $originalEnvironment[$name]) { [Environment]::SetEnvironmentVariable($name, $null, 'Process') }
+        else { [Environment]::SetEnvironmentVariable($name, $originalEnvironment[$name], 'Process') }
+    }
 }

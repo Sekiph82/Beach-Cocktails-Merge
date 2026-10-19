@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## Focused V05 probe. It covers the exact reserve-planner fixtures plus real
 ## CampaignNavigationController/GameManager routing and replay persistence.
@@ -13,6 +16,8 @@ var failures: Array[String] = []
 
 
 func _init() -> void:
+	if not BCM_SANDBOX_GUARD.enforce(self):
+		return
 	call_deferred("_run")
 
 

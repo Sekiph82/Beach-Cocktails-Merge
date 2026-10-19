@@ -37,22 +37,32 @@ if ($ValidateOnly) {
     exit 0
 }
 
-$profileRoot = Join-Path $env:LOCALAPPDATA 'BeachCocktailsMerge\M33-R06-OwnerPlaytest'
-$testAppData = Join-Path $profileRoot 'appdata'
-$normalUserData = Join-Path (Join-Path $env:APPDATA 'Godot\app_userdata') 'CocktailMerge'
-New-Item -ItemType Directory -Force -Path $testAppData | Out-Null
+$profileRoot = Join-Path (Join-Path $projectRoot '.godot\bcm_sandboxes') ('m33_r06_ownerplaytest_' + [Guid]::NewGuid().ToString('N'))
+$testAppData = Join-Path $profileRoot 'r'
+$testLocalAppData = Join-Path $profileRoot 'l'
+$testUserData = Join-Path $testAppData 'Godot\app_userdata\CocktailMerge'
+New-Item -ItemType Directory -Path $profileRoot,$testAppData,$testLocalAppData | Out-Null
+New-Item -ItemType Directory -Force -Path $testUserData | Out-Null
 $markerPath = Join-Path $profileRoot 'PROFILE_INFO.txt'
-@("BCM-M33-R06 isolated owner playtest profile", "Godot: $versionText", "Project: $projectRoot", "Test APPDATA: $testAppData", "Normal user://: $normalUserData", "Created/used: $(Get-Date -Format o)") | Set-Content -LiteralPath $markerPath -Encoding utf8
+@("BCM-M33-R06 isolated owner playtest profile", "Godot: $versionText", "Project: $projectRoot", "Test APPDATA: $testAppData", "Test LOCALAPPDATA: $testLocalAppData", "Owner user data: not accessed", "Created/used: $(Get-Date -Format o)") | Set-Content -LiteralPath $markerPath -Encoding utf8
 
 $oldAppData = $env:APPDATA
+$oldLocalAppData = $env:LOCALAPPDATA
 $oldPlaytest = $env:BCM_M33_OWNER_PLAYTEST
 $oldProfileRoot = $env:BCM_M33_TEST_PROFILE_ROOT
 $oldNormalUserData = $env:BCM_M33_NORMAL_USER_DATA
+$oldTestMode = $env:BCM_TEST_MODE
+$oldSandboxRoot = $env:BCM_TEST_SANDBOX_ROOT
+$oldBuildMarker = $env:BCM_TEST_BUILD_MARKER
 try {
     $env:APPDATA = $testAppData
+    $env:LOCALAPPDATA = $testLocalAppData
     $env:BCM_M33_OWNER_PLAYTEST = '1'
-    $env:BCM_M33_TEST_PROFILE_ROOT = $profileRoot
-    $env:BCM_M33_NORMAL_USER_DATA = $normalUserData
+    $env:BCM_M33_TEST_PROFILE_ROOT = $testUserData
+    $env:BCM_M33_NORMAL_USER_DATA = '__owner_user_data_not_accessed__'
+    $env:BCM_TEST_MODE = '1'
+    $env:BCM_TEST_SANDBOX_ROOT = $profileRoot
+    $env:BCM_TEST_BUILD_MARKER = 'NONSHIPPING_LOCAL_TEST'
     Write-Host "Starting Beach Cocktails Merge owner playtest with Godot $versionText"
     Write-Host "Isolated profile: $profileRoot"
     Write-Host 'Campaign progression persistence is disabled in this mode.'
@@ -62,8 +72,17 @@ try {
     }
 }
 finally {
-    $env:APPDATA = $oldAppData
-    $env:BCM_M33_OWNER_PLAYTEST = $oldPlaytest
-    $env:BCM_M33_TEST_PROFILE_ROOT = $oldProfileRoot
-    $env:BCM_M33_NORMAL_USER_DATA = $oldNormalUserData
+    foreach ($entry in @(
+        @{ name = 'APPDATA'; value = $oldAppData },
+        @{ name = 'LOCALAPPDATA'; value = $oldLocalAppData },
+        @{ name = 'BCM_M33_OWNER_PLAYTEST'; value = $oldPlaytest },
+        @{ name = 'BCM_M33_TEST_PROFILE_ROOT'; value = $oldProfileRoot },
+        @{ name = 'BCM_M33_NORMAL_USER_DATA'; value = $oldNormalUserData },
+        @{ name = 'BCM_TEST_MODE'; value = $oldTestMode },
+        @{ name = 'BCM_TEST_SANDBOX_ROOT'; value = $oldSandboxRoot },
+        @{ name = 'BCM_TEST_BUILD_MARKER'; value = $oldBuildMarker }
+    )) {
+        if ($null -eq $entry.value) { [Environment]::SetEnvironmentVariable($entry.name, $null, 'Process') }
+        else { [Environment]::SetEnvironmentVariable($entry.name, $entry.value, 'Process') }
+    }
 }

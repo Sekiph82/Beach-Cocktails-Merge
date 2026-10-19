@@ -1,7 +1,12 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 
 func _initialize() -> void:
+	if not BCM_SANDBOX_GUARD.enforce(self):
+		return
 	var expected_dir := OS.get_environment("BCM_M27_EXPECTED_USER_DATA_DIR")
 	var actual_dir := ProjectSettings.globalize_path("user://").simplify_path()
 	var os_dir := OS.get_user_data_dir().simplify_path()

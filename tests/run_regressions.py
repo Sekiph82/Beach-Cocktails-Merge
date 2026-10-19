@@ -11,6 +11,7 @@ usage:
 Exit code 0 only if every selected probe exits 0.
 """
 import argparse
+import hashlib
 import json
 import os
 import shutil
@@ -25,6 +26,7 @@ REPO = Path(__file__).resolve().parents[1]
 # owner storage rule 2026-10-17: task temp output stays inside the project (.godot/ is gitignored)
 SANDBOX_ROOT = REPO / ".godot" / "bcm_sandboxes"
 SANDBOX_ROOT.mkdir(parents=True, exist_ok=True)
+SANDBOX_ROOT_RESOLVED = SANDBOX_ROOT.resolve()
 
 CORE = [
     "tests/m34_economy_closure_probe.gd",
@@ -75,15 +77,22 @@ NEEDS_HARNESS = {
 
 def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True) -> dict:
     sandbox = Path(tempfile.mkdtemp(prefix="bcm_reg_", dir=SANDBOX_ROOT))
-    (sandbox / "r").mkdir()
-    (sandbox / "l").mkdir()
+    sandbox_resolved = sandbox.resolve()
+    if not sandbox_resolved.is_relative_to(SANDBOX_ROOT_RESOLVED) or sandbox_resolved == SANDBOX_ROOT_RESOLVED:
+        raise RuntimeError(f"Refusing test profile outside project sandbox: {sandbox_resolved}")
+    app_data = sandbox_resolved / "r"
+    local_app_data = sandbox_resolved / "l"
+    app_data.mkdir()
+    local_app_data.mkdir()
     if tutorial_done:
         # Returning-player profile: the first-play gameplay tutorial (M32) holds the
         # result overlay until it finishes, which most campaign probes predate.
-        user_dir = sandbox / "r/Godot/app_userdata/CocktailMerge"
+        user_dir = app_data / "Godot/app_userdata/CocktailMerge"
         user_dir.mkdir(parents=True)
         (user_dir / "gameplay_tutorial_state.json").write_text('{"schema_version":1,"current_step":6,"completed":true}', encoding="utf-8")
-    env = dict(os.environ, APPDATA=str(sandbox / "r"), LOCALAPPDATA=str(sandbox / "l"))
+    env = dict(os.environ, APPDATA=str(app_data), LOCALAPPDATA=str(local_app_data),
+               BCM_TEST_MODE="1", BCM_TEST_SANDBOX_ROOT=str(sandbox_resolved),
+               BCM_TEST_BUILD_MARKER="NONSHIPPING_LOCAL_TEST")
     started = time.monotonic()
     try:
         proc = subprocess.run([godot, *args], cwd=REPO, env=env, capture_output=True, text=True,
@@ -91,23 +100,74 @@ def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True) -
         code, out = proc.returncode, proc.stdout + proc.stderr
     except subprocess.TimeoutExpired:
         code, out = None, "TIMEOUT"
-    finally:
-        shutil.rmtree(sandbox, ignore_errors=True)
+    # Keep every generated test profile under .godot/bcm_sandboxes for audit;
+    # do not remove it, even after a failure or timeout.
     errors = [l for l in out.splitlines() if "SCRIPT ERROR" in l or "Parse Error" in l or l.startswith("ERROR")]
+    user_dir = app_data / "Godot/app_userdata/CocktailMerge"
+    def sha256_or_none(path: Path) -> str | None:
+        if not path.is_file():
+            return None
+        return hashlib.sha256(path.read_bytes()).hexdigest()
     return {"exit_code": code, "pass": code == 0, "wall_ms": int((time.monotonic() - started) * 1000),
-            "error_lines": errors[:10], "tail": out.splitlines()[-3:]}
+            "error_lines": errors[:10], "tail": out.splitlines()[-3:], "sandbox_root": str(sandbox_resolved),
+            "user_data_root": str(user_dir),
+            "campaign_save_sha256": sha256_or_none(user_dir / "campaign_save.json"),
+            "campaign_save_backup_sha256": sha256_or_none(user_dir / "campaign_save.json.bak")}
+
+
+def run_negative_isolation_probe(godot: str, timeout: int) -> dict:
+    sandbox = Path(tempfile.mkdtemp(prefix="bcm_negative_", dir=SANDBOX_ROOT)).resolve()
+    if not sandbox.is_relative_to(SANDBOX_ROOT_RESOLVED) or sandbox == SANDBOX_ROOT_RESOLVED:
+        raise RuntimeError(f"Refusing negative-test profile outside project sandbox: {sandbox}")
+    app_data, local_app_data = sandbox / "r", sandbox / "l"
+    app_data.mkdir()
+    local_app_data.mkdir()
+    env = dict(os.environ, APPDATA=str(app_data), LOCALAPPDATA=str(local_app_data))
+    for key in ("BCM_TEST_MODE", "BCM_TEST_SANDBOX_ROOT", "BCM_TEST_BUILD_MARKER"):
+        env.pop(key, None)
+    started = time.monotonic()
+    try:
+        proc = subprocess.run([godot, "--headless", "--path", ".", "--script",
+                               "res://tests/m34_mobile_reward_async_controller_probe.gd"],
+                              cwd=REPO, env=env, capture_output=True, text=True,
+                              encoding="utf-8", errors="replace", timeout=timeout)
+        output, code = proc.stdout + proc.stderr, proc.returncode
+    except subprocess.TimeoutExpired:
+        output, code = "TIMEOUT", None
+    refused_before_test = code == 70 and "BCM_TEST_SANDBOX_ABORT=" in output
+    user_dir = app_data / "Godot/app_userdata/CocktailMerge"
+    touched_saves = (user_dir / "campaign_save.json").exists() or (user_dir / "campaign_save.json.bak").exists()
+    return {"exit_code": code, "pass": refused_before_test and not touched_saves,
+            "wall_ms": int((time.monotonic() - started) * 1000), "sandbox_root": str(sandbox),
+            "user_data_root": str(user_dir), "campaign_save_or_backup_created": touched_saves,
+            "tail": output.splitlines()[-3:]}
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--all", action="store_true")
     parser.add_argument("--display", action="store_true")
+    parser.add_argument("--isolation-only", action="store_true", help="run only the fail-closed sandbox refusal probe")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--timeout", type=int, default=240)
     parser.add_argument("--json", default="")
     parser.add_argument("probes", nargs="*")
     args = parser.parse_args()
     godot = shutil.which("godot_console.exe") or shutil.which("godot")
+
+    if not godot:
+        print("FAIL isolation_refusal godot_executable_not_found", flush=True)
+        return 1
+    refusal = run_negative_isolation_probe(godot, min(args.timeout, 60))
+    if not refusal["pass"]:
+        print(f"FAIL isolation_refusal {refusal}", flush=True)
+        return 1
+    print(f"PASS isolation_refusal user_data={refusal['user_data_root']} saves_created=false", flush=True)
+    if args.isolation_only:
+        print("SUMMARY 1/1 passed", flush=True)
+        if args.json:
+            Path(args.json).write_text(json.dumps({"isolation_refusal": refusal}, indent=1) + "\n", encoding="utf-8")
+        return 0
 
     if args.display:
         probes = sorted(NEEDS_DISPLAY)
@@ -116,7 +176,7 @@ def main() -> int:
     elif args.all:
         # only runnable probes; helper Node scripts (evidence canvases, overlays) are loaded by other probes
         probes = sorted(p.relative_to(REPO).as_posix() for p in (REPO / "tests").rglob("*.gd")
-                        if "fixtures" not in p.parts and "extends SceneTree" in p.read_text(encoding="utf-8", errors="ignore")[:400])
+                        if "fixtures" not in p.parts and ("extends SceneTree" in p.read_text(encoding="utf-8", errors="ignore")[:400] or "isolated_test_scene_tree.gd" in p.read_text(encoding="utf-8", errors="ignore")[:400]))
         probes = [p for p in probes if p not in NEEDS_DISPLAY and p not in NEEDS_HARNESS]
     else:
         probes = CORE
@@ -131,6 +191,7 @@ def main() -> int:
     results["startup_smoke"] = run(godot, ["--headless", "--path", ".", "--quit-after", "3"], 120)
     print(f"{'PASS' if results['startup_smoke']['pass'] else 'FAIL'} startup_smoke", flush=True)
 
+    results["isolation_refusal"] = refusal
     passed = sum(r["pass"] for r in results.values())
     print(f"SUMMARY {passed}/{len(results)} passed")
     if args.json:

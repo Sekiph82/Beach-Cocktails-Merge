@@ -1,4 +1,7 @@
-extends SceneTree
+extends "res://tests/support/isolated_test_scene_tree.gd"
+
+const BCM_SANDBOX_GUARD := preload("res://tests/support/test_sandbox_guard.gd")
+
 
 ## Focused M14 probe. It uses deterministic in-memory fixtures and the actual
 ## M13 navigation host plus the existing main gameplay scene. No canonical
@@ -14,6 +17,8 @@ var failures: Array[String] = []
 
 
 func _init() -> void:
+    if not BCM_SANDBOX_GUARD.enforce(self):
+        return
     call_deferred("_run")
 
 
