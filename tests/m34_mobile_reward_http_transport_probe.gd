@@ -7,15 +7,27 @@ var emitted: Dictionary = {}
 
 
 class FakeIdentityProvider extends RefCounted:
+	var subject := "test-player"
 	func get_bearer_token() -> String:
 		return "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0In0.c2lnbmF0dXJl"
 	func get_subject() -> String:
-		return "test-player"
+		return subject
+	func is_subject_bound_to_active_profile(value: String) -> bool:
+		return value == subject
 
 
 class UnsafeIdentityProvider extends RefCounted:
 	func get_bearer_token() -> String:
 		return "unsafe\r\nAuthorization: forged"
+	func get_subject() -> String:
+		return "test-player"
+	func is_subject_bound_to_active_profile(value: String) -> bool:
+		return value == "test-player"
+
+
+class UnboundIdentityProvider extends RefCounted:
+	func get_bearer_token() -> String:
+		return "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0In0.c2lnbmF0dXJl"
 	func get_subject() -> String:
 		return "test-player"
 
@@ -53,9 +65,11 @@ func _run() -> void:
 	var insecure := transport.configure("http://rewards.example", provider, true)
 	_check("cleartext HTTP endpoint is rejected", not insecure.get("ok", false) and not transport.enabled)
 	var missing_identity := transport.configure("https://rewards.example", null, true)
-	_check("owner enablement cannot bypass missing authenticated identity provider", not missing_identity.get("ok", false) and not transport.enabled)
+	_check("owner enablement cannot bypass missing authenticated identity/profile provider", not missing_identity.get("ok", false) and not transport.enabled)
+	var unbound := transport.configure("https://rewards.example", UnboundIdentityProvider.new(), true)
+	_check("identity without explicit local-save profile binding remains disabled", not unbound.get("ok", false) and not transport.enabled)
 	var configured := transport.configure("https://rewards.example/mobile", provider, true)
-	_check("owner enabled HTTPS config requires a bearer JWT and subject provider", configured.get("ok", false) and transport.enabled)
+	_check("owner enabled HTTPS config requires bearer JWT, subject and active-profile binding", configured.get("ok", false) and transport.enabled and transport.get_authenticated_subject() == "test-player")
 	var unconsented_claim := transport.request_ad_claim("energy_20", "android", "", "test-session", "UNSET")
 	_check("test claim endpoint rejects unresolved UMP state before network activity", not unconsented_claim.get("ok", false) and unconsented_claim.get("reason", "") == "UMP_CONSENT_NOT_RESOLVED")
 	transport.pending_rewards_received.connect(_on_pending)
@@ -74,6 +88,12 @@ func _run() -> void:
 	_check("cross-user Worker rows fail closed", not emitted["pending"]["response"].get("ok", true) and emitted["pending"]["response"].get("reason", "") == "WORKER_PENDING_USER_MISMATCH")
 	transport._operation = "pending"
 	transport._subject = "test-player"
+	provider.subject = "other-player"
+	transport._on_request_completed(HTTPRequest.RESULT_SUCCESS, 200, PackedStringArray(), JSON.stringify({"rewards": [valid_row]}).to_utf8_buffer())
+	_check("account/profile swap between request and response emits no rows for either save", not emitted["pending"]["response"].get("ok", true) and emitted["pending"]["response"].get("reason", "") == "AUTHENTICATED_PROFILE_CHANGED")
+	provider.subject = "test-player"
+	transport._operation = "pending"
+	transport._subject = "test-player"
 	transport._on_request_completed(HTTPRequest.RESULT_SUCCESS, 503, PackedStringArray(), PackedByteArray())
 	_check("HTTP status failure emits no reward rows", not emitted["pending"]["response"].get("ok", true) and emitted["pending"]["response"].get("reason", "") == "WORKER_HTTP_REQUEST_FAILED")
 	transport._operation = "ack"
@@ -86,9 +106,10 @@ func _run() -> void:
 	transport._transaction_id = "daily:2026-10-18:3"
 	transport._claim_placement = "daily_slot_3"
 	transport._claim_session_id = "daily-session-3"
+	transport._claim_platform = "android"
 	var claim_body := {"nonce": "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a471", "user_id": "test-player", "placement_id": "daily_slot_3", "client_transaction_id": "daily:2026-10-18:3", "ad_unit": "ca-app-pub-1234567890123456/1234567890", "reward_item": "coins", "reward_amount": 40}
 	transport._on_request_completed(HTTPRequest.RESULT_SUCCESS, 200, PackedStringArray(), JSON.stringify(claim_body).to_utf8_buffer())
-	_check("claim response binds nonce to user, placement, and separate UTC business transaction", emitted["claim"]["response"].get("ok", false) and emitted["claim"]["client_transaction_id"] == "daily:2026-10-18:3" and emitted["claim"]["session_id"] == "daily-session-3")
+	_check("claim response binds nonce to user, platform, placement, session and UTC business transaction", emitted["claim"]["response"].get("ok", false) and emitted["claim"]["response"].get("user_id", "") == "test-player" and emitted["claim"]["response"].get("platform", "") == "android" and emitted["claim"]["response"].get("placement_id", "") == "daily_slot_3" and emitted["claim"]["client_transaction_id"] == "daily:2026-10-18:3" and emitted["claim"]["session_id"] == "daily-session-3")
 	var invalid_token := UnsafeIdentityProvider.new()
 	transport.configure("https://rewards.example", invalid_token, true)
 	_check("malformed bearer values cannot be sent in HTTP headers", not transport.request_pending_rewards().get("ok", false))

@@ -28,8 +28,9 @@ func configure_test(client_value: Object, store_value: StoreService, verifier_va
 	for method_name in ["start_connection", "query_purchases", "purchase", "consume_purchase", "acknowledge_purchase"]:
 		if not client_value.has_method(method_name):
 			return {"ok": false, "reason": "PLAY_BILLING_METHOD_UNAVAILABLE:%s" % method_name}
-	if not verifier_value.has_method("verify_store_transaction"):
-		return {"ok": false, "reason": "TRUSTED_STORE_VERIFIER_UNAVAILABLE"}
+	for method_name in ["verify_store_transaction", "record_provider_completion", "get_pending_provider_completions", "complete_provider_completion"]:
+		if not verifier_value.has_method(method_name):
+			return {"ok": false, "reason": "DURABLE_SERVER_STORE_LEDGER_METHOD_UNAVAILABLE:%s" % method_name}
 	client = client_value
 	store = store_value
 	verifier = verifier_value
@@ -64,6 +65,28 @@ func restore_purchases() -> Dictionary:
 	state = "RESTORE_QUERY_PENDING_TEST"
 	billing_state_changed.emit(state)
 	return {"ok": true, "pending": true, "test_only": true}
+
+
+func recover_pending_completions() -> Dictionary:
+	if client == null or verifier == null or not client.is_ready():
+		return {"ok": false, "reason": "PLAY_BILLING_NOT_READY"}
+	var rows: Variant = verifier.get_pending_provider_completions()
+	if not rows is Array or rows.size() > 50:
+		return {"ok": false, "reason": "SERVER_COMPLETION_LEDGER_INVALID"}
+	var recovered := 0
+	for row in rows:
+		if not row is Dictionary:
+			return {"ok": false, "reason": "SERVER_COMPLETION_ROW_INVALID"}
+		var token := str(row.get("purchase_token", ""))
+		var transaction_id := str(row.get("transaction_id", ""))
+		var product_key := str(row.get("product_key", ""))
+		var kind := str(row.get("completion_kind", ""))
+		if token.is_empty() or transaction_id.is_empty() or product_key.is_empty() or kind not in ["consume", "acknowledge"]:
+			return {"ok": false, "reason": "SERVER_COMPLETION_ROW_INVALID"}
+		_pending_completion[token] = {"transaction_id": transaction_id, "product_key": product_key, "kind": kind}
+		_retry_provider_completion(token)
+		recovered += 1
+	return {"ok": true, "pending": recovered, "server_ledger": true}
 
 
 func process_purchase_response(response: Variant) -> Dictionary:
@@ -112,7 +135,16 @@ func _process_purchase(purchase_value: Variant) -> Dictionary:
 	if product_kind not in ["consumable", "non_consumable", "subscription"]:
 		return {"ok": false, "reason": "PRODUCT_KIND_INVALID"}
 	var completion_kind := "consume" if product_kind == "consumable" else "acknowledge"
+	var journal: Variant = verifier.record_provider_completion(transaction_id, token, product_key, completion_kind)
+	if not journal is Dictionary or not bool(journal.get("ok", false)):
+		return {"ok": false, "reason": "DURABLE_SERVER_COMPLETION_RECORD_FAILED"}
+	if bool(journal.get("completed", false)):
+		_completed_tokens[token] = transaction_id
+		return {"ok": true, "verified": true, "duplicate": true, "transaction_id": transaction_id}
 	if completion_kind == "acknowledge" and bool(purchase_row.get("is_acknowledged", false)):
+		var marked: Variant = verifier.complete_provider_completion(transaction_id, token)
+		if not marked is Dictionary or not bool(marked.get("ok", false)):
+			return {"ok": false, "reason": "DURABLE_SERVER_COMPLETION_FINALIZE_FAILED"}
 		_completed_tokens[token] = transaction_id
 		purchase_completed.emit(transaction_id, product_key)
 		return {"ok": true, "verified": true, "already_acknowledged": true, "transaction_id": transaction_id}
@@ -172,6 +204,11 @@ func _complete_provider_response(response: Dictionary, expected_kind: String) ->
 		billing_state_changed.emit(state)
 		return
 	var pending: Dictionary = _pending_completion[token]
+	var finalized: Variant = verifier.complete_provider_completion(str(pending["transaction_id"]), token)
+	if not finalized is Dictionary or not bool(finalized.get("ok", false)):
+		state = "SERVER_COMPLETION_FINALIZE_PENDING"
+		billing_state_changed.emit(state)
+		return
 	_completed_tokens[token] = str(pending["transaction_id"])
 	_pending_completion.erase(token)
 	state = "PURCHASE_COMPLETED_TEST"

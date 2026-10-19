@@ -25,7 +25,12 @@ func settle_pending_rows(rows: Variant, authenticated_user_id: String, economy: 
 		var before_state: Dictionary = economy.export_state()
 		var grant: Dictionary = economy.apply_verified_mobile_reward(transaction_id, str(row["placement_id"]), str(row["reward_item"]), int(row["reward_amount"]), str(row["client_transaction_id"]), now_unix)
 		if not bool(grant.get("ok", false)):
-			return {"ok": false, "reason": str(grant.get("reason", "REWARD_REJECTED")), "transaction_id": transaction_id, "settled": settled}
+			var rejection := {"ok": false, "reason": str(grant.get("reason", "REWARD_REJECTED")), "transaction_id": transaction_id, "settled": settled}
+			if str(rejection["reason"]) == "ENERGY_ALREADY_FULL":
+				rejection["retryable"] = true
+				rejection["retry_when"] = "energy_below_cap"
+				rejection["server_ack"] = "withheld_reward_remains_pending"
+			return rejection
 		if not bool(grant.get("duplicate", false)):
 			var saved: Variant = persist.call()
 			if not saved is Dictionary or not bool(saved.get("ok", false)):

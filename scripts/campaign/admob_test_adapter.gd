@@ -60,7 +60,7 @@ func _attach(plugin: Object, service: AdsService) -> Dictionary:
 
 
 func set_claim_transport(transport: Object) -> bool:
-	if transport == null or not transport.has_method("request_ad_claim") or not transport.has_signal("ad_claim_created"):
+	if transport == null or not transport.has_method("request_ad_claim") or not transport.has_method("get_authenticated_subject") or not transport.has_signal("ad_claim_created"):
 		return false
 	if claim_transport != null and claim_transport.is_connected("ad_claim_created", _on_claim_created):
 		claim_transport.disconnect("ad_claim_created", _on_claim_created)
@@ -169,17 +169,26 @@ func _on_claim_created(placement_id: String, transaction_id: String, session_id:
 		_clear_session()
 		return
 	var expected := _expected_reward(_placement_id)
-	if str(response.get("user_id", "")).is_empty() or str(response.get("ad_unit", "")) != _ad_id or str(response.get("reward_item", "")) != str(expected.get("item", "")) or int(response.get("reward_amount", 0)) != int(expected.get("amount", -1)) or str(response.get("nonce", "")).is_empty():
+	var authenticated_subject := str(claim_transport.get_authenticated_subject())
+	var expected_platform := "ios" if OS.has_feature("ios") else "android"
+	var nonce := str(response.get("nonce", ""))
+	if authenticated_subject.is_empty() or str(response.get("user_id", "")) != authenticated_subject or str(response.get("platform", "")) != expected_platform or str(response.get("client_transaction_id", "")) != transaction_id or str(response.get("placement_id", "")) != placement_id or str(response.get("session_id", "")) != session_id or str(response.get("ad_unit", "")) != _ad_id or str(response.get("reward_item", "")) != str(expected.get("item", "")) or int(response.get("reward_amount", 0)) != int(expected.get("amount", -1)) or not _is_nonce(nonce):
 		ads_service.notify_provider_load_failed(_transaction_id, _session_id, "SERVER_CLAIM_MISMATCH", false)
 		_clear_session()
 		return
 	var request: Object = admob.create_basic_ad_request()
-	if request == null or not request.has_method("set_ad_unit_id") or not request.has_method("set_custom_data"):
+	if request == null or not request.has_method("set_ad_unit_id") or not request.has_method("set_user_id") or not request.has_method("set_custom_data") or not request.has_method("get_user_id") or not request.has_method("get_custom_data") or not request.has_method("get_raw_data"):
 		ads_service.notify_provider_load_failed(_transaction_id, _session_id, "ADMOB_SSV_REQUEST_API_UNAVAILABLE", false)
 		_clear_session()
 		return
 	request.set_ad_unit_id(_ad_id)
-	request.set_custom_data(str(response["nonce"]))
+	request.set_user_id(authenticated_subject)
+	request.set_custom_data(nonce)
+	var request_payload: Variant = request.get_raw_data()
+	if str(request.get_user_id()) != authenticated_subject or str(request.get_custom_data()) != nonce or not request_payload is Dictionary or str(request_payload.get("user_id", "")) != authenticated_subject or str(request_payload.get("custom_data", "")) != nonce:
+		ads_service.notify_provider_load_failed(_transaction_id, _session_id, "ADMOB_SSV_REQUEST_BINDING_FAILED", false)
+		_clear_session()
+		return
 	admob.load_rewarded_ad(request)
 
 
@@ -231,3 +240,10 @@ func _expected_reward(placement_id: String) -> Dictionary:
 		"daily_slot_5":
 			return {"item": "coins", "amount": 80}
 	return {}
+
+
+func _is_nonce(value: String) -> bool:
+	var regex := RegEx.new()
+	if regex.compile("^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$") != OK:
+		return false
+	return regex.search(value) != null

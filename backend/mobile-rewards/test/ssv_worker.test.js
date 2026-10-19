@@ -6,6 +6,8 @@ import { __test, handleRequest } from "../src/index.js";
 const NOW = 1_800_000_000_000;
 const KEY_ID = "947321";
 const AD_UNIT = "ca-app-pub-1234567890123456/1234567890";
+const SSV_AD_UNIT = "1234567890";
+const MAX_QUEUE = 50;
 const NONCE = "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a471";
 const USER = "account-subject-1";
 const { privateKey, publicKey } = generateKeyPairSync("ec", { namedCurve: "prime256v1" });
@@ -14,7 +16,7 @@ const publicKeyBase64 = publicKey.export({ type: "spki", format: "der" }).toStri
 function row(placement = "energy_20", adUnit = AD_UNIT) {
   return {
     nonce: NONCE, user_id: USER, placement_id: placement, platform: "android",
-    ad_unit: adUnit, reward_item: "energy", reward_amount: 20, client_transaction_id: "",
+    ad_unit: adUnit, ssv_ad_unit: SSV_AD_UNIT, reward_item: "energy", reward_amount: 20, client_transaction_id: "",
     state: "pending", expires_at: NOW + 900_000, transaction_id: null,
   };
 }
@@ -61,11 +63,15 @@ class FakeStatement {
   }
   async run() {
     if (this.sql.includes("INSERT INTO ad_claims")) {
-      const [nonce, userId, placement, platform, adUnit, item, amount, clientTransactionId, expiresAt, createdAt] = this.values;
+      const [nonce, userId, placement, platform, adUnit, ssvAdUnit, item, amount, clientTransactionId, expiresAt, createdAt] = this.values;
       if (this.db.claims.has(nonce)) throw new Error("UNIQUE_CONSTRAINT");
+      const pendingLedger = [...this.db.ledger.values()].filter((entry) => entry.user_id === userId && !this.db.deliveryAcks.has(entry.transaction_id)).length;
+      const activeClaims = [...this.db.claims.values()].filter((entry) => entry.user_id === userId && entry.state === "pending" && entry.expires_at >= this.values[14]).length;
+      if (pendingLedger + activeClaims >= MAX_QUEUE) return { meta: { changes: 0 } };
       this.db.claims.set(nonce, { nonce, user_id: userId, placement_id: placement, platform,
-        ad_unit: adUnit, reward_item: item, reward_amount: amount, client_transaction_id: clientTransactionId, state: "pending",
+        ad_unit: adUnit, ssv_ad_unit: ssvAdUnit, reward_item: item, reward_amount: amount, client_transaction_id: clientTransactionId, state: "pending",
         expires_at: expiresAt, created_at: createdAt, transaction_id: null });
+      return { meta: { changes: 1 } };
     } else if (this.sql.includes("INSERT INTO reward_delivery_ack")) {
       const [acknowledgedAt, transactionId, userId] = this.values;
       const ledger = this.db.ledger.get(transactionId);
@@ -75,10 +81,10 @@ class FakeStatement {
       }
       return { meta: { changes: 0 } };
     } else if (this.sql.includes("INSERT INTO reward_ledger")) {
-      const [transactionId, grantedAt, nonce, userId, placement, platform, adUnit, item, amount, now] = this.values;
+      const [transactionId, grantedAt, nonce, userId, placement, platform, adUnit, ssvAdUnit, item, amount, now] = this.values;
       const claim = this.db.claims.get(nonce);
       if (claim && claim.user_id === userId && claim.placement_id === placement && claim.platform === platform
-        && claim.ad_unit === adUnit && claim.reward_item === item && claim.reward_amount === amount
+        && claim.ad_unit === adUnit && claim.ssv_ad_unit === ssvAdUnit && claim.reward_item === item && claim.reward_amount === amount
         && claim.state === "pending" && claim.expires_at >= now && !this.db.ledger.has(transactionId)
         && (!claim.client_transaction_id || ![...this.db.ledger.values()].some((entry) => entry.user_id === userId && entry.client_transaction_id === claim.client_transaction_id))
         && ![...this.db.ledger.values()].some((entry) => entry.nonce === nonce)) {
@@ -109,18 +115,20 @@ function env(db = new FakeD1(), placement = "energy_20") {
   return {
     DB: db,
     AD_REWARD_POLICY_JSON: JSON.stringify({
-      [placement]: { android: { ad_unit: AD_UNIT, reward_item: "energy", reward_amount: 20 } },
+      [placement]: { android: { ad_unit: AD_UNIT, ssv_ad_unit: SSV_AD_UNIT, reward_item: "energy", reward_amount: 20 } },
     }),
   };
 }
 
-function signedUrl({ nonce = NONCE, userId = USER, transactionId = "transaction-001", adUnit = AD_UNIT,
+function signedUrl({ nonce = NONCE, userId = USER, includeUserId = true, transactionId = "transaction-001", adUnit = SSV_AD_UNIT,
   rewardItem = "energy", rewardAmount = "20", timestamp = NOW } = {}) {
-  const signed = [
+  const entries = [
     ["ad_network", "test-network"], ["ad_unit", adUnit], ["custom_data", nonce],
     ["reward_amount", rewardAmount], ["reward_item", rewardItem], ["timestamp", String(timestamp)],
-    ["transaction_id", transactionId], ["user_id", userId],
-  ].map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join("&");
+    ["transaction_id", transactionId],
+  ];
+  if (includeUserId) entries.push(["user_id", userId]);
+  const signed = entries.map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join("&");
   const signature = sign("sha256", Buffer.from(signed, "utf8"), { key: privateKey, dsaEncoding: "der" }).toString("base64url");
   return `https://worker.test/v1/ads/ssv?${signed}&signature=${signature}&key_id=${KEY_ID}`;
 }
@@ -161,6 +169,23 @@ test("Google retries of the same signed transaction are idempotent", async () =>
   assert.equal(db.ledger.size, 1);
 });
 
+test("signed callback missing user_id is rejected; matching subject and nonce settle into that user's ledger", async () => {
+  __test.clearGoogleKeyCache();
+  const missingDb = new FakeD1();
+  const missing = await handleRequest(new Request(signedUrl({ includeUserId: false })), env(missingDb), { now: NOW, fetcher: keyFetcher() });
+  assert.equal(missing.status, 400);
+  assert.equal((await missing.json()).error, "SSV_REQUIRED_FIELDS_MISSING");
+  assert.equal(missingDb.ledger.size, 0);
+
+  __test.clearGoogleKeyCache();
+  const validDb = new FakeD1();
+  const valid = await handleRequest(new Request(signedUrl()), env(validDb), { now: NOW, fetcher: keyFetcher() });
+  assert.equal(valid.status, 200);
+  assert.equal(validDb.ledger.get("transaction-001").user_id, USER);
+  assert.equal(validDb.ledger.get("transaction-001").nonce, NONCE);
+  assert.equal(validDb.ledger.get("transaction-001").client_transaction_id, "");
+});
+
 test("rejects altered signed bytes and invalid signatures", async () => {
   __test.clearGoogleKeyCache();
   const db = new FakeD1();
@@ -174,7 +199,8 @@ test("rejects altered signed bytes and invalid signatures", async () => {
 test("rejects a validly signed callback for the wrong user, unit, reward, or expired claim", async (t) => {
   const scenarios = [
     ["wrong account", () => signedUrl({ userId: "another-user" }), () => new FakeD1()],
-    ["wrong unit", () => signedUrl({ adUnit: "ca-app-pub-1234567890123456/9999999999" }), () => new FakeD1()],
+    ["wrong numeric SSV unit", () => signedUrl({ adUnit: "9999999999" }), () => new FakeD1()],
+    ["full client ad-unit string is not the documented SSV callback value", () => signedUrl({ adUnit: AD_UNIT }), () => new FakeD1()],
     ["wrong reward", () => signedUrl({ rewardItem: "coins" }), () => new FakeD1()],
     ["expired claim", () => signedUrl(), () => new FakeD1({ ...row(), expires_at: NOW - 1 })],
   ];
@@ -268,7 +294,7 @@ test("expired and incorrectly signed app JWTs cannot create reward claims", asyn
 
 test("daily-slot claims bind the business UTC slot transaction before an ad is requested", async () => {
   const db = new FakeD1(null);
-  const dailyPolicy = { daily_slot_2: { android: { ad_unit: AD_UNIT, reward_item: "energy", reward_amount: 20 } } };
+  const dailyPolicy = { daily_slot_2: { android: { ad_unit: AD_UNIT, ssv_ad_unit: SSV_AD_UNIT, reward_item: "energy", reward_amount: 20 } } };
   const configuration = { ...env(db), AD_REWARD_POLICY_JSON: JSON.stringify(dailyPolicy), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
   const today = new Date(NOW).toISOString().slice(0, 10);
   const send = (clientTransactionId) => handleRequest(new Request("https://worker.test/v1/ads/claims", {
@@ -344,6 +370,21 @@ test("consent-gated claim and verified reward delivery survive a game crash befo
   assert.deepEqual((await afterAck.json()).rewards, []);
   assert.equal(db.deliveryAcks.size, 1);
   assert.equal(reopenedGame.balance, 20);
+});
+
+test("worker caps active claims plus unacknowledged rewards to prevent an unbounded pending queue", async () => {
+  const db = new FakeD1(null);
+  for (let i = 0; i < 50; i++) {
+    db.ledger.set(`queued-${i}`, { transaction_id: `queued-${i}`, user_id: USER, client_transaction_id: "", nonce: `n-${i}` });
+  }
+  const configuration = { ...env(db), APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app" };
+  const response = await handleRequest(new Request("https://worker.test/v1/ads/claims", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" },
+    body: JSON.stringify({ placement: "energy_20", platform: "android", consent_granted: true, consent_state: "UMP_OBTAINED" }),
+  }), configuration, { now: NOW });
+  assert.equal(response.status, 429);
+  assert.equal((await response.json()).error, "REWARD_QUEUE_FULL");
+  assert.equal(db.claims.size, 0);
 });
 
 test("store purchase and restore assertions remain no-grant without a trusted verifier", async () => {

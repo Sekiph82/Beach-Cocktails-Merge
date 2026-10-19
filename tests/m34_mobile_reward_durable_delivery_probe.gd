@@ -66,6 +66,11 @@ func _run() -> void:
 	var save_failure := delivery.settle_pending_rows([{"transaction_id": "ad-tx-0002", "client_transaction_id": "", "user_id": user_id, "placement_id": "energy_20", "reward_item": "energy", "reward_amount": 20}], user_id, reopened, func() -> Dictionary:
 		return {"ok": false, "reason": "injected_save_failure"}, successful_ack, now)
 	_check("save failure rolls back the in-memory economy and withholds ACK", not save_failure.get("ok", false) and save_failure.get("reason", "") == "LOCAL_DURABLE_SAVE_FAILED" and reopened.energy == 80 and ack_state["calls"] == before_ack_calls)
+	var recovered_save := delivery.settle_pending_rows([{"transaction_id": "ad-tx-0002", "client_transaction_id": "", "user_id": user_id, "placement_id": "energy_20", "reward_item": "energy", "reward_amount": 20}], user_id, reopened, func() -> Dictionary:
+		var persisted: Dictionary = save_manager.create_default_state()
+		persisted.merge(reopened.export_state(), true)
+		return save_manager.write_state(persisted, path, backup), successful_ack, now)
+	_check("same server transaction recovers after storage returns, persists once and only then retries ACK", recovered_save.get("ok", false) and recovered_save.get("settled", 0) == 1 and reopened.energy == 100 and ack_state["calls"] == before_ack_calls + 1)
 	var daily_state := reopened.export_state()
 	daily_state["energy"] = 50
 	reopened.configure_from_state(daily_state)
@@ -92,8 +97,9 @@ func _run() -> void:
 	energy_edge["energy"] = 100
 	reopened.configure_from_state(energy_edge)
 	var full_energy_row := {"transaction_id": "ad-tx-full", "client_transaction_id": "", "user_id": user_id, "placement_id": "energy_20", "reward_item": "energy", "reward_amount": 20}
+	var ack_calls_before_full_energy := int(ack_state["calls"])
 	var full_energy := delivery.settle_pending_rows([full_energy_row], user_id, reopened, persist, successful_ack, now)
-	_check("full energy remains a no-op and the server reward is not ACKed", not full_energy.get("ok", false) and full_energy.get("reason", "") == "ENERGY_ALREADY_FULL" and ack_state["calls"] == before_ack_calls + 5)
+	_check("full energy remains a no-op, exposes retry UX and withholds server ACK", not full_energy.get("ok", false) and full_energy.get("reason", "") == "ENERGY_ALREADY_FULL" and full_energy.get("retryable", false) and full_energy.get("retry_when", "") == "energy_below_cap" and full_energy.get("server_ack", "") == "withheld_reward_remains_pending" and ack_state["calls"] == ack_calls_before_full_energy)
 	if failures.is_empty():
 		print("M34_REWARD_DELIVERY_RESULT=PASS")
 		quit(0)

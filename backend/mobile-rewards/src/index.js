@@ -4,6 +4,7 @@ const CLAIM_TTL_MS = 15 * 60 * 1000;
 const MAX_CALLBACK_AGE_MS = 24 * 60 * 60 * 1000;
 const MAX_FUTURE_SKEW_MS = 5 * 60 * 1000;
 const GOOGLE_KEY_CACHE_MS = 24 * 60 * 60 * 1000;
+const MAX_OUTSTANDING_REWARDS_PER_USER = 50;
 
 let cachedGoogleKeys = null;
 let cachedGoogleKeysAt = 0;
@@ -172,15 +173,21 @@ class D1RewardRepository {
   constructor(db) { this.db = db; }
 
   async createClaim(claim) {
-    await this.db.prepare(`INSERT INTO ad_claims
-      (nonce,user_id,placement_id,platform,ad_unit,reward_item,reward_amount,client_transaction_id,state,expires_at,created_at)
-      VALUES(?,?,?,?,?,?,?,?,'pending',?,?)`)
-      .bind(claim.nonce, claim.userId, claim.placement, claim.platform, claim.adUnit,
-        claim.rewardItem, claim.rewardAmount, claim.clientTransactionId, claim.expiresAt, claim.createdAt).run();
+    const result = await this.db.prepare(`INSERT INTO ad_claims
+      (nonce,user_id,placement_id,platform,ad_unit,ssv_ad_unit,reward_item,reward_amount,client_transaction_id,state,expires_at,created_at)
+      SELECT ?,?,?,?,?,?,?,?,?, 'pending',?,?
+      WHERE
+        (SELECT COUNT(*) FROM reward_ledger r WHERE r.user_id=? AND r.transaction_id NOT IN
+          (SELECT transaction_id FROM reward_delivery_ack WHERE user_id=?)) +
+        (SELECT COUNT(*) FROM ad_claims c WHERE c.user_id=? AND c.state='pending' AND c.expires_at>=?) < ?`)
+      .bind(claim.nonce, claim.userId, claim.placement, claim.platform, claim.adUnit, claim.ssvAdUnit,
+        claim.rewardItem, claim.rewardAmount, claim.clientTransactionId, claim.expiresAt, claim.createdAt,
+        claim.userId, claim.userId, claim.userId, claim.createdAt, MAX_OUTSTANDING_REWARDS_PER_USER).run();
+    return Number(result?.meta?.changes ?? 0) === 1;
   }
 
   async getClaim(nonce) {
-    return this.db.prepare(`SELECT nonce,user_id,placement_id,platform,ad_unit,reward_item,reward_amount,state,expires_at,transaction_id
+    return this.db.prepare(`SELECT nonce,user_id,placement_id,platform,ad_unit,ssv_ad_unit,reward_item,reward_amount,state,expires_at,transaction_id
       FROM ad_claims WHERE nonce=?`).bind(nonce).first();
   }
 
@@ -219,11 +226,11 @@ class D1RewardRepository {
     await this.db.batch([
       this.db.prepare(`INSERT INTO reward_ledger(transaction_id,nonce,user_id,placement_id,client_transaction_id,reward_item,reward_amount,granted_at)
         SELECT ?,nonce,user_id,placement_id,client_transaction_id,reward_item,reward_amount,?
-        FROM ad_claims WHERE nonce=? AND user_id=? AND placement_id=? AND platform=? AND ad_unit=?
+        FROM ad_claims WHERE nonce=? AND user_id=? AND placement_id=? AND platform=? AND ad_unit=? AND ssv_ad_unit=?
           AND reward_item=? AND reward_amount=? AND state='pending' AND expires_at>=?
         ON CONFLICT DO NOTHING`)
         .bind(fields.transactionId, now, fields.nonce, fields.userId, fields.placement,
-          fields.platform, fields.adUnit, fields.rewardItem, fields.rewardAmount, now),
+          fields.platform, fields.adUnit, fields.ssvAdUnit, fields.rewardItem, fields.rewardAmount, now),
       this.db.prepare(`UPDATE ad_claims SET state='settled',transaction_id=?,settled_at=?
         WHERE nonce=? AND user_id=? AND state='pending' AND EXISTS
           (SELECT 1 FROM reward_ledger WHERE transaction_id=? AND nonce=?)`)
@@ -242,6 +249,7 @@ function buildAdUnitMap(policy) {
       const row = platformMap[platform];
       if (!row || typeof row !== "object") continue;
       if (typeof row.ad_unit === "string" && /^ca-app-pub-\d{16}\/\d{10}$/.test(row.ad_unit)
+        && typeof row.ssv_ad_unit === "string" && /^\d{1,20}$/.test(row.ssv_ad_unit)
         && typeof row.reward_item === "string" && row.reward_item.length > 0
         && Number.isSafeInteger(row.reward_amount) && row.reward_amount > 0) {
         result.set(`${platform}:${row.ad_unit}`, { placement, platform, ...row });
@@ -260,7 +268,7 @@ async function handleCreateClaim(request, env, user, now) {
   }
   const policy = parseRewardPolicy(env);
   const row = policy[body.placement]?.[body.platform];
-  if (!row || !/^ca-app-pub-\d{16}\/\d{10}$/.test(row.ad_unit || "")
+  if (!row || !/^ca-app-pub-\d{16}\/\d{10}$/.test(row.ad_unit || "") || !/^\d{1,20}$/.test(row.ssv_ad_unit || "")
     || typeof row.reward_item !== "string" || !Number.isSafeInteger(row.reward_amount) || row.reward_amount <= 0) {
     return json({ error: "PLACEMENT_NOT_CONFIGURED" }, 503);
   }
@@ -280,11 +288,11 @@ async function handleCreateClaim(request, env, user, now) {
   }
   const claim = {
     nonce: crypto.randomUUID(), userId: user.sub, placement: body.placement,
-    platform: body.platform, adUnit: row.ad_unit, rewardItem: row.reward_item,
+    platform: body.platform, adUnit: row.ad_unit, ssvAdUnit: row.ssv_ad_unit, rewardItem: row.reward_item,
     rewardAmount: row.reward_amount, clientTransactionId, createdAt: now, expiresAt: now + CLAIM_TTL_MS,
   };
   try {
-    await new D1RewardRepository(env.DB).createClaim(claim);
+    if (!await new D1RewardRepository(env.DB).createClaim(claim)) return json({ error: "REWARD_QUEUE_FULL" }, 429);
     return json({ nonce: claim.nonce, user_id: claim.userId, placement_id: claim.placement,
       client_transaction_id: claim.clientTransactionId, ad_unit: claim.adUnit,
       reward_item: claim.rewardItem, reward_amount: claim.rewardAmount, expires_at: claim.expiresAt });
@@ -364,7 +372,7 @@ async function handleSsv(request, env, fetcher, now) {
     const claim = await repo.getClaim(nonce);
     if (!claim || claim.state !== "pending" || claim.expires_at < now) return json({ error: "CLAIM_INVALID_OR_EXPIRED" }, 400);
     const configured = parseRewardPolicy(env)[claim.placement_id]?.[claim.platform];
-    if (!configured || configured.ad_unit !== adUnit || claim.ad_unit !== adUnit
+    if (!configured || configured.ssv_ad_unit !== adUnit || claim.ssv_ad_unit !== adUnit
       || userId !== claim.user_id || userId !== fields.get("user_id")
       || fields.get("reward_item") !== claim.reward_item
       || fields.get("reward_amount") !== String(claim.reward_amount)
@@ -373,7 +381,7 @@ async function handleSsv(request, env, fetcher, now) {
     }
     const ledger = await repo.settleAtomically({
       nonce, transactionId, userId, placement: claim.placement_id, platform: claim.platform,
-      adUnit, rewardItem: claim.reward_item, rewardAmount: claim.reward_amount,
+      adUnit: claim.ad_unit, ssvAdUnit: adUnit, rewardItem: claim.reward_item, rewardAmount: claim.reward_amount,
     }, now);
     if (!ledger || ledger.nonce !== nonce || ledger.user_id !== userId) return json({ error: "SSV_REPLAY_OR_RACE_REJECTED" }, 400);
     return json({ ok: true, duplicate: claim.state === "settled", transaction_id: transactionId });

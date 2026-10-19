@@ -298,7 +298,10 @@ func configure_mobile_reward_delivery(worker_endpoint: String, identity_provider
 		add_child(mobile_reward_transport)
 	if mobile_reward_delivery == null:
 		mobile_reward_delivery = MOBILE_REWARD_DELIVERY_SCRIPT.new()
-	return mobile_reward_transport.configure(worker_endpoint, identity_provider, owner_enabled)
+	var configured: Dictionary = mobile_reward_transport.configure(worker_endpoint, identity_provider, owner_enabled)
+	if bool(configured.get("ok", false)):
+		call_deferred("_reconcile_mobile_rewards_after_configuration")
+	return configured
 
 
 func reconcile_pending_mobile_rewards() -> Dictionary:
@@ -726,6 +729,10 @@ func _on_campaign_changed(_island_id: String, _level_id: int) -> void:
 func _on_economy_changed(_state: Dictionary) -> void:
 	_persist_campaign_state()
 	economy_state_changed.emit(economy.export_state())
+	if mobile_reward_transport != null and mobile_reward_transport.enabled and economy != null and economy.energy < ECONOMY_SCRIPT.ENERGY_CAP:
+		var retry: Dictionary = mobile_reward_transport.request_pending_rewards()
+		if not bool(retry.get("ok", false)) and str(retry.get("reason", "")) != "MOBILE_REWARD_REQUEST_BUSY":
+			mobile_reward_delivery_status.emit(retry)
 
 
 func _on_verified_ad_reward(placement_id: String, transaction_id: String, provider_receipt: String) -> void:
@@ -749,6 +756,9 @@ func _on_native_reward_earned(_placement_id: String, _transaction_id: String, _s
 func _on_pending_mobile_rewards(authenticated_subject: String, response: Dictionary) -> void:
 	if not bool(response.get("ok", false)):
 		mobile_reward_delivery_status.emit(response)
+		return
+	if mobile_reward_transport == null or not mobile_reward_transport.is_authenticated_subject_bound_to_active_profile(authenticated_subject):
+		mobile_reward_delivery_status.emit({"ok": false, "reason": "AUTHENTICATED_PROFILE_CHANGED"})
 		return
 	if mobile_reward_delivery == null or economy == null:
 		mobile_reward_delivery_status.emit({"ok": false, "reason": "CAMPAIGN_ECONOMY_UNAVAILABLE"})
@@ -776,6 +786,12 @@ func _on_mobile_reward_acknowledged(_authenticated_subject: String, _transaction
 		var request: Dictionary = mobile_reward_transport.request_pending_rewards()
 		if not bool(request.get("ok", false)):
 			mobile_reward_delivery_status.emit(request)
+
+
+func _reconcile_mobile_rewards_after_configuration() -> void:
+	var request: Dictionary = reconcile_pending_mobile_rewards()
+	if not bool(request.get("ok", false)) and str(request.get("reason", "")) != "MOBILE_REWARD_REQUEST_BUSY":
+		mobile_reward_delivery_status.emit(request)
 
 
 func _persist_campaign_state() -> Dictionary:

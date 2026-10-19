@@ -2,20 +2,10 @@ extends SceneTree
 
 const ADS_SCRIPT := preload("res://scripts/campaign/ads_service.gd")
 const ADAPTER_SCRIPT := preload("res://scripts/campaign/admob_test_adapter.gd")
+const LOAD_AD_REQUEST_SCRIPT := preload("res://addons/AdmobPlugin/model/LoadAdRequest.gd")
 
 var failures: Array[String] = []
 var earned_notifications := 0
-
-
-class FakeRequest extends RefCounted:
-	var ad_unit_id := ""
-	var custom_data := ""
-	func set_ad_unit_id(value: String) -> FakeRequest:
-		ad_unit_id = value
-		return self
-	func set_custom_data(value: String) -> FakeRequest:
-		custom_data = value
-		return self
 
 
 class FakeAdInfo extends RefCounted:
@@ -36,7 +26,9 @@ class FakeAdmob extends RefCounted:
 	var is_real := false
 	var consent := UserConsent.new("OBTAINED")
 	var requested_id := ""
+	var requested_user_id := ""
 	var requested_custom_data := ""
+	var requested_raw_data: Dictionary = {}
 	var shown_id := ""
 	var loaded := false
 	func is_test_fixture() -> bool:
@@ -44,10 +36,12 @@ class FakeAdmob extends RefCounted:
 	func get_consent_status() -> Object:
 		return consent
 	func create_basic_ad_request() -> Object:
-		return FakeRequest.new()
-	func load_rewarded_ad(request: FakeRequest) -> void:
-		requested_id = request.ad_unit_id
-		requested_custom_data = request.custom_data
+		return LOAD_AD_REQUEST_SCRIPT.new()
+	func load_rewarded_ad(request: Object) -> void:
+		requested_id = request.get_ad_unit_id()
+		requested_user_id = request.get_user_id()
+		requested_custom_data = request.get_custom_data()
+		requested_raw_data = request.get_raw_data().duplicate(true)
 		loaded = false
 	func is_rewarded_ad_loaded() -> bool:
 		return loaded
@@ -63,6 +57,9 @@ class FakeClaimTransport extends RefCounted:
 	var transaction := ""
 	var session := ""
 	var consent := ""
+	var authenticated_subject := "test-player"
+	func get_authenticated_subject() -> String:
+		return authenticated_subject
 	func request_ad_claim(placement_id: String, platform: String, client_transaction_id: String, session_id: String, consent_state: String) -> Dictionary:
 		placement = placement_id
 		transaction = client_transaction_id
@@ -105,8 +102,8 @@ func _run() -> void:
 	adapter.native_reward_earned.connect(_on_native_earned)
 	var requested := service.request_rewarded("energy_20", "native-tx-1")
 	_check("placement maps to a user-bound test claim and carries resolved UMP state", requested.get("pending", false) and claim_transport.placement == "energy_20" and claim_transport.consent == "UMP_OBTAINED")
-	claim_transport.resolve({"ok": true, "nonce": "claim-nonce-1", "user_id": "test-player", "ad_unit": AdmobTestAdapter.ANDROID_TEST_UNIT, "reward_item": "energy", "reward_amount": 20})
-	_check("claim nonce is bound into the installed SDK LoadAdRequest custom_data", plugin.requested_id == AdmobTestAdapter.ANDROID_TEST_UNIT and plugin.requested_custom_data == "claim-nonce-1")
+	claim_transport.resolve({"ok": true, "nonce": "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a471", "user_id": "test-player", "platform": "android", "placement_id": "energy_20", "client_transaction_id": "native-tx-1", "session_id": str(requested.get("session_id", "")), "ad_unit": AdmobTestAdapter.ANDROID_TEST_UNIT, "reward_item": "energy", "reward_amount": 20})
+	_check("installed LoadAdRequest serialization carries authenticated user_id and SSV nonce", plugin.requested_id == AdmobTestAdapter.ANDROID_TEST_UNIT and plugin.requested_user_id == "test-player" and plugin.requested_custom_data == "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a471" and plugin.requested_raw_data.get("user_id", "") == "test-player" and plugin.requested_raw_data.get("custom_data", "") == "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a471")
 	var session := str(requested.get("session_id", ""))
 	var ad_info := FakeAdInfo.new(plugin.requested_id)
 	plugin.loaded = true
@@ -122,20 +119,25 @@ func _run() -> void:
 	service.expire_active_request()
 	_check("server verification timeout fails closed and releases the active transaction", service.state == AdsService.STATE_FAILED)
 	var second := service.request_rewarded("daily_slot_2", "native-tx-2")
-	claim_transport.resolve({"ok": true, "nonce": "claim-nonce-2", "user_id": "test-player", "ad_unit": AdmobTestAdapter.ANDROID_TEST_UNIT, "reward_item": "energy", "reward_amount": 20})
+	claim_transport.resolve({"ok": true, "nonce": "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a472", "user_id": "test-player", "platform": "android", "placement_id": "daily_slot_2", "client_transaction_id": "native-tx-2", "session_id": str(second.get("session_id", "")), "ad_unit": AdmobTestAdapter.ANDROID_TEST_UNIT, "reward_item": "energy", "reward_amount": 20})
 	var second_info := FakeAdInfo.new(plugin.requested_id)
 	plugin.rewarded_ad_failed_to_load.emit(second_info, null)
 	_check("rewarded_ad_failed_to_load follows bounded retry lifecycle", second.get("pending", false) and service.state == AdsService.STATE_RETRY_WAIT)
 	service.notify_skipped_or_closed_without_reward()
 	plugin.rewarded_ad_user_earned_reward.emit(second_info, null)
 	_check("cancelled session rejects stale earned callback", earned_notifications == 1 and service.state == AdsService.STATE_CANCELLED)
+	var switched_user := service.request_rewarded("energy_20", "native-tx-switch")
+	claim_transport.authenticated_subject = "different-authenticated-user"
+	claim_transport.resolve({"ok": true, "nonce": "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a473", "user_id": "test-player", "platform": "android", "placement_id": "energy_20", "client_transaction_id": "native-tx-switch", "session_id": str(switched_user.get("session_id", "")), "ad_unit": AdmobTestAdapter.ANDROID_TEST_UNIT, "reward_item": "energy", "reward_amount": 20})
+	_check("claim response for a stale authenticated account cannot reach AdMob", service.state == AdsService.STATE_FAILED and plugin.requested_user_id == "test-player")
+	claim_transport.authenticated_subject = "test-player"
 	plugin.consent = UserConsent.new("REQUIRED")
 	var denied_request := adapter.request_rewarded_with_session("energy_20", "native-tx-3", "session-3")
 	_check("consent is rechecked immediately before native ad request", not denied_request.get("ok", false) and denied_request.get("reason", "") == "UMP_CONSENT_NOT_RESOLVED")
 	plugin.consent = UserConsent.new("OBTAINED")
 	var denied_claim := service.request_rewarded("energy_20", "native-tx-4")
 	claim_transport.resolve({"ok": false, "reason": "SERVER_CLAIM_DENIED"})
-	_check("Worker claim denial blocks SDK ad loading and grants nothing", denied_claim.get("pending", false) and service.state == AdsService.STATE_FAILED and plugin.requested_custom_data == "claim-nonce-2")
+	_check("Worker claim denial blocks SDK ad loading and grants nothing", denied_claim.get("pending", false) and service.state == AdsService.STATE_FAILED and plugin.requested_custom_data == "d78a40f3-4c8f-4c7d-a5b3-3a12ed43a472")
 	adapter.cancel_rewarded()
 	service.free()
 	if failures.is_empty():

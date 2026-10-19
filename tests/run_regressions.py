@@ -31,6 +31,7 @@ CORE = [
     "tests/m34_daily_rewards_probe.gd",
     "tests/m34_rewarded_ads_lifecycle_probe.gd",
     "tests/m34_mobile_reward_durable_delivery_probe.gd",
+    "tests/m34_mobile_reward_async_controller_probe.gd",
     "tests/m34_mobile_reward_http_transport_probe.gd",
     "tests/m34_admob_test_adapter_probe.gd",
     "tests/m34_store_catalog_boundary_probe.gd",
