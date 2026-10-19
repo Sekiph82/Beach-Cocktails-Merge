@@ -1,4 +1,4 @@
-import { parseStorePolicy, validateStoreSubmission, verifyStorePurchase } from "./store_verification.js";
+import { MAX_STORE_BODY_BYTES, parseStorePolicy, parseStoreRequestBody, validateStoreSubmission, verifyStorePurchase } from "./store_verification.js";
 
 const GOOGLE_SSV_KEYS_URL = "https://www.gstatic.com/admob/reward/verifier-keys.json";
 const MAX_SSV_QUERY_BYTES = 8192;
@@ -16,6 +16,32 @@ function json(body, status = 200) {
     status,
     headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" },
   });
+}
+
+async function readLimitedBody(request, maxBytes) {
+  if (!request.body) return null;
+  const reader = request.body.getReader();
+  const chunks = [];
+  let size = 0;
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > maxBytes) {
+        await reader.cancel();
+        return null;
+      }
+      chunks.push(value);
+    }
+    const bytes = new Uint8Array(size);
+    let offset = 0;
+    for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
+    return new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+  } catch {
+    try { await reader.cancel(); } catch { /* body already closed */ }
+    return null;
+  }
 }
 
 function decodeBase64Url(value) {
@@ -408,7 +434,8 @@ export async function handleRequest(request, env, dependencies = {}) {
     }
     const policy = parseStorePolicy(env.STORE_PRODUCT_POLICY_JSON);
     if (!policy) return json({ error: "TRUSTED_STORE_VERIFIER_NOT_CONFIGURED", grant: false }, 503);
-    const body = await request.json().catch(() => null);
+    const rawBody = await readLimitedBody(request, MAX_STORE_BODY_BYTES);
+    const body = rawBody === null ? null : parseStoreRequestBody(rawBody);
     const submission = validateStoreSubmission(body, policy);
     if (!submission) return json({ error: "STORE_PURCHASE_REQUEST_INVALID", grant: false }, 400);
     const result = await verifyStorePurchase(submission, env);

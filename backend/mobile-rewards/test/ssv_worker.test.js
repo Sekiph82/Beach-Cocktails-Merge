@@ -434,6 +434,7 @@ test("store policy allowlists exact app identities and rejects malformed or unap
   assert.equal(validateStoreSubmission({ platform: "google", product_id: "remove.ads", purchase_token: "short" }, policy), null);
   assert.equal(validateStoreSubmission({ platform: "apple", product_id: "remove.ads", signed_transaction: "short" }, policy), null);
   assert.equal(validateStoreSubmission({ platform: "android", product_id: "remove.ads", purchase_token: "token-123456" }, policy), null);
+  assert.equal(validateStoreSubmission({ platform: "apple", product_id: "remove.ads", signed_transaction: "synthetic-jws-123456", purchase_token: "wrong-platform" }, policy), null);
   const parsed = validateStoreSubmission({ platform: "google", product_id: "remove.ads", purchase_token: "synthetic-token-123" }, policy);
   assert.deepEqual(parsed, { platform: "google", applicationId: "com.example.game", productId: "remove.ads",
     kind: "non_consumable", purchaseToken: "synthetic-token-123" });
@@ -469,6 +470,36 @@ test("synthetic Apple/Google proof fixtures cannot enable either sealed provider
     STORE_PRODUCT_POLICY_JSON: storePolicy, STORE_VERIFICATION_ENABLED: "true" }, { now: NOW });
   assert.equal(forged.status, 400);
   assert.deepEqual(await forged.json(), { error: "STORE_PURCHASE_REQUEST_INVALID", grant: false });
+});
+
+test("store request JSON rejects unknown fields, duplicate keys, cross-platform payloads and malformed input", async () => {
+  const policy = JSON.stringify({
+    google: { application_id: "com.example.game", products: { "remove.ads": { kind: "non_consumable", enabled: true } } },
+    apple: { application_id: "com.example.game.ios", products: { "remove.ads": { kind: "non_consumable", enabled: true } } },
+  });
+  const configuration = { APP_JWT_SECRET: "test-secret", APP_JWT_ISSUER: "beach-cocktails", APP_JWT_AUDIENCE: "mobile-app",
+    STORE_PRODUCT_POLICY_JSON: policy, STORE_VERIFICATION_ENABLED: "true" };
+  const send = (body) => handleRequest(new Request("https://worker.test/v1/store/verify", {
+    method: "POST", headers: { authorization: `Bearer ${jwt()}`, "content-type": "application/json" }, body,
+  }), configuration, { now: NOW });
+  for (const extra of [
+    { server_verified: true }, { receipt_valid: true }, { verified_by_google: true },
+    { unexpected: "value" }, { signed_transaction: "wrong-platform-token" },
+  ]) {
+    const response = await send(JSON.stringify({ platform: "google", product_id: "remove.ads", purchase_token: "synthetic-token-123", ...extra }));
+    assert.equal(response.status, 400);
+    assert.deepEqual(await response.json(), { error: "STORE_PURCHASE_REQUEST_INVALID", grant: false });
+  }
+  for (const body of [
+    '{"platform":"google","product_id":"remove.ads","product_id":"remove.ads","purchase_token":"synthetic-token-123"}',
+    '{"platform":"google","purchase_token":"synthetic-token-123"}',
+    JSON.stringify({ platform: "google", product_id: "remove.ads", purchase_token: "x".repeat(16_385) }),
+    "{not-json",
+  ]) {
+    const response = await send(body);
+    assert.equal(response.status, 400);
+    assert.deepEqual(await response.json(), { error: "STORE_PURCHASE_REQUEST_INVALID", grant: false });
+  }
 });
 
 test("signature parser rejects duplicates and key ordering violations", () => {
