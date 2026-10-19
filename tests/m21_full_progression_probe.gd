@@ -67,6 +67,9 @@ func _mount_fresh_shell() -> void:
 	var frontier_bridge = navigation.get_session_bridge()
 	_check("production PLAY starts the fresh-session frontier gameplay", play_started and navigation.get_current_view() == navigation.VIEW_GAMEPLAY and navigation.get_gameplay_instance_count() == 1 and frontier_bridge != null and frontier_bridge.active_level_id == 1)
 	_check("fresh save begins with Sunny Cove only", campaign.is_island_unlocked("sunny_cove") and not campaign.is_island_unlocked("tiki_island"))
+	var gameplay = navigation.get("_gameplay")
+	var tutorial = gameplay.get("gameplay_tutorial") if is_instance_valid(gameplay) else null
+	_check("isolated returning-player profile loads persisted completed tutorial state", is_instance_valid(tutorial) and tutorial.completed and not tutorial.visible and tutorial.current_step >= 5)
 
 
 func _persist_and_reload(checkpoint_level: int) -> void:
@@ -138,7 +141,9 @@ func _complete_level(level_id: int) -> void:
 	completed_levels.append(level_id)
 	cumulative_stars.append(campaign.get_cumulative_stars("sunny_cove"))
 	_check("cumulative stars remain monotonic through L%d" % level_id, cumulative_stars.back() <= level_id * 3 and (cumulative_stars.size() == 1 or cumulative_stars.back() >= cumulative_stars[cumulative_stars.size() - 2]))
-	_check("L%d result returns through production Island Map action" % level_id, navigation.get_result_feedback_overlay().trigger_action("ISLAND_MAP"))
+	var result_overlay = navigation.get_result_feedback_overlay()
+	_check("L%d result overlay is visible with Island Map action after tutorial completion" % level_id, is_instance_valid(result_overlay) and result_overlay.visible and result_overlay.visible_actions.has("ISLAND_MAP"))
+	_check("L%d result returns through production Island Map action" % level_id, result_overlay.trigger_action("ISLAND_MAP") if is_instance_valid(result_overlay) else false)
 	await _frame(3)
 	_check("L%d leaves one Island Map and no gameplay duplicate" % level_id, navigation.get_current_view() == navigation.VIEW_ISLAND_MAP and navigation.get_gameplay_instance_count() == 0)
 	if CHECKPOINTS.has(level_id):

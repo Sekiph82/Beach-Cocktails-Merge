@@ -35,6 +35,12 @@ func _check(label: String, condition: bool) -> void:
 		print("M34_DAILY FAIL: %s" % label)
 
 
+func _new_ads_service():
+	var service = ADS_SCRIPT.new()
+	root.add_child(service)
+	return service
+
+
 func _utc(year: int, month: int, day: int, hour: int, minute: int, second: int) -> int:
 	return int(Time.get_unix_time_from_datetime_dict({"year": year, "month": month, "day": day, "hour": hour, "minute": minute, "second": second}))
 
@@ -71,7 +77,7 @@ func _run() -> void:
 	var unavailable_ad_claim: Dictionary = daily.claim(2, economy, null, boundary_after)
 	_check("ad slot remains unavailable offline without consuming claim", unavailable_ad_claim.get("reason", "") == "REWARDED_AD_PROVIDER_UNAVAILABLE" and not economy.daily_slot_claimed("2026-10-15", 2))
 	economy.energy = 100
-	var unavailable_ads := ADS_SCRIPT.new()
+	var unavailable_ads = _new_ads_service()
 	_check("slot 2 is unavailable at full Energy without consuming its date key", daily.get_slot_state(2, economy, unavailable_ads, boundary_after).get("reason", "") == "ENERGY_ALREADY_FULL" and not economy.daily_slot_claimed("2026-10-15", 2))
 	economy.energy = 80
 	for slot in [2, 3, 4, 5]:
@@ -81,7 +87,7 @@ func _run() -> void:
 
 	var slot3_economy = ECONOMY_SCRIPT.new()
 	slot3_economy.configure(10, {}, [], 0, [], 80, boundary_after)
-	var slot3_ads = ADS_SCRIPT.new()
+	var slot3_ads = _new_ads_service()
 	slot3_ads.set_provider_adapter(TestRewardProvider.new(), "GRANTED_NONPERSONALIZED")
 	var slot3_service = DAILY_SCRIPT.new()
 	slot3_ads.verified_rewarded.connect(func(placement: String, transaction: String, receipt: String) -> void: slot3_service.accept_verified_reward(placement, transaction, receipt, slot3_economy, boundary_after))
@@ -117,7 +123,7 @@ func _run() -> void:
 	var alternate_loaded := alternate_service.load_config(alternate_path)
 	var alternate_economy = ECONOMY_SCRIPT.new()
 	alternate_economy.configure(0, {}, [], 0, [], 80, boundary_after)
-	var alternate_ads = ADS_SCRIPT.new()
+	var alternate_ads = _new_ads_service()
 	alternate_ads.set_provider_adapter(TestRewardProvider.new(), "GRANTED_NONPERSONALIZED")
 	alternate_ads.verified_rewarded.connect(func(placement: String, transaction: String, receipt: String) -> void: alternate_service.accept_verified_reward(placement, transaction, receipt, alternate_economy, boundary_after))
 	var alternate_pending: Dictionary = alternate_service.claim(3, alternate_economy, alternate_ads, boundary_after)
@@ -125,7 +131,7 @@ func _run() -> void:
 	_check("settlement consumes loaded config quantity instead of a second hardcoded reward table", alternate_written and alternate_loaded and alternate_receipt.get("verified", false) and alternate_economy.coins == 41)
 	alternate_ads.free()
 
-	var cancel_ads := ADS_SCRIPT.new()
+	var cancel_ads = _new_ads_service()
 	cancel_ads.set_provider_adapter(TestRewardProvider.new(), "GRANTED_NONPERSONALIZED")
 	var cancel_service = DAILY_SCRIPT.new()
 	var pending: Dictionary = cancel_service.claim(3, economy, cancel_ads, boundary_after)
@@ -134,7 +140,7 @@ func _run() -> void:
 	_check("ad skip/cancel leaves claim unpaid and removes pending claim", pending.get("pending", false) and cancel_ads.state == ADS_SCRIPT.STATE_CANCELLED and not economy.daily_slot_claimed("2026-10-15", 3))
 	_check("late and replay callback without an active claim is rejected", not cancel_service.accept_verified_reward("daily_slot_3", str(pending.get("transaction_id", "")), "late-receipt", economy, boundary_after).get("ok", false) and not economy.daily_slot_claimed("2026-10-15", 3))
 	_check("missing provider receipt cannot settle a rewarded claim", not economy.claim_daily_reward_once("2026-10-15", 3, "daily:2026-10-15:3", "", boundary_after).get("ok", false) and not economy.daily_slot_claimed("2026-10-15", 3))
-	var no_consent_ads := ADS_SCRIPT.new()
+	var no_consent_ads = _new_ads_service()
 	_check("ad failure without consent returns unavailable without reward", not no_consent_ads.request_rewarded("daily_slot_2", "failure-probe").get("ok", false) and no_consent_ads.state == ADS_SCRIPT.STATE_FAILED)
 	no_consent_ads.free()
 	unavailable_ads.free()

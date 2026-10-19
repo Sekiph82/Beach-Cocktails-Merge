@@ -8,7 +8,9 @@ usage:
   python tests/run_regressions.py --all      # explicitly inventoried isolated headless probes
   python tests/run_regressions.py --display  # only the probes that need a real window
   python tests/run_regressions.py --json out.json
+  python tests/run_regressions.py --strict-runtime-errors  # also fail on anchored Godot errors
 Exit code 0 only if every selected probe exits 0.
+With --strict-runtime-errors, each probe must also have no classified Godot runtime/parser errors.
 The --all inventory prints display, harness, negative-only, Node E2E, legacy-disabled,
 and support-script categories separately; these are not counted as skipped passes.
 """
@@ -16,6 +18,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -29,6 +32,9 @@ REPO = Path(__file__).resolve().parents[1]
 SANDBOX_ROOT = REPO / ".godot" / "bcm_sandboxes"
 SANDBOX_ROOT.mkdir(parents=True, exist_ok=True)
 SANDBOX_ROOT_RESOLVED = SANDBOX_ROOT.resolve()
+ANSI_ESCAPE = re.compile(r"\x1b\[[0-9;]*m")
+GODOT_RUNTIME_ERROR = re.compile(r"^\s*(SCRIPT ERROR|Parse Error|ERROR):")
+GODOT_STACK_LINE = re.compile(r"^\s*(?:\[\d+\]|at:)")
 
 CORE = [
     "tests/m34_economy_closure_probe.gd",
@@ -243,7 +249,40 @@ def all_headless_probes() -> list[str]:
     return sorted(discover_all_categories()["headless"])
 
 
-def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True) -> dict:
+def classify_godot_runtime_errors(output: str) -> list[dict[str, object]]:
+    """Return anchored Godot fatal/runtime diagnostics and their stack locations.
+
+    This deliberately ignores ordinary prose containing words such as "error".
+    Godot's script/parser/runtime diagnostics use stable line prefixes; following
+    stack frames are retained so a strict verdict has actionable source context.
+    """
+    lines = [ANSI_ESCAPE.sub("", line) for line in output.splitlines()]
+    findings: list[dict[str, object]] = []
+    for index, line in enumerate(lines):
+        match = GODOT_RUNTIME_ERROR.match(line)
+        if match is None:
+            continue
+        stack: list[str] = []
+        cursor = index + 1
+        while cursor < len(lines) and GODOT_STACK_LINE.match(lines[cursor]):
+            stack.append(lines[cursor])
+            cursor += 1
+        findings.append({"kind": match.group(1), "message": line.strip(), "stack": stack})
+    return findings
+
+
+def probe_verdict(exit_code: int | None, runtime_errors: list[dict[str, object]], strict_runtime_errors: bool) -> dict[str, bool]:
+    exit_code_pass = exit_code == 0
+    strict_pass = exit_code_pass and not runtime_errors
+    return {
+        "exit_code_pass": exit_code_pass,
+        "strict_pass": strict_pass,
+        "pass": strict_pass if strict_runtime_errors else exit_code_pass,
+    }
+
+
+def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True,
+        strict_runtime_errors: bool = False) -> dict:
     sandbox = Path(tempfile.mkdtemp(prefix="bcm_reg_", dir=SANDBOX_ROOT))
     sandbox_resolved = sandbox.resolve()
     if not sandbox_resolved.is_relative_to(SANDBOX_ROOT_RESOLVED) or sandbox_resolved == SANDBOX_ROOT_RESOLVED:
@@ -270,20 +309,23 @@ def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True) -
         code, out = None, "TIMEOUT"
     # Keep every generated test profile under .godot/bcm_sandboxes for audit;
     # do not remove it, even after a failure or timeout.
-    errors = [l for l in out.splitlines() if "SCRIPT ERROR" in l or "Parse Error" in l or l.startswith("ERROR")]
+    runtime_errors = classify_godot_runtime_errors(out)
+    verdict = probe_verdict(code, runtime_errors, strict_runtime_errors)
     user_dir = app_data / "Godot/app_userdata/CocktailMerge"
     def sha256_or_none(path: Path) -> str | None:
         if not path.is_file():
             return None
         return hashlib.sha256(path.read_bytes()).hexdigest()
-    return {"exit_code": code, "pass": code == 0, "wall_ms": int((time.monotonic() - started) * 1000),
-            "error_lines": errors[:10], "tail": out.splitlines()[-3:], "sandbox_root": str(sandbox_resolved),
+    return {"exit_code": code, **verdict, "runtime_errors": runtime_errors,
+            "wall_ms": int((time.monotonic() - started) * 1000),
+            "error_lines": [str(item["message"]) for item in runtime_errors[:10]],
+            "tail": out.splitlines()[-3:], "sandbox_root": str(sandbox_resolved),
             "user_data_root": str(user_dir),
             "campaign_save_sha256": sha256_or_none(user_dir / "campaign_save.json"),
             "campaign_save_backup_sha256": sha256_or_none(user_dir / "campaign_save.json.bak")}
 
 
-def run_negative_isolation_probe(godot: str, timeout: int) -> dict:
+def run_negative_isolation_probe(godot: str, timeout: int, strict_runtime_errors: bool = False) -> dict:
     sandbox = Path(tempfile.mkdtemp(prefix="bcm_negative_", dir=SANDBOX_ROOT)).resolve()
     if not sandbox.is_relative_to(SANDBOX_ROOT_RESOLVED) or sandbox == SANDBOX_ROOT_RESOLVED:
         raise RuntimeError(f"Refusing negative-test profile outside project sandbox: {sandbox}")
@@ -303,9 +345,15 @@ def run_negative_isolation_probe(godot: str, timeout: int) -> dict:
     except subprocess.TimeoutExpired:
         output, code = "TIMEOUT", None
     refused_before_test = code == 70 and "BCM_TEST_SANDBOX_ABORT=" in output
+    runtime_errors = classify_godot_runtime_errors(output)
     user_dir = app_data / "Godot/app_userdata/CocktailMerge"
     touched_saves = (user_dir / "campaign_save.json").exists() or (user_dir / "campaign_save.json.bak").exists()
-    return {"exit_code": code, "pass": refused_before_test and not touched_saves,
+    strict_pass = not runtime_errors
+    return {"exit_code": code, "exit_code_pass": refused_before_test and not touched_saves,
+            "strict_pass": strict_pass,
+            "pass": refused_before_test and not touched_saves and (strict_pass or not strict_runtime_errors),
+            "runtime_errors": runtime_errors,
+            "error_lines": [str(item["message"]) for item in runtime_errors[:10]],
             "wall_ms": int((time.monotonic() - started) * 1000), "sandbox_root": str(sandbox),
             "user_data_root": str(user_dir), "campaign_save_or_backup_created": touched_saves,
             "tail": output.splitlines()[-3:]}
@@ -318,6 +366,8 @@ def main() -> int:
     parser.add_argument("--isolation-only", action="store_true", help="run only the fail-closed sandbox refusal probe")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--timeout", type=int, default=240)
+    parser.add_argument("--strict-runtime-errors", action="store_true",
+                        help="fail a probe on anchored Godot SCRIPT ERROR, Parse Error, or ERROR diagnostics, even when exit code is zero")
     parser.add_argument("--json", default="")
     parser.add_argument("probes", nargs="*")
     args = parser.parse_args()
@@ -326,7 +376,7 @@ def main() -> int:
     if not godot:
         print("FAIL isolation_refusal godot_executable_not_found", flush=True)
         return 1
-    refusal = run_negative_isolation_probe(godot, min(args.timeout, 60))
+    refusal = run_negative_isolation_probe(godot, min(args.timeout, 60), args.strict_runtime_errors)
     if not refusal["pass"]:
         print(f"FAIL isolation_refusal {refusal}", flush=True)
         return 1
@@ -352,14 +402,18 @@ def main() -> int:
     else:
         probes = CORE
 
-    results = {"editor_import": run(godot, ["--headless", "--editor", "--path", ".", "--quit"], 600)}
+    results = {"editor_import": run(godot, ["--headless", "--editor", "--path", ".", "--quit"], 600,
+                                    strict_runtime_errors=args.strict_runtime_errors)}
     print(f"{'PASS' if results['editor_import']['pass'] else 'FAIL'} editor_import", flush=True)
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
-        futures = {p: pool.submit(run, godot, ([] if p in NEEDS_DISPLAY else ["--headless"]) + ["--path", ".", "--script", f"res://{p}"], args.timeout, "tutorial" not in p) for p in probes}
+        futures = {p: pool.submit(run, godot,
+                                  ([] if p in NEEDS_DISPLAY else ["--headless"]) + ["--path", ".", "--script", f"res://{p}"],
+                                  args.timeout, "tutorial" not in p, args.strict_runtime_errors) for p in probes}
         for p, f in futures.items():
             results[p] = f.result()
             print(f"{'PASS' if results[p]['pass'] else 'FAIL'} {p} exit={results[p]['exit_code']} {results[p]['wall_ms']}ms", flush=True)
-    results["startup_smoke"] = run(godot, ["--headless", "--path", ".", "--quit-after", "3"], 120)
+    results["startup_smoke"] = run(godot, ["--headless", "--path", ".", "--quit-after", "3"], 120,
+                                   strict_runtime_errors=args.strict_runtime_errors)
     print(f"{'PASS' if results['startup_smoke']['pass'] else 'FAIL'} startup_smoke", flush=True)
 
     results["isolation_refusal"] = refusal

@@ -41,6 +41,12 @@ func _check(label: String, condition: bool) -> void:
 		print("M34_ECONOMY FAIL: %s" % label)
 
 
+func _new_ads_service():
+	var service = ADS_SCRIPT.new()
+	root.add_child(service)
+	return service
+
+
 func _run() -> void:
 	var economy = ECONOMY_SCRIPT.new()
 	economy.configure(100, {"focus": 2, "upgrade": 1}, [], 25, [], 100, 1000)
@@ -142,10 +148,10 @@ func _run() -> void:
 		_check("legacy Sunny Cove IDs resolve globally and star improvements pay 20/30/40 cumulative Coins plus one fifth-level Gem", one_star.get("star_economy_reward", {}).get("coins_delta", 0) == 20 and two_star.get("star_economy_reward", {}).get("coins_delta", 0) == 10 and three_star.get("star_economy_reward", {}).get("coins_delta", 0) == 10 and three_star.get("star_economy_reward", {}).get("gems_delta", 0) == 1 and progression_economy.coins == 140 and progression_economy.gems == 6)
 		var replay: Dictionary = campaign.mark_level_completed("sunny_cove", 5, {"stars": 3, "score": 700, "vip_completed": true})
 		_check("same-star replay and VIP completion grant no extra currency", replay.get("star_economy_reward", {}).get("granted", true) == false and progression_economy.coins == 140 and progression_economy.gems == 6)
-	var ads = ADS_SCRIPT.new()
+	var ads = _new_ads_service()
 	var no_consent: Dictionary = ads.request_rewarded("energy_20", "no-consent")
 	_check("rewarded Ads fail closed without explicit consent and provider", not no_consent.get("ok", false) and no_consent.get("reason", "") == "CONSENT_REQUIRED")
-	var mocked_ads = ADS_SCRIPT.new()
+	var mocked_ads = _new_ads_service()
 	var accepted_ad_callbacks: Array[String] = []
 	mocked_ads.verified_rewarded.connect(func(_placement: String, transaction_id: String, _receipt: String) -> void: accepted_ad_callbacks.append(transaction_id))
 	mocked_ads.set_provider_adapter(MockRewardProvider.new(), "GRANTED_NONPERSONALIZED")

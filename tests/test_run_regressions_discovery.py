@@ -48,6 +48,29 @@ class ProbeDiscoveryContract(unittest.TestCase):
         self.assertIn("get_viewport().get_texture().get_image()", source)
         self.assertIn('"real GL framebuffer saved: %s"', source)
 
+    def test_runtime_error_classifier_keeps_stack_context_and_ignores_benign_prose(self):
+        output = """M34 PASS: error state is handled
+ERROR: Unable to start the timer because it's not inside the scene tree. Either add it or set autostart to true.
+   at: start (scene/main/node.cpp:1234)
+   [0] _start_timer (res://scripts/campaign/ads_service.gd:281)
+   [1] show_rewarded (res://scripts/campaign/ads_service.gd:215)
+SCRIPT ERROR: Invalid call. Nonexistent function.
+   [0] _run (res://tests/sample_probe.gd:42)
+"""
+        findings = RUNNER.classify_godot_runtime_errors(output)
+        self.assertEqual(["ERROR", "SCRIPT ERROR"], [finding["kind"] for finding in findings])
+        self.assertEqual(2, len(findings))
+        self.assertIn("ads_service.gd:281", "\n".join(findings[0]["stack"]))
+        self.assertFalse(any("handled" in str(finding) for finding in findings))
+
+    def test_strict_runtime_error_verdict_is_opt_in(self):
+        errors = [{"kind": "ERROR", "message": "ERROR: sample", "stack": []}]
+        self.assertEqual({"exit_code_pass": True, "strict_pass": False, "pass": True},
+                         RUNNER.probe_verdict(0, errors, False))
+        self.assertEqual({"exit_code_pass": True, "strict_pass": False, "pass": False},
+                         RUNNER.probe_verdict(0, errors, True))
+        self.assertFalse(RUNNER.probe_verdict(1, [], True)["pass"])
+
 
 if __name__ == "__main__":
     unittest.main()
