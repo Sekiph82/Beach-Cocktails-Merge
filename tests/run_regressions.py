@@ -5,10 +5,12 @@ normal game saves are never touched, with a per-probe timeout.
 
 usage:
   python tests/run_regressions.py            # core suite
-  python tests/run_regressions.py --all      # every runnable probe (headless; display probes skipped)
+  python tests/run_regressions.py --all      # explicitly inventoried isolated headless probes
   python tests/run_regressions.py --display  # only the probes that need a real window
   python tests/run_regressions.py --json out.json
 Exit code 0 only if every selected probe exits 0.
+The --all inventory prints display, harness, negative-only, Node E2E, legacy-disabled,
+and support-script categories separately; these are not counted as skipped passes.
 """
 import argparse
 import hashlib
@@ -53,12 +55,15 @@ CORE = [
 # (they hang or report "capture image unavailable" headless). m33_r05_r02_* also
 # require the window to open at the exact requested size (fails under OS DPI scaling).
 NEEDS_DISPLAY = {
+    "tests/m07_r06_owner_layout_probe.gd",
+    "tests/m12_world_map_gui_capture.gd",
     "tests/m18_v02_r01_replay_capture_probe.gd",
     "tests/m27_003_legacy_m18_v02_replay_capture_probe.gd",
     "tests/m20_runtime_capture_probe.gd",
     "tests/m27_003_legacy_m20_runtime_capture_probe.gd",
     "tests/m21_mobile_qa_probe.gd",
     "tests/m27_003_mobile_qa_probe.gd",
+    "tests/m27_003_legacy_m07_r06_owner_layout_probe.gd",
     "tests/m21_home_exact_target_r04_probe.gd",
     "tests/m23_r03_m21_tall_navigation_diagnostic.gd",
     "tests/m32_tutorial_mobile_capture_probe.gd",
@@ -70,9 +75,172 @@ NEEDS_DISPLAY = {
 }
 # Probes that only make sense under their own launcher (custom user-data profile).
 NEEDS_HARNESS = {
-    "tests/m27_user_data_isolation_probe.gd": "tests/m27_isolated_godot_runner.ps1",
     "tests/m33_r06_owner_playtest_probe.gd": "tools/BCM-M33-R06-Owner-Playtest.ps1",
 }
+LEGACY_DISABLED_PROBES = frozenset({"tests/m27_user_data_isolation_probe.gd"})
+
+# Explicit inventory for --all. A discovered SceneTree script is never silently
+# treated as an ordinary probe: each path must be in exactly one category.
+# Headless probes below are independently launched by run() with isolated profiles.
+ALL_HEADLESS_PROBES = frozenset("""
+tests/closeout-001/m09_audio_haptics_probe_closeout.gd
+tests/closeout-001/m15_vip_boosters_economy_probe_closeout.gd
+tests/closeout-001/m21_full_progression_probe_closeout.gd
+tests/closeout-001/m22_001_plugin_contract_probe_closeout.gd
+tests/closeout-001/m22_002_semantic_bridge_probe_closeout.gd
+tests/closeout-001/m22_003_effect_policy_probe_closeout.gd
+tests/closeout-001/m23_001_micro_feedback_probe_closeout.gd
+tests/closeout-001/m23_002_merge_feedback_probe_closeout.gd
+tests/closeout-001/m23_003_combo_milestone_probe_closeout.gd
+tests/closeout-001/m23_closeout_001_color_lifecycle_probe.gd
+tests/closeout-001/m23_closeout_001_color_lifecycle_stress.gd
+tests/m01_contract_probe.gd
+tests/m02_physics_regression.gd
+tests/m03_economy_regression.gd
+tests/m04_asset_import_probe.gd
+tests/m05_sprite_integration_probe.gd
+tests/m07_hud_composition_probe.gd
+tests/m07_r04_focused_probe.gd
+tests/m07_r05_hud_adaptation_probe.gd
+tests/m08_to_go_delivery_probe.gd
+tests/m09_audio_haptics_probe.gd
+tests/m10_campaign_architecture_probe.gd
+tests/m11_save_migration_progression_probe.gd
+tests/m12_world_map_probe.gd
+tests/m13_island_map_probe.gd
+tests/m14_gameplay_session_bridge_probe.gd
+tests/m15_vip_boosters_economy_probe.gd
+tests/m16_sunny_cove_content_probe.gd
+tests/m17_vip_optionality_probe.gd
+tests/m18_completion_progression_probe.gd
+tests/m18_cumulative_reward_claim_remediation_probe.gd
+tests/m18_cumulative_star_rewards_probe.gd
+tests/m18_integration_probe.gd
+tests/m18_island_map_replay_probe.gd
+tests/m18_replay_persistence_probe.gd
+tests/m18_star_contract_probe.gd
+tests/m18_untimed_cumulative_reward_probe.gd
+tests/m20_app_shell_probe.gd
+tests/m20_campaign_ux_probe.gd
+tests/m20_migration_probe.gd
+tests/m20_onboarding_probe.gd
+tests/m20_pause_lifecycle_probe.gd
+tests/m20_settings_probe.gd
+tests/m21_full_progression_probe.gd
+tests/m21_home_frontier_authority_r08_probe.gd
+tests/m21_home_label_r07_probe.gd
+tests/m21_island_map_full_background_followup_r01_probe.gd
+tests/m21_island_map_node_visual_r07_probe.gd
+tests/m21_island_map_page_focus_r07_probe.gd
+tests/m21_owner_f5_remediation_v03_progression_probe.gd
+tests/m21_owner_runtime_closure_v02_r01_performance_probe.gd
+tests/m21_owner_runtime_closure_v02_r01_progression_probe.gd
+tests/m21_performance_profile_probe.gd
+tests/m21_r04_gameplay_surface_authority_probe.gd
+tests/m21_release_persistence_probe.gd
+tests/m21_world_map_production_v05_probe.gd
+tests/m22_001_plugin_contract_probe.gd
+tests/m22_002_semantic_bridge_probe.gd
+tests/m22_003_effect_policy_probe.gd
+tests/m23_001_micro_feedback_probe.gd
+tests/m23_002_merge_feedback_probe.gd
+tests/m23_003_combo_milestone_probe.gd
+tests/m23_r03_color_restoration_probe.gd
+tests/m24_001_order_progress_probe.gd
+tests/m24_002_order_complete_probe.gd
+tests/m24_003_vip_feedback_probe.gd
+tests/m25_move_limit_probe.gd
+tests/m25_result_presentation_probe.gd
+tests/m26_001_island_map_presentation_probe.gd
+tests/m26_002_campaign_unlock_presentation_probe.gd
+tests/m26_003_reward_primary_feedback_probe.gd
+tests/m27_001_lifecycle_stress_probe.gd
+tests/m27_002_campaign_unlock_probe.gd
+tests/m27_002_combo_feedback_probe.gd
+tests/m27_002_effect_policy_probe.gd
+tests/m27_002_island_map_probe.gd
+tests/m27_002_merge_feedback_probe.gd
+tests/m27_002_micro_feedback_probe.gd
+tests/m27_002_order_complete_probe.gd
+tests/m27_002_order_progress_probe.gd
+tests/m27_002_result_presentation_probe.gd
+tests/m27_002_reward_primary_probe.gd
+tests/m27_002_vip_feedback_probe.gd
+tests/m27_003_full_progression_probe.gd
+tests/m27_003_legacy_m08_to_go_delivery_probe.gd
+tests/m27_003_legacy_m09_audio_haptics_probe.gd
+tests/m27_003_legacy_m15_vip_boosters_economy_probe.gd
+tests/m27_003_main_boot_probe.gd
+tests/m27_003_move_limit_probe.gd
+tests/m27_003_plugin_fallback_probe.gd
+tests/m32_campaign_contract_probe.gd
+tests/m32_economy_shop_probe.gd
+tests/m32_economy_tutorial_probe.gd
+tests/m32_focus_booster_probe.gd
+tests/m32_tiki_vertical_slice_probe.gd
+tests/m33_campaign_content_probe.gd
+tests/m33_campaign_navigation_probe.gd
+tests/m33_content_unavailable_probe.gd
+tests/m33_r05_tabletop_probe.gd
+tests/m33_tiki_compatibility_probe.gd
+tests/m34_admob_test_adapter_probe.gd
+tests/m34_daily_rewards_probe.gd
+tests/m34_economy_closure_probe.gd
+tests/m34_mobile_reward_async_controller_probe.gd
+tests/m34_mobile_reward_durable_delivery_probe.gd
+tests/m34_mobile_reward_http_transport_probe.gd
+tests/m34_native_export_contract_probe.gd
+tests/m34_play_billing_test_adapter_probe.gd
+tests/m34_production_routes_probe.gd
+tests/m34_r09_slim_export_content_probe.gd
+tests/m34_r10_scene_uid_probe.gd
+tests/m34_r10_vip_optional_rule_probe.gd
+tests/m34_rewarded_ads_lifecycle_probe.gd
+tests/m34_store_catalog_boundary_probe.gd
+tests/r09_no_input_runtime_regression.gd
+tests/r10_desktop_idle_smoke.gd
+tests/r10_v10_visual_hull_containment_probe.gd
+tests/touch_single_shot_probe.gd
+""".split())
+
+# These do not belong in --all; their distinct behavior is executed explicitly
+# by --isolation-only or the Node orchestrator, while support is never runnable.
+ISOLATION_ONLY_PROBES = frozenset({"tests/m34_sandbox_guard_negative_probe.gd"})
+NODE_E2E_PROBES = frozenset({"tests/m34_worker_sqlite_godot_e2e_probe.gd"})
+SUPPORT_SCENE_TREES = frozenset({"tests/support/isolated_test_scene_tree.gd"})
+
+
+def discover_all_categories() -> dict[str, frozenset[str]]:
+    """Return auditable runnable and separately launched SceneTree categories."""
+    discovered = frozenset(
+        path.relative_to(REPO).as_posix()
+        for path in (REPO / "tests").rglob("*.gd")
+        if "fixtures" not in path.parts
+        and ("extends SceneTree" in path.read_text(encoding="utf-8", errors="ignore")[:400]
+             or "isolated_test_scene_tree.gd" in path.read_text(encoding="utf-8", errors="ignore")[:400])
+    )
+    categories = {
+        "headless": ALL_HEADLESS_PROBES,
+        "display": frozenset(NEEDS_DISPLAY),
+        "custom_harness": frozenset(NEEDS_HARNESS),
+        "legacy_disabled": LEGACY_DISABLED_PROBES,
+        "isolation_only": ISOLATION_ONLY_PROBES,
+        "node_e2e": NODE_E2E_PROBES,
+        "support": SUPPORT_SCENE_TREES,
+    }
+    classified = set().union(*categories.values())
+    if len(classified) != sum(map(len, categories.values())):
+        raise RuntimeError("SceneTree probe categories overlap")
+    if discovered != classified:
+        unknown = sorted(discovered - classified)
+        stale = sorted(classified - discovered)
+        raise RuntimeError(f"SceneTree discovery inventory mismatch; unclassified={unknown}; missing={stale}")
+    return categories
+
+
+def all_headless_probes() -> list[str]:
+    """Return the frozen --all headless list after validating every category."""
+    return sorted(discover_all_categories()["headless"])
 
 
 def run(godot: str, args: list[str], timeout: int, tutorial_done: bool = True) -> dict:
@@ -169,15 +337,18 @@ def main() -> int:
             Path(args.json).write_text(json.dumps({"isolation_refusal": refusal}, indent=1) + "\n", encoding="utf-8")
         return 0
 
+    categories = discover_all_categories()
     if args.display:
-        probes = sorted(NEEDS_DISPLAY)
+        probes = sorted(categories["display"])
     elif args.probes:
         probes = args.probes
     elif args.all:
-        # only runnable probes; helper Node scripts (evidence canvases, overlays) are loaded by other probes
-        probes = sorted(p.relative_to(REPO).as_posix() for p in (REPO / "tests").rglob("*.gd")
-                        if "fixtures" not in p.parts and ("extends SceneTree" in p.read_text(encoding="utf-8", errors="ignore")[:400] or "isolated_test_scene_tree.gd" in p.read_text(encoding="utf-8", errors="ignore")[:400]))
-        probes = [p for p in probes if p not in NEEDS_DISPLAY and p not in NEEDS_HARNESS]
+        probes = sorted(categories["headless"])
+        print("ALL_SCOPE headless_run=%d display_separate=%d custom_harness_separate=%d "
+              "legacy_disabled=%d isolation_only_separate=%d node_e2e_separate=%d support_nonrunnable=%d" % (
+                  len(categories["headless"]), len(categories["display"]), len(categories["custom_harness"]),
+                  len(categories["legacy_disabled"]), len(categories["isolation_only"]), len(categories["node_e2e"]),
+                  len(categories["support"])), flush=True)
     else:
         probes = CORE
 
