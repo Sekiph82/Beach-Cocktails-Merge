@@ -1,0 +1,295 @@
+{
+  "work_item": "BCM-M34-006/007 V02",
+  "scope": "Exact ASSET_MANIFEST/ASSET_DIMENSIONS/reports/V05 status metadata and related Godot .import sidecars only; source files retained.",
+  "dependency_search": "rg across scripts, scenes, data, addons, tests, tools, project.godot and export_presets.cfg; consumer hits were confined to tools/ui_assets generation/validation, documentation, and the release filters. No runtime scene/script/data consumer found. The two CSV .import sidecars were also absent from the rebuilt PCK only as a consequence of excluding their nonruntime CSV sources; repository sidecars are retained. Other runtime asset .import/.remap entries are preserved.",
+  "files": [
+    {
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.alpha.translation",
+      "type": "translation",
+      "bytes": 11834,
+      "sha256": "ce03dd21f70a7e56e29568c624a2a812d3c98570ff8e1946d010b464015da70a",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from ASSET_DIMENSIONS.csv; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.csv",
+      "type": "csv",
+      "bytes": 27571,
+      "sha256": "bfaeee66cc0eaf8743f2fd4131ee1732af41b48040e4552294b7dea44830a24e",
+      "why": "Asset-catalog or historical source-regeneration metadata; used only by tooling/documentation, not runtime.",
+      "references_found": [
+        "tools/ui_assets/generate_assets.py",
+        "tools/ui_assets/validate_assets.py",
+        "tools/ui_assets/rebuild_asset_catalog_r04.py",
+        "docs/ui-assets/FULL_VISUAL_ASSET_MANIFEST_V1.md"
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.csv.import",
+      "type": "import",
+      "bytes": 737,
+      "sha256": "6329013328a1cadb17272a903a88aa0ee3b82a9790b5f793b8518773915b29e3",
+      "why": "Importer sidecar for the excluded nonruntime asset-generation CSV; exact PCK comparison confirms it is absent after the source filter. Preserve it in the repository and do not treat the result as blanket permission to remove other .import/.remap files.",
+      "references_found": [
+        "Godot import sidecar for excluded asset-generation CSV; no current runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_METADATA_SOURCE_PAIR_FROM_CANDIDATES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.height.translation",
+      "type": "translation",
+      "bytes": 11483,
+      "sha256": "43368de8f2af2f309b5485a3bb7726448c102e537d3e462f8f798b6565f65402",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from ASSET_DIMENSIONS.csv; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.mode.translation",
+      "type": "translation",
+      "bytes": 11749,
+      "sha256": "33fd99617022c384cbcf312884d587c84d94f57de6fc508243d797fdd251a1ce",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from ASSET_DIMENSIONS.csv; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.width.translation",
+      "type": "translation",
+      "bytes": 11442,
+      "sha256": "fc7054c9e3e41a34bf01a1caa0649c0ac7962c52f83cf90ff3d38e2aae62d328",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from ASSET_DIMENSIONS.csv; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/ASSET_MANIFEST.json",
+      "type": "json",
+      "bytes": 187041,
+      "sha256": "a1742fdde69ddc884cbb79de44ee7cd6aabbd7e0f5ccaf9fcdf7cf7eb864e181",
+      "why": "Asset-catalog or historical source-regeneration metadata; used only by tooling/documentation, not runtime.",
+      "references_found": [
+        "tools/ui_assets/generate_assets.py",
+        "tools/ui_assets/validate_assets.py",
+        "tools/ui_assets/rebuild_asset_catalog_r04.py",
+        "docs/ui-assets/FULL_VISUAL_ASSET_MANIFEST_V1.md"
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/ISLAND_UNIQUENESS_REPORT.json",
+      "type": "json",
+      "bytes": 173,
+      "sha256": "aafa8dfb9a23797aadf10dcd1ceb35e3e6bd90b7b40a2e4b3a5b314b356532d6",
+      "why": "Standalone historical asset-review report with no runtime or generator consumer found in the current search; excluded from the pack but preserved in the repository.",
+      "references_found": [
+        "No reference found in current runtime or tools search; retained report artifacts."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/SEMANTIC_DUPLICATE_REPORT.json",
+      "type": "json",
+      "bytes": 202,
+      "sha256": "e8a1eedb624689af27e5aa8e7c923c48c2ceb19cc6fd4d59a387737ee5abc9f8",
+      "why": "Asset-validation/generation report; generated for repository review and not consumed by runtime.",
+      "references_found": [
+        "tools/ui_assets/validate_assets.py"
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/SEMANTIC_UNIQUENESS_REPORT.json",
+      "type": "json",
+      "bytes": 175,
+      "sha256": "7774d4c98fb099213caac3c8c0d4bf9695f995013c8062b78d6469c59cc9e23e",
+      "why": "Standalone historical asset-review report with no runtime or generator consumer found in the current search; excluded from the pack but preserved in the repository.",
+      "references_found": [
+        "No reference found in current runtime or tools search; retained report artifacts."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/STATEFUL_PAIR_REPORT.json",
+      "type": "json",
+      "bytes": 18421,
+      "sha256": "a00addc39095a83173786c03ca0bb55e3e4a9c3fb03b6d77c11fa31dbed1153c",
+      "why": "Asset-validation/generation report; generated for repository review and not consumed by runtime.",
+      "references_found": [
+        "tools/ui_assets/generate_assets.py"
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.alpha.translation",
+      "type": "translation",
+      "bytes": 14494,
+      "sha256": "10997248a13c60afb8f34b8e2e3ca242c3ccb2d71a2ee94afbeb8cdf8decb902",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.category.translation",
+      "type": "translation",
+      "bytes": 19209,
+      "sha256": "ab461cacc241f3992ee5aa9e2eeef8828a1d77df87a612eeb696cdf7c841a736",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.csv",
+      "type": "csv",
+      "bytes": 123541,
+      "sha256": "3a7111d4de687102cd4c18fb3405e472a348fbd052b27dbc96fa5d1b78aeb4cd",
+      "why": "Asset-catalog or historical source-regeneration metadata; used only by tooling/documentation, not runtime.",
+      "references_found": [
+        "assets/ui_assets/README.md (historical/evidence description only; no runtime use)."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.csv.import",
+      "type": "import",
+      "bytes": 1635,
+      "sha256": "27fca613e0656804f797d7ca0bb971cfa130db4b90d3a72419f5fe4a71f0e18c",
+      "why": "Importer sidecar for the excluded nonruntime asset-generation CSV; exact PCK comparison confirms it is absent after the source filter. Preserve it in the repository and do not treat the result as blanket permission to remove other .import/.remap files.",
+      "references_found": [
+        "Godot import sidecar for excluded asset-generation CSV; no current runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_METADATA_SOURCE_PAIR_FROM_CANDIDATES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.dimensions.translation",
+      "type": "translation",
+      "bytes": 15763,
+      "sha256": "9bb75c68107ddc76de7e40feab2ab2f108b2b35ca1205acdcdc1379f694926cb",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.final.translation",
+      "type": "translation",
+      "bytes": 38374,
+      "sha256": "0589eb65b72d8805a233133786fbdcc373ceed4e096c65e10d1a20ed8acd4f56",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.generation.translation",
+      "type": "translation",
+      "bytes": 20047,
+      "sha256": "381c950a848ba0266095eaecd6faa183d41586c8452bcd4c060dff003b30d071",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.path.translation",
+      "type": "translation",
+      "bytes": 31093,
+      "sha256": "5d395b9ee3b570db9cb4e1fe1adc82fbc93971db0a7a523f3b38a5cc3cbafed5",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.source.translation",
+      "type": "translation",
+      "bytes": 29619,
+      "sha256": "58ddc976f8048b16bc3ac234ae14e06abe45c4f055afb7e19d36570d8be7b31d",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.status.translation",
+      "type": "translation",
+      "bytes": 14495,
+      "sha256": "fdb0d7f5636395d670eb034ceb4e7f93850a9482491ff00717570d804dbc1b47",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.validation.translation",
+      "type": "translation",
+      "bytes": 28103,
+      "sha256": "45f2fa90073e50faa988b17bae9b0d97c716315500c40efa4dd6f5e3054827be",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    },
+    {
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.visual.translation",
+      "type": "translation",
+      "bytes": 23251,
+      "sha256": "73b28572c045501c951b55800e385dd01ba1d2c22fa0472ce0481426bed43deb",
+      "why": "Derived translation resource for generated asset-dimension or historical V05 status CSV; no runtime consumer found.",
+      "references_found": [
+        "Derived Godot translation from the V05 status CSV; no runtime consumer found."
+      ],
+      "replacement_or_current_authority": "Runtime reads the referenced current sprites/scenes/data; these inventory/status artifacts do not define runtime state.",
+      "disposition": "EXCLUDE_FROM_BOTH_CANDIDATE_PROFILES_KEEP_IN_REPOSITORY"
+    }
+  ],
+  "summary": {
+    "total": 23,
+    "exclude_proven_nonruntime_metadata": 21,
+    "exclude_associated_import_pairs_keep_source": 2,
+    "all_source_files_retained": true
+  }
+}

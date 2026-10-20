@@ -174,6 +174,12 @@ def source_report(root: Path, preset_name: str | None) -> dict:
     }
 
 
+def package_debug_helper_status(pck_content: dict) -> str:
+    """Read the Godot runtime check from the nested report without confusing inventory fields."""
+    engine_checks = pck_content.get("engine_checks", pck_content)
+    return "PRESENT_IN_INSPECTED_PCK" if engine_checks.get("godot_ai_game_helper_present", True) else "EXCLUDED_FROM_INSPECTED_PCK"
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
@@ -189,11 +195,7 @@ def main() -> int:
             report["archive"] = archive_report(root, args.archive)
             pck_content = report["archive"].get("pck_content", {})
             if pck_content:
-                report["source"]["debug_helper_shipped"] = (
-                    "EXCLUDED_FROM_INSPECTED_PCK"
-                    if not pck_content.get("godot_ai_game_helper_present", True)
-                    else "PRESENT_IN_INSPECTED_PCK"
-                )
+                report["source"]["debug_helper_shipped"] = package_debug_helper_status(pck_content)
     except (OSError, ValueError, subprocess.CalledProcessError, zipfile.BadZipFile) as exc:
         print(json.dumps({"status": "BLOCKED", "reason": str(exc)}, indent=2), file=sys.stderr)
         return 2
