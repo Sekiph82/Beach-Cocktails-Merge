@@ -1,6 +1,6 @@
 # BCM-M34 V04 — Icon, Settings Links, and Android Preflight Evidence
 
-**Evidence date:** 2026-10-20  
+**Evidence date:** 2026-10-20
 **State:** implementation and local validation complete; store/public release remains blocked by owner-supplied legal endpoints and Android toolchain installation approval. `TASKS.md` was not edited.
 
 ## Store icon candidate
