@@ -21,11 +21,13 @@ const HOME_LAYOUT_PATH := "res://data/ui/home_layout.json"
 const HOME_ASSET_ROOT := "res://assets/ui_assets/screens/home/"
 const HOME_REFERENCE_SIZE := Vector2(941.0, 1672.0)
 const DAILY_REWARDS_SCRIPT := preload("res://scripts/campaign/daily_reward_service.gd")
+const SETTINGS_LINKS_SCRIPT := preload("res://scripts/campaign/settings_link_config.gd")
 
 var campaign_navigation: CampaignNavigationController
 var current_view := "MAIN_MENU"
 var onboarding_storage_path := DEFAULT_ONBOARDING_STORAGE_PATH
 var settings_storage_path := DEFAULT_SETTINGS_STORAGE_PATH
+var settings_links_config_path := SETTINGS_LINKS_SCRIPT.DEFAULT_PATH
 var onboarding_state: Dictionary = {}
 var user_settings
 
@@ -55,6 +57,10 @@ var _home_layout: Dictionary = {}
 var _home_layout_nodes: Dictionary = {}
 var _home_text_specs: Dictionary = {}
 var _owner_playtest_console
+var _settings_link_config: Dictionary = {"privacy_policy_url": "", "support_url": ""}
+var _privacy_policy_button: Button
+var _support_button: Button
+var _settings_link_opener: Callable
 
 
 func _ready() -> void:
@@ -62,6 +68,7 @@ func _ready() -> void:
     # unused gameplay pointer events before ShotController can see them.
     mouse_filter = Control.MOUSE_FILTER_PASS
     set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    _settings_link_config = SETTINGS_LINKS_SCRIPT.load_from_path(settings_links_config_path)
     _build_menu()
     _build_onboarding()
     _build_settings()
@@ -141,6 +148,20 @@ func get_presentation_state() -> Dictionary:
 
 func is_settings_visible() -> bool:
     return _settings_layer != null and _settings_layer.visible
+
+
+func set_settings_link_opener_for_testing(opener: Callable) -> void:
+    _settings_link_opener = opener
+
+
+func _open_settings_link(key: String) -> void:
+    var url := str(_settings_link_config.get(key, ""))
+    if not SETTINGS_LINKS_SCRIPT.is_public_https_url(url):
+        return
+    if _settings_link_opener.is_valid():
+        _settings_link_opener.call(url)
+    else:
+        OS.shell_open(url)
 
 
 func show_settings() -> bool:
@@ -673,6 +694,7 @@ func _build_settings() -> void:
     _settings_layer.add_child(panel)
 
     var column := VBoxContainer.new()
+    column.name = "SettingsColumn"
     column.position = Vector2(78.0, 230.0)
     column.size = Vector2(564.0, 745.0)
     column.add_theme_constant_override("separation", 12)
@@ -687,6 +709,27 @@ func _build_settings() -> void:
     _add_toggle_setting(column, "HAPTICS", "haptics_enabled")
     _add_toggle_setting(column, "REDUCED MOTION", "reduced_motion")
     _add_toggle_setting(column, "HIGH CONTRAST", "high_contrast")
+
+    _privacy_policy_button = _make_menu_button("PRIVACY POLICY — NOT CONFIGURED", Color("#12354d"), Color("#4bb3a8"))
+    _privacy_policy_button.name = "PrivacyPolicyButton"
+    _privacy_policy_button.custom_minimum_size = Vector2(0.0, 64.0)
+    _privacy_policy_button.position = Vector2(110.0, 800.0)
+    _privacy_policy_button.size = Vector2(500.0, 64.0)
+    _privacy_policy_button.add_theme_font_size_override("font_size", 17)
+    _privacy_policy_button.tooltip_text = "Configure an owner-approved public HTTPS privacy policy URL to enable this link."
+    _privacy_policy_button.pressed.connect(_open_settings_link.bind("privacy_policy_url"))
+    _settings_layer.add_child(_privacy_policy_button)
+
+    _support_button = _make_menu_button("SUPPORT — NOT CONFIGURED", Color("#12354d"), Color("#4bb3a8"))
+    _support_button.name = "SupportLinkButton"
+    _support_button.custom_minimum_size = Vector2(0.0, 64.0)
+    _support_button.position = Vector2(110.0, 874.0)
+    _support_button.size = Vector2(500.0, 64.0)
+    _support_button.add_theme_font_size_override("font_size", 17)
+    _support_button.tooltip_text = "Configure an owner-approved public HTTPS support URL to enable this link."
+    _support_button.pressed.connect(_open_settings_link.bind("support_url"))
+    _settings_layer.add_child(_support_button)
+    _refresh_settings_link_buttons()
 
     var close := _make_menu_button("BACK TO MENU", Color("#12354d"), Color("#73e0d1"))
     close.name = "CloseSettingsButton"
@@ -703,6 +746,19 @@ func _build_settings() -> void:
     replay.pressed.connect(_replay_gameplay_tutorial)
     _settings_layer.add_child(replay)
     _build_shop()
+
+
+func _refresh_settings_link_buttons() -> void:
+    if _privacy_policy_button != null:
+        var privacy := str(_settings_link_config.get("privacy_policy_url", ""))
+        var privacy_ready := SETTINGS_LINKS_SCRIPT.is_public_https_url(privacy)
+        _privacy_policy_button.disabled = not privacy_ready
+        _privacy_policy_button.text = "PRIVACY POLICY" if privacy_ready else "PRIVACY POLICY — NOT CONFIGURED"
+    if _support_button != null:
+        var support := str(_settings_link_config.get("support_url", ""))
+        var support_ready := SETTINGS_LINKS_SCRIPT.is_public_https_url(support)
+        _support_button.disabled = not support_ready
+        _support_button.text = "SUPPORT" if support_ready else "SUPPORT — NOT CONFIGURED"
 
 
 func _build_shop() -> void:
