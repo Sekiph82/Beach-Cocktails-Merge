@@ -1,0 +1,16 @@
+{
+  "capture_source": "Production ApplicationShellScene; real visible UI; captured after a real F12 keypress",
+  "captured_at_local": "2026-10-20 18:39:46",
+  "classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+  "device_review_status": "DEVICE_REVIEW_PENDING",
+  "format": "PNG",
+  "path": "res://docs/release/store_media/captures_v03/desktop_candidate_02_campaign.png",
+  "resolution": {
+    "height": 1280,
+    "width": 720
+  },
+  "runtime_version": "4.7.2-stable (official)",
+  "runtime_view": "campaign",
+  "source_head": "1feec20aef702ee93bc35193b79b6b7ce2026542",
+  "source_scene": "res://scenes/campaign/ApplicationShellScene.tscn"
+}
