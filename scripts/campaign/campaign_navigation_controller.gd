@@ -30,8 +30,6 @@ const ADS_SCRIPT := preload("res://scripts/campaign/ads_service.gd")
 const ADS_CONFIG_SCRIPT := preload("res://scripts/campaign/ads_provider_config.gd")
 const MOBILE_REWARD_DELIVERY_SCRIPT := preload("res://scripts/campaign/mobile_reward_delivery.gd")
 const MOBILE_REWARD_TRANSPORT_SCRIPT := preload("res://scripts/campaign/mobile_reward_http_transport.gd")
-const ADMOB_TEST_ADAPTER_SCRIPT := preload("res://scripts/campaign/admob_test_adapter.gd")
-const PLAY_BILLING_TEST_ADAPTER_SCRIPT := preload("res://scripts/campaign/play_billing_test_adapter.gd")
 const STORE_SCRIPT := preload("res://scripts/campaign/store_service.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
@@ -45,8 +43,8 @@ var store_service: StoreService
 var save_manager
 var mobile_reward_delivery: MobileRewardDelivery
 var mobile_reward_transport: MobileRewardHttpTransport
-var admob_test_adapter: AdmobTestAdapter
-var play_billing_test_adapter: PlayBillingTestAdapter
+var admob_test_adapter: Object
+var play_billing_test_adapter: Object
 var content_load_error := ""
 var current_view := VIEW_WORLD_MAP
 var active_island_id := ""
@@ -314,18 +312,24 @@ func configure_test_admob_provider(plugin: Object) -> Dictionary:
 	if not OS.is_debug_build() or mobile_reward_transport == null or not mobile_reward_transport.enabled:
 		return {"ok": false, "reason": "TEST_ADMOB_REQUIRES_AUTHENTICATED_HTTPS_WORKER"}
 	if admob_test_adapter == null:
-		admob_test_adapter = ADMOB_TEST_ADAPTER_SCRIPT.new()
-	if not admob_test_adapter.set_claim_transport(mobile_reward_transport):
+		var adapter_script := load("res://scripts/campaign/admob_test_adapter.gd") as Script
+		if adapter_script == null:
+			return {"ok": false, "reason": "TEST_ADMOB_ADAPTER_NOT_EXPORTED"}
+		admob_test_adapter = adapter_script.new()
+	if not bool(admob_test_adapter.call("set_claim_transport", mobile_reward_transport)):
 		return {"ok": false, "reason": "TEST_ADMOB_CLAIM_TRANSPORT_UNAVAILABLE"}
-	return admob_test_adapter.configure(plugin, ads_service)
+	return admob_test_adapter.call("configure", plugin, ads_service)
 
 
 func configure_test_play_billing(client: Object, verifier: Object) -> Dictionary:
 	if not OS.is_debug_build() or store_service == null:
 		return {"ok": false, "reason": "TEST_PLAY_BILLING_UNAVAILABLE"}
 	if play_billing_test_adapter == null:
-		play_billing_test_adapter = PLAY_BILLING_TEST_ADAPTER_SCRIPT.new()
-	return play_billing_test_adapter.configure_test(client, store_service, verifier)
+		var adapter_script := load("res://scripts/campaign/play_billing_test_adapter.gd") as Script
+		if adapter_script == null:
+			return {"ok": false, "reason": "TEST_PLAY_BILLING_ADAPTER_NOT_EXPORTED"}
+		play_billing_test_adapter = adapter_script.new()
+	return play_billing_test_adapter.call("configure_test", client, store_service, verifier)
 
 
 func launch_owner_playtest_sample(island_id: String, level_id: int) -> bool:

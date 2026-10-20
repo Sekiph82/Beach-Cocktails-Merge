@@ -27,7 +27,18 @@ EXPECTED_JSON = (
     "data/campaign/daily_rewards.json",
     "data/campaign/store_catalog.json",
     "data/campaign/ads_provider_policy.json",
+    "data/campaign/content_manifest_m33.json",
+    "data/campaign/content_generation_profiles_m33.json",
+    "data/campaign/levels/sunny_cove.json",
+    "data/campaign/levels/tiki_island_full.json",
     "data/campaign/levels/azure_bay.json",
+    "data/campaign/levels/coconut_beach.json",
+    "data/campaign/levels/sunset_island.json",
+    "data/campaign/levels/party_beach.json",
+    "data/campaign/levels/frozen_paradise.json",
+    "data/campaign/levels/volcano_bay.json",
+    "data/campaign/levels/billionaire_island.json",
+    "data/campaign/levels/final_island.json",
 )
 SOURCE_ONLY_ALERTS = (
     "addons/godot_ai/",
@@ -47,15 +58,26 @@ def read_preset(root: Path, name: str | None) -> tuple[str, str, list[str], list
     presets = [section for section in cfg.sections() if section.startswith("preset.") and not section.endswith(".options")]
     if not presets:
         raise ValueError("No Godot export presets")
-    section = next((section for section in presets if cfg.get(section, "name", fallback="") == name), None) if name else presets[0]
+
+    def unquote(raw: str) -> str:
+        raw = raw.strip()
+        # Godot writes quoted strings in export_presets.cfg. ConfigParser is
+        # an INI reader and intentionally leaves those quotes in place.
+        if len(raw) >= 2 and raw[0] == raw[-1] and raw[0] in "\"'":
+            return raw[1:-1]
+        return raw
+
+    section = next((section for section in presets if unquote(cfg.get(section, "name", fallback="")) == name), None) if name else presets[0]
     if section is None:
         raise ValueError(f"Unknown preset: {name!r}")
-    return (
-        cfg.get(section, "name"),
-        cfg.get(section, "platform"),
-        [x.strip() for x in cfg.get(section, "include_filter", fallback="").split(",") if x.strip()],
-        [x.strip() for x in cfg.get(section, "exclude_filter", fallback="").split(",") if x.strip()],
-    )
+
+    def value(key: str, fallback: str = "") -> str:
+        return unquote(cfg.get(section, key, fallback=fallback))
+
+    def patterns(key: str) -> list[str]:
+        return [item.strip() for item in value(key).split(",") if item.strip()]
+
+    return value("name"), value("platform"), patterns("include_filter"), patterns("exclude_filter")
 
 
 def tracked(root: Path) -> list[str]:
@@ -67,8 +89,31 @@ def archive_report(root: Path, filename: str) -> dict:
     path = (root / filename).resolve()
     if not path.is_relative_to(root.resolve()):
         raise ValueError("Archive must be inside the canonical project root")
+    if path.suffix.lower() == ".pck":
+        proc = subprocess.run(
+            [
+                sys.executable,
+                str(root / "tools" / "release" / "inspect_godot_pck.py"),
+                "--pack",
+                str(path),
+            ],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        try:
+            pck_report = json.loads(proc.stdout)
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"Godot PCK inspection produced no JSON report: {proc.stderr[-1000:]}") from exc
+        return {
+            "path": path.relative_to(root.resolve()).as_posix(),
+            "sha256": pck_report.get("artifact", {}).get("sha256", ""),
+            "bytes": pck_report.get("artifact", {}).get("bytes", path.stat().st_size),
+            "pck_content": pck_report,
+            "verdict": "PCK_INSPECTED_PASS" if pck_report.get("status") == "PASS" and proc.returncode == 0 else "PCK_INSPECTION_FAILED",
+        }
     if path.suffix.lower() not in ALLOWED_ZIP_SUFFIXES:
-        raise ValueError("Only .zip / .apk / .aab / .ipa supported; PCK needs a real Godot PCK examiner")
+        raise ValueError("Only .zip / .apk / .aab / .ipa or a Godot-inspected .pck are supported")
     if not path.is_file():
         raise FileNotFoundError(path)
     size = path.stat().st_size
@@ -112,7 +157,9 @@ def source_report(root: Path, preset_name: str | None) -> dict:
     return {
         "preset": name,
         "platform": platform,
-        "shipping_release_preset": "nonshipping" not in name.lower() and "debug" not in name.lower(),
+        "shipping_release_preset": not any(
+            marker in name.lower() for marker in ("nonshipping", "not shipping", "debug")
+        ),
         "tracked_files": len(paths),
         "tracked_source_bytes": stat_bytes,
         "required_excluded_sources": len(forbidden),
@@ -140,13 +187,20 @@ def main() -> int:
         report = {"source": source_report(root, args.preset)}
         if args.archive:
             report["archive"] = archive_report(root, args.archive)
+            pck_content = report["archive"].get("pck_content", {})
+            if pck_content:
+                report["source"]["debug_helper_shipped"] = (
+                    "EXCLUDED_FROM_INSPECTED_PCK"
+                    if not pck_content.get("godot_ai_game_helper_present", True)
+                    else "PRESENT_IN_INSPECTED_PCK"
+                )
     except (OSError, ValueError, subprocess.CalledProcessError, zipfile.BadZipFile) as exc:
         print(json.dumps({"status": "BLOCKED", "reason": str(exc)}, indent=2), file=sys.stderr)
         return 2
     print(json.dumps(report, indent=2, ensure_ascii=False))
     if report["source"]["status"] == "FAIL_STATIC_BOUNDARY":
         return 1
-    if args.archive and report["archive"]["verdict"] in ("FAIL_VISIBLE_BANNED_PATH", "BLOCKED_NESTED_PCK_UNINSPECTED"):
+    if args.archive and report["archive"]["verdict"].startswith(("FAIL", "BLOCKED", "PCK_INSPECTION_FAILED")):
         return 1
     return 0
 

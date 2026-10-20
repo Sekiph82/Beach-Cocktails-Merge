@@ -14,7 +14,6 @@ signal settings_closed
 
 const NAVIGATION_SCENE := preload("res://scenes/campaign/CampaignNavigationScene.tscn")
 const SETTINGS_SCRIPT := preload("res://scripts/campaign/user_settings.gd")
-const OWNER_PLAYTEST_CONSOLE_SCRIPT := preload("res://scripts/campaign/owner_playtest_console.gd")
 const DEFAULT_SETTINGS_STORAGE_PATH := "user://user_settings.json"
 const ONBOARDING_SCHEMA_VERSION := 1
 const DEFAULT_ONBOARDING_STORAGE_PATH := "user://onboarding_state.json"
@@ -91,13 +90,18 @@ func _ready() -> void:
     _apply_settings_to_gameplay()
     campaign_navigation.visible = false
     onboarding_state = _read_onboarding_state()
-    if not OS.get_environment("BCM_M33_OWNER_PLAYTEST").is_empty():
+    var owner_playtest_requested := not OS.get_environment("BCM_M33_OWNER_PLAYTEST").is_empty()
+    if owner_playtest_requested and OS.is_debug_build():
         _menu_layer.visible = false
         _onboarding_layer.visible = false
-        _owner_playtest_console = OWNER_PLAYTEST_CONSOLE_SCRIPT.new()
-        _owner_playtest_console.name = "OwnerPlaytestConsole"
-        _owner_playtest_console.configure(campaign_navigation)
-        add_child(_owner_playtest_console)
+        var console_script := load("res://scripts/campaign/owner_playtest_console.gd") as Script
+        if console_script != null:
+            _owner_playtest_console = console_script.new()
+            _owner_playtest_console.name = "OwnerPlaytestConsole"
+            _owner_playtest_console.configure(campaign_navigation)
+            add_child(_owner_playtest_console)
+        else:
+            push_warning("Owner playtest mode was requested, but its debug-only console is not exported.")
     elif not bool(onboarding_state.get("completed", false)):
         show_onboarding()
     else:

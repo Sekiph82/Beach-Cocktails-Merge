@@ -1,0 +1,3246 @@
+{
+  "admob_native_binary_entries": [],
+  "admob_runtime_source_preserved": true,
+  "ads_default_and_placements_disabled": true,
+  "billing_plugin_entries": [],
+  "billing_test_adapter_present": false,
+  "engine_pack_reader": "Godot ProjectSettings.load_resource_pack + DirAccess + ResourceLoader",
+  "file_manifest": [
+    {
+      "bytes": 225,
+      "path": "b75ee426-9568-4ed6-b35e-140600a7c995.png.import",
+      "sha256": "6a688298b33b2881f3e88025735e11066b5bcd21b289d870e9c62274fbffcb1a"
+    },
+    {
+      "bytes": 1188,
+      "path": "project.binary",
+      "sha256": "57b8443d24b3cdf15765673ee926c49e02f2f60f824d14e67448eacbbbd1ffd0"
+    },
+    {
+      "bytes": 51,
+      "path": "addons/AdmobPlugin/Admob.gd.remap",
+      "sha256": "2a1356309b53c1257c7814921322cb64a74bd2a06421143e94640f512daa16c0"
+    },
+    {
+      "bytes": 31696,
+      "path": "addons/AdmobPlugin/Admob.gdc",
+      "sha256": "36305f2d314bbca5710ce284f8c7f7a8e8ec870d97cd22afdc130663e29e19f0"
+    },
+    {
+      "bytes": 66,
+      "path": "addons/AdmobPlugin/InlineAdaptiveBanner.gd.remap",
+      "sha256": "f7529c998aa71857b379bfbf6bfa8838d242f2632d38ce28ae616b909e14a0cf"
+    },
+    {
+      "bytes": 6550,
+      "path": "addons/AdmobPlugin/InlineAdaptiveBanner.gdc",
+      "sha256": "d6cabd3f3792e9942dffac31e90d20cca6573ad9828b6c6c525ffb8cab2cc590"
+    },
+    {
+      "bytes": 53,
+      "path": "addons/GMPShared/GmpLogger.gd.remap",
+      "sha256": "97964c9fa943837afbcb27f0367b331d73e92f9471f6a3cc0dadb24073adad5d"
+    },
+    {
+      "bytes": 548,
+      "path": "addons/GMPShared/GmpLogger.gdc",
+      "sha256": "c0af226160292db97c3d8e49f2fc344c4a67bfb18d0a77d801416d7c10e67a4f"
+    },
+    {
+      "bytes": 57,
+      "path": "addons/GMPShared/SpmDependency.gd.remap",
+      "sha256": "ad78f1f7773593a14fb40055d2a3bf561a73182c0546bf177141c6d61f5f7514"
+    },
+    {
+      "bytes": 869,
+      "path": "addons/GMPShared/SpmDependency.gdc",
+      "sha256": "1e9ebc4f29646df107cb5e5dd4e244c82f37c3fef74af22624d7418b03544b94"
+    },
+    {
+      "bytes": 68,
+      "path": "addons/game_feel_flow/core/game_feel_flow.gd.remap",
+      "sha256": "cfdacc2c4b49356dbfb82ce4347a5ec502e310cf704661ca0fb090f4fb84424a"
+    },
+    {
+      "bytes": 9142,
+      "path": "addons/game_feel_flow/core/game_feel_flow.gdc",
+      "sha256": "924bbc80b80b77be057c23f7973cbd76649de5ffd94bc3f0c723b76d0db34b2c"
+    },
+    {
+      "bytes": 61,
+      "path": "addons/game_feel_flow/core/gf_util.gd.remap",
+      "sha256": "4a25cd17924ec8bd77a2fabdf90f4afdd4e7a8ad5893a1b526cf6d3f257277de"
+    },
+    {
+      "bytes": 1228,
+      "path": "addons/game_feel_flow/core/gf_util.gdc",
+      "sha256": "0c04b3636608f34cd6b53423f6e98b1123d4f35249a53334886365c67e802ad5"
+    },
+    {
+      "bytes": 63,
+      "path": "addons/game_feel_flow/core/gff_combo.gd.remap",
+      "sha256": "e86d40ec246fd8ce7495528db70476ac00ad732aa7f1db29b5f7c3b93460f755"
+    },
+    {
+      "bytes": 9209,
+      "path": "addons/game_feel_flow/core/gff_combo.gdc",
+      "sha256": "fb535d740c107256bdc7ce591a1ed8fc983b1336973d17433d7e7de7293c66b1"
+    },
+    {
+      "bytes": 69,
+      "path": "addons/game_feel_flow/core/gff_combo_entry.gd.remap",
+      "sha256": "5fcb83be11e857d6e4007313ece22d95410ada86d69573801adbe22f11f49500"
+    },
+    {
+      "bytes": 438,
+      "path": "addons/game_feel_flow/core/gff_combo_entry.gdc",
+      "sha256": "f617072b4ddc503cc1700d8ea3ab447c37ecc29aa6d5659fea1e343993669e87"
+    },
+    {
+      "bytes": 64,
+      "path": "addons/game_feel_flow/core/gff_effect.gd.remap",
+      "sha256": "7ea5afc545dd5dc7c7edb1ad043da05c0d9ff296b8e2891e346b6e4aef5da207"
+    },
+    {
+      "bytes": 9393,
+      "path": "addons/game_feel_flow/core/gff_effect.gdc",
+      "sha256": "02b3cce112686a33d05abc01b55e3ee251dca9dab4035bbdd030fbb6c24e1f35"
+    },
+    {
+      "bytes": 71,
+      "path": "addons/game_feel_flow/core/gff_effect_config.gd.remap",
+      "sha256": "e2bcf787b9ae10199634f8cfee895f0e3a27a88214f2d9777f5446b38a54a737"
+    },
+    {
+      "bytes": 1498,
+      "path": "addons/game_feel_flow/core/gff_effect_config.gdc",
+      "sha256": "5bfb7c0d7d9c5bbfe5fa458782b5bfa30c53f54546106be8b868a3c51052cc47"
+    },
+    {
+      "bytes": 79,
+      "path": "addons/game_feel_flow/core/gff_effect_config_manager.gd.remap",
+      "sha256": "dad5feb54d33b5d738ca44a247030a32ed50c8a449ed625347b52df542a3c657"
+    },
+    {
+      "bytes": 2220,
+      "path": "addons/game_feel_flow/core/gff_effect_config_manager.gdc",
+      "sha256": "86cf0eecdba2c5622cda64928d10c344989d8208781f6aae708c1ed3441f3b36"
+    },
+    {
+      "bytes": 73,
+      "path": "addons/game_feel_flow/core/gff_effect_registry.gd.remap",
+      "sha256": "87d803739a103b87bddaa69073d009dfeea6bf1899380825438d1395a165efa8"
+    },
+    {
+      "bytes": 3390,
+      "path": "addons/game_feel_flow/core/gff_effect_registry.gdc",
+      "sha256": "c026b8867bf1071dbd0be92487aaa5aa0c6e4efaf9bcb48f4d7f84b32ea9a853"
+    },
+    {
+      "bytes": 70,
+      "path": "addons/game_feel_flow/core/gff_effect_stack.gd.remap",
+      "sha256": "45c210bbcf72cfce4b10c91c2808cc83066eec0edd3e27ad471d26fac91d3ec9"
+    },
+    {
+      "bytes": 3626,
+      "path": "addons/game_feel_flow/core/gff_effect_stack.gdc",
+      "sha256": "7746b79428b8c9a069ab5b468f58e312a45cc42ebe6700113158dec871175a89"
+    },
+    {
+      "bytes": 64,
+      "path": "addons/game_feel_flow/core/gff_params.gd.remap",
+      "sha256": "7693956de6fd9fcfbfdd1bede83fba9cbe918477bcb73276a70adfb9a0631386"
+    },
+    {
+      "bytes": 2374,
+      "path": "addons/game_feel_flow/core/gff_params.gdc",
+      "sha256": "526f6a6c9148a62b9333947e5fa590f401b9e7d5dcf688522cf7bf7fdee51f85"
+    },
+    {
+      "bytes": 64,
+      "path": "addons/game_feel_flow/core/gff_player.gd.remap",
+      "sha256": "aff8637fc4f71e50a316538c62c7674ca308bd6f97c26b43a5a81c584517b394"
+    },
+    {
+      "bytes": 10840,
+      "path": "addons/game_feel_flow/core/gff_player.gdc",
+      "sha256": "49573813b747c6f9754cf2cfdb8ebe05eafe9764813ab04e51a76c603b576bf7"
+    },
+    {
+      "bytes": 74,
+      "path": "addons/game_feel_flow/core/gff_project_settings.gd.remap",
+      "sha256": "9e0c79298509f360b307244e0e87accc7e14e02988977740acec3d87764dc44b"
+    },
+    {
+      "bytes": 2802,
+      "path": "addons/game_feel_flow/core/gff_project_settings.gdc",
+      "sha256": "6e1f6bd4f057ee7fe7a9fc051410e3089446371c0357bc2f59196d7ef73279f8"
+    },
+    {
+      "bytes": 76,
+      "path": "addons/game_feel_flow/core/gff_time_scale_manager.gd.remap",
+      "sha256": "8845de8f4739e31b57ebeae084bbe25963639d154f6f914330843557aa8c7f87"
+    },
+    {
+      "bytes": 1071,
+      "path": "addons/game_feel_flow/core/gff_time_scale_manager.gdc",
+      "sha256": "70cfe6999384d86164cdb0783d40aab64c6b3c109641961d19e987bd82a1ccd3"
+    },
+    {
+      "bytes": 68,
+      "path": "addons/game_feel_flow/core/gff_value_type.gd.remap",
+      "sha256": "4aa0d650127d8efee9339af5861b91d64e1c634518805d8d14af444a7b297b64"
+    },
+    {
+      "bytes": 261,
+      "path": "addons/game_feel_flow/core/gff_value_type.gdc",
+      "sha256": "a95ebf305373ad295e4d72acefb4304bee7724e4ae7a797cccc3cc2dcd88aa5d"
+    },
+    {
+      "bytes": 78,
+      "path": "addons/game_feel_flow/core/targets/gff_alpha_target.gd.remap",
+      "sha256": "c8395a1c8f199845fef0dec9cc6d028498591c812e0970567702a67c6e77df1a"
+    },
+    {
+      "bytes": 915,
+      "path": "addons/game_feel_flow/core/targets/gff_alpha_target.gdc",
+      "sha256": "9baed8a863027167b2bf8c9d4c94f201cb444e25a9094d8d75c64ea4ba010baa"
+    },
+    {
+      "bytes": 83,
+      "path": "addons/game_feel_flow/core/targets/gff_camera_fov_target.gd.remap",
+      "sha256": "25c52190e82a3c96a736c03d9599b347715008c163df03ddf94777c11db84c0a"
+    },
+    {
+      "bytes": 1327,
+      "path": "addons/game_feel_flow/core/targets/gff_camera_fov_target.gdc",
+      "sha256": "53d4697b1369c351d216a512f29fe4f9e267e1657634352c5cfc674d62f402dc"
+    },
+    {
+      "bytes": 86,
+      "path": "addons/game_feel_flow/core/targets/gff_camera_offset_target.gd.remap",
+      "sha256": "28efb8ef65914c76e434d09ad013ee145f6a61bf26437361739563893fe8a67a"
+    },
+    {
+      "bytes": 1544,
+      "path": "addons/game_feel_flow/core/targets/gff_camera_offset_target.gdc",
+      "sha256": "5d5f7b6d030b1e7847dfcf5780579f8249e4c27bca6c271bfdd2bcd7605b9671"
+    },
+    {
+      "bytes": 84,
+      "path": "addons/game_feel_flow/core/targets/gff_camera_zoom_target.gd.remap",
+      "sha256": "ad9bfb8d393507825cd960e3e825bf48f77859940b5abb5c7eb2e137c1385112"
+    },
+    {
+      "bytes": 1320,
+      "path": "addons/game_feel_flow/core/targets/gff_camera_zoom_target.gdc",
+      "sha256": "47650a2fc4ceeccd62c27c0aaf608b39cfd9211a1a3244e46ea13ca9b143f31e"
+    },
+    {
+      "bytes": 78,
+      "path": "addons/game_feel_flow/core/targets/gff_color_target.gd.remap",
+      "sha256": "ac96f4d777eab323c7ea7115ea92d2d9eac4c5bb909cafa30f6ad4cb54ef0770"
+    },
+    {
+      "bytes": 777,
+      "path": "addons/game_feel_flow/core/targets/gff_color_target.gdc",
+      "sha256": "0417b824a4f4babd225bb1aea8647701b4fb8879a64bfa5f2ed84ce8e5c6227e"
+    },
+    {
+      "bytes": 81,
+      "path": "addons/game_feel_flow/core/targets/gff_position_target.gd.remap",
+      "sha256": "9d175a194b3ac52f654df7e151d3cb8ed951aab6f04889dedd3d4b83c3ee2543"
+    },
+    {
+      "bytes": 1161,
+      "path": "addons/game_feel_flow/core/targets/gff_position_target.gdc",
+      "sha256": "02be9cf3b9c029dedca426767ec3637660176c24e437115be011124ac5b56b99"
+    },
+    {
+      "bytes": 81,
+      "path": "addons/game_feel_flow/core/targets/gff_rotation_target.gd.remap",
+      "sha256": "ef2494b97064120d92ad568c24f90a7e83f0a48b59530556121f3c1a653e7f21"
+    },
+    {
+      "bytes": 1276,
+      "path": "addons/game_feel_flow/core/targets/gff_rotation_target.gdc",
+      "sha256": "b5baa52b90979c5936b2659df880ab2c483c1de97e7f399cc1aeffec252425a7"
+    },
+    {
+      "bytes": 78,
+      "path": "addons/game_feel_flow/core/targets/gff_scale_target.gd.remap",
+      "sha256": "aaafd1e5def7914bb16f703e090ca62f67dad202c9755dfad079ba9089fa3d66"
+    },
+    {
+      "bytes": 1473,
+      "path": "addons/game_feel_flow/core/targets/gff_scale_target.gdc",
+      "sha256": "74ef568470d63fc38d6d7c8aeb6649c9b0ed9e35cbbd730351d7833011c9442a"
+    },
+    {
+      "bytes": 72,
+      "path": "addons/game_feel_flow/core/targets/gff_target.gd.remap",
+      "sha256": "02bd85746c4855ca3ac1a270bd1e73b54194572a05baf02a6b6fea18a7dbab02"
+    },
+    {
+      "bytes": 757,
+      "path": "addons/game_feel_flow/core/targets/gff_target.gdc",
+      "sha256": "6a59e170007cd45fa57c6822289b1ebc5d7383d47111b7edee4f5975d7c01e2f"
+    },
+    {
+      "bytes": 80,
+      "path": "addons/game_feel_flow/core/tweeners/gff_color_tweener.gd.remap",
+      "sha256": "33fc2837f8ace80e85e9c55603c53fe09f9ab69dbe6f74c0097ae2ff998f72bd"
+    },
+    {
+      "bytes": 955,
+      "path": "addons/game_feel_flow/core/tweeners/gff_color_tweener.gdc",
+      "sha256": "b8c37059497b2299762204355374d52bee68cbc1fdaa7e5bc45926dc92fa489d"
+    },
+    {
+      "bytes": 82,
+      "path": "addons/game_feel_flow/core/tweeners/gff_elastic_tweener.gd.remap",
+      "sha256": "9df6fc4902778daa9c8aa12ab0189895ca1258fcc2d6018bb46653ec7fa88ea7"
+    },
+    {
+      "bytes": 1987,
+      "path": "addons/game_feel_flow/core/tweeners/gff_elastic_tweener.gdc",
+      "sha256": "c41b0b5236925ec48afdf4561862adec609c614552136e16459d69ac6ca3c711"
+    },
+    {
+      "bytes": 80,
+      "path": "addons/game_feel_flow/core/tweeners/gff_flash_tweener.gd.remap",
+      "sha256": "9c0368ee96e308efe6bbc6e32de3769d964dd9996aa4bc3a24b83a6508236735"
+    },
+    {
+      "bytes": 4053,
+      "path": "addons/game_feel_flow/core/tweeners/gff_flash_tweener.gdc",
+      "sha256": "d897a5b6ab0f39efd285239ea8be3224a4102c04359835586ed4a0d863986064"
+    },
+    {
+      "bytes": 81,
+      "path": "addons/game_feel_flow/core/tweeners/gff_linear_tweener.gd.remap",
+      "sha256": "dcb5755d91b055736be10944fe532da0d36bbd52ff432ce33e9be8506edb8ee8"
+    },
+    {
+      "bytes": 1269,
+      "path": "addons/game_feel_flow/core/tweeners/gff_linear_tweener.gdc",
+      "sha256": "c20cc725175bbf61c29346b21f59f2d7c1868286b94b6d2a58683b050117088e"
+    },
+    {
+      "bytes": 80,
+      "path": "addons/game_feel_flow/core/tweeners/gff_shake_tweener.gd.remap",
+      "sha256": "5051fda026330690a272dbe59b08914d88f0a35a9ef87709033b71fe7222bb7d"
+    },
+    {
+      "bytes": 1771,
+      "path": "addons/game_feel_flow/core/tweeners/gff_shake_tweener.gdc",
+      "sha256": "a6f4c9d4a6e35a6abbd5fb42fa2e14d56b5dc08ca0f2b75e1fdafb6bc800dc2c"
+    },
+    {
+      "bytes": 74,
+      "path": "addons/game_feel_flow/core/tweeners/gff_tweener.gd.remap",
+      "sha256": "8dfb8a6971b5eee573bd9358538aed13f8033ce07894edce90ed83de040017f8"
+    },
+    {
+      "bytes": 1140,
+      "path": "addons/game_feel_flow/core/tweeners/gff_tweener.gdc",
+      "sha256": "ac9d61e1182faee79214bf5af9817a77f5972b594ef707d4e53a3d350b69cbc6"
+    },
+    {
+      "bytes": 79,
+      "path": "addons/game_feel_flow/effects/animation/gff_animator.gd.remap",
+      "sha256": "fe55f740bb6734c2ce0ee91f2313ae5461d0e08db254d199cc2258533366736f"
+    },
+    {
+      "bytes": 1806,
+      "path": "addons/game_feel_flow/effects/animation/gff_animator.gdc",
+      "sha256": "1d481d9a431c8b0dc6099f9cddb0c2c805835d42586c2b61371b3e088dd96eea"
+    },
+    {
+      "bytes": 76,
+      "path": "addons/game_feel_flow/effects/animation/gff_tween.gd.remap",
+      "sha256": "a37baa51b0c14855135476c4766f8a993d1446a672c850d3dcb9027f7f25a633"
+    },
+    {
+      "bytes": 1974,
+      "path": "addons/game_feel_flow/effects/animation/gff_tween.gdc",
+      "sha256": "f90a00524f41b4862a31173e86e7d8e82fcf50d4ec184c07e2a4674348b020e9"
+    },
+    {
+      "bytes": 79,
+      "path": "addons/game_feel_flow/effects/audio/gff_audio_volume.gd.remap",
+      "sha256": "ab7618e4ea028e8ab622c1f848ee17cd4b76df20daf1d2b257c922a73b14706f"
+    },
+    {
+      "bytes": 1691,
+      "path": "addons/game_feel_flow/effects/audio/gff_audio_volume.gdc",
+      "sha256": "017ccbc2000aebd6c8dc2d6e95d30693cba8415aa9a9c94a966b546671c787be"
+    },
+    {
+      "bytes": 72,
+      "path": "addons/game_feel_flow/effects/audio/gff_sound.gd.remap",
+      "sha256": "2ced154e605e47c13673bc73cc8ecbadc64902d38065f2b8d2192e3409d64b48"
+    },
+    {
+      "bytes": 1576,
+      "path": "addons/game_feel_flow/effects/audio/gff_sound.gdc",
+      "sha256": "cb66047822c32c26604529cb7ad6ee5dc539d0ca9adab86bb5ad6bd492c89c7d"
+    },
+    {
+      "bytes": 80,
+      "path": "addons/game_feel_flow/effects/camera/gff_camera_flash.gd.remap",
+      "sha256": "c65f32d4a695b681eafbce6fe265851a0cc22412181386da81125d779bde7f57"
+    },
+    {
+      "bytes": 2478,
+      "path": "addons/game_feel_flow/effects/camera/gff_camera_flash.gdc",
+      "sha256": "bb4711389900eeb01decbe83d990e9dffd4ffc1c163a84f3756c0fbc3d5e8e23"
+    },
+    {
+      "bytes": 80,
+      "path": "addons/game_feel_flow/effects/camera/gff_camera_shake.gd.remap",
+      "sha256": "6ff2b2a1b2e2e0dd7455f6340646767a6c02477cb5ba697a4b180fe1524640f5"
+    },
+    {
+      "bytes": 1838,
+      "path": "addons/game_feel_flow/effects/camera/gff_camera_shake.gdc",
+      "sha256": "1fa72cc4a94fb3a228f80ad88b59a99b1e6ef768f5b595fb27144796e95164e4"
+    },
+    {
+      "bytes": 79,
+      "path": "addons/game_feel_flow/effects/camera/gff_camera_zoom.gd.remap",
+      "sha256": "7602a749a4f049a2d98b73cd6840ff1aa1575b9ce82af09d20deac6a28ddee54"
+    },
+    {
+      "bytes": 1939,
+      "path": "addons/game_feel_flow/effects/camera/gff_camera_zoom.gdc",
+      "sha256": "a8f439f9b1d2bf6659179fda9d4325a903eab61034ba0ccb8b1677f050e1e0d4"
+    },
+    {
+      "bytes": 81,
+      "path": "addons/game_feel_flow/effects/curved/gff_effect_common.gd.remap",
+      "sha256": "e394b6a4fc0814f0cd7af5f17de291a9b921541d901da63ef78b7aa0d054a9fa"
+    },
+    {
+      "bytes": 2663,
+      "path": "addons/game_feel_flow/effects/curved/gff_effect_common.gdc",
+      "sha256": "fe6b06f5bc49d42e80b51574fd64cfbed72961d58e3f29c3d99c91ce3318ebfb"
+    },
+    {
+      "bytes": 80,
+      "path": "addons/game_feel_flow/effects/events/gff_combo_effect.gd.remap",
+      "sha256": "19a241776d40f68e01db5bcd03774e4a2bc5dad8e9ca01df2cf641fd1847c3ed"
+    },
+    {
+      "bytes": 579,
+      "path": "addons/game_feel_flow/effects/events/gff_combo_effect.gdc",
+      "sha256": "6449650203f679ac3ed4d3f2f1015c4d030c83034111809b3133790a94bb771c"
+    },
+    {
+      "bytes": 73,
+      "path": "addons/game_feel_flow/effects/events/gff_event.gd.remap",
+      "sha256": "210fe1c54ec7eeac88778b827625ee2cb9ca48c0505ac45534b241976604acac"
+    },
+    {
+      "bytes": 1022,
+      "path": "addons/game_feel_flow/effects/events/gff_event.gdc",
+      "sha256": "73b8bd5dbeb997ca6613b06ed979ef0a9884d622561659db18840132e7019a8d"
+    },
+    {
+      "bytes": 74,
+      "path": "addons/game_feel_flow/effects/events/gff_method.gd.remap",
+      "sha256": "f9a0d33ddab926e1523d60e73fbf2b625d11716dfd06ddd33435ba2007abb27e"
+    },
+    {
+      "bytes": 1330,
+      "path": "addons/game_feel_flow/effects/events/gff_method.gdc",
+      "sha256": "c804366cfbbc53e2b60d4cca743a2f4745fbcdfa00648d3dac81bd96d968e646"
+    },
+    {
+      "bytes": 74,
+      "path": "addons/game_feel_flow/effects/events/gff_signal.gd.remap",
+      "sha256": "ba082eb7087f66c53c06f18fd16b13e30709835cf6ee83b83a49224610c65224"
+    },
+    {
+      "bytes": 1334,
+      "path": "addons/game_feel_flow/effects/events/gff_signal.gdc",
+      "sha256": "be559c94276142435b3b0c230d5ca5f7e7cea02bed38bc399858c9c68c462243"
+    },
+    {
+      "bytes": 84,
+      "path": "addons/game_feel_flow/effects/particles/gff_gpu_particles.gd.remap",
+      "sha256": "01eba8359abad09af79149f6db06e24887f15156d347cf1ecb93f30cffd5010b"
+    },
+    {
+      "bytes": 1852,
+      "path": "addons/game_feel_flow/effects/particles/gff_gpu_particles.gdc",
+      "sha256": "27ec911f68616ba29478cd26ff39d08b25c7ee586edb2b1ba1e4b6d20900baeb"
+    },
+    {
+      "bytes": 80,
+      "path": "addons/game_feel_flow/effects/particles/gff_particles.gd.remap",
+      "sha256": "22e9078a4a68354c882d4a079642415bb0a3107215d674ca78a5bce1607c8237"
+    },
+    {
+      "bytes": 1780,
+      "path": "addons/game_feel_flow/effects/particles/gff_particles.gdc",
+      "sha256": "d25027ab62e19f0140b5a4320caa28a2ff2fa4365e0d1f98eea54034a24ec759"
+    },
+    {
+      "bytes": 76,
+      "path": "addons/game_feel_flow/effects/physics/gff_impulse.gd.remap",
+      "sha256": "9c4b75e7cfb9286823314bc29b9f9143e66224184639b2408021417c08da0fad"
+    },
+    {
+      "bytes": 940,
+      "path": "addons/game_feel_flow/effects/physics/gff_impulse.gdc",
+      "sha256": "7c1484d22da488a05fe5cf957d20d7628c61e391b3f67735dac01fa3cd0cdcf1"
+    },
+    {
+      "bytes": 77,
+      "path": "addons/game_feel_flow/effects/physics/gff_velocity.gd.remap",
+      "sha256": "b07b9ea5a86f37c5b6a48e799d3e03397afb97d1cd8865422505e2a4584fd002"
+    },
+    {
+      "bytes": 1941,
+      "path": "addons/game_feel_flow/effects/physics/gff_velocity.gdc",
+      "sha256": "ef0d1e8fbc88d759866be23d7267ac3f5c4be2340fc8d44441982cf4e3bc5040"
+    },
+    {
+      "bytes": 78,
+      "path": "addons/game_feel_flow/effects/time/gff_freeze_frame.gd.remap",
+      "sha256": "7eb61e529fb224d5dfb9c96abc7c3a4dd9af9fd3ee4ee0bbc6fd2e9b632635d9"
+    },
+    {
+      "bytes": 1084,
+      "path": "addons/game_feel_flow/effects/time/gff_freeze_frame.gdc",
+      "sha256": "8282bc79a021540c108f4b77f9cc7922c0e282632b8e97e8021047c4463ac17a"
+    },
+    {
+      "bytes": 76,
+      "path": "addons/game_feel_flow/effects/time/gff_time_scale.gd.remap",
+      "sha256": "a825b3a1450d9a3eb16f5d2abdc21d20c2794bd450669b0c65870e1193c1d8de"
+    },
+    {
+      "bytes": 1882,
+      "path": "addons/game_feel_flow/effects/time/gff_time_scale.gdc",
+      "sha256": "a2c3dd197bcffb621ff90bce55d405cf7e01b919494566fc26908632b563966a"
+    },
+    {
+      "bytes": 70,
+      "path": "addons/game_feel_flow/effects/time/gff_wait.gd.remap",
+      "sha256": "e0af4bf18a58698857e0d99d6dee6ce79136e5132128ec7fc74b1d2779fde3ff"
+    },
+    {
+      "bytes": 759,
+      "path": "addons/game_feel_flow/effects/time/gff_wait.gdc",
+      "sha256": "42d0f80ee8519a583672b7ab19ed102f60314ee219baadb33599dc34bad9650f"
+    },
+    {
+      "bytes": 74,
+      "path": "addons/game_feel_flow/presets/gff_curve_presets.gd.remap",
+      "sha256": "f0db9e0a67f4c2d9bba5f5cfdaec00f6fc432aa3e70d4a165cd75a7234d8a543"
+    },
+    {
+      "bytes": 823,
+      "path": "addons/game_feel_flow/presets/gff_curve_presets.gdc",
+      "sha256": "c80c23ec28507b567b01139ed44074781839b5760685f24ed37175852f11651e"
+    },
+    {
+      "bytes": 103,
+      "path": "addons/game_feel_flow/presets/curves/anticipate.tres.remap",
+      "sha256": "efa80d5e20edf2fd349650885969ee0eee515c3c996b0958bc2c1e111c4a915e"
+    },
+    {
+      "bytes": 97,
+      "path": "addons/game_feel_flow/presets/curves/back.tres.remap",
+      "sha256": "a3fe83512c037ce56e5c7a68e9b6f4612c05a82bdaf978f774ff404ca24e785a"
+    },
+    {
+      "bytes": 99,
+      "path": "addons/game_feel_flow/presets/curves/bounce.tres.remap",
+      "sha256": "236f9eef7149fc738fec30da0412bd54aee68d9423947ce5d0eac1f1caf63944"
+    },
+    {
+      "bytes": 107,
+      "path": "addons/game_feel_flow/presets/curves/decay_ease_out.tres.remap",
+      "sha256": "60c06b0f24c82076fa9671cf7103ff55802646119eae6bc50ebfa04a2a9f65de"
+    },
+    {
+      "bytes": 105,
+      "path": "addons/game_feel_flow/presets/curves/decay_linear.tres.remap",
+      "sha256": "c15cc5304bba6a925b6ca4a4d302820b3828e71bb0942b4bedcbb20c96bdef46"
+    },
+    {
+      "bytes": 100,
+      "path": "addons/game_feel_flow/presets/curves/ease_in.tres.remap",
+      "sha256": "d8415f384ba71a10f6b8c9254cf2a8fb782153cffce5985920ce647d93e4891c"
+    },
+    {
+      "bytes": 106,
+      "path": "addons/game_feel_flow/presets/curves/ease_in_cubic.tres.remap",
+      "sha256": "37a84abffcdff41fce057a121e52dcd3d664c90655ce7bb5b79fd6d83495fda9"
+    },
+    {
+      "bytes": 104,
+      "path": "addons/game_feel_flow/presets/curves/ease_in_out.tres.remap",
+      "sha256": "5995d9430fbceff8172d5bff3e2a9539ab89db4df5601d231b83c523c166b0ea"
+    },
+    {
+      "bytes": 109,
+      "path": "addons/game_feel_flow/presets/curves/ease_in_out_quad.tres.remap",
+      "sha256": "93da27e106491e36536411981d988f1e06032e2865bf0894a34b91810d1ad2ed"
+    },
+    {
+      "bytes": 105,
+      "path": "addons/game_feel_flow/presets/curves/ease_in_quad.tres.remap",
+      "sha256": "577ef5e9d60bbff9b0d883aa3a4c56aec03c8e577970565a61325cd4e663e83f"
+    },
+    {
+      "bytes": 101,
+      "path": "addons/game_feel_flow/presets/curves/ease_out.tres.remap",
+      "sha256": "7f2e00a5ea5e2946e6ee64910d0bc75371f5b32567a2369cfda38850bde836fc"
+    },
+    {
+      "bytes": 107,
+      "path": "addons/game_feel_flow/presets/curves/ease_out_cubic.tres.remap",
+      "sha256": "2618f5186fbfc720c380a7c86c23630a0978fd9cb1f37b3d388d18c7bcb81f76"
+    },
+    {
+      "bytes": 106,
+      "path": "addons/game_feel_flow/presets/curves/ease_out_quad.tres.remap",
+      "sha256": "4c10ec4834b88a5a18ecda05c153384182898a4a8c643a674913680a53722922"
+    },
+    {
+      "bytes": 100,
+      "path": "addons/game_feel_flow/presets/curves/elastic.tres.remap",
+      "sha256": "6221efbf4ea0691823155c583d4731292b3267ce74a8fd64a3ef3a95b3c93095"
+    },
+    {
+      "bytes": 99,
+      "path": "addons/game_feel_flow/presets/curves/linear.tres.remap",
+      "sha256": "38aeca2519cc2ee28957ef5224c14b979f1470b35412d7c8c218864c41c8b26a"
+    },
+    {
+      "bytes": 103,
+      "path": "addons/game_feel_flow/presets/curves/shake_sine.tres.remap",
+      "sha256": "22586fdc27294c2748d3af876f450490363a7fd16f5995b21da26f682c0d6e76"
+    },
+    {
+      "bytes": 104,
+      "path": "addons/game_feel_flow/presets/curves/smooth_step.tres.remap",
+      "sha256": "a1b77591678286f8520e31c8eec9b1ab82801e94b406baf8f3bd1e71d3260f49"
+    },
+    {
+      "bytes": 97,
+      "path": "addons/game_feel_flow/presets/curves/snap.tres.remap",
+      "sha256": "04f229f87e705c40837b16a5f63e915d4e654f95f986bebc0f2b8cc14e5f6039"
+    },
+    {
+      "bytes": 107,
+      "path": "addons/game_feel_flow/presets/effects/alpha_fade_out.tres.remap",
+      "sha256": "cb7fefac615720ac94c204f2b39ad865e2e844939f873335cf87a5e9cb0281f9"
+    },
+    {
+      "bytes": 102,
+      "path": "addons/game_feel_flow/presets/effects/color_red.tres.remap",
+      "sha256": "fd5f2fe36eb347c07978500838b003bd737d1e1d374692c18a0b38ec91705ede"
+    },
+    {
+      "bytes": 102,
+      "path": "addons/game_feel_flow/presets/effects/flash_red.tres.remap",
+      "sha256": "c35cafca95617b38a96ecd80f85bcb2ba94c77568112831420b0ef83e1f2ef19"
+    },
+    {
+      "bytes": 104,
+      "path": "addons/game_feel_flow/presets/effects/flash_white.tres.remap",
+      "sha256": "fcb780a8d082245a64a87659bc00a83e36a0f45954a4b9869f446c76ee773ed9"
+    },
+    {
+      "bytes": 111,
+      "path": "addons/game_feel_flow/presets/effects/freeze_frame_short.tres.remap",
+      "sha256": "5899f010faad95b3308e24e8bf053447ab631ad0faa5fcf867ce794a832abd78"
+    },
+    {
+      "bytes": 103,
+      "path": "addons/game_feel_flow/presets/effects/scale_bump.tres.remap",
+      "sha256": "9e46a9bfd4fe2416042c942f8a51df5f4518401b1ae942139ed731bc0a329b10"
+    },
+    {
+      "bytes": 104,
+      "path": "addons/game_feel_flow/presets/effects/shake_heavy.tres.remap",
+      "sha256": "de12fbaeae1ad869ba11e73c6c4001262704b6e2eec12bd7bcf0912c491fa925"
+    },
+    {
+      "bytes": 104,
+      "path": "addons/game_feel_flow/presets/effects/shake_light.tres.remap",
+      "sha256": "3bfcd918bff06c53ec297a8668a1df79c31621f4c433d837adf5965d5a040c73"
+    },
+    {
+      "bytes": 108,
+      "path": "addons/game_feel_flow/presets/effects/curved/curved_position.tres.remap",
+      "sha256": "9675e7fd024c395d2435eb49f8acea58aacc61d364bdefb5a2d21aff5edd3945"
+    },
+    {
+      "bytes": 108,
+      "path": "addons/game_feel_flow/presets/effects/curved/curved_rotation.tres.remap",
+      "sha256": "04ffafd68fa4f556345da31cd17170fad7b2d5f073874228b3d73f36a5335ad2"
+    },
+    {
+      "bytes": 105,
+      "path": "addons/game_feel_flow/presets/effects/curved/curved_scale.tres.remap",
+      "sha256": "87657c0b37c53777803c98b284ad33f9d070cc0ec69a25bac83e1b26aa9f634e"
+    },
+    {
+      "bytes": 107,
+      "path": "addons/game_feel_flow/presets/effects/curved/punch_position.tres.remap",
+      "sha256": "28825bc6ae39011077d749dd0873e6dddbc7803ff0059129e398caaf5d128d28"
+    },
+    {
+      "bytes": 107,
+      "path": "addons/game_feel_flow/presets/effects/curved/punch_rotation.tres.remap",
+      "sha256": "3ea109a48aa8da59422508fe2fc90c2aa7accde3dd17da3797afa737919366ca"
+    },
+    {
+      "bytes": 104,
+      "path": "addons/game_feel_flow/presets/effects/curved/punch_scale.tres.remap",
+      "sha256": "9be759c6a6ad31c14fe79828cbe8e4a060f1f64d8e2b4b7db3c9949bb09f27c6"
+    },
+    {
+      "bytes": 107,
+      "path": "addons/game_feel_flow/presets/effects/curved/shake_position.tres.remap",
+      "sha256": "a8f56493da0c8f994abec7c5a280c97a32d2b0845af9f8643db9a09e76acddc7"
+    },
+    {
+      "bytes": 107,
+      "path": "addons/game_feel_flow/presets/effects/curved/shake_rotation.tres.remap",
+      "sha256": "6f21612e04a37184d7c70d1934d5c3a65100edfe70e6147ac20db60430e93d5e"
+    },
+    {
+      "bytes": 104,
+      "path": "addons/game_feel_flow/presets/effects/curved/shake_scale.tres.remap",
+      "sha256": "2e073107cdfaaad59cf0300f58d68b58a27c3e1ddcb8d0c1fcdeb09347f2fc21"
+    },
+    {
+      "bytes": 428,
+      "path": "addons/game_feel_flow/shaders/gff_canvas_flash.gdshader",
+      "sha256": "4861b8fd6bf73697d541e9d17dabdc974c19e66b40ce1d7f87e2a7857a03fe31"
+    },
+    {
+      "bytes": 54,
+      "path": "addons/saltmire_spark/spark.gd.remap",
+      "sha256": "b1fc39417b2c11e36e66fc3a00ba0d635a62217e1af9011b8a3fbf2ef74cfb5e"
+    },
+    {
+      "bytes": 4533,
+      "path": "addons/saltmire_spark/spark.gdc",
+      "sha256": "aa41c7d7bc6749cbbbc06a46c0241c192b77e84be3b500c81b5ea8691f8c367d"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L01.png.import",
+      "sha256": "1e4d325a4431a1946e2c9ddf489d2c9b4a8dce8b9ad1c8d3840d894ca1c51355"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L02.png.import",
+      "sha256": "cf87ffb2bdd88b9353a78e6a37b4b7223ed58af189234998ea0ca04ee07dc723"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L03.png.import",
+      "sha256": "121556eebb34a669f5ec4e75bba4539f2bd142370a6b60c10a042d33d16731ed"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L04.png.import",
+      "sha256": "0dbaeadf602cfc369fe6307dc65957075d6a5e345da28602718a9e533061cc3f"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L05.png.import",
+      "sha256": "2334f368a780f644a1414d7e7c9c678c8d3bd91644f25f845fb0c61f89297a19"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L06.png.import",
+      "sha256": "a8326d272f13b4db34331ab71c8abad70d15b5c60ab1abf1f762b9ef9cc5b664"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L07.png.import",
+      "sha256": "6d7709072e5b43418a709909ef032fc4b1c679791d396863427ea57eb175e297"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L08.png.import",
+      "sha256": "e97e5de5d7796a8a70c123df8542c262c4d9869bf1c6d553e00f6361c82ef45f"
+    },
+    {
+      "bytes": 191,
+      "path": "assets/cocktails/L09.png.import",
+      "sha256": "55c43866d80f1c9a540db3026240d5c84739bc3f70baa0b18951f85d1280b6df"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L10.png.import",
+      "sha256": "77dc96dea7a10a0125aa20fd9595305b956961b204dd46a46cfac5504e8b8d7e"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L11.png.import",
+      "sha256": "b52d25bec404197756385b041e5d2fdc444e4fa7a213299137265f59553bca0c"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/cocktails/L12.png.import",
+      "sha256": "9cfa0726d4ffd4476f32ec5b45748e3a48d76dca2fa90c66f85f8222dfcce38a"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/effects/merge_glow.png.import",
+      "sha256": "7fd5bedd649368c6062e629a2c76814435a16c7b6dcba46acff922900d7c73d6"
+    },
+    {
+      "bytes": 196,
+      "path": "assets/effects/sparkle.png.import",
+      "sha256": "de66be407a6b95b557ac9577039539563b5409f294d29be7da1a2359f43e40ca"
+    },
+    {
+      "bytes": 195,
+      "path": "assets/effects/splash.png.import",
+      "sha256": "3d7a93d6f34c4408cc1c8d17d71df8d59b6f8c642657a95e8847949020d7ef7c"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/effects/to_go_trail.png.import",
+      "sha256": "8a566f60c3cc9ebc452d0105a1a414f14f9486f68e799430ec4641c060ecedbb"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui/danger_line.png.import",
+      "sha256": "0980504678bfc1ef24fd16264cb96136b90bb5b521d7610181384a2a65fcc8a1"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui/launch_zone.png.import",
+      "sha256": "2d97db950f22c7383f3b3765be34fd1ae9d45b2b922ba6cd7da689402409d4d8"
+    },
+    {
+      "bytes": 215,
+      "path": "assets/ui/logo_beach_cocktails_merge.png.import",
+      "sha256": "96ba272b04506aa343acdf6af85e3c933b6029f03a80c8962bf63afaf01684fa"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui/panel_best_score.png.import",
+      "sha256": "7b87bb4fc01ace92d8ce144fbd639e8f9a255250f650f48a53a1416384cdd5fa"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui/panel_next.png.import",
+      "sha256": "85b2ee8d9a182a43d3438a0f4b14ee9e14f2ca5866712c7da6a18e71e4a802b2"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui/panel_score.png.import",
+      "sha256": "23c414c0f08ddf6db8f4a8aff1465e7c9fc1f460b0fc13b855154aad1fec3f30"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui/panel_to_go_orders.png.import",
+      "sha256": "40480d5cde4869a9ce25738a758ea31034e436616c947d526688a723b10359c6"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui/panel_to_go_vip_orders.png.import",
+      "sha256": "84ed2c207ec018b278b9163408c6e286324afa6366b86c7af26cd07d2654fb67"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui/progression_strip.png.import",
+      "sha256": "64ba30d2b2553aa5cf2326da1af26c1bb2f4a90b91b3289da96bb52bc7476f4a"
+    },
+    {
+      "bytes": 11834,
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.alpha.translation",
+      "sha256": "ce03dd21f70a7e56e29568c624a2a812d3c98570ff8e1946d010b464015da70a"
+    },
+    {
+      "bytes": 82,
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.csv.import",
+      "sha256": "11306c2e65d7baaa48288dc6e78c23579bc3f92bc80b6d2126a16bbb6649bc1b"
+    },
+    {
+      "bytes": 11483,
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.height.translation",
+      "sha256": "43368de8f2af2f309b5485a3bb7726448c102e537d3e462f8f798b6565f65402"
+    },
+    {
+      "bytes": 11749,
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.mode.translation",
+      "sha256": "33fd99617022c384cbcf312884d587c84d94f57de6fc508243d797fdd251a1ce"
+    },
+    {
+      "bytes": 11442,
+      "path": "assets/ui_assets/ASSET_DIMENSIONS.width.translation",
+      "sha256": "fc7054c9e3e41a34bf01a1caa0649c0ac7962c52f83cf90ff3d38e2aae62d328"
+    },
+    {
+      "bytes": 187041,
+      "path": "assets/ui_assets/ASSET_MANIFEST.json",
+      "sha256": "a1742fdde69ddc884cbb79de44ee7cd6aabbd7e0f5ccaf9fcdf7cf7eb864e181"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/CONTACT_SHEET_GLOBAL.png.import",
+      "sha256": "a3fc0a6cf57d49d15194a3bad941d51935cdcf67c686c34398dd71196ed4f428"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/CONTACT_SHEET_ISLANDS.png.import",
+      "sha256": "2fc54ad997f547d84b75b6f2cd210c366ccd832a3cdaf24f68d2f9e398dbb84a"
+    },
+    {
+      "bytes": 216,
+      "path": "assets/ui_assets/CONTACT_SHEET_MAJOR_SCREENS.png.import",
+      "sha256": "0daf24309220f9ff793b8c0b09c9be61f2f6515a4a291b92812b6c5dec0a86c5"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/CONTACT_SHEET_SCREENS.png.import",
+      "sha256": "31d68f7d4ee039add49da4b45b65c0c9c280f0c2ff7bd5fdad956b400a4e4ee9"
+    },
+    {
+      "bytes": 217,
+      "path": "assets/ui_assets/CONTACT_SHEET_SEMANTIC_ICONS.png.import",
+      "sha256": "b5318fb78adaf45e746dada5319e948f6e6ca0271e2cf8c3c710b89d6ffc7d7e"
+    },
+    {
+      "bytes": 214,
+      "path": "assets/ui_assets/CONTACT_SHEET_STATEFUL_UI.png.import",
+      "sha256": "676c382bfd64715dc2cc35deeef263a40c1b649bffa3fb2d4a403cca102230f4"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/CONTACT_SHEET_TABLES.png.import",
+      "sha256": "731ca088c0f435680dd4484a7932624f68dd55bc85b8a541f538681ef1ae7831"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/CONTACT_SHEET_WORLD_MAP.png.import",
+      "sha256": "8badf6d9a1bc007e8fe792f1d47a33549d61d396ec7c6788e6324afe9d478bf3"
+    },
+    {
+      "bytes": 173,
+      "path": "assets/ui_assets/ISLAND_UNIQUENESS_REPORT.json",
+      "sha256": "aafa8dfb9a23797aadf10dcd1ceb35e3e6bd90b7b40a2e4b3a5b314b356532d6"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/SEMANTIC_DUPLICATE_REPORT.json",
+      "sha256": "e8a1eedb624689af27e5aa8e7c923c48c2ceb19cc6fd4d59a387737ee5abc9f8"
+    },
+    {
+      "bytes": 175,
+      "path": "assets/ui_assets/SEMANTIC_UNIQUENESS_REPORT.json",
+      "sha256": "7774d4c98fb099213caac3c8c0d4bf9695f995013c8062b78d6469c59cc9e23e"
+    },
+    {
+      "bytes": 18421,
+      "path": "assets/ui_assets/STATEFUL_PAIR_REPORT.json",
+      "sha256": "a00addc39095a83173786c03ca0bb55e3e4a9c3fb03b6d77c11fa31dbed1153c"
+    },
+    {
+      "bytes": 14494,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.alpha.translation",
+      "sha256": "10997248a13c60afb8f34b8e2e3ca242c3ccb2d71a2ee94afbeb8cdf8decb902"
+    },
+    {
+      "bytes": 19209,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.category.translation",
+      "sha256": "ab461cacc241f3992ee5aa9e2eeef8828a1d77df87a612eeb696cdf7c841a736"
+    },
+    {
+      "bytes": 82,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.csv.import",
+      "sha256": "0ce9147a0a7713899f2f26e1e898bdc0ee5eee25756891fdfa7f9a1aef59185e"
+    },
+    {
+      "bytes": 15763,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.dimensions.translation",
+      "sha256": "9bb75c68107ddc76de7e40feab2ab2f108b2b35ca1205acdcdc1379f694926cb"
+    },
+    {
+      "bytes": 38374,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.final.translation",
+      "sha256": "0589eb65b72d8805a233133786fbdcc373ceed4e096c65e10d1a20ed8acd4f56"
+    },
+    {
+      "bytes": 20047,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.generation.translation",
+      "sha256": "381c950a848ba0266095eaecd6faa183d41586c8452bcd4c060dff003b30d071"
+    },
+    {
+      "bytes": 31093,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.path.translation",
+      "sha256": "5d395b9ee3b570db9cb4e1fe1adc82fbc93971db0a7a523f3b38a5cc3cbafed5"
+    },
+    {
+      "bytes": 29619,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.source.translation",
+      "sha256": "58ddc976f8048b16bc3ac234ae14e06abe45c4f055afb7e19d36570d8be7b31d"
+    },
+    {
+      "bytes": 14495,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.status.translation",
+      "sha256": "fdb0d7f5636395d670eb034ceb4e7f93850a9482491ff00717570d804dbc1b47"
+    },
+    {
+      "bytes": 28103,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.validation.translation",
+      "sha256": "45f2fa90073e50faa988b17bae9b0d97c716315500c40efa4dd6f5e3054827be"
+    },
+    {
+      "bytes": 23251,
+      "path": "assets/ui_assets/V05_ASSET_REGEN_STATUS.visual.translation",
+      "sha256": "73b28572c045501c951b55800e385dd01ba1d2c22fa0472ce0481426bed43deb"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/brand/app_icon.png.import",
+      "sha256": "f5f4c1066173dbcba1cb5e6909db2075959a606be579a7be76457af80a439bfd"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/brand/brand_badge_small.png.import",
+      "sha256": "03d257131cc6d2a46f140705453ef324838b6ab511e0180a4d514833a28b44f8"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/brand/brand_wordmark_small.png.import",
+      "sha256": "975859ababa88d6955f33c680909873a66c983744cb9022ac4a42f759344bf76"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/brand/legal_logo_mark.png.import",
+      "sha256": "036ce4b38c695955a1d6687cee28f2740d65b02c5c0972ddd6a9aff812ef3656"
+    },
+    {
+      "bytes": 215,
+      "path": "assets/ui_assets/brand/logo_beach_cocktails_merge.png.import",
+      "sha256": "8bf2baa96609396aeb18c7525c837b3559aa25ddaeaaecdd9373d77cd0d694eb"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/brand/logo_concept_v01.png.import",
+      "sha256": "386798dc6302995bff95a1d95bfb3d3113d8de1ee0fce12fb9ea48dbec67b936"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/brand/logo_concept_v02.png.import",
+      "sha256": "83a5621a68800b3bbedf9e24468aef455fb785efa6e6990b725d08817a2151c4"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/brand/logo_concept_v03.png.import",
+      "sha256": "6bab4c17a19a4fe8efa828a154bd128c248805f6ba404e7a7e340be446968db7"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/brand/splash_logo.png.import",
+      "sha256": "6dbbc1fdbdb3b91c7d668f329afb05d0fd01b790c343c65f9ebc1c4b78b68c64"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/island_map/finale_crown.png.import",
+      "sha256": "668cad7a84521de16a4eec25fb384dc65b2fe049391cab4cf06a06d6383943eb"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/campaign/island_map/island_summary_panel.png.import",
+      "sha256": "7f2cfd8a81f37419c216dfbb043c789bb9597c3f107055872f90c53785f18a78"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/campaign/island_map/level_connector.png.import",
+      "sha256": "495aea4c0728af61fb7a396b6c1469843b7ff41cb74b1f59cb2256a2e9a2ab02"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/campaign/island_map/level_connector_complete.png.import",
+      "sha256": "f5199ddb1cf7074952dc4a264224660004a074881befd9f216f2142e12c58c4f"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/campaign/island_map/level_node_completed.png.import",
+      "sha256": "9e6b5b3687039f2335d904a40a51507a3aa31c3f0d7fff9caf87ff6223d24d09"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/campaign/island_map/level_node_current.png.import",
+      "sha256": "058e48c396f29e192baae7fbe56e9af7bcda60542f70c235c3cd58d7842c6905"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/campaign/island_map/level_node_finale.png.import",
+      "sha256": "9f430ad90d705de18df909b3328cbef6a717b4d562286e18166bbf418aec486e"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/campaign/island_map/level_node_locked.png.import",
+      "sha256": "2c62e1f434f47d4aaa25b496d8e5d11f2d8fac533e2b8313dc2660b7a004d7ec"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/campaign/island_map/level_node_milestone.png.import",
+      "sha256": "2473ead9326beb7efd98dad913d9fac20e3614ec592a7efddf58fb2aa7c77498"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/campaign/island_map/level_node_two_star.png.import",
+      "sha256": "7397bde1ab6c52599a68eba3b1c0d4dd29cf79a5e6fd4ef652859ab000c45c5b"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/campaign/island_map/level_node_unlocked.png.import",
+      "sha256": "c722c7430dcb437593ea0a22df5f92d6ac266032f1f0dc31e05ad316143ce455"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/campaign/island_map/map_scroll_bottom_decor.png.import",
+      "sha256": "543c72978f03eb060a2166f370abc914445e6df75b9bdcc7e1ab48d1f138d5d4"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/campaign/island_map/map_scroll_top_decor.png.import",
+      "sha256": "049d1087d6036d6a0722db8a5e77336ef51a1c050b15f478ad78908842540f12"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/campaign/island_map/milestone_chest_marker.png.import",
+      "sha256": "3cf826c200f5aca8ae5753470941f23b7546a684a3e21fb3b0923c3b44397d61"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/campaign/island_map/next_milestone_panel.png.import",
+      "sha256": "175128fb586fa0b1a2c7761a217da2e2325d91897c952288c7cec3eadb7c99a4"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/island_map/star_small_empty.png.import",
+      "sha256": "593548aeb416f67c9c716377ab7d6a5bad1f3a7022bfc7f269289296cf095c7f"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/campaign/island_map/star_small_filled.png.import",
+      "sha256": "2bf7f3c37e09c0ad52d4cfb47c4a748b4d49afd08cc6e134e2bd795a2f80734c"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/campaign/island_map/stars_counter_panel.png.import",
+      "sha256": "260dfd3c88fdcf1e14fe6f9aa321371cec0efa34533939e279ba3b466013f040"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/complete_badge.png.import",
+      "sha256": "afb0551a54324db4cb35592660f8532601a2fb698e74c0b8d47297a25d66b85d"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_surface.png.import",
+      "sha256": "472a5be3d267db13b9105dd24303abe6429582ec2040109039c5963513e5d4c9"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/gameplay_surface_v07_r04.png.import",
+      "sha256": "a7aedc16f721f27ed33e93a9571ce921a15570af0e56845f71188fb92cf1a362"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/map_background.png.import",
+      "sha256": "d4bcef46e5b57506c15c6dd5c211df393877e99819b9dac162dfd429de898324"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/map_title.png.import",
+      "sha256": "f5fefd87afbe1f3d8e52d0a0a89ea4240fc349aab8321212fa39eaf6d365a74c"
+    },
+    {
+      "bytes": 4455,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/playable_geometry_r04.json",
+      "sha256": "e7a7b1dd3a3f5e32d995ee1fe5a237c159ee2af66df1b65a57795b27ff8678c6"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/theme_badge.png.import",
+      "sha256": "73b5b3dbadb164f897464cd4ebf2ec29460c98caa8b7a32fc7441503d84656fd"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/azure_bay/world_icon.png.import",
+      "sha256": "16e8e609c5b4a36240b00644e4b359e346fb9fea7a12f757a9e9da07011a7585"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/complete_badge.png.import",
+      "sha256": "b9fceefbe41ec19545b8dbec8995b4cf0b4d52f0ae734415bd0c3be1634632d8"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface.png.import",
+      "sha256": "6acb29f483561cf2bed384a4d490f2a60ab61cfb8ceb2e12a3397e91b8e7753a"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/gameplay_surface_v07_r04.png.import",
+      "sha256": "644caf94733edc0938ccf73bab1043543d15825e07948ac77152b39709e7fb72"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/map_background.png.import",
+      "sha256": "3209bb4cb20098d3a6d380c11ebbb9d16203238e17b3ef7e824c608bc8a61303"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/map_title.png.import",
+      "sha256": "f269efcff2d4dfa78d9bd0c35c901d37e61c189571e48bb81c0a180bdf724ef2"
+    },
+    {
+      "bytes": 4518,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/playable_geometry_r04.json",
+      "sha256": "65b43a9c7aa80aa50c02c22617fb47c5465ea948b05e27cac74441f6616b6c92"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/theme_badge.png.import",
+      "sha256": "598ecc284327f3cb2e31035f6b457493b7f921bae21d7d79cda8694486a4c90a"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/billionaire_island/world_icon.png.import",
+      "sha256": "151ef1d425506fc8d92d30691eb2fe472153d263603ee4063a34ecdc1ede4bde"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/complete_badge.png.import",
+      "sha256": "f3c8ea937c434f16acb7d0aef726a568386abf64be4fa3406780cc2a7d2849b8"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface.png.import",
+      "sha256": "13b0b28ab46dca7b23934fd141e9709dac72f97d9ad92b4b75857c86d9a30aee"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/gameplay_surface_v07_r04.png.import",
+      "sha256": "0b40171533a20015f4e1eb40d0a93f6159dd05cdb66fadbb38644eecb9a04db8"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/map_background.png.import",
+      "sha256": "e71202a578369c8d477c4dd58c178423734332b9cf6eb95f6023866255bcc899"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/map_title.png.import",
+      "sha256": "d564df0e65687b3bf758252d3a19968640e0c7023133fcc467b434597e411514"
+    },
+    {
+      "bytes": 4483,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/playable_geometry_r04.json",
+      "sha256": "b31736fb1dc229f38975bf41913d20f82dd5919dd2bce7b9777df43e16898b64"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/theme_badge.png.import",
+      "sha256": "1d87c75379723e12034c729bc7e650385fee4806f265b6fa0ac745a673aabc32"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/coconut_beach/world_icon.png.import",
+      "sha256": "6043ed2abea89bb50c079db63ccfc950d72ebd861f4a067d9303f910a1b829fd"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/final_island/complete_badge.png.import",
+      "sha256": "189e0769f7eef4792b21af3c104c74933e9ead16357b51cec11962180e463f39"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/campaign/islands/final_island/gameplay_surface.png.import",
+      "sha256": "3f78b5d64bba283bab21493c984ae1cdf166d576a3c63b804427745178917116"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/campaign/islands/final_island/gameplay_surface_v07_r04.png.import",
+      "sha256": "bff3666dc7a4af6d36262d07d56d132622113bf75ce227057ef041bed7809e36"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/final_island/map_background.png.import",
+      "sha256": "d66c65cdcaf60c4ee2c7fd5d26c23988e8e9cb2d59a3e4651f4c29463b242631"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/final_island/map_title.png.import",
+      "sha256": "686df67c708e0b6a6967f5670ebfd22a2c68a140bb92f4a5231ff0db6192f400"
+    },
+    {
+      "bytes": 4476,
+      "path": "assets/ui_assets/campaign/islands/final_island/playable_geometry_r04.json",
+      "sha256": "3e05b57340f038aa0915625bdb2dfa226a06459f03a4aa50c3d6c76303965e0a"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/islands/final_island/theme_badge.png.import",
+      "sha256": "ab2eab075359f6652c9bacf3e04172be019e00465b0efd9ca10f27e8ae6c7892"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/final_island/world_icon.png.import",
+      "sha256": "221f59e65a8e900addf9d76c220c1fa550650232fcd3e0d55a4634d936f0d615"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/complete_badge.png.import",
+      "sha256": "d896617b87ac05224c83c404b26dbb5616a3d87ccf67a8107e2f0dbe6d97d959"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface.png.import",
+      "sha256": "0fbd917412ba91bb019c6458e0d363f3724a11723d9f6479083ea976ae6a6992"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/gameplay_surface_v07_r04.png.import",
+      "sha256": "88541753835f5f7b790c082e82a45dbd85b64a00171028646a3e8dc28f1603c9"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/map_background.png.import",
+      "sha256": "9539f2dba0b45179e3b7f1fa4b6db5e7e61d88a77ca09258a00fb030332496f2"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/map_title.png.import",
+      "sha256": "764700acda938bcc3bc1fab4bad877b709bc8a66311586a1bb67eb25c58b42f8"
+    },
+    {
+      "bytes": 4497,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/playable_geometry_r04.json",
+      "sha256": "080a74daf1d24c52f04dfabe616b5ce25e636156bdfacae6222e543dccbacd90"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/theme_badge.png.import",
+      "sha256": "00242d3964189452b7e9c7b0d34d8bbf197a819c72d0d5ed59bfebfc2b886c57"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/frozen_paradise/world_icon.png.import",
+      "sha256": "72cbc44b7598807d4949feff53d87b194c129ef6d4337cc4fb89cae1109b5910"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/campaign/islands/party_beach/complete_badge.png.import",
+      "sha256": "eeccdcb9e5390914bc2d76b6b902a1bea1d7e2fa3403b09f93b51aad5169ad26"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_surface.png.import",
+      "sha256": "67c24e8e4ee3b3d304d03b3a8a775b6c10ae6cef19a63c4f612316048603d532"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/campaign/islands/party_beach/gameplay_surface_v07_r04.png.import",
+      "sha256": "6e23282cf8ca3ac976b46e9a4976361a9fd7ae64161664ff503a20cc8d8c92b0"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/campaign/islands/party_beach/map_background.png.import",
+      "sha256": "e28e1951bb3a98fa9fed99bac9999796a5f924434b9fbad35b50ab16aa51e2c2"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/party_beach/map_title.png.import",
+      "sha256": "549b5eec153b650a91ad455da1f5257892c54f1679b24bdb06565021e2826634"
+    },
+    {
+      "bytes": 4469,
+      "path": "assets/ui_assets/campaign/islands/party_beach/playable_geometry_r04.json",
+      "sha256": "335b0e0218c976fdce33f2e47670cf5a587c7e09f1bfdca634340a664d0e2bea"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/party_beach/theme_badge.png.import",
+      "sha256": "4e8010016407b15783f603717d7a93acdf662006a9e8fd1fdd38e81a24f9d468"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/party_beach/world_icon.png.import",
+      "sha256": "3acd8269d5f3b6274c5cc9f89a5b164ce3b53085227eb91ff38892a606ae4bc6"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/complete_badge.png.import",
+      "sha256": "db29b1322fc84f52ccead248ed3c413856ba109e8fdcd98f967c4eece81dbec0"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface.png.import",
+      "sha256": "7aa258ae37082828bc253fef721123f1649483f871ee2a3759bbfa24de89b33a"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/gameplay_surface_v07_r04.png.import",
+      "sha256": "d303a2c1976dd8de35c25f6825914975ea832b969aa7d26c1ae5b56ef947ed62"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/map_background.png.import",
+      "sha256": "5695eec6eca88de86da2d986b5e01fa240a921dcaeea6bcb9a4a26a942727333"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/map_title.png.import",
+      "sha256": "d00065edce5b2a7852cfc3f09af095e798f0e0fb1c319196eb7b617a4c78b51d"
+    },
+    {
+      "bytes": 4462,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/playable_geometry_r04.json",
+      "sha256": "8ab6eb6f918825a8060debeaaafdada6c737dff5781a413c44af10ea1fa622f7"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/theme_badge.png.import",
+      "sha256": "cca1b7b541c7ca6b171b48f4b6c570bff900cf1101ed998429a2a7d94cad8b3f"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/sunny_cove/world_icon.png.import",
+      "sha256": "424d6a0cbf795809cde5c10fa8da377b4e9be5f87809dcd8bebc943e05123bd9"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/complete_badge.png.import",
+      "sha256": "8d2a73af9b38301ae8dd90ce875a21ff0cb14fe12edeef35a58c7e2761045fc9"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_surface.png.import",
+      "sha256": "2863dd9f6607aab03533e936fb83f20f857693a0ad9ed55ea985489d5759be4b"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/gameplay_surface_v07_r04.png.import",
+      "sha256": "b96c76e96f50526295fe43e6c75d3edb98286fbdf61dbf89a91f92b9757affb6"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/map_background.png.import",
+      "sha256": "30106e36d6dfc1a27f1a8a02b86e48e685969e9859aaa648540df374cbb9c37c"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/map_title.png.import",
+      "sha256": "1bdfcaa34f43799d7f6a621929d5731d515375457c844ba1ecdd4cf0cec94932"
+    },
+    {
+      "bytes": 4483,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/playable_geometry_r04.json",
+      "sha256": "fcecc948fd2aa9533002e83d7b1c0dea4bcb98d76efb851f52d15b05d3a924e6"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/theme_badge.png.import",
+      "sha256": "039812bbb7ae2b2ef20ede2e50fec1298d36276c36954a0936db97da0894b2ed"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/sunset_island/world_icon.png.import",
+      "sha256": "da7a9a52c0ce6b3ce4f926b4cf6ff90227f24e0e408a103dfa83a16aa1c741e3"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/complete_badge.png.import",
+      "sha256": "22616e1807a052bf50c1e531e38500e94cabd98524b732befad9fa7482ae6162"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_surface.png.import",
+      "sha256": "5134e9cc085a79fda5758acbdf968985e0f09f1e0db71f59205834720446252c"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/gameplay_surface_v07_r04.png.import",
+      "sha256": "694af1b92971ec0545f2413b4495a494d63ec35b75bbe5b9f457719d4acfd330"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/map_background.png.import",
+      "sha256": "2feb3030471722f473d8f898addaca18eaa59f1a986798119eb34dabc7180e39"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/map_title.png.import",
+      "sha256": "958446a8933c8f87632156087d1aba131869c27779a54b25dedd82f50fbda3da"
+    },
+    {
+      "bytes": 4469,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/playable_geometry_r04.json",
+      "sha256": "f791f97e0580c65f2a5504c61e0c100877e5329d4b02a6fc319e59ad167b7835"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/theme_badge.png.import",
+      "sha256": "670cba66a40ef4a27102c13f9641022de63b32b0e68f27519c072d58c964468a"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/tiki_island/world_icon.png.import",
+      "sha256": "3a463fafd5a6111ceab826d8c798588a0acaefd420096a59661886b987c48ce3"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/complete_badge.png.import",
+      "sha256": "2ee2c3a160f924bbaa75f5bae9f5a9a9e6c7107e4d1c8675c608f9c8108cf83e"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface.png.import",
+      "sha256": "512d3c1a8a12d78491051f1f4753061e5a8b4f1754e6eddcc9c49085019d4785"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/gameplay_surface_v07_r04.png.import",
+      "sha256": "b7f90ba8abb91b583cb531283baa3acdd474e5ad96c5cd80c0d8bde6e823ee05"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/map_background.png.import",
+      "sha256": "521fab188d1952db0d1c1401119083cd64ce2c8ff2d82543aaebf7f515b9fa17"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/map_title.png.import",
+      "sha256": "2a4cc77c395601f7d7f55fad379230a874858a49931a91ea4418a94fdb9da472"
+    },
+    {
+      "bytes": 4469,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/playable_geometry_r04.json",
+      "sha256": "9c24afafeeb293fc8e299bd9e26c76d612680c18d7575de03039ced96175372a"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/theme_badge.png.import",
+      "sha256": "6aaab9d39f5195e0c171806965ea9eb220872c19818f0bf938c4e33e95e6ab06"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/islands/volcano_bay/world_icon.png.import",
+      "sha256": "907b5f2efb64f5b1ba9950fe38eb1a9a18524745dafcb7f9657a209dd0f6d216"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/campaign/world_map/azure_bay.png.import",
+      "sha256": "e95d0510a7af02c4602ae5be6c8f6cbb2f2f5e9a38d74a4fe114c1fec47cf4e5"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/campaign/world_map/billionaire_island.png.import",
+      "sha256": "4c1c7c565eace67458575a2e7da13bc7f03814509646fd9726461a89a515711a"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/campaign/world_map/coconut_beach.png.import",
+      "sha256": "edb18cf511e6378699c3e4a99d27bb1dbd1fb1d77ff9b3ae146c15a6cd79415c"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/world_map/final_island.png.import",
+      "sha256": "aa4aec0efdee77dea2858cbaf2c2313640fcf5be7482141b4181054c200f89dc"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/campaign/world_map/frozen_paradise.png.import",
+      "sha256": "1d5dd5b6bd0bf47b4341f86ddb2f32184ba3d3d1e8377ae190e7fa5e52aec2bf"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/campaign/world_map/island_locked_overlay.png.import",
+      "sha256": "ed024be07b4859fe5424bb9c71cf41e6064d72fcbc6e2bc1d44954aaebc7b605"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/campaign/world_map/island_name_panel.png.import",
+      "sha256": "22592a2c5c708d0f6c6c26b4c6e59fb8558b0f5ad43971719b8be95e180be212"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/world_map/party_beach.png.import",
+      "sha256": "bd9a0bd26d6722952792195ddc997ba2a669615d556ac5f16866ec68ebadb119"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/campaign/world_map/route_line.png.import",
+      "sha256": "fe03a05f0910f500714388087ccbd72030799d97f21bfc99c772a6532e8bc3bf"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/campaign/world_map/route_marker.png.import",
+      "sha256": "e43eb0503814bb0d5c89fc15d0f54ae877c61fad12a51a0a4fac05838f2b9776"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/campaign/world_map/route_marker_complete.png.import",
+      "sha256": "2295b9aa01a702a7958ffa3a974c06c8016853e1b2a557a600bea833a7b774f3"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/campaign/world_map/route_marker_current.png.import",
+      "sha256": "0e0068147cf9cae97526dda930147e48d500827bfb78325764fb57c661be53b9"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/campaign/world_map/sunny_cove.png.import",
+      "sha256": "d515b01ec8db57013482b4105565df3bef815c499847d57a1b5d3ded002103f9"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/campaign/world_map/sunset_island.png.import",
+      "sha256": "68615ecbbf4836bc5526750c0ebae835192df364ffdb092f16138c9f3fc1be98"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/world_map/tiki_island.png.import",
+      "sha256": "f35673bcdc332564b6fcb469b73b0997ed859c9b9ed0cf606b7c0e57cadf4b13"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/campaign/world_map/volcano_bay.png.import",
+      "sha256": "22725a02cf0f3c3f958feee7fce8e50dc320daa9e2ded9bb5ab9fbe106183ff7"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/campaign/world_map/world_clouds_back.png.import",
+      "sha256": "b0918ee89723c217d5c7c844f5d7d4e5fb011b71ba8efa0c7df641fba375b3ba"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/campaign/world_map/world_clouds_front.png.import",
+      "sha256": "d3aa60cdf02b8697c8647fb181a4333bc57ea0257ce9fd1d63632d58e315248f"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/campaign/world_map/world_map_background.png.import",
+      "sha256": "9c821792636572b4094715df2672dda3f80cc60939b1b4a903eccd51abac311f"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/campaign/world_map/world_map_boat.png.import",
+      "sha256": "f6fd7368837924b34b26239e4a7c0161e2c3df9e69cef3454bf55076b75c3fed"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/campaign/world_map/world_map_compass.png.import",
+      "sha256": "0653fbd423ecf0101115d89b918ec5d46adcfa7ed4c94d2ee9661a170940ea71"
+    },
+    {
+      "bytes": 225,
+      "path": "assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v01.png.import",
+      "sha256": "b3286a0ab7aebc08175c3b3d0521523a0e39a2ad91ffadef3f489e6de710322b"
+    },
+    {
+      "bytes": 225,
+      "path": "assets/ui_assets/campaign/world_map/world_map_ocean_background_owner_v02.png.import",
+      "sha256": "cbeb8cef13576a5720364783b595a83dba72c4814b51553ce9ad87fc24b354a9"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/campaign/world_map/world_map_title_panel.png.import",
+      "sha256": "26b0028586c987ad3d5484aaad2a980f1aa2654e069138724d6c11ac0f9cb7d0"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/effects/combo_badge.png.import",
+      "sha256": "efd3706b5a7cea87e795700e9c49adca64614cf982b3bbc10bfa46d7b94e3cfa"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/effects/combo_glow.png.import",
+      "sha256": "252545421111532619ece383e2ab8e86461b309a6137b8b85ac0304a794187f6"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/effects/confetti_strip.png.import",
+      "sha256": "b0f9db330c62e1f0c695ec8bd9068bc06e9a9792fa62665f94d88f8c91533f6a"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/effects/merge_flash.png.import",
+      "sha256": "393bbe73b77fd99c8757758ce544c8ad8251995fa887c45e548cbcaee165a847"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/effects/merge_ring.png.import",
+      "sha256": "fe4dcac9d256317bcc1c41b15ae2987c0a286e3f150ebaafde18daa4cc78f85f"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/effects/milestone_glow.png.import",
+      "sha256": "701620b3670aebc552a1ca7e3afa6da19def76413c89db4c5cf256889037e94b"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/effects/order_complete_flash.png.import",
+      "sha256": "68716997b7f22e4c5c1bb8b2fb071d35065587025f50a70810d72ca262beffaf"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/effects/score_pop_bg.png.import",
+      "sha256": "180385b9531bc4b3d2e66405b348ee4db4b8db93e24c75778e51dfda2e704330"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/effects/sparkle_large.png.import",
+      "sha256": "4c97b4585cd6679e4a5d418ee7bfc70b93501013e201fa9f74d9ca1807760b45"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/effects/sparkle_small.png.import",
+      "sha256": "b904b060ad6ad94f00812c117eb6e636ce8ed18c78afc233d3eea0a2dc149e05"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/effects/timer_warning_glow.png.import",
+      "sha256": "0f305b8bb6ac9b07999c8b669c286e70873a30ff3565adfcf872234f3ea45872"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/effects/to_go_trail_variant.png.import",
+      "sha256": "43d5cb1b20ad6714139057066c392a478f3d9ca44952fa9b7de6c02fbe94fef3"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/effects/vip_complete_flash.png.import",
+      "sha256": "1064d29bcf1d6183086be0e49a1947256fb54f2cc9abf14ff8253517d68f5f2f"
+    },
+    {
+      "bytes": 196,
+      "path": "assets/ui_assets/effects/win_rays.png.import",
+      "sha256": "f31e28e53c593501b19a5f960bdd2f5cb3e1a09b5abc4653c29f024ab7c2f5bf"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/daily_reward/button_claim.png.import",
+      "sha256": "066c43317e35e0ede5fde36b832e20c8db78d89b7c121cde43951688a13f6614"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/daily_reward/daily_chest.png.import",
+      "sha256": "fc624e3c494f0fd152bfeefeef13e3f76fbcd2b0b48108af3d0128332644c4c3"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/daily_reward/daily_day_claimed.png.import",
+      "sha256": "1a5c4e7f66780c506d56fd0279ce2ae628de8e0e729bb9c859af44b29b574b5f"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/daily_reward/daily_day_current.png.import",
+      "sha256": "8cc551ebf75fb7f40efcdd71c021ad137514305744aa95b26f0715a807d92ce0"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/screens/daily_reward/daily_day_locked.png.import",
+      "sha256": "514e42fa41d01c26b9dce5a897009f748abafa42e8013549396d2f52a5554e03"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/daily_reward/daily_day_slot.png.import",
+      "sha256": "1f8c7f5cdafb47b835808104c8412c037f79822aa2e751cf8df101033baad2d0"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/screens/daily_reward/daily_reward_background.png.import",
+      "sha256": "d45e9331a7156ba6a15ddcbc07434083f99e88e7d0980c260503d79ee899040e"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/screens/daily_reward/daily_reward_panel.png.import",
+      "sha256": "0a60c3fc97a25b519d633d8d13b528c47461bdbd714c61e04be2a731398bf4c5"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/daily_reward/streak_badge.png.import",
+      "sha256": "bd817bb8d0d626bb9f45c09f95a13615d7d83518a794d876cdbbf3979cf3baa7"
+    },
+    {
+      "bytes": 195,
+      "path": "assets/ui_assets/screens/home/Events.png.import",
+      "sha256": "29c5ae3804751f7fcbf32b9f9b7381220d4053ec71ee9c10405f822d132267f3"
+    },
+    {
+      "bytes": 222,
+      "path": "assets/ui_assets/screens/home/TARGET beach cocktails merge home.png.import",
+      "sha256": "20aa5ec641a2eb44da06c5a69b3d18acd6a247f3023e4cd4ff3f3e15488bf68c"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/home/achievements.png.import",
+      "sha256": "f9d71b4aaedeed401010dbe166444c5c4537cdc641ad2f45a8df1c75af9c6c62"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/screens/home/coin bari.png.import",
+      "sha256": "ca4c651a7bc34a155300f451b73e8c2f35ca25a7b5c624634cac6688c25b2a68"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/home/daily rewards.png.import",
+      "sha256": "4d765eaab04f023df15d31904af7729b9212d256b3447bb56b03760e22264dd5"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/home/ekle gorseli.png.import",
+      "sha256": "623b74a200ef3b575fbefd80dc3afe214d9d05586db9b84b1a9858587ce67c33"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/home/elmas bari.png.import",
+      "sha256": "f8dcd738342fe1b45debafdd06f5008129ed8ce870469810753eaa67e40c64f9"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/home/enerji bari.png.import",
+      "sha256": "d12757e88d0619bea7cbe4d83a0c67c0548d714d0553187491e15cd0cefcb835"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/home/home background.png.import",
+      "sha256": "f02891274bee9b29275263d1ae767c95a45967c03d952eb15ba6df5e16fe8bb5"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/home/level bari.png.import",
+      "sha256": "bf89cb7c6c58bb387a345a1ee792608bf384607cdb0b393ea60bea72416e9980"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/home/play butonu.png.import",
+      "sha256": "a2cdee205473485de8e2105fda5f315e2eeaa0f3faec3ae6b2ff8a646016482f"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/screens/home/settings.png.import",
+      "sha256": "7aadbcf5ada8441dabbac034d91ae861d490e96f5b6c3c76083d4ab7737d89d0"
+    },
+    {
+      "bytes": 192,
+      "path": "assets/ui_assets/screens/home/shop.png.import",
+      "sha256": "978edd010b8820b6ae89cd4d462e44b8e5a8e7e3ec74297bd3d158afecea4745"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/screens/home/world map.png.import",
+      "sha256": "f9af52c5d8a1bc2bf0498a739781d3e00ae4c5a8d009e76fc49952210ec65c3d"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/main_menu/coin_counter_panel.png.import",
+      "sha256": "3fbed9ff14fc7d0212fd237cb990e7911f6dd5805ec2f9110bf3428106c33477"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/main_menu/gem_counter_panel.png.import",
+      "sha256": "8b60e8a117a83d388869754910744b9b3bd416e5264484ab9dfa93003b4e0bad"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_background.png.import",
+      "sha256": "5febd62067309608029a664171d0ff3293922aa95e2c08757fcd1f2b5dd8492b"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_daily_button.png.import",
+      "sha256": "a706fac3a7783c2e1a01f26dcdf630c3156bc9dc41cc2de73ef3ccf191488fe1"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_decor_left.png.import",
+      "sha256": "72a2ff25574ce49bf9e2978657325a2026d0f096da0b5b07643cae3dfb73b55e"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_decor_right.png.import",
+      "sha256": "cb9a4b6def5d5b7c0dca06a2b04b7a7c349d0c4208441f9223ffa66a3957cab4"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_logo_frame.png.import",
+      "sha256": "5feb4cc84467f87108acb88249f7eb64d85dc102001e0f0e189e46434d807c12"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_play_button.png.import",
+      "sha256": "3d4474b9ab7081f89748c235fff713f4ce9a108650adb76f6c15770fbccec375"
+    },
+    {
+      "bytes": 214,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_settings_button.png.import",
+      "sha256": "ffe878f758307cc4f61475b51312f6999bd45942a0d7413a5445407ff37d4dd1"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_shop_button.png.import",
+      "sha256": "dcdd0f7aa2e3f0d1b61fe77507f7e8db81f8cb759f4b7812f28596bc14604e28"
+    },
+    {
+      "bytes": 215,
+      "path": "assets/ui_assets/screens/main_menu/main_menu_world_map_button.png.import",
+      "sha256": "f5b8364cedcd72cbbcc85d763cb12ccf9641e6972340d6293c6feb9dff4f4b4e"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/main_menu/profile_frame.png.import",
+      "sha256": "cb9390958bf69cf2485dd0062d39381370023c873e59271bcc09b4c395ee3594"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/milestones/button_claim.png.import",
+      "sha256": "9104794698de5ea5749884164690009a8656e8ed35fceb09751be06fbf916a66"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/milestones/button_continue.png.import",
+      "sha256": "213f5a17c2584f02515eca463d260a2fed73918d58fb4aeeab441bcd0688bfa5"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/screens/milestones/island_complete_panel.png.import",
+      "sha256": "96b353c1b9a9e2b365ff06617ee12cf6d3c846b362301d348500766d9c063c48"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/screens/milestones/island_complete_ribbon.png.import",
+      "sha256": "cea4a746f38de930dcf48f9e8552fc6b5e09daf993db4f7c7700e12ec15b1971"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/screens/milestones/milestone_banner.png.import",
+      "sha256": "967087da12cb7278bb0f5640175ff9c3b9fbbd6c48feea0aedd362ebff36df3f"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/screens/milestones/milestone_chest_closed.png.import",
+      "sha256": "2c42c1f6a1cc900867061673eec6085afc4bf1c946cc72e42b34d7287914a367"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/milestones/milestone_chest_open.png.import",
+      "sha256": "dd444f9731e85c333c197d12c01a29431c727c1a96f131ae6e12f2c6c22fbb07"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/milestones/milestone_glow.png.import",
+      "sha256": "456d591fd5f43e1e28a8362f5ae03a74854185f5c6b9026404f02317464e4c3f"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/screens/milestones/milestone_reward_panel.png.import",
+      "sha256": "86e5bba4e64359f30a2e73abc09e50db7458927074ed70fe70977703f4fd8778"
+    },
+    {
+      "bytes": 213,
+      "path": "assets/ui_assets/screens/milestones/next_island_unlock_frame.png.import",
+      "sha256": "8e645af403fedcb955829f19528020d29d71371678dc1f84b3b2e369092ae883"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/milestones/reward_slot.png.import",
+      "sha256": "d8d5696c5ea4879dd14719e4ea094988631037d0e6411c2b299843d91f8de1bc"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/pause/button_quit.png.import",
+      "sha256": "913474d69adba52dd7d095de9c7fc4c8f16051d42d3864a8ec6a4448924ecbfe"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/pause/button_restart.png.import",
+      "sha256": "e5888d7c9a2d31900296dcd21caf79d429c04d22a52ea2926eacba02510808f6"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/pause/button_resume.png.import",
+      "sha256": "d11a6179556eccd1091475eabfafb6106dc0338278d153bfdf00187e2631d7cd"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/screens/pause/button_settings.png.import",
+      "sha256": "09062da590092d37d69480e5d51f661e17880ef968684093c0520595bd86e559"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/screens/pause/button_world_map.png.import",
+      "sha256": "26dfbd85f882cd6fb545e9a149f86f9fda84b4fbc4cbb341d3ed3c3b9c0aa045"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/pause/pause_panel.png.import",
+      "sha256": "fe91bc637e692ef6ad2235296b7f16197882d4d3e1401ac403f4963123a4ae13"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/screens/prelevel/booster_selector_panel.png.import",
+      "sha256": "3526f5d1abcdb3911e00aed483d9370059cdac39165bad61ab511c330df5f97f"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/prelevel/button_close_prelevel.png.import",
+      "sha256": "901df8df6095c61a391f8ff38358b1446cd5af132aafdbde76f10bc9e59b80cc"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/prelevel/button_play_level.png.import",
+      "sha256": "e61e0c2a9bd4d3ae9920eb93d5cf09e4f097f163ff1ccd4e5b78e2149b2afa6a"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/prelevel/level_number_badge.png.import",
+      "sha256": "50ebf0489fa2b04e225d542b2e906e73fee7c9513547305dfec13ac6bb897494"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/prelevel/order_slot.png.import",
+      "sha256": "67ae3b34298aae0d95720696f10c9b4551e7694bb9d5ae6523c0d076202c399e"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/prelevel/prelevel_panel.png.import",
+      "sha256": "5d0154859079e3ec5256b6937cf22d1de8051cbaeb4864e1760a3df636f8a8eb"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/prelevel/timer_icon.png.import",
+      "sha256": "5db3ad0bf373cfe59f08b3180fb98e47702cbddf6b04731cdcca7cc322c0bda7"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/prelevel/timer_panel_small.png.import",
+      "sha256": "ecadd66be689f1b03d7b1167b3fe15be5d6e44d2b939ca9836c9d36272cc948a"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/screens/prelevel/vip_badge.png.import",
+      "sha256": "d0a892cf4d59f4cc508a94b07ac6d2c6917d7c1b72afa5bdb7f4aa0452951da8"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/screens/prelevel/vip_reward_slot.png.import",
+      "sha256": "dcfa39c7f11d756c2e2e33e1cb9e239b55913c6c8a9660bd5cba7c1bc432b56a"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/results/button_add_time.png.import",
+      "sha256": "116117c775650d9c342466b8030cfcc617ee323d034a5c6880e6fae8d7421cdb"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/results/button_island_map.png.import",
+      "sha256": "f1b9507281299bd33eaf1f10e1aa6d2bce8b7cf8fbf569860ec6bf76d7acc6cd"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/results/button_next_level.png.import",
+      "sha256": "8589cc7bc12366552daaf2bb97a7505e8a638c6e64366f3fd7bd3528bd52fb08"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/results/button_replay.png.import",
+      "sha256": "f76dd6a407fe866bdd2c1897966fa7fb267649fc3a03a9014cb46ec9fb91b265"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/results/button_retry.png.import",
+      "sha256": "ea147316274fb164c21429994ecc30ac5c2902d23820848d895a3ef4ba7b4e47"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/screens/results/button_world_map_fail.png.import",
+      "sha256": "e7c151484c6cf3332050ca657abece3ae0d544bcf3c0ab163eda59a0579e6efb"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/screens/results/fail_timer_icon.png.import",
+      "sha256": "5bd3f8769902810f3e9abd9f0495c65afb7685d1cf8dc574fe0b245c96e16c92"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/results/level_complete_panel.png.import",
+      "sha256": "18c4aef5155e1b548cced7f4382d8829edfb02da63d84101f45bfe2a1af6ce26"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/results/level_complete_title.png.import",
+      "sha256": "846aa9a2fe23187025ce98e058ff5a80e20bc350b722d35fd712230278ae4d9c"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/results/level_failed_panel.png.import",
+      "sha256": "dd7e2f96ecb5f5fd99c6418862dd4ff9d07d53b06954b7d495106f03497cf0a4"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/results/remaining_order_slot.png.import",
+      "sha256": "8ae6afb8dc41b8b492758e7d1396263530a523f68966d100100c4461f8f1ddaf"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/results/reward_slot.png.import",
+      "sha256": "52e0aa00bc97747eb93befd4d769f92f86ea6c13952d90863bbacc06a98d6865"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/results/score_summary_panel.png.import",
+      "sha256": "b7fae1002c28725bd70f323cf1b3e9564cdb38d1418ba4cc85cd50b6f977db64"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/results/time_up_title.png.import",
+      "sha256": "e1214a3ff7a71170ab5f4d7217915abfae0bd35895f6ddd42493dde783ba0138"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/results/video_ad_icon.png.import",
+      "sha256": "3d1613d01aed5aeb88cf909557a6978c7b8ed463b866c6d8e7168880ff266545"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/screens/results/vip_complete_badge.png.import",
+      "sha256": "8ad8c1f9814656354b91c1357d7374b621f64f9bc1a69a8a8052411c3b25ed48"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/screens/rewarded_ad/button_no_thanks.png.import",
+      "sha256": "30dab7b807219784b403cd0540a727da5e39d2505bd362f4f8fb5103f5e4aa6e"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/rewarded_ad/button_watch_ad.png.import",
+      "sha256": "af08309747f9ff24849fce58059155663483c3c2ab7550a1c9e6dbfd6f2791c7"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/rewarded_ad/reward_ad_double_icon.png.import",
+      "sha256": "14892c160cc3211be6803fceec13a862d588efae6c0d65fc74075ed2778df565"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/rewarded_ad/reward_ad_time_icon.png.import",
+      "sha256": "8dbeb666702b1a94b20db756cf493282b5df2ee93536b20b6c4af4caab40a1ca"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/rewarded_ad/rewarded_ad_panel.png.import",
+      "sha256": "47f5f92c33995c3e9301717e2e47a692654399542624eb50aee13dcba8351c39"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/rewarded_ad/video_ad_icon.png.import",
+      "sha256": "682af8601eb0b75077c926811664b92359211cb1ae6edb7171817e73319c1456"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/settings/accessibility_icon.png.import",
+      "sha256": "3af79e7e597f0717a6abb40093a5bf95cd17b1f3f58a92d0eb4598234041e6b2"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/screens/settings/button_close_settings.png.import",
+      "sha256": "b1bd765115a237df848a5bfe80139e4236f44f7a9d09fc372a99c0757e9f12e5"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/settings/haptic_icon.png.import",
+      "sha256": "1aa816dc83f8ba8c5274b2b9a05993a16c4fd71448556c2bb16bdebeaafa3ab0"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/settings/language_icon.png.import",
+      "sha256": "fd7fd9069132b2cbc9837db7288206c617c7be33855a40e82fb763addb65765c"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/screens/settings/music_icon.png.import",
+      "sha256": "31bbcb94ef23bbd7e87507ccbd691a43a43da3dc071798deb4279054050c9075"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/settings/privacy_icon.png.import",
+      "sha256": "9bdb6cdab708ff4994cc2ed07c21b1873dd60df2551bcdad234d8e318280761c"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/settings/restore_purchase_icon.png.import",
+      "sha256": "ff3969e92133277d5607f0e7c2dd84099b84327c23725776a15acf0a0d0d1c42"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/settings/settings_panel.png.import",
+      "sha256": "bc644463870c580f4fff7d0b39a7118f34e6bee6335cfbe4656c3386af3a802b"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/settings/slider_handle.png.import",
+      "sha256": "e136d9277dda88eaf1983849d47bc3cd6d764e271e27e51df4fba22d25615b1c"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/settings/slider_track.png.import",
+      "sha256": "bb751cf7955110a81d9e94c87f7f5d25de84e2216c5c79f0efc05708ec696cff"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/screens/settings/sound_icon.png.import",
+      "sha256": "2c32d3c7ee67594ad288c4ce9d46608b9293a92064c9334a73ee778dfc240e34"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/settings/toggle_off.png.import",
+      "sha256": "ec793bc8af6d2375d7ccef5aa270a1fdd53b58f1cb31188298c6efb68789af31"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/screens/settings/toggle_on.png.import",
+      "sha256": "84a39dac7c0f5b7ed5f931f54bb4d4ff85b2a568243536b49fede0d8d292c160"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/screens/shop/best_value_badge.png.import",
+      "sha256": "8aa767e8d067ca3963b8d0872a852add5e72ff574314e354e08bf8d6341ece4f"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/shop/button_buy.png.import",
+      "sha256": "cbd3f90eb81d083c0e6ae588fb67c84cae2fe48486358c42ceb88dc73de47723"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/shop/coin_pack_icon_large.png.import",
+      "sha256": "c37b0e2efdb54f8e61c2d2c06140cd2f6846ac6df113d4d653d12b1190b0a8e4"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/screens/shop/coin_pack_icon_medium.png.import",
+      "sha256": "46fe6239e55bffaf0e388e247cce3f02f8693d423b3f2bf411b7cdc199d90115"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/shop/coin_pack_icon_small.png.import",
+      "sha256": "2e91c6683a179d894454b567db8b214a66a0ccc363ac918f8a93dbfa0624f575"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/screens/shop/gem_pack_icon_large.png.import",
+      "sha256": "882a72428e3ed0d53892ae4ad4e0a0948079769500537088ef0b9c22b6082a7f"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/shop/gem_pack_icon_medium.png.import",
+      "sha256": "6f24a0436b6cad84594232852b7c0d6d30a1b2905911874330d563c85282d8c0"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/shop/gem_pack_icon_small.png.import",
+      "sha256": "bc385b9caa85d3f31c249daf0bfe3b4e6e5bd241adb5a454903d7f3b6a62a8fa"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/shop/sale_badge.png.import",
+      "sha256": "fb8ab1d971f98115252b9c2ebf6b174815c6d4e5925d1b70ebe63e0987384cb5"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/screens/shop/shop_background.png.import",
+      "sha256": "071e099e925cdf322e309d04ca58a6eee92d4794d59997cf3b2c385fcf4b5901"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/shop/shop_header.png.import",
+      "sha256": "0f23e019c43c317031d47a45873dd6d2882e542b6f02b507016e223569ad4957"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/screens/shop/shop_item_card.png.import",
+      "sha256": "562cbaad3fbb1f986622d25ff5f8dc980944aa3d47243491a56197f6bff0cc90"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/screens/shop/shop_item_card_featured.png.import",
+      "sha256": "73fe636d167b55baba411fd6482eb1b15cf807ecaaf6b712144243d927631e1c"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/shop/shop_tab_boosters.png.import",
+      "sha256": "2f66133271ed86730d58371893b684c9fb7362e719d2336d4b32009178819d17"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/shop/shop_tab_currency.png.import",
+      "sha256": "645b96369b8b1c1696d4730401e06a60b68b81fc7e90f73b1c176932d669087d"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/screens/shop/shop_tab_special.png.import",
+      "sha256": "653c0ff26845754529b0d3032a4c422dc5d6d21644bb1db5095d34ff0575609a"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/shop/starter_pack_badge.png.import",
+      "sha256": "2634e3a2e7e094c54ab6626ae68be7f572e061655834ae6cb49afa0f02381669"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/social/friend_icon.png.import",
+      "sha256": "8faa52b2f97efb798e1727468de7226b39e89ec37a4f239ac53bb0d0d492117d"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/social/leaderboard_panel.png.import",
+      "sha256": "700b97df6e29c6894662a599fcc8ce4756ac3a947a904773357aa206593ff232"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/social/player_avatar_frame.png.import",
+      "sha256": "8b4af28751e7ab747a49c75a15404ab6ac77071b8294347a97ff0a3c2559c673"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/social/rank_badge_1.png.import",
+      "sha256": "310b07a74dc66b33b80956b3c1673183dad23b9ac8083c097ef638a58bed54c2"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/screens/social/rank_badge_2.png.import",
+      "sha256": "4941eb8934842ab1d5b5611c09e8a8712b2972d7417dc73e776024bd0534053f"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/screens/social/rank_badge_3.png.import",
+      "sha256": "042d491fc136f7c6342eb59b8d0936f775bf8c162a9e2b895230f119110c9782"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/screens/social/share_icon.png.import",
+      "sha256": "e749af87c66b3bab51821b41c807486d4f6bce19373f18c13c059e0e9ee13c8a"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/screens/splash/loading_bar_fill.png.import",
+      "sha256": "48426bdad8afd2e26a53ebf74442a34769df1066209d0c6f9f49cb46c085b8c9"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/screens/splash/loading_bar_frame.png.import",
+      "sha256": "31e6b6fd05c414576b6af409432b708e3353bfc7f755b7831d5335a253a453cc"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/screens/splash/loading_cocktail_icon.png.import",
+      "sha256": "6f24ff1ed888d19280a919143c04676ca9673735506a0a43c8e079724201000a"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/screens/splash/loading_spinner.png.import",
+      "sha256": "9152537f8e1f86f3f19841c235da9ea4304401d2d9507359c4920d76c1382a43"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/screens/splash/loading_tip_panel.png.import",
+      "sha256": "095f903e4ebb7c438d9b95074045320ec23690f9f034bef87468ae5cac267371"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/screens/splash/splash_background.png.import",
+      "sha256": "4b45dbfad22423c07ee672440fcfb874477d752794113f5976a245ce2028f0c5"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_arrow.png.import",
+      "sha256": "32e7cf0d95ca0bef84b1d840dda04c85cd2f43e3299de35606aa3fa19b4d0fb4"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_hand.png.import",
+      "sha256": "de931fae5b76fc12e497fbe292254899a341750c46aa7cb13c32b5f9c5e86d52"
+    },
+    {
+      "bytes": 212,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_highlight_ring.png.import",
+      "sha256": "6ee15a52796382e3dab17809c261dba9452a5093713281fc0932d91a8256d23a"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_merge_icon.png.import",
+      "sha256": "7cd46f4a05622bc47e7206d00708697500a9c39d38c4167f991dbc0fbcde32ff"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_order_icon.png.import",
+      "sha256": "1cd00f94a26ded2837db83db97057cf2e7493c29025d7938d643a8d197bc4263"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_panel.png.import",
+      "sha256": "6630b1309f4d74fab5c4e3c6c1fd84d6900adc931b27de41e8c1694dbb5e31f4"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_skip_button.png.import",
+      "sha256": "bb990a22e2a77dccb6c29a5de15c0e107cde1de8240a350d471386b504f0f871"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_timer_icon.png.import",
+      "sha256": "ae3fb94dcd8c2fa3c2c3c31abdeb04e6216dc9fe0ff7dce37d4d78263f0e0079"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/screens/tutorial/tutorial_vip_badge.png.import",
+      "sha256": "37681eeccaeb3669b420aacdde53bbad9fd21e5b44587dafe801a64fdb4382cb"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/ui/boosters/booster_count_badge.png.import",
+      "sha256": "0f651b2bd2f32353caa63cffc60a5a09e518fae2d4941287201f56720a981286"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/ui/boosters/booster_hammer.png.import",
+      "sha256": "88ee481e0d9dae487ca1e571c4e0137d6fce6028df80296a8104bb2cef7313cc"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/ui/boosters/booster_locked.png.import",
+      "sha256": "e1f27e3a90d51cf4901b8ecf4b31ea00f2645cf7f8a62f91b2c6133e90beaf1d"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/boosters/booster_selected.png.import",
+      "sha256": "8ed389055b43792671ce55f2dfcb0d79dc5f9f5d047152e3c54cf03749551998"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/ui/boosters/booster_shuffle.png.import",
+      "sha256": "09c4c444f5f45be55c21db45a9e07ca50686f9b4aff59d2bea02aee4e0c5e72a"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/ui/boosters/booster_slot.png.import",
+      "sha256": "bdb358e311def7ca1ec8677dbd79534c9055f3098da120f0cbdc4a02cf77ef73"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/ui/boosters/booster_time.png.import",
+      "sha256": "ad0197640501d08055ecbecca48fcc790366ea7ca9caec9430097108a6622d42"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/ui/boosters/booster_upgrade.png.import",
+      "sha256": "1424933ffc1db7bd22d5c38d37dcd94934e29683ced625f7b9e13506ce648d23"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/gameplay/level_label_panel.png.import",
+      "sha256": "41287895e68b0e8bc8d3417b62f069cd5c6428bc1a0ed4b647b92d227faeaac2"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/ui/gameplay/pause_button.png.import",
+      "sha256": "708cbc1a96e357a67e826d6fc07fac92a4f5897f03389372c49bba06a51399f1"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/gameplay/timer_icon.png.import",
+      "sha256": "7c8b7828e46c11064a831f19451a4c4a116615a02662f09d0a3c86e7de3fae43"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/ui/gameplay/timer_panel.png.import",
+      "sha256": "feeb7529e4aa11f32f149820ff8abe03967e8728d7556ddbf7f0ed2aa2982302"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/ui/gameplay/timer_warning_glow.png.import",
+      "sha256": "e55e38bca936cdcb5c3d4e8f421fb24fc4750d94d09ba438414a05557d22ac81"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/ui/gameplay/vip_badge.png.import",
+      "sha256": "1406b7c8a3af7c129621ee119a316190bd69eaf7e01bf6aa8e99a95b2675c9f3"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/gameplay/vip_reward_frame.png.import",
+      "sha256": "dd74d79a42d7cffb5fb39ae014a50178bea44eed89a74284e0ec0c7a8745fdd3"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/global/back_arrow.png.import",
+      "sha256": "0ae44705cc1b862fdc6d84359815821a47845b2d2b3d4cc1d826f9c7bf75d148"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/global/button_danger.png.import",
+      "sha256": "7380b5ca7609fe4a0f8bc3e942c4690ef2bc982f3bc469df9996a2cf9131a6db"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/ui/global/button_disabled.png.import",
+      "sha256": "0141235d125a2e0962298b7f8b1a64a10077c143e14758b9a1ae41f4184f0982"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/ui/global/button_icon_round.png.import",
+      "sha256": "6d57a99ac8d81fdb825dcec12fdf81d2a87db00f5cd6499c9d9bc91e637a8d9b"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/global/button_locked.png.import",
+      "sha256": "f428ec465d23a54b9268319ac05a4009560a7addbe3b15010ecf14eb7f7f03ff"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/global/button_primary.png.import",
+      "sha256": "e4228737a107227ae46aa27e835e5f6cbfc7440ca0ab38cd51db99a9cab3866f"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/global/button_secondary.png.import",
+      "sha256": "dce17312b276baefa008cf8c91af4aa88aec41123ae8e089cf287f77e03f6833"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/ui/global/button_small.png.import",
+      "sha256": "b0a89fa7a98e07de01ad2e19905c153fd74047eb183feee9f8984c6250fe9687"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/global/check_icon.png.import",
+      "sha256": "ebb8c2907b071a9cff8ffd133c313ac089b32c4ae5d8a98a3f19782db339079f"
+    },
+    {
+      "bytes": 196,
+      "path": "assets/ui_assets/ui/global/close_x.png.import",
+      "sha256": "b4e3f873df3488cab918e66246743bb343c3f45e8ee88d924800d3a0fc9b1632"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/ui/global/complete_badge.png.import",
+      "sha256": "cab544a739254a8c78aecd08c19bee981fcf503c16198d51938053fe72ffa0da"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/global/current_badge.png.import",
+      "sha256": "387d88a2579ab973ac75bab4f4397fc3f53bcedc91abfdf84609c0f3fb14e860"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/ui/global/daily_ready_badge.png.import",
+      "sha256": "0295a024b6cb280143eaac90d5bdf12779c637658ef26746363dfc59d7f0ae99"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/ui/global/divider_gold.png.import",
+      "sha256": "8017c326dd1598bc6a070ee6ee79dfb9205774234e6cc4eaaf82dd999168d0d0"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/ui/global/finale_badge.png.import",
+      "sha256": "9816cb07b14122cd9d31c79e8c5b8045e6bd321b2bce290ce62dc604f16bc591"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/ui/global/help_icon.png.import",
+      "sha256": "be151b4961fd96fce3bdc2f1158eaa37989de60f40676887a93ad04df85c4555"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/ui/global/home_icon.png.import",
+      "sha256": "5b6f612cac6e19c21b50dd59bda00f011b69705f1e0b25dfc642b469747c0463"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/ui/global/info_icon.png.import",
+      "sha256": "89ad4ef5ea246f72b0e81262cbb7dccefbc1bb570e6eb564532529cdb5bf138f"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/ui/global/lock_icon.png.import",
+      "sha256": "1c6dfe15b8b396f0005025ebcbbb2dc24c7b996d69525e9994ef72e58aa2efb8"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/ui/global/map_icon.png.import",
+      "sha256": "b02592c9411ada0f4f69c13ad3f7dd7f30816e4df49c13596da2e223e99c7a7e"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/ui/global/milestone_badge.png.import",
+      "sha256": "4089f7b5449f1eb11150998750940209fa2d0367c61ffc9447b4a7e38a4da3ed"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/ui/global/new_badge.png.import",
+      "sha256": "78a7021436db92ff6adfd82ac470197cf524897914b819768e46f934dd1f93fd"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/global/new_content_badge.png.import",
+      "sha256": "8a879b536403c198dd1da9a31c041a994af872c4d99f39dfcf6b9f9e57fed74c"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/global/next_arrow.png.import",
+      "sha256": "1b27002cf144c1c2c0149518f5e666bfbcfdfaf3bf91a4166e643ce506602c8d"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/global/notification_dot.png.import",
+      "sha256": "bc863c9bec15ececfac11e90f5024e818a1ae7661e49a394c02c0c5a799cb844"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/ui/global/panel_generic_large.png.import",
+      "sha256": "a6e6c37c5486ddbe3d72fffcace38440ba60d058242ada8b374cb974d0ee090c"
+    },
+    {
+      "bytes": 209,
+      "path": "assets/ui_assets/ui/global/panel_generic_medium.png.import",
+      "sha256": "ad6355ef156ec20c80069ef6e618d5ef71d01b203ef89655af0fc2e83e419dde"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/ui/global/panel_generic_small.png.import",
+      "sha256": "7b94f08b6d28a42ff3366f47e9b5c2cd2b272aa0db813d2bf47726b11377a466"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/global/pause_icon.png.import",
+      "sha256": "6737d3a046d5b20116799e24572f2465e434847842905e4a10b859dcffb9ab80"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/ui/global/play_icon.png.import",
+      "sha256": "478575f434fb42db0e77647da0350fbfd2e93227eddcb4e5edff1fe9205988f8"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/ui/global/popup_frame.png.import",
+      "sha256": "5e1bd34e8d32d62a716714fb02654cd22001e0d261579e8bf9ab892fd35ea1ba"
+    },
+    {
+      "bytes": 203,
+      "path": "assets/ui_assets/ui/global/previous_arrow.png.import",
+      "sha256": "9bd9b4866424717da60490e4fd7f0aee8d51cbf28fefbf4b69ee1f4111ad016d"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/ui/global/restart_icon.png.import",
+      "sha256": "452b1ccd607681730d77abe0dde48f5182ba16e176d9f9c559983eae4f649444"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/ui/global/reward_ready_badge.png.import",
+      "sha256": "11e34521807e90a2fd4247b367bd05f14be046ec92beb0d6af43589797f686d6"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/ui/global/sale_badge_small.png.import",
+      "sha256": "baaea49951b59172497a362ea68813a66abfae961edffffa989bdaf3fabaa6a2"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/global/settings_icon.png.import",
+      "sha256": "d67015d1cfe2f2d5d9c5f6c854edf49f2924d3db2935e4f6025f60c26df7ec0b"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/global/tab_active.png.import",
+      "sha256": "1cf21c029013a98037b4d6d9d9666798b308acdbe657f7661faef5f3cee73808"
+    },
+    {
+      "bytes": 201,
+      "path": "assets/ui_assets/ui/global/tab_inactive.png.import",
+      "sha256": "2668c0c95ec384d60988639ad703a38bda3193cbcb8305f44bff83249e9e9ca0"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/global/tooltip_frame.png.import",
+      "sha256": "7408817cce00418c78ff62d39399eda3e0ae62b38b3ce60b9fdbdf45d768cd9e"
+    },
+    {
+      "bytes": 204,
+      "path": "assets/ui_assets/ui/rewards/big_chest_closed.png.import",
+      "sha256": "1cfcec3d2e9969b619aee45f9a725fe123de6f60173c5e60c0f41de35bd9d797"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/rewards/big_chest_open.png.import",
+      "sha256": "0dc731978e55e2d0f4a68feb4533e8062b50588efa7f19767d385722d68e0c0c"
+    },
+    {
+      "bytes": 198,
+      "path": "assets/ui_assets/ui/rewards/coin_icon.png.import",
+      "sha256": "5fff78377a418993aa265da47f1b8b1c4afab8744be61c9e10a44e4364d45938"
+    },
+    {
+      "bytes": 197,
+      "path": "assets/ui_assets/ui/rewards/gem_icon.png.import",
+      "sha256": "370f2a5d2dd76aa1c3e68f3ece24f4ff5297cd1c9448df3438e116192e332c1e"
+    },
+    {
+      "bytes": 208,
+      "path": "assets/ui_assets/ui/rewards/premium_chest_closed.png.import",
+      "sha256": "caa3dee247dca6b930d5a96af567d1c8658f213bd6f14a1f4de87d39862fb096"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/ui/rewards/premium_chest_open.png.import",
+      "sha256": "a185721e8fd752fb5de974dac85562987bcbd64400ea7f983783c1eebb2b6f33"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/ui/rewards/reward_frame_large.png.import",
+      "sha256": "bff72843aa7f6ebead72fd03bf6a7b18eaef16d6bf825c121ebe01283326f4d1"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/ui/rewards/reward_frame_small.png.import",
+      "sha256": "807510b9e2177ac1ac3cceb89a0a5f029687010e5c50a5ac4ebeed30f3de5f61"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/rewards/reward_glow.png.import",
+      "sha256": "7f6503b4a5411e35a1f7b15f4e8c3292c3a2eeae5a9fdc1d9894390a6999f3c6"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/ui/rewards/small_chest_closed.png.import",
+      "sha256": "9e6f8687ce440aba59c48a8da605648e9155c81529a91407cf9b0583e9405cdb"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/rewards/small_chest_open.png.import",
+      "sha256": "fd074cbc14bf0fbcb53228d940ad4d7c207fc864d970f794b6a8dfa8760e4f44"
+    },
+    {
+      "bytes": 199,
+      "path": "assets/ui_assets/ui/rewards/star_empty.png.import",
+      "sha256": "044f4ce185c29b13da241f02da97f06f63244e5cc57433ae9f6e4abddcf56b00"
+    },
+    {
+      "bytes": 200,
+      "path": "assets/ui_assets/ui/rewards/star_filled.png.import",
+      "sha256": "857f276028aa7ef9e3616b2560af80fd4115badb10d74ba2d78aa6d5cd4e9c8b"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/rewards/star_large_empty.png.import",
+      "sha256": "56bf1d766880d2aebb5851e47fad6e559fd4db4856c076c19ad757d392a4ee11"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/rewards/star_large_filled.png.import",
+      "sha256": "38f1abe926051297cb3853d6dcd129268e3f5c88c0dd7ab1c174ef6a8a693083"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/ui/star_track/star_track_checkpoint.png.import",
+      "sha256": "2eacea4cd299ac3fb36b07908d9e8d14f86ea9848f3abe6e1fa850e516f0af14"
+    },
+    {
+      "bytes": 210,
+      "path": "assets/ui_assets/ui/star_track/star_track_chest_large.png.import",
+      "sha256": "26fa4d4cd5040355c2d4d5c722b09b07b44f78e04ab10770111a23c20bb5f065"
+    },
+    {
+      "bytes": 211,
+      "path": "assets/ui_assets/ui/star_track/star_track_chest_small.png.import",
+      "sha256": "b873d7d4af9ed52d59191c5810127a718d8c4d3e5b21e26b00b111daacc1cc6f"
+    },
+    {
+      "bytes": 207,
+      "path": "assets/ui_assets/ui/star_track/star_track_claimed.png.import",
+      "sha256": "1461cd4a69cd8881c7b8281a9d708a93e822b7e203dd70868bd5ca7f32e5fbdb"
+    },
+    {
+      "bytes": 202,
+      "path": "assets/ui_assets/ui/star_track/star_track_fill.png.import",
+      "sha256": "4dea47fd1fe4499d226b129d85c5c020191f192e60895e557fe783d24208a604"
+    },
+    {
+      "bytes": 206,
+      "path": "assets/ui_assets/ui/star_track/star_track_marker.png.import",
+      "sha256": "f6c5ff561b34376e4700f7338a860331bdc3b220516464acb2f5cdbdf05c80da"
+    },
+    {
+      "bytes": 205,
+      "path": "assets/ui_assets/ui/star_track/star_track_panel.png.import",
+      "sha256": "e437166efe90f0e0582ad9f4d2852cf4e589adef8348e56f35c6d8ee3d179b34"
+    },
+    {
+      "bytes": 1774,
+      "path": "data/drinks.json",
+      "sha256": "f09699cb2ab6ce7f0d90dc1855d30b6ddccdf54b30207f1dc65ec34013a6a2b8"
+    },
+    {
+      "bytes": 2350,
+      "path": "data/campaign/ads_provider_policy.json",
+      "sha256": "fbca9b59b2771ac6339fdeb12c02d38624438f0d7d481621a98802e7044610eb"
+    },
+    {
+      "bytes": 37082,
+      "path": "data/campaign/content_generation_profiles_m33.json",
+      "sha256": "21d572229828af923464add846fa9e8ad2bcb50f51dfc051d57e58a3cc859663"
+    },
+    {
+      "bytes": 2626,
+      "path": "data/campaign/content_manifest_m33.json",
+      "sha256": "742f5e6aa192dbcd3419ae9e1cce5ad8ac9e684315e4e10be4a7fcc90ba37cbc"
+    },
+    {
+      "bytes": 615,
+      "path": "data/campaign/daily_rewards.json",
+      "sha256": "d853e085aea305ee588198d39b19fee663433545c5dc9fb9c76a18811debfb1b"
+    },
+    {
+      "bytes": 20937,
+      "path": "data/campaign/islands.json",
+      "sha256": "0fed6b12c39e078e8b0b24689dadd6abf3eab6b60baed8a2d5c55512aca29a2c"
+    },
+    {
+      "bytes": 386,
+      "path": "data/campaign/store_catalog.json",
+      "sha256": "65e21640e54de9678d3a056e0f516fbafe49fb71c2a0a428ac1922891010d5eb"
+    },
+    {
+      "bytes": 95405,
+      "path": "data/campaign/levels/azure_bay.json",
+      "sha256": "c379d5533c8a69c058eb491a89d68fd59b93d1783781db4e544407738472cf5f"
+    },
+    {
+      "bytes": 96804,
+      "path": "data/campaign/levels/billionaire_island.json",
+      "sha256": "7a187590b1178daad776e5ba8999ea5851042069a377d85947acdb334c73bb33"
+    },
+    {
+      "bytes": 95863,
+      "path": "data/campaign/levels/coconut_beach.json",
+      "sha256": "5fa9dba84d869525f7b4544fddd78d829f90e5b0e48db44b7ff977eb12d4ff72"
+    },
+    {
+      "bytes": 96742,
+      "path": "data/campaign/levels/final_island.json",
+      "sha256": "4409d47d1f25fa2ced9ec9e6ba8e9cc3110ac0ee5e31b60c5c91526a1a23a55e"
+    },
+    {
+      "bytes": 96044,
+      "path": "data/campaign/levels/frozen_paradise.json",
+      "sha256": "557038a9938bffa9d50fc82cf7502e3d29822badf217ad401be820dd53bda95c"
+    },
+    {
+      "bytes": 95678,
+      "path": "data/campaign/levels/party_beach.json",
+      "sha256": "48efa4fe9c65edd813415db4ddcb08e5e0368a9dc60a575a643c881896ae8dbf"
+    },
+    {
+      "bytes": 33613,
+      "path": "data/campaign/levels/sunny_cove.json",
+      "sha256": "573b5ca14ca75bec04f40a5b7d00aa441534a266569b200e36e78b28d3591128"
+    },
+    {
+      "bytes": 95744,
+      "path": "data/campaign/levels/sunset_island.json",
+      "sha256": "e57b122e583595302240308e3feeb2d8ded4c0ab8a007202f4a8810429804569"
+    },
+    {
+      "bytes": 3898,
+      "path": "data/campaign/levels/tiki_island.json",
+      "sha256": "ad4ae20c26d482082e9ffd170cc5e66dde895403fe5e6d260a5beec8cffbff53"
+    },
+    {
+      "bytes": 93054,
+      "path": "data/campaign/levels/tiki_island_full.json",
+      "sha256": "c860b28bb0a2566cc8ad2283a8696a3276931c0373ec8b59b47675711bb7f190"
+    },
+    {
+      "bytes": 96060,
+      "path": "data/campaign/levels/volcano_bay.json",
+      "sha256": "6e530ef96800fcfbc23da33451a9417c49a3cdd3662ea80ea7f5f09b95c5a3b3"
+    },
+    {
+      "bytes": 14344,
+      "path": "data/ui/home_layout.json",
+      "sha256": "b098a7f7cf4ffc34495964b8e7b988a4bb118a35d08d631ff55ab5da04adc503"
+    },
+    {
+      "bytes": 97,
+      "path": "scenes/main.tscn.remap",
+      "sha256": "e06953e0896a129b556ff2dc6ee7ab070f7032689d0d08ce8bba6f62ed084668"
+    },
+    {
+      "bytes": 114,
+      "path": "scenes/campaign/ApplicationShellScene.tscn.remap",
+      "sha256": "16f5cea3e5ed6a9825e7f468edc7c3cc8f879b2bcde2bb32d2087de4d3360cf4"
+    },
+    {
+      "bytes": 116,
+      "path": "scenes/campaign/CampaignNavigationScene.tscn.remap",
+      "sha256": "80a3e31f806234b56a7bd84e0710b6169fbd256a8945448ffac60674e4470e68"
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/campaign/IslandEntry.tscn.remap",
+      "sha256": "0de8a14f94611adef52f42fbb69b2e2c81e238b98dbf7a936224d399b632a836"
+    },
+    {
+      "bytes": 107,
+      "path": "scenes/campaign/IslandMapScene.tscn.remap",
+      "sha256": "df18c9b1f7940c83eaa1e20ac0fe7db36841da046230eaa1f94be09c51a1adcf"
+    },
+    {
+      "bytes": 104,
+      "path": "scenes/campaign/LevelButton.tscn.remap",
+      "sha256": "d921db4e8615d1efce7e7a9af566315961e352137c17558cf72e1fe898e4948f"
+    },
+    {
+      "bytes": 106,
+      "path": "scenes/campaign/WorldMapScene.tscn.remap",
+      "sha256": "210ac80b5cb3b1fe7ce69c197a0fe6b069a2413034fff234176d116a70248cda"
+    },
+    {
+      "bytes": 40,
+      "path": "scripts/drink.gd.remap",
+      "sha256": "42d427f60d6f92e80ecdbbabbbc1345356a0a05ce0cc3d2a7e3ddc08794f6ab0"
+    },
+    {
+      "bytes": 17532,
+      "path": "scripts/drink.gdc",
+      "sha256": "4f47dea408255923f77e99679b9dc66ef6fe5ae2d394da8720d6e6ec31adc0bb"
+    },
+    {
+      "bytes": 51,
+      "path": "scripts/feedback_service.gd.remap",
+      "sha256": "8d80ae4c57e92c3b5de766649fafef95ee15ef924619f64d56edb42802fd85af"
+    },
+    {
+      "bytes": 8095,
+      "path": "scripts/feedback_service.gdc",
+      "sha256": "8b05ad03ce7cd4a81e235b079a47cf853f2fce56acc29aced5361587bebe9e91"
+    },
+    {
+      "bytes": 47,
+      "path": "scripts/game_manager.gd.remap",
+      "sha256": "86e902ef04681061e133b9c73814407176b56dd17ec8d086041e54b37092c8b6"
+    },
+    {
+      "bytes": 53663,
+      "path": "scripts/game_manager.gdc",
+      "sha256": "eea7a37868441db74710effbf8344753784d1ebf849a821f5435230490cc8c80"
+    },
+    {
+      "bytes": 46,
+      "path": "scripts/merge_queue.gd.remap",
+      "sha256": "cd6913b95068e2b46da11cbfa1f018b864d208c10e706e944b339b47ef4f3946"
+    },
+    {
+      "bytes": 3216,
+      "path": "scripts/merge_queue.gdc",
+      "sha256": "e3ddea9ab3d6cee1604fabdae9754327540878539fff17b99abc588b12dac286"
+    },
+    {
+      "bytes": 61,
+      "path": "scripts/presentation_effect_policy.gd.remap",
+      "sha256": "90efde3c62a351284831e8a2a3ee65ad21c3bedbd2815cd62ec4eb80472b6e34"
+    },
+    {
+      "bytes": 15982,
+      "path": "scripts/presentation_effect_policy.gdc",
+      "sha256": "59d23ad0fb15e3fbdba72efe6866a2b1ad5639286f64079d19e794a3d7378814"
+    },
+    {
+      "bytes": 63,
+      "path": "scripts/presentation_feedback_bridge.gd.remap",
+      "sha256": "a74ced7b9395e3ff1eeb7865d79f7ba5dd5370493bf860e969498dc16d994d8d"
+    },
+    {
+      "bytes": 36310,
+      "path": "scripts/presentation_feedback_bridge.gdc",
+      "sha256": "bb5be170e827bb8902d8bff5a0546f8eea106e58f977e17a6e6b8dbfdca94c37"
+    },
+    {
+      "bytes": 63,
+      "path": "scripts/presentation_plugin_contract.gd.remap",
+      "sha256": "b6f2ba591eec60f409c83dcb4bc9e4ce4e0ef255283a2bca56b069a0b18eff61"
+    },
+    {
+      "bytes": 2480,
+      "path": "scripts/presentation_plugin_contract.gdc",
+      "sha256": "6048054ca36e7610322f04cdc2f583cdda129a12260291529d8a9e94f4fd0e5c"
+    },
+    {
+      "bytes": 50,
+      "path": "scripts/shot_controller.gd.remap",
+      "sha256": "e8ee5ff43d8c7e9efdef6277a8c3f8a8665b5e970667e3a8ec3097bb2a9bbd2f"
+    },
+    {
+      "bytes": 3029,
+      "path": "scripts/shot_controller.gdc",
+      "sha256": "4a2f3b195b77e806123760f8635e0da73647cbf7e92cc4444755d9f191ec58b8"
+    },
+    {
+      "bytes": 63,
+      "path": "scripts/campaign/ads_provider_config.gd.remap",
+      "sha256": "6675582ce09823a3b8211de2f73d36825dc978c15c5cd7beca55fe0ec3615be9"
+    },
+    {
+      "bytes": 4144,
+      "path": "scripts/campaign/ads_provider_config.gdc",
+      "sha256": "323c12f4ae509ccec2ff008446dde2b217ce6d3ade246a315c8eb11542bb3e86"
+    },
+    {
+      "bytes": 55,
+      "path": "scripts/campaign/ads_service.gd.remap",
+      "sha256": "0c3db04fbb43abeff2114e86fe61df0fa01f84ccca7aeebc55639741cd783aa9"
+    },
+    {
+      "bytes": 7875,
+      "path": "scripts/campaign/ads_service.gdc",
+      "sha256": "897d32d85349858f56d125a31508316a8b422ccd71bb5549fca7040e76e39f55"
+    },
+    {
+      "bytes": 61,
+      "path": "scripts/campaign/application_shell.gd.remap",
+      "sha256": "616a75a3a76dbff3ef8923777d6f068168ee27dae5fd0edab53a90f5f11f0edb"
+    },
+    {
+      "bytes": 32538,
+      "path": "scripts/campaign/application_shell.gdc",
+      "sha256": "ad5442a63f8bceaf843a01a5db27314bc80d8378ddeb58421d63ac52361e50ec"
+    },
+    {
+      "bytes": 69,
+      "path": "scripts/campaign/campaign_content_manifest.gd.remap",
+      "sha256": "ade1cd9e90f66de588c1378d206818f23cd406b1ee1e20f73f9f1f1f273572d8"
+    },
+    {
+      "bytes": 3690,
+      "path": "scripts/campaign/campaign_content_manifest.gdc",
+      "sha256": "39fd969df744e013312b3abb1c65ff917c3239a1f85ce52178042a256b1f9148"
+    },
+    {
+      "bytes": 69,
+      "path": "scripts/campaign/campaign_feedback_overlay.gd.remap",
+      "sha256": "ff478dad6d4fbaf0aeb669d4d5d3a613d2950842853550178ebb396d2a85c3c7"
+    },
+    {
+      "bytes": 7776,
+      "path": "scripts/campaign/campaign_feedback_overlay.gdc",
+      "sha256": "73027e4cfd50c47bce3f4b58df321c504b16a58ed73f63947cac5ebf4f94034a"
+    },
+    {
+      "bytes": 60,
+      "path": "scripts/campaign/campaign_manager.gd.remap",
+      "sha256": "bf6048fbd54bbe99d3d09eecf572f964a78d7864d26ae2f6693692c6fc891462"
+    },
+    {
+      "bytes": 13020,
+      "path": "scripts/campaign/campaign_manager.gdc",
+      "sha256": "0e7d943461d7e494f2b9547d6bee845be57936eb59fa7afc56b814ef0c32f714"
+    },
+    {
+      "bytes": 74,
+      "path": "scripts/campaign/campaign_navigation_controller.gd.remap",
+      "sha256": "b32c5cb8057f8237ea3b1610794d91526dc68eb0dff93ba118f5b6a576988261"
+    },
+    {
+      "bytes": 22862,
+      "path": "scripts/campaign/campaign_navigation_controller.gdc",
+      "sha256": "c711a75df307ba8c4c9233633d4d1f8e34f0d839f90efdaaafd3dbe97ad0ee87"
+    },
+    {
+      "bytes": 64,
+      "path": "scripts/campaign/daily_reward_service.gd.remap",
+      "sha256": "0c079f2710fab643d995cb5c918e0fe04cc22afd9f9d76d28cf9aee5d8dd1c78"
+    },
+    {
+      "bytes": 5407,
+      "path": "scripts/campaign/daily_reward_service.gdc",
+      "sha256": "fd084db9c187a946d73275be96f2520a3cb384fc8c1bee1b17d9860044b9094c"
+    },
+    {
+      "bytes": 56,
+      "path": "scripts/campaign/game_economy.gd.remap",
+      "sha256": "80496bc812706bbceb795fea3a114beb63520c97e2aed4a219968b891df2971b"
+    },
+    {
+      "bytes": 20991,
+      "path": "scripts/campaign/game_economy.gdc",
+      "sha256": "ce055747c668f615037371f8b6eb7c39bc068e24d7408d573d724048b00a8501"
+    },
+    {
+      "bytes": 67,
+      "path": "scripts/campaign/gameplay_session_bridge.gd.remap",
+      "sha256": "af72ec7533f95431f0acd8aa413191676a49212400e6118eda8d391b00eb6e06"
+    },
+    {
+      "bytes": 18306,
+      "path": "scripts/campaign/gameplay_session_bridge.gdc",
+      "sha256": "aaaea2d0faade10f94c36ab3ed0c1c2ba05ad76dd33281eee35cd00cbab6cc9b"
+    },
+    {
+      "bytes": 61,
+      "path": "scripts/campaign/gameplay_tutorial.gd.remap",
+      "sha256": "0551563372212265939292c4c3cb64c34e724ae5e3ebbd9939bddce02da7c803"
+    },
+    {
+      "bytes": 13999,
+      "path": "scripts/campaign/gameplay_tutorial.gdc",
+      "sha256": "869ba5d7d249b4b66b75fd982f66f9e2aa00e3114c74ad80edc7c6a1e0967da0"
+    },
+    {
+      "bytes": 56,
+      "path": "scripts/campaign/island_entry.gd.remap",
+      "sha256": "e6db84aaffd7fb96105ecd32d4d0d1b46fa242d06261ca0786b180f92c810473"
+    },
+    {
+      "bytes": 6940,
+      "path": "scripts/campaign/island_entry.gdc",
+      "sha256": "7e8b94ec0d732dbcb29eb507471c0b2c6600775c98cc7d51e8fc1d842e0b0bdc"
+    },
+    {
+      "bytes": 65,
+      "path": "scripts/campaign/island_map_controller.gd.remap",
+      "sha256": "123c8d38c52eda97c82083b0ba19d149571f92ed7893fb176e04ecf05941fcbc"
+    },
+    {
+      "bytes": 25809,
+      "path": "scripts/campaign/island_map_controller.gdc",
+      "sha256": "82f103dcc9552a4f8feb41ddb5341ba2a94d45f0251a4592656e1b45f3fe4f74"
+    },
+    {
+      "bytes": 56,
+      "path": "scripts/campaign/level_button.gd.remap",
+      "sha256": "dee8bfddc608566eb7b94f9299b78284112d43c7d04810c2101f1c7380ce2f44"
+    },
+    {
+      "bytes": 5286,
+      "path": "scripts/campaign/level_button.gdc",
+      "sha256": "8e685a2f9df8e42fc045ea4218c3da4a93ce19325db55a4b5ce2956f911477bd"
+    },
+    {
+      "bytes": 58,
+      "path": "scripts/campaign/level_database.gd.remap",
+      "sha256": "73be3ef20467471daeabdab7ba899b926481a99f8c34aefdb60b9a59a065b69a"
+    },
+    {
+      "bytes": 21021,
+      "path": "scripts/campaign/level_database.gdc",
+      "sha256": "461dcf1d8fbf415a0d394c0b17682ae0949c3923ebd78819417bc0fd9ac1f5c6"
+    },
+    {
+      "bytes": 69,
+      "path": "scripts/campaign/m17_vip_optionality_model.gd.remap",
+      "sha256": "16a80bf2797466fe26c8ad0f9abbdbde68cbbb98163a8d446ba68cc9810b59cc"
+    },
+    {
+      "bytes": 2400,
+      "path": "scripts/campaign/m17_vip_optionality_model.gdc",
+      "sha256": "d753ca71f4c3e9c7f057f9e8295d197be52332088c05349a44b37e1178f930e6"
+    },
+    {
+      "bytes": 66,
+      "path": "scripts/campaign/mobile_reward_delivery.gd.remap",
+      "sha256": "f81479429b4894420330e6a3b3260f5d14a711337d6f6fa8ef5c79e0f7781261"
+    },
+    {
+      "bytes": 3081,
+      "path": "scripts/campaign/mobile_reward_delivery.gdc",
+      "sha256": "f29aa90037754a6ffe7b2dd3840694f2f46705260bce50b1d11790ad99d96bc0"
+    },
+    {
+      "bytes": 72,
+      "path": "scripts/campaign/mobile_reward_http_transport.gd.remap",
+      "sha256": "aba1d239572049f8220be7836bf80da9a2452e4f64143a73835d2011f0db9f6b"
+    },
+    {
+      "bytes": 8407,
+      "path": "scripts/campaign/mobile_reward_http_transport.gdc",
+      "sha256": "5ed37166774b73a0243ef0a7a39ef7013750da3b4e3025cca871ed6ac09912a2"
+    },
+    {
+      "bytes": 64,
+      "path": "scripts/campaign/objective_cost_model.gd.remap",
+      "sha256": "ad785bdd0d4a7f7bbcaac2fc2ffbc11a547c92fc0a8260ef8e9086554075c1d5"
+    },
+    {
+      "bytes": 837,
+      "path": "scripts/campaign/objective_cost_model.gdc",
+      "sha256": "106e2a9a81901d3f54b910e0ff472ec8c9710e11a590acd6aba0b018e433bf02"
+    },
+    {
+      "bytes": 56,
+      "path": "scripts/campaign/save_manager.gd.remap",
+      "sha256": "2179a2bd24e6a83532201e229850fc32e94cb13f175ee5c44f23a5a9409d2b6b"
+    },
+    {
+      "bytes": 15478,
+      "path": "scripts/campaign/save_manager.gdc",
+      "sha256": "8ce35dc66489bedd5dacb6b8f3c72fb7f79d81222e35e34d63d0c6e92bfa74a5"
+    },
+    {
+      "bytes": 57,
+      "path": "scripts/campaign/store_service.gd.remap",
+      "sha256": "1bb78e223f835c6c111506050188c809bb414b1465a896764f3931406a7f6527"
+    },
+    {
+      "bytes": 3886,
+      "path": "scripts/campaign/store_service.gdc",
+      "sha256": "1d57563a35ca6bbdba3fceb3d143987cf026546eaac435f5305564516f26ea6f"
+    },
+    {
+      "bytes": 57,
+      "path": "scripts/campaign/user_settings.gd.remap",
+      "sha256": "69b7ff25aade40bec061975fb2bf5a16062f33c7986754e3f4e92c00055170aa"
+    },
+    {
+      "bytes": 3284,
+      "path": "scripts/campaign/user_settings.gdc",
+      "sha256": "2b474ea9da255fdf59edb29b720f1b299843f8e3cd29740fda566995d6fb3d13"
+    },
+    {
+      "bytes": 64,
+      "path": "scripts/campaign/world_map_controller.gd.remap",
+      "sha256": "d5007cad98b4b2ecde395c0004a5c14d4fefc67b98b7400cbdd6a20036c04779"
+    },
+    {
+      "bytes": 18131,
+      "path": "scripts/campaign/world_map_controller.gdc",
+      "sha256": "8a8fbca2031257569a7bddc724b96f5e5b3259e8dfaa7c5d21da13cb6e729026"
+    }
+  ],
+  "forbidden_entries": [],
+  "godot_ai_game_helper_present": false,
+  "listed_file_count": 645,
+  "main_scene_resource_loaded": true,
+  "missing_required_runtime_files": [],
+  "status": "PASS",
+  "artifact": {
+    "path": ".godot/bcm_release_preflight/ios_candidate.pck",
+    "bytes": 116587980,
+    "sha256": "1c1074c78ab04b15085d96e008d9a5f94cfad5aea0373b87e6a6d8f5cccec1e8"
+  }
+}

@@ -42,6 +42,7 @@ class AndroidExportPlugin extends EditorExportPlugin:
 
 	var _plugin_name = PLUGIN_NAME
 	var _export_config: AdmobAndroidExportConfig
+	var _native_ads_export_enabled := false
 
 
 	func _supports_platform(platform: EditorExportPlatform) -> bool:
@@ -49,6 +50,8 @@ class AndroidExportPlugin extends EditorExportPlugin:
 
 
 	func _get_android_libraries(platform: EditorExportPlatform, debug: bool) -> PackedStringArray:
+		if not _native_ads_export_enabled:
+			return PackedStringArray()
 		if debug:
 			return PackedStringArray(["%s/bin/debug/%s-debug.aar" % [_plugin_name, _plugin_name]])
 		else:
@@ -60,6 +63,10 @@ class AndroidExportPlugin extends EditorExportPlugin:
 
 
 	func _export_begin(features: PackedStringArray, is_debug: bool, path: String, flags: int) -> void:
+		_native_ads_export_enabled = features.has("m34_admob_native_enabled")
+		_export_config = null
+		if not _native_ads_export_enabled:
+			return
 		if _supports_platform(get_export_platform()):
 			_export_config = AdmobAndroidExportConfig.new()
 			if not _export_config.export_config_file_exists() or _export_config.load_export_config_from_file() != OK:
@@ -67,6 +74,8 @@ class AndroidExportPlugin extends EditorExportPlugin:
 
 
 	func _get_android_dependencies(platform: EditorExportPlatform, debug: bool) -> PackedStringArray:
+		if not _native_ads_export_enabled:
+			return PackedStringArray()
 		var deps: PackedStringArray = PackedStringArray(ANDROID_DEPENDENCIES)
 		if _export_config and _export_config.enabled_mediation_networks.size() > 0:
 			for __network in _export_config.enabled_mediation_networks:
@@ -80,6 +89,8 @@ class AndroidExportPlugin extends EditorExportPlugin:
 
 	func _get_android_dependencies_maven_repos(platform: EditorExportPlatform, debug: bool) -> PackedStringArray:
 		var __custom_repos: PackedStringArray = []
+		if not _native_ads_export_enabled:
+			return __custom_repos
 
 		if _export_config and _export_config.enabled_mediation_networks.size() > 0:
 			for network in _export_config.enabled_mediation_networks:
@@ -94,6 +105,8 @@ class AndroidExportPlugin extends EditorExportPlugin:
 
 
 	func _get_android_manifest_application_element_contents(platform: EditorExportPlatform, debug: bool) -> String:
+		if not _native_ads_export_enabled:
+			return ""
 		var __contents: String
 
 		if _export_config:
@@ -104,6 +117,10 @@ class AndroidExportPlugin extends EditorExportPlugin:
 			__contents = ""
 
 		return __contents
+
+	func _export_end() -> void:
+		_native_ads_export_enabled = false
+		_export_config = null
 
 
 class IosExportPlugin extends EditorExportPlugin:
@@ -121,6 +138,7 @@ class IosExportPlugin extends EditorExportPlugin:
 	var _spm_dependencies = []
 	var _export_config: AdmobIosExportConfig
 	var _export_path: String
+	var _native_ads_export_enabled := false
 
 
 	func _supports_platform(platform: EditorExportPlatform) -> bool:
@@ -132,6 +150,11 @@ class IosExportPlugin extends EditorExportPlugin:
 
 
 	func _export_begin(features: PackedStringArray, is_debug: bool, path: String, flags: int) -> void:
+		_native_ads_export_enabled = features.has("m34_admob_native_enabled")
+		if not _native_ads_export_enabled:
+			_export_config = null
+			_spm_dependencies.clear()
+			return
 		if _supports_platform(get_export_platform()):
 			_export_path = path.simplify_path()
 			_export_config = AdmobIosExportConfig.new()
@@ -176,7 +199,7 @@ class IosExportPlugin extends EditorExportPlugin:
 		GmpLogger.log_info("Apple export project generated at: %s. Will build archive: %s"
 				% [path, str(will_build_archive)])
 
-		if _supports_platform(get_export_platform()):
+		if _native_ads_export_enabled and _supports_platform(get_export_platform()):
 			_spm_dependencies.append_array(_get_extra_dependencies())
 
 			if _spm_dependencies.is_empty():
@@ -254,6 +277,11 @@ class IosExportPlugin extends EditorExportPlugin:
 			for line in exec_output:
 				GmpLogger.log_error("SPM: %s" % line)
 			GmpLogger.log_info("Failed to resolve dependencies! Try manually in Xcode.")
+
+	func _export_end() -> void:
+		_native_ads_export_enabled = false
+		_export_config = null
+		_spm_dependencies.clear()
 
 
 	const ADD_DEPENDENCY_RUBY_SCRIPT = """
