@@ -1,0 +1,29 @@
+# BCM-M34-006/007 V08 — Independent Audit V01
+Date: 2026-10-21. Source inspected: GitHub main `234fb4ce9b7aed6417b747a62a50b9a395a11df6`, implementation `e661443e1cbe230c1df301411adfd7a7e4a9818e`. Evidence: `docs/release/evidence/BCM_M34_AAB_EXPORT_DAILY_REWARDS_V08_2026-10-21.json`, `docs/codex-logs/CODEX_LOG_2026-10-21_M34_AAB_RETRY_DAILY_REWARDS_V08.md`, new `tools/release/build_android_aab_v08.ps1`. This is an immutable audit, NOT a parallel live tracker; only root `TASKS.md` maintains current status.
+
+## Verdict
+**Android AAB export technical issue: ACCEPTED at source+builder-evidence level.** In V08, the single allowed new export reported **Godot exit 0**, **Gradle BUILD SUCCESSFUL**, fresh local AAB **147,028,717 bytes** SHA-256 `b22ba20b3ff1bf5b3b77f9077f7a67b9783b1e3e8d44581fcbca90bab3985c15`, identical to V06. ZIP integrity, bundletool 1.16.0 validate/dump manifest/config and native ELF 16KiB checks passed per builder report. This demonstrates the V07 SDK-root mismatch and V06 Godot-hang symptoms **did not recur in this successful attempt**. Do NOT claim the wrapper's initial bundletool invocation was clean: calling a library jar with `java -jar` produced the documented missing Main-Class error; the command was repaired to use a Java17 classpath and the **same** AAB revalidated, no new export attempt.
+
+**Daily Rewards actual capture: NOT ACCEPTED.** A fresh GUI inventory exposed no controllable native application window; Codex stopped without clicks/keyboard injection or claims. Prior blurred V03 composition remains HOLD. No source evidence supports a V08 Daily Rewards screenshot.
+
+**Shipping and M34 native monetary tasks remain NO-GO/BLOCKED**: local debug/preview AAB is not Play upload-signed, device-tested, account-approved, or deployed. No Apple signed IPA. M34-006 native rewarded ads and M34-007 native billing are not completed.
+
+## Source/diff inspection
+GitHub compare `8d3843b875f88b901d85449a2fc38455f3800a04..234fb4ce9b7aed6417b747a62a50b9a395a11df6` shows two commits, touching `tools/release/build_android_aab_v08.ps1`, `tools/release/capture_live_game_input.gd`, submitted evidence JSON and immutable log. Codex did **not** edit canonical root `TASKS.md` in either commit. Owner-untracked preservation and physical local artifact checksum are builder-reported, not separately inspected on the user's host.
+
+The new wrapper preflights JDK17, official SDK/NDK/CMake/API36, requires identical Godot/ANDROID_HOME/ANDROID_SDK_ROOT SDK paths, checks identity `com.sekiph82.beachcocktails.m34preview`, target36, arm64 and Ads OFF, and limits attempt count using a marker. Uses process-local Java17 and Gradle HOME, `try/finally` restoration of original `project.godot` bytes, a 600 second bound, a task-owned Godot process and per-step statuses. Builder reported a dry-run simulated wrong SDK root refused before export; no install or licensing. No V05/V06 artifact overwrite.
+
+## V08 result arithmetic and scope
+- V08 AAB `147,028,717` bytes, SHA `b22ba20b3ff1bf5b3b77f9077f7a67b9783b1e3e8d44581fcbca90bab3985c15` equals V06 by builder SHA. This consistency is useful but does not replace independent raw-binary verification.
+- Android preview id `com.sekiph82.beachcocktails.m34preview`, `0.0.0-m34preview-NOT-SHIPPING`, debug=true, min API24/target API36, 64-bit arm64, only INTERNET permission. Native library ELF 16KiB PT_LOAD alignment and bundle PAGE_ALIGNMENT_16K reported. Base and install-time asset pack, no forbidden development evidence at ZIP root. Native Ads/Billing not enabled; future Ads code protected.
+- Godot process exit 0, Gradle BUILD SUCCESSFUL (2m58), elapsed 293s. Bundletool library JAR initial run error documented, corrected call validated same AAB. This shows AAB **can** export cleanly with corrected environment, but the updated full wrapper was not rerun end-to-end after its internal bundletool fix; do not claim multiple independent green runs.
+- No Android emulator/physical mobile QA, no GitHub Actions, owner real save access, SDK license prompt/acceptance, Play Store record/signing, App Store app or public transaction.
+
+## Capture accessibility and decision
+Computer Use `apps=[]`, no usable native window methods. A local GUI process could not be controlled; Codex correctly stopped. Repeating Computer Use blind attempts adds no value and may conflict with owner input. **Recommend removing Daily Rewards from the mandatory first-release screenshot set** if enough other **actual stable gameplay screenshots** can be approved; a Daily Rewards screenshot is not a mandatory named screen under Apple/Google rules. Alternatively ask owner for a real isolated-screen F12 capture or wait for a properly available GUI session. Never synthesize reward screen or falsely mark V03 blurred shot as approved.
+
+## Next high-value work
+STOP recurring PCK/export debugging unless a new failure occurs. The priority is native distribution-readiness with final immutable Android/Apple app identity, production signing and Play/App Store Console records (owner authorization needed), real-device QA (Android account owner device verification remains blocked), a visually approved screenshot/icon/feature-graphic set using genuine stable source imagery, working reviewed public privacy/support pages and policy declarations. Make one decisive owner approval request for final Apple bundle ID/SKU/team/access plus publishing legal identity/contact, instead of having Codex repeatedly search empty Apps. Future ads stay OFF until native SDK/consent/SSV genuine verification. Both stores NO-GO, canonical M34 tasks 146/148 unchanged.
+
+## Final
+V08 Android AAB reproducible build defect resolved for this validated owner-local attempt (**CONDITIONAL PASS**). Daily Rewards capture UNAVAILABLE, but need not block a first-release screenshot set if an alternative authentic screenshot meets current platform requirements. Public-release NO-GO and M34-006/007 BLOCKED remain correct.
