@@ -1,0 +1,122 @@
+{
+  "work_item": "BCM-M34-006/007 V05",
+  "work_item_prompt": "coordination/sessions/BCM-M34-006-007-CODEX-COMPUTER-USE-OWNER-CONSOLES/BCM_M34_ANDROID_TOOLCHAIN_INSTALL_AND_APK_BUILD_V05.md",
+  "status": "APK_BUILT_CONTENT_VERIFIED_WITH_SPARSEPCK_LIMITATION",
+  "apk": {
+    "path": ".godot/bcm_release_preflight/android_preview_v05.apk",
+    "shipping": false,
+    "bytes": 198927159,
+    "sha256": "126e30713ab1c9687277899ab3c8eed44f1f53b988f583ce1d8a1b537e9bd92b",
+    "package_id": "com.sekiph82.beachcocktails.m34preview",
+    "version_code": 1,
+    "version_name": "0.0.0-m34preview-NOT-SHIPPING",
+    "min_sdk": 24,
+    "target_sdk": 36,
+    "compile_sdk": 36,
+    "architectures": [
+      "arm64-v8a"
+    ],
+    "permissions": [
+      "android.permission.INTERNET"
+    ],
+    "debuggable": true,
+    "signing": {
+      "verified": true,
+      "scheme": "v2",
+      "v1": false,
+      "v3": false,
+      "signer": "CN=Godot, OU=Godot Engine, O=Stichting Godot, C=NL",
+      "certificate_sha256": "acdd282c11da64c389c0a28b9ed94c37bf00cfc73ee9309662ea33de27b69141",
+      "production_keystore_used": false
+    },
+    "zipalign_16k": "PASS",
+    "native_libraries": [
+      {
+        "path": "lib/arm64-v8a/libc++_shared.so",
+        "bytes": 1374336,
+        "load_segment_alignment": "0x4000"
+      },
+      {
+        "path": "lib/arm64-v8a/libgodot_android.so",
+        "bytes": 76181608,
+        "load_segment_alignment": "0x4000"
+      }
+    ]
+  },
+  "toolchain": {
+    "jdk": "Temurin 17.0.20.1+1",
+    "jdk_msi_sha256": "a6013774c5e4a34951e11c1997d8b4641d2de7736d3eac839231f4266bd1116f",
+    "jdk_signature": "Valid Authenticode; Eclipse Foundation",
+    "jdk_scope": "side-by-side; process-local build selection; global JAVA_HOME/PATH unchanged",
+    "ndk": "28.1.13356709 (r28b)",
+    "cmake": "3.10.2.4988404",
+    "godot": "4.7.2.stable.official.ed1daf0bf",
+    "gradle": "8.11.1",
+    "sdk_root": "C:/Users/sekip/AppData/Local/Android/Sdk"
+  },
+  "license": {
+    "google_sdk_prompt_shown": false,
+    "accepted_by_codex": false,
+    "preexisting_android_sdk_license_file_write_time": "2026-10-15 11:59:51",
+    "license_file_modified": false
+  },
+  "content": {
+    "apk_asset_files": 1056,
+    "v02_accepted_pck_file_entries": 1049,
+    "v02_entries_present_in_apk_assets": 1049,
+    "v02_entries_missing": 0,
+    "forbidden_release_paths": 0,
+    "v02_reference_pck_sha256": "efe205c90509ccfa385e8d71c622ee192b463a6433a95c3bc261eff4a3d29eb4",
+    "apk_pck_representation": "APK contains assets.sparsepck (109908 bytes; Godot PCK v4, sparse flag 2) and expanded assets/ entries; no .pck filename",
+    "sparsepck_independent_inventory": "UNRESOLVED: current release inventory parser fails closed on sparse flagged packs; direct standalone engine mount references base APK asset paths",
+    "v02_comparison_extras": [
+      ".godot/imported/beach_cocktails_merge_icon_v04.png-030a10bfc30e55ce7d856b7a5c86aa50.ctex",
+      "_cl_",
+      "assets.sparsepck",
+      "assets/ui_assets/brand/beach_cocktails_merge_icon_v04.png.import",
+      "data/ui/settings_links.json",
+      "scripts/campaign/settings_link_config.gd.remap",
+      "scripts/campaign/settings_link_config.gdc"
+    ],
+    "v02_payload_hash_matches": 1045,
+    "v02_payload_hash_mismatches": 4,
+    "v02_payload_hash_mismatch_paths": [
+      ".godot/global_script_class_cache.cfg",
+      ".godot/uid_cache.bin",
+      "project.binary",
+      "scripts/campaign/application_shell.gdc"
+    ],
+    "v02_payload_hash_mismatch_explanation": "The first three are regenerated Godot project/UID caches; application_shell.gdc is compiled from V04 source commit 7d073fe, which follows V02 PCK evidence commit 61fc055 and adds privacy/support settings UI. All 1,049 V02 paths are present; zero path omissions."
+  },
+  "monetization": {
+    "ads_default_enabled": false,
+    "disabled_placement_count": 7,
+    "all_ads_placements_disabled": true,
+    "store_product_count": 2,
+    "all_store_products_buyable": false,
+    "admob_runtime_source_in_apk": true,
+    "admob_native_classes_or_libraries_found": false,
+    "billing_native_classes_or_libraries_found": false,
+    "future_admob_source_preserved": true
+  },
+  "verification": {
+    "export_exit": 0,
+    "apk_badging": "PASS",
+    "merged_permissions": "PASS: INTERNET only",
+    "signing": "PASS: debug v2 signature",
+    "native_abi": "PASS: arm64-v8a only",
+    "zipalign": "PASS: zipalign -c -P 16 -v 4",
+    "native_elf_load_segments": "PASS: both libraries all LOAD alignment 0x4000",
+    "release_boundary_unittest": "PASS: 15/15",
+    "settings_link_probe": "PASS",
+    "rewarded_ads_lifecycle_probe": "PASS",
+    "emulator_or_device_used": false,
+    "github_actions_used": false
+  },
+  "limitations": [
+    "No Android emulator or device launch/installation performed.",
+    "Google SDK license prompt did not appear; Codex accepted or edited no Google license.",
+    "Sparse PCK directory was not independently indexed; 1,049 V02 reference files were independently found in APK expanded assets.",
+    "APK is a local debug preview only, not an AAB, shipping package, device QA result, or store approval."
+  ]
+}
