@@ -90,11 +90,17 @@ def _capture_identity(output_path: str) -> dict:
     if not metadata_rel:
         return {"status": "MARKETING_ASSET_NOT_GAME_CAPTURE"}
     metadata_path = MEDIA / metadata_rel
+    composition_metadata_path = metadata_path if "composition_resolution" in json.loads(metadata_path.read_text(encoding="utf-8")) else None
     capture = json.loads(metadata_path.read_text(encoding="utf-8"))
     source_capture = ROOT / capture.get("source_capture", "") if capture.get("source_capture") else MEDIA / str(capture.get("path", "")).removeprefix("res://docs/release/store_media/")
+    source_metadata_path = source_capture.with_suffix(".json")
+    if source_metadata_path.is_file():
+        capture = {**capture, **json.loads(source_metadata_path.read_text(encoding="utf-8"))}
     return {
-        "metadata_path": str(metadata_path.relative_to(ROOT)).replace("\\", "/"),
-        "metadata_sha256": sha256(metadata_path),
+        "metadata_path": str(source_metadata_path.relative_to(ROOT)).replace("\\", "/"),
+        "metadata_sha256": sha256(source_metadata_path),
+        "composition_metadata_path": str(composition_metadata_path.relative_to(ROOT)).replace("\\", "/") if composition_metadata_path else None,
+        "composition_metadata_sha256": sha256(composition_metadata_path) if composition_metadata_path else None,
         "source_capture_path": str(source_capture.relative_to(ROOT)).replace("\\", "/"),
         "source_capture_sha256": sha256(source_capture),
         "source_head": capture.get("source_head", "unknown"),
