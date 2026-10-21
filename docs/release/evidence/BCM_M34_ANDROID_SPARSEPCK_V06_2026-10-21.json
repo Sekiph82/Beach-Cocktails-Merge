@@ -1,0 +1,163 @@
+{
+  "work_item": "BCM-M34-006/007 V06",
+  "prompt": "coordination/sessions/BCM-M34-006-007-CODEX-COMPUTER-USE-OWNER-CONSOLES/BCM_M34_ANDROID_SPARSEPCK_AND_AAB_PREFLIGHT_V06.md",
+  "status": "SPARSEPCK_INDEX_PASS_AAB_CREATED_BUNDLETOOL_VALIDATED_GODOT_EXIT_ANOMALY",
+  "source_authority": {
+    "engine": "Godot 4.7.2 stable",
+    "source": "https://github.com/godotengine/godot/tree/4.7.2-stable",
+    "files": [
+      "core/io/file_access_pack.cpp",
+      "platform/android/export/export_plugin.cpp"
+    ],
+    "semantics": "Sparse entries open a separate resource path after res:// normalization; sparse payload offsets are not contiguous PCK offsets. The per-entry MD5 is carried by the packed-file record and independently compared here with the actual APK/AAB asset bytes."
+  },
+  "parser": {
+    "path": "tools/release/inspect_sparse_android_apk.py",
+    "method": "Read-only APK ZIP streaming with version-pinned PCK v4 header/directory parsing and MD5/SHA-256 verification for every sparse resource. It also enumerates the entire APK archive for forbidden path/file classes and accounts for unindexed asset extras.",
+    "unsupported_or_rejected": ["encrypted ZIP entries", "encrypted sparse directories or resources", "delta/removal records", "unknown PCK or record flags", "invalid offsets/sizes", "duplicate or case-colliding paths", "path traversal", "forbidden paths", "missing references", "unindexed forbidden assets"]
+  },
+  "apk": {
+    "path": ".godot/bcm_release_preflight/android_preview_v05.apk",
+    "bytes": 198927159,
+    "sha256": "126e30713ab1c9687277899ab3c8eed44f1f53b988f583ce1d8a1b537e9bd92b",
+    "modified": false,
+    "sparse_pck": {
+      "apk_path": "assets/assets.sparsepck",
+      "bytes": 109908,
+      "format_version": 4,
+      "godot_version": "4.7.2",
+      "pack_flags": 6,
+      "entry_count": 1054,
+      "directory_offset": 104,
+      "directory_bytes": 109804,
+      "external_file_base": 0
+    },
+    "expanded_assets": {
+      "count_excluding_sparse_index": 1055,
+      "bytes": 117390728,
+      "indexed_paths_mapped": 1054,
+      "missing_paths": 0,
+      "size_mismatches": 0,
+      "pck_md5_mismatches": 0,
+      "verified_indexed_payload_bytes": 117390634,
+      "sorted_path_size_sha256_manifest": "838b369cf39e46e1595dad8b50c1d877af8fe2f7bb44be371a01e700a25c4cb5",
+      "md5_verified_for_every_index_record": true,
+      "sha256_verified_for_every_index_record": true
+    },
+    "unindexed_extras": [
+      {
+        "path": "assets/_cl_",
+        "classification": "Godot Android command-line flags resource",
+        "bytes": 94,
+        "sha256": "d1074de3d76a1aa6a8b2635cb2b6c9856870a46ff0a995dc71ecf483f721cd6f"
+      }
+    ],
+    "forbidden_indexed_paths": [],
+    "forbidden_unindexed_paths": [],
+    "forbidden_paths_anywhere_in_apk_zip": [],
+    "zip_integrity": "PASS"
+  },
+  "aab": {
+    "path": ".godot/bcm_release_preflight/android_preview_v06.aab",
+    "shipping": false,
+    "bytes": 147028717,
+    "sha256": "b22ba20b3ff1bf5b3b77f9077f7a67b9783b1e3e8d44581fcbca90bab3985c15",
+    "zip_entry_count": 1174,
+    "zip_integrity": "PASS",
+    "bundletool": "1.16.0",
+    "bundletool_validate": "PASS",
+    "modules": {
+      "base_feature_modules": ["base"],
+      "install_time_asset_packs": ["assetPackInstallTime"],
+      "bundletool_metadata_present": true
+    },
+    "manifest": {
+      "package_id": "com.sekiph82.beachcocktails.m34preview",
+      "label": "Beach Cocktails Merge M34 Preview",
+      "version_code": 1,
+      "version_name": "0.0.0-m34preview-NOT-SHIPPING",
+      "min_sdk": 24,
+      "target_sdk": 36,
+      "debuggable": true,
+      "permissions": ["android.permission.INTERNET"],
+      "icon_resource": "mipmap/icon"
+    },
+    "native_libraries": [
+      {
+        "path": "base/lib/arm64-v8a/libc++_shared.so",
+        "bytes": 1374336,
+        "elf_class": "ELF64",
+        "load_segment_alignments": [16384],
+        "sixteen_kib_alignment": "PASS"
+      },
+      {
+        "path": "base/lib/arm64-v8a/libgodot_android.so",
+        "bytes": 76181608,
+        "elf_class": "ELF64",
+        "load_segment_alignments": [16384],
+        "sixteen_kib_alignment": "PASS"
+      }
+    ],
+    "bundle_config": {
+      "uncompressed_native_libraries": true,
+      "native_library_alignment": "PAGE_ALIGNMENT_16K"
+    },
+    "asset_pack_sparse_index": {
+      "sparse_pck_path": "assetPackInstallTime/assets/assets.sparsepck",
+      "expanded_asset_files_including_sparse_index": 1056,
+      "indexed_entries": 1054,
+      "mapped_entries": 1054,
+      "missing_entries": 0,
+      "size_mismatches": 0,
+      "md5_mismatches": 0,
+      "verified_indexed_payload_bytes": 117390634,
+      "sorted_path_size_sha256_manifest": "838b369cf39e46e1595dad8b50c1d877af8fe2f7bb44be371a01e700a25c4cb5",
+      "unindexed_extra": "assetPackInstallTime/assets/_cl_ (94 bytes)",
+      "forbidden_paths": []
+    },
+    "native_admob_classes_found": false,
+    "native_play_billing_classes_found": false,
+    "forbidden_paths_anywhere_in_bundle": [],
+    "signing": {
+      "production_keystore_used": false,
+      "upload_key_used": false,
+      "play_upload_approval": false,
+      "manifest_debuggable": true
+    }
+  },
+  "monetization": {
+    "ads_default_enabled": false,
+    "disabled_placement_count": 7,
+    "all_ads_placements_disabled": true,
+    "store_product_count": 2,
+    "all_store_products_buyable": false,
+    "future_admob_runtime_source_preserved": true,
+    "native_admob_sdk_present": false,
+    "native_play_billing_present": false
+  },
+  "build": {
+    "preview_aab_preset": "Android M34 Preview AAB (NOT SHIPPING)",
+    "preset_index": 4,
+    "gradle_build_result": "BUILD SUCCESSFUL in 5s",
+    "godot_export_process_result": "The Godot console process did not exit after Gradle finished; the exact task-owned PID and command line were identified and stopped. The wrapper reported exit -1.",
+    "aab_artifact_independently_opened_and_validated": true,
+    "project_godot_restored_byte_for_byte": true,
+    "jdk_reinstalled": false,
+    "ndk_reinstalled": false,
+    "google_sdk_license_accepted_or_modified": false
+  },
+  "tests": {
+    "focused_sparse_apk_regressions": "9 tests; includes missing external entry, same-size mutated payload, truncated directory, bad header, duplicate path, traversal, forbidden indexed and unindexed test/secret paths, and unsupported flags",
+    "apk_sha256_rechecked_before_inspection": true,
+    "apk_and_aab_zip_test": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "not_performed": {
+    "android_emulator_or_device": true,
+    "github_actions": true,
+    "play_console_or_store_write": true,
+    "production_signing_or_upload": true,
+    "public_release": true
+  },
+  "release_gate": "NO-GO for public Android/iOS release. This local debuggable AAB is a nonshipping preview candidate, not a Play-upload-approved build. Physical Android developer-device verification, final immutable application ID, owner-held Play App Signing/upload key, public privacy/support URLs and approved store assets, store policy declarations, and closed-test eligibility remain outstanding. Native AdMob, billing, and trusted SSV integrations remain unimplemented; ads and purchases are disabled."
+}
