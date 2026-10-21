@@ -1,0 +1,111 @@
+{
+  "work_item": "BCM-M34-006/007 V08",
+  "source_prompt": "coordination/sessions/BCM-M34-006-007-CODEX-COMPUTER-USE-OWNER-CONSOLES/BCM_M34_AAB_EXPORT_RETRY_AND_DAILY_REWARDS_V08.md",
+  "date": "2026-10-21",
+  "source_head": "8d3843b875f88b901d85449a2fc38455f3800a04",
+  "task_tracker_modified": false,
+  "builder_result": "AAB_EXPORT_AND_ARTIFACT_VALIDATION_PASS; DAILY_REWARDS_CAPTURE_UNAVAILABLE",
+  "android_export": {
+    "attempts": 1,
+    "attempt_limit": 1,
+    "preflight": "PASS",
+    "synthetic_mismatch_test": "PASS_REJECTED_WITHOUT_EXPORT",
+    "sdk_alignment": {
+      "godot": "C:/Users/sekip/AppData/Local/BCM-M34-Android-4.7.2/sdk",
+      "api": 36,
+      "cmake": "3.10.2.4988404",
+      "android_sdk_root_same": true,
+      "ndk": "28.1.13356709 r28b",
+      "android_home_same": true
+    },
+    "java": {
+      "path": "C:/Users/sekip/AppData/Local/BCM-M34-Android-4.7.2/jdk17/jdk-17.0.20.1+1/bin/java.exe",
+      "version": "17.0.20.1"
+    },
+    "godot_exit": 0,
+    "gradle": "BUILD_SUCCESSFUL",
+    "gradle_evidence": ".godot/gradle-home/daemon/8.11.1/daemon-19680.out.log",
+    "elapsed_seconds": 293,
+    "output": ".godot/bcm_release_preflight/android_preview_v08.aab",
+    "bytes": 147028717,
+    "sha256": "b22ba20b3ff1bf5b3b77f9077f7a67b9783b1e3e8d44581fcbca90bab3985c15",
+    "v06_aab_same_bytes": true,
+    "bundletool": {
+      "dump_manifest": "PASS",
+      "initial_wrapper_invocation": "FAILED: cached library jar has no Main-Class manifest",
+      "version": "1.16.0",
+      "config_16k": "PAGE_ALIGNMENT_16K",
+      "dump_config": "PASS",
+      "corrected_jdk17_classpath_validation": "PASS"
+    },
+    "zip_integrity": "PASS",
+    "module_names": [
+      "base",
+      "assetPackInstallTime"
+    ],
+    "development_evidence_root_entries": 0,
+    "arm64_elf_pt_load_16kb_alignment": "PASS: libc++_shared.so and libgodot_android.so; PT_LOAD align=16384 and offsets page-congruent",
+    "manifest": {
+      "package": "com.sekiph82.beachcocktails.m34preview",
+      "version_code": "1",
+      "version_name": "0.0.0-m34preview-NOT-SHIPPING",
+      "min_sdk": "24",
+      "target_sdk": "36",
+      "debuggable": "true",
+      "permissions": [
+        "android.permission.INTERNET"
+      ]
+    },
+    "project_godot_before_sha256": "2aa63354b3747ebfb296baeeca389866cb651adcf9c152afaf5c9cf2d173d8cc",
+    "project_godot_after_sha256": "2aa63354b3747ebfb296baeeca389866cb651adcf9c152afaf5c9cf2d173d8cc",
+    "project_godot_byte_identical": true,
+    "v05_apk_sha256": "126e30713ab1c9687277899ab3c8eed44f1f53b988f583ce1d8a1b537e9bd92b",
+    "v06_aab_sha256": "b22ba20b3ff1bf5b3b77f9077f7a67b9783b1e3e8d44581fcbca90bab3985c15",
+    "old_artifacts_unchanged": true
+  },
+  "monetization": {
+    "manifest_permissions": [
+      "android.permission.INTERNET"
+    ],
+    "future_admob_source_preserved": true,
+    "store_products_buyable": false,
+    "live_placements_enabled": false
+  },
+  "daily_rewards": {
+    "status": "NOT_CAPTURED_CUA_NATIVE_WINDOW_CONTROL_UNAVAILABLE",
+    "cua_inventory": "Fresh desktop inventory returned apps=[]; no native window-list or input methods were available.",
+    "action": "Stopped after one isolated game process launch; no key/click injection or alternative UI path used.",
+    "isolated_profile": ".godot/bcm_sandboxes/bcm_m34_v07_20261021_01",
+    "tutorial_state_sha256_before_after": "7bcb866de1bfe828ca6b4f80bdf755ff74b6651baffc1a842acaddb553fe9a2d",
+    "reward_claimed": false,
+    "screenshot": null,
+    "composition": "NOT_CREATED; V03 remains HOLD",
+    "manual_handoff": "Owner may open the isolated profile, navigate Home > Daily Rewards, wait for settlement, press F12, and provide the resulting genuine 720x1280 viewport PNG for composition."
+  },
+  "changes": [
+    "tools/release/build_android_aab_v08.ps1",
+    "tools/release/capture_live_game_input.gd",
+    "docs/release/evidence/BCM_M34_AAB_EXPORT_DAILY_REWARDS_V08_2026-10-21.json",
+    "docs/codex-logs/CODEX_LOG_2026-10-21_M34_AAB_RETRY_DAILY_REWARDS_V08.md"
+  ],
+  "restrictions": {
+    "old_apk_aab_modified": false,
+    "task_tracker_edited": false,
+    "emulator_used": false,
+    "software_installed": false,
+    "pck_cleanup_repeated": false,
+    "github_actions_used": false,
+    "google_sdk_license_accepted": false
+  },
+  "focused_checks": {
+    "git_diff_check": "PASS",
+    "zip_integrity": "PASS",
+    "godot_capture_script_parse": "PASS",
+    "synthetic_sdk_mismatch_rejected": "PASS",
+    "arm64_16kb_alignment": "PASS",
+    "powershell_ast": "PASS",
+    "sdk_preflight": "PASS",
+    "bundletool_validate": "PASS",
+    "bundletool_manifest_config": "PASS"
+  }
+}

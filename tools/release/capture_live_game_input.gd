@@ -2,6 +2,7 @@ extends Node
 
 const DEFAULT_CAPTURE_DIRECTORY := "res://docs/release/store_media/captures_v03"
 const V07_CAPTURE_DIRECTORY := "res://docs/release/store_media/captures_v07"
+const V08_CAPTURE_DIRECTORY := "res://docs/release/store_media/captures_v08"
 const CAPTURE_CLASSIFICATION := "DESKTOP_GAMEPLAY_CANDIDATE"
 
 var _application: Node
@@ -11,7 +12,9 @@ var _capture_directory := DEFAULT_CAPTURE_DIRECTORY
 
 func configure(application: Node) -> void:
 	_application = application
-	if OS.get_environment("BCM_LIVE_CAPTURE_V07") == "1":
+	if OS.get_environment("BCM_LIVE_CAPTURE_V08") == "1":
+		_capture_directory = V08_CAPTURE_DIRECTORY
+	elif OS.get_environment("BCM_LIVE_CAPTURE_V07") == "1":
 		_capture_directory = V07_CAPTURE_DIRECTORY
 
 
