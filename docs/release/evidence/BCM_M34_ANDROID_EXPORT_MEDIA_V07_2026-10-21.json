@@ -1,0 +1,131 @@
+{
+  "work_item": "BCM-M34-006/007 V07",
+  "source_prompt": "coordination/sessions/BCM-M34-006-007-CODEX-COMPUTER-USE-OWNER-CONSOLES/BCM_M34_ANDROID_EXPORT_AND_REAL_SCREENSHOTS_V07.md",
+  "date": "2026-10-21",
+  "source_head": "82781fdfb1fe6b61f44120879b67a5fb7ee45588",
+  "task_tracker_modified": false,
+  "android_export": {
+    "attempts": 1,
+    "attempt_limit": 1,
+    "status": "FAILED_GRADLE_ENVIRONMENT_SDK_PATH_CONFLICT",
+    "godot_exit": 1,
+    "gradle_result": "BUILD_FAILED",
+    "bundletool_validation": "NOT_RUN_NO_AAB",
+    "aab_path": ".godot/bcm_release_preflight/android_preview_v07.aab",
+    "aab_created": false,
+    "project_godot_before_sha256": "2aa63354b3747ebfb296baeeca389866cb651adcf9c152afaf5c9cf2d173d8cc",
+    "project_godot_after_sha256": "2aa63354b3747ebfb296baeeca389866cb651adcf9c152afaf5c9cf2d173d8cc",
+    "project_godot_byte_identical": true,
+    "failure": {
+      "godot_editor_android_sdk_path": "C:/Users/sekip/AppData/Local/BCM-M34-Android-4.7.2/sdk",
+      "gradle_android_home": "C:/Users/sekip/AppData/Local/BCM-M34-Android-4.7.2/sdk",
+      "gradle_android_sdk_root": "C:/Users/sekip/AppData/Local/Android/Sdk",
+      "message": "Gradle rejected two distinct SDK roots before Android asset-pack tasks could be configured."
+    },
+    "wrapper": {
+      "path": "tools/release/build_android_aab_v07.ps1",
+      "timeout_seconds": 600,
+      "separates_godot_gradle_bundletool_results": true,
+      "records_abnormal_exit": true,
+      "restores_project_godot_byte_for_byte": true,
+      "corrected_sdk_env_for_next_authorized_export": "ANDROID_HOME and ANDROID_SDK_ROOT now both match the SDK path in Godot editor settings; no second export was attempted."
+    },
+    "not_performed": [
+      "AAB signing or upload",
+      "emulator or Android device",
+      "GitHub Actions",
+      "SDK license acceptance",
+      "JDK/NDK/CMake installation"
+    ]
+  },
+  "real_game_captures": {
+    "capture_method": "Godot 4.7.2 production ApplicationShellScene, isolated test-only APPDATA/LOCALAPPDATA, visible UI, F12 viewport capture",
+    "sandbox": ".godot/bcm_sandboxes/bcm_m34_v07_20261021_01",
+    "tutorial": {
+      "completed_normally": true,
+      "flow": "real shot launch, merge, To-Go delivery, level 1 completion, and Retry action",
+      "isolated_state_path": ".godot/bcm_sandboxes/bcm_m34_v07_20261021_01/r/Godot/app_userdata/CocktailMerge/gameplay_tutorial_state.json",
+      "state_sha256": "7bcb866de1bfe828ca6b4f80bdf755ff74b6651baffc1a842acaddb553fe9a2d"
+    },
+    "captures": [
+      {
+        "path": "docs/release/store_media/captures_v07/desktop_candidate_01_main_menu.png",
+        "view": "main_menu",
+        "resolution": "720x1280",
+        "sha256": "0ebc0509041509d0d42e21051dfeab7a79f41275b8bcdc4d5ecdab0be82e47e9",
+        "status": "DESKTOP_GAMEPLAY_CANDIDATE; DEVICE_REVIEW_PENDING"
+      },
+      {
+        "path": "docs/release/store_media/captures_v07/desktop_candidate_02_campaign.png",
+        "view": "campaign; gameplay board with no tutorial overlay",
+        "resolution": "720x1280",
+        "sha256": "88c006428983ba8a0138ccbc1a10cfeecaa2fa0f97734ee0f8c8a25494594eb1",
+        "status": "DESKTOP_GAMEPLAY_CANDIDATE; DEVICE_REVIEW_PENDING"
+      }
+    ],
+    "daily_rewards": {
+      "status": "NOT_CAPTURED",
+      "attempted_screen_state": "Daily Rewards opened and allowed to settle without claiming a reward.",
+      "blocker": "The Windows Computer Use runtime reported user input in the target window and then reported it minimized. Required window re-selection and activation still returned the same user-input interruption; UI input stopped per the Computer Use recovery instructions.",
+      "v03_daily_rewards_composition": "HOLD; do not reuse as a settled capture."
+    }
+  },
+  "marketing_composition": {
+    "builder": "tools/release/build_store_media_v07.py",
+    "path": "docs/release/store_media/compositions_v07/04_gameplay_google_play_candidate_v07.png",
+    "source_capture": "docs/release/store_media/captures_v07/desktop_candidate_02_campaign.png",
+    "resolution": "1080x1920",
+    "sha256": "2d77322df62ea9b06b0bab7335391e82561d047fa7e00448b6f46cef241eda45",
+    "labels": ["DESKTOP_GAMEPLAY_CANDIDATE", "DEVICE_REVIEW_PENDING", "OWNER_VISUAL_APPROVAL_PENDING"],
+    "game_content_modified": false
+  },
+  "store_icon_review": {
+    "apple_master": {
+      "path": "docs/release/store_media/icons_v04/beach_cocktails_merge_icon_master_v04.png",
+      "resolution": "1024x1024",
+      "sha256": "5495be0ec052d98738f9729332a267d71faace0535bbee1a217e430385b2146b",
+      "builder_visual_review": "title and drink silhouette legible at full size; no owner approval claimed"
+    },
+    "google_play_candidate": {
+      "path": "docs/release/store_media/icons_v04/google_play_icon_candidate_512_v04.png",
+      "resolution": "512x512",
+      "sha256": "d8dd09b1fd0a4d7d23fb2b631917421489b10da1bf13a21f8e6628077801160a",
+      "builder_visual_review": "title and drink silhouette remain legible at listing size; no owner approval claimed"
+    }
+  },
+  "apple_app_record": {
+    "inputs_document": "docs/release/BCM_M34_APP_STORE_CONNECT_RECORD_INPUTS_V07.md",
+    "state": "PREPARED; RECORD_NOT_CREATED",
+    "inspected_team_prior_evidence": "Apps: No Apps; scoped to the previously inspected team",
+    "title": "Beach Cocktails Merge",
+    "primary_language": "English (U.S.), proposed; owner confirmation required",
+    "bundle_id_proposal": "com.sekiph82.beachcocktails; standalone registered App ID not confirmed",
+    "sku": "owner must supply exact unique immutable SKU",
+    "legal_agreements_accepted": false,
+    "record_created": false
+  },
+  "privacy_support": {
+    "updated_pages": [
+      "docs/release/store_media/privacy_policy_staging_en.html",
+      "docs/release/store_media/privacy_policy_staging_tr.html"
+    ],
+    "added_claim": "Source-verified local campaign progress, settings, onboarding, and tutorial state storage, with explicit limits on inference to signed builds and SDK processing.",
+    "support_pages_changed": false,
+    "public_urls_or_owner_contacts_invented": false
+  },
+  "monetization": {
+    "future_admob_source_changed": false,
+    "ads_or_purchases_enabled": false
+  },
+  "focused_checks": {
+    "godot_capture_live_game_gdscript_check_only": "PASS, exit 0, Godot 4.7.2",
+    "godot_capture_live_game_input_gdscript_check_only": "PASS, exit 0, Godot 4.7.2",
+    "powershell_wrapper_ast_parse": "PASS",
+    "media_builder_reproducibility": "PASS; repeat produced the same source and composition hashes",
+    "capture_sidecar_json_parse": "PASS",
+    "composition_sidecar_json_parse": "PASS",
+    "sparse_apk_regression_tests": "PASS, 9/9; no PCK cleanup repeated",
+    "git_diff_check": "PASS"
+  },
+  "release_gate": "PUBLIC ANDROID/APPLE STORE RELEASE NO-GO; native signing, device validation, owner/legal privacy approval, exact Apple app identity/SKU authorization, and missing settled Daily Rewards capture remain open."
+}

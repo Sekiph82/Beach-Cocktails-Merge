@@ -1,0 +1,24 @@
+{
+  "work_item": "BCM-M34-006/007 V07",
+  "kind": "captioned_composition_from_actual_godot_runtime_capture",
+  "title": "Plan your next shot",
+  "source_capture": "docs/release/store_media/captures_v07/desktop_candidate_02_campaign.png",
+  "source_capture_sha256": "88c006428983ba8a0138ccbc1a10cfeecaa2fa0f97734ee0f8c8a25494594eb1",
+  "source_capture_resolution": [
+    720,
+    1280
+  ],
+  "tutorial_status": "COMPLETED_IN_PROFILE",
+  "tutorial_state_sha256": "7bcb866de1bfe828ca6b4f80bdf755ff74b6651baffc1a842acaddb553fe9a2d",
+  "composition_resolution": [
+    1080,
+    1920
+  ],
+  "capture_classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+  "device_review_status": "DEVICE_REVIEW_PENDING",
+  "owner_visual_approval": "PENDING",
+  "store_device_capture": false,
+  "content_modified": false,
+  "footer": "REAL GAME CAPTURE  •  DESKTOP CANDIDATE  •  DEVICE REVIEW PENDING",
+  "composition_sha256": "2d77322df62ea9b06b0bab7335391e82561d047fa7e00448b6f46cef241eda45"
+}
