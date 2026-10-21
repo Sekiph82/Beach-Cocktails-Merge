@@ -48,6 +48,10 @@ def sha256(path: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
+def write_text_lf(path: Path, content: str) -> None:
+    with path.open("w", encoding="utf-8", newline="\n") as stream:
+        stream.write(content)
+
 def copy_assets() -> list[dict]:
     rows = []
     for rel_out, rel_src, kind, expected_size, expected_mode in ASSETS:
@@ -112,15 +116,14 @@ def prepare_sites() -> dict:
     for lang, pages in sources.items():
         folder = SITE / lang
         folder.mkdir(parents=True, exist_ok=True)
-        (folder / "privacy.html").write_bytes(pages["privacy.html"].read_bytes())
-        (folder / "support.html").write_bytes(pages["support.html"].read_bytes())
+        for name in ("privacy.html", "support.html"):
+            write_text_lf(folder / name, pages[name].read_text(encoding="utf-8"))
         title = "Beach Cocktails Merge — Local staging only" if lang == "en" else "Beach Cocktails Merge — Yalnızca yerel taslak"
         notice = "Unpublished review draft. Do not use these local files as public store URLs." if lang == "en" else "Yayımlanmamış inceleme taslağı. Bu yerel dosyaları herkese açık mağaza URL'si olarak kullanmayın."
-        (folder / "index.html").write_text(
+        write_text_lf(folder / "index.html",
             f'<!doctype html><html lang="{lang}"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             f'<title>{title}</title><main><h1>{title}</h1><p>{notice}</p>'
             '<ul><li><a href="privacy.html">Privacy / Gizlilik</a></li><li><a href="support.html">Support / Destek</a></li></ul></main></html>',
-            encoding="utf-8",
         )
         result[lang] = {name: {"bytes": (folder / name).stat().st_size, "sha256": sha256(folder / name)} for name in ("index.html", "privacy.html", "support.html")}
     return result
@@ -144,14 +147,13 @@ def make_contact_sheet() -> dict:
 def prepare_apple_capture_gate() -> dict:
     APPLE.mkdir(parents=True, exist_ok=True)
     readme = APPLE / "CAPTURE_PENDING.md"
-    readme.write_text(
+    write_text_lf(readme,
         "# Apple iPhone screenshot capture gate\n\n"
         "Status: `CAPTURE_PENDING`. No physical iPhone capture or signed iOS release UI is available. "
         "The existing 720x1280 desktop game captures and 1080x1920 desktop-origin marketing compositions "
         "are not represented as iPhone screenshots and are not copied into an Apple upload set.\n\n"
         "Apple's current App Store Connect help lists 1179x2556 portrait as an accepted iPhone Dynamic Island medium display size. "
         "Capture the exact release UI on a supported physical iPhone and confirm the app's device support before submission.\n",
-        encoding="utf-8",
     )
     return {"status": "CAPTURE_PENDING", "target_size_px": [1179, 2556], "readme": str(readme.relative_to(ROOT)), "sha256": sha256(readme)}
 
@@ -264,7 +266,7 @@ def main() -> int:
     report.update({"schema_version": 1, "task": "BCM-M34-006-007-V09", "assets": rows, "staging_site": sites, "contact_sheet": contact, "apple_capture_gate": apple_gate})
     OUT.mkdir(parents=True, exist_ok=True)
     report_path = OUT / "submission_manifest_v09.json"
-    report_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    write_text_lf(report_path, json.dumps(report, indent=2, ensure_ascii=False) + "\n")
     print(json.dumps({"validator_status": report["validator_status"], "store_readiness": report["store_readiness"], "asset_count": len(rows), "screenshots": report["google_play"]["screenshots"], "gameplay_screenshots": report["google_play"]["actual_gameplay_screenshots"], "apple_iphone": report["apple_iphone"]["status"], "manifest": str(report_path.relative_to(ROOT))}, indent=2))
     return 0 if report["validator_status"] == "PASS_CANDIDATE_VALIDATION" else 1
 
