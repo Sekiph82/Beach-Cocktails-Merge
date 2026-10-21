@@ -67,7 +67,7 @@
     "v02_entries_missing": 0,
     "forbidden_release_paths": 0,
     "v02_reference_pck_sha256": "efe205c90509ccfa385e8d71c622ee192b463a6433a95c3bc261eff4a3d29eb4",
-    "apk_pck_representation": "APK contains assets.sparsepck (109908 bytes; Godot PCK v4, sparse flag 2) and expanded assets/ entries; no .pck filename",
+    "apk_pck_representation": "APK contains assets.sparsepck (109908 bytes; Godot PCK v4, pack flags 6 (relative file base and sparse bundle)) and expanded assets/ entries; no .pck filename",
     "sparsepck_independent_inventory": "UNRESOLVED: current release inventory parser fails closed on sparse flagged packs; direct standalone engine mount references base APK asset paths",
     "v02_comparison_extras": [
       ".godot/imported/beach_cocktails_merge_icon_v04.png-030a10bfc30e55ce7d856b7a5c86aa50.ctex",
