@@ -1,0 +1,366 @@
+{
+  "validator_status": "PASS_CANDIDATE_VALIDATION",
+  "store_readiness": "BLOCKED_DEVICE_VISUAL_REVIEW",
+  "problems": [],
+  "google_play": {
+    "screenshots": 6,
+    "actual_gameplay_screenshots": 3,
+    "icon": {
+      "path": "google_play/icon_512.png",
+      "source_path": "icons_v04/google_play_icon_candidate_512_v04.png",
+      "kind": "play_icon",
+      "width": 512,
+      "height": 512,
+      "color_mode": "RGBA",
+      "bytes": 567144,
+      "sha256": "d8dd09b1fd0a4d7d23fb2b631917421489b10da1bf13a21f8e6628077801160a",
+      "source_sha256": "d8dd09b1fd0a4d7d23fb2b631917421489b10da1bf13a21f8e6628077801160a",
+      "source_capture_identity": {
+        "status": "MARKETING_ASSET_NOT_GAME_CAPTURE"
+      },
+      "capture_classification": "MARKETING_OR_MENU_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    "feature_graphic": {
+      "path": "google_play/feature_graphic_1024x500.png",
+      "source_path": "google_play_feature_graphic_v02.png",
+      "kind": "feature_graphic",
+      "width": 1024,
+      "height": 500,
+      "color_mode": "RGB",
+      "bytes": 901737,
+      "sha256": "b1f1bc784b9c31ee0438aa5bce27949805becf030ed606d22a23c90972f272f5",
+      "source_sha256": "b1f1bc784b9c31ee0438aa5bce27949805becf030ed606d22a23c90972f272f5",
+      "source_capture_identity": {
+        "status": "MARKETING_ASSET_NOT_GAME_CAPTURE"
+      },
+      "capture_classification": "MARKETING_OR_MENU_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    }
+  },
+  "apple_iphone": {
+    "status": "CAPTURE_PENDING",
+    "reason": "No physical iPhone or signed iOS build capture is present; desktop-origin images are not packaged as iPhone screenshots."
+  },
+  "owner_fields_unresolved": [
+    "publisher_legal_identity",
+    "privacy_contact",
+    "support_contact",
+    "retention_and_deletion",
+    "public_https_privacy_url",
+    "public_https_support_url",
+    "signed_package_data_inventory",
+    "age_rating_answers",
+    "store_owner_review",
+    "physical_device_visual_review",
+    "Apple team confirmation in visible signed-in portal",
+    "App Store Connect user access level",
+    "Apple account agreement gate state",
+    "Play developer account/device verification",
+    "Google Play production signing identity"
+  ],
+  "daily_rewards_required": false,
+  "privacy_and_support": "LOCAL_STAGING_ONLY; PUBLIC_HTTPS_AND_OWNER_REVIEW_PENDING",
+  "ads": "FUTURE_ADMOB_SOURCE_PRESERVED; ALL_PLACEMENTS_DISABLED; NO_LIVE_AD_OR_CONSENT_CLAIM",
+  "iap": "NONBUYABLE; NO_LIVE_PURCHASE_CLAIM",
+  "settings_links": {
+    "urls": {
+      "privacy_policy_url": "",
+      "support_url": ""
+    },
+    "in_game_links_enabled": false
+  },
+  "future_ad_placements_disabled": true,
+  "products_nonbuyable": true,
+  "ios_export_preset_dry_run": "CONSISTENT_UNSIGNED_NOT_SHIPPING",
+  "ios_export_preset_verification_mode": "STATIC_CONFIGURATION_ONLY; NO_EXPORT_RUN",
+  "shipping_identity": {
+    "apple": {
+      "name": "Beach Cocktails Merge",
+      "bundle_id": "com.sekiph82.beachcocktails",
+      "sku": "BCM-IOS-2026-001",
+      "primary_language": "English (U.S.)",
+      "platform": "iOS",
+      "approval": "OWNER_APPROVED_V10",
+      "portal_record": "NOT_CREATED_SESSION_UNAVAILABLE"
+    },
+    "google_play": {
+      "package_id": "com.sekiph82.beachcocktails",
+      "approval": "OWNER_APPROVAL_REQUIRED",
+      "production_signing": "NOT_CONFIGURED"
+    }
+  },
+  "listing_metadata_checks": {
+    "apple_en_us": {
+      "name": "Beach Cocktails Merge",
+      "subtitle": "Merge drinks, explore islands",
+      "title_limit": 30,
+      "subtitle_limit": 30
+    },
+    "google_play_en_us": {
+      "title": "Beach Cocktails Merge",
+      "short_description": "Merge drinks, complete To-Go orders and explore tropical islands.",
+      "title_limit": 30,
+      "short_description_limit": 80
+    }
+  },
+  "privacy_https_gate": "BLOCKED_OWNER_PUBLIC_URL",
+  "support_https_gate": "BLOCKED_OWNER_PUBLIC_URL",
+  "apple_record_gate": "BLOCKED_SESSION_UNAVAILABLE",
+  "builds_or_pck_aab_tests_rerun": false,
+  "portal_action_status": "APPLE_SESSION_NOT_ACCESSIBLE_TO_CODEX; no portal tab or authorized browser session was available",
+  "schema_version": 1,
+  "task": "BCM-M34-006-007-V09",
+  "assets": [
+    {
+      "path": "google_play/icon_512.png",
+      "source_path": "icons_v04/google_play_icon_candidate_512_v04.png",
+      "kind": "play_icon",
+      "width": 512,
+      "height": 512,
+      "color_mode": "RGBA",
+      "bytes": 567144,
+      "sha256": "d8dd09b1fd0a4d7d23fb2b631917421489b10da1bf13a21f8e6628077801160a",
+      "source_sha256": "d8dd09b1fd0a4d7d23fb2b631917421489b10da1bf13a21f8e6628077801160a",
+      "source_capture_identity": {
+        "status": "MARKETING_ASSET_NOT_GAME_CAPTURE"
+      },
+      "capture_classification": "MARKETING_OR_MENU_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    {
+      "path": "google_play/feature_graphic_1024x500.png",
+      "source_path": "google_play_feature_graphic_v02.png",
+      "kind": "feature_graphic",
+      "width": 1024,
+      "height": 500,
+      "color_mode": "RGB",
+      "bytes": 901737,
+      "sha256": "b1f1bc784b9c31ee0438aa5bce27949805becf030ed606d22a23c90972f272f5",
+      "source_sha256": "b1f1bc784b9c31ee0438aa5bce27949805becf030ed606d22a23c90972f272f5",
+      "source_capture_identity": {
+        "status": "MARKETING_ASSET_NOT_GAME_CAPTURE"
+      },
+      "capture_classification": "MARKETING_OR_MENU_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    {
+      "path": "google_play/01_home.png",
+      "source_path": "compositions_v03/01_home_google_play_candidate.png",
+      "kind": "home",
+      "width": 1080,
+      "height": 1920,
+      "color_mode": "RGB",
+      "bytes": 2338406,
+      "sha256": "eb8caea9fd13526fb5190e28270beca8e3102512a93c35b3dc5ad1089f579b60",
+      "source_sha256": "eb8caea9fd13526fb5190e28270beca8e3102512a93c35b3dc5ad1089f579b60",
+      "source_capture_identity": {
+        "metadata_path": "docs/release/store_media/captures_v03/desktop_candidate_01_main_menu.json",
+        "metadata_sha256": "5298ae4e8068ed8ade9a2d35db723d41ecb3885f4a93a969e0bcd36ab9c33611",
+        "source_capture_path": "docs/release/store_media/captures_v03/desktop_candidate_01_main_menu.png",
+        "source_capture_sha256": "ebc140c2e192f4c560fbfc3492962d8f15cbf650f0db2565aee9587703751f14",
+        "source_head": "1feec20aef702ee93bc35193b79b6b7ce2026542",
+        "runtime_version": "4.7.2-stable (official)",
+        "runtime_view": "main_menu",
+        "classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+        "device_review_status": "DEVICE_REVIEW_PENDING",
+        "tutorial_status": "not_recorded",
+        "store_device_capture": false,
+        "content_modified": false
+      },
+      "capture_classification": "MARKETING_OR_MENU_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    {
+      "path": "google_play/02_world_map.png",
+      "source_path": "compositions_v03/02_world_map_google_play_candidate.png",
+      "kind": "world_map",
+      "width": 1080,
+      "height": 1920,
+      "color_mode": "RGB",
+      "bytes": 3078198,
+      "sha256": "5fd04861dcc6612c3783d90a7c102f387cd8fe3e604d9e5cd08204085b4931c6",
+      "source_sha256": "5fd04861dcc6612c3783d90a7c102f387cd8fe3e604d9e5cd08204085b4931c6",
+      "source_capture_identity": {
+        "metadata_path": "docs/release/store_media/captures_v03/desktop_candidate_02_campaign.json",
+        "metadata_sha256": "8c8b368e20cc2271c8c1ec3da63a39f3016e0d226b41116dd800aac77cf50356",
+        "source_capture_path": "docs/release/store_media/captures_v03/desktop_candidate_02_campaign.png",
+        "source_capture_sha256": "7c11cb51482b6f79248c495da01715dcc3012b641556a024ad1f7cb8c08115d3",
+        "source_head": "1feec20aef702ee93bc35193b79b6b7ce2026542",
+        "runtime_version": "4.7.2-stable (official)",
+        "runtime_view": "campaign",
+        "classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+        "device_review_status": "DEVICE_REVIEW_PENDING",
+        "tutorial_status": "not_recorded",
+        "store_device_capture": false,
+        "content_modified": false
+      },
+      "capture_classification": "MARKETING_OR_MENU_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    {
+      "path": "google_play/03_island_map.png",
+      "source_path": "compositions_v03/03_island_map_google_play_candidate.png",
+      "kind": "island_map",
+      "width": 1080,
+      "height": 1920,
+      "color_mode": "RGB",
+      "bytes": 3297978,
+      "sha256": "d6d68e0cbca80c5d16f622e0682b86fbc65b08af86c878f04eb9d7aa16218f73",
+      "source_sha256": "d6d68e0cbca80c5d16f622e0682b86fbc65b08af86c878f04eb9d7aa16218f73",
+      "source_capture_identity": {
+        "metadata_path": "docs/release/store_media/captures_v03/desktop_candidate_03_campaign.json",
+        "metadata_sha256": "77660a8cb8d60355a89fb698797c4e9e26dd94943784148053fec2948c60324c",
+        "source_capture_path": "docs/release/store_media/captures_v03/desktop_candidate_03_campaign.png",
+        "source_capture_sha256": "7517b5272dc5919104a0538fbbf9193518be39c2fed6ae1acfefbf7c0c0e6faf",
+        "source_head": "1feec20aef702ee93bc35193b79b6b7ce2026542",
+        "runtime_version": "4.7.2-stable (official)",
+        "runtime_view": "campaign",
+        "classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+        "device_review_status": "DEVICE_REVIEW_PENDING",
+        "tutorial_status": "not_recorded",
+        "store_device_capture": false,
+        "content_modified": false
+      },
+      "capture_classification": "MARKETING_OR_MENU_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    {
+      "path": "google_play/04_gameplay_current.png",
+      "source_path": "compositions_v07/04_gameplay_google_play_candidate_v07.png",
+      "kind": "gameplay",
+      "width": 1080,
+      "height": 1920,
+      "color_mode": "RGB",
+      "bytes": 2378714,
+      "sha256": "2d77322df62ea9b06b0bab7335391e82561d047fa7e00448b6f46cef241eda45",
+      "source_sha256": "2d77322df62ea9b06b0bab7335391e82561d047fa7e00448b6f46cef241eda45",
+      "source_capture_identity": {
+        "metadata_path": "docs/release/store_media/compositions_v07/04_gameplay_google_play_candidate_v07.json",
+        "metadata_sha256": "aba952070c8bebe552372a58c4fdf45c8d1d2186eeb0e05b345388ec85d6fcc2",
+        "source_capture_path": "docs/release/store_media/captures_v07/desktop_candidate_02_campaign.png",
+        "source_capture_sha256": "88c006428983ba8a0138ccbc1a10cfeecaa2fa0f97734ee0f8c8a25494594eb1",
+        "source_head": "unknown",
+        "runtime_version": "unknown",
+        "runtime_view": "unknown",
+        "classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+        "device_review_status": "DEVICE_REVIEW_PENDING",
+        "tutorial_status": "COMPLETED_IN_PROFILE",
+        "store_device_capture": false,
+        "content_modified": false
+      },
+      "capture_classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    {
+      "path": "google_play/05_live_merge.png",
+      "source_path": "compositions_v03/05_live_merge_google_play_candidate.png",
+      "kind": "live_merge",
+      "width": 1080,
+      "height": 1920,
+      "color_mode": "RGB",
+      "bytes": 2281727,
+      "sha256": "395625e9570b47b6f3abeb3ba15150fcc3580db1ec80c19f550ebdec97253ddb",
+      "source_sha256": "395625e9570b47b6f3abeb3ba15150fcc3580db1ec80c19f550ebdec97253ddb",
+      "source_capture_identity": {
+        "metadata_path": "docs/release/store_media/captures_v03/desktop_candidate_08_campaign.json",
+        "metadata_sha256": "d1189ac402182a1ce165fe58efd81c293862fe50282d10ce2e8c5b900531f80e",
+        "source_capture_path": "docs/release/store_media/captures_v03/desktop_candidate_08_campaign.png",
+        "source_capture_sha256": "fc3968dc434b414d996c62a69a32ee415589fa0413455c7d19933512591cf751",
+        "source_head": "1feec20aef702ee93bc35193b79b6b7ce2026542",
+        "runtime_version": "4.7.2-stable (official)",
+        "runtime_view": "campaign",
+        "classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+        "device_review_status": "DEVICE_REVIEW_PENDING",
+        "tutorial_status": "not_recorded",
+        "store_device_capture": false,
+        "content_modified": false
+      },
+      "capture_classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    },
+    {
+      "path": "google_play/06_gameplay_to_go.png",
+      "source_path": "compositions_v03/04_gameplay_google_play_candidate.png",
+      "kind": "gameplay_to_go",
+      "width": 1080,
+      "height": 1920,
+      "color_mode": "RGB",
+      "bytes": 2224155,
+      "sha256": "20c16fccbe5ba20e11585dcffb37e228307c876b92d9963d2b7b442c689b5d7e",
+      "source_sha256": "20c16fccbe5ba20e11585dcffb37e228307c876b92d9963d2b7b442c689b5d7e",
+      "source_capture_identity": {
+        "metadata_path": "docs/release/store_media/captures_v03/desktop_candidate_04_campaign.json",
+        "metadata_sha256": "f8326701275743a41a6b8faa23a57089edcc7fa73ea4b0e0b4c4b71a9d78be88",
+        "source_capture_path": "docs/release/store_media/captures_v03/desktop_candidate_04_campaign.png",
+        "source_capture_sha256": "2032652dad997e80ca3043158de15220c4dc7457a7ade17069508c87efddad83",
+        "source_head": "1feec20aef702ee93bc35193b79b6b7ce2026542",
+        "runtime_version": "4.7.2-stable (official)",
+        "runtime_view": "campaign",
+        "classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+        "device_review_status": "DEVICE_REVIEW_PENDING",
+        "tutorial_status": "not_recorded",
+        "store_device_capture": false,
+        "content_modified": false
+      },
+      "capture_classification": "DESKTOP_GAMEPLAY_CANDIDATE",
+      "device_review_status": "DEVICE_REVIEW_PENDING",
+      "submission_status": "CANDIDATE_ONLY_NOT_STORE_READY"
+    }
+  ],
+  "staging_site": {
+    "en": {
+      "index.html": {
+        "bytes": 450,
+        "sha256": "806d92a32357f81a86a03025e75d9172477a67cd43a09ac7901d4ad1e6130a14"
+      },
+      "privacy.html": {
+        "bytes": 4049,
+        "sha256": "a46a62e4c0232bd01507c2a91bb055ca988db9366f0ddc693194411c187bae67"
+      },
+      "support.html": {
+        "bytes": 1313,
+        "sha256": "6e9830f6545e498989467cd566790388e4e135d05c56f0ddaadeaabbe5bcb0ff"
+      }
+    },
+    "tr": {
+      "index.html": {
+        "bytes": 489,
+        "sha256": "f450524acba3e856fd99a97970259e0b09675372c28c406cf132215eba64586b"
+      },
+      "privacy.html": {
+        "bytes": 4486,
+        "sha256": "d0572fb7f9d9081b9ab220f74ae533b4e4ea6d40f72fac023b6675e26db10b19"
+      },
+      "support.html": {
+        "bytes": 1442,
+        "sha256": "d1c191d803a3925fb65bd133eefc1c515727fe25cac4b3a8d113b359c3344c3b"
+      }
+    }
+  },
+  "contact_sheet": {
+    "path": "docs\\release\\store_media\\submission_review_contact_sheet_v09.png",
+    "width": 960,
+    "height": 1438,
+    "bytes": 1200562,
+    "sha256": "b3ad49235a9694ecc457c6fc44ee37c468bff89969435959c5f147dff70ebd0a"
+  },
+  "apple_capture_gate": {
+    "status": "CAPTURE_PENDING",
+    "target_size_px": [
+      1179,
+      2556
+    ],
+    "readme": "docs\\release\\store_media\\submission_candidates_v09\\apple_iphone\\CAPTURE_PENDING.md",
+    "sha256": "d1b0fde865b66cbc442790409decd282d8c80e267b262f0dbaeda703b1723198"
+  }
+}
