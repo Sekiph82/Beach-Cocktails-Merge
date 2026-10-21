@@ -1,9 +1,9 @@
 # Codex Execution Log — BCM-M34 V10 Apple App ID and App Store Connect Record
 
-**Date:** 2026-10-21  
-**Prompt:** `BCM_M34_APPLE_APP_ID_AND_CONNECT_RECORD_OWNER_APPROVED_V10.md`  
-**Branch / remote:** `main` / `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge.git`)  
-**Start HEAD after sync:** `5bc30eace35c1f16c0a55ac184711770da2bf066`  
+**Date:** 2026-10-21
+**Prompt:** `BCM_M34_APPLE_APP_ID_AND_CONNECT_RECORD_OWNER_APPROVED_V10.md`
+**Branch / remote:** `main` / `origin` (`https://github.com/Sekiph82/Beach-Cocktails-Merge.git`)
+**Start HEAD after sync:** `5bc30eace35c1f16c0a55ac184711770da2bf066`
 **Related V09 store-kit implementation:** `c695a150f9745ad6a9a1bd5bb34e60e4a0640fbf`
 
 ## Sync and scope
