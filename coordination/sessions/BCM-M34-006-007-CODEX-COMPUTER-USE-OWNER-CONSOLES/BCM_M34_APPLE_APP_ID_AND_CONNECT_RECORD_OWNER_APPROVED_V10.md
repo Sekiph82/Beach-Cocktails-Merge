@@ -1,0 +1,29 @@
+# BCM-M34-006/007: Apple App ID and draft App Store Connect record V10
+
+**OWNER APPROVAL 2026-10-21:** Owner answered "kabul ediyorum" to the coordinator's exact proposal and authorizes creating ONE standalone Apple iOS App ID and ONE matching nonpublished App Store Connect application record using:
+- App name: Beach Cocktails Merge
+- Release Bundle ID: com.sekiph82.beachcocktails
+- SKU: BCM-IOS-2026-001
+- Primary metadata language: English (U.S.)
+- Platform: iOS ONLY.
+
+This decision supersedes old "no Apple app creation" restriction for ONLY the approved identity and ONE draft record. It does NOT authorize production release, Apple legal/financial agreements, adding users, banking/tax data, app price or purchases, real ads, TestFlight upload, app review submission, Play Console actions, changes to game files, or Apple developer account security settings.
+
+**Read first:** root AGENTS.md, root TASKS.md (ONLY live task tracker; Codex NEVER edits it), docs/release/BCM_M34_APP_STORE_CONNECT_RECORD_INPUTS_V07.md, and prior Apple-only portal audit docs/codex-logs/CODEX_LOG_2026-10-20_M34_APPLE_ONLY_RECORD_CHECK_V01.md. Prior record documents' owner approval placeholders are NOW resolved for the four values above, not for access/team/legal choices.
+
+## Safe narrow actions
+1. In the canonical Windows repo C:\Users\sekip\Desktop\Beach Cocktails - Merge do safe status, remote, fetch, divergence checks and nonconflicting fast-forward only. Preserve tracked/untracked/stashes and owner original real Godot save/backup, XTool, iPhone_Yukle.bat and APK/IPA. Never reset/rebase/stash/clean/force or use GitHub Actions, emulator, Expo/Orbit, new builds or installations. Do not edit TASKS.md.
+2. Use an OWNER-authorized NORMAL signed-in browser and inspect ONLY authenticated secure official HTTPS developer.apple.com (Certificates, Identifiers & Profiles) and appstoreconnect.apple.com (Apps). If originating session is invisible, login/2FA required, or origin cannot be authenticated, STOP with APPLE_SESSION_NOT_ACCESSIBLE_TO_CODEX / LOGIN_OR_2FA_REQUIRED / PORTAL_ORIGIN_UNVERIFIED. No shell cookies, CDP session theft, JS token export, credential collection, redirects, or bypass. Owner personally performs normal login/2FA.
+3. Identify the CORRECT owner Apple team from signed-in UI, checking team context and role. If more than one plausible team and no unambiguous target, STOP APPLE_TEAM_SELECTION_REQUIRED. Do not select another developer's team.
+4. Look for exact standalone iOS explicit App ID com.sekiph82.beachcocktails. The older XTL-A5DEDA47.com.sekiph82.beachcocktails sideload prefix is NOT interchangeable. If exact independent explicit App ID exists, reuse; otherwise create exactly ONE Apple Developer Identifier with description Beach Cocktails Merge and explicit ID com.sekiph82.beachcocktails. Keep unnecessary capabilities/entitlements OFF; do not turn on Push, Apple Pay, Game Center, Sign in with Apple, etc. without confirmed requirements. If exact ID unavailable/conflicted, STOP and report, never invent substitute.
+5. In App Store Connect > Apps on the SAME verified team, first ensure there is no existing app record with same bundle/SKU (if found, report identity and do not duplicate). New App: iOS, name Beach Cocktails Merge, English (U.S.), standalone com.sekiph82.beachcocktails, SKU BCM-IOS-2026-001. Both immutable values are expressly APPROVED: do not request same consent again or silently adjust on conflict.
+6. User Access Full Access vs Limited Access was NOT included in the approved four fields. Use only least privilege: if Limited Access lets you select ONLY current account holder without widening teammate access or changing another user, choose that. If not possible or ambiguous, STOP BEFORE Create and ask for the single access decision; do not assume Full Access. If multiple teams or app record roles unknown, likewise stop for a focused owner choice. Do not make collaborator permission changes. If all gates pass, Create ONCE and verify Apps shows record, its Apple-generated numeric App ID, exact title/bundle/SKU and Prepare for Submission state.
+7. Apple official docs state an account holder may have to sign the latest agreement before an app can be added. If agreement blocks creation, STOP APPLE_ACCOUNT_HOLDER_AGREEMENT_REQUIRED. Never accept any legal, paid app, banking, tax, trader or other agreement for owner. Do not create prices, IAP products, ads or mobile test groups. No public store submission and no IPA upload.
+8. Write ONE immutable builder log to docs/codex-logs/CODEX_LOG_2026-10-21_M34_APPLE_APPROVED_APP_ID_AND_RECORD_V10.md (use actual execution date). Record verified site/team context without personal identifying data, exact bundle/SKU and numeric Apple app ID only if real, app state, what actually was created vs blocked, and any owner-only step. No screenshot with private information, tokens, cookies or 2FA. Commit/push only the new log plus factual receipt if useful, verify HEAD=origin/main=remote with 0/0 divergence. TASKS.md remains untouched.
+9. Existing V09 store-media task continues independently; do not restart or claim it completed. Google Play account physical device gate still open, AdMob source preserved with 7 placements OFF, purchases nonbuyable, Apple native Xcode signed IPA not ready. Draft app record does NOT close M34-006/007 or constitute store publication.
+
+Official sources:
+https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app
+https://developer.apple.com/help/app-store-connect/reference/app-information/app-information/
+
+DO NOT just re-audit an empty Apps list and report nothing exists. The owner has specifically authorized creation of the exact app record. Carry it out if the authenticated official browser and the remaining narrowly scoped team/access/legal gates permit; otherwise report a precise blocker without guessing.
