@@ -181,6 +181,9 @@ func show_shop() -> bool:
     _settings_layer.visible = false
     _shop_layer.visible = true
     current_view = "SHOP"
+    _ensure_gem_pack_buttons()
+    if campaign_navigation != null and campaign_navigation.store_service != null:
+        campaign_navigation.store_service.refresh_prices()
     _refresh_shop()
     return true
 
@@ -204,6 +207,49 @@ func purchase_energy_refill() -> Dictionary:
         _shop_status.text = "ENERGY REFILLED" if result.get("refilled", false) else "REFILL UNAVAILABLE: %s" % str(result.get("reason", "UNKNOWN"))
     _refresh_shop()
     return result
+
+
+## Real-money gem pack (owner 2026-11-19, ScrubBots pattern). The result arrives later
+## through StoreService.resolved; only Google Play / the App Store can make it succeed.
+func purchase_gem_pack(product_id: String) -> Dictionary:
+    if current_view != "SHOP" or campaign_navigation == null or campaign_navigation.store_service == null:
+        return {"ok": false, "reason": "SHOP_NOT_OPEN"}
+    var result: Dictionary = campaign_navigation.store_service.purchase(product_id)
+    if _shop_status != null and not bool(result.get("ok", false)):
+        _shop_status.text = "PURCHASE UNAVAILABLE: %s" % str(result.get("reason", "unavailable")).to_upper()
+    return result
+
+
+## The shop is built before CampaignNavigation exists, so the gem packs are added on first open.
+func _ensure_gem_pack_buttons() -> void:
+    var store = campaign_navigation.store_service if campaign_navigation != null else null
+    if store == null or _shop_layer == null or store.resolved.is_connected(_on_store_resolved):
+        return
+    var y := 660.0
+    for product_id in store.product_ids():
+        var pack := _make_menu_button("%d GEMS" % store.gems_of(product_id), Color("#0e665f"), Color("#ffd166"))
+        pack.name = "ShopGemPack_%s" % product_id
+        pack.position = Vector2(75.0, y)
+        pack.size = Vector2(570.0, 70.0)
+        pack.add_theme_font_size_override("font_size", 22)
+        pack.pressed.connect(purchase_gem_pack.bind(product_id))
+        _shop_layer.add_child(pack)
+        y += 80.0
+    store.prices_changed.connect(_refresh_shop)
+    store.resolved.connect(_on_store_resolved)
+
+
+func _on_store_resolved(_product_id: String, result: Dictionary) -> void:
+    if _shop_status != null:
+        if bool(result.get("ok", false)):
+            _shop_status.text = "+%d GEMS ADDED" % int(result.get("gems", 0))
+        elif str(result.get("reason", "")) == "pending":
+            _shop_status.text = "PURCHASE PENDING · GEMS ARRIVE WHEN THE STORE CONFIRMS"
+        elif str(result.get("reason", "")) == "cancelled":
+            _shop_status.text = "PURCHASE CANCELLED"
+        elif str(result.get("reason", "")) != "duplicate":
+            _shop_status.text = "THE PURCHASE DIDN'T GO THROUGH" + ((" (%s)" % str(result["error"])) if result.has("error") else "")
+    _refresh_shop()
 
 
 func request_energy_rewarded_ad() -> Dictionary:
@@ -806,13 +852,12 @@ func _build_shop() -> void:
     _shop_layer.add_child(watch_ad)
     var products := Label.new()
     products.name = "ShopStoreStatus"
-    products.text = "STORE ITEMS ARE DISABLED UNTIL OWNER CATALOG AND RECEIPT VERIFICATION SETUP"
-    products.position = Vector2(60.0, 650.0)
-    products.size = Vector2(600.0, 100.0)
+    products.text = "GEM PACKS"
+    products.position = Vector2(60.0, 605.0)
+    products.size = Vector2(600.0, 44.0)
     products.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-    products.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    products.add_theme_font_size_override("font_size", 18)
-    products.add_theme_color_override("font_color", Color("#d7ebe4"))
+    products.add_theme_font_size_override("font_size", 20)
+    products.add_theme_color_override("font_color", Color("#fff0c6"))
     _shop_layer.add_child(products)
     var close := _make_menu_button("BACK TO MENU", Color("#12354d"), Color("#73e0d1"))
     close.name = "CloseShopButton"
@@ -833,6 +878,17 @@ func _refresh_shop() -> void:
     var refill := _shop_layer.get_node_or_null("ShopEnergyRefill") as BaseButton
     if refill != null:
         refill.disabled = int(economy.energy) >= 100 or int(economy.gems) < 25
+    var watch_ad := _shop_layer.get_node_or_null("ShopEnergyRewardedAd") as BaseButton
+    if watch_ad != null:
+        watch_ad.disabled = campaign_navigation.ads_service == null or campaign_navigation.ads_service.provider_adapter == null or int(economy.energy) >= 100
+    var store = campaign_navigation.store_service
+    if store != null:
+        for product_id in store.product_ids():
+            var pack := _shop_layer.get_node_or_null("ShopGemPack_%s" % product_id) as Button
+            if pack != null:
+                var price: String = store.price_text(product_id)
+                pack.text = "%d GEMS  ·  %s" % [store.gems_of(product_id), price if not price.is_empty() else "UNAVAILABLE"]
+                pack.disabled = price.is_empty()
 
 
 func _build_daily_rewards() -> void:

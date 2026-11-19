@@ -41,6 +41,7 @@ var _accepted_receipts: Dictionary = {}
 var _seen_transactions: Dictionary = {}
 var _timer: Timer
 var _timer_kind := ""
+var _show_when_ready := false
 
 
 func _ready() -> void:
@@ -75,6 +76,42 @@ func set_provider_adapter(adapter: Object, approved_consent_status: String) -> b
 	consent_status = approved_consent_status
 	provider_status = "DEBUG_FIXTURE_ONLY"
 	return true
+
+
+## Production native provider (owner 2026-11-19, ScrubBots pattern): the AdMob provider has
+## already run Google UMP (and iOS ATT) before the SDK initialized, and it reports a reward
+## only when the SDK said "user earned reward" before the ad closed. No own server.
+func set_native_provider(adapter: Object) -> bool:
+	_cancel_timer()
+	_cancel_provider_session()
+	provider_adapter = null
+	production_enabled = false
+	if adapter == null or not adapter.has_method("request_rewarded_with_session") or not adapter.has_method("show_rewarded_with_session"):
+		return false
+	provider_adapter = adapter
+	consent_status = "UMP_OBTAINED"
+	production_enabled = true
+	provider_status = "NATIVE_CLIENT_EARNED"
+	return true
+
+
+## The native provider's earned-before-close result. Only in native production mode.
+func accept_client_earned_reward(transaction_id: String, session_id: String) -> Dictionary:
+	if not production_enabled:
+		return {"ok": false, "reason": "NATIVE_PROVIDER_NOT_ACTIVE"}
+	if state != STATE_SHOWING or transaction_id != _active_transaction_id or session_id != _active_session_id:
+		return {"ok": false, "reason": "STALE_NATIVE_REWARD_CALLBACK"}
+	if _seen_transactions.has(transaction_id):
+		return {"ok": false, "reason": "DUPLICATE_REWARDED_TRANSACTION"}
+	_cancel_timer()
+	var receipt := "admob-client:%s" % session_id
+	_accepted_receipts[receipt] = true
+	_seen_transactions[transaction_id] = true
+	_set_state(STATE_REWARDED)
+	verified_rewarded.emit(_active_placement, transaction_id, receipt)
+	_active_transaction_id = ""
+	_active_session_id = ""
+	return {"ok": true, "verified": true, "transaction_id": transaction_id}
 
 
 ## This pass does not enable production ads. Diagnostics contain only booleans
@@ -155,6 +192,9 @@ func notify_provider_loaded(transaction_id: String, session_id: String) -> Dicti
 		return {"ok": false, "reason": "STALE_PROVIDER_LOAD_CALLBACK"}
 	_cancel_timer()
 	_set_state(STATE_READY)
+	if _show_when_ready:
+		_show_when_ready = false
+		return show_rewarded()
 	return {"ok": true, "state": state}
 
 
@@ -209,6 +249,11 @@ func is_active_provider_session(transaction_id: String, session_id: String) -> b
 
 
 func show_rewarded() -> Dictionary:
+	if state in [STATE_LOADING, STATE_RETRY_WAIT] and production_enabled:
+		# The native ad is still loading: show it as soon as it is ready.
+		_show_when_ready = true
+		return {"ok": true, "pending": true, "state": state, "session_id": _active_session_id}
+	_show_when_ready = false
 	if state != STATE_READY or provider_adapter == null or not provider_adapter.has_method("show_rewarded"):
 		return {"ok": false, "reason": "REWARDED_NOT_READY", "state": state}
 	_set_state(STATE_SHOWING)
@@ -314,6 +359,8 @@ func _cancel_provider_session() -> void:
 
 func _set_state(next_state: String) -> void:
 	state = next_state
+	if next_state in [STATE_FAILED, STATE_CANCELLED, STATE_REWARDED]:
+		_show_when_ready = false
 	state_changed.emit(state, _active_placement)
 
 

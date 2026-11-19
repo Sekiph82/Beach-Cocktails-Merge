@@ -18,7 +18,7 @@ class ProbeDiscoveryContract(unittest.TestCase):
             set(categories),
         )
         self.assertEqual({
-            "headless": 117,
+            "headless": 118,
             "display": 18,
             "custom_harness": 1,
             "legacy_disabled": 1,

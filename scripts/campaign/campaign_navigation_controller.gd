@@ -31,6 +31,9 @@ const ADS_CONFIG_SCRIPT := preload("res://scripts/campaign/ads_provider_config.g
 const MOBILE_REWARD_DELIVERY_SCRIPT := preload("res://scripts/campaign/mobile_reward_delivery.gd")
 const MOBILE_REWARD_TRANSPORT_SCRIPT := preload("res://scripts/campaign/mobile_reward_http_transport.gd")
 const STORE_SCRIPT := preload("res://scripts/campaign/store_service.gd")
+const PLAY_BILLING_PROVIDER_SCRIPT := preload("res://scripts/campaign/play_billing_store_provider.gd")
+const APP_STORE_PROVIDER_SCRIPT := preload("res://scripts/campaign/app_store_provider.gd")
+const ADMOB_PROVIDER_SCRIPT := preload("res://scripts/campaign/admob_rewarded_provider.gd")
 const FEEDBACK_SCENE := preload("res://scripts/campaign/campaign_feedback_overlay.gd")
 const GAMEPLAY_SCENE := preload("res://scenes/main.tscn")
 
@@ -44,7 +47,6 @@ var save_manager
 var mobile_reward_delivery: MobileRewardDelivery
 var mobile_reward_transport: MobileRewardHttpTransport
 var admob_test_adapter: Object
-var play_billing_test_adapter: Object
 var content_load_error := ""
 var current_view := VIEW_WORLD_MAP
 var active_island_id := ""
@@ -86,11 +88,41 @@ func _ready() -> void:
 	add_child(ads_service)
 	store_service = STORE_SCRIPT.new()
 	store_service.name = "StoreService"
+	store_service.bind_save(persist_current_state)
 	add_child(store_service)
+	_install_native_providers()
 	if level_database == null or campaign_manager == null:
 		_configure_default_campaign()
 	_ensure_map_instances()
 	_ensure_result_feedback()
+
+
+## Native store / ad providers (owner 2026-11-19, ScrubBots pattern): installed only when the
+## plugin singleton exists in the exported Android / iOS build; editor, desktop and headless
+## runs keep the unavailable defaults (no prices, no ads, nothing granted).
+func _install_native_providers() -> void:
+	if Engine.has_singleton(PLAY_BILLING_PROVIDER_SCRIPT.NATIVE):
+		store_service.set_provider(PLAY_BILLING_PROVIDER_SCRIPT.new(Engine.get_singleton(PLAY_BILLING_PROVIDER_SCRIPT.NATIVE), Callable(store_service, "deliver")))
+	elif Engine.has_singleton(APP_STORE_PROVIDER_SCRIPT.NATIVE):
+		var app_store = APP_STORE_PROVIDER_SCRIPT.new(Engine.get_singleton(APP_STORE_PROVIDER_SCRIPT.NATIVE), Callable(store_service, "deliver"))
+		store_service.set_provider(app_store)
+		var poll := Timer.new()
+		poll.name = "AppStorePoll"
+		poll.wait_time = 0.5
+		poll.autostart = true
+		poll.timeout.connect(app_store.poll)
+		add_child(poll)
+	if Engine.has_singleton(ADMOB_PROVIDER_SCRIPT.NATIVE) and ads_provider_config != null and ads_provider_config.valid:
+		var configuration: Dictionary = ads_provider_config.values.get("configuration", {})
+		var real_unit := ""
+		if not OS.is_debug_build() and not bool(configuration.get("test_ads_until_release", true)):
+			real_unit = ads_provider_config.rewarded_unit_id(OS.get_name(), "energy_20")
+		var node: Node = load(ADMOB_PROVIDER_SCRIPT.NODE_SCRIPT).new()
+		node.name = "Admob"
+		var provider = ADMOB_PROVIDER_SCRIPT.new(node, ads_service, OS.has_feature("ios"), real_unit)
+		add_child(node)
+		if ads_service.set_native_provider(provider):
+			provider.start()
 
 
 func _exit_tree() -> void:
@@ -113,6 +145,8 @@ func configure_campaign(database, manager, configured_economy = null) -> bool:
 		economy.configure_from_state(campaign_manager.get_progression_state())
 	if campaign_manager.has_method("set_economy"):
 		campaign_manager.set_economy(economy)
+	if store_service != null:
+		store_service.bind_economy(economy)
 	_bind_persistence_signals()
 	if _session_bridge == null:
 		_session_bridge = BRIDGE_SCRIPT.new()
@@ -319,17 +353,6 @@ func configure_test_admob_provider(plugin: Object) -> Dictionary:
 	if not bool(admob_test_adapter.call("set_claim_transport", mobile_reward_transport)):
 		return {"ok": false, "reason": "TEST_ADMOB_CLAIM_TRANSPORT_UNAVAILABLE"}
 	return admob_test_adapter.call("configure", plugin, ads_service)
-
-
-func configure_test_play_billing(client: Object, verifier: Object) -> Dictionary:
-	if not OS.is_debug_build() or store_service == null:
-		return {"ok": false, "reason": "TEST_PLAY_BILLING_UNAVAILABLE"}
-	if play_billing_test_adapter == null:
-		var adapter_script := load("res://scripts/campaign/play_billing_test_adapter.gd") as Script
-		if adapter_script == null:
-			return {"ok": false, "reason": "TEST_PLAY_BILLING_ADAPTER_NOT_EXPORTED"}
-		play_billing_test_adapter = adapter_script.new()
-	return play_billing_test_adapter.call("configure_test", client, store_service, verifier)
 
 
 func launch_owner_playtest_sample(island_id: String, level_id: int) -> bool:

@@ -1,8 +1,38 @@
 {
-  "schema_version": 1,
-  "status": "OWNER_APPROVAL_AND_VERIFIED_PROVIDER_REQUIRED",
+  "schema_version": 2,
+  "status": "OWNER_APPROVED_2026_11_19_SCRUBBOTS_PATTERN",
+  "decision": "Owner 2026-11-19: same shape as ScrubBots store_products_v1 (five currency packs at 0.99/1.99/2.99/4.99/9.99 USD reference, same bonus curve), adapted to BCM premium currency gems (base pack = one full energy refill, 25 gems). Same product id on Google Play and App Store.",
+  "policy": "Displayed prices are ONLY the store's localized price strings. reference_usd is store-console setup metadata and is never shown.",
   "products": [
-    {"key": "remove_ads", "kind": "non_consumable", "android_product_id": "", "ios_product_id": "", "price": null, "buyable": false},
-    {"key": "currency_pack_placeholder", "kind": "consumable", "android_product_id": "", "ios_product_id": "", "price": null, "buyable": false}
+    {
+      "id": "gems_25",
+      "kind": "consumable",
+      "gems": 25,
+      "reference_usd": 0.99
+    },
+    {
+      "id": "gems_140",
+      "kind": "consumable",
+      "gems": 140,
+      "reference_usd": 1.99
+    },
+    {
+      "id": "gems_300",
+      "kind": "consumable",
+      "gems": 300,
+      "reference_usd": 2.99
+    },
+    {
+      "id": "gems_650",
+      "kind": "consumable",
+      "gems": 650,
+      "reference_usd": 4.99
+    },
+    {
+      "id": "gems_1750",
+      "kind": "consumable",
+      "gems": 1750,
+      "reference_usd": 9.99
+    }
   ]
 }

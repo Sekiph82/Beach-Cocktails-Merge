@@ -1,143 +1,189 @@
 class_name StoreService
 extends Node
 
-## Store boundary only. Catalog entries remain non-buyable until owner setup and
-## a trusted receipt verifier are configured; client-side success never grants.
+## The ONE authority that turns a real-money store result into a grant (ported from
+## ScrubBots scripts/economy/store_service.gd, owner 2026-11-19). Products come from
+## data/campaign/store_catalog.json (bad config = no products, fail closed). The provider
+## (StoreProvider; default = the unavailable base class) only talks to Google Play / the
+## App Store; every grant goes through GameEconomy.grant_reward under reward id
+## "store:<purchase token>", whose ledger is saved with the campaign, so a duplicate
+## callback, a relaunch re-delivery or an imported save can never grant twice.
+##
+## Only outcome "purchased" with a token commits. Every purchased delivery (new grant or
+## duplicate re-delivery) is saved before the store is acknowledged; a failed save leaves
+## the purchase unacknowledged so the store re-delivers it.
+## Prices are only the store's localized strings (price_text); this service never formats one.
 
-signal store_state_changed(state: String)
-signal entitlement_verified(product_key: String, transaction_id: String)
+const StoreProvider = preload("res://scripts/campaign/store_provider.gd")
 
-const STATE_UNAVAILABLE := "UNAVAILABLE"
-const STATE_DISABLED := "DISABLED"
-const STATE_PENDING := "PENDING"
-const STATE_FAILED := "FAILED"
-const STATE_VERIFIED := "VERIFIED"
+signal prices_changed
+signal resolved(product_id: String, result: Dictionary)
+signal restored(result: Dictionary)
 
 const CATALOG_PATH := "res://data/campaign/store_catalog.json"
-const FALLBACK_CATALOG := {
-	"schema_version": 1,
-	"status": "OWNER_APPROVAL_AND_VERIFIED_PROVIDER_REQUIRED",
-	"products": [
-		{"key": "remove_ads", "kind": "non_consumable", "android_product_id": "", "ios_product_id": "", "price": null, "buyable": false},
-		{"key": "currency_pack_placeholder", "kind": "consumable", "android_product_id": "", "ios_product_id": "", "price": null, "buyable": false},
-	],
-}
+const TX_PREFIX := "store:"
+const PURCHASED := "purchased"
 
-var provider_adapter: Object
-var trusted_verifier: Object
-var state := STATE_UNAVAILABLE
-var entitlements: Dictionary = {}
-var _verified_transaction_ids: Dictionary = {}
-var _catalog: Dictionary = {}
+var economy
+var _provider = StoreProvider.new()
+var _save_cb: Callable = Callable()
+var _products: Dictionary = {}   ## id -> catalog entry (catalog order)
+var _prices: Dictionary = {}     ## id -> localized price string from the provider
+var _pending: Dictionary = {}    ## product id -> true while its purchase sheet is open
 
 
-func configure(adapter: Object = null, verifier: Object = null) -> void:
-	provider_adapter = adapter
-	trusted_verifier = verifier
-	_load_catalog()
-	state = STATE_UNAVAILABLE if provider_adapter == null else STATE_DISABLED
-	store_state_changed.emit(state)
+func _init(catalog_path: String = CATALOG_PATH) -> void:
+	_load(catalog_path)
 
 
+func _load(path: String) -> void:
+	_products = {}
+	var cfg = JSON.parse_string(FileAccess.get_file_as_string(path)) if FileAccess.file_exists(path) else null
+	if typeof(cfg) != TYPE_DICTIONARY or int(cfg.get("schema_version", 0)) != 2 or typeof(cfg.get("products")) != TYPE_ARRAY:
+		return
+	var out := {}
+	for p in cfg["products"]:
+		if typeof(p) != TYPE_DICTIONARY or typeof(p.get("id")) != TYPE_STRING or String(p["id"]).is_empty() or out.has(p["id"]):
+			return
+		if p.get("kind") != "consumable" or typeof(p.get("gems")) != TYPE_FLOAT or int(p["gems"]) <= 0 or float(p["gems"]) != float(int(p["gems"])):
+			return
+		out[String(p["id"])] = p
+	_products = out
+
+
+func bind_economy(value) -> void:
+	economy = value
+
+
+func bind_save(cb: Callable) -> void:
+	_save_cb = cb
+
+
+func set_provider(p) -> void:
+	_provider = p if p != null else StoreProvider.new()
+	_prices.clear()
+	_pending.clear()
+	prices_changed.emit()
+
+
+func get_provider():
+	return _provider
+
+
+# ------------------------------------------------------------------- catalog ----
+
+func product_ids() -> Array:
+	return _products.keys()
+
+
+func gems_of(id: String) -> int:
+	return int(_products[id].get("gems", 0)) if _products.has(id) else 0
+
+
+## Keyed product dictionaries (read-only copy) for tooling and probes.
 func get_catalog() -> Dictionary:
-	## Compatibility API: callers receive product dictionaries keyed by product ID.
-	## Keep the schema envelope available through get_catalog_document().
-	if _catalog.is_empty():
-		_load_catalog()
-	var products: Dictionary = {}
-	for product_variant in _catalog.get("products", []):
-		if product_variant is Dictionary:
-			var product: Dictionary = product_variant
-			var product_key := str(product.get("key", ""))
-			if not product_key.is_empty():
-				var compatible_product: Dictionary = product.duplicate(true)
-				if compatible_product.has("kind") and not compatible_product.has("product_type"):
-					compatible_product["product_type"] = compatible_product["kind"]
-				products[product_key] = compatible_product
-	return products
+	return _products.duplicate(true)
 
 
-func get_catalog_document() -> Dictionary:
-	## Full parsed catalog document for schema-aware tooling and probes.
-	if _catalog.is_empty():
-		_load_catalog()
-	return _catalog.duplicate(true)
+func is_available() -> bool:
+	return _provider != null and _provider.is_available()
 
 
-func purchase(product_key: String) -> Dictionary:
-	var product: Dictionary = _product(product_key)
-	if product.is_empty() or not bool(product.get("buyable", false)):
-		state = STATE_DISABLED
-		store_state_changed.emit(state)
-		return {"ok": false, "reason": "PRODUCT_NOT_APPROVED_OR_CONFIGURED", "state": state}
-	if provider_adapter == null:
-		state = STATE_UNAVAILABLE
-		store_state_changed.emit(state)
-		return {"ok": false, "reason": "STORE_PROVIDER_UNAVAILABLE", "state": state}
-	return {"ok": false, "reason": "LIVE_PURCHASE_DISABLED", "state": STATE_DISABLED}
+## Ask the store for localized prices; prices_changed fires when they arrive.
+func refresh_prices() -> void:
+	if is_available():
+		_provider.query_products(product_ids(), Callable(self, "_on_prices"))
 
 
-func restore_purchases() -> Dictionary:
-	if provider_adapter == null:
-		state = STATE_UNAVAILABLE
-		store_state_changed.emit(state)
-		return {"ok": false, "reason": "STORE_PROVIDER_UNAVAILABLE", "entitlements": entitlements.duplicate(true)}
-	return {"ok": false, "reason": "TRUSTED_RESTORE_VERIFICATION_REQUIRED", "entitlements": entitlements.duplicate(true)}
+func _on_prices(prices: Dictionary) -> void:
+	for id in prices:
+		if _products.has(id) and typeof(prices[id]) == TYPE_STRING and not String(prices[id]).is_empty():
+			_prices[id] = String(prices[id])
+	prices_changed.emit()
 
 
-func accept_verified_transaction(transaction: Dictionary) -> Dictionary:
-	var product_key := str(transaction.get("product_key", ""))
-	var product: Dictionary = _product(product_key)
-	if product.is_empty() or not bool(product.get("buyable", false)):
-		return {"ok": false, "reason": "PRODUCT_NOT_APPROVED_OR_CONFIGURED"}
-	if provider_adapter == null:
-		return {"ok": false, "reason": "STORE_PROVIDER_UNAVAILABLE"}
-	if trusted_verifier == null or not trusted_verifier.has_method("verify_store_transaction"):
-		return {"ok": false, "reason": "TRUSTED_VERIFIER_UNAVAILABLE"}
-	var verification: Dictionary = trusted_verifier.verify_store_transaction(transaction.duplicate(true))
-	if not bool(verification.get("verified", false)):
-		state = STATE_FAILED
-		store_state_changed.emit(state)
-		return {"ok": false, "reason": "STORE_TRANSACTION_NOT_VERIFIED"}
-	var transaction_id := str(verification.get("transaction_id", ""))
-	product_key = str(verification.get("product_key", ""))
-	var verified_product: Dictionary = _product(product_key)
-	if transaction_id.is_empty() or product_key.is_empty() or verified_product.is_empty() or not bool(verified_product.get("buyable", false)):
-		return {"ok": false, "reason": "VERIFIED_TRANSACTION_FIELDS_INVALID"}
-	if _verified_transaction_ids.has(transaction_id):
-		return {"ok": true, "duplicate": true, "transaction_id": transaction_id}
-	_verified_transaction_ids[transaction_id] = true
-	if str(verified_product.get("kind", "")) == "non_consumable":
-		entitlements[product_key] = true
-	state = STATE_VERIFIED
-	store_state_changed.emit(state)
-	entitlement_verified.emit(product_key, transaction_id)
-	return {"ok": true, "verified": true, "transaction_id": transaction_id, "product_key": product_key}
+## The store's localized price string, "" when the store has not priced it (= unavailable).
+func price_text(id: String) -> String:
+	return String(_prices.get(id, "")) if is_available() else ""
 
 
-func _load_catalog() -> void:
-	_catalog = FALLBACK_CATALOG.duplicate(true)
-	if not FileAccess.file_exists(CATALOG_PATH):
-		return
-	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(CATALOG_PATH))
-	if not parsed is Dictionary or not parsed.get("products", []) is Array:
-		return
-	var product_keys: Dictionary = {}
-	for product_variant in parsed.products:
-		if not product_variant is Dictionary:
-			return
-		var product: Dictionary = product_variant
-		var key := str(product.get("key", ""))
-		if key.is_empty() or product_keys.has(key):
-			return
-		product_keys[key] = true
-	_catalog = parsed.duplicate(true)
+# ------------------------------------------------------------------ purchase ----
+
+## {ok} when `id` may be bought right now, else {ok:false, reason}.
+func can_purchase(id: String) -> Dictionary:
+	if not _products.has(id):
+		return {"ok": false, "reason": "unknown_product"}
+	if economy == null:
+		return {"ok": false, "reason": "economy_unavailable"}
+	if price_text(id).is_empty():
+		return {"ok": false, "reason": "unavailable"}
+	if _pending.has(id):
+		return {"ok": false, "reason": "pending"}
+	return {"ok": true}
 
 
-func _product(product_key: String) -> Dictionary:
-	if _catalog.is_empty():
-		_load_catalog()
-	for product_variant in _catalog.get("products", []):
-		if product_variant is Dictionary and str(product_variant.get("key", "")) == product_key:
-			return product_variant
-	return {}
+## Open the store purchase sheet. The result arrives through deliver() / `resolved`.
+func purchase(id: String) -> Dictionary:
+	var c := can_purchase(id)
+	if not c["ok"]:
+		return c
+	_pending[id] = true
+	_provider.last_error = ""
+	if not _provider.purchase(id, Callable(self, "deliver")):
+		_pending.erase(id)
+		return {"ok": false, "reason": "provider_refused", "error": String(_provider.last_error)}
+	return {"ok": true, "product_id": id}
+
+
+## Provider callback (also used for unfinished purchases the store re-delivers at launch).
+func deliver(r: Dictionary) -> Dictionary:
+	var id := String(r.get("product_id", ""))
+	var token := String(r.get("token", ""))
+	var outcome := String(r.get("outcome", ""))
+	_pending.erase(id)
+	var out: Dictionary
+	if not _products.has(id):
+		out = {"ok": false, "reason": "unknown_product"}
+	elif outcome != PURCHASED:
+		out = {"ok": false, "reason": outcome if not outcome.is_empty() else "failed"}
+		if not String(r.get("error", "")).is_empty():
+			out["error"] = String(r["error"])
+	elif token.is_empty():
+		out = {"ok": false, "reason": "no_token"}
+	elif economy == null:
+		# Leave the purchase unacknowledged: the store re-delivers it at the next launch.
+		out = {"ok": false, "reason": "economy_unavailable"}
+	else:
+		var grant: Dictionary = economy.grant_reward(TX_PREFIX + token, {"type": "gems", "quantity": gems_of(id)})
+		if not bool(grant.get("ok", false)):
+			out = {"ok": false, "reason": str(grant.get("reason", "grant_failed"))}
+		else:
+			out = {"ok": true} if bool(grant.get("granted", false)) else {"ok": false, "reason": "duplicate"}
+			out["gems"] = gems_of(id) if bool(grant.get("granted", false)) else 0
+			# A duplicate may be the re-delivery after a failed save: save again before acknowledging.
+			var saved := true
+			if _save_cb.is_valid():
+				out["save"] = _save_cb.call()
+				saved = bool(out["save"].get("ok", false))
+			if saved:
+				_provider.acknowledge(token, true)
+	out["product_id"] = id
+	out["token"] = token
+	resolved.emit(id, out.duplicate(true))
+	return out
+
+
+## Restore purchases. The catalog has only consumables (never restored), so this only
+## asks the store and reports what it returned.
+func restore() -> Dictionary:
+	if not is_available():
+		return {"ok": false, "reason": "unavailable"}
+	if not _provider.restore(Callable(self, "_on_restore")):
+		return {"ok": false, "reason": "provider_refused"}
+	return {"ok": true}
+
+
+func _on_restore(owned: Array) -> Dictionary:
+	var out := {"ok": true, "restored": 0, "owned": owned.size()}
+	restored.emit(out.duplicate(true))
+	return out

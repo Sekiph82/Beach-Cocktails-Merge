@@ -28,7 +28,7 @@ func _write_json(path: String, value: Dictionary) -> void:
 
 func _run() -> void:
 	var default_links: Dictionary = LINKS_SCRIPT.load_from_path()
-	_check("default policy and support URLs are empty", default_links == {"privacy_policy_url": "", "support_url": ""})
+	_check("default policy and support URLs are the published GitHub Pages pages (owner 2026-11-19)", default_links == {"privacy_policy_url": "https://sekiph82.github.io/Beach-Cocktails-Merge/privacy/", "support_url": "https://sekiph82.github.io/Beach-Cocktails-Merge/support/"})
 	_check("valid reserved HTTPS domain accepted", LINKS_SCRIPT.is_public_https_url("https://support.example.invalid/contact"))
 	_check("HTTP rejected", not LINKS_SCRIPT.is_public_https_url("http://support.example.invalid"))
 	_check("credentials rejected", not LINKS_SCRIPT.is_public_https_url("https://user@support.example.invalid"))

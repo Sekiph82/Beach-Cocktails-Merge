@@ -46,7 +46,7 @@ CORE = [
     "tests/m34_admob_test_adapter_probe.gd",
     "tests/m34_store_catalog_boundary_probe.gd",
     "tests/m34_native_export_contract_probe.gd",
-    "tests/m34_play_billing_test_adapter_probe.gd",
+    "tests/m34_native_store_ads_providers_probe.gd",
     "tests/m33_campaign_navigation_probe.gd",
     "tests/m14_gameplay_session_bridge_probe.gd",
     "tests/m15_vip_boosters_economy_probe.gd",
@@ -196,12 +196,13 @@ tests/m34_mobile_reward_async_controller_probe.gd
 tests/m34_mobile_reward_durable_delivery_probe.gd
 tests/m34_mobile_reward_http_transport_probe.gd
 tests/m34_native_export_contract_probe.gd
-tests/m34_play_billing_test_adapter_probe.gd
+tests/m34_native_store_ads_providers_probe.gd
 tests/m34_production_routes_probe.gd
 tests/m34_r09_slim_export_content_probe.gd
 tests/m34_r10_scene_uid_probe.gd
 tests/m34_r10_vip_optional_rule_probe.gd
 tests/m34_rewarded_ads_lifecycle_probe.gd
+tests/m34_settings_link_probe.gd
 tests/m34_store_catalog_boundary_probe.gd
 tests/r09_no_input_runtime_regression.gd
 tests/r10_desktop_idle_smoke.gd

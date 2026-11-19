@@ -1,18 +1,20 @@
 {
   "schema_version": 2,
-  "provider_status": "BLOCKED_ON_OWNER_AND_SDK",
+  "provider_status": "SCRUBBOTS_PATTERN_CLIENT_REWARD_NO_SERVER",
   "default_enabled": false,
   "consent_required_before_request": true,
-  "production_reward_verification": "TRUSTED_SSV_BACKEND_REQUIRED",
+  "production_reward_verification": "CLIENT_EARNED_BEFORE_CLOSE",
   "configuration": {
     "android_app_id": "ca-app-pub-9989151157632993~6639288823",
     "ios_app_id": "ca-app-pub-9989151157632993~7625067439",
-    "privacy_policy_url": "",
-    "age_policy": "OWNER_DECISION_REQUIRED",
-    "ump_consent_policy": "OWNER_DECISION_REQUIRED",
-    "ios_att_policy": "OWNER_DECISION_REQUIRED",
+    "privacy_policy_url": "https://sekiph82.github.io/Beach-Cocktails-Merge/privacy/",
+    "age_policy": "GENERAL_AUDIENCE_13_PLUS_NOT_CHILD_DIRECTED_MAX_AD_RATING_G",
+    "ump_consent_policy": "GOOGLE_UMP_FORM_WHEN_REQUIRED_BEFORE_ADMOB_INIT",
+    "ios_att_policy": "ATT_PROMPT_AFTER_UMP_BEFORE_ADMOB_INIT",
     "ssv_backend_url": "",
-    "device_tests_authorized": false
+    "device_tests_authorized": true,
+    "reward_verification": "CLIENT_EARNED_BEFORE_CLOSE_NO_OWN_SERVER",
+    "test_ads_until_release": true
   },
   "rewarded_ad_units": {
     "android": {
@@ -31,20 +33,45 @@
     }
   },
   "placements": {
-    "energy_20": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
-    "daily_slot_2": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
-    "daily_slot_3": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
-    "daily_slot_4": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
-    "daily_slot_5": {"format": "rewarded_video", "opt_in_only": true, "enabled": false},
-    "banner": {"format": "banner", "opt_in_only": true, "enabled": false},
-    "interstitial": {"format": "interstitial", "opt_in_only": true, "enabled": false}
+    "energy_20": {
+      "format": "rewarded_video",
+      "opt_in_only": true,
+      "enabled": false
+    },
+    "daily_slot_2": {
+      "format": "rewarded_video",
+      "opt_in_only": true,
+      "enabled": false
+    },
+    "daily_slot_3": {
+      "format": "rewarded_video",
+      "opt_in_only": true,
+      "enabled": false
+    },
+    "daily_slot_4": {
+      "format": "rewarded_video",
+      "opt_in_only": true,
+      "enabled": false
+    },
+    "daily_slot_5": {
+      "format": "rewarded_video",
+      "opt_in_only": true,
+      "enabled": false
+    },
+    "banner": {
+      "format": "banner",
+      "opt_in_only": true,
+      "enabled": false
+    },
+    "interstitial": {
+      "format": "interstitial",
+      "opt_in_only": true,
+      "enabled": false
+    }
   },
   "required_owner_setup": [
-    "Compatible native Android/iOS AdMob SDK and device integration; app IDs and placement-matched rewarded units are configured",
-    "privacy-policy URL",
-    "age-directed/families decision",
-    "UMP consent approach and iOS ATT decision",
-    "SSV backend hosting decision and trusted verification endpoint",
-    "permission for real Android and iOS device or emulator tests"
-  ]
+    "energy_20 and daily_slot_2 share one ad unit on each platform: keep or create a separate unit",
+    "real ad units are used only in release builds; debug/test builds use Google TEST units"
+  ],
+  "decision_source": "Owner 2026-11-19: adopt the ScrubBots (Sekiph82/Scrubbots) ads/IAP/privacy decisions; see docs/release/BCM_M34_DECISIONS_FROM_SCRUBBOTS_2026-11-19.md"
 }

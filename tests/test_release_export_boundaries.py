@@ -83,7 +83,7 @@ class ReleaseBoundaryTests(unittest.TestCase):
                 "addons/GodotGooglePlayBilling/bin/release/GodotGooglePlayBilling-release.aar",
                 "addons/AdmobPlugin/bin/release/AdmobPlugin-release.aar",
                 "addons/AdmobPlugin/AdmobPlugin.gd",
-                "addons/AdmobPlugin/config/admob_android_export_config.gd",
+                "addons/AdmobPlugin/config/AdmobAndroidExportConfig.gd",
                 "addons/game_feel_flow/editor/ui/combos_panel.gd",
                 "addons/game_feel_flow/icons/icon_flash.svg",
                 "addons/saltmire_spark/plugin.gd",
@@ -164,7 +164,8 @@ class ReleaseBoundaryTests(unittest.TestCase):
         self.assertNotIn('preload("res://scripts/campaign/admob_test_adapter.gd")', navigation)
         self.assertNotIn('preload("res://scripts/campaign/play_billing_test_adapter.gd")', navigation)
         self.assertIn('if not OS.is_debug_build() or mobile_reward_transport == null', navigation)
-        self.assertIn('if not OS.is_debug_build() or store_service == null', navigation)
+        # The play billing test adapter was replaced by the production Play Billing provider
+        # (owner 2026-11-19); its debug-only loader no longer exists.
 
     def test_candidate_presets_remain_explicitly_nonshipping(self):
         for name in (

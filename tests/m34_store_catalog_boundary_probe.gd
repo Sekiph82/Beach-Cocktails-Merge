@@ -1,17 +1,12 @@
 extends SceneTree
 
+## Store catalog contract (owner 2026-11-19, ScrubBots pattern): five gem packs, store
+## prices only, and nothing sellable or grantable without a live store provider.
+
 const STORE_SCRIPT := preload("res://scripts/campaign/store_service.gd")
+const ECONOMY_SCRIPT := preload("res://scripts/campaign/game_economy.gd")
 
 var failures: Array[String] = []
-
-
-class TestProvider extends RefCounted:
-	pass
-
-
-class ForgedVerifier extends RefCounted:
-	func verify_store_transaction(_transaction: Dictionary) -> Dictionary:
-		return {"verified": true, "transaction_id": "forged", "product_key": "remove_ads"}
 
 
 func _init() -> void:
@@ -29,19 +24,21 @@ func _check(label: String, condition: bool) -> void:
 func _run() -> void:
 	var store: StoreService = STORE_SCRIPT.new()
 	root.add_child(store)
-	store.configure()
+	var economy = ECONOMY_SCRIPT.new()
+	economy.configure(0, {}, [], 0)
+	store.bind_economy(economy)
+	var document = JSON.parse_string(FileAccess.get_file_as_string("res://data/campaign/store_catalog.json"))
 	var catalog: Dictionary = store.get_catalog()
-	var catalog_document: Dictionary = store.get_catalog_document()
-	var products: Array = catalog_document.get("products", [])
-	_check("preserves the keyed product-dictionary get_catalog API", catalog.size() == 2 and catalog.has("remove_ads") and catalog["remove_ads"] is Dictionary)
-	_check("preserves the former product_type row field while retaining schema kind", catalog["remove_ads"].get("product_type", "") == catalog["remove_ads"].get("kind", "") and not catalog["remove_ads"].get("kind", "").is_empty())
-	_check("exposes the tracked, explicitly unapproved schema document separately", catalog_document.get("status", "") == "OWNER_APPROVAL_AND_VERIFIED_PROVIDER_REQUIRED" and products.size() == 2)
-	_check("all proposed products remain non-buyable and unpriced", products.all(func(product: Dictionary) -> bool: return not product.get("buyable", true) and product.get("price") == null and str(product.get("android_product_id", "")).is_empty() and str(product.get("ios_product_id", "")).is_empty()))
-	_check("purchase and restore fail closed without provider", not store.purchase("remove_ads").get("ok", false) and not store.restore_purchases().get("ok", false))
-	store.configure(TestProvider.new(), ForgedVerifier.new())
-	var forged: Dictionary = store.accept_verified_transaction({"product_key": "remove_ads", "signed_transaction": "client-assertion"})
-	_check("a verifier success cannot grant a product absent owner catalog approval", not forged.get("ok", false) and store.entitlements.is_empty())
-	_check("Merchant ID is not used as a product or app identifier", not JSON.stringify(catalog_document).contains("merchant.com"))
+	_check("catalog is the owner-approved schema 2 gem-pack list", document is Dictionary and int(document.get("schema_version", 0)) == 2 and catalog.size() == 5)
+	_check("every product is a consumable gem pack with a positive whole amount", catalog.values().all(func(p: Dictionary) -> bool: return p.get("kind") == "consumable" and int(p.get("gems", 0)) > 0))
+	_check("product ids follow gems_<amount>", catalog.keys().all(func(id: String) -> bool: return id == "gems_%d" % store.gems_of(id)))
+	_check("no displayed price lives in the catalog (store strings only)", catalog.values().all(func(p: Dictionary) -> bool: return not p.has("price")))
+	_check("without a provider nothing is priced, bought or restored", store.price_text("gems_25").is_empty() and not store.purchase("gems_25").get("ok", false) and not store.restore().get("ok", false))
+	var forged: Dictionary = store.deliver({"product_id": "gems_1750", "token": "", "outcome": "purchased"})
+	_check("a delivery without a store token grants nothing", not forged.get("ok", false) and economy.gems == 0)
+	var unknown: Dictionary = store.deliver({"product_id": "remove_ads", "token": "t", "outcome": "purchased"})
+	_check("an unknown product grants nothing", not unknown.get("ok", false) and economy.gems == 0)
+	_check("Merchant ID is not used as a product or app identifier", not JSON.stringify(document).contains("merchant.com"))
 	store.free()
 	if failures.is_empty():
 		print("M34_STORE_RESULT=PASS")

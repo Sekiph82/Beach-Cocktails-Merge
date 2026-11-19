@@ -18,7 +18,8 @@ func _init() -> void:
 	var worker := FileAccess.get_file_as_string("res://backend/mobile-rewards/src/index.js")
 	var reward_delivery := FileAccess.get_file_as_string("res://scripts/campaign/mobile_reward_delivery.gd")
 	var http_transport := FileAccess.get_file_as_string("res://scripts/campaign/mobile_reward_http_transport.gd")
-	var play_billing := FileAccess.get_file_as_string("res://scripts/campaign/play_billing_test_adapter.gd")
+	var play_billing := FileAccess.get_file_as_string("res://scripts/campaign/play_billing_store_provider.gd")
+	var store_service := FileAccess.get_file_as_string("res://scripts/campaign/store_service.gd")
 	_check("ATS keeps Google's media and in-app web-content exceptions", admob_export.contains("NSAllowsArbitraryLoadsForMedia") and admob_export.contains("NSAllowsArbitraryLoadsInWebContent"))
 	_check("ATS removes the broad global arbitrary-load exception", not admob_export.contains("<key>NSAllowsArbitraryLoads</key>"))
 	_check("AdMob SDK exposes rewarded and UMP consent callbacks used by the adapter contract", admob_api.contains("signal rewarded_ad_loaded") and admob_api.contains("signal rewarded_ad_user_earned_reward") and admob_api.contains("signal consent_info_updated"))
@@ -26,7 +27,7 @@ func _init() -> void:
 	_check("Worker rejects absent consent and offers authenticated reward delivery acknowledgement", worker.contains("body.consent_granted !== true") and worker.contains("/v1/ads/rewards/pending") and worker.contains("/ack"))
 	_check("Godot reward delivery persists before HTTP acknowledgement and binds authenticated user", reward_delivery.find("persist.call()") < reward_delivery.find("acknowledge.call(transaction_id)") and reward_delivery.contains("PENDING_USER_MISMATCH"))
 	_check("real Worker transport is HTTPS-only and disabled without explicit owner configuration", http_transport.contains("MOBILE_REWARD_TRANSPORT_DISABLED") and http_transport.contains("_https_endpoint_matches") and http_transport.contains("owner_enabled"))
-	_check("Play Billing test adapter uses installed ACK and consume APIs only after server verification", play_billing.contains("store.accept_verified_transaction") and play_billing.contains("consume_purchase") and play_billing.contains("acknowledge_purchase"))
+	_check("Play Billing provider consumes / acknowledges only after StoreService saved the grant", play_billing.contains("consumePurchase") and play_billing.contains("acknowledgePurchase") and store_service.find("_save_cb.call()") < store_service.find("_provider.acknowledge(token"))
 	if failures.is_empty():
 		print("M34_NATIVE_EXPORT_RESULT=PASS")
 		quit(0)

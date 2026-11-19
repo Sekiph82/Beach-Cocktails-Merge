@@ -19,13 +19,6 @@ class MockRewardProvider extends RefCounted:
 	func show_rewarded(_transaction_id: String) -> Dictionary:
 		return {"ok": true}
 
-class MockStoreProvider extends RefCounted:
-	pass
-
-class MockStoreVerifier extends RefCounted:
-	func verify_store_transaction(transaction: Dictionary) -> Dictionary:
-		return {"verified": true, "transaction_id": str(transaction.get("transaction_id", "")), "product_key": str(transaction.get("product_key", ""))}
-
 var failures: Array[String] = []
 
 
@@ -167,9 +160,10 @@ func _run() -> void:
 	mocked_ads.notify_skipped_or_closed_without_reward()
 	_check("skip/close cancels the active ad and cannot later pay", mocked_ads.state == ADS_SCRIPT.STATE_CANCELLED and not mocked_ads.accept_provider_reward("mock-ad-3", "late-receipt", true).get("ok", false) and accepted_ad_callbacks.size() == 1)
 	var store = STORE_SCRIPT.new()
-	_check("IAP placeholders have no buyable products or local purchase fulfillment", store.get_catalog().values().all(func(item): return not item.get("buyable", false)) and not store.purchase("remove_ads").get("ok", false) and not store.accept_verified_transaction({"receipt": "client"}).get("ok", false))
-	store.configure(MockStoreProvider.new(), MockStoreVerifier.new())
-	_check("even a mocked verifier cannot grant an unapproved nonbuyable placeholder", not store.accept_verified_transaction({"product_key": "remove_ads", "transaction_id": "mock-paid"}).get("ok", false) and store.entitlements.is_empty())
+	store.bind_economy(economy)
+	var gems_before := int(economy.gems)
+	_check("without a store provider no gem pack is priced or sold", store.price_text("gems_25").is_empty() and not store.purchase("gems_25").get("ok", false))
+	_check("a client-forged delivery without a store token grants nothing", not store.deliver({"product_id": "gems_25", "token": "", "outcome": "purchased"}).get("ok", false) and int(economy.gems) == gems_before)
 	var daily = DAILY_SCRIPT.new()
 	_check("Daily Rewards use the locked five rewards while ad claims stay unavailable without a provider", [1, 2, 3, 4, 5].all(func(slot): return daily.rewards.has(slot)) and daily.rewards[3]["reward"].get("quantity", 0) == 40 and daily.rewards[3]["reward"].get("type", "") == "coins" and not daily.claim(3, economy).get("ok", false) and daily.get_slot_state(3, economy).get("reason", "") == "REWARDED_AD_PROVIDER_UNAVAILABLE")
 	# AdsService and StoreService are Nodes in production. Release all three
