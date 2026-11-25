@@ -1380,3 +1380,11 @@ These are presentation tiers only and never influence gameplay values.
 - [!] BCM-M34-007 — Complete gated native billing/receipt verification; BLOCKED until owner-approved product catalog, store accounts and receipt-validation backend.
 - [x] BCM-M34-008 — Owner-locked UTC Daily Rewards R02 independently audited PASS, native ad fulfillment remains M34-006.
 - [x] BCM-M34-009 — Focus removed, old inventory migrated and MOVES frame owner visually accepted.
+
+
+## Codex ImageGen V3 integration (owner directive; open)
+
+- [ ] **IMG-V3-01 — Repository integration:** Read FULL_VISUAL_ASSET_MANIFEST_V1 and TABLE_GEOMETRY_CONTRACT_V2; generate L1-L12 merge chains and distinct UI states; exact and perceptual duplicate checks, Godot import and real screen QA.
+- [ ] **IMG-V3-02 — Provider and safety:** Use global `codex-imagegen` local Windows CLI with owner's authenticated ChatGPT session only. No paid API fallback, no GitHub Actions, no secret logging. Detect unavailable CLI/auth/quota and stop safely. Use one shared persistent queue, bounded retries, exact request hashes, atomic outputs, explicit project routing and short Claude summaries. Never overwrite approved assets.
+- [ ] **IMG-V3-03 — Verification:** Read existing project contracts first; implement with tests for wrong-project routing, duplicate assets, failures and interrupted runs. Run real local Codex smoke test and application visual QA with screenshots; report exact SHA, test results and remaining blockers. Do not mark READY without required approval or claim live tests from mocks.
+- [ ] **IMG-V3-04 — Handoff:** Update this tracker after every cycle; commit/push verified changes and synchronize local checkout. Continue independent tasks autonomously; record genuine owner/credential/hardware blockers, no fabricated PASS.
